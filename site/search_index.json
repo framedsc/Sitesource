@@ -1,0 +1,34 @@
+{
+  "docs": [
+    {
+      "location": "contactinfo.htm",
+      "breadcrumbs": "Home / Contact info",
+      "keywords": "blabla Contact Discord info",
+      "title": "Contact info"
+    },
+    {
+      "location": "GameGuides/assassins_creed_odyssey.htm",
+      "breadcrumbs": "Home / Game guides / Assassins Creed Odyssey",
+      "keywords": "11 27s_Creed_Odyssey acodyssey_header Ansel aspect Aspect Assassin assassinscreedodyssey AssassinsCreedOdyssey by Camera Cameras com control Creed Custom Day DirectX disabling DOF DSR Feature Features float fog FoV FransBouma game Game Gaming github Hotsampling https HUD Images in InjectableGenericCameraSystem left limitations Links master Mode Mods Nexus nexusmods No Odyssey of on Otis_Inf pause PC pcgamingwiki Photo png ratio Ratios removal Reshade Resolution scaling shadowed Shot summary Supported Time Timestop toggle tools Tools tree Useful Vanilla versions wiki Wiki with www Yes",
+      "title": "Assassin's Creed Odyssey"
+    },
+    {
+      "location": "GameGuides/metro_exodus.htm",
+      "breadcrumbs": "Home / Game guides / Metro Exodus",
+      "keywords": "0 01 1 11 12 2 3 4 47188632762_e4ddc1892d_o 7857 alert and Ansel Anserl anywhere appear As aspect Aspect avoid blurry by causes CE change Change characters Cheat cheats CheatTables choice com Combined control crashing Create ct Custom Day desktop different DirectX Drazerak DSR during DX11 easy end Engine farm8 Feature features Features fix Fix FOV freeze game gameplay Gaming get hotkeys Hotsampling https Images in In is jpg just Launch Links make Metro_Exodus metro_exodus_combined metro_exodus_otis_inf metro_exodus_tod MetroExodus MetroExodusHeader Midhras mode Mode nearly No normal now NPCs numpad of on Only order other Otis_Inf PC pcgamingwiki photo Photo Photomode png range ratios Ratios Rebind required Reshade resolution resolutions resume set Set settings sharp Shot slowdown something speedhack staticflickr Steps Summary support Supported Swap TAA table Table than that the The this Time tip Tips to To Tools Tricks unlimited use Use Useful values Vanilla various versions want wiki Wiki windowed with without Yes you your",
+      "title": "Metro Exodus"
+    },
+    {
+      "location": "GameGuides/re2.htm",
+      "breadcrumbs": "Home / Game guides / Resident Evil 2",
+      "keywords": "11 2 Aspect by Camera Care CE CheatTables com Control ct Custom DSR Evil Feature Flashlight FOV Framework Free Hide Hotsampling https Jim2point0 Lock Mod Mode mods nexusmods No Photo Position Ratios RE2 re2_new Remove Resident residentevil22019 Stop Summary Supported Table Taker The Time Tools Vanilla Vignette www Yes",
+      "title": "Resident Evil 2"
+    },
+    {
+      "location": "GeneralGuides/custom_dsr_resolutions.htm",
+      "breadcrumbs": "Home / General guides / Custom DSR Resolutions",
+      "keywords": "00 01 1 10 1080 1080TI 11 1B 2 20 20180301201005 22 23 3 30 33 36 38 4 41 44 4F 5 51 5A 61 66 6C 7C 7D 82 87 a A2 able about adapter adapters after again all allow an and And any archive are as aspect back bat BAT be being bottom browser bunch by C7 Calculator call can change check click Click clipboard com come command complete completely computer Computer control copied copies copy Copy correspond could create CurrentControlSet custom D8 damage data Device device_manager_view devices devmanview DevManView did different directly disable_enable display DisplayDatabase displays do does doing double Double down download driver DSR dsr_hex Edit editing Editing editor enable ended Enjoy error ever every everything example export Export exported extract Extract few figure file File files find Find finish first folder folders following for For from full future Geforce GeForce generate get Get go group GTX guide handy have having here Here hex Highlight highlighted HKEY_LOCAL_MACHINE Hopefully how How html http https i I if If imgur import in In index information Inside install instantly interested into is isn it jim2point0 just kick know let like line lines link listed looks made maintain make Manager me means menu might mine monitor monitors my name native Navigate need net new nirsoft not now Now Nvidia NVIDIA nvlddmkm of off on once only open Open or Or OR org original our out panel parameter paste people permissions Permissions personally picture png populated potential prepared press purposes QokCunW questions Quick R r3KJVKY ratio ready regedit Regedit RegEdit registry Registry relevant remember Remember replace replacing required resolution resolutions restart Restart restore restricted Right run Run s same save Save saves Say saying seconds section see services set settings should shut simply SmoothScalingData so some something somewhere specific start State stuff Success summary Swap SYSTEM takes text that the The them then Then there this This those Ti time to toggle toggle_gpu tool tools top tx8PgZp type under up use Use user utilities utils want warns way We web what whatever when When which why will WIN with working www XXX yes you You your ZHav1Kf",
+      "title": "Custom DSR Resolutions"
+    }
+  ]
+}
