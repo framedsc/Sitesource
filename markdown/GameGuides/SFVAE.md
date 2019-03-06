@@ -20,9 +20,11 @@ DirectX versions | DirectX 11
 ##Useful Links
 
 * [Aspect Ratio correction patch by Jackfuste](http://www.wsgf.org/forums/viewtopic.php?p=172340#p172340)
+* [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Street_Fighter_V)
 
 ##Additional Notes
-* The game has an anti-cheat measure, make sure to play the game offline and 'mask' Cheat Engine application name with lua script by pressing Alt+Ctrl+L in CE and paste the following script 
+
+The game has an anti-cheat measure, make sure to play the game offline and 'mask' Cheat Engine application name with lua script by pressing Alt+Ctrl+L in CE and paste the following script:
 
 ```
 getApplication().Title = "NotCE" 

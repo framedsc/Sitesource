@@ -21,6 +21,7 @@ DirectX versions | DirectX 11
 
 * [Fix Automata Resolution mod by Kaldaien](https://steamcommunity.com/sharedfiles/filedetails/?id=682947327)
 * [Hi-res Textures Pack by GPUnity](https://www.nexusmods.com/nierautomata/mods/5)
+* [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Nier:_Automata)
 
 ##Additional Notes
 * To change aspect ratio, set the game to windowed mode and use custom resolution or DSR [(Custom res guide here)](GeneralGuides\custom_dsr_resolutions.md)
