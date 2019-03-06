@@ -1,1 +1,1 @@
-![FRAMED. Screenshot Community](Images/FRAMED_LogoBig800px.jpg){.shadowed .autosize}
+![FRAMED. Screenshot Community](Images/FRAMED_LogoBigDarkTransparent800px.png){.autosize}
