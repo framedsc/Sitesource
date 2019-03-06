@@ -9,13 +9,13 @@ Ansel | Yes
 Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Only on DirectX 11
+Reshade | Yes, with DirectX 11
 DirectX versions | DirectX 11, DirectX 12
  
 ## Tools
 
 * [CE Table by Otis_Inf](..\CheatTables\metro_exodus_otis_inf.ct)  
-**Features**: Use Photomode/Ansel anywhere, unlimited Photomode / Anserl range, FOV
+**Features**: Use Photomode/Ansel anywhere, unlimited Photomode / Ansel range, FOV
 @alert tip
 Rebind FOV hotkeys to something other than the numpad to avoid game slowdown during photo mode. 
 @end
