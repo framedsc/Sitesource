@@ -1,5 +1,4 @@
-![Street Fighter V](Images\SFVAE-header.jpg)
-==========
+![Street Fighter V](Images\SFVAE-header.jpg "Shot by Langgli")
 
 ##Feature summary
 
@@ -15,7 +14,7 @@ DirectX versions | DirectX 11
  
 ##Tools
 
-* [CE table by nepafu and DeadEndThrills](https://drive.google.com/file/d/0B1C4-Ir8bNmUTE9YUlY2WUR6b1k/view)  
+* [CE table by nepafu and DeadEndThrills](..\CheatTables\streetfighterv.ct)  
 **Features**: Camera control, FoV, Speed control, HUD toggle, DOF, Disable Timer, CPU Opponent Difficulty, Disable background NPCs
 
 ##Useful Links
@@ -25,5 +24,7 @@ DirectX versions | DirectX 11
 ##Additional Notes
 * The game has an anti-cheat measure, make sure to play the game offline and 'mask' Cheat Engine application name with lua script by pressing Alt+Ctrl+L in CE and paste the following script 
 
-`getApplication().Title = "NotCE" 
-getMainForm().setCaption("NotCE")`
+```
+getApplication().Title = "NotCE" 
+getMainForm().setCaption("NotCE")
+```

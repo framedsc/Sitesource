@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>46725</ID>
+      <Description>"NieR: Automata Freecam by Idk31 and Smithfield, v. 1.2.1"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>46726</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>47044</ID>
+      <Description>"Godmode on/off [I/O]"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"NieRAutomata.exe"+1FA423
+[ENABLE]
+
+aobscanmodule(writeshpAOB,NieRAutomata.exe,29 BB 68 06 01 00 8B 83 * * * * 41)
+registersymbol(writeshpAOB)
+
+writeshpAOB:
+  db 90 90 90 90 90 90
+
+[DISABLE]
+
+writeshpAOB:
+  db 29 BB 68 06 01 00
+
+unregistersymbol(writeshpAOB)
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>73</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>79</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"&gt;&gt; CAMERA [PGDN]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+//"NieRAutomata.exe"+4CDC89 WRITES CAMERA COORDS
+//"NieRAutomata.exe"+4D5729
+aobscanmodule(camAOB,NieRAutomata.exe,0F 29 0D D0 FC 12 01)
+//camAOB:
+//  db 90 90 90 90 90 90 90
+registersymbol(camAOB)
+
+//"NieRAutomata.exe"+4CDBC8 WRITES TARGET COORDS
+//"NieRAutomata.exe"+4D5668
+aobscanmodule(tarAOB,NieRAutomata.exe,0F 29 0D A1 FD 12 01)
+//tarAOB:
+//  db 90 90 90 90 90 90 90
+registersymbol(tarAOB)
+
+//"NieRAutomata.exe"+4CDD07 WRITES ROLL
+//"NieRAutomata.exe"+4D57A7
+aobscanmodule(rollAOB,NieRAutomata.exe,F3 0F 11 05 91 FC 12 01)
+//rollAOB:
+//  db 90 90 90 90 90 90 90 90
+registersymbol(rollAOB)
+
+//"NieRAutomata.exe"+4CDD21 WRITES FOV
+//NieRAutomata.exe+4D57C1
+aobscanmodule(fovAOB,NieRAutomata.exe,F3 44 0F 11 88 74 02 00 00)
+alloc(newmem,$1000,fovAOB)
+
+label(code)
+label(return)
+label(lockFOV)
+registersymbol(lockFOV)
+
+globalalloc(_fov,8)
+
+newmem:
+
+lockFOV:
+  dd 0
+
+code:
+  mov [_fov],rax
+  cmp [lockFOV],1
+  je return
+  movss [rax+00000274],xmm9
+  jmp return
+
+fovAOB:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(fovAOB)
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 1000
+symbolCheckT.OnTimer = function(sender)
+
+  local gameExists = readInteger("NieRAutomata.exe")
+  if gameExists == nil then return end
+
+  local gameBase = getAddress("NieRAutomata.exe")
+  local fovBase = readInteger("_fov")
+  if fovBase == 0 then return end
+
+  -- CAMERA ADDRESSES
+  local camXAD = gameBase+0x1605400
+  local camYAD = gameBase+0x1605408
+  local camZAD = gameBase+0x1605404
+  local tarXAD = gameBase+0x1605410
+  local tarYAD = gameBase+0x1605418
+  local tarZAD = gameBase+0x1605414
+  local rollAD = gameBase+0x1605440
+  local FOVAD  = fovBase+0x274
+  local freecamOn = 2425393296 -- "nop"ed
+
+  -- VARIABLES
+  local defaultFOV = 0.8726645112
+  local minOrbit = 0.05
+  local flySpeed  = 0.05
+  local aimSpeed  = 0.005
+  local rollSpeed = 0.005
+  local FOVSpeed  = 0.0025
+  local veryFast = 25
+  local fastMult  = 5
+  local slowDiv   = 10
+  local pitchMax  = 0.99*math.pi/2
+  local useZ = true
+
+  local function freecamEnabled()
+   if readInteger("camAOB") == freecamOn then return true end
+   return false
+  end
+
+  local function gameHasFocus()
+    if getOpenedProcessID() == getForegroundProcess() then return true end
+    return false
+  end
+
+  local function requiredConditions()
+    if freecamEnabled() and gameHasFocus() then return true end
+    return false
+  end
+
+  local function toggleFreecam()
+    if not gameHasFocus() then return end
+    if freecamEnabled() then
+      for j=1,8,1 do camCheat[0].value[j] = readBytes(camCheat.addy[j],4,true) end
+autoAssemble([[
+camAOB:
+  db 0F 29 0D D0 FC 12 01
+tarAOB:
+  db 0F 29 0D A1 FD 12 01
+rollAOB:
+  db F3 0F 11 05 91 FC 12 01
+lockFOV:
+  dd 0
+]])
+    else
+autoAssemble([[
+camAOB:
+  db 90 90 90 90 90 90 90
+tarAOB:
+  db 90 90 90 90 90 90 90
+rollAOB:
+  db 90 90 90 90 90 90 90 90
+lockFOV:
+  dd 1
+]])
+    end
+  end
+
+  -- SAVE/LOAD CAMERA SETTINGS
+  if camCheat == nil then camCheat = {} end
+  camCheat.addy = {camXAD; camYAD; camZAD; tarXAD; tarYAD; tarZAD; rollAD; FOVAD}
+  for i=0,9,1 do
+  if i ~= 1 and i ~= 2 then -- 1 and 2 are reserved by game
+    camCheat[i] = {value = {}}
+    local set = function(sender)
+      if not requiredConditions() then return end
+      for j=1,8,1 do camCheat[i].value[j] = readBytes(camCheat.addy[j],4,true) end
+    end
+    if i == 0 then set(nil) else
+      camCheat[i].setHotkey = createHotkey(set, _G["VK_" .. i], VK_MENU)
+      camCheat[i].setHotkey.DelayBetweenActivate = 1000
+    end
+    local get = function(sender)
+      if not gameHasFocus() or #camCheat[i].value ~= 8 then return end
+      if not freecamEnabled() then toggleFreecam() end
+      for j=1,8,1 do
+        if i ~= 0 then camCheat[0].value[j] = readBytes(camCheat.addy[j],4,true) end
+        writeBytes(camCheat.addy[j], camCheat[i].value[j])
+      end
+    end
+    camCheat[i].getHotkey = createHotkey(get, _G["VK_" .. i])
+    camCheat[i].getHotkey.DelayBetweenActivate = 1000
+  end
+  end
+
+  -- MOVEMENT SPEED MODIFIERS
+
+  local flySpeedOrig  = flySpeed
+  local aimSpeedOrig  = aimSpeed
+  local rollSpeedOrig = rollSpeed
+  local FOVSpeedOrig  = FOVSpeed
+
+  local veryFastModeEnabled = false
+  local fastModeEnabled = false
+  local slowModeEnabled = false
+
+  local didReset = true
+  local didSlow = false
+  local didFast = false
+  local didVeryFast = false
+
+  checkCamKeys = createTimer()
+  checkCamKeys.setInterval(100)
+  checkCamKeys.onTimer = function()
+    if not gameHasFocus() then return end
+    if isKeyPressed(VK_T) and not isKeyPressed(VK_MENU) then
+      if not didVeryFast then
+        flySpeed  = flySpeedOrig*veryFast
+        aimSpeed  = aimSpeedOrig*fastMult
+        rollSpeed = rollSpeedOrig*fastMult
+        FOVSpeed  = FOVSpeedOrig*fastMult
+        didReset  = false
+        didVeryFast = true
+      end
+    elseif isKeyPressed(VK_F) and not isKeyPressed(VK_MENU) then
+      if not didFast then
+        flySpeed  = flySpeedOrig*fastMult
+        aimSpeed  = aimSpeedOrig*fastMult
+        rollSpeed = rollSpeedOrig*fastMult
+        FOVSpeed  = FOVSpeedOrig*fastMult
+        didReset  = false
+        didFast   = true
+      end
+    elseif isKeyPressed(VK_C) and not isKeyPressed(VK_MENU) then
+      if not didSlow then
+        flySpeed  = flySpeedOrig/slowDiv
+        aimSpeed  = aimSpeedOrig/slowDiv
+        rollSpeed = rollSpeedOrig/slowDiv
+        FOVSpeed  = FOVSpeedOrig/slowDiv
+        didReset  = false
+        didSlow   = true
+      end
+    elseif not didReset then
+      flySpeed  = flySpeedOrig
+      aimSpeed  = aimSpeedOrig
+      rollSpeed = rollSpeedOrig
+      FOVSpeed  = FOVSpeedOrig
+      didVeryFast = false
+      didFast   = false
+      didSlow   = false
+      didReset  = true
+      veryFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  -- MOVEMENT SPEED TOGGLES
+
+  local function resetSpeed()
+    flySpeed  = flySpeedOrig
+    aimSpeed  = aimSpeedOrig
+    rollSpeed = rollSpeedOrig
+    FOVSpeed  = FOVSpeedOrig
+    veryFastModeEnabled = false
+    fastModeEnabled = false
+    slowModeEnabled = false
+  end
+
+  local function goVeryFast()
+    if veryFastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*veryFast
+      aimSpeed  = aimSpeedOrig*fastMult
+      rollSpeed = rollSpeedOrig*fastMult
+      FOVSpeed  = FOVSpeedOrig*fastMult
+      veryFastModeEnabled = true
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  local function goFast()
+    if fastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*fastMult
+      aimSpeed  = aimSpeedOrig*fastMult
+      rollSpeed = rollSpeedOrig*fastMult
+      FOVSpeed  = FOVSpeedOrig*fastMult
+      veryFastModeEnabled = false
+      fastModeEnabled = true
+      slowModeEnabled = false
+    end
+  end
+
+  local function goSlow()
+    if slowModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig/slowDiv
+      aimSpeed  = aimSpeedOrig/slowDiv
+      rollSpeed = rollSpeedOrig/slowDiv
+      FOVSpeed  = FOVSpeedOrig/slowDiv
+      veryFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = true
+    end
+  end
+
+  -- CAMERA FUNCTIONS...
+
+  local function toggleUseZ()
+    if not requiredConditions() then return end
+    if useZ then useZ = false
+    else useZ = true
+    end
+  end
+
+  local function move(moveDir)
+    if not requiredConditions() then return end
+    local camZ = readFloat(camZAD)
+    local tarZ = readFloat(tarZAD)
+    if moveDir == "up" then
+      writeFloat(camZAD, camZ+flySpeed)
+      writeFloat(tarZAD, tarZ+flySpeed)
+      return
+    elseif moveDir == "upCamOnly" then
+      writeFloat(camZAD, camZ+flySpeed)
+      return
+    elseif moveDir == "down" then
+      writeFloat(camZAD, camZ-flySpeed)
+      writeFloat(tarZAD, tarZ-flySpeed)
+      return
+    elseif moveDir == "downCamOnly" then
+      writeFloat(camZAD, camZ-flySpeed)
+      return
+    end
+    local camX  = readFloat(camXAD)
+    local camY  = readFloat(camYAD)
+    local tarX  = readFloat(tarXAD)
+    local tarY  = readFloat(tarYAD)
+    local Xdiff = tarX-camX
+    local Ydiff = tarY-camY
+    local Zdiff = tarZ-camZ
+    local hypXY = math.sqrt(Xdiff*Xdiff+Ydiff*Ydiff)
+    local dX; local dY; local dZ
+    if moveDir == "right" then
+      dX = flySpeed*Ydiff/hypXY
+      dY = flySpeed*Xdiff/hypXY
+      if useZ then
+        local roll = readFloat(rollAD)
+        local cosRoll = math.cos(roll)
+        dX = dX*cosRoll
+        dY = dY*cosRoll
+        dZ = flySpeed*math.sin(roll)
+        writeFloat(tarZAD, tarZ-dZ)
+        writeFloat(camZAD, camZ-dZ)
+      end
+      writeFloat(tarXAD, tarX-dX)
+      writeFloat(tarYAD, tarY+dY)
+      writeFloat(camXAD, camX-dX)
+      writeFloat(camYAD, camY+dY)
+      return
+    elseif moveDir == "left" then
+      dX = flySpeed*Ydiff/hypXY
+      dY = flySpeed*Xdiff/hypXY
+      if useZ then
+        local roll = readFloat(rollAD)
+        local cosRoll = math.cos(roll)
+        dX = dX*cosRoll
+        dY = dY*cosRoll
+        dZ = flySpeed*math.sin(roll)
+        writeFloat(tarZAD, tarZ+dZ)
+        writeFloat(camZAD, camZ+dZ)
+      end
+      writeFloat(tarXAD, tarX+dX)
+      writeFloat(tarYAD, tarY-dY)
+      writeFloat(camXAD, camX+dX)
+      writeFloat(camYAD, camY-dY)
+      return
+    end
+    local hypZ = math.sqrt(Zdiff*Zdiff+hypXY*hypXY)
+    if useZ then
+      dX = flySpeed*Xdiff/hypZ
+      dY = flySpeed*Ydiff/hypZ
+      dZ = flySpeed*Zdiff/hypZ
+      if moveDir == "backward" then dZ = -dZ end
+      writeFloat(tarZAD, tarZ+dZ)
+      writeFloat(camZAD, camZ+dZ)
+    else
+      dX = flySpeed*Xdiff/hypXY
+      dY = flySpeed*Ydiff/hypXY
+      dZ = flySpeed*Zdiff/hypXY
+    end
+    if moveDir == "forward" then
+      writeFloat(tarXAD, tarX+dX)
+      writeFloat(tarYAD, tarY+dY)
+      writeFloat(camXAD, camX+dX)
+      writeFloat(camYAD, camY+dY)
+    elseif moveDir == "backward" then
+      writeFloat(tarXAD, tarX-dX)
+      writeFloat(tarYAD, tarY-dY)
+      writeFloat(camXAD, camX-dX)
+      writeFloat(camYAD, camY-dY)
+    else return
+    end
+  end
+
+  local function orbit(orbitDir)
+    if not requiredConditions() then return end
+    local camX  = readFloat(camXAD)
+    local camY  = readFloat(camYAD)
+    local tarX  = readFloat(tarXAD)
+    local tarY  = readFloat(tarYAD)
+    local Xdiff = tarX-camX
+    local Ydiff = tarY-camY
+    local hypXY = math.sqrt(Xdiff*Xdiff+Ydiff*Ydiff)
+    local yaw
+    if orbitDir == "left" or orbitDir == "panRight" then
+      yaw = math.atan(Ydiff/Xdiff)+aimSpeed
+    elseif orbitDir == "right" or orbitDir == "panLeft" then
+      yaw = math.atan(Ydiff/Xdiff)-aimSpeed
+    else
+      local camZ  = readFloat(camZAD)
+      local tarZ  = readFloat(tarZAD)
+      local Zdiff = tarZ-camZ
+      local hypZ  = math.sqrt(Zdiff*Zdiff+hypXY*hypXY)
+      local pitch
+      if orbitDir == "down" or orbitDir == "panUp" then
+        pitch = math.asin(Zdiff/hypZ)+aimSpeed
+      elseif orbitDir == "up" or orbitDir == "panDown" then
+        pitch = math.asin(Zdiff/hypZ)-aimSpeed
+      else return
+      end
+      if pitch&gt;-pitchMax and pitch&lt;pitchMax then
+        local R  = hypZ*math.cos(pitch)/hypXY
+        local dX = Xdiff*R
+        local dY = Ydiff*R
+        local dZ = hypZ*math.sin(pitch)
+        if orbitDir == "panUp" or orbitDir == "panDown" then
+          writeFloat(tarXAD, camX+dX)
+          writeFloat(tarYAD, camY+dY)
+          writeFloat(tarZAD, camZ+dZ)
+          return
+        else
+          writeFloat(camXAD, tarX-dX)
+          writeFloat(camYAD, tarY-dY)
+          writeFloat(camZAD, tarZ-dZ)
+          return
+        end
+      end
+      return
+    end
+    if Xdiff&lt;0 then yaw = yaw + math.pi end
+    local dX = hypXY*math.cos(yaw)
+    local dY = hypXY*math.sin(yaw)
+    if orbitDir == "panLeft" or orbitDir == "panRight" then
+      writeFloat(tarXAD, camX+dX)
+      writeFloat(tarYAD, camY+dY)
+    elseif orbitDir == "left" or orbitDir == "right" then
+      writeFloat(camXAD, tarX-dX)
+      writeFloat(camYAD, tarY-dY)
+    else return
+    end
+  end
+
+  local function dolly(dollyDir)
+    if not requiredConditions() then return end
+    local camX  = readFloat(camXAD)
+    local camY  = readFloat(camYAD)
+    local camZ  = readFloat(camZAD)
+    local tarX  = readFloat(tarXAD)
+    local tarY  = readFloat(tarYAD)
+    local tarZ  = readFloat(tarZAD)
+    local Xdiff = tarX-camX
+    local Ydiff = tarY-camY
+    local Zdiff = tarZ-camZ
+    local hypXY = math.sqrt(Xdiff*Xdiff+Ydiff*Ydiff)
+    local hypZ  = math.sqrt(Zdiff*Zdiff+hypXY*hypXY)
+    if dollyDir == "zoomReset" then
+      local FOVr = readFloat(FOVAD) -- stored in radians
+      local objWidth = hypZ*2*math.tan(FOVr/2)
+      local FOVr2 = defaultFOV
+      local hypZ2 = objWidth/(2*math.tan(FOVr2/2))-hypZ
+      local dX = hypZ2*Xdiff/hypZ
+      local dY = hypZ2*Ydiff/hypZ
+      local dZ = hypZ2*Zdiff/hypZ
+      writeFloat(FOVAD, FOVr2)
+      writeFloat(camXAD, camX-dX)
+      writeFloat(camYAD, camY-dY)
+      writeFloat(camZAD, camZ-dZ)
+      return
+    elseif dollyDir == "closer" then
+      if hypZ&gt;=minOrbit then -- don't get too close to the origin
+        local dX = flySpeed*Xdiff/hypZ
+        local dY = flySpeed*Ydiff/hypZ
+        local dZ = flySpeed*Zdiff/hypZ
+        writeFloat(camXAD, camX+dX)
+        writeFloat(camYAD, camY+dY)
+        writeFloat(camZAD, camZ+dZ)
+      end
+      return
+    elseif dollyDir == "farther" then
+      local dX = flySpeed*Xdiff/hypZ
+      local dY = flySpeed*Ydiff/hypZ
+      local dZ = flySpeed*Zdiff/hypZ
+      writeFloat(camXAD, camX-dX)
+      writeFloat(camYAD, camY-dY)
+      writeFloat(camZAD, camZ-dZ)
+      return
+    end
+    local FOVr = readFloat(FOVAD) -- stored in radians
+    local dollySpeed = flySpeed*(1-FOVr/math.pi)^2
+    local objWidth = hypZ*2*math.tan(FOVr/2)
+    if dollyDir == "zoomIn" then
+      FOVr = 2*math.atan(objWidth/(2*(hypZ+dollySpeed)))
+      if FOVr &gt;=0.1 then
+        local dX = dollySpeed*Xdiff/hypZ
+        local dY = dollySpeed*Ydiff/hypZ
+        local dZ = dollySpeed*Zdiff/hypZ
+        writeFloat(FOVAD, FOVr)
+        writeFloat(camXAD, camX-dX)
+        writeFloat(camYAD, camY-dY)
+        writeFloat(camZAD, camZ-dZ)
+      end
+    elseif dollyDir == "zoomOut" then
+      FOVr = 2*math.atan(objWidth/(2*(hypZ-dollySpeed)))
+      if FOVr &lt;= math.pi then
+        local dX = dollySpeed*Xdiff/hypZ
+        local dY = dollySpeed*Ydiff/hypZ
+        local dZ = dollySpeed*Zdiff/hypZ
+        writeFloat(FOVAD, FOVr)
+        writeFloat(camXAD, camX+dX)
+        writeFloat(camYAD, camY+dY)
+        writeFloat(camZAD, camZ+dZ)
+      end
+    else return
+    end
+  end
+
+  local function zoomIn()
+    if not requiredConditions() then return end
+    local FOV = readFloat(FOVAD)
+    writeFloat(FOVAD, FOV+FOVSpeed)
+  end
+
+  local function zoomOut()
+    if not requiredConditions() then return end
+    local FOV = readFloat(FOVAD)
+    writeFloat(FOVAD, FOV-FOVSpeed)
+  end
+
+  local function rollLeft()
+    if not requiredConditions() then return end
+    local roll = readFloat(rollAD)
+    writeFloat(rollAD, roll+rollSpeed)
+  end
+
+  local function rollRight()
+    if not requiredConditions() then return end
+    local roll = readFloat(rollAD)
+    writeFloat(rollAD, roll-rollSpeed)
+  end
+
+  local function rollReset()
+    if not requiredConditions() then return end
+    writeFloat(rollAD, 0)
+  end
+
+  local function moveForward() move("forward") end
+  local function moveBackward() move("backward") end
+  local function moveLeft() move("left") end
+  local function moveRight() move("right") end
+  local function moveUp() move("up") end
+  local function moveDown() move("down") end
+  local function moveUpCamOnly() move("upCamOnly") end
+  local function moveDownCamOnly() move("downCamOnly") end
+  local function panUp() orbit("panUp") end
+  local function panDown() orbit("panDown") end
+  local function panLeft() orbit("panLeft") end
+  local function panRight() orbit("panRight") end
+  local function orbitUp() orbit("up") end
+  local function orbitDown() orbit("down") end
+  local function orbitLeft() orbit("left") end
+  local function orbitRight() orbit("right") end
+  local function dollyCloser() dolly("closer") end
+  local function dollyFarther() dolly("farther") end
+  local function dollyZoomIn() dolly("zoomIn") end
+  local function dollyZoomOut() dolly("zoomOut") end
+  local function dollyZoomReset() dolly("zoomReset") end
+
+  -- CAMERA HOTKEYS
+  camHotkeys = {
+    createHotkey(toggleFreecam, VK_NEXT), -- leave at pos 1
+    createHotkey(toggleUseZ, VK_NUMPAD2), -- leave at pos 2
+    createHotkey(goVeryFast, VK_MENU, VK_T), -- leave at pos 3
+    createHotkey(goFast, VK_MENU, VK_F), -- leave at pos 4
+    createHotkey(goSlow, VK_MENU, VK_C), -- leave at pos 5
+    createHotkey(moveForward, VK_NUMPAD8),
+    createHotkey(moveBackward, VK_NUMPAD5),
+    createHotkey(moveLeft, VK_NUMPAD4),
+    createHotkey(moveRight, VK_NUMPAD6),
+    createHotkey(moveUp, VK_NUMPAD9),
+    createHotkey(moveDown, VK_NUMPAD7),
+    createHotkey(moveUpCamOnly, VK_NUMPAD3),
+    createHotkey(moveDownCamOnly, VK_NUMPAD1),
+    createHotkey(panUp, VK_ADD, VK_NUMPAD8),
+    createHotkey(panDown, VK_ADD, VK_NUMPAD5),
+    createHotkey(panLeft, VK_ADD, VK_NUMPAD4),
+    createHotkey(panRight, VK_ADD, VK_NUMPAD6),
+    createHotkey(rollLeft, VK_ADD, VK_NUMPAD3),
+    createHotkey(rollRight, VK_ADD, VK_NUMPAD1),
+    createHotkey(rollReset, VK_ADD, VK_NUMPAD2),
+    createHotkey(zoomIn, VK_ADD, VK_NUMPAD7),
+    createHotkey(zoomOut, VK_ADD, VK_NUMPAD9),
+    createHotkey(orbitUp, VK_RETURN, VK_NUMPAD5),
+    createHotkey(orbitDown, VK_RETURN, VK_NUMPAD8),
+    createHotkey(orbitLeft, VK_RETURN, VK_NUMPAD6),
+    createHotkey(orbitRight, VK_RETURN, VK_NUMPAD4),
+    createHotkey(dollyCloser, VK_RETURN, VK_NUMPAD9),
+    createHotkey(dollyFarther, VK_RETURN, VK_NUMPAD7),
+    createHotkey(dollyZoomIn, VK_RETURN, VK_NUMPAD3),
+    createHotkey(dollyZoomOut, VK_RETURN, VK_NUMPAD1),
+    createHotkey(dollyZoomReset, VK_RETURN, VK_NUMPAD2)
+  }
+  local smDelay = 6
+  for i=1,smDelay-1,1 do camHotkeys[i].DelayBetweenActivate = 1000 end
+  for i=smDelay,#camHotkeys,1 do camHotkeys[i].DelayBetweenActivate = 10 end
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+camAOB:
+  db 0F 29 0D D0 FC 12 01
+unregistersymbol(camAOB)
+
+tarAOB:
+  db 0F 29 0D A1 FD 12 01
+unregistersymbol(tarAOB)
+
+rollAOB:
+  db F3 0F 11 05 91 FC 12 01
+unregistersymbol(rollAOB)
+
+fovAOB:
+  db F3 44 0F 11 88 74 02 00 00
+unregistersymbol(fovAOB)
+unregistersymbol(lockFOV)
+unregistersymbol(_fov)
+dealloc(newmem)
+
+{$lua}
+if camCheat ~= nil then
+  for i=0,9,1 do
+  if i ~= 1 and i ~= 2 then
+    if i ~= 0 then camCheat[i].setHotkey.destroy() end
+    camCheat[i].getHotkey.destroy()
+  end
+  end
+  camCheat = nil
+end
+
+if checkCamKeys ~= nil then
+  checkCamKeys.destroy()
+  checkCamKeys = nil
+end
+
+if camHotkeys ~= nil then
+  for i,v in ipairs(camHotkeys) do v.destroy() end
+  camHotkeys = nil
+end
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>46723</ID>
+          <Description>"&gt;&gt; HOTKEYS"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13249</ID>
+              <Description>"SPEED: Slow - C, fast - F, faster - T (+ALT to toggle)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13240</ID>
+              <Description>"Camera control on/off - PAGEDOWN"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13296</ID>
+              <Description>"[--- FLY---]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13290</ID>
+                  <Description>"(Below, NUMPAD keys...)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13298</ID>
+                  <Description>"MOVE: Forward - 8, backward - 5, left - 4, right - 6"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13297</ID>
+                  <Description>"FLY: Up - 9, down - 7"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13304</ID>
+                  <Description>"FLY: Up - 3, down - 1 (camera only)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13303</ID>
+                  <Description>"Freeze height on/off: 2"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13292</ID>
+              <Description>"[--- AIM ---]  hold down PLUS and..."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13339</ID>
+                  <Description>"(Below, NUMPAD keys...)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13244</ID>
+                  <Description>"PAN: Up - 8, down - 5, left - 4, right - 6"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13246</ID>
+                  <Description>"ZOOM: In - 9, out - 7"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13242</ID>
+                  <Description>"TILT: Left - 1, right - 3, [reset] - 2"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13293</ID>
+              <Description>"[--- ORBIT ---] hold down ENTER and..."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13340</ID>
+                  <Description>"(Below, NUMPAD keys...)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13241</ID>
+                  <Description>"ROTATE: Up - 5, down - 8, left - 6, right - 4"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13248</ID>
+                  <Description>"MOVE: Closer - 9, farther - 7"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13247</ID>
+                  <Description>"DOLLY ZOOM: In - 3, out - 1, [reset] - 2"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13294</ID>
+              <Description>"[--- SAVE/LOAD ---]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13341</ID>
+                  <Description>"(Below, standard number keys...1 &amp; 2 reserved)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13250</ID>
+                  <Description>"SAVE CAMERA: ALT and [3-9] to save current settings"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13252</ID>
+                  <Description>"LOAD CAMERA: [3-9] to load saved settings"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13251</ID>
+                  <Description>"UNDO: 0 (zero) load previous camera settings"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>46722</ID>
+          <Description>"&gt;&gt; VALUES"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"FOV"</Description>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>_fov</Address>
+              <Offsets>
+                <Offset>274</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>57</ID>
+              <Description>"ROLL"</Description>
+              <LastState Value="0" RealAddress="141605440"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605440</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Camera X"</Description>
+              <LastState Value="-94.76586914" RealAddress="141605400"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605400</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>22</ID>
+              <Description>"Camera Y"</Description>
+              <LastState Value="360.009613" RealAddress="141605408"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605408</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Camera Z"</Description>
+              <LastState Value="2.23638916" RealAddress="141605404"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605404</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>30</ID>
+              <Description>"Target X"</Description>
+              <LastState Value="-95.69931793" RealAddress="141605410"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605410</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Target Y"</Description>
+              <LastState Value="359.8322754" RealAddress="141605418"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605418</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>31</ID>
+              <Description>"Target Z"</Description>
+              <LastState Value="2.118977308" RealAddress="141605414"/>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>NieRAutomata.exe+1605414</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6347</ID>
+      <Description>"Game speed (default: F9) [F5-F11]"</Description>
+      <LastState Value="1" RealAddress="14160E6D8"/>
+      <Color>000000</Color>
+      <VariableType>Float</VariableType>
+      <Address>NieRAutomata.exe+160E6D8</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <Value>.1</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>118</Key>
+          </Keys>
+          <Value>.2</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>119</Key>
+          </Keys>
+          <Value>.5</Value>
+          <ID>3</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>120</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>4</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>121</Key>
+          </Keys>
+          <Value>2</Value>
+          <ID>5</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>122</Key>
+          </Keys>
+          <Value>5</Value>
+          <ID>6</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>46724</ID>
+      <Description>"HUD fade (0-1, default: 1) [H/G]"</Description>
+      <LastState Value="1" RealAddress="1419861AC"/>
+      <Color>000000</Color>
+      <VariableType>Float</VariableType>
+      <Address>NieRAutomata.exe+19861AC</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>72</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>71</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>46741</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>47008</ID>
+      <Description>"Enable some/all if camera still doesn't respond"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>47007</ID>
+          <Description>"Camera fix 1"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//"NieRAutomata.exe"+4CDFB3
+aobscanmodule(camAOB2,NieRAutomata.exe,0F 29 15 A6 F9 12 01)
+camAOB2:
+  db 90 90 90 90 90 90 90
+registersymbol(camAOB2)
+
+//"NieRAutomata.exe"+4CDFF2
+aobscanmodule(tarAOB2,NieRAutomata.exe,0F 29 15 77 F9 12 01)
+tarAOB2:
+  db 90 90 90 90 90 90 90
+registersymbol(tarAOB2)
+
+[DISABLE]
+
+camAOB2:
+  db 0F 29 15 A6 F9 12 01
+unregistersymbol(camAOB2)
+
+tarAOB2:
+  db 0F 29 15 77 F9 12 01
+unregistersymbol(tarAOB2)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>46742</ID>
+          <Description>"Camera fix 2"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//"NieRAutomata.exe"+4D629D
+aobscanmodule(camAOB3,NieRAutomata.exe,0F 29 91 F0 00 00 00 0F 28 15 * * * * 0F)
+camAOB3:
+  db 90 90 90 90 90 90 90
+registersymbol(camAOB3)
+
+//"NieRAutomata.exe"+4D62B1
+aobscanmodule(tarAOB3,NieRAutomata.exe,0F 29 91 00 01 00 00 0F 28 81)
+tarAOB3:
+  db 90 90 90 90 90 90 90
+registersymbol(tarAOB3)
+
+[DISABLE]
+
+camAOB3:
+  db 0F 29 91 F0 00 00 00
+unregistersymbol(camAOB3)
+
+tarAOB3:
+  db 0F 29 91 00 01 00 00
+unregistersymbol(tarAOB3)
+
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>46743</ID>
+          <Description>"Camera fix 3"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//"NieRAutomata.exe"+4D9501
+aobscanmodule(camAOB4,NieRAutomata.exe,41 0F 29 06 0F 28 41 20)
+camAOB4:
+  db 90 90 90 90 90 90 90 90
+registersymbol(camAOB4)
+
+//"NieRAutomata.exe"+4D9509
+aobscanmodule(tarAOB4,NieRAutomata.exe,0F 29 06 44 0F 29 89 10 01 00 00)
+tarAOB4:
+  db 90 90 90 90 90 90 90 90 90 90 90
+registersymbol(tarAOB4)
+
+//"NieRAutomata.exe"+4D9ABF
+aobscanmodule(tarAOB42,NieRAutomata.exe,0F 29 36 45 0F 59 C0)
+tarAOB42:
+  db 90 90 90 90 90 90 09
+registersymbol(tarAOB42)
+
+[DISABLE]
+
+camAOB4:
+  db 41 0F 29 06 0F 28 41 20
+unregistersymbol(camAOB4)
+
+tarAOB4:
+  db 0F 29 06 44 0F 29 89 10 01 00 00
+unregistersymbol(tarAOB4)
+
+tarAOB42:
+  db 0F 29 36 45 0F 59 C0
+unregistersymbol(tarAOB42)
+dealloc(newmem)
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>51187</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>47018</ID>
+      <Description>"Other"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>47013</ID>
+          <Description>"My group speed"</Description>
+          <LastState Value="1" RealAddress="14160E6EC"/>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+160E6EC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47016</ID>
+          <Description>"Everyone else speed"</Description>
+          <LastState Value="1" RealAddress="14160E6FC"/>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+160E6FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47027</ID>
+          <Description>"Unit halos/rings (tick while close to remove when far)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//"NieRAutomata.exe"+8A4A27
+aobscanmodule(halosAOB,NieRAutomata.exe,F3 0F 11 83 C8 01 00 00 76)
+alloc(newmem,$1000,halosAOB)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  // movss [rbx+000001C8],xmm0
+  jmp return
+
+halosAOB:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(halosAOB)
+
+[DISABLE]
+
+halosAOB:
+  db F3 0F 11 83 C8 01 00 00
+
+unregistersymbol(halosAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47017</ID>
+          <Description>"Vignette (0-10+, default: 1.5) [V/B]"</Description>
+          <LastState Value="0" RealAddress="14160E9BC"/>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+160E9BC</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>86</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+              </Keys>
+              <Value>1.5</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47004</ID>
+          <Description>"Red"</Description>
+          <LastState Value="1" RealAddress="14160EB80"/>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+160EB80</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47005</ID>
+          <Description>"Green"</Description>
+          <LastState Value="0.9499999881" RealAddress="14160EB84"/>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+160EB84</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47006</ID>
+          <Description>"Blue"</Description>
+          <LastState Value="0.8999999762" RealAddress="14160EB88"/>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+160EB88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>51186</ID>
+          <Description>"Banding? (inc. to fix some B&amp;W banding)"</Description>
+          <LastState Value="1" RealAddress="1416A919C"/>
+          <Color>000000</Color>
+          <VariableType>Float</VariableType>
+          <Address>NieRAutomata.exe+16A919C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

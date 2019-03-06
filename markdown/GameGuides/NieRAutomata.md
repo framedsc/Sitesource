@@ -1,5 +1,4 @@
-![NieRAutomata](Images\nier-automata-header.png)
-==========
+![NieRAutomata](Images\nier-automata-header.png "Shot by Midhras")
 
 ##Feature summary
 
@@ -15,7 +14,7 @@ DirectX versions | DirectX 11
  
 ##Tools
 
-* [CE table by IDK31 and Smithfield](https://steamcommunity.com/sharedfiles/filedetails/?id=682947327)  
+* [CE table by IDK31 and Smithfield](..\CheatTables\nier_automata_121.ct)  
 **Features**: Camera control, FoV, Speed control, HUD/Vignette/Banding/Character halo removal, Tonemap
 
 ##Useful Links
