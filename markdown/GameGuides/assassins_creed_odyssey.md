@@ -1,4 +1,4 @@
-![Assassin's Creed Odyssey](Images\acodyssey_header.png "Shot by Otis_Inf"){.shadowed .float-left}
+![Assassin's Creed Odyssey](Images\acodyssey_header.png "Shot by Otis_Inf"){.shadowed}
 
 ##Feature summary
 

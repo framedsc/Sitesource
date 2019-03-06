@@ -9,7 +9,7 @@
     {
       "location": "GameGuides/assassins_creed_odyssey.htm",
       "breadcrumbs": "Home / Game guides / Assassins Creed Odyssey",
-      "keywords": "11 27s_Creed_Odyssey acodyssey_header Ansel aspect Aspect Assassin assassinscreedodyssey AssassinsCreedOdyssey by Camera Cameras com control Creed Custom Day DirectX disabling DOF DSR Feature Features float fog FoV FransBouma game Game Gaming github Hotsampling https HUD Images in InjectableGenericCameraSystem left limitations Links master Mode Mods Nexus nexusmods No Odyssey of on Otis_Inf pause PC pcgamingwiki Photo png ratio Ratios removal Reshade Resolution scaling shadowed Shot summary Supported Time Timestop toggle tools Tools tree Useful Vanilla versions wiki Wiki with www Yes",
+      "keywords": "11 27s_Creed_Odyssey acodyssey_header Ansel aspect Aspect Assassin assassinscreedodyssey AssassinsCreedOdyssey by Camera Cameras com control Creed Custom Day DirectX disabling DOF DSR Feature Features fog FoV FransBouma game Game Gaming github Hotsampling https HUD Images in InjectableGenericCameraSystem limitations Links master Mode Mods Nexus nexusmods No Odyssey of on Otis_Inf pause PC pcgamingwiki Photo png ratio Ratios removal Reshade Resolution scaling shadowed Shot summary Supported Time Timestop toggle tools Tools tree Useful Vanilla versions wiki Wiki with www Yes",
       "title": "Assassin's Creed Odyssey"
     },
     {
@@ -23,6 +23,12 @@
       "breadcrumbs": "Home / Game guides / Resident Evil 2",
       "keywords": "11 2 Aspect by Camera Care CE CheatTables com Control ct Custom DSR Evil Feature Flashlight FOV Framework Free Hide Hotsampling https Jim2point0 Lock Mod Mode mods nexusmods No Photo Position Ratios RE2 re2_new Remove Resident residentevil22019 Stop Summary Supported Table Taker The Time Tools Vanilla Vignette www Yes",
       "title": "Resident Evil 2"
+    },
+    {
+      "location": "GameGuides/sottr.htm",
+      "breadcrumbs": "Home / Game guides / Shadow of the Tomb Raider",
+      "keywords": "11 12 about alert Ansel Aspect by camera Camera Cameras com control Custom details DirectX DSR enclosed end Feature Features for FoV FransBouma game Gaming github Hotsampling https Images Important in InjectableGenericCameraSystem Links master Mode of Otis_Inf PC pcgamingwiki Photo photomode Please png Raider Ratios read readme Reshade Shadow Shadow_of_the_Tomb_Raider shadowed Shot sottr SOTTR summary Supported that the The together Tomb tools Tools tree txt Useful Vanilla versions wiki Wiki with work Yes",
+      "title": "Shadow of the Tomb Raider"
     },
     {
       "location": "GeneralGuides/custom_dsr_resolutions.htm",
