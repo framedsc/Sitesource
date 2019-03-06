@@ -17,8 +17,10 @@
             "__index" : "GameGuides\\index.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
 			"Metro Exodus" : "GameGuides\\metro_exodus.md",
+			"NieR: Automata" : "GameGuides\\NieRAutomata.md",
 			"Resident Evil 2": "GameGuides\\re2.md",
 			"Shadow of the Tomb Raider" : "GameGuides\\sottr.md",
+			"Street Fighter V: Arcade Edition" : "GameGuides\\SFVAE.md",
         },
 		"General guides" :
 		{
