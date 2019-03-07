@@ -1,4 +1,4 @@
-![Ashen](https://i.imgur.com/8dJYlY1.jpg "Shot by Jim2point0")
+![Ashen](Images\ashen_header.png "Shot by NattiDread"){.shadowed}
 
 ##Summary
 
