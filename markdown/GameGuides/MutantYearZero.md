@@ -1,4 +1,4 @@
-![Mutant Year Zero: Road to Eden](Images\image.png "Shot by NoOne")
+![Mutant Year Zero: Road to Eden](Images\mutantyearzero_rte_header.png "Shot by Pino44io")
 
 ##Feature summary
 
@@ -8,7 +8,7 @@ Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes, with hotsampling 
-Reshade | Yes, v4.1.1 is known to work with HUD Toggle
+Reshade | Yes, v4.1.1 or higher is known to work with HUD Toggle
 Ansel | No
 DirectX versions | DirectX 11
  
@@ -16,7 +16,6 @@ DirectX versions | DirectX 11
 
 * [CE table by One3rd](..\CheatTables\MutantYearZero_One3rd.CT)  
 **Features**: Camera control, FoV, Tilt
-
 * [Pause Menu HUD Toggle by One3rd and Pino44io](https://mega.nz/#!mQA1hYJB!_LT7F85qXAcW89mlXBk562rHTb32UNlHWyLnkgt8-tk)  
 **Features**: Toggle for the in-game and pause menu HUD
 
