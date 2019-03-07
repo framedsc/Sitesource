@@ -15,6 +15,7 @@
         "Game guides" : 
         {
             "__index" : "GameGuides\\index.md",
+            "Ashen": "GameGuides\\ashen.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
 			"Metro Exodus" : "GameGuides\\metro_exodus.md",
 			"NieR: Automata" : "GameGuides\\NieRAutomata.md",
