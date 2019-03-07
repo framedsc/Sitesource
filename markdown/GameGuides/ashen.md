@@ -17,6 +17,21 @@ DirectX versions | DirectX 11
 * [Console Unlocker by Sunbeam](http://fearlessrevolution.com/viewtopic.php?t=8410)  
 **Features**: Unlocks the UE4 console in order to enter commands\cheats
 
+## Useful Console Commands
+
+* **ToggleDebugCamera**  
+Enables the UE4 free camera
+* **FreezeFrame**  
+Freezes the game
+* **FreezeFrame 1000**  
+Unfreezes the game (resumes normal game speed)
+* **slomo 0.5 \ slomo 1.0**  
+Slow motion \ Normal game speed
+* **r.SceneColorFringeQuality 0**  
+Disables chromatic aberration
+* **r.AmbientOcclusionRadiusScale 0.02**  
+Better AO
+
 ##Tips and Tricks
 
 ### Quickly enter console commands
