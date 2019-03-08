@@ -8,8 +8,9 @@ Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
+Reshade | Yes
 Ansel | No
-DirectX versions | DirectX11
+DirectX versions | DirectX 11
  
 ## Tools
 
