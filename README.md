@@ -13,7 +13,10 @@ download the .zip file, unpack it and copy the files in the zip to a folder. It'
 your windows path, as DocNet is a command line tool.
 
 ### Clone this repository
-After you've downloaded DocNet and made it available on the commandline, you can clone this repository to a folder using Github For Windows. 
+After you've downloaded DocNet and made it available on the commandline, you can clone this repository to a folder using Github For Windows. However it's best to do that in your own fork. This requires you to create an account on Github, and when logged in, you can 
+fork this repository to your own account (effectively creating a copy for yourself on Github) and clone *that* repository to your own
+PC. Changes made to that repository then have to be merged through a pull request. Github has a [guide](https://guides.github.com/activities/forking/) for this which explains the whole process for you. You'll be up and running in no time!
+
 The repository contains both a `Markdown` folder for source content and a `Site` folder which contains the generated site for testing. 
 
 ### Adding content
@@ -35,6 +38,12 @@ To author content, you can use any text editor like notepad, but it's easier to 
 built-in file browser. This will give you a textual editor. If you right-click the tab of the file and select 'Split right' you get a second 
 view on the text editor. Right-click the tab header of the newly created 2nd view and select 'Open preview'. This will show the markdown in wysiwyg overview
 so you can write markdown and immediately see the result how it will look.
+
+#### Markdown references
+The following references can be used to learn more about Markdown:
+
+* [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [DocNet's Markdown support](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm)
 
 ### Generating the site
 DocNet is very fast, it can generate the whole site in a second or so. To generate the site, open a command prompt or powershell prompt and navigate to the

@@ -7,7 +7,7 @@
     "SourceFoldersToCopy" : ["CheatTables", "Images"],
     "Footer" : "&copy 2019 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
-    "MaxLevelInToC" : "4",
+    "MaxLevelInToC" : "2",
     "Pages" : 
     {
         "__index" : "index.md",
