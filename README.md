@@ -57,7 +57,10 @@ This will generate the complete site in the `Site` folder, and first clean the f
 the site by opening the index.htm file in the `Site` folder. If you want to make changes, simply edit the markdown file that needs changing, again run the 
 docnet command as stated above, and refresh the page in the browser. 
 
-When everything is OK, commit your changes to this repository and let us know so we can update the main repository. 
+When everything is OK, commit your changes to this repository and let us know so we can update the main repository. Or create a 
+pull request on your own repository so we get notified automatically. If you go this route, you'll be editing on your own copy, and
+it has to be kept up to date with the main repository so you get changes merged in when others make changes on this repository too. 
+To get these changes, [follow this guide](https://help.github.com/en/articles/syncing-a-fork).
 
 ### Useful markdown info
 Please check [the DocNet documentation site](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm) to learn more about the markdown it supports.
