@@ -1,4 +1,4 @@
-![Batman Arkham Asylum GOTY](Images\batmanAA_header.jpg "Shot by One3rd"){.shadowed}
+![Batman Arkham Asylum GOTY](Images\BatmanAA_header.jpg "Shot by One3rd"){.shadowed}
 
 ##Feature summary
 
