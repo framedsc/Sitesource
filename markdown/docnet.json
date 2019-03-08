@@ -18,7 +18,8 @@
             "Ashen": "GameGuides\\ashen.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
 			"Assassin's Creed Origins": "GameGuides\\assassins_creed_origins.md",
-			"Batman Arkham Knight" : "GameGuides\\batman_arkhamknight.md",
+            "Batman Arkham Knight" : "GameGuides\\batman_arkhamknight.md",
+            "Dark Souls 3": "GameGuides\\dark_souls_3.md",
             "Metro Exodus" : "GameGuides\\metro_exodus.md",
             "Mutant Year Zero: Road to Eden" : "GameGuides\\MutantYearZero.md",
 			"NieR: Automata" : "GameGuides\\NieRAutomata.md",
@@ -31,6 +32,6 @@
 		{
 			"__index": "GeneralGuides\\index.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
-		}, 
+		} 
     }
 }
