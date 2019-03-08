@@ -160,12 +160,10 @@
 <ul>
 <li>
 <p>To use DSR resolutions you will need to set this in the ..\Users\USERNAME\Documents\Square Enix\Batman Arkham Asylum GOTY\BmGame\Config\BmEngine.ini file. Under the [SystemSettings] section change the resolution values to your desired DSR resolution such as:</p>
-<pre><code>ResX=5120
+<pre class="nocode">ResX=5120
 ResY=2880
-</code></pre>
-
-<p>While there you can modifying the following settings (pulled from the Tweak Guide) to improve the graphics further.</p>
-<pre><code>DepthOfField=False  
+</pre><p>While there you can modifying the following settings (pulled from the Tweak Guide) to improve the graphics further.</p>
+<pre class="nocode">DepthOfField=False  
 MaxAnisotropy=16
 ShadowFilterQualityBias=0
 MinShadowResolution=32
@@ -183,21 +181,17 @@ Under [MemoryPools] make the following changes:
 FLightPrimitiveInteractionInitialBlockSize=1024
 FModShadowPrimitiveInteractionInitialBlockSize=1024
 // you can use higher values than that but it will makes the loading screens longer, but will reduce textures and static shadow popping.
-</code></pre>
-
-<p>Remember to save the changes and set the file to read only so it doesn't get overridden. </p>
+</pre><p>Remember to save the changes and set the file to read only so it doesn't get overridden. </p>
 </li>
 <li>
 <p>For depth buffer access in Reshade you will need to use thalixte's dll. See <a href="https://reshade.me/forum/general-discussion/4083-depth-buffer-detection-modification?start=700#32499" target="_blank">post #703 on Reshade.me</a> for details but you will need to install Reshade as normal and replace the .DLL with this new one. Make sure to set RESHADE_DEPTH_INPUT_IS_REVERSED=0 and tick the following settings under the DX9 menu.</p>
-<pre><code>Preserve depth buffer from being cleared
+<pre class="nocode">Preserve depth buffer from being cleared
 Auto preserve
 find best depthstencil based on vertices
-</code></pre>
-
-</li>
+</pre></li>
 <li>
-<p>Useful keybinds can be added to ..\Users\USERNAME\Documents\Square Enix\Batman Arkham Asylum GOTY\BmGame\Config\BmInput.ini file at the end of the [Engine.PlayerInput] section. Set the file to read only.</p>
-<pre><code>Bindings=(Name=&quot;F1&quot;,Command=&quot;God&quot;)
+Useful keybinds can be added to ..\Users\USERNAME\Documents\Square Enix\Batman Arkham Asylum GOTY\BmGame\Config\BmInput.ini file at the end of the [Engine.PlayerInput] section. Set the file to read only.
+<pre class="nocode">Bindings=(Name=&quot;F1&quot;,Command=&quot;God&quot;)
 Bindings=(Name=&quot;F1&quot;,Command=&quot;ToggleEnemiesCanAttack&quot;,Alt=True)
 Bindings=(Name=&quot;F2&quot;,Command=&quot;Fly&quot;)
 Bindings=(Name=&quot;F2&quot;,Command=&quot;Walk&quot;,Alt=True)
@@ -206,9 +200,7 @@ Bindings=(Name=&quot;F3&quot;,Command=&quot;Ghost&quot;,Alt=True)
 Bindings=(Name=&quot;F4&quot;,Command=&quot;ToggleDebugCamera&quot;)
 Bindings=(Name=&quot;F5&quot;,Command=&quot;Slomo 0.3&quot;)
 Bindings=(Name=&quot;F5&quot;,Command=&quot;Slomo 1&quot;,Alt=True)
-</code></pre>
-
-</li>
+</pre></li>
 <li>
 <p>Cheat Table Notes</p>
 <ol>
