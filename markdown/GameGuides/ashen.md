@@ -1,4 +1,4 @@
-![Ashen](Images\ashen_header.png "Shot by NattiDread"){.shadowed}
+![Ashen](Images\ashen_header.png "Shot by Natty Dread"){.shadowed}
 
 ##Summary
 
