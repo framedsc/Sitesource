@@ -16,7 +16,7 @@ DirectX versions | DirectX 11, DirectX 12
  
 ## Tools
 
-* [CE Table by Kputt + Jim2point0](..\CheatTables\DevilMayCry5AOB.ct)  
+* [CE Table by Kputt + Jim2point0](..\CheatTables\DevilMayCry5AOB.CT)  
 **Features**: Photo Mode Camera control, FOV Control, Custom Aspect Ratios  
 **Instructions**: Only use 1 aspect ratio script at a time. Disable one before enabling another. Aspect Ratio Scripts will only work if you haven't patched the EXE. So if you've modified the EXE to work with another aspect ratio by default, you won't be able to use these scripts.
 * [Photo Mode Logo Removal](https://drive.google.com/open?id=1Lxvah9oRk3py8duGCDbHeMgcwUP_jC8O)  
