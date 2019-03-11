@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Revert Steam Game Updates - FRAMED. Screenshot Community</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../css/theme_colors.css" type="text/css" />
+    <link rel="stylesheet" href="../css/styles/vs.css">
+    <link rel="stylesheet" href="../css/font-awesome.4.5.0.min.css">
+</head>
+<body role="document">
+    <div class="grid-for-nav">
+        <nav data-toggle="nav-shift" class="nav-side stickynav">
+            <div class="side-nav-search">
+                <a href="../index.htm"><i class="fa fa-home"></i> FRAMED. Screenshot Community</a>
+                <div role="search">
+                    <form id="search-form" class="form" action="../Docnet_search.htm" method="get">
+                        <input type="text" name="q" placeholder="Search docs" />
+                    </form>
+                </div>
+            </div>
+            <div class="menu menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+<ul>
+<li class="tocentry"><a href="../index.htm">Home</a>
+</li>
+
+<li class="tocentry">
+<span class="navigationgroup"><i class="fa fa-caret-right"></i> <a href="../GameGuides/index.htm">Game guides</a></span>
+</li>
+<li class="tocentry">
+<ul>
+<li><span class="navigationgroup"><i class="fa fa-caret-down"></i> <a href="../GeneralGuides/index.htm">General guides</a></span></li>
+
+<li class="tocentry"><a href="../GeneralGuides/custom_dsr_resolutions.htm">Custom DSR Resolutions</a>
+</li>
+<li class="tocentry current"><a class="current" href="../GeneralGuides/steam_update_guide.htm">Revert Steam Game Updates</a>
+</ul>
+</li>
+</ul>
+				<div class="toc-footer">
+					<span class="text-small">
+						<hr/>
+						<a href="https://github.com/FransBouma/DocNet" target="_blank">Made with <i class="fa fa-github"></i> DocNet</a>
+					</span>
+				</div>	
+			</div>
+            &nbsp;
+        </nav>
+        <section data-toggle="nav-shift" class="nav-content-wrap">
+            <nav class="nav-top" role="navigation" aria-label="top navigation">
+                <i data-toggle="nav-top" class="fa fa-bars"></i>
+                <a href="../index.htm">FRAMED. Screenshot Community</a>
+            </nav>
+            <div class="nav-content">
+                <div role="navigation" aria-label="breadcrumbs navigation">
+                    <div class="breadcrumbs">
+<ul><li><a href="../index.htm">Home</a></li> / <li><a href="../GeneralGuides/index.htm">General guides</a></li> / <li><a href="../GeneralGuides/steam_update_guide.htm">Revert Steam Game Updates</a></li></ul>
+					
+                    </div>
+                    <hr />
+                </div>
+                <div role="main">
+                    <div class="section">
+<h1 id="revert-game-update-using-steam-console">Revert Game Update using Steam Console<a class="headerlink" href="#revert-game-update-using-steam-console" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<h1 id="install-or-open-steam-console">1. Install or open Steam Console<a class="headerlink" href="#install-or-open-steam-console" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>Install steamcmd.exe from <a href="https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip" target="_blank">here</a> and login to your Steam account with 
+<code>login {username} {password}</code> 
+if you're using Steam Guard, you'll be prompted to enter that as well.</p>
+<p>Alternatively, you can access Steam console from client or internet browser by typing 
+<code>steam://nav/console</code>
+or adding <code>-console</code> to Steam target address shortcut. </p>
+<h1 id="get-appid.">2. Get AppID.<a class="headerlink" href="#get-appid." title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>Go to <a href="http://www.steamdb.info" target="_blank">Steamdb.info</a> and type the name of the game into search bar on top left.
+After searching the name of the game, look at the search result and find your game. Record its appID.</p>
+<h1 id="get-depotid.">3. Get DepotID.<a class="headerlink" href="#get-depotid." title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>After that, you need to find the content you want to download by take a look at 'Depot' list. The easiest way to find the depot you need is by comparing files on SteamDB with your local files, if <a href="https://i.imgur.com/unz9j4i.jpg" target="_blank">they're identical</a>, or at least similar, that's most likely the depot you want to download. Record its DepotID.</p>
+<h1 id="get-manifestid">4. Get ManifestID<a class="headerlink" href="#get-manifestid" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>Every specific version of the content you want to download are listed on 'Manifests' tab. They're marked by timestamp and ManifestID. Pick the one you want and record its ManifestID.</p>
+<h1 id="download-the-package">5. Download the package<a class="headerlink" href="#download-the-package" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>Once you have AppID, DepotID and ManifestID type this into Steam console:</p>
+<p><code>download_depot &lt;appid&gt; &lt;depotid&gt; &lt;manifestid&gt;</code></p>
+<h1 id="retrieve-the-package--overwrite-your-files">6. Retrieve the package &amp; overwrite your files<a class="headerlink" href="#retrieve-the-package--overwrite-your-files" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>If you're installing SteamCMD somewhere in your PC, the downloaded package will be on the same folder as your steamcmd.exe. If you're opening Steam Console via client or browser, the downloaded package will be on this folder
+<code>...\Steam\steamapps\content\&lt;depotid number&gt;</code></p>
+<p>After that, it's just a matter of replacing new, updated game files with the older one you just downloaded.</p>
+<h1 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<p>You can do the same for Steam Workshop or any User Generated Content files provided you know the ID number, simply type this into Steam Console command <code>workshop_download_item &lt;AppID&gt; &lt;WorkshopID&gt;</code></p>
+<h1 id="useful-links">Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline"><i class="fa fa-link" aria-hidden="true"></i></a></h1>
+<ul>
+<li><a href="https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD" target="_blank">Steam Developer documentation on SteamCMD</a></li>
+</ul>
+
+                    </div>
+                </div>
+                <footer>
+                    <hr />
+                    <div role="contentinfo">
+&copy 2019 FRAMED. All rights reserved.
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </div>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/modernizr-2.8.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
