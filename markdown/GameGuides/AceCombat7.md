@@ -17,6 +17,9 @@ DirectX versions | DirectX 11
 * [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.CT)  
 **Features**: Camera control, FOV Control, Time Stop
 
+* NoHUD by Pin044io  
+**Download Link**: [Link](https://www.mediafire.com/file/vxnm98zjti9lo6y/ACE_COMBAT+7_HUDTOGGLE.rar)
+
 ## Useful links
 
 * [PC Gaming Wiki](https://acecombat.fandom.com/wiki/Ace_Combat_7:_Skies_Unknown)
