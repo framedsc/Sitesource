@@ -14,6 +14,7 @@
         "Game guides" : 
         {
             "__index" : "GameGuides\\index.md",
+			"Ace Combat 7": "GameGuides\\AceCombat7.md",
             "Ashen": "GameGuides\\ashen.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
             "Assassin's Creed Origins": "GameGuides\\assassins_creed_origins.md",
