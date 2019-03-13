@@ -11,7 +11,7 @@ Custom Aspect Ratios | Not Tested
 Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11
-Compatible with | Current Version as of 12/03/19
+Compatible with | Not working with current version
 
 ## Tips
 
