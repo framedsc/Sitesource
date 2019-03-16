@@ -27,8 +27,8 @@ Follow the above instructions to get the game to recognise DSR resolutions. Set 
  
 ## Tools
 
-* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.02)  
-**Features**: Camera control, FOV Control, Time Stop  
+* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.02.CT)  
+**Features**: Camera control, FOV Control, Time Stop, Resolution Scaling
 
 Key | Function
 --|--
