@@ -5,13 +5,13 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | No
+Hotsampling | Yes
 DSR | Yes - See Tips
 Custom Aspect Ratios | Not Tested
 Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11
-Compatible with | Not working with current version
+Compatible with | Current (1.02)
 
 ## Tips
 
@@ -27,12 +27,12 @@ Follow the above instructions to get the game to recognise DSR resolutions. Set 
  
 ## Tools
 
-* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.CT)  
-**Features**: Camera control, FOV Control, Time Stop  
+* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.02.CT)  
+**Features**: Camera control, FOV Control, Time Stop, Resolution Scaling
 
 Key | Function
 --|--
-DEL | Activate Timestop Script
+DEL | Activate Timestop & Resolution Scale Read
 Num 0 | Stop time
 Num Del | Resume time
 INS | Activate camera
@@ -41,6 +41,9 @@ Num +/- | FoV Control
 Num 1/3 | Tilt
 Num 2 | Reset tilt to 0
 Arrow Keys | Camera Rotation
+Number Key 1 | Resolution Scale = 100%
+Number Key 2 | Resolution Scale = 150%
+Number Key 3 | Resolution Scale = 200%
 
 @alert tip
 **Modifiers**  

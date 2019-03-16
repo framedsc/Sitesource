@@ -1,0 +1,1407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>732</ID>
+      <Description>"Activate Camera - INS"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Ace7Game.exe
+  Version: 
+  Date   : 2019-03-14
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(_CamWrites,Ace7Game.exe,F2 0F 11 87 00 04 00 00 F2 0F 10 44 24 3C F2 0F 11 87 0C 04 00 00) // should be unique
+registersymbol(_CamWrites)
+alloc(camwrites,$1000,"Ace7Game.exe"+EA6AE93)
+label(camreturn)
+
+label(camerabase)
+registersymbol(camerabase)
+
+camwrites:
+  mov [camerabase],rdi        //movsd [rdi+00000400],xmm0  &lt;&lt;Cam X/Z write
+  movsd xmm0,[rsp+3C]
+  nop                         //movsd [rdi+0000040C],xmm0  &lt;&lt;Cam Y
+  movups xmm0,[rsp+48]
+  nop                         //mov [rdi+00000408],eax  &lt;&lt;write
+  mov eax,[rsp+44]
+  nop                         //mov [rdi+00000414],eax  &lt;&lt;write
+  mov eax,[rsp+5C]
+  nop                         //movups [rdi+00000418],xmm0  &lt;&lt;FoV Write
+  jmp camreturn
+
+camerabase:
+dq 0
+
+
+_CamWrites:
+  jmp camwrites
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+  camreturn:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_CamWrites:
+  db F2 0F 11 87 00 04 00 00 F2 0F 10 44 24 3C F2 0F 11 87 0C 04 00 00 0F 10 44 24 48 89 87 08 04 00 00 8B 44 24 44 89 87 14 04 00 00 8B 44 24 5C 0F 11 87 18 04 00 00
+
+unregistersymbol(_CamWrites)
+dealloc(camwrites)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Ace7Game.exe"+EA6AE93
+
+"Ace7Game.exe"+EA6AE5E: 48 8B 07                 -  mov rax,[rdi]
+"Ace7Game.exe"+EA6AE61: 48 89 F9                 -  mov rcx,rdi
+"Ace7Game.exe"+EA6AE64: FF 90 38 01 00 00        -  call qword ptr [rax+00000138]
+"Ace7Game.exe"+EA6AE6A: F2 0F 10 44 24 30        -  movsd xmm0,[rsp+30]
+"Ace7Game.exe"+EA6AE70: 48 8D 54 24 70           -  lea rdx,[rsp+70]
+"Ace7Game.exe"+EA6AE75: 8B 88 70 09 00 00        -  mov ecx,[rax+00000970]
+"Ace7Game.exe"+EA6AE7B: 8B 44 24 38              -  mov eax,[rsp+38]
+"Ace7Game.exe"+EA6AE7F: 89 8F F0 03 00 00        -  mov [rdi+000003F0],ecx
+"Ace7Game.exe"+EA6AE85: 48 8D 8F 40 04 00 00     -  lea rcx,[rdi+00000440]
+"Ace7Game.exe"+EA6AE8C: 83 A7 2C 04 00 00 FC     -  and dword ptr [rdi+0000042C],-04
+// ---------- INJECTING HERE ----------
+"Ace7Game.exe"+EA6AE93: F2 0F 11 87 00 04 00 00  -  movsd [rdi+00000400],xmm0
+"Ace7Game.exe"+EA6AE9B: F2 0F 10 44 24 3C        -  movsd xmm0,[rsp+3C]
+"Ace7Game.exe"+EA6AEA1: F2 0F 11 87 0C 04 00 00  -  movsd [rdi+0000040C],xmm0
+"Ace7Game.exe"+EA6AEA9: 0F 10 44 24 48           -  movups xmm0,[rsp+48]
+"Ace7Game.exe"+EA6AEAE: 89 87 08 04 00 00        -  mov [rdi+00000408],eax
+"Ace7Game.exe"+EA6AEB4: 8B 44 24 44              -  mov eax,[rsp+44]
+"Ace7Game.exe"+EA6AEB8: 89 87 14 04 00 00        -  mov [rdi+00000414],eax
+"Ace7Game.exe"+EA6AEBE: 8B 44 24 5C              -  mov eax,[rsp+5C]
+"Ace7Game.exe"+EA6AEC2: E9 39 51 8B 03           -  jmp 152320000
+// ---------- DONE INJECTING  ----------
+"Ace7Game.exe"+EA6AEC7: 90                       -  nop 
+"Ace7Game.exe"+EA6AEC8: 90                       -  nop 
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>45</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>735</ID>
+          <Description>"CamX - Num 4/6"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>00000400</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>736</ID>
+          <Description>"CamY - Num 5/8"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>404</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>737</ID>
+          <Description>"CamZ - Num 7/9"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>408</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>738</ID>
+          <Description>"CamqX - Left/Right Arrows"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>40C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>739</ID>
+          <Description>"CamqY - Up/Down Arrows"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>410</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>740</ID>
+          <Description>"CamqZ (Tilt) - Num 1/3"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>414</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>479</ID>
+          <Description>"FoV Num +/-"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>00000418</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>752</ID>
+      <Description>"Find Timescale &amp; Res Scale (DEL)"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>258</ID>
+          <Description>"Timescale"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Ace7Game.exe
+  Version:
+  Date   : 2019-03-14
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+aobscanmodule(_timescale,Ace7Game.exe,F3 0F 59 83 D0 04 00 00) // should be unique
+alloc(timescale,$1000,"Ace7Game.exe"+E59C2A8)
+registersymbol(_timescale)
+label(timescalereturn)
+label(timescaleval)
+registersymbol(timescaleval)
+
+timescale:
+  mov [timescaleval], rbx
+  mulss xmm0,[rbx+000004D0]
+  jmp timescalereturn
+
+timescaleval:
+dq 0
+
+_timescale:
+  jmp timescale
+  nop
+  nop
+  nop
+  nop
+  timescalereturn:
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_timescale:
+  db F3 0F 59 83 D0 04 00 00
+unregistersymbol(timescaleval)
+unregistersymbol(_timescale)
+dealloc(timescale)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Ace7Game.exe"+E59C2A8
+
+"Ace7Game.exe"+E59C277: 75 13                       -  jne Ace7Game.exe+E59C28C
+"Ace7Game.exe"+E59C279: 0F 28 C6                    -  movaps xmm0,xmm6
+"Ace7Game.exe"+E59C27C: F3 0F 58 87 7C 09 00 00     -  addss xmm0,dword ptr [rdi+0000097C]
+"Ace7Game.exe"+E59C284: F3 0F 11 87 7C 09 00 00     -  movss [rdi+0000097C],xmm0
+"Ace7Game.exe"+E59C28C: F3 0F 10 83 CC 04 00 00     -  movss xmm0,[rbx+000004CC]
+"Ace7Game.exe"+E59C294: 0F 28 FE                    -  movaps xmm7,xmm6
+"Ace7Game.exe"+E59C297: F3 0F 59 83 C8 04 00 00     -  mulss xmm0,[rbx+000004C8]
+"Ace7Game.exe"+E59C29F: 0F 28 D7                    -  movaps xmm2,xmm7
+"Ace7Game.exe"+E59C2A2: 48 8B 03                    -  mov rax,[rbx]
+"Ace7Game.exe"+E59C2A5: 48 89 D9                    -  mov rcx,rbx
+// ---------- INJECTING HERE ----------
+"Ace7Game.exe"+E59C2A8: F3 F3 0F 59 83 D0 04 00 00  -  mulss xmm0,[rbx+000004D0]
+// ---------- DONE INJECTING  ----------
+"Ace7Game.exe"+E59C2B1: 0F 59 F0                    -  mulps xmm6,xmm0
+"Ace7Game.exe"+E59C2B4: 0F 28 CE                    -  movaps xmm1,xmm6
+"Ace7Game.exe"+E59C2B7: FF 90 28 06 00 00           -  call qword ptr [rax+00000628]
+"Ace7Game.exe"+E59C2BD: 0F 28 C8                    -  movaps xmm1,xmm0
+"Ace7Game.exe"+E59C2C0: 0F 28 F0                    -  movaps xmm6,xmm0
+"Ace7Game.exe"+E59C2C3: F3 0F 11 B7 80 09 00 00     -  movss [rdi+00000980],xmm6
+"Ace7Game.exe"+E59C2CB: F3 0F 58 8F 74 09 00 00     -  addss xmm1,dword ptr [rdi+00000974]
+"Ace7Game.exe"+E59C2D3: F3 0F 11 8F 74 09 00 00     -  movss [rdi+00000974],xmm1
+"Ace7Game.exe"+E59C2DB: 45 84 F6                    -  test r14l,r14l
+"Ace7Game.exe"+E59C2DE: 75 13                       -  jne Ace7Game.exe+E59C2F3
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>259</ID>
+              <Description>"Num 0 to stop time, Num . to resume"</Description>
+              <VariableType>Float</VariableType>
+              <Address>timescaleval</Address>
+              <Offsets>
+                <Offset>000004D0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>96</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>0</ID>
+                  <ActivateSound>Activate</ActivateSound>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>110</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                  <ActivateSound>Deactivate</ActivateSound>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>747</ID>
+          <Description>"Find Resolution Scale"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(_ResScale,Ace7Game.exe,F3 0F 10 00 F3 41 0F 59 C1) // should be unique
+alloc(resscale,$1000,"Ace7Game.exe"+EAEC51A)
+registersymbol(_ResScale)
+label(resreturn)
+
+label(resolutionscale)
+registersymbol(resolutionscale)
+
+resscale:
+  movss xmm0,[rax]
+  mov [resolutionscale],rax
+  mulss xmm0,xmm9
+  jmp resreturn
+
+resolutionscale:
+dq 0
+
+_ResScale:
+  jmp resscale
+  nop
+  nop
+  nop
+  nop
+  resreturn:
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_ResScale:
+  db F3 0F 10 00 F3 41 0F 59 C1
+unregistersymbol(resolutionscale)
+unregistersymbol(_ResScale)
+dealloc(resscale)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Ace7Game.exe"+EAEC51A
+
+"Ace7Game.exe"+EAEC4E4: 75 06                       -  jne Ace7Game.exe+EAEC4EC
+"Ace7Game.exe"+EAEC4E6: 89 BB 0C 10 00 00           -  mov [rbx+0000100C],edi
+"Ace7Game.exe"+EAEC4EC: 80 BB 18 11 00 00 02        -  cmp byte ptr [rbx+00001118],02
+"Ace7Game.exe"+EAEC4F3: 75 06                       -  jne Ace7Game.exe+EAEC4FB
+"Ace7Game.exe"+EAEC4F5: 89 BB 34 11 00 00           -  mov [rbx+00001134],edi
+"Ace7Game.exe"+EAEC4FB: 8B 04 2E                    -  mov eax,[rsi+rbp]
+"Ace7Game.exe"+EAEC4FE: 39 05 44 D5 0D F5           -  cmp [Ace7Game.exe+3BC9A48],eax
+"Ace7Game.exe"+EAEC504: 0F 8F 21 06 00 00           -  jg Ace7Game.exe+EAECB2B
+"Ace7Game.exe"+EAEC50A: 48 8B 05 2F D5 0D F5        -  mov rax,[Ace7Game.exe+3BC9A40]
+"Ace7Game.exe"+EAEC511: F3 44 0F 10 0D 7A 28 A3 F3  -  movss xmm9,[Ace7Game.exe+251ED94]
+// ---------- INJECTING HERE ----------
+"Ace7Game.exe"+EAEC51A: F3 0F 10 00                 -  movss xmm0,[rax]
+"Ace7Game.exe"+EAEC51E: F3 41 0F 59 C1              -  mulss xmm0,xmm9
+// ---------- DONE INJECTING  ----------
+"Ace7Game.exe"+EAEC523: F3 0F 59 83 C4 11 00 00     -  mulss xmm0,[rbx+000011C4]
+"Ace7Game.exe"+EAEC52B: F3 0F 11 83 C4 11 00 00     -  movss [rbx+000011C4],xmm0
+"Ace7Game.exe"+EAEC533: 48 8B 05 66 E3 0E F5        -  mov rax,[Ace7Game.exe+3BDA8A0]
+"Ace7Game.exe"+EAEC53A: 48 8B 88 D8 0A 00 00        -  mov rcx,[rax+00000AD8]
+"Ace7Game.exe"+EAEC541: 48 85 C9                    -  test rcx,rcx
+"Ace7Game.exe"+EAEC544: 74 41                       -  je Ace7Game.exe+EAEC587
+"Ace7Game.exe"+EAEC546: 39 BB B0 09 00 00           -  cmp [rbx+000009B0],edi
+"Ace7Game.exe"+EAEC54C: 74 39                       -  je Ace7Game.exe+EAEC587
+"Ace7Game.exe"+EAEC54E: 48 8B 01                    -  mov rax,[rcx]
+"Ace7Game.exe"+EAEC551: FF 90 B8 00 00 00           -  call qword ptr [rax+000000B8]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>749</ID>
+              <Description>"1 = 150%"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>750</ID>
+              <Description>"2 = 150%"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>751</ID>
+              <Description>"3 = 200%"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>748</ID>
+              <Description>"Scale (%)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>resolutionscale</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>50</Key>
+                  </Keys>
+                  <Value>150</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>51</Key>
+                  </Keys>
+                  <Value>200</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>49</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>489</ID>
+      <Description>"OLD"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Field of View"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Ace7Game.exe"+5B0DA70) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+label(fov)
+registersymbol(fov)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [fov],rax
+
+exit:
+jmp returnhere
+
+fov:
+dq 0
+
+"Ace7Game.exe"+5B0DA70:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Ace7Game.exe"+5B0DA70:
+movss [rax+000002F0],xmm0
+
+unregistersymbol(fov)
+//Alt: db F3 0F 11 80 F0 02 00 00
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2</ID>
+              <Description>"FoV"</Description>
+              <VariableType>Float</VariableType>
+              <Address>fov</Address>
+              <Offsets>
+                <Offset>000002F0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>249</ID>
+          <Description>"Secondary FoV Value Read"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Ace7Game.exe"+62C060D) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+label(fov2)
+registersymbol(fov2)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [fov2], rcx
+movss [rcx+000005CC],xmm0
+
+exit:
+jmp returnhere
+
+fov2:
+dq 0
+
+"Ace7Game.exe"+62C060D:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Ace7Game.exe"+62C060D:
+movss [rcx+000005CC],xmm0
+
+unregistersymbol(fov2)
+//Alt: db CC 0F 11 81 CC 05 00 00
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>250</ID>
+              <Description>"Read"</Description>
+              <VariableType>Float</VariableType>
+              <Address>fov2</Address>
+              <Offsets>
+                <Offset>000005CC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>253</ID>
+          <Description>"Camera Distance Read"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Ace7Game.exe"+5B0AAEA) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+label(camdist)
+registersymbol(camdist)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [camdist], rbx
+movss xmm2,[rbx+00000980]
+
+exit:
+jmp returnhere
+
+camdist:
+dq 0
+
+"Ace7Game.exe"+5B0AAEA:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Ace7Game.exe"+5B0AAEA:
+movss xmm2,[rbx+00000980]
+
+unregistersymbol(camdist)
+
+//Alt: db CC 0F 10 93 80 09 00 00
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>254</ID>
+              <Description>"No description"</Description>
+              <VariableType>Float</VariableType>
+              <Address>camdist</Address>
+              <Offsets>
+                <Offset>00000980</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [rax+000002F0],xmm0</Description>
+      <AddressString>Ace7Game.exe+5B0DA70</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>60</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>80</Byte>
+        <Byte>F0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>9C</Byte>
+        <Byte>24</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov rsi,r10</Description>
+      <AddressString>TrueSkyPluginRender_MT.dll+59474</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>F2</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A4</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>F0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of nop </Description>
+      <AddressString>TrueSkyPluginRender_MT.dll+59476</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A4</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>F0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rcx-20],xmm0</Description>
+      <AddressString>Ace7Game.exe+9130172</AddressString>
+      <Before>
+        <Byte>D0</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>E0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>41</Byte>
+        <Byte>E0</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4B</Byte>
+        <Byte>F0</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rcx-10],xmm1</Description>
+      <AddressString>Ace7Game.exe+913017A</AddressString>
+      <Before>
+        <Byte>E0</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4B</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>49</Byte>
+        <Byte>F0</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>E8</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rcx-50],xmm1</Description>
+      <AddressString>Ace7Game.exe+913015A</AddressString>
+      <Before>
+        <Byte>A0</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4B</Byte>
+        <Byte>B0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>49</Byte>
+        <Byte>B0</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rcx-80],xmm0</Description>
+      <AddressString>Ace7Game.exe+9130142</AddressString>
+      <Before>
+        <Byte>9B</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>41</Byte>
+        <Byte>80</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4B</Byte>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rdi+00000418],xmm0</Description>
+      <AddressString>Ace7Game.exe+B19ED02</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>5C</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>18</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>03</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rsi],xmm0</Description>
+      <AddressString>Ace7Game.exe+5AD817C</AddressString>
+      <Before>
+        <Byte>CD</Byte>
+        <Byte>55</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+        <Byte>45</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rsi],xmm0</Description>
+      <AddressString>Ace7Game.exe+5AD817C</AddressString>
+      <Before>
+        <Byte>CD</Byte>
+        <Byte>55</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+        <Byte>45</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rdi+000003F0],ecx</Description>
+      <AddressString>Ace7Game.exe+B19ECBF</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>8F</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rdi+00000408],eax</Description>
+      <AddressString>Ace7Game.exe+B19ECEE</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rdi+0000040C],xmm0</Description>
+      <AddressString>Ace7Game.exe+B19ECE1</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>3C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>0C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rdi+0000040C],xmm0</Description>
+      <AddressString>Ace7Game.exe+B19ECE1</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>3C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>0C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rdi+00000414],eax</Description>
+      <AddressString>Ace7Game.exe+B19ECF8</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>14</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>5C</Byte>
+        <Byte>E9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+0C],r10d</Description>
+      <AddressString>nvwgf2umx.dll+C94EE1</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>5E</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>56</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C6</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [rax-28],xmm7</Description>
+      <AddressString>Ace7Game.exe+7DB1BE0</AddressString>
+      <Before>
+        <Byte>70</Byte>
+        <Byte>E8</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C4</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>78</Byte>
+        <Byte>D8</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>78</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of push rdi</Description>
+      <AddressString>Ace7Game.exe+7E964E4</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>40</Byte>
+        <Byte>55</Byte>
+        <Byte>53</Byte>
+        <Byte>56</Byte>
+      </Before>
+      <Actual>
+        <Byte>57</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>54</Byte>
+        <Byte>41</Byte>
+        <Byte>55</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rdi+00000418],xmm0</Description>
+      <AddressString>Ace7Game.exe+EA6AEC2</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>5C</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>18</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>03</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of nop </Description>
+      <AddressString>Ace7Game.exe+EA6AE9B</AddressString>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>00</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>3C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rdi+00000400],xmm0</Description>
+      <AddressString>Ace7Game.exe+EA6AE93</AddressString>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>00</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
