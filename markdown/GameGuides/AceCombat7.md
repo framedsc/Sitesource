@@ -27,7 +27,7 @@ Follow the above instructions to get the game to recognise DSR resolutions. Set 
  
 ## Tools
 
-* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.02.CT)  
+* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.02.1.CT)  
 **Features**: Camera control, FOV Control, Time Stop, Resolution Scaling
 
 Key | Function
@@ -53,8 +53,8 @@ Use ALT+ the above keys for finer control
 @end
 
 
-* [NoHUD by Pin044io](https://www.mediafire.com/file/vxnm98zjti9lo6y/ACE_COMBAT+7_HUDTOGGLE.rar)  
-Follow instructions - use CAPS LOCK to toggle HUD
+* [NoHUD](..\CheatTables\AC7_HUD_Toggle.rar)  
+Follow instructions - use TAB to toggle HUD
 
 ## Useful links
 

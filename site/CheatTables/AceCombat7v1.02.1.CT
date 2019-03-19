@@ -2,59 +2,45 @@
 <CheatTable CheatEngineTableVersion="28">
   <CheatEntries>
     <CheatEntry>
-      <ID>732</ID>
+      <ID>753</ID>
       <Description>"Activate Camera - INS"</Description>
       <Options moHideChildren="1"/>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Ace7Game.exe
-  Version: 
-  Date   : 2019-03-14
-  Author : Hussain
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-//code from here to '[DISABLE]' will be used to enable the cheat
-
- 
- 
-aobscanmodule(_CamWrites,Ace7Game.exe,F2 0F 11 87 00 04 00 00 F2 0F 10 44 24 3C F2 0F 11 87 0C 04 00 00) // should be unique
+      <AssemblerScript>[ENABLE]
+aobscanmodule(_CamWrites,Ace7Game.exe,F2 0F 11 87 ?? ?? ?? ?? F2 0F 10 44 24 ?? F2 0F 11 87 ?? ?? ?? ??) // should be unique
 registersymbol(_CamWrites)
+//
 alloc(camwrites,$1000,"Ace7Game.exe"+EA6AE93)
-label(camreturn)
-
+//
 label(camerabase)
 registersymbol(camerabase)
-
+//
 camwrites:
-  mov [camerabase],rdi        //movsd [rdi+00000400],xmm0  &lt;&lt;Cam X/Z write
+  mov [camerabase],rdi
   movsd xmm0,[rsp+3C]
-  nop                         //movsd [rdi+0000040C],xmm0  &lt;&lt;Cam Y
   movups xmm0,[rsp+48]
-  nop                         //mov [rdi+00000408],eax  &lt;&lt;write
   mov eax,[rsp+44]
-  nop                         //mov [rdi+00000414],eax  &lt;&lt;write
   mov eax,[rsp+5C]
-  nop                         //movups [rdi+00000418],xmm0  &lt;&lt;FoV Write
-  jmp camreturn
+  jmp _CamWrites+36
 
+//
 camerabase:
 dq 0
+//
 
 
 _CamWrites:
   jmp camwrites
-  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
-  camreturn:
+  db 90 90 90
+
 
 [DISABLE]
-//code from here till the end of the code will be used to disable the cheat
 _CamWrites:
-  db F2 0F 11 87 00 04 00 00 F2 0F 10 44 24 3C F2 0F 11 87 0C 04 00 00 0F 10 44 24 48 89 87 08 04 00 00 8B 44 24 44 89 87 14 04 00 00 8B 44 24 5C 0F 11 87 18 04 00 00
-
-unregistersymbol(_CamWrites)
+movsd [rdi+00000400],xmm0
+//
+unregistersymbol(camerabase)
+unregistersymbol(_CamReturn)
 dealloc(camwrites)
 
 {
@@ -79,10 +65,9 @@ dealloc(camwrites)
 "Ace7Game.exe"+EA6AEB4: 8B 44 24 44              -  mov eax,[rsp+44]
 "Ace7Game.exe"+EA6AEB8: 89 87 14 04 00 00        -  mov [rdi+00000414],eax
 "Ace7Game.exe"+EA6AEBE: 8B 44 24 5C              -  mov eax,[rsp+5C]
-"Ace7Game.exe"+EA6AEC2: E9 39 51 8B 03           -  jmp 152320000
+"Ace7Game.exe"+EA6AEC2: 0F 11 87 18 04 00 00     -  movups [rdi+00000418],xmm0
 // ---------- DONE INJECTING  ----------
-"Ace7Game.exe"+EA6AEC7: 90                       -  nop 
-"Ace7Game.exe"+EA6AEC8: 90                       -  nop 
+"Ace7Game.exe"+EA6AEC9: 83 E0 03                 -  and eax,03
 }
 </AssemblerScript>
       <Hotkeys>
@@ -96,7 +81,7 @@ dealloc(camwrites)
       </Hotkeys>
       <CheatEntries>
         <CheatEntry>
-          <ID>735</ID>
+          <ID>754</ID>
           <Description>"CamX - Num 4/6"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -159,7 +144,7 @@ dealloc(camwrites)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>736</ID>
+          <ID>755</ID>
           <Description>"CamY - Num 5/8"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -222,7 +207,7 @@ dealloc(camwrites)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>737</ID>
+          <ID>756</ID>
           <Description>"CamZ - Num 7/9"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -285,7 +270,7 @@ dealloc(camwrites)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>738</ID>
+          <ID>757</ID>
           <Description>"CamqX - Left/Right Arrows"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -330,7 +315,7 @@ dealloc(camwrites)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>739</ID>
+          <ID>758</ID>
           <Description>"CamqY - Up/Down Arrows"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -375,7 +360,7 @@ dealloc(camwrites)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>740</ID>
+          <ID>759</ID>
           <Description>"CamqZ (Tilt) - Num 1/3"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -410,7 +395,7 @@ dealloc(camwrites)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>479</ID>
+          <ID>760</ID>
           <Description>"FoV Num +/-"</Description>
           <VariableType>Float</VariableType>
           <Address>camerabase</Address>
@@ -442,7 +427,7 @@ dealloc(camwrites)
       <ID>752</ID>
       <Description>"Find Timescale &amp; Res Scale (DEL)"</Description>
       <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
-      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <Hotkeys>
         <Hotkey>
@@ -458,7 +443,7 @@ dealloc(camwrites)
           <ID>258</ID>
           <Description>"Timescale"</Description>
           <Options moHideChildren="1"/>
-          <LastState Activated="1"/>
+          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Ace7Game.exe
   Version:
@@ -565,7 +550,7 @@ dealloc(timescale)
           <ID>747</ID>
           <Description>"Find Resolution Scale"</Description>
           <Options moHideChildren="1"/>
-          <LastState Activated="1"/>
+          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>[ENABLE]
 aobscanmodule(_ResScale,Ace7Game.exe,F3 0F 10 00 F3 41 0F 59 C1) // should be unique
@@ -697,182 +682,432 @@ dealloc(resscale)
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>1</ID>
-          <Description>"Field of View"</Description>
+          <ID>732</ID>
+          <Description>"Activate Camera - INS"</Description>
           <Options moHideChildren="1"/>
           <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
+          <AssemblerScript>{ Game   : Ace7Game.exe
+  Version: 
+  Date   : 2019-03-14
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
-alloc(newmem,2048,"Ace7Game.exe"+5B0DA70) 
-label(returnhere)
-label(originalcode)
-label(exit)
 
-label(fov)
-registersymbol(fov)
+ 
+ 
+aobscanmodule(_CamWrites,Ace7Game.exe,F2 0F 11 87 00 04 00 00 F2 0F 10 44 24 3C F2 0F 11 87 0C 04 00 00) // should be unique
+//aobscanmodule(_CamReturn,Ace7Game.exe,83 E0 03 F3 0F 10 44 24 ?? 09 87 ?? ?? ?? ??)
+//registersymbol(_CamReturn)
+registersymbol(_CamWrites)
+alloc(camwrites,$1000,"Ace7Game.exe"+EA6AE93)
+label(camreturn)
 
-newmem: //this is allocated memory, you have read,write,execute access
-//place your code here
+label(camerabase)
+registersymbol(camerabase)
 
-originalcode:
-mov [fov],rax
+camwrites:
+  mov [camerabase],rdi        //movsd [rdi+00000400],xmm0  &lt;&lt;Cam X/Z write
+  movsd xmm0,[rsp+3C]
+  nop                         //movsd [rdi+0000040C],xmm0  &lt;&lt;Cam Y
+  movups xmm0,[rsp+48]
+  nop                         //mov [rdi+00000408],eax  &lt;&lt;write
+  mov eax,[rsp+44]
+  nop                         //mov [rdi+00000414],eax  &lt;&lt;write
+  mov eax,[rsp+5C]
+  nop                         //movups [rdi+00000418],xmm0  &lt;&lt;FoV Write
+  jmp camreturn
 
-exit:
-jmp returnhere
-
-fov:
+camerabase:
 dq 0
 
-"Ace7Game.exe"+5B0DA70:
-jmp newmem
-nop
-nop
-nop
-returnhere:
 
+_CamWrites:
+  jmp camwrites
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+  camreturn:
 
- 
- 
 [DISABLE]
 //code from here till the end of the code will be used to disable the cheat
-dealloc(newmem)
-"Ace7Game.exe"+5B0DA70:
-movss [rax+000002F0],xmm0
+_CamWrites:
+  db F2 0F 11 87 00 04 00 00 F2 0F 10 44 24 3C F2 0F 11 87 0C 04 00 00 0F 10 44 24 48 89 87 08 04 00 00 8B 44 24 44 89 87 14 04 00 00 8B 44 24 5C 0F 11 87 18 04 00 00
 
-unregistersymbol(fov)
-//Alt: db F3 0F 11 80 F0 02 00 00
+unregistersymbol(_CamWrites)
+dealloc(camwrites)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Ace7Game.exe"+EA6AE93
+
+"Ace7Game.exe"+EA6AE5E: 48 8B 07                 -  mov rax,[rdi]
+"Ace7Game.exe"+EA6AE61: 48 89 F9                 -  mov rcx,rdi
+"Ace7Game.exe"+EA6AE64: FF 90 38 01 00 00        -  call qword ptr [rax+00000138]
+"Ace7Game.exe"+EA6AE6A: F2 0F 10 44 24 30        -  movsd xmm0,[rsp+30]
+"Ace7Game.exe"+EA6AE70: 48 8D 54 24 70           -  lea rdx,[rsp+70]
+"Ace7Game.exe"+EA6AE75: 8B 88 70 09 00 00        -  mov ecx,[rax+00000970]
+"Ace7Game.exe"+EA6AE7B: 8B 44 24 38              -  mov eax,[rsp+38]
+"Ace7Game.exe"+EA6AE7F: 89 8F F0 03 00 00        -  mov [rdi+000003F0],ecx
+"Ace7Game.exe"+EA6AE85: 48 8D 8F 40 04 00 00     -  lea rcx,[rdi+00000440]
+"Ace7Game.exe"+EA6AE8C: 83 A7 2C 04 00 00 FC     -  and dword ptr [rdi+0000042C],-04
+// ---------- INJECTING HERE ----------
+"Ace7Game.exe"+EA6AE93: F2 0F 11 87 00 04 00 00  -  movsd [rdi+00000400],xmm0
+"Ace7Game.exe"+EA6AE9B: F2 0F 10 44 24 3C        -  movsd xmm0,[rsp+3C]
+"Ace7Game.exe"+EA6AEA1: F2 0F 11 87 0C 04 00 00  -  movsd [rdi+0000040C],xmm0
+"Ace7Game.exe"+EA6AEA9: 0F 10 44 24 48           -  movups xmm0,[rsp+48]
+"Ace7Game.exe"+EA6AEAE: 89 87 08 04 00 00        -  mov [rdi+00000408],eax
+"Ace7Game.exe"+EA6AEB4: 8B 44 24 44              -  mov eax,[rsp+44]
+"Ace7Game.exe"+EA6AEB8: 89 87 14 04 00 00        -  mov [rdi+00000414],eax
+"Ace7Game.exe"+EA6AEBE: 8B 44 24 5C              -  mov eax,[rsp+5C]
+"Ace7Game.exe"+EA6AEC2: E9 39 51 8B 03           -  jmp 152320000
+// ---------- DONE INJECTING  ----------
+"Ace7Game.exe"+EA6AEC7: 90                       -  nop 
+"Ace7Game.exe"+EA6AEC8: 90                       -  nop 
+}
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
-              <ID>2</ID>
-              <Description>"FoV"</Description>
+              <ID>735</ID>
+              <Description>"CamX - Num 4/6"</Description>
               <VariableType>Float</VariableType>
-              <Address>fov</Address>
+              <Address>camerabase</Address>
               <Offsets>
-                <Offset>000002F0</Offset>
+                <Offset>00000400</Offset>
               </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
             </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>249</ID>
-          <Description>"Secondary FoV Value Read"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-//code from here to '[DISABLE]' will be used to enable the cheat
-alloc(newmem,2048,"Ace7Game.exe"+62C060D) 
-label(returnhere)
-label(originalcode)
-label(exit)
-
-label(fov2)
-registersymbol(fov2)
-
-newmem: //this is allocated memory, you have read,write,execute access
-//place your code here
-
-originalcode:
-mov [fov2], rcx
-movss [rcx+000005CC],xmm0
-
-exit:
-jmp returnhere
-
-fov2:
-dq 0
-
-"Ace7Game.exe"+62C060D:
-jmp newmem
-nop
-nop
-nop
-returnhere:
-
-
- 
- 
-[DISABLE]
-//code from here till the end of the code will be used to disable the cheat
-dealloc(newmem)
-"Ace7Game.exe"+62C060D:
-movss [rcx+000005CC],xmm0
-
-unregistersymbol(fov2)
-//Alt: db CC 0F 11 81 CC 05 00 00
-</AssemblerScript>
-          <CheatEntries>
             <CheatEntry>
-              <ID>250</ID>
-              <Description>"Read"</Description>
+              <ID>736</ID>
+              <Description>"CamY - Num 5/8"</Description>
               <VariableType>Float</VariableType>
-              <Address>fov2</Address>
+              <Address>camerabase</Address>
               <Offsets>
-                <Offset>000005CC</Offset>
+                <Offset>404</Offset>
               </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
             </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>253</ID>
-          <Description>"Camera Distance Read"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-//code from here to '[DISABLE]' will be used to enable the cheat
-alloc(newmem,2048,"Ace7Game.exe"+5B0AAEA) 
-label(returnhere)
-label(originalcode)
-label(exit)
-
-label(camdist)
-registersymbol(camdist)
-
-newmem: //this is allocated memory, you have read,write,execute access
-//place your code here
-
-originalcode:
-mov [camdist], rbx
-movss xmm2,[rbx+00000980]
-
-exit:
-jmp returnhere
-
-camdist:
-dq 0
-
-"Ace7Game.exe"+5B0AAEA:
-jmp newmem
-nop
-nop
-nop
-returnhere:
-
-
- 
- 
-[DISABLE]
-//code from here till the end of the code will be used to disable the cheat
-dealloc(newmem)
-"Ace7Game.exe"+5B0AAEA:
-movss xmm2,[rbx+00000980]
-
-unregistersymbol(camdist)
-
-//Alt: db CC 0F 10 93 80 09 00 00
-</AssemblerScript>
-          <CheatEntries>
             <CheatEntry>
-              <ID>254</ID>
-              <Description>"No description"</Description>
+              <ID>737</ID>
+              <Description>"CamZ - Num 7/9"</Description>
               <VariableType>Float</VariableType>
-              <Address>camdist</Address>
+              <Address>camerabase</Address>
               <Offsets>
-                <Offset>00000980</Offset>
+                <Offset>408</Offset>
               </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>738</ID>
+              <Description>"CamqX - Left/Right Arrows"</Description>
+              <VariableType>Float</VariableType>
+              <Address>camerabase</Address>
+              <Offsets>
+                <Offset>40C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>739</ID>
+              <Description>"CamqY - Up/Down Arrows"</Description>
+              <VariableType>Float</VariableType>
+              <Address>camerabase</Address>
+              <Offsets>
+                <Offset>410</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>740</ID>
+              <Description>"CamqZ (Tilt) - Num 1/3"</Description>
+              <VariableType>Float</VariableType>
+              <Address>camerabase</Address>
+              <Offsets>
+                <Offset>414</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>479</ID>
+              <Description>"FoV Num +/-"</Description>
+              <VariableType>Float</VariableType>
+              <Address>camerabase</Address>
+              <Offsets>
+                <Offset>00000418</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -1400,6 +1635,76 @@ unregistersymbol(camdist)
         <Byte>10</Byte>
         <Byte>44</Byte>
         <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,r8</Description>
+      <AddressString>vcruntime140.dll+1696</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F9</Byte>
+      </Before>
+      <Actual>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>AA</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx+1C],r12</Description>
+      <AddressString>Ace7Game.exe+B75D7DC</AddressString>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>61</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>82</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of inc [rsi+20]</Description>
+      <AddressString>Ace7Game.exe+B705AC4</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>41</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>46</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8F</Byte>
+        <Byte>80</Byte>
       </After>
     </CodeEntry>
   </CheatCodes>

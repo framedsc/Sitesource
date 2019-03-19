@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"Remove FoV Limit (INS)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(_FOVLimit,NMS.exe,F3 0F 10 51 ?? 4C 8D 4C 24 ??) // Scan for FoV write
+registersymbol(_FOVLimit)
+alloc(fovlimit,$1000,"NMS.exe"+B45D7E)
+label(fovlimitreturn)
+//
+alloc(hookreturn,5) //Allocate memory to store the AOBScan result so we can restore previous bytes with wildcards
+registersymbol(hookreturn)
+//
+label(fovbase)
+registersymbol(fovbase)
+//
+alloc(OGvalue,4) // Allocate memory (4 bytes) for the Minimum FoV value
+registersymbol(OGvalue) // Register symbol so we can reference in CE
+//
+
+fovlimit:
+  movss xmm2,[rcx+74] //Opcode that moves current FoV into memory for other operations
+  mov [fovbase],rcx // Copy FoV base address
+  mov [rcx+68],(float)1.00 // Write 1 into FoV lower limit
+  jmp fovlimitreturn //jump back into game code
+
+//
+fovbase:
+dq 0
+//
+OGvalue:
+dq (float)50
+//
+hookreturn: //read first 5 bytes from AOB scan into hookreturn. First 5 as the code we want to put back is 5 bytes long
+readmem(_FOVLimit,5)
+//
+
+_FOVLimit:
+  jmp fovlimit
+  fovlimitreturn:
+
+
+[DISABLE]
+//return bytes to the way they were
+_FOVLimit:
+readmem(hookreturn,5)
+
+//return minimum FoV to what it was
+[fovbase]+68:
+readmem(OGvalue,4)
+
+
+unregistersymbol(fovminaddress)
+unregistersymbol(OGvalue)
+unregistersymbol(fovbase)
+unregistersymbol(_FOVLimit)
+dealloc(OGvalue)
+dealloc(hookreturn)
+dealloc(fovlimit)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "NMS.exe"+B45D7E
+
+"NMS.exe"+B45D54: 48 89 5C 24 48           -  mov [rsp+48],rbx
+"NMS.exe"+B45D59: 83 EA 01                 -  sub edx,01
+"NMS.exe"+B45D5C: 0F 84 D2 01 00 00        -  je NMS.exe+B45F34
+"NMS.exe"+B45D62: 0F 29 74 24 20           -  movaps [rsp+20],xmm6
+"NMS.exe"+B45D67: 83 EA 01                 -  sub edx,01
+"NMS.exe"+B45D6A: 0F 84 A7 00 00 00        -  je NMS.exe+B45E17
+"NMS.exe"+B45D70: 83 EA 01                 -  sub edx,01
+"NMS.exe"+B45D73: 74 46                    -  je NMS.exe+B45DBB
+"NMS.exe"+B45D75: 83 FA 01                 -  cmp edx,01
+"NMS.exe"+B45D78: 0F 85 A6 01 00 00        -  jne NMS.exe+B45F24
+// ---------- INJECTING HERE ----------
+"NMS.exe"+B45D7E: F3 0F 10 51 74           -  movss xmm2,[rcx+74]
+// ---------- DONE INJECTING  ----------
+"NMS.exe"+B45D83: 4C 8D 4C 24 40           -  lea r9,[rsp+40]
+"NMS.exe"+B45D88: 0F 5A D2                 -  vcvtps2pd xmm2,xmm2
+"NMS.exe"+B45D8B: 48 8D 15 A6 28 2D 01     -  lea rdx,[NMS.exe+1E18638]
+"NMS.exe"+B45D92: 66 C7 44 24 40 C2 B0     -  mov word ptr [rsp+40],B0C2
+"NMS.exe"+B45D99: 48 8B CF                 -  mov rcx,rdi
+"NMS.exe"+B45D9C: C6 44 24 42 00           -  mov byte ptr [rsp+42],00
+"NMS.exe"+B45DA1: 66 49 0F 7E D0           -  movq r8,xmm2
+"NMS.exe"+B45DA6: E8 F5 A2 AF FF           -  call NMS.exe+6400A0
+"NMS.exe"+B45DAB: 0F 28 74 24 20           -  movaps xmm6,[rsp+20]
+"NMS.exe"+B45DB0: 48 8B 5C 24 48           -  mov rbx,[rsp+48]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>45</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>29</ID>
+          <Description>"CurrentFoV"</Description>
+          <VariableType>Float</VariableType>
+          <Address>fovbase</Address>
+          <Offsets>
+            <Offset>74</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"LowerLimitFoV"</Description>
+          <VariableType>Float</VariableType>
+          <Address>fovbase</Address>
+          <Offsets>
+            <Offset>68</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
