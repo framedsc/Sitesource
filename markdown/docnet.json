@@ -37,6 +37,12 @@
 			"__index": "GeneralGuides\\index.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
-		} 
+		}, 
+		"Reshade shader guides" :
+		{
+			"__index": "ReshadeShaderGuides\\index.md",
+			"General info": "ReshadeShaderGuides\\generalinfo.md",
+			"Cinematic DOF" : "ReshadeShaderGuides\\cinematicdof.md",
+		}
     }
 }
