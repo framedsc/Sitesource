@@ -1,4 +1,4 @@
-General info
+Setting up Reshade
 ============
 
 Reshade is a powerful post-processing system with a lot of features. To get the most out of Reshade, it's key to set it up 
