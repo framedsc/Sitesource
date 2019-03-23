@@ -194,13 +194,15 @@ The near plane doesn't have normalization as it doesn't need it: the blur system
 
 ## Anamorphism control
 
-There are various lens effects known from cinema, one of them is anamorphic bokeh shapes, which means the bokeh shapes don't form perfect round circles around edges. 
-Cinematic DoF offers three factors to control the anamorphic behavior of the bokeh shapes. 
+There are various lens effects known from cinema, one of them is anamorphic bokeh shapes, which means the bokeh shapes don't form perfect round circles around edges but
+ellipses. This effect is caused by using a lens to project a wider image onto a narrower lens opening, resulting in vertical ellipses. Cinematic DoF offers 
+this feature and adds additional options to distort the ellipses to mimic edge distortion as well. These three settings are combined in the Anamorphism control section
+in the shader controls. 
 
 ### Anamorphic factor
-The first factor is the factor to control of the anamorphism of the bokeh shapes, the **Anamorphic factor**. By default it's 1.0, which means all bokeh shapes are 
-fine round circles. Moving the value down to 0.0 will make them appear more and more line elipses. Below is an example of a scene with an anamorphic factor of 0.7. 
-It shows slight deformation around the edges, but close to the center the shapes are still round.
+The first factor is the factor to control the amount of the anamorphism of the bokeh shapes, the **Anamorphic factor**. By default it's 1.0, which means all bokeh shapes are 
+fine round circles. Moving the value down to 0.0 will make them appear more and more like elipses. Below is an example of a scene with an anamorphic factor of 0.7. 
+It shows slight deformation around the edges, but close to the center the shapes are still round. This can be used to mimic edge distortion in fisheye lenses.
 
 ![Anamorphic factor](../../Images/ShaderGuides/CinematicDOF/ana_factor.jpg "Anamorphic factor of 0.7"){.shadowed}
 
@@ -213,10 +215,13 @@ to a value higher than 0.0, with 1.0 being the factor where the anamorphism is a
 
 ### Anamorphic alignment factor
 
-Not everyone wants the anamorphism to rotate around the center. If you for instance want the anamorphism to appear more vertical, you can tweak the **Anamorphic alignment factor**
-with a value of 0.0 being the alignment we've seen in the previous shots and 1.0 being an alignment of completely vertical bokeh elipses. An example of that is below.
+The **Anamorphic alignment factor** is the factor that gives us the classic anamorphic effect of vertical ellipses: using a value of 1.0 the ellipses are aligned
+vertically like with a classic anamorphic lens. If you use a value lower than 1.0, the ellipses are rotated around the center, 
+with a value of 0.0 being the alignment we've seen in the previous shots. An example of having the setting set to 1.0 to get the classic anamorphic lens behavior 
+can be seen below.
 
 ![Anamorphic spread factor](../../Images/ShaderGuides/CinematicDOF/ana_alignmentfactor.jpg "Anamorphic factor of 0.6 with spread factor of 1.0 and alignment factor of 1.0"){.shadowed}
+
 
 ### Go wild
 
