@@ -72,9 +72,17 @@ Double click that bat file and your monitor(s) will shut off for about 10 second
 
 When your monitor(s) come back on, check your display settings and you should see your new custom resolutions ready to go. [Success?](http://i.imgur.com/QokCunW.png)
 
-## 5. Enjoy your new resolutions!
+## 5. A little House Cleaning
+
+Some games, not all, will require you to adjust your desktop size and position settings in the Nvidia control panel. You want want to make sure you perform scaling on the GPU and override the scaling mode set by games and programs.
+
+![Control Panel Settings](https://i.imgur.com/aZKYJnL.png)
+
+**Now go enjoy your resolutions!**
 
 In the future, if you want to use 10 completely new custom resolutions, you simply type them into the tool and you'll be able to use them in 30 seconds.
 
-Hopefully some people get some use out of this. If you have any questions or something isn't working, let me know. 
+If you have any questions or something isn't working, let me know. 
+
+/End
 
