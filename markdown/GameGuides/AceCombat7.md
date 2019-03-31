@@ -27,34 +27,47 @@ Follow the above instructions to get the game to recognise DSR resolutions. Set 
  
 ## Tools
 
-* [CE Table by ghostinthecamera](..\CheatTables\AceCombat7v1.02.1.CT)  
-**Features**: Camera control, FOV Control, Time Stop, Resolution Scaling
+* [Camera Tools by ghostinthecamera](https://github.com/ghostinthecamera/IGCS-GITC/releases/tag/AC7v1.1)  
+**Features**: Camera control, FOV Control, Time Stop, Resolution Scaling, HUD Toggle, Time Skip.
 
-Key | Function
---|--
-DEL | Activate Timestop & Resolution Scale Read
-Num 0 | Stop time
-Num Del | Resume time
-INS | Activate camera
-Num 4/5/6/7/8/9 | Camera Movement
-Num +/- | FoV Control
-Num 1/3 | Tilt
-Num 2 | Reset tilt to 0
-Arrow Keys | Camera Rotation
-Number Key 1 | Resolution Scale = 100%
-Number Key 2 | Resolution Scale = 150%
-Number Key 3 | Resolution Scale = 200%
+@alert important
+**HUD Toggle**  
+As of v1.1 there is HUD toggle in the tools. However, if the HUD toggle is used after the game is paused, not all HUD elements may be removed. To prevent this, by default, the game will turn the HUD off when you press the game pause key. In order to do this, a small delay of 300ms is introduced to allow all HUD elements to be removed before the game is actually paused. 
 
-@alert tip
-**Modifiers**  
-Use CTRL+ the above keys to increase speed of motion
+This may make action shots a little more difficult due to the delay between pressing the game pause key and the game actually pausing. If you need the game pause to have no delay you have a couple of options:
 
-Use ALT+ the above keys for finer control
+1. Change the default behaviour of the game pause so that it does not toggle the HUD. You can find this in Misc options in the overlay. It is activated by default. You will then have to ensure the HUD is disabled manually prior to pausing the game.  
+
+2. Use the 3dmigoto HUD toggle included in the package.
+
+You can have the 3dmigoto HUD toggle installed and use the tools built in HUD toggle. They do not prevent each others functioning.
 @end
 
 
-* [NoHUD](..\CheatTables\AC7_HUD_Toggle.rar)  
-Follow instructions - use TAB to toggle HUD
+Key/button | Description
+--|--
+Ctrl-Ins | Show / Hide Camera tools main window
+Ctrl + Mouse wheel | Resize font
+Ins | Enable/Disable camera
+DEL | Toggle HUD
+HOME | Lock/unlock camera movement
+PG UP | Skip forward specified time in milliseconds when the game is paused
+TAB | 3dmigoto HUD toggle
+ALT + rotate/move | Faster rotate / move
+Right-CTRL + rotate/move | Slower rotate / move
+Controller Y-button + l/r-stick | Faster rotate / move
+Controller X-button + l/r-stick | Slower rotate / move
+Arrow up/down or mouse or r-stick | Rotate camera up/down
+Arrow left/right or mouse or r-stick | Rotate camera left/right
+Numpad 8/Numpad 5 or l-stick | Move camera forward/backward
+Numpad 4/Numpad 6 or l-stick | Move camera left / right
+Numpad 7/Numpad 9 or l/r-trigger | Move camera up / down
+Numpad 1/Numpad 3 or d-pad left/right | Tilt camera left / right
+Numpad +/- or d-pad up/down | Increase / decrease FoV
+Numpad * or controller B-button | Reset FoV
+Numpad . | Block input to game for camera control device.
+Numpad 0 | Toggle game pause
+
 
 ## Useful links
 
