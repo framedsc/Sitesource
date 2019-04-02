@@ -26,8 +26,8 @@ DirectX versions | DirectX 11
 
 Start out by clicking the box next to "Enable Screenshotting." This fetches AOBS and pointers required for the table features. 
 
-* F1 will enable the "free camera." This gives you control over the coordinates, though it will not be normal WASD camera movement. The hotkeys display when you enable the script. 
-* F2 will hide the HUD and F3 will show it. Though bear in mind that once you timestop the game, the hud toggle doesn't function quite right. So turn it off before freezing the game for best results.
-* F4 will toggle the "PlayersOnly" script. This is similar to the Unreal Engine 3 cheat which freezes all non-player characters. You can toggle this to try and freeze an enemy in the middle of an animation in order to try and set up an action shot. You can try and position yourself while your enemies are frozen, then use the proper timestop to freeze your character and effects.
-* Numpad 0 will freeze the game. Numpad . (period) will resume. Numpad 5 is super slow motion.
+* **F1** will enable the "free camera." This gives you control over the coordinates, though it will not be normal WASD camera movement. The hotkeys display when you enable the script. 
+* **F2** will hide the HUD and F3 will show it. Though bear in mind that once you timestop the game, the hud toggle doesn't function quite right. So turn it off before freezing the game for best results.
+* **F4** will toggle the "PlayersOnly" script. This is similar to the Unreal Engine 3 cheat which freezes all non-player characters. You can toggle this to try and freeze an enemy in the middle of an animation in order to try and set up an action shot. You can try and position yourself while your enemies are frozen, then use the proper timestop to freeze your character and effects.
+* **Numpad 0** will freeze the game. **Numpad .** (period) will resume. Numpad 5 is super slow motion.
 
