@@ -22,7 +22,7 @@ the window border.
 
 To create shots in this game, use the in-game photomode together with the cheat table below.
 
-* [CE Table by GhostIntheCamera and Otis_Inf](..\CheatTables\fc5.ct)  
+* [CE Table by GhostIntheCamera and Otis_Inf](..\CheatTables\FC5.ct)  
 **Features**: range limit removal and FoV range removal in photomode
 
 ## Useful links
