@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="21">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"Bloom Threshold"</Description>
+      <LastState Value="0" RealAddress="7FFB6C66ED28"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+048ED28</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Bloom intensity"</Description>
+      <LastState Value="100" RealAddress="7FFB6C66EC58"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+48EC58</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Brightness"</Description>
+      <LastState Value="1" RealAddress="7FFB6C915CB8"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+735Cb8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Saturation"</Description>
+      <LastState Value="1" RealAddress="7FFB6C915D88"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+735D88</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Levels max"</Description>
+      <LastState Value="1" RealAddress="7FFB6C915F28"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+735F28</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Levels min"</Description>
+      <LastState Value="0" RealAddress="7FFB6C915E58"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+735E58</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Shadow Color Balance"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Red"</Description>
+          <LastState Value="1" RealAddress="7FFB6C915FF8"/>
+          <VariableType>Float</VariableType>
+          <Address>renderer_x64_f.dll+735FF8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"Green"</Description>
+          <LastState Value="1" RealAddress="7FFB6C915FFC"/>
+          <VariableType>Float</VariableType>
+          <Address>renderer_x64_f.dll+735FFC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"Blue"</Description>
+          <LastState Value="1" RealAddress="7FFB6C916000"/>
+          <VariableType>Float</VariableType>
+          <Address>renderer_x64_f.dll+736000</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Highlights Color Balance"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Red"</Description>
+          <LastState Value="0" RealAddress="7FFB6C9160F8"/>
+          <VariableType>Float</VariableType>
+          <Address>renderer_x64_f.dll+7360f8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Green"</Description>
+          <LastState Value="0" RealAddress="7FFB6C9160FC"/>
+          <VariableType>Float</VariableType>
+          <Address>renderer_x64_f.dll+7360fC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Blue"</Description>
+          <LastState Value="0" RealAddress="7FFB6C916100"/>
+          <VariableType>Float</VariableType>
+          <Address>renderer_x64_f.dll+736100</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"Vignette"</Description>
+      <LastState Value="0" RealAddress="7FFB6C9161F8"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+7361F8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"Film Grain"</Description>
+      <LastState Value="0" RealAddress="7FFB6C9162C8"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+7362C8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"Radial blur"</Description>
+      <LastState Value="50" RealAddress="7FFB6C916FA8"/>
+      <VariableType>Float</VariableType>
+      <Address>renderer_x64_f.dll+736FA8</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

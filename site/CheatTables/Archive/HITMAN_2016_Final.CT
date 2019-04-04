@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="19">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>156</ID>
+      <Description>"Camera + FOV [F2]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(fovAOB,hitman.exe,74 31 F3 0F 10 05 x x x x F3 0F 11)
+
+alloc(camX,2048,"hitman.exe")
+label(returnhereX)
+label(exitX)
+label(originalCodeX)
+
+label(camera)
+registersymbol(camera)
+
+label(lockCode)
+label(toggleMode)
+label(checkMode)
+label(originalCodeLM)
+
+label(toggleLock)
+registersymbol(toggleLock)
+label(currentMode)
+registersymbol(currentMode)
+
+registersymbol(fovAOB)
+
+/***************************************
+           Custom Code Section
+***************************************/
+
+/*
+Filters out non-camera addresses.
+Writes only the camera address to symbol.
+*/
+
+camX:
+cmp [rbx+38],0
+jne originalCodeX
+// could also check +20 or +24 for 0 if the above fails
+mov [camera],rbx
+jmp exitX
+
+exitX:
+jmp returnhereX
+
+originalCodeX:
+movss [rbx+00000090],xmm0
+jmp exitX
+
+/*
+Toggles writing to the rotation matrix.
+Keeps camera in place when alt-tabbed.
+*/
+
+lockmouse:
+cmp [toggleLock],1
+je toggleMode
+jmp checkMode
+
+
+toggleMode:
+mov [toggleLock],0
+cmp [currentMode],1
+je originalCodeLM
+jmp lockCode
+
+checkMode:
+cmp [currentMode],1
+je lockCode
+jmp originalCodeLM
+
+lockCode:
+mov [currentMode],1
+jmp exit_lock
+
+originalCodeLM:
+movups [rbx+00000080],xmm0
+mov [currentMode],0
+jmp exit_lock
+
+exit_lock:
+jmp return_lock
+
+/***************************************
+           Default Values
+***************************************/
+
+///
+camera:
+dq 0
+currentMode:
+dd 0
+toggleLock:
+dd 0
+///
+
+/***************************************
+           Opcode Overrides
+***************************************/
+
+// camera
+
+"hitman.exe"+419037A:
+jmp camX
+nop
+nop
+nop
+returnhereX:
+
+"hitman.exe"+4190390:
+db 90 90 90 90 90 90 90 90
+
+"hitman.exe"+4190388:
+db 90 90 90 90 90 90 90 90
+
+// FOV
+
+fovAOB:
+db 90 90
+
+fovAOB+22:
+db 90 90 90 90 90 90 90 90
+
+// lock mouse
+
+"hitman.exe"+419036D:
+jmp lockmouse
+nop
+nop
+return_lock:
+
+
+/***************************************
+           Disable Section
+***************************************/
+
+[DISABLE]
+dealloc(newmem)
+// CAMERA OPCODES
+"hitman.exe"+419037A:
+movss [rbx+00000090],xmm0
+"hitman.exe"+4190390:
+movss [rbx+00000094],xmm1
+"hitman.exe"+4190388:
+movss [rbx+00000098],xmm0
+// FOV OPCODES
+fovAOB:
+je hitman.CAkRegisteredObj::~CAkRegisteredObj+425C6A
+movss xmm0,[hitman.Ordinal277+1303614]
+fovAOB+22:
+movss [rcx+0000017C],xmm0
+// LOCK MOUSE
+"hitman.exe"+419036D:
+movups [rbx+00000080],xmm0
+unregistersymbol(camera)
+unregistersymbol(fovAOB)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1656</ID>
+          <Description>"Camera Coords - Numpad 4\6, 2\8, 3\9"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10986</ID>
+          <Description>"X"</Description>
+          <LastState Value="50.66411591" RealAddress="1F7462510"/>
+          <VariableType>Float</VariableType>
+          <Address>camera</Address>
+          <Offsets>
+            <Offset>90</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>.5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>.5</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10987</ID>
+          <Description>"Y"</Description>
+          <LastState Value="-47.8620491" RealAddress="1F7462514"/>
+          <VariableType>Float</VariableType>
+          <Address>camera</Address>
+          <Offsets>
+            <Offset>94</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>.5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>.5</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10988</ID>
+          <Description>"Z"</Description>
+          <LastState Value="14.72719383" RealAddress="1F7462518"/>
+          <VariableType>Float</VariableType>
+          <Address>camera</Address>
+          <Offsets>
+            <Offset>98</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>.3</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>.3</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11014</ID>
+          <Description>"FOV = Numpad + -"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10989</ID>
+          <Description>"FOV"</Description>
+          <LastState Value="0.6981316805" RealAddress="1F74625FC"/>
+          <VariableType>Float</VariableType>
+          <Address>camera</Address>
+          <Offsets>
+            <Offset>17C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>.7</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11012</ID>
+          <Description>"Lock Camera [F5]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11008</ID>
+          <Description>"Toggle Mouse Lock"</Description>
+          <LastState Value="0" RealAddress="13FF800E3"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>toggleLock</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11013</ID>
+          <Description>"Camera Locked"</Description>
+          <LastState Value="0" RealAddress="13FF800DF"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>currentMode</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11006</ID>
+      <Description>"Game Speed [F3]"</Description>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(timeAOB,hitman.exe,F3 0F 59 43 48 F3 0F 59 05)
+
+alloc(newmem,2048,"hitman.exe")
+label(returnhere)
+label(exit)
+
+label(gameSpeed)
+registersymbol(gameSpeed)
+registersymbol(timeAOB)
+
+newmem:
+mov [gameSpeed],rbx
+mulss xmm0,[rbx+48]
+jmp exit
+
+exit:
+jmp returnhere
+
+//
+
+///
+gameSpeed:
+dq 0
+///
+
+timeAOB:
+jmp newmem
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+timeAOB:
+mulss xmm0,[rbx+48]
+unregistersymbol(gameSpeed)
+unregistersymbol(timeAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10296</ID>
+          <Description>"Pause [F3]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10297</ID>
+          <Description>"Resume [F4]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11007</ID>
+          <Description>"Game Speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>gameSpeed</Address>
+          <Offsets>
+            <Offset>48</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <Value>0.0001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Camera Z</Description>
+      <Address>144190388</Address>
+      <ModuleName>hitman.exe</ModuleName>
+      <ModuleNameOffset>4190388</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>8B</Byte>
+        <Byte>94</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Camera X</Description>
+      <Address>14419037A</Address>
+      <ModuleName>hitman.exe</ModuleName>
+      <ModuleNameOffset>419037A</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Camera Y</Description>
+      <Address>144190390</Address>
+      <ModuleName>hitman.exe</ModuleName>
+      <ModuleNameOffset>4190390</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>8B</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>3B</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>FOV 2</Description>
+      <Address>1444AEA69</Address>
+      <ModuleName>hitman.exe</ModuleName>
+      <ModuleNameOffset>44AEA69</ModuleNameOffset>
+      <Before>
+        <Byte>72</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>81</Byte>
+        <Byte>7C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>AA</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>FOV 1</Description>
+      <Address>1444AEA47</Address>
+      <ModuleName>hitman.exe</ModuleName>
+      <ModuleNameOffset>44AEA47</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>FC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>31</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Rotation Matrix?</Description>
+      <Address>14419036D</Address>
+      <ModuleName>hitman.exe</ModuleName>
+      <ModuleNameOffset>419036D</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>54</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>coords2</Name>
+      <Address>0D3B0042</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ammo</Name>
+      <Address>006F5C80</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>invis1</Name>
+      <Address>00A0A926</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>coords3</Name>
+      <Address>0D3F0029</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>toggleLock</Name>
+      <Address>13FF800E3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>currentMode</Name>
+      <Address>13FF800DF</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

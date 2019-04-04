@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="16">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>8962</ID>
+      <Description>"Coordinates"</Description>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"WolfNewOrder_x64.exe"+23E764)
+label(returnhere)
+label(originalcode)
+label(exit)
+label(CordPointer)
+registersymbol(CordPointer)
+
+newmem:
+mov [CordPointer],rcx
+mov eax,[rcx+00000224]
+jmp exit
+
+originalcode:
+mov eax,[rcx+00000224]
+
+exit:
+jmp returnhere
+
+///
+CordPointer:
+dd 0
+///
+
+"WolfNewOrder_x64.exe"+23E764:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"WolfNewOrder_x64.exe"+23E764:
+mov eax,[rcx+00000224]
+unregistersymbol(fovPointer)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8976</ID>
+          <Description>"X"</Description>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>CordPointer</Address>
+          <Offsets>
+            <Offset>228</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8977</ID>
+          <Description>"Y"</Description>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>CordPointer</Address>
+          <Offsets>
+            <Offset>224</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8975</ID>
+          <Description>"Z"</Description>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>CordPointer</Address>
+          <Offsets>
+            <Offset>22C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>517</ID>
+      <Description>"Kill Gravity"</Description>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"WolfNewOrder_x64.exe"+242554) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//Hi
+
+exit:
+jmp returnhere
+
+"WolfNewOrder_x64.exe"+242554:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"WolfNewOrder_x64.exe"+242554:
+movss [rdi+0000022C],xmm0
+//Alt: db F3 0F 11 87 2C 02 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8979</ID>
+      <Description>"Disable Movement"</Description>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"WolfNewOrder_x64.exe"+24254C)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+// do nothing
+
+originalcode:
+movss [rdi+00000228],xmm1
+
+exit:
+jmp returnhere
+
+"WolfNewOrder_x64.exe"+24254C:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"WolfNewOrder_x64.exe"+24254C:
+movss [rdi+00000228],xmm1
+//Alt: db F3 0F 11 87 2C 02 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8980</ID>
+      <Description>"Disable Movement"</Description>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"WolfNewOrder_x64.exe"+24253E)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+// do nothing
+
+originalcode:
+movss [rdi+00000224],xmm0
+
+exit:
+jmp returnhere
+
+"WolfNewOrder_x64.exe"+24253E:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"WolfNewOrder_x64.exe"+24253E:
+movss [rdi+00000224],xmm0
+//Alt: db F3 0F 11 87 2C 02 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18</ID>
+      <Description>"Inf Ammo"</Description>
+      <Options moHideChildren="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(aobAmmoUpdater,WolfNewOrder_x64.exe,01 51 20 48 8B D9)
+
+alloc(newmem,2048,"WolfNewOrder_x64.exe")
+
+label(aobAmmoUpdater_r)
+registersymbol(aobAmmoUpdater_r)
+
+label(lblAmmoUpdater)
+label(lblAmmoUpdaterSkip)
+label(lblAmmoUpdaterRet)
+
+label(bEnableNoReload)
+registersymbol(bEnableNoReload)
+
+newmem:
+bEnableNoReload:
+dd 1
+
+lblAmmoUpdater:
+cmp dword ptr [bEnableNoReload],1
+jne short lblAmmoUpdaterSkip
+xor edx,edx
+lblAmmoUpdaterSkip:
+//add [rcx+20],edx // Original code
+//mov rbx,rcx      // Original code
+db 01 51 20 48 8B D9
+jmp lblAmmoUpdaterRet
+
+//"WolfNewOrder_x64.exe"+99610A:
+aobAmmoUpdater:
+aobAmmoUpdater_r:
+jmp lblAmmoUpdater
+nop
+lblAmmoUpdaterRet:
+
+[DISABLE]
+aobAmmoUpdater_r:
+//"WolfNewOrder_x64.exe"+99610A:
+//Alt: add [rcx+20],edx
+//Alt: mov rbx,rcx
+db 01 51 20 48 8B D9
+
+unregistersymbol(aobAmmoUpdater_r)
+
+unregistersymbol(bEnableNoReload)
+
+dealloc(newmem)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"bEnableNoReload"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>bEnableNoReload</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"God Mode"</Description>
+      <Options moHideChildren="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(aobHealthUpdater,WolfNewOrder_x64.exe,F3 0F 11 43 08 48 8B 5C 24 40 48 8B)
+
+alloc(newmem,2048,"WolfNewOrder_x64.exe")
+
+label(aobHealthUpdater_r)
+registersymbol(aobHealthUpdater_r)
+
+label(lblHealthUpdater)
+label(lblHealthUpdaterSkip)
+label(lblHealthUpdaterRet)
+
+label(bEnableGodMode)
+registersymbol(bEnableGodMode)
+
+newmem:
+bEnableGodMode:
+dd 1
+
+lblHealthUpdater:
+cmp dword ptr [bEnableGodMode],1
+jne short lblHealthUpdaterSkip
+movss xmm0,[rbx+0c]
+lblHealthUpdaterSkip:
+//movss [rbx+08],xmm0 // Original code
+db F3 0F 11 43 08
+jmp lblHealthUpdaterRet
+
+//"WolfNewOrder_x64.exe"+640538:
+aobHealthUpdater:
+aobHealthUpdater_r:
+jmp lblHealthUpdater
+lblHealthUpdaterRet:
+
+[DISABLE]
+aobHealthUpdater_r:
+//"WolfNewOrder_x64.exe"+640538:
+//Alt: movss [rbx+08],xmm0
+db F3 0F 11 43 08
+
+unregistersymbol(aobHealthUpdater_r)
+
+unregistersymbol(bEnableGodMode)
+
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>101</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"bEnableGodMode"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>bEnableGodMode</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8981</ID>
+      <Description>"InfiniteAmmo"</Description>
+      <Options moHideChildren="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(aobAmmoUpdater,WolfNewOrder_x64.exe,01 51 20 48 8B D9)
+
+alloc(newmem,2048,"WolfNewOrder_x64.exe")
+
+label(aobAmmoUpdater_r)
+registersymbol(aobAmmoUpdater_r)
+
+label(lblAmmoUpdater)
+label(lblAmmoUpdaterSkip)
+label(lblAmmoUpdaterRet)
+
+label(bEnableNoReload)
+registersymbol(bEnableNoReload)
+
+newmem:
+bEnableNoReload:
+dd 1
+
+lblAmmoUpdater:
+cmp dword ptr [bEnableNoReload],1
+jne short lblAmmoUpdaterSkip
+xor edx,edx
+lblAmmoUpdaterSkip:
+//add [rcx+20],edx // Original code
+//mov rbx,rcx      // Original code
+db 01 51 20 48 8B D9
+jmp lblAmmoUpdaterRet
+
+//"WolfNewOrder_x64.exe"+99610A:
+aobAmmoUpdater:
+aobAmmoUpdater_r:
+jmp lblAmmoUpdater
+nop
+lblAmmoUpdaterRet:
+
+[DISABLE]
+aobAmmoUpdater_r:
+//"WolfNewOrder_x64.exe"+99610A:
+//Alt: add [rcx+20],edx
+//Alt: mov rbx,rcx
+db 01 51 20 48 8B D9
+
+unregistersymbol(aobAmmoUpdater_r)
+
+unregistersymbol(bEnableNoReload)
+
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>101</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8982</ID>
+          <Description>"bEnableNoReload"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>bEnableNoReload</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>aobHealthUpdater_r</Name>
+      <Address>13F9B0538</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bEnableGodMode</Name>
+      <Address>13F360000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>aobAmmoUpdater_r</Name>
+      <Address>13FD0610A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bEnableNoReload</Name>
+      <Address>13F350000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CordPointer</Name>
+      <Address>13F34002F</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Structures StructVersion="2">
+    <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" AutoCreateStructsize="4096">
+      <Elements/>
+    </Structure>
+  </Structures>
+  <Comments>K-putt says hi!
+</Comments>
+</CheatTable>

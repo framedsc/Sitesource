@@ -49,6 +49,7 @@
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
 			}
-		}
+		},
+		"Cheat Table Archive": "cheattablearchive.md"
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2719</ID>
+      <Description>"FOV"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[Enable]
+
+alloc(setFOV,32,NMS.exe)
+aobscanmodule(setFOV_aob,NMS.exe,F3 0F 10 41 38 F3 ** ** ** ** ** ** ** C3 CC CC)
+registersymbol(setFOV_aob)
+label(FOV)
+registersymbol(FOV)
+label(returnhere)
+
+//--------------------------------------------------//
+setFOV:
+movss xmm0,[rcx+38]
+mov [FOV],rcx
+jmp returnhere
+
+FOV:
+dq 0
+//--------------------------------------------------//
+
+setFOV_aob:
+jmp setFOV
+returnhere:
+
+[Disable]
+
+setFOV_aob:
+movss xmm0,[rcx+38]
+unregistersymbol(setFOV_aob1)
+unregistersymbol(FOV)
+dealloc(setFOV)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2720</ID>
+          <Description>"FOV"</Description>
+          <LastState Value="86" Activated="0" RealAddress="7FF603E6B138"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>FOV</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>setFOV_aob</Name>
+      <Address> 7FF6034B67D4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>FOV</Name>
+      <Address>7FF6028B001A</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

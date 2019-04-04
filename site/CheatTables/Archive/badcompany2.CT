@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="16">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>629</ID>
+      <Description>"Y"</Description>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>"BFBC2Game.exe"+01170354</Address>
+      <Offsets>
+        <Offset>D0</Offset>
+        <Offset>4C</Offset>
+        <Offset>120</Offset>
+        <Offset>9C</Offset>
+        <Offset>4</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>104</Key>
+          </Keys>
+          <Value>.5</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>104</Key>
+          </Keys>
+          <Value>4</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>98</Key>
+          </Keys>
+          <Value>.5</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>98</Key>
+          </Keys>
+          <Value>4</Value>
+          <ID>3</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>631</ID>
+      <Description>"Z (grav)"</Description>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>"BFBC2Game.exe"+01111F18</Address>
+      <Offsets>
+        <Offset>D4</Offset>
+        <Offset>4C</Offset>
+        <Offset>120</Offset>
+        <Offset>4C</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>105</Key>
+          </Keys>
+          <Value>.5</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>105</Key>
+          </Keys>
+          <Value>4</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>99</Key>
+          </Keys>
+          <Value>.3</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>99</Key>
+          </Keys>
+          <Value>2</Value>
+          <ID>3</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>88</Key>
+          </Keys>
+          <ID>4</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>632</ID>
+      <Description>"X"</Description>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>"BFBC2Game.exe"+01111F18</Address>
+      <Offsets>
+        <Offset>D8</Offset>
+        <Offset>4C</Offset>
+        <Offset>120</Offset>
+        <Offset>4C</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>102</Key>
+          </Keys>
+          <Value>.5</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>102</Key>
+          </Keys>
+          <Value>4</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>100</Key>
+          </Keys>
+          <Value>.5</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>100</Key>
+          </Keys>
+          <Value>4</Value>
+          <ID>3</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>630</ID>
+      <Description>"Y Speed"</Description>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>"BFBC2Game.exe"+01111F1C</Address>
+      <Offsets>
+        <Offset>10</Offset>
+        <Offset>40</Offset>
+        <Offset>120</Offset>
+        <Offset>4C</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>101</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>633</ID>
+      <Description>"Z Speed (grav)"</Description>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>"BFBC2Game.exe"+01111F18</Address>
+      <Offsets>
+        <Offset>14</Offset>
+        <Offset>40</Offset>
+        <Offset>120</Offset>
+        <Offset>4C</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>88</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>88</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>634</ID>
+      <Description>"X Speed"</Description>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>"BFBC2Game.exe"+01111F18</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>40</Offset>
+        <Offset>120</Offset>
+        <Offset>4C</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>101</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

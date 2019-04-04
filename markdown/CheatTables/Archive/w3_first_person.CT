@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"First Person Camera"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cam_dist_nop,witcher3.exe,89 46 58 8B 43 10)
+cam_dist_nop:
+  db 90 90 90
+registersymbol(cam_dist_nop)
+
+aobscanmodule(cam_dist,witcher3.exe,F3 0F 10 5E 58 45)
+alloc(newmem,$1000,cam_dist)
+alloc(cam_dist_ptr,4)
+alloc(cam_ver_ptr,4)
+alloc(cam_hor_ptr,4)
+
+label(code)
+label(return)
+label(camHeight)
+registersymbol(camHeight)
+
+cam_dist_ptr:
+dd (float)-1.0
+cam_ver_ptr:
+dd (float)0.7
+cam_hor_ptr:
+dd (float)0
+camHeight:
+dq 0
+
+newmem:
+
+code:
+  mov [camHeight],rsi
+  movss xmm3,[cam_hor_ptr]
+  movss [rsi+60],xmm3
+  movss xmm3,[cam_ver_ptr]
+  movss [rsi+68],xmm3
+  movss xmm3,[cam_dist_ptr]
+  movss [rsi+58],xmm3
+  jmp return
+
+cam_dist:
+  jmp code
+return:
+registersymbol(cam_dist)
+registersymbol(cam_dist_ptr)
+registersymbol(cam_ver_ptr)
+registersymbol(cam_hor_ptr)
+
+[DISABLE]
+cam_dist_nop:
+  db 89 46 58
+unregistersymbol(cam_dist_nop)
+
+cam_dist:
+  db F3 0F 10 5E 58
+unregistersymbol(cam_dist)
+unregistersymbol(cam_dist_ptr)
+unregistersymbol(cam_ver_ptr)
+unregistersymbol(cam_ver_ptr)
+unregistersymbol(camHeight)
+dealloc(newmem)
+dealloc(cam_dist_ptr)
+dealloc(cam_ver_ptr)
+dealloc(cam_hor_ptr)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "witcher3.exe"+CBF937
+
+"witcher3.exe"+CBF906: 89 03                       -  mov [rbx],eax
+"witcher3.exe"+CBF908: 8B 87 D8 02 00 00           -  mov eax,[rdi+000002D8]
+"witcher3.exe"+CBF90E: F3 41 0F 11 08              -  movss [r8],xmm1
+"witcher3.exe"+CBF913: 89 43 10                    -  mov [rbx+10],eax
+"witcher3.exe"+CBF916: E8 75 A9 00 00              -  call witcher3.exe+CCA290
+"witcher3.exe"+CBF91B: 8B 03                       -  mov eax,[rbx]
+"witcher3.exe"+CBF91D: F3 0F 10 1D 93 59 FC 00     -  movss xmm3,[witcher3.exe+1C852B8]
+"witcher3.exe"+CBF925: F3 44 0F 10 3D 42 43 4E 01  -  movss xmm15,[witcher3.exe+21A3C70]
+"witcher3.exe"+CBF92E: 41 0F 28 C2                 -  movaps xmm0,xmm10
+"witcher3.exe"+CBF932: F3 41 0F 5C C3              -  subss xmm0,xmm11
+// ---------- INJECTING HERE ----------
+"witcher3.exe"+CBF937: 89 46 58                    -  mov [rsi+58],eax
+"witcher3.exe"+CBF93A: 8B 43 10                    -  mov eax,[rbx+10]
+// ---------- DONE INJECTING  ----------
+"witcher3.exe"+CBF93D: 45 0F 57 DB                 -  xorps xmm11,xmm11
+"witcher3.exe"+CBF941: F3 0F 59 F0                 -  mulss xmm6,xmm0
+"witcher3.exe"+CBF945: F3 0F 59 F8                 -  mulss xmm7,xmm0
+"witcher3.exe"+CBF949: F3 44 0F 59 C0              -  mulss xmm8,xmm0
+"witcher3.exe"+CBF94E: 89 87 D8 02 00 00           -  mov [rdi+000002D8],eax
+"witcher3.exe"+CBF954: F3 44 0F 59 E0              -  mulss xmm12,xmm0
+"witcher3.exe"+CBF959: EB 07                       -  jmp witcher3.exe+CBF962
+"witcher3.exe"+CBF95B: 44 89 B7 D8 02 00 00        -  mov [rdi+000002D8],r14d
+"witcher3.exe"+CBF962: F3 0F 10 54 24 50           -  movss xmm2,[rsp+50]
+"witcher3.exe"+CBF968: F3 0F 10 8F 70 02 00 00     -  movss xmm1,[rdi+00000270]
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: "witcher3.exe"+CBF5E4
+
+"witcher3.exe"+CBF5BE: 48 85 C9                    -  test rcx,rcx
+"witcher3.exe"+CBF5C1: 74 06                       -  je witcher3.exe+CBF5C9
+"witcher3.exe"+CBF5C3: 48 8B 41 10                 -  mov rax,[rcx+10]
+"witcher3.exe"+CBF5C7: EB 03                       -  jmp witcher3.exe+CBF5CC
+"witcher3.exe"+CBF5C9: 49 8B C6                    -  mov rax,r14
+"witcher3.exe"+CBF5CC: 4C 8B A8 80 06 00 00        -  mov r13,[rax+00000680]
+"witcher3.exe"+CBF5D3: 48 8D 55 A0                 -  lea rdx,[rbp-60]
+"witcher3.exe"+CBF5D7: 48 8D 4E 40                 -  lea rcx,[rsi+40]
+"witcher3.exe"+CBF5DB: E8 30 E3 40 FF              -  call witcher3.exe+CD910
+"witcher3.exe"+CBF5E0: 48 8D 4D E0                 -  lea rcx,[rbp-20]
+// ---------- INJECTING HERE ----------
+"witcher3.exe"+CBF5E4: F3 0F 10 5E 58              -  movss xmm3,[rsi+58]
+// ---------- DONE INJECTING  ----------
+"witcher3.exe"+CBF5E9: 45 0F 57 DB                 -  xorps xmm11,xmm11
+"witcher3.exe"+CBF5ED: 0F 57 1D 1C 61 FB 00        -  xorps xmm3,[witcher3.exe+1C75710]
+"witcher3.exe"+CBF5F4: F3 0F 10 40 10              -  movss xmm0,[rax+10]
+"witcher3.exe"+CBF5F9: F3 0F 10 48 14              -  movss xmm1,[rax+14]
+"witcher3.exe"+CBF5FE: F3 0F 10 50 18              -  movss xmm2,[rax+18]
+"witcher3.exe"+CBF603: F3 0F 59 C3                 -  mulss xmm0,xmm3
+"witcher3.exe"+CBF607: F3 0F 59 CB                 -  mulss xmm1,xmm3
+"witcher3.exe"+CBF60B: F3 0F 59 D3                 -  mulss xmm2,xmm3
+"witcher3.exe"+CBF60F: F3 0F 58 46 20              -  addss xmm0,[rsi+20]
+"witcher3.exe"+CBF614: F3 0F 58 4E 24              -  addss xmm1,[rsi+24]
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

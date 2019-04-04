@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="21">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>10992</ID>
+      <Description>"Camera system. Toggle: INS. Enable first to use fov/freecam"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//----------------------------------------------------------
+// Reworked Darksiders II cheat table with free camera / timestop / FoV
+// By Otis / Infuse Project
+//
+// Based on DeadEndThrill's original CT with hacks for free camera / timestop / FoV (by Jim2Point0, Duncan Harris and others)
+// this table contains a thread based camera movement system which moves the camera based on the camera look vector direction
+// so pressing e.g. 'left' (numpad 4) is moving the camera left, you're no longer moving over the world x/y/z axis which don't align with
+// the camera direction in most cases.
+//
+// I've commented a lot of code in this table. For seasoned assembly programmers these comments might sound like 'water is wet' statements,
+// but they might help the novice assembly programmer out what's going on (as SIMD programmer isn't straightforward!) :)
+// The features are enabled / disabled by two child scripts, one for the FoV and one for the camera hook.
+// This is done so the thread loop can run at almost full speed scanning keys and it's also easier to enable e.g. FoV without the
+// camera.
+//----------------------------------------------------------
+[ENABLE]
+globalalloc(OwnCode, 2048)      // alloc memory for our code, once.
+createthread(MainThread)        // creates a new thread in the attached process and starts at MainThread.
+                                // make sure it terminates when [DISABLE] is ran, otherwise a new one will be
+                                // created when you re-enable the camera system. In this table, this is done by
+                                // the _disableThread byte, which is set to 1 when the thread has to terminate
+                                // and which is checked two times in the thread (begin/end).
+//----------------------------------------------------------
+// Code labels
+label(MainThread)
+// Data labels
+label(_disableThread)
+label(_cameraStruct)
+label(_cameraX)
+label(_cameraY)
+label(_cameraZ)
+label(_cameraW)
+label(_fovEnabled)
+label(_altPressed)
+label(_ctrlPressed)
+// Symbols. Registering them allows you to use them in the CE UI.
+registersymbol(_disableThread)
+registersymbol(_cameraStruct)
+registersymbol(_cameraX)
+registersymbol(_cameraY)
+registersymbol(_cameraZ)
+registersymbol(_fovEnabled)
+registersymbol(_altPressed)
+registersymbol(MainThread)
+
+// overwrite inside the darksiders2 process the following address with a jmp to our code which grabs the FoV address
+// which is in the register EAX.
+"Darksiders2.exe"+EB34C:
+  jmp GrabCameraStructAddress
+ReturnAfterFoVGrab:
+
+OwnCode:
+// FoV
+// new code to grab FoV address, which is inside the camera struct we need.
+GrabCameraStructAddress:
+  mov [_cameraStruct],eax
+  cmp byte [_fovEnabled], 1
+  jz @f                    // continue at next unnamed label (which is @@)
+  fstp dword ptr [eax+4C]  // original code, fov not enabled.
+@@:
+  pop esi                  // original code
+  leave                    // original code
+  jmp ReturnAfterFoVGrab   // continue with original game code.
+
+//---------------------------------------------------------
+// Code
+MainThread:
+  // 32bit so use this approach to wait a couple of ms. If 64bit, you need: mov rcx, milliseconds
+  push #25
+  call Sleep
+
+  // check if the thread can die
+  cmp byte [_disableThread], 1
+  je  MainThread_End             // disabled, die
+
+  // check if the camera struct is already available. If not, loop to the beginning of the thread,
+  // which will be a sleep call. We do this as the thread can be created before the hook is set in the process.
+  cmp  dword ptr [_cameraStruct], 0
+  je   MainThread
+
+  // check if one of the keys is pressed
+  // keys supported:
+  //   Camera pos: num8 (forward), num4 (backward), num6 (right), num4 (left), num9 (up), num3 (down)
+  //   FoV       : substract (decrease FoV), add (increase FoV). Enable/disable depends on separate script (see table)
+  // We'll do this one at a time, as it doesn't matter if we e.g. check up+left or first up and then left
+  // Camera position manipulation keys are ignored if camera is disabled (using another script in this CT)
+  // We'll check with GetKeyState, and not GetAsyncKeyState, as GetAsyncKeyState can fail if CE is on a different monitor
+  // than the game. Win32 uses stdcall, so arguments are pushed on the stack in right-to-left order
+  // and result is stored in EAX.
+
+  // FoV keys
+@@:
+  push 6D               // numpad substract (VK_SUBSTRACT)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // key pressed, do fov decrease
+  call DoFoVDecrease
+
+@@:
+  push 6B               // numpad add (VK_ADD)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // key pressed, do fov inccrease
+  call DoFoVIncrease
+
+@@:
+  // Free camera movement keys
+  // first check if the free camera is enabled. Enabling is done by a different script. Check if cameraX is set,
+  // if it's not, we skip all camera keys.
+  cmp [_cameraX], 0
+  je MainThread_EndLoop
+
+  // camera enabled, we can proceed with handling camera movement keys
+  // Check if alt is pressed. If so, we'll speed up the movement. We'll store the bit for later
+  push 12               // Alt (VK_MENU)
+  call GetKeyState
+  and eax, 8000         // high bit is either set (key is pressed) or not (key isn't pressed). Rest of bits is garbage, so clear them
+  shr ax, F             // so we simply shift right 15 bits, which moves the high bit to the LSB
+  mov [_altPressed], ax
+
+  // Check if ctrl is pressed. If so, we'll slow down the movement. Same code as Alt. We'll store the bit for later
+  push 11               // Ctrl (VK_CONTROL)
+  call GetKeyState
+  and eax, 8000
+  shr ax, F
+  mov [_ctrlPressed], ax
+
+  push 68               // numpad 8 (VK_NUMPAD8)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // up is pressed, perform camera move forward.
+  call MoveCameraForward
+
+@@:
+  push 62              // numpad 2 (VK_NUMPAS2)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // down is pressed, perform camera move backwards
+  call MoveCameraBackwards
+
+@@:
+  push 64              // numpad 4 (VK_NUMPAD4)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // left is pressed, perform camera move sideways
+  call MoveCameraSidewaysLeft
+
+@@:
+  push 66              // numpad 6 (VK_NUMPAD6)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // right is pressed, perform camera move sideways
+  call MoveCameraSidewaysRight
+
+@@:
+  push 69              // numpad 9 (VK_NUMPAD9)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // z up is pressed, perform camera move upwards along Z axis
+  xor ebx, ebx         // if ebx is set to 0 for this function it will move up, otherwise down
+  call MoveCameraUpDown
+
+@@:
+  push 63              // numpad 3 (VK_NUMPAD3)
+  call GetKeyState
+  test ax, 8000
+  jz @f
+  // z down is pressed, perform camera move downwards along Z axis
+  mov ebx, 1
+  call MoveCameraUpDown
+
+@@:
+MainThread_EndLoop:
+  // check if the thread can die
+  cmp byte [_disableThread], 1
+  jne MainThread             // not disabled, so loop!
+MainThread_End:
+  // end
+  ret
+
+//-------------------------------------------------------------
+// camera movement code
+// We're using a normalized (vector with length 1.0) vector to move the camera.
+// this vector is at [_cameraStruct]+A0, with vX, vY, vZ, W. The 'W' isn't used, but as the
+// SIMD instructions load 128bits into the registers, they'll load the 4th dword too.
+//
+// Finding this vector is rather easy, once you know where the camera struct is in memory. Often if you find the FoV value address, the
+// camera struct is near that spot. To verify that, view memory in CE and view the FoV address, changing the view to floats (ctrl-9).
+// Then rotate the camera left / right. This should make the values at that memory location change. When you stop moving,
+// the values should stay the same. Check if you see values between -1.0 and 1.0. There are often multiple times sets of those, as
+// projection matrices are also often found near the FoV in the camera struct. If you have located a candidate vector with 3 values
+// next to each other between -1.0 and 1.0, try to rotate the camera in the x/y plane (horizontally). This should change only the
+// first two. Rotating the camera up/down should change the 3rd as well as the first two.
+//
+// The vector is the camera look vector so we can use that to manipulate the camera coordinates:
+// Forward means we're moving in the direction of the vector (X, Y and Z updated)
+// Left/Right means we're moving in the x/y plane in the direction orthogonal on the look vector (X, Y updated, Z is left alone)
+// Backwards means we're moving in the opposite direction of the vector (X, Y and Z updated)
+// The vector uses (-x, -y, z) compared to the world/geometry coordinates. This means that
+// if the vector is aligned with the x axis looking at the positive x of the world, it's vX component is negative. Same for vY.
+// If you think 'Why is this bozo doing a sub when he wants to add?!', that's why ;)
+MoveCameraForward:
+  push eax
+  movups xmm0, [_cameraX]  // load camera X, Y, Z, W into xmm0. This vector uses -x,-y compared to the world coordinates.
+  mov eax, [_cameraStruct]
+  add eax, a0              // normalized vector is at [_cameraStruct+A0]: vX, vY, vZ, vW
+  movups xmm1, [eax]       // load normalized vector into xmm1 (vX, vY, vZ, vW)
+  call SizeLookVector      // will apply alt/ctrl to vector in xmm1 so it makes movement either faster or slower.
+  subps xmm0, xmm1         // sub the vector from the camera pos, as we're moving in the direction of the vector, but the vector uses -x, -y. If it would have used x, y, we should have used addps
+  mov eax, _cameraX
+  movups [eax], xmm0       // move the newly calculated pos back into the camera values.
+  pop eax
+  ret
+
+MoveCameraBackwards:
+  push eax
+  movups xmm0, [_cameraX]  // load camera X, Y, Z, W into xmm0.
+  mov eax, [_cameraStruct]
+  add eax, a0              // normalized vector is at [_cameraStruct+A0]: vX, vY, vZ, vW
+  movups xmm1, [eax]       // load normalized vector into xmm1 (vX, vY, vZ, vW)
+  call SizeLookVector      // will apply alt/ctrl to vector in xmm1 so it makes movement either faster or slower.
+  addps xmm0, xmm1         // add the vector from the camera pos, as we're moving in the opposite direction of the vector, but the vector uses -x, -y. If it would have used x, y, we should have used subps
+  mov eax, _cameraX
+  movups [eax], xmm0       // move the newly calculated position back into the camera position values.
+  pop eax
+  ret
+
+// move left &amp; right will use the x/y portion of the normalized vector and set z to 0. This gives a vector in the x/y plane
+// which potentially isn't of length 1 so we have to normalize it again.
+// To refresh your memory concerning xmm regs: [0|1|2|3] are the parts. so vX is placed in the lower element (0), vY in (1) etc.
+// I use it this way as CE displays xmm registers in that order in the debugger.
+// so shuffle commands have their bits backwards compared to the order of the xmm elements: 33 22 11 00
+// Clear? thought so :)
+MoveCameraSidewaysLeft:
+  push eax
+  call GetCameraVectorAsXYVector  // will load camera vector into xmm1, move it to x/y plane, normalize it
+  // move left means we have to rotate the x/y vector 90 degrees counter-clockwize. This is simple: new vector is (-vY, vX).
+  // first move the elements to the right position
+  shufps xmm1, xmm1, E1    // shuffle using: 11 10 00 01. xmm1 now contains (vY, vX, 0, vW)
+  xorps xmm2, xmm2         // set the value of xmm2 to 0
+  subss xmm2, xmm1         // substract 1st value of xmm1, which is vY, from 0
+  movss xmm1, xmm2         // move -vY from xmm2's first element into xmm1. xmm1 now contains (-vY, vX, 0, vW)
+  call SizeLookVector
+  movups xmm0, [_cameraX]  // load camera X, Y, Z, W into xmm0.
+  subps xmm0, xmm1         // add the vector we calculated to the camera position. But x/y are negative aligned, remember? So we do sub! It should now move left
+  mov eax, _cameraX
+  movups [eax], xmm0       // move the newly calculated position back into the camera position values.
+  pop eax
+  ret
+
+MoveCameraSidewaysRight:
+  push eax
+  call GetCameraVectorAsXYVector  // will load camera vector into xmm1, move it to x/y plane, normalize it
+  // move right means we have to rotate the x/y vector 90 degrees clockwize. This is simple: new vector is (vY, -vX).
+  xorps xmm2, xmm2         // set the value of xmm2 to 0
+  subss xmm2, xmm1         // substract 1st value of xmm1, which is vX, from 0
+  movss xmm1, xmm2         // move -vX from xmm2's first element into xmm1. xmm1 now contains (-vX, vY, 0, vW)
+  shufps xmm1, xmm1, E1    // shuffle using: 11 10 00 01. xmm1 now contains (vY, -vX, 0, vW)
+  call SizeLookVector
+  movups xmm0, [_cameraX]  // load camera X, Y, Z, W into xmm0.
+  subps xmm0, xmm1         // add the vector we calculated to the camera position. But x/y are negative aligned, remember? So we do sub! It should now move right
+  mov eax, _cameraX
+  movups [eax], xmm0       // move the newly calculated position back into the camera position values.
+  pop eax
+  ret
+
+// Camera up / down movement is done by first creating a vector (0, 0, 1.0) as look vector, size it with the size code, and
+// simply add it to the camera coords for up and sub it from the camera coords for down. Z is aligned with world coordinates Z.
+// In: ebx: 0==up, not 0==down
+MoveCameraUpDown:
+  push eax
+  call GetZVector          // xmm1 now contains (0, 0, 1.0, 0)
+  call SizeLookVector      // size it based on alt/ctrl keys
+  movups xmm0, [_cameraX]  // load camera X, Y, Z, W into xmm0.
+  test ebx, ebx            // check whether the register is set to 0. If so, we'll move up, otherwise we'll move down
+  je MoveCameraUpDown_Up
+  subps xmm0, xmm1         // sub the vector we calculated from the camera position. Z is aligned with the world axis, so we use sub
+  jmp MoveCameraUpDown_Store
+MoveCameraUpDown_Up:
+  addps xmm0, xmm1         // add the vector we calculated to the camera position. Z is aligned with the world axis, so we use add (finally, some sanity!)
+MoveCameraUpDown_Store:
+  mov eax, _cameraX
+  movups [eax], xmm0       // move the newly calculated position back into the camera position values.
+  pop eax
+  ret
+
+// returns in xmm1 a vector (0, 0, 1.0, 0).
+// in: nothin'
+// out: the vector (0, 0, 1.0, 0)
+// Changes: xmm1
+GetZVector:
+  push eax
+  xorps xmm1, xmm1         // set the value of xmm1 to 0
+  mov eax, (float)1.0
+  movd xmm1, eax           // move 1.0 into xmm1. Which now contains 1.0, 0, 0, 0
+  shufps xmm1, xmm1, 45    // shuffle xmm1 so the 1.0 is placed at the 3rd element, which is Z. So we'll use: 01 00 01 01
+  pop eax
+  ret
+
+// Loads the camera vector into xmm1, will reset vZ to 0 and will normalize the vector (vX, vY) to length 1.0.
+// It's a bit dirty, as it will fail with the vector pointing along the Z axis and x/y being 0.0, but the game doesn't allow that
+// In: nothin'
+// Out: xmm1: normalized camera vector in x/y plane with vZ set to 0.0.
+// Changes: xmm2, xmm3
+GetCameraVectorAsXYVector:
+  push eax
+  mov eax, [_cameraStruct]
+  add eax, a0              // normalized vector is at [_cameraStruct+A0]: vX, vY, vZ, vW
+  movups xmm1, [eax]       // load normalized vector into xmm1 (vX, vY, vZ, vW)
+  xorps xmm2, xmm2         // reset xmm2 to 0, all 4 components
+  mov eax, -1
+  movd xmm2, eax           // the 1st element (index 0) contains -1 (ffffffff).
+  shufps xmm2, xmm2, 10    // shuffle using: 00 01 00 00 all 4 elements are now filled with -1 except the 3rd (which contains Z)
+  andps xmm1, xmm2         // this will set the 3rd element (vZ) to 0, keep all other elements. xmm1 now contains (vX, vY, 0, vW)
+  // we now have to normalize the vector in xmm1, as it's not really a length of 1, as x/y are smaller if z isn't 0. This is
+  // done with the formula: vX=vX/length, vY=vY/length. Length = sqrt(x*x+y*y). So first we'll calculate the length.
+  // this is simple, we multiply xmm1 with itself. Of course in another register as we need xmm1 later.
+  movaps xmm2, xmm1        // xmm2 now contains xmm1's values
+  mulps xmm2, xmm2         // multiply xmm2 with itself, which means vX=vX*vX, vY=vY*vY, 0*0, vW=vW*vW (but we don't care about that)
+  movaps xmm3, xmm2        // move the values of xmm2 in xmm3 so we can move vY*vY to the slot 0 to add it to vX*vX
+  shufps xmm3, xmm3, E1    // shuffle using 11 10 00 01 so end result is vY*vY, vX*vX, 0, vW*vW
+  addss xmm2, xmm3         // adds the slot 0 values of xmm3 and xmm2 which means xmm2 now contains vX*vX + vY*vY.
+  sqrtss xmm2, xmm2        // square root the slot 0 value, so it now contains sqrt(vX*vX + vY*vY).
+  shufps xmm2, xmm2, 0     // shuffle the sqrt result to all slots0, 1 and 2 so we can div x and y (and z, but will result in 0) in one go.
+                           // so use 00 00 00 00 to avoid div by 0 in the next statement.
+  divps xmm1, xmm2         // div xmm1 with xmm2, which means vX/sqrt(vX*vX+vY*vY), vY/sqrt(vX*vX+vY*vY), 0, vW
+  pop eax
+  ret
+
+
+//------------------------------------------------------------
+// Will multiply the camera vector with a scalar to size it up (if alt is pressed) or down (if ctrl is pressed)
+// If no alt/ctrl is pressed, we size it with the scalar 2.0 to make moving around more pleasant
+// in     : xmm1 (vX, vY, vZ, vW)
+// changes: xmm7
+SizeLookVector:
+  push ebx
+  cmp byte [_altPressed], 1
+  jne @f
+  // alt pressed. Multiply with 10.0
+  mov ebx, (float)10.0
+  jmp SizeLookVector_Calc
+@@:
+  cmp byte [_ctrlPressed], 1
+  jne @f
+  // ctrl pressed. Multiply with 0.5
+  mov ebx, (float)0.5
+  jmp SizeLookVector_Calc
+@@:
+  // default scalar sizing
+  mov ebx, (float)2.0
+SizeLookVector_Calc:
+  movd xmm7, ebx        // load the factor to multiply with into xmm7. This is a scalar, xmm registers contain 4 of them
+  shufps xmm7, xmm7, 0  // so we shuffle the first element to be placed in all 4.
+  mulps xmm1, xmm7      // multiply the vector in xmm1 with the 4 values in xmm7, so vX=vX*xmm7[0], vY=vY*xmm7[1] etc.
+SizeLookVector_End:
+  pop ebx
+  ret
+
+//------------------------------------------------------------
+// FoV code
+DoFoVIncrease:
+  cmp byte [_fovEnabled], 1
+  je @f
+  // not enabled, nothing to do.
+  ret
+@@:
+  push eax
+  push ebx
+  mov eax, [_cameraStruct]
+  add eax, 4c         // FoV value is at offset 4C
+  movss xmm0, [eax]
+  mov ebx, (float)1.0 // load the register with 1.0 float, and move it using this register into xmm1
+  movd xmm1, ebx
+  addss xmm0, xmm1    // add the 1.0 to the value.
+  movss [eax], xmm0   // store the new value back into the address.
+  pop ebx
+  pop eax
+  ret
+
+DoFoVDecrease:
+  cmp byte [_fovEnabled], 1
+  je @f
+  // not enabled, nothing to do.
+  ret
+@@:
+  push eax
+  push ebx
+  mov eax, [_cameraStruct]
+  add eax, 4c         // FoV value is at offset 4C
+  movss xmm0, [eax]
+  mov ebx, (float)1.0 // load the register with 1.0 float, and move it using this register into xmm1
+  movd xmm1, ebx
+  subss xmm0, xmm1    // sub the 1.0 from the value
+  movss [eax], xmm0   // store the new value back into the address.
+  pop ebx
+  pop eax
+  ret
+
+//-----------------------------------------------------------
+// Local data
+_cameraStruct:
+  dd 0
+_cameraX:
+  dd 0
+_cameraY:
+  dd 0
+_cameraZ:
+  dd 0
+_cameraW:      // not used, but here to make the camera pos 128 so we can use xmm registers to work on xyz in 1 op
+  dd 0
+_disableThread:
+  db 0
+_fovEnabled:
+  db 0
+_altPressed:
+  dw 0
+_ctrlPressed:
+  dw 0
+
+[DISABLE]
+//-----------------------------------------------------------
+// Local data
+_disableThread:
+  db 1         // set it to 1 hard-coded, which will exit the thread.
+_cameraStruct:
+  dd 0
+_cameraX:
+  dd 0
+_cameraY:
+  dd 0
+_cameraZ:
+  dd 0
+_cameraW:      // not used, but here to make the camera pos 128 so we can use xmm registers to work on xyz in 1 op
+  dd 0
+
+// unregister symbols, as they're no longer needed
+unregistersymbol(_disableThread)
+unregistersymbol(_cameraStruct)
+unregistersymbol(_freeCameraEnabled)
+unregistersymbol(MainThread)
+unregistersymbol(_cameraX)
+unregistersymbol(_cameraY)
+unregistersymbol(_cameraZ)
+unregistersymbol(_fovEnabled)
+unregistersymbol(_altPressed)
+
+// replace overwritten memory of FoV address grab code with original code
+"Darksiders2.exe"+EB34C:
+fstp dword ptr [eax+4C]
+pop esi
+leave
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>45</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10998</ID>
+          <Description>"FoV. Toggle: HOME. Inc/Dec: Numpad + / Numpad -"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//-----------------------------------------
+// By Otis / Infuse Project
+// This simple script sets a flag which is allocated by the main script in the camera system.
+// By setting this flag the main camera system enables/disables the usage of the FoV keys.
+// This is done this way as toggling features on/off is otherwise required to be done in the camera system thread
+// which polls the key states on the keyboard on a high frequency (e.g. every 50ms) which is a bit cumbersome
+// for toggles as it requires to release the key within that time interval, it otherwise switches on/off again
+// within the same keypress. Doing it this way simply lets CE using normal windows key input do the toggling which is
+// not having this problem.
+[ENABLE]
+_fovEnabled:
+  db 1
+
+ 
+[DISABLE]
+_fovEnabled:
+  db 0
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10996</ID>
+          <Description>"Free camera. Toggle: End.  Num2/8:Y, Num4/6:X, Num3/9:Z"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(originalcode)
+
+label(newmem2)
+label(returnhere2)
+label(exit2)
+label(originalcode2)
+
+label(newmem3)
+label(returnhere3)
+label(exit3)
+label(originalcode3)
+label(CameraManipulate)
+registersymbol(CameraManipulate)
+
+////////////////////////////////////
+
+newmem:
+CameraManipulate:
+cmp [_cameraX],0
+je originalcode
+push edx
+mov edx,[_cameraX]
+mov [edi+30],edx
+pop edx
+fld dword ptr [ebp-3C]
+jmp exit
+
+originalcode:
+push edx
+mov edx,[edi+30]
+mov [_cameraX],edx
+pop edx
+fstp dword ptr [edi+30]
+fld dword ptr [ebp-3C]
+jmp exit
+
+exit:
+jmp returnhere
+
+////////////////////////////////////
+
+newmem2:
+cmp [_cameraY],0
+je originalcode2
+push edx
+mov edx,[_cameraY]
+mov [edi+34],edx
+pop edx
+fld dword ptr [ebp-38]
+jmp exit2
+
+originalcode2:
+push edx
+mov edx,[edi+34]
+mov [_cameraY],edx
+pop edx
+fstp dword ptr [edi+34]
+fld dword ptr [ebp-38]
+jmp exit2
+
+exit2:
+jmp returnhere2
+
+////////////////////////////////////
+
+newmem3:
+cmp [_cameraZ],0
+je originalcode3
+push edx
+mov edx,[_cameraZ]
+mov [edi+38],edx
+pop edx
+fld dword ptr [ebp-68]
+jmp exit3
+
+originalcode3:
+push edx
+mov edx,[edi+38]
+mov [_cameraZ],edx
+pop edx
+fstp dword ptr [edi+38]
+fld dword ptr [ebp-68]
+jmp exit3
+
+exit3:
+jmp returnhere3
+
+"Darksiders2.exe"+6A9B9F:
+jmp newmem
+nop
+returnhere:
+
+"Darksiders2.exe"+6A9BA5:
+jmp newmem2
+nop
+returnhere2:
+
+"Darksiders2.exe"+6A9BAB:
+jmp newmem3
+nop
+returnhere3:
+
+[DISABLE]
+// reset camera pointer for X to 0 so the key thread knows camera is disabled.
+_cameraX:
+dd 0
+_cameraY:
+dd 0
+_cameraZ:
+dd 0
+_cameraW:
+dd 0
+
+dealloc(newmem)
+"Darksiders2.exe"+6A9B9F:
+fstp dword ptr [edi+30]
+fld dword ptr [ebp-3C]
+//
+"Darksiders2.exe"+6A9BA5:
+fstp dword ptr [edi+34]
+fld dword ptr [ebp-38]
+//
+"Darksiders2.exe"+6A9BAB:
+fstp dword ptr [edi+38]
+fld dword ptr [ebp-68]
+unregistersymbol(CameraManipulate)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>35</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>11001</ID>
+              <Description>"Alt: speed up. Ctrl: Slow down"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10990</ID>
+      <Description>"Timestop DEL"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp dword ptr [esi+000000F8],00
+
+exit:
+jmp returnhere
+
+"Darksiders2.exe"+747090:
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Darksiders2.exe"+747090:
+cmp dword ptr [esi+000000F8],00
+//Alt: db 83 BE F8 00 00 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Character"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Boatman Coins"</Description>
+          <LastState Value="15" RealAddress="2F92AE80"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Darksiders2.exe"+01460148</Address>
+          <Offsets>
+            <Offset>20</Offset>
+            <Offset>3BC</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Gilt"</Description>
+          <LastState Value="28498" RealAddress="12D85D18"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Darksiders2.exe"+01460F54</Address>
+          <Offsets>
+            <Offset>28</Offset>
+            <Offset>8</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Health"</Description>
+          <LastState Value="1118.539673" RealAddress="131D2654"/>
+          <VariableType>Float</VariableType>
+          <Address>"Darksiders2.exe"+01460F58</Address>
+          <Offsets>
+            <Offset>664</Offset>
+            <Offset>6C</Offset>
+            <Offset>4</Offset>
+            <Offset>40</Offset>
+            <Offset>150</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Reaper Energy"</Description>
+          <LastState Value="300" RealAddress="131D265C"/>
+          <VariableType>Float</VariableType>
+          <Address>Darksiders2.exe+1460F58</Address>
+          <Offsets>
+            <Offset>66C</Offset>
+            <Offset>6C</Offset>
+            <Offset>4</Offset>
+            <Offset>40</Offset>
+            <Offset>150</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Wrath"</Description>
+          <LastState Value="659" RealAddress="131D2658"/>
+          <VariableType>Float</VariableType>
+          <Address>"Darksiders2.exe"+01460F58</Address>
+          <Offsets>
+            <Offset>668</Offset>
+            <Offset>6C</Offset>
+            <Offset>4</Offset>
+            <Offset>40</Offset>
+            <Offset>150</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10991</ID>
+      <Description>"Based on CT from http://www.deadendthrills.com/forum/discussion/263/guide-darksiders-2"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10999</ID>
+          <Description>"Code for camera hooks/FoV/Timestop: DET &amp; Jim2Point0"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11000</ID>
+          <Description>"Code for camera movement: Otis / Infuse Project"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov [esi+48],al</Description>
+      <Address>00B470C6</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>7470C6</ModuleNameOffset>
+      <Before>
+        <Byte>40</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>46</Byte>
+        <Byte>48</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>BE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [ecx+000000F8],00</Description>
+      <Address>00B458CF</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>7458CF</ModuleNameOffset>
+      <Before>
+        <Byte>79</Byte>
+        <Byte>14</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>21</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>B9</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>18</Byte>
+        <Byte>56</Byte>
+        <Byte>8D</Byte>
+        <Byte>B1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [esi+000000F8],00</Description>
+      <Address>004CFFEF</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>CFFEF</ModuleNameOffset>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>48</Byte>
+        <Byte>34</Byte>
+        <Byte>EB</Byte>
+        <Byte>26</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>BE</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>13</Byte>
+        <Byte>85</Byte>
+        <Byte>FF</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp [eax+000000F8],ecx</Description>
+      <Address>004E53DB</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>E53DB</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>F2</Byte>
+        <Byte>FF</Byte>
+        <Byte>33</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>39</Byte>
+        <Byte>88</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>9F</Byte>
+        <Byte>C0</Byte>
+        <Byte>C3</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [esi+000000F8],00</Description>
+      <Address>00B47004</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>747004</ModuleNameOffset>
+      <Before>
+        <Byte>8A</Byte>
+        <Byte>3D</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>BE</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7E</Byte>
+        <Byte>49</Byte>
+        <Byte>D8</Byte>
+        <Byte>96</Byte>
+        <Byte>FC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [esi+000000F8],00</Description>
+      <Address>00B47090</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>747090</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>58</Byte>
+        <Byte>88</Byte>
+        <Byte>45</Byte>
+        <Byte>EF</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>BE</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>2B</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :nop </Description>
+      <Address>00B47090</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>747090</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>58</Byte>
+        <Byte>88</Byte>
+        <Byte>45</Byte>
+        <Byte>EF</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>2B</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp dword ptr [esi+000000F8],00</Description>
+      <Address>00B47090</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>747090</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>58</Byte>
+        <Byte>88</Byte>
+        <Byte>45</Byte>
+        <Byte>EF</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>BE</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>2B</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+48],al</Description>
+      <Address>00B470C6</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>7470C6</ModuleNameOffset>
+      <Before>
+        <Byte>40</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>46</Byte>
+        <Byte>48</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>BE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000C0],al</Description>
+      <Address>00D435AA</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>9435AA</ModuleNameOffset>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>10</Byte>
+        <Byte>8A</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>86</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>21</Byte>
+        <Byte>57</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp [esi+000000C0],bl</Description>
+      <Address>00D4353D</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>94353D</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>5E</Byte>
+        <Byte>ED</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>38</Byte>
+        <Byte>9E</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>14</Byte>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :or dword ptr [esi+000000BC],01</Description>
+      <Address>00D43522</Address>
+      <ModuleName>Darksiders2.exe</ModuleName>
+      <ModuleNameOffset>943522</ModuleNameOffset>
+      <Before>
+        <Byte>38</Byte>
+        <Byte>5D</Byte>
+        <Byte>08</Byte>
+        <Byte>74</Byte>
+        <Byte>09</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>8E</Byte>
+        <Byte>BC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>07</Byte>
+        <Byte>83</Byte>
+        <Byte>A6</Byte>
+        <Byte>BC</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pHealth</Name>
+      <Address>34760000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>tHealth</Name>
+      <Address>34760010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pSkillPts</Name>
+      <Address>04E80020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AOB4_jmp</Name>
+      <Address>00723165</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pWrath</Name>
+      <Address>04100020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCurrency</Name>
+      <Address>05010000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AOB2_jmp</Name>
+      <Address>00726238</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AOB5_jmp</Name>
+      <Address>00811E9C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AOB3_jmp</Name>
+      <Address>0078347E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AOB1_jmp</Name>
+      <Address>007248D2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AOB6_jmp</Name>
+      <Address>00761711</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>OwnCode</Name>
+      <Address>32E50000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_fovAddress</Name>
+      <Address>345A00F1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_disableThread</Name>
+      <Address>32E50318</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cameraStruct</Name>
+      <Address>32E50304</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cameraX</Name>
+      <Address>32E50308</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cameraY</Name>
+      <Address>32E5030C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cameraZ</Name>
+      <Address>32E50310</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_fovEnabled</Name>
+      <Address>32E50319</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_altPressed</Name>
+      <Address>32E5031A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MainThread</Name>
+      <Address>32E5001D</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

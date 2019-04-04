@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9802</ID>
+      <Description>"Free Camera [F1]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//aobscanmodule(cameraAOB,witcher3.exe,33 D2 4C 8B CB 44 8D 42 17 48 C7 44 24 20 10 00 00 00 E8 x x x x 48 83 C4 30 5B C3 CC CC 8B 02)
+
+alloc(camZ,2048,"witcher3.exe")
+label(returnhereZ)
+label(originalCodeZ)
+label(exitZ)
+
+label(camX)
+label(returnhereX)
+label(originalCodeX)
+label(exitX)
+
+label(camY)
+label(returnhereY)
+label(originalCodeY)
+label(exitY)
+
+label(pCamera)
+registersymbol(pCamera)
+
+//registersymbol(cameraAOB)
+
+camZ:
+cmp [rcx+5c],4
+jne originalCodeZ
+mov [pCamera],rcx
+mov eax,[rdx+0C]
+jmp exitZ
+
+originalCodeZ:
+mov [rcx+08],eax
+mov eax,[rdx+0C]
+jmp exitZ
+
+exitZ:
+jmp returnhereZ
+
+////////////
+
+camY:
+cmp [rcx+5c],4
+jne originalCodeY
+mov eax,[rdx+08]
+jmp exitY
+
+originalCodeY:
+mov [rcx+04],eax
+mov eax,[rdx+08]
+jmp exitY
+
+exitY:
+jmp returnhereY
+
+////////////
+
+camX:
+cmp [rcx+5c],4
+jne originalCodeX
+mov eax,[rdx+04]
+jmp exitX
+
+originalCodeX:
+mov [rcx],eax
+mov eax,[rdx+04]
+jmp exitX
+
+exitX:
+jmp returnhereX
+
+///
+pCamera:
+dq 0
+///
+
+"witcher3.exe"+B703D:
+jmp camZ
+nop
+returnhereZ:
+
+"witcher3.exe"+B7037:
+jmp camY
+nop
+returnhereY:
+
+"witcher3.exe"+B7032:
+jmp camX
+returnhereX:
+ 
+[DISABLE]
+dealloc(camZ)
+"witcher3.exe"+B703D:
+mov [rcx+08],eax
+mov eax,[rdx+0C]
+"witcher3.exe"+B7037:
+mov [rcx+04],eax
+mov eax,[rdx+08]
+"witcher3.exe"+B7032:
+mov [rcx],eax
+mov eax,[rdx+04]
+unregistersymbol(pCamera)
+//unregistersymbol(cameraAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9798</ID>
+          <Description>"Z"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8977</ID>
+          <Description>"Y"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8976</ID>
+          <Description>"X"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Adv Free Camera [F1]"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : witcher3.exe
+  Version: 1.03 Steam
+  Date   : 2015-05-22
+  Author : mgr.inz.Player
+}
+
+define(CameraSpeed,0.05)  //sane range: 0.01 - 0.50
+
+{
+NUM 5 - forward
+NUM 2 - backward
+NUM 1 - strafe left
+NUM 3 - strafe right
+NUM 7 - Elev up
+NUM 9 - Elev down
+
+press right mouse button to speed up freecam
+}
+
+
+[ENABLE]
+alloc(newmem,$1000,witcher3.exe)
+
+
+aobscanmodule(AdvancedFreeCam,witcher3.exe,E8 8B 42 3C 89 41 EC 8B 42 40 89 41 F0) // should be unique
+registersymbol(AdvancedFreeCam)
+
+aobscanmodule(CamPos,witcher3.exe,08 48 8B C1 C3 CC CC CC CC CC CC CC CC CC CC CC CC 8B 02 89 01 8B 42 04) // should be unique
+registersymbol(CamPos)
+
+label(return)
+label(return2)
+
+
+label(normVector)
+label(FreeCam)
+label(epilog)
+label(subGetAsyncKeyState)
+label(factor)
+
+
+
+
+
+newmem:
+  lea rax,[rdx+40]
+  mov [normVector],rax
+
+  mov eax,[rdx+40]
+  mov [rcx-10],eax
+  jmp return
+
+
+
+
+FreeCam:
+cmp [rcx+5c],4
+je @f
+
+mov eax,[rdx]     //orig
+mov [rcx],eax     //orig
+mov eax,[rdx+04]  //orig
+jmp return2
+
+@@:
+push r10
+push r11
+push r12
+push r13
+push r14
+push r15
+push r8
+push r9
+push rax
+push rbp
+push rbx
+push rcx
+push rdi
+push rdx
+push rsi
+
+//pushed again, because it has needed address
+push rcx
+
+  xor r10,r10
+  xorps xmm15,xmm15
+
+  mov ecx,#104 //FORWARD
+  mov r11,1
+  call subGetAsyncKeyState
+  mov ecx,#101 //BACKWARD
+  mov r11,2
+  call subGetAsyncKeyState
+  mov ecx,#100 //LEFT
+  mov r11,4
+  call subGetAsyncKeyState
+  mov ecx,#102 //RIGHT
+  mov r11,8
+  call subGetAsyncKeyState
+
+  mov ecx,#105 //UP
+  mov r11,10
+  call subGetAsyncKeyState
+  mov ecx,#103 //DOWN
+  mov r11,20
+  call subGetAsyncKeyState
+
+  mov ecx,#2 //Faster (right mouse button)
+  mov r11,40
+  call subGetAsyncKeyState
+
+  pop rcx // rcx has cam pos address
+
+  test r10,r10
+  jz epilog
+
+
+  mov rax,[normVector]
+  test rax,rax
+  jz epilog
+
+  movups xmm0,[rax]
+
+  test r10,01  // forward
+  jz +4
+  addps xmm15,xmm0
+
+  test r10,02  // backward
+  jz +4
+  subps xmm15,xmm0
+
+
+  shufps xmm0,xmm0,21 //swap x and y
+  movq xmm1,xmm0      // only x and y
+  subss xmm1,xmm0
+  subss xmm1,xmm0
+
+  test r10,04  // left
+  jz +4
+  addps xmm15,xmm1
+
+  test r10,08  // right
+  jz +4
+  subps xmm15,xmm1
+
+  // move in Z axis
+  mov eax,(float)1
+  movd xmm0,eax
+  shufps xmm0,xmm0,45
+
+  test r10,10  // up
+  jz +4
+  addps xmm15,xmm0
+
+  test r10,20  // down
+  jz +4
+  subps xmm15,xmm0
+
+  // xmm15 is a sum of vectors
+
+  movaps xmm0,xmm15
+  xorps xmm1,xmm1
+  mulps xmm15,xmm15
+  movss xmm1,xmm15
+  shufps xmm15,xmm15,21
+  addss xmm1,xmm15
+  movhlps xmm15,xmm15
+  addss xmm1,xmm15
+  sqrtss xmm1,xmm1 // xmm1 contains vector length
+
+
+  xorps xmm15,xmm15
+  comiss xmm1,xmm15 // deal with "division by zero"
+  je epilog
+
+  shufps xmm1,xmm1,00
+  divps xmm0,xmm1   // vector is now normalized
+
+
+  movss xmm1,[factor]
+  shufps xmm1,xmm1,00
+  mulps xmm0,xmm1
+
+
+  test r10,40  // faster (3times faster)
+  jz @f
+  movaps xmm1,xmm0
+  addps xmm0,xmm1
+  addps xmm0,xmm1
+@@:
+
+
+  // move camera
+  movups xmm1,[rcx]
+  addps xmm1,xmm0
+  movq [rcx],xmm1
+  movhlps xmm1,xmm1
+  movss [rcx+8],xmm1
+
+
+epilog:
+pop rsi
+pop rdx
+pop rdi
+pop rcx
+pop rbx
+pop rbp
+pop rax
+pop r9
+pop r8
+pop r15
+pop r14
+pop r13
+pop r12
+pop r11
+pop r10
+mov rax,rcx
+ret
+
+
+
+
+subGetAsyncKeyState:
+  push r10
+  push r11
+
+  sub rsp,08
+  call GetAsyncKeyState
+  add rsp,08
+
+  pop r11
+  pop r10
+  test ax,8000
+
+  jz short @f
+    or r10,r11
+  @@:
+  ret
+
+normVector:
+dq 0
+factor:
+dd (float)CameraSpeed
+
+AdvancedFreeCam+07:
+  jmp newmem
+  nop
+return:
+
+
+CamPos+11:
+  jmp FreeCam
+  nop
+  nop
+return2:
+
+[DISABLE]
+
+AdvancedFreeCam+07:
+  db 8B 42 40 89 41 F0
+
+CamPos+11:
+  db 8B 02 89 01 8B 42 04
+
+unregistersymbol(AdvancedFreeCam)
+unregistersymbol(CamPos)
+dealloc(newmem)
+
+
+
+//NormVect
+{
+// ORIGINAL CODE - INJECTION POINT: "witcher3.exe"+D9057A
+"witcher3.exe"+D9055C: 8B 42 28              -  mov eax,[rdx+28]
+"witcher3.exe"+D9055F: 89 41 D8              -  mov [rcx-28],eax
+"witcher3.exe"+D90562: 8B 42 30              -  mov eax,[rdx+30]
+"witcher3.exe"+D90565: 89 41 E0              -  mov [rcx-20],eax
+"witcher3.exe"+D90568: 8B 42 34              -  mov eax,[rdx+34]
+"witcher3.exe"+D9056B: 89 41 E4              -  mov [rcx-1C],eax
+"witcher3.exe"+D9056E: 8B 42 38              -  mov eax,[rdx+38]
+"witcher3.exe"+D90571: 89 41 E8              -  mov [rcx-18],eax
+"witcher3.exe"+D90574: 8B 42 3C              -  mov eax,[rdx+3C]
+"witcher3.exe"+D90577: 89 41 EC              -  mov [rcx-14],eax
+// ---------- INJECTING HERE ----------
+"witcher3.exe"+D9057A: 8B 42 40              -  mov eax,[rdx+40]
+"witcher3.exe"+D9057D: 89 41 F0              -  mov [rcx-10],eax
+// ---------- DONE INJECTING  ----------
+"witcher3.exe"+D90580: 8B 42 44              -  mov eax,[rdx+44]
+"witcher3.exe"+D90583: 89 41 F4              -  mov [rcx-0C],eax
+"witcher3.exe"+D90586: 8B 42 48              -  mov eax,[rdx+48]
+"witcher3.exe"+D90589: 89 41 F8              -  mov [rcx-08],eax
+"witcher3.exe"+D9058C: 8B 42 4C              -  mov eax,[rdx+4C]
+"witcher3.exe"+D9058F: 89 41 FC              -  mov [rcx-04],eax
+"witcher3.exe"+D90592: 48 8B 52 50           -  mov rdx,[rdx+50]
+"witcher3.exe"+D90596: 48 85 D2              -  test rdx,rdx
+"witcher3.exe"+D90599: 74 06                 -  je witcher3.exe+D905A1
+"witcher3.exe"+D9059B: 48 8B 52 10           -  mov rdx,[rdx+10]
+}
+
+
+
+
+
+//CamPos
+{
+// ORIGINAL CODE - INJECTION POINT: "witcher3.exe"+B7030
+
+"witcher3.exe"+B7026: CC                                -  int 3
+"witcher3.exe"+B7027: CC                                -  int 3
+"witcher3.exe"+B7028: CC                                -  int 3
+"witcher3.exe"+B7029: CC                                -  int 3
+"witcher3.exe"+B702A: CC                                -  int 3
+"witcher3.exe"+B702B: CC                                -  int 3
+"witcher3.exe"+B702C: CC                                -  int 3
+"witcher3.exe"+B702D: CC                                -  int 3
+"witcher3.exe"+B702E: CC                                -  int 3
+"witcher3.exe"+B702F: CC                                -  int 3
+// ---------- INJECTING HERE ----------
+"witcher3.exe"+B7030: 8B 02                             -  mov eax,[rdx]
+"witcher3.exe"+B7032: 89 01                             -  mov [rcx],eax
+"witcher3.exe"+B7034: 8B 42 04                          -  mov eax,[rdx+04]
+// ---------- DONE INJECTING  ----------
+"witcher3.exe"+B7037: 89 41 04                          -  mov [rcx+04],eax
+"witcher3.exe"+B703A: 8B 42 08                          -  mov eax,[rdx+08]
+"witcher3.exe"+B703D: 89 41 08                          -  mov [rcx+08],eax
+"witcher3.exe"+B7040: 8B 42 0C                          -  mov eax,[rdx+0C]
+"witcher3.exe"+B7043: 89 41 0C                          -  mov [rcx+0C],eax
+"witcher3.exe"+B7046: 48 8B C1                          -  mov rax,rcx
+"witcher3.exe"+B7049: C3                                -  ret
+"witcher3.exe"+B704A: CC                                -  int 3
+"witcher3.exe"+B704B: CC                                -  int 3
+"witcher3.exe"+B704C: CC                                -  int 3
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>112</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9851</ID>
+      <Description>"Override FOV [F2]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(fovAOB,witcher3.exe,F3 0F 10 80 90 00 00 00 F3 0F 11 44 24 60 48 8B 84 24 80 00 00 00 48)
+aobscanmodule(fovNOP,witcher3.exe,F3 0F 11 40 30 48 8B 44 24 50 0F 57 C0 F3 0F 11 40 34 48 8B 44 24 50 0F 57 C0)
+aobscanmodule(fovNOP2,witcher3.exe,F3 0F 11 40 30 48 8B 44 24 40 48 8B 4C 24 48 F3 0F 10 41 34 F3 0F 11 40 34 48 8B 44 24 40)
+
+
+alloc(newmem,2048,"witcher3.exe")
+label(returnhere)
+label(exit)
+label(pFOV)
+registersymbol(pFOV)
+registersymbol(fovAOB)
+registersymbol(fovNOP)
+registersymbol(fovNOP2)
+
+newmem:
+mov [pFOV],rax
+movss xmm0,[rax+00000090]
+jmp exit
+
+exit:
+jmp returnhere
+
+///
+pFOV:
+dq 0
+///
+
+fovAOB:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+fovNOP:
+db 90 90 90 90 90
+
+fovNOP2:
+db 90 90 90 90 90
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+fovAOB:
+movss xmm0,[rax+00000090]
+//
+fovNOP:
+movss [rax+30],xmm0
+//
+fovNOP2:
+movss [rax+30],xmm0
+unregistersymbol(pFOV)
+unregistersymbol(fovAOB)
+unregistersymbol(fovNOP)
+unregistersymbol(fovNOP2)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9852</ID>
+          <Description>"FOV"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pFOV</Address>
+          <Offsets>
+            <Offset>90</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3353</ID>
+      <Description>"Pause Game [F3]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(pauseAOB,witcher3.exe,44 39 B0 50 01 00 00 75 12 4C 8D 85 10 01 00 00 48 8B D6 48 8B CF E8 x x x x 48 8D 4C 24 28)
+
+alloc(newmem,2048,witcher3.exe)
+label(returnhere)
+label(exit)
+
+label(pauseState)
+registersymbol(pauseState)
+label(togglePause) // tells the script to toggle on\off
+registersymbol(togglePause)
+label(currentMode) // 0 = normal game speed, 1 = freeze
+registersymbol(currentMode)
+
+registersymbol(pauseAOB)
+
+label(resumeGame)
+label(freezeGame)
+label(toggleMode)
+label(checkMode)
+
+newmem:
+cmp [togglePause],1
+je toggleMode
+jmp checkMode
+
+
+toggleMode:
+mov [togglePause],0
+cmp [currentMode],1
+je resumeGame
+jmp freezeGame
+
+checkMode:
+cmp [currentMode],1
+je freezeGame
+jmp resumeGame
+
+freezeGame:
+push r15
+mov [pauseState],1
+mov r15,[pauseState]
+mov [rax+00000150],r15
+pop r15
+cmp [rax+00000150],r14d
+mov [currentMode],1
+jmp exit
+
+resumeGame:
+push r15
+mov [pauseState],0
+mov r15,[pauseState]
+mov [rax+00000150],r15
+pop r15
+cmp [rax+00000150],r14d
+mov [currentMode],0
+jmp exit
+
+exit:
+jmp returnhere
+
+//
+pauseState:
+dd 0
+togglePause:
+dd 0
+currentMode:
+dd 1
+
+//
+
+pauseAOB:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+pauseAOB:
+cmp [rax+00000150],r14d
+unregistersymbol(pauseState)
+unregistersymbol(togglePause)
+unregistersymbol(currentMode)
+unregistersymbol(pauseAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3360</ID>
+          <Description>"ToggleFreeze"</Description>
+          <LastState Value="0" Activated="0" RealAddress="13FF700E3"/>
+          <Color>80000008</Color>
+          <VariableType>Byte</VariableType>
+          <Address>togglePause</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9862</ID>
+      <Description>"Time of Day [F4]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(timeAOB,witcher3.exe,8B 40 08 45 8B 48 38 99 F7 3D x x x x 45 85 C9 0F 84 x x x x 49 8B 48 30 41 83 F9 01 74 2B 49 C1 E1 04)
+
+alloc(newmem,2048,"witcher3.exe")
+label(returnhere)
+label(exit)
+label(pTime)
+registersymbol(pTime)
+registersymbol(timeAOB)
+
+newmem:
+mov [pTime],rax
+mov eax,[rax+08]
+mov r9d,[r8+38]
+jmp exit
+
+exit:
+jmp returnhere
+
+///
+pTime:
+dd 0
+///
+
+timeAOB:
+jmp newmem
+nop
+nop
+returnhere:
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+timeAOB:
+mov eax,[rax+08]
+mov r9d,[r8+38]
+unregistersymbol(pTime)
+unregistersymbol(timeAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9863</ID>
+          <Description>"[ ] keys"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pTime</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>600</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>3600</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>3600</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>600</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>60</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>60</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9866</ID>
+      <Description>"PlayersOnly \ Slow Motion [numpad 0]"</Description>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(freeze,witcher3.exe,F3 44 0F 11 04 08 8B)
+alloc(newmem,$1000,freeze)
+alloc(freeze_value,4)
+
+label(code)
+label(return)
+
+freeze_value:
+  dd (float)0.00
+
+newmem:
+  cmp rax,55650
+  je code
+  cmp rax,55590
+  je code
+  movss xmm8,[freeze_value]
+
+code:
+  movss [rax+rcx],xmm8
+  jmp return
+
+freeze:
+  jmp newmem
+  nop
+return:
+registersymbol(freeze)
+registersymbol(freeze_value)
+
+[DISABLE]
+freeze:
+  db F3 44 0F 11 04 08
+unregistersymbol(freeze)
+unregistersymbol(freeze_value)
+dealloc(newmem)
+dealloc(freeze_value)
+dealloc(freeze_activate)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>296</ID>
+          <Description>"Slow Down Amount (0=Freeze, 0.015=Normal)"</Description>
+          <LastState Value="0.009999999776" Activated="0" RealAddress="13F3C1000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>freeze_value</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>110</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>110</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9865</ID>
+      <Description>"HUD Scale"</Description>
+      <LastState Value="1" Activated="0" RealAddress="141E63570"/>
+      <Color>80000008</Color>
+      <VariableType>Float</VariableType>
+      <Address>witcher3.exe+2A93570</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>190</Key>
+          </Keys>
+          <Value>8</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>188</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov [rcx+08],eax</Description>
+      <Address>13F64703D</Address>
+      <ModuleName>witcher3.exe</ModuleName>
+      <ModuleNameOffset>B703D</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>weight</Name>
+      <Address>F95387F0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>durability</Name>
+      <Address>140514C1C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>status</Name>
+      <Address> 1403E5501</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>freeze</Name>
+      <Address> 13F84FDF6</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

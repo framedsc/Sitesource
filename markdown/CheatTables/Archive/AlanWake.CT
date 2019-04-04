@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Game Speed"</Description>
+      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <VariableType>Float</VariableType>
+      <Address>AlanWake.exe+29D628</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <Value>.0001</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"F1 = Pause"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"F2 = Resume"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10268</ID>
+      <Description>"FOV Control [F3]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+
+label(fovAddress)
+registersymbol(fovAddress)
+
+newmem:
+mov [fovAddress],eax
+fld dword ptr [eax+00000214]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+fovAddress:
+dd 0
+///
+
+"AlanWake.exe"+3F5C3:
+jmp newmem
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+"AlanWake.exe"+3F5C3:
+fld dword ptr [eax+00000214]
+//
+unregistersymbol(fovAddress)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>826</ID>
+          <Description>"FOV Slider"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>fovAddress</Address>
+          <Offsets>
+            <Offset>214</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10269</ID>
+          <Description>"Numpad + \ -"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [AlanWake.exe+29D628]</Description>
+      <Address>0040AB6D</Address>
+      <ModuleName>AlanWake.exe</ModuleName>
+      <ModuleNameOffset>AB6D</ModuleNameOffset>
+      <Before>
+        <Byte>D6</Byte>
+        <Byte>69</Byte>
+        <Byte>00</Byte>
+        <Byte>DE</Byte>
+        <Byte>CA</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+        <Byte>28</Byte>
+        <Byte>D6</Byte>
+        <Byte>69</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>DE</Byte>
+        <Byte>CB</Byte>
+        <Byte>D9</Byte>
+        <Byte>C9</Byte>
+        <Byte>DE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+00000214]</Description>
+      <Address>0043F5C3</Address>
+      <ModuleName>AlanWake.exe</ModuleName>
+      <ModuleNameOffset>3F5C3</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>9D</Byte>
+        <Byte>62</Byte>
+        <Byte>17</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>80</Byte>
+        <Byte>14</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>fovAddress</Name>
+      <Address>0C270016</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
