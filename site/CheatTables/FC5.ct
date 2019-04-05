@@ -163,6 +163,38 @@ movss xmm0,[rcx+00000140]
         </Hotkey>
       </Hotkeys>
     </CheatEntry>
+    <CheatEntry>
+      <ID>35</ID>
+      <Description>"Enable hotsampling through SRWE (no need to deactivate)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+// FC_m64.dll+401D01 - FF 15 611FD503        - call qword ptr [FC_m64.dll+4153C68] { -&gt;USER32.SetWindowLongA }
+FC_m64.dll+401D01:
+nop
+nop
+nop
+nop
+nop
+nop
+
+//FC_m64.dll+401D12 - FF 15 501FD503        - call qword ptr [FC_m64.dll+4153C68] { -&gt;USER32.SetWindowLongA }
+FC_m64.dll+401D12:
+nop
+nop
+nop
+nop
+nop
+nop
+
+[DISABLE]
+FC_m64.dll+401D01:
+call qword ptr [FC_m64.dll+4153C68]
+
+FC_m64.dll+401D12:
+call qword ptr [FC_m64.dll+4153C68]
+</AssemblerScript>
+    </CheatEntry>
   </CheatEntries>
   <CheatCodes>
     <CodeEntry>
