@@ -39,7 +39,7 @@ camera tools for the game instead of using these old cheat tables.
 * [bulletstorm.CT](CheatTables/Archive/bulletstorm.CT)
 * [CLOS2_steam.CT](CheatTables/Archive/CLOS2_steam.CT)
 * [Crysis3_noclip.CT](CheatTables/Archive/Crysis3_noclip.CT)
-* [Darksiders2 with timestop.CT](CheatTables/Archive/Darksiders2 with timestop.CT) 
+* [Darksiders2 with timestop.CT](CheatTables/Archive/Darksiders2_with_timestop.CT)
 * [Darksiders2.CT](CheatTables/Archive/Darksiders2.CT)
 * [Darksiders2_DE.5.0.CT](CheatTables/Archive/Darksiders2_DE.5.0.CT)
 * [darksouls.CT](CheatTables/Archive/darksouls.CT)
