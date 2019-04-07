@@ -1,11 +1,11 @@
-![Ashen](Images\borderlands2_header.png "Shot by Jim2point0")
+![Borderlands 2](Images\borderlands2_header.png "Shot by Jim2point0")
 
 ##Summary
 
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-NoAnsel | No
+Ansel | No
 Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes
@@ -34,7 +34,8 @@ Hotkeys:
 
 ### FreeCam v4.0  
 The free camera. **F5** toggles between 3rd person, free camera, fixed camera, and 1st person. 
-Pressing the **middle mouse** button will reset the free camera position.
+Pressing the **middle mouse** button will reset the free camera position. Alternatively you can use **F6**, which cycles through 
+the cameras in a different order.
 
 Some keys I added while in free camera mode:  
 
