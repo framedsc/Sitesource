@@ -1,4 +1,4 @@
-![State Of Mind](Images/state_of_mind.png "Shot by pino44io"){.shadowed}
+![State Of Mind](Images/state_of_mind.jpg "Shot by pino44io"){.shadowed}
 
 ## Summary
 
@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [CE Table by IPG Xapek](..\CheatTables\state_of_mind_win64.CT)
+* [CE Table by IPG Xapek](..\CheatTables\state_of_mind_win64.CT)  
 **Features**: Camera control, FOV Control, HUD Toggle.
 
 
