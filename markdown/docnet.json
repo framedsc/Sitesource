@@ -18,8 +18,10 @@
             "Ashen": "GameGuides\\ashen.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
             "Assassin's Creed Origins": "GameGuides\\assassins_creed_origins.md",
+			"Battlestar Galactica Deadlock": "GameGuides\\BSG Deadlock.md",
             "Batman Arkham Asylum" : "GameGuides\\batman_arkham_asylum.md",
-            "Batman Arkham Knight" : "GameGuides\\batman_arkhamknight.md",
+			"Batman Arkham Knight" : "GameGuides\\batman_arkhamknight.md",
+			"Borderlands 2" : "GameGuides\\borderlands2.md",
             "Dark Souls 3": "GameGuides\\dark_souls_3.md",
             "Devil May Cry 5": "GameGuides\\devil_may_cry_5.md",
 			"Far Cry 5": "GameGuides\\farcry5.md",
@@ -39,6 +41,7 @@
 		"General guides" :
 		{
 			"__index": "GeneralGuides\\index.md",
+			"Cheat Engine - Tables": "GeneralGuides\\cheat_engine_tables.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
 		}, 
