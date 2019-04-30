@@ -4,14 +4,14 @@
     <CheatEntry>
       <ID>5</ID>
       <Description>"Get hud toggle address (leave enabled)"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf
 // FRAMED. Screenshot Community. https://framedsc.github.io
 ///////////////////////////////////////////////////////////////////////
 [ENABLE]
 
-aobscanmodule(HudVisibilityAddressRead,Darksiders3-Win64-Shipping.exe,48 8B 05 09 94 DC 02) // should be unique
+aobscanmodule(HudVisibilityAddressRead,Darksiders3-Win64-Shipping.exe,48 8B 05 19 A1 DC 02) // should be unique
 alloc(newmem,$1000,"Darksiders3-Win64-Shipping.exe"+2BFF40)
 
 label(code)
@@ -23,12 +23,12 @@ registersymbol(HudVisibilityAddressRead)
 newmem:
 
 code:
-  mov rax,[Darksiders3-Win64-Shipping.exe+3089350]
+  mov rax,[Darksiders3-Win64-Shipping.exe+308A360]
   mov [HudVisibilityAddress], rax
   jmp return
 
 HudVisibilityAddress:
-dq 0
+  dq 0
 
 HudVisibilityAddressRead:
   jmp newmem
@@ -38,47 +38,32 @@ return:
 
 
 [DISABLE]
-
 HudVisibilityAddressRead:
-  db 48 8B 05 09 94 DC 02
+  db 48 8B 05 19 A1
 
 unregistersymbol(HudVisibilityAddress)
 unregistersymbol(HudVisibilityAddressRead)
 dealloc(newmem)
 
-{
-// ORIGINAL CODE - INJECTION POINT: "Darksiders3-Win64-Shipping.exe"+2BFF40
-
-"Darksiders3-Win64-Shipping.exe"+2BFF36: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF37: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF38: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF39: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF3A: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF3B: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF3C: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF3D: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF3E: CC                       -  int 3 
-"Darksiders3-Win64-Shipping.exe"+2BFF3F: CC                       -  int 3 
 // ---------- INJECTING HERE ----------
-"Darksiders3-Win64-Shipping.exe"+2BFF40: 48 8B 05 09 94 DC 02     -  mov rax,[Darksiders3-Win64-Shipping.exe+3089350]
-// ---------- DONE INJECTING  ----------
-"Darksiders3-Win64-Shipping.exe"+2BFF47: 83 38 00                 -  cmp dword ptr [rax],00
-"Darksiders3-Win64-Shipping.exe"+2BFF4A: 7E 1C                    -  jle Darksiders3-Win64-Shipping.exe+2BFF68
-"Darksiders3-Win64-Shipping.exe"+2BFF4C: 80 B9 BC 05 00 00 00     -  cmp byte ptr [rcx+000005BC],00
-"Darksiders3-Win64-Shipping.exe"+2BFF53: 75 2F                    -  jne Darksiders3-Win64-Shipping.exe+2BFF84
-"Darksiders3-Win64-Shipping.exe"+2BFF55: 48 8B 01                 -  mov rax,[rcx]
-"Darksiders3-Win64-Shipping.exe"+2BFF58: 33 D2                    -  xor edx,edx
-"Darksiders3-Win64-Shipping.exe"+2BFF5A: C6 81 BC 05 00 00 01     -  mov byte ptr [rcx+000005BC],01
-"Darksiders3-Win64-Shipping.exe"+2BFF61: 48 FF A0 C0 03 00 00     -  jmp qword ptr [rax+000003C0]
-"Darksiders3-Win64-Shipping.exe"+2BFF68: 80 B9 BC 05 00 00 00     -  cmp byte ptr [rcx+000005BC],00
-"Darksiders3-Win64-Shipping.exe"+2BFF6F: 74 13                    -  je Darksiders3-Win64-Shipping.exe+2BFF84
-}
+//HudVisibilityAddressRead - 48 8B 05 19A1DC02     - mov rax,[Darksiders3-Win64-Shipping.exe+308A360] { (1E724EC3338) }
+//Darksiders3-Win64-Shipping.exe+2C0247- 83 38 00              - cmp dword ptr [rax],00 { 0 }
+//Darksiders3-Win64-Shipping.exe+2C024A- 7E 1C                 - jle Darksiders3-Win64-Shipping.exe+2C0268
+//Darksiders3-Win64-Shipping.exe+2C024C- 80 B9 BC050000 00     - cmp byte ptr [rcx+000005BC],00 { 0 }
+//Darksiders3-Win64-Shipping.exe+2C0253- 75 2F                 - jne Darksiders3-Win64-Shipping.exe+2C0284
+//Darksiders3-Win64-Shipping.exe+2C0255- 48 8B 01              - mov rax,[rcx]
+//Darksiders3-Win64-Shipping.exe+2C0258- 33 D2                 - xor edx,edx
+//Darksiders3-Win64-Shipping.exe+2C025A- C6 81 BC050000 01     - mov byte ptr [rcx+000005BC],01 { 1 }
+//Darksiders3-Win64-Shipping.exe+2C0261- 48 FF A0 C0030000     - jmp qword ptr [rax+000003C0]
+//Darksiders3-Win64-Shipping.exe+2C0268- 80 B9 BC050000 00     - cmp byte ptr [rcx+000005BC],00 { 0 }
+//Darksiders3-Win64-Shipping.exe+2C026F- 74 13                 - je Darksiders3-Win64-Shipping.exe+2C0284
+//Darksiders3-Win64-Shipping.exe+2C0271- 48 8B 01              - mov rax,[rcx]
+//
 </AssemblerScript>
       <CheatEntries>
         <CheatEntry>
           <ID>1</ID>
           <Description>"Toggle hud (F1-&gt;hide hud. Ctrl-F1-&gt;Show hud)"</Description>
-          <LastState Value="0" RealAddress="2238A583338"/>
           <VariableType>Byte</VariableType>
           <Address>HudVisibilityAddress</Address>
           <Offsets>
@@ -182,7 +167,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>8</ID>
           <Description>"Resolution scale (100 is 100%). ]-&gt;+10. [-&gt;-10. '-&gt;100"</Description>
-          <LastState Value="100" RealAddress="2238A5841A8"/>
           <VariableType>Float</VariableType>
           <Address>ResolutionScaleValueAddress</Address>
           <Offsets>
@@ -220,7 +204,7 @@ dealloc(newmem)
     <CheatEntry>
       <ID>11</ID>
       <Description>"Toggle game pause (NUMPAD 0)"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf
 // FRAMED. Screenshot Community. https://framedsc.github.io
@@ -363,7 +347,360 @@ dealloc(newmem)
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>aobBypass_r</Name>
+      <Address>0070CDAC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MoxxiDrinkTime</Name>
+      <Address>01792E8F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vCamreaMode</Name>
+      <Address>2A120040</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dwPlayer_EPhysics_Hook</Name>
+      <Address>00BA9BF8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bToggleKeyPressed</Name>
+      <Address>10460010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bScriptEnabled</Name>
+      <Address>10460020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vFreeCamX</Name>
+      <Address>10460030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vFreeCamY</Name>
+      <Address>10460040</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vFreeCamZ</Name>
+      <Address>10460050</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vFreeCamZRot</Name>
+      <Address>10460060</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vFreeCamXYRot</Name>
+      <Address>10460070</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vQuad</Name>
+      <Address>10460080</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vZero</Name>
+      <Address>10460090</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vOne</Name>
+      <Address>104600A0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vThree</Name>
+      <Address>104600B0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vAccelerationMult</Name>
+      <Address>104600C0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vFloatStorage</Name>
+      <Address>104600D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fTemp1</Name>
+      <Address>104600F0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fTemp2</Name>
+      <Address>10460100</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fTemp3</Name>
+      <Address>10460110</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fTemp4</Name>
+      <Address>10460120</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vCameraSet</Name>
+      <Address>10460130</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bFreeCamInit</Name>
+      <Address>10460140</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bFreeCamStart</Name>
+      <Address>10460150</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>aobAmmoUpdate_r</Name>
+      <Address>01B0B910</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bInfiniteAmmo</Name>
+      <Address>1E230074</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fMinusOne</Name>
+      <Address>1E230078</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bNoAccuracyDecreaseOnShot</Name>
+      <Address>1E23007C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>aobAmmoOnShot_r</Name>
+      <Address>01BBCDFA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bNoReloadEnabled</Name>
+      <Address>1E230095</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>rage</Name>
+      <Address>1409552A7</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>weight</Name>
+      <Address>4039F908</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>unlimited</Name>
+      <Address>140DB8F24</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>player</Name>
+      <Address>1400F59C1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>player_stats</Name>
+      <Address>1400F5AA3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>keyboard</Name>
+      <Address>13F709090</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>global_game</Name>
+      <Address>14011D3A9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>vtable</Name>
+      <Address>13F1550F5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>durability</Name>
+      <Address>7FF74AA34F5C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>mouseover</Name>
+      <Address>7FF74AC9F4AE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>mouseover_ptr</Name>
+      <Address>7FF74A2E001B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>console</Name>
+      <Address>7FF742253810</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>global_console_debug</Name>
+      <Address>7FF742D0E18A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>use_console</Name>
+      <Address>7FF7426FB043</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>coords</Name>
+      <Address>159F0016</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>camAOB</Name>
+      <Address>008B9D70</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>UpgradePtsAndXP</Name>
+      <Address>02606554</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_DOF</Name>
+      <Address>31F0D980</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>filter</Name>
+      <Address>4B980000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ShockGlovesOnHitPtrPath</Name>
+      <Address>018F62B4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bGloves</Name>
+      <Address>0CCE0514</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bHUD</Name>
+      <Address>0CCE0518</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>camerareadAOB</Name>
+      <Address>00EEA4FA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>MenuFilter</Name>
+      <Address>0B16000B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>p0</Name>
+      <Address>22430400</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>p1</Name>
+      <Address>22430404</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>p2</Name>
+      <Address>22430408</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>EPhysicsChange_Hook</Name>
+      <Address>224300A5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bFly</Name>
+      <Address>2243040C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bAmmo</Name>
+      <Address>22430414</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bGod</Name>
+      <Address>22430410</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bCombo</Name>
+      <Address>22430418</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>KillComboReset_Cave</Name>
+      <Address>224300CE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dwEPhysicsHook</Name>
+      <Address>007A7144</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dwStopEPhysicsChange</Name>
+      <Address>007AE829</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>KillComboReset</Name>
+      <Address>00435664</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GetIndex</Name>
+      <Address>0048B1F0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SetIndex</Name>
+      <Address>004408F0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>TheWorld</Name>
+      <Address>01664900</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Toggler</Name>
+      <Address>22460500</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>KeyHandlerOff</Name>
+      <Address>22460504</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bPlayersOnly</Name>
+      <Address>22460508</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bGhost</Name>
+      <Address>2246050C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>camerayreadAOB</Name>
+      <Address>00E3AFD4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DOFEnable1</Name>
+      <Address>0AAF0019</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pLocalPlayer</Name>
+      <Address>13210014</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pRPlayerControllerCombat</Name>
+      <Address>13210018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GObjects</Name>
+      <Address>026A1CA4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GNames</Name>
+      <Address>026A1C74</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ProcessEvent</Name>
+      <Address>005A7040</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>LocalPlayerHkA</Name>
+      <Address>00CCB0D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ConsoleHook</Name>
+      <Address>00EBDEE2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pRPlayerControllerCombat_a</Name>
+      <Address>13240500</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>LocalPlayerHkB</Name>
+      <Address>008A214A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>13F220029</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatFOV</Name>
+      <Address>26402FD0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatoncam</Name>
+      <Address>26402FD0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatTimeOn</Name>
+      <Address>26402FD0020</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <Structures StructVersion="2">
     <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
       <Elements>
