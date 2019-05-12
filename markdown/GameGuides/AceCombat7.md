@@ -27,7 +27,7 @@ Follow the above instructions to get the game to recognise DSR resolutions. Set 
  
 ## Tools
 
-* [Camera Tools by ghostinthecamera](https://github.com/ghostinthecamera/IGCS-GITC/releases/tag/AC7v1.1)  
+* [Camera Tools by ghostinthecamera](https://github.com/ghostinthecamera/IGCS-GITC)  
 **Features**: Camera control, FOV Control, Time Stop, Resolution Scaling, HUD Toggle, Time Skip.
 
 @alert important
