@@ -77,6 +77,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Fade to silence
 * Hellblade: Senua's Sacrifice
 * Marvel vs. Capcom: Infinite
+* Observer
 * Overkill's The Walking Dead
 * Redeemer
 * Remothered: Tormented Fathers
