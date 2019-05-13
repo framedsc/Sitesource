@@ -35,10 +35,10 @@ DirectX versions | DirectX 11
     1. The anti cheat shuts down the game when Cheat Engine is opened. To get around this you can use a hex editor (such as [HxD](https://mh-nexus.de/en/hxd/)) to change any references to "Cheat Engine" in the application. Open "cheatengine-x86_64.exe" in HxD, search and replace for "Cheat Engine" replacing it with "i like cats!". There should be around 128 occurrences replaced. Save to a new filename such as "ilikecats.exe" and use this instead of the normal Cheat Engine application.
     2. When using this to attach the table to the game there may be two choices for MVCI.exe in the process list. Select one and if the "static z" addresses in the table show a value instead of ?? then that is the correct process, if not try the other one.
     3. Camera can be enable and disabled at any time with [Page Down]. Controlled with the keypad keys as shown in the table.
-    4. You can use the main pause menu as timestop and then remove the HUD with the HUD toggle key [NUMPAD DECIMAL] or enable the Pause script with [Page Up].
+    4. You can use the main pause menu as timestop and then remove the HUD with the HUD toggle key [NUMPAD DECIMAL] or use the Pause script with [P]. Pause now works in cutscenes.
           Key | Command
         --|--
-        P / Shift+P | Pause / Unpause
+        P | Pause / Unpause
     5. You can use Cheat Engines speedhack to slow down the game. Go to Edit > Settings > Hotkeys and assign values and keys to Speedhack speed1, Speedhack speed2, etc...
 
 * HUD Toggle Notes
