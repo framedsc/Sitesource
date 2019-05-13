@@ -10,12 +10,12 @@ The game's exe as well as the IGCSInjector.exe have to be run as *administrator*
 exe on your desktop, right-click it, select *Properties* and on the *Shortcut* tab, select *Advanced...*, then check the 'Run as Administrator' checkbox and click OK. 
 @end
 
-### Setting up the injector
+## Setting up the injector
 After downloading the zip linked below, unpack it in an empty folder and copy the contents of the folder to the folder of the game you want to use it with. Open the included
 IGCSInjector.ini in notepad and change `YOURGAME-Win64-Shipping.exe` on the line with `Process=YOURGAME-Win64-Shipping.exe` to the .exe of the game you're running. 
 To determine which exe to specify, please run the game, then open Windows Task Explorer (ctrl-shift-esc) and on the 'details' tab look for the exe of your game. 
 
-#### Example: Darksiders 3
+### Example: Darksiders 3
 So as an example we'll use Darksiders 3. The executable you're starting of Darksiders 3 is called 'darksiders3.exe', but the exe of the game is called 
 `Darksiders3-Win64-Shipping.exe`. You can see that in Windows Task Explorer as that's the exe which has a high CPU / GPU usage. So in my ini file I'll then fill in the name
 of the second process and it all becomes:
