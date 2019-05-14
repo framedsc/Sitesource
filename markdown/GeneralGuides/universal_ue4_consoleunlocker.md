@@ -35,9 +35,9 @@ has been created. Go back to the game and press the `~` key (it's the key above 
 game screen in which you can type commands. If you type the `~` again you'll get a larger console window which also shows the response of the game on your commands. 
 
 To do useful things like toggle the debug camera, you first have to enable the cheats in the game. To do this, type `EnableCheats 1` in the console and hit <enter>. After 
-that, type `toggledebugconsole` after you've loaded a level. This should give you the ability to move the camera around using your controller and WASD + mouse.
+that, type `toggledebugcamera` after you've loaded a level. This should give you the ability to move the camera around using your controller and WASD + mouse.
 
-To go back to the game, type again `toggledebugconsole` in the console or simply press cursor UP to go to a previous command. There are many commands to choose from. Not all
+To go back to the game, type again `toggledebugcamera` in the console or simply press cursor UP to go to a previous command. There are many commands to choose from. Not all
 of them work. E.g. `god` or `fly` might say they're activated but chances are they're not doing anything. Commands like `fov 50` (to set the FoV to 50 degrees, default is 
 likely 80), `pause` (to toggle the pause of the game) and a lot of console variables do work. 
 
