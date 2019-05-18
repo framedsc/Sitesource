@@ -73,8 +73,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Conarium
 * Darksiders 3
 * Echo
+* Earthfall
 * Extinction
 * Fade to silence
+* The Fidelio Incident
 * Hellblade: Senua's Sacrifice
 * Insomnia the Ark
 * Marvel vs. Capcom: Infinite
@@ -84,6 +86,8 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Redeemer
 * Remothered: Tormented Fathers
 * Ruiner
+* Space Hulk: Deadwing Enhanced Edition
+* Steel rats
 * Stories: the Path of Destinies
 
 ## Downloading the unlocker
