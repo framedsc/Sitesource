@@ -68,7 +68,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 * Agony
 * Alice VR
-8 Bard's Tale IV: Barrows Deep
+* Bard's Tale IV: Barrows Deep
 * Call of Cthulhu
 * Close to the Sun
 * Conarium
