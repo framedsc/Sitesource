@@ -78,16 +78,20 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Extinction
 * Fade to silence
 * The Fidelio Incident
+* Geneis Alpha One
 * Hellblade: Senua's Sacrifice
 * Insomnia the Ark
 * Marvel vs. Capcom: Infinite
 * Observer
 * Overkill's The Walking Dead
 * Planet Alpha
+* Project Remedium
+* Omensight
 * Redeemer
 * Remothered: Tormented Fathers
 * Ruiner
 * Space Hulk: Deadwing Enhanced Edition
+* Space Hulk Tactics
 * Steel rats
 * Stories: the Path of Destinies
 
