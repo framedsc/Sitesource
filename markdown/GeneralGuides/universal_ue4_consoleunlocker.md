@@ -86,6 +86,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Overkill's The Walking Dead
 * Planet Alpha
 * Project Remedium
+* Occupation
 * Omensight
 * Redeemer
 * Remothered: Tormented Fathers
