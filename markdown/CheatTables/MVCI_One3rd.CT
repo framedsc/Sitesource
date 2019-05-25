@@ -38,7 +38,7 @@
         <CheatEntry>
           <ID>1401</ID>
           <Description>"static z"</Description>
-          <LastState Value="91.47498322" RealAddress="14342427C"/>
+          <LastState Value="91.47530365" RealAddress="14342427C"/>
           <Color>FF0000</Color>
           <VariableType>Float</VariableType>
           <Address>MVCI.exe+342427C</Address>
@@ -46,7 +46,7 @@
         <CheatEntry>
           <ID>1400</ID>
           <Description>"static z"</Description>
-          <LastState Value="91.47498322" RealAddress="1434241BC"/>
+          <LastState Value="91.47530365" RealAddress="1434241BC"/>
           <Color>FF0000</Color>
           <VariableType>Float</VariableType>
           <Address>MVCI.exe+34241BC</Address>
@@ -54,7 +54,7 @@
         <CheatEntry>
           <ID>1399</ID>
           <Description>"static z"</Description>
-          <LastState Value="91.47498322" RealAddress="143424170"/>
+          <LastState Value="91.47530365" RealAddress="143424170"/>
           <Color>FF0000</Color>
           <VariableType>Float</VariableType>
           <Address>MVCI.exe+3424170</Address>
@@ -62,7 +62,7 @@
         <CheatEntry>
           <ID>1259</ID>
           <Description>"No description"</Description>
-          <LastState Value="91.47498322" RealAddress="004FB4B8"/>
+          <LastState Value="91.4753952" RealAddress="004FB4B8"/>
           <Color>FF0000</Color>
           <VariableType>Float</VariableType>
           <Address>004FB4B8</Address>
@@ -146,6 +146,7 @@
     <CheatEntry>
       <ID>12211</ID>
       <Description>"Camera [Page Down]"</Description>
+      <Options moHideChildren="1"/>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
@@ -672,7 +673,7 @@ unregistersymbol(pCamera)
       <CheatEntries>
         <CheatEntry>
           <ID>13524</ID>
-          <Description>"Pause: P, Shift+P"</Description>
+          <Description>"Pause: P toggles"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <Color>000000</Color>
           <GroupHeader>1</GroupHeader>
@@ -680,11 +681,111 @@ unregistersymbol(pCamera)
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>13520</ID>
-      <Description>"Pause Enable Script [Page Up]"</Description>
-      <LastState Activated="1"/>
+      <ID>13529</ID>
+      <Description>"Pause Script [UWorld::IsPaused()]"</Description>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
+//alloc(newmem,256)
+alloc(newmem,2048,"MVCI.exe"+181BB74)
+label(returnhere)
+label(exit)
+label(pP)
+registersymbol(pP)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+//xor al,al
+mov al,1
+add rsp,20
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pP:
+dd 0
+//
+
+"MVCI.exe"+181BB74:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"MVCI.exe"+181BB74:
+xor al,al
+add rsp,20
+unregistersymbol(pP)
+
+
+//aobscanmodule(INJECT,MVCI.exe,10 00 00 75 08 32 C0 48 83 C4 20) // should be unique
+//alloc(newmem,$1000,"MVCI.exe"+181BB74)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MVCI.exe"+181BB74
+
+"MVCI.exe"+181BB50: 48 8B D3                       -  mov rdx,rbx
+"MVCI.exe"+181BB53: E8 28 50 27 00                 -  call MVCI.exe+1A90B80
+"MVCI.exe"+181BB58: 84 C0                          -  test al,al
+"MVCI.exe"+181BB5A: 75 20                          -  jne MVCI.exe+181BB7C
+"MVCI.exe"+181BB5C: 48 8B CB                       -  mov rcx,rbx
+"MVCI.exe"+181BB5F: E8 8C AD 2A 00                 -  call MVCI.exe+1AC68F0
+"MVCI.exe"+181BB64: 84 C0                          -  test al,al
+"MVCI.exe"+181BB66: 74 0C                          -  je MVCI.exe+181BB74
+"MVCI.exe"+181BB68: F7 83 88 09 00 00 00 10 00 00  -  test [rbx+00000988],1000
+"MVCI.exe"+181BB72: 75 08                          -  jne MVCI.exe+181BB7C
+// ---------- INJECTING HERE ----------
+"MVCI.exe"+181BB74: 32 C0                          -  xor al,al
+"MVCI.exe"+181BB76: 48 83 C4 20                    -  add rsp,20
+// ---------- DONE INJECTING  ----------
+"MVCI.exe"+181BB7A: 5B                             -  pop rbx
+"MVCI.exe"+181BB7B: C3                             -  ret
+"MVCI.exe"+181BB7C: B0 01                          -  mov al,01
+"MVCI.exe"+181BB7E: 48 83 C4 20                    -  add rsp,20
+"MVCI.exe"+181BB82: 5B                             -  pop rbx
+"MVCI.exe"+181BB83: C3                             -  ret
+"MVCI.exe"+181BB84: CC                             -  int 3
+"MVCI.exe"+181BB85: CC                             -  int 3
+"MVCI.exe"+181BB86: CC                             -  int 3
+"MVCI.exe"+181BB87: CC                             -  int 3
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>80</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13543</ID>
+      <Description>"***"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13542</ID>
+      <Description>"&lt; Backup scripts no longer used &gt;"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13520</ID>
+          <Description>"Pause Enable Script [no bind]"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 //alloc(newmem,256)
 alloc(newmem,2048,"MVCI.exe"+2ADB9A)
 label(returnhere)
@@ -747,651 +848,44 @@ unregistersymbol(pPause)
 "MVCI.exe"+2ADBBE: 83 E9 01              -  sub ecx,01
 }
 </AssemblerScript>
-      <Hotkeys>
-        <Hotkey>
-          <Action>Toggle Activation</Action>
-          <Keys>
-            <Key>33</Key>
-          </Keys>
-          <ID>0</ID>
-        </Hotkey>
-      </Hotkeys>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>13521</ID>
-          <Description>"Pause"</Description>
-          <LastState Value="0" RealAddress="1D0DB4E8"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>pPause</Address>
-          <Offsets>
-            <Offset>0E8</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Set Value</Action>
-              <Keys>
-                <Key>80</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Set Value</Action>
-              <Keys>
-                <Key>16</Key>
-                <Key>80</Key>
-              </Keys>
-              <Value>0</Value>
-              <ID>1</ID>
-            </Hotkey>
-          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13521</ID>
+              <Description>"Pause"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pPause</Address>
+              <Offsets>
+                <Offset>0E8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <CheatCodes>
-    <CodeEntry>
-      <Description>Code :mov [rbx+6C],eax - access static address Z?</Description>
-      <Address>1402FE609</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>2FE609</ModuleNameOffset>
-      <Before>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>4B</Byte>
-        <Byte>64</Byte>
-      </Before>
-      <Actual>
-        <Byte>89</Byte>
-        <Byte>43</Byte>
-        <Byte>6C</Byte>
-      </Actual>
-      <After>
-        <Byte>C7</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>28</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov eax,[rdx+0C]</Description>
-      <Address>1402F89DD</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>2F89DD</ModuleNameOffset>
-      <Before>
-        <Byte>81</Byte>
-        <Byte>24</Byte>
-        <Byte>01</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Before>
-      <Actual>
-        <Byte>8B</Byte>
-        <Byte>42</Byte>
-        <Byte>0C</Byte>
-      </Actual>
-      <After>
-        <Byte>89</Byte>
-        <Byte>81</Byte>
-        <Byte>2C</Byte>
-        <Byte>01</Byte>
-        <Byte>00</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov eax,[rcx+00000418] - access z</Description>
-      <Address>14195C915</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>195C915</ModuleNameOffset>
-      <Before>
-        <Byte>00</Byte>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>06</Byte>
-      </Before>
-      <Actual>
-        <Byte>8B</Byte>
-        <Byte>81</Byte>
-        <Byte>18</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>89</Byte>
-        <Byte>46</Byte>
-        <Byte>08</Byte>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov eax,[rdx+08]</Description>
-      <Address>141809B08</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1809B08</ModuleNameOffset>
-      <Before>
-        <Byte>11</Byte>
-        <Byte>01</Byte>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>DA</Byte>
-      </Before>
-      <Actual>
-        <Byte>8B</Byte>
-        <Byte>42</Byte>
-        <Byte>08</Byte>
-      </Actual>
-      <After>
-        <Byte>89</Byte>
-        <Byte>41</Byte>
-        <Byte>08</Byte>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov [rdi+00000418],eax - writes z</Description>
-      <Address>141955972</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1955972</ModuleNameOffset>
-      <Before>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>48</Byte>
-      </Before>
-      <Actual>
-        <Byte>89</Byte>
-        <Byte>87</Byte>
-        <Byte>18</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>8B</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>44</Byte>
-        <Byte>89</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movsd xmm0,[rcx+0000041C] - rot</Description>
-      <Address>14195C91E</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>195C91E</ModuleNameOffset>
-      <Before>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>89</Byte>
-        <Byte>46</Byte>
-        <Byte>08</Byte>
-      </Before>
-      <Actual>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>81</Byte>
-        <Byte>1C</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>F2</Byte>
-        <Byte>41</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>06</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movsd xmm0,[rdx+0C]</Description>
-      <Address>141809B0E</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1809B0E</ModuleNameOffset>
-      <Before>
-        <Byte>42</Byte>
-        <Byte>08</Byte>
-        <Byte>89</Byte>
-        <Byte>41</Byte>
-        <Byte>08</Byte>
-      </Before>
-      <Actual>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>42</Byte>
-        <Byte>0C</Byte>
-      </Actual>
-      <After>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>41</Byte>
-        <Byte>0C</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movsd [rdi+0000041C],xmm0</Description>
-      <Address>141955965</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1955965</ModuleNameOffset>
-      <Before>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>3C</Byte>
-      </Before>
-      <Actual>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>87</Byte>
-        <Byte>1C</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>48</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov eax,[rdx+28] - 1.33</Description>
-      <Address>141809B36</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1809B36</ModuleNameOffset>
-      <Before>
-        <Byte>42</Byte>
-        <Byte>24</Byte>
-        <Byte>89</Byte>
-        <Byte>41</Byte>
-        <Byte>24</Byte>
-      </Before>
-      <Actual>
-        <Byte>8B</Byte>
-        <Byte>42</Byte>
-        <Byte>28</Byte>
-      </Actual>
-      <After>
-        <Byte>89</Byte>
-        <Byte>41</Byte>
-        <Byte>28</Byte>
-        <Byte>8B</Byte>
-        <Byte>41</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movss [rdi+00000438],xmm0</Description>
-      <Address>1419559A1</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>19559A1</ModuleNameOffset>
-      <Before>
-        <Byte>0F</Byte>
-        <Byte>B6</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>60</Byte>
-      </Before>
-      <Actual>
-        <Byte>F3</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>87</Byte>
-        <Byte>38</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>F3</Byte>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movss xmm0,[rcx+000003A4] - FOV</Description>
-      <Address>1419598F0</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>19598F0</ModuleNameOffset>
-      <Before>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-      </Before>
-      <Actual>
-        <Byte>F3</Byte>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>81</Byte>
-        <Byte>A4</Byte>
-        <Byte>03</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>0F</Byte>
-        <Byte>57</Byte>
-        <Byte>C9</Byte>
-        <Byte>0F</Byte>
-        <Byte>2F</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movzx ecx,byte ptr [rax+000000E8] - access pause</Description>
-      <Address>1402ADB9A</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>2ADB9A</ModuleNameOffset>
-      <Before>
-        <Byte>48</Byte>
-        <Byte>85</Byte>
-        <Byte>C0</Byte>
-        <Byte>74</Byte>
-        <Byte>09</Byte>
-      </Before>
-      <Actual>
-        <Byte>0F</Byte>
-        <Byte>B6</Byte>
-        <Byte>88</Byte>
-        <Byte>E8</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>EB</Byte>
-        <Byte>02</Byte>
-        <Byte>32</Byte>
-        <Byte>C9</Byte>
-        <Byte>48</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movzx eax,byte ptr [rcx+000000E8]</Description>
-      <Address>1405329D5</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>5329D5</ModuleNameOffset>
-      <Before>
-        <Byte>C8</Byte>
-        <Byte>4C</Byte>
-        <Byte>89</Byte>
-        <Byte>4A</Byte>
-        <Byte>20</Byte>
-      </Before>
-      <Actual>
-        <Byte>0F</Byte>
-        <Byte>B6</Byte>
-        <Byte>81</Byte>
-        <Byte>E8</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>41</Byte>
-        <Byte>88</Byte>
-        <Byte>00</Byte>
-        <Byte>C3</Byte>
-        <Byte>48</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :cmp [rcx+000000E8],dl</Description>
-      <Address>1403B8A80</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>3B8A80</ModuleNameOffset>
-      <Before>
-        <Byte>B6</Byte>
-        <Byte>FA</Byte>
-        <Byte>48</Byte>
-        <Byte>8B</Byte>
-        <Byte>D9</Byte>
-      </Before>
-      <Actual>
-        <Byte>38</Byte>
-        <Byte>91</Byte>
-        <Byte>E8</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>74</Byte>
-        <Byte>62</Byte>
-        <Byte>88</Byte>
-        <Byte>91</Byte>
-        <Byte>E8</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov [rcx+000000E8],dl</Description>
-      <Address>1403B8A88</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>3B8A88</ModuleNameOffset>
-      <Before>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>74</Byte>
-        <Byte>62</Byte>
-      </Before>
-      <Actual>
-        <Byte>88</Byte>
-        <Byte>91</Byte>
-        <Byte>E8</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>48</Byte>
-        <Byte>81</Byte>
-        <Byte>C1</Byte>
-        <Byte>08</Byte>
-        <Byte>01</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov [rdi+00000418],eax - writes z</Description>
-      <Address>141955972</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1955972</ModuleNameOffset>
-      <Before>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>48</Byte>
-      </Before>
-      <Actual>
-        <Byte>89</Byte>
-        <Byte>87</Byte>
-        <Byte>18</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>8B</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>44</Byte>
-        <Byte>89</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movss xmm0,[rcx+000003A4] - access fov</Description>
-      <Address>1419598F0</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>19598F0</ModuleNameOffset>
-      <Before>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-      </Before>
-      <Actual>
-        <Byte>CC</Byte>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>81</Byte>
-        <Byte>A4</Byte>
-        <Byte>03</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>0F</Byte>
-        <Byte>57</Byte>
-        <Byte>C9</Byte>
-        <Byte>0F</Byte>
-        <Byte>2F</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movss [rcx+000003A4],xmm1</Description>
-      <Address>141969BE0</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1969BE0</ModuleNameOffset>
-      <Before>
-        <Byte>C3</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-      </Before>
-      <Actual>
-        <Byte>CC</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>89</Byte>
-        <Byte>A4</Byte>
-        <Byte>03</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>C3</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-        <Byte>CC</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movsd [rdi+00000410],xmm0 - writes x</Description>
-      <Address>141955957</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1955957</ModuleNameOffset>
-      <Before>
-        <Byte>3C</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-        <Byte>FC</Byte>
-      </Before>
-      <Actual>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>87</Byte>
-        <Byte>10</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :movsd [rdi+0000041C],xmm0 - writes y-rot</Description>
-      <Address>141955965</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>1955965</ModuleNameOffset>
-      <Before>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>3C</Byte>
-      </Before>
-      <Actual>
-        <Byte>F2</Byte>
-        <Byte>0F</Byte>
-        <Byte>11</Byte>
-        <Byte>87</Byte>
-        <Byte>1C</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>0F</Byte>
-        <Byte>10</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>48</Byte>
-      </After>
-    </CodeEntry>
-    <CodeEntry>
-      <Description>Code :mov [rdi+00000424],eax - writes tilt</Description>
-      <Address>14195597C</Address>
-      <ModuleName>MVCI.exe</ModuleName>
-      <ModuleNameOffset>195597C</ModuleNameOffset>
-      <Before>
-        <Byte>00</Byte>
-        <Byte>8B</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>44</Byte>
-      </Before>
-      <Actual>
-        <Byte>89</Byte>
-        <Byte>87</Byte>
-        <Byte>24</Byte>
-        <Byte>04</Byte>
-        <Byte>00</Byte>
-        <Byte>00</Byte>
-      </Actual>
-      <After>
-        <Byte>8B</Byte>
-        <Byte>44</Byte>
-        <Byte>24</Byte>
-        <Byte>5C</Byte>
-        <Byte>0F</Byte>
-      </After>
-    </CodeEntry>
-  </CheatCodes>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>pPause</Name>
-      <Address>13FFF002D</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
   <Comments>1. The anti cheat shuts down the game when Cheat Engine is opened. To get around this you can use a hex editor (such as [HxD](https://mh-nexus.de/en/hxd/)) to change any references to "Cheat Engine" in the application. Open "cheatengine-x86_64.exe" in HxD, search and replace for "Cheat Engine" replacing it with "i like cats!". There should be around 128 occurrences replaced. Save to a new filename such as "ilikecats.exe" and use this instead of the normal Cheat Engine application.
     2. When using this to attach the table to the game there may be two choices for MVCI.exe in the process list. Select one and if the "static z" addresses in the table show a value instead of ?? then that is the correct process, if not try the other one.
     3. Camera can be enable and disabled at any time with [Page Down]. Controlled with the keypad keys as shown in the table.
-    4. You can use the main pause menu as timestop and then remove the HUD with the HUD toggle key [NUMPAD DECIMAL] or enable the Pause script with [Page Up] and use [P] / [Shift]+[P] to pause/unpause.</Comments>
+    4. You can use the main pause menu as timestop and then remove the HUD with the HUD toggle key [NUMPAD DECIMAL] or enable the Pause script with [Page Up] and use [P] / [Shift]+[P] to pause/unpause.
+</Comments>
 </CheatTable>

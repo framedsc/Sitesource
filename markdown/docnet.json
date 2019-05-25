@@ -26,7 +26,7 @@
 			"Darksiders 3": "GameGuides\\darksiders3.md",
 			"Dead Rising 4": "GameGuides\\DeadRising4.md",
 			"Devil May Cry 5": "GameGuides\\devil_may_cry_5.md",
-			"Dirt Rally 2.0": "Gameguides\\dirtrally2.md",
+			"Dirt Rally 2.0": "GameGuides\\dirtrally2.md",
 			"Far Cry 5": "GameGuides\\farcry5.md",
 			"Generation Zero": "GameGuides\\generationzero.md",
 			"Marvel vs. Capcom: Infinite": "GameGuides\\MVCI.md",
@@ -49,6 +49,7 @@
 			"Cheat Engine - Tables": "GeneralGuides\\cheat_engine_tables.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
+			"Universal Unreal Engine 4 Console Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 		}, 
 		"Reshade guides" :
 		{
