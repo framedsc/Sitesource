@@ -72,9 +72,11 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Call of Cthulhu
 * Close to the Sun
 * Conarium
+* Dark Occult
 * Darksiders 3
-* Echo
 * Earthfall
+* Echo
+* Elea
 * Extinction
 * Fade to silence
 * The Fidelio Incident
@@ -90,6 +92,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Project Remedium
 * Occupation
 * Omensight
+* Quantum Replica
 * Redeemer
 * Remothered: Tormented Fathers
 * Ruiner
