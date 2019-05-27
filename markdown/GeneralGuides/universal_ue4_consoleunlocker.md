@@ -78,10 +78,12 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Extinction
 * Fade to silence
 * The Fidelio Incident
-* Geneis Alpha One
+* Genesis Alpha One
 * Hellblade: Senua's Sacrifice
 * Insomnia the Ark
+* Jump Force (limited)
 * Marvel vs. Capcom: Infinite
+* Mutant Year Zero: Road to Eden
 * Observer
 * Overkill's The Walking Dead
 * Planet Alpha
