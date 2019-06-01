@@ -68,7 +68,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 * Agony
 * Alice VR
+* Ancestors Legacy
 * Bard's Tale IV: Barrows Deep
+* Burning Daylight
 * Call of Cthulhu
 * Close to the Sun
 * Conarium
@@ -80,6 +82,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Extinction
 * Fade to silence
 * The Fidelio Incident
+* Fighting Ex Layer
 * Genesis Alpha One
 * Hellblade: Senua's Sacrifice
 * Insomnia the Ark
@@ -100,6 +103,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Space Hulk Tactics
 * Steel rats
 * Stories: the Path of Destinies
+* Tartarus
 
 ## Downloading the unlocker
 
