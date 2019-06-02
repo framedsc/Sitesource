@@ -1,4 +1,4 @@
-<!--![S.T.A.L.K.E.R - Call of Pripyat](Images\game_header.png "Shot by Author"){.shadowed}-->
+![S.T.A.L.K.E.R](Images/stalker_header.jpg "Shot by Sonozaki"){.shadowed}
 
 ## Summary
 
