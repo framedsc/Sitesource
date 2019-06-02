@@ -1,4 +1,4 @@
-![Hitman: Absolution](Images\Hitman_Abs_header.jpg "Shot by unknown"){.shadowed}
+<!-- ![Hitman: Absolution](Images\Hitman_Abs_header.jpg "Shot by unknown"){.shadowed}-->
 
 ##Feature summary
 
@@ -29,6 +29,7 @@ DirectX versions | DirectX 11
 		2. Press [ESC] to go into the Pause Menu.
 		3. Re-enable the Enable Camera script with [Page Down]
 	* FOV changes will only take place after ALT-Tab back into the game. Change the FOV value with below keys and then ALT-Tab out and then back in to the game for changes to take effect.
+
 2. Enable  Timescale control with the following keys.
 
 	Key | Command
