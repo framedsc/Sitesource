@@ -74,6 +74,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Call of Cthulhu
 * Close to the Sun
 * Conarium
+* Dark Future: Blood Red States
 * Dark Occult
 * Darksiders 3
 * Earthfall
@@ -85,6 +86,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Fighting Ex Layer
 * Genesis Alpha One
 * Hellblade: Senua's Sacrifice
+* Hunting Simulator
 * Insomnia the Ark
 * Jump Force (limited)
 * Marvel vs. Capcom: Infinite
