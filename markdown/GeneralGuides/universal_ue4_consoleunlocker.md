@@ -96,6 +96,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Planet Alpha
 * Project Remedium
 * Occupation
+* Omen of Sorrow
 * Omensight
 * Quantum Replica
 * Redeemer
