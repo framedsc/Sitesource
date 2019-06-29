@@ -87,6 +87,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Hellblade: Senua's Sacrifice
 * Insomnia the Ark
 * Jump Force (limited)
+* Layers of Fear 2
 * Marvel vs. Capcom: Infinite
 * Mutant Year Zero: Road to Eden
 * Observer
@@ -99,15 +100,19 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Redeemer
 * Remothered: Tormented Fathers
 * Ruiner
+* The Sinking City
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
 * Steel rats
 * Stories: the Path of Destinies
+* Styx 2
 * Tartarus
+* ZED
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.3](https://mega.nz/#!kNZiWSRT!NToGhlcZtJ2pX_2rnW5viZXOV_3Z77Wduc8Gbn6kNyk)
+* [Universal UE4 Unlocker v1.0.4](https://mega.nz/#!pNIAxCgY!KjYD5-vKjHLBURiVX_9oYADiPPqNAUOFApPfqVKi7HU)
+
 
 ## Credits
 
