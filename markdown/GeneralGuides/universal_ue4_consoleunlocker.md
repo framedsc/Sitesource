@@ -75,6 +75,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Close to the Sun
 * Conarium
 * Dark Future: Blood Red States
+* Dark Deception
 * Dark Occult
 * Darksiders 3
 * Earthfall
@@ -96,6 +97,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Overkill's The Walking Dead
 * Planet Alpha
 * Project Remedium
+* Protocol
 * Occupation
 * Omen of Sorrow
 * Omensight
@@ -115,8 +117,15 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.4](https://mega.nz/#!pNIAxCgY!KjYD5-vKjHLBURiVX_9oYADiPPqNAUOFApPfqVKi7HU)
+* [Universal UE4 Unlocker v1.0.5](https://mega.nz/#!0UJSyYpa!1zD_LXhQuG2h87qlQn7XCyz0lehiCD1jAZ5KK6e6-pU)
 
+## Troubleshooting
+You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
+When that happens, the unlocker will try to auto-detect which engine version is being used. If that fails, it's likely not going to work out however. 
+If it succeeds, the console can be created most likely. 
+
+If you get AOB errors when injecting the dll, it might be the engine's code hasn't been fully initialized yet and AOB scanning can't
+find it. Simply load a level and try again by pressing `CTRL+END`. 
 
 ## Credits
 
