@@ -69,8 +69,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Agony
 * Alice VR
 * Ancestors Legacy
+* Another Sight Definitive Edition
 * Bard's Tale IV: Barrows Deep
 * Burning Daylight
+* Bright Memory
 * Call of Cthulhu
 * Close to the Sun
 * Conarium
@@ -106,6 +108,8 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remothered: Tormented Fathers
 * Ruiner
 * The Sinking City
+* Shape of the World
+* Sophont
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
 * Stardrop
