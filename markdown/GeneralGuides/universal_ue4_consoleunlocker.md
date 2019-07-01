@@ -117,6 +117,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Stories: the Path of Destinies
 * Styx 2
 * Tartarus
+* Visage
 * ZED
 
 ## Downloading the unlocker
@@ -130,6 +131,8 @@ If it succeeds, the console can be created most likely.
 
 If you get AOB errors when injecting the dll, it might be the engine's code hasn't been fully initialized yet and AOB scanning can't
 find it. Simply load a level and try again by pressing `CTRL+END`. 
+
+If the game crashes when injecting the unlocker, try to inject it when a level is loaded. 
 
 ## Credits
 
