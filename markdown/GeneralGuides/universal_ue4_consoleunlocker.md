@@ -52,7 +52,7 @@ and therefore it's not possible to open the console. However it's easy to correc
 [/Script/Engine.InputSettings]
 ConsoleKey=Tilde
 ```
-* Save and set it to readonly. You can also set it to another key, e.g. K. 
+* Save and set the file to readonly. You can also set it to another key, e.g. K. 
 
 ## Dumping names / object addresses
 The unlocker has another feature up its sleeve: it can dump two text files in the game folder called UE4Tools_Names.txt and UE4Tools_Objects.txt. To do that, press **Numpad /**.
@@ -89,6 +89,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Fighting Ex Layer
 * Genesis Alpha One
 * Hellblade: Senua's Sacrifice
+* Hollow
 * Hunting Simulator
 * Insomnia the Ark
 * Jump Force (limited)
@@ -117,6 +118,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Stories: the Path of Destinies
 * Styx 2
 * Tartarus
+* Train Sim World
 * Tropico 6
 * Visage
 * ZED
@@ -138,3 +140,4 @@ If the game crashes when injecting the unlocker, try to inject it when a level i
 ## Credits
 
 The Universal Unreal Engine 4 Unlocker / dumper was created by Otis_Inf and SunBeam. Dumper code is based on the SDK generator by Kn4ck3r. 
+Special thanks to Pino44io for testing.
