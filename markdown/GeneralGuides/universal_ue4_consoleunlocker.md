@@ -45,7 +45,7 @@ likely 80), `pause` (to toggle the pause of the game) and a lot of console varia
 It might be the `~` key doesn't do anything, even though the console was created successfully by the dll. This might be caused because the game unbound the `~` key
 and therefore it's not possible to open the console. However it's easy to correct this. Follow these steps
 
-* In explorer go to: c:\users\*<your username>*\AppData\Local\*<game name>*\Saved\Config\WindowsNoEditor 
+* In explorer go to: `c:\users\<your username>\AppData\Local\<game name>\Saved\Config\WindowsNoEditor`
 * open Input.ini
 * Add:
 ```
