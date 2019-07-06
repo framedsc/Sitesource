@@ -80,6 +80,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Dreamscaper
 * Earthfall
 * Echo
 * Elea
@@ -96,6 +97,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Layers of Fear 2
 * Marvel vs. Capcom: Infinite
 * Mutant Year Zero: Road to Eden
+* NBA 2K Playgrounds 2
 * Observer
 * Overkill's The Walking Dead
 * Planet Alpha
@@ -120,6 +122,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Tartarus
 * Train Sim World
 * Tropico 6
+* Uventa
 * Visage
 * ZED
 
