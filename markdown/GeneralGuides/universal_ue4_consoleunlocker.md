@@ -74,13 +74,16 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Burning Daylight
 * Bright Memory
 * Call of Cthulhu
+* Captain Starshot
 * Close to the Sun
 * Conarium
 * Dark Future: Blood Red States
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Desolate
 * Dreamscaper
+* Driftland
 * Earthfall
 * Echo
 * Elea
@@ -89,11 +92,13 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * The Fidelio Incident
 * Fighting Ex Layer
 * Genesis Alpha One
+* Gray Dawn
 * Hellblade: Senua's Sacrifice
 * Hollow
 * Hunting Simulator
 * Insomnia the Ark
 * Jump Force (limited)
+* Laser League
 * Layers of Fear 2
 * Marvel vs. Capcom: Infinite
 * Mutant Year Zero: Road to Eden
@@ -112,6 +117,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ruiner
 * The Sinking City
 * Shape of the World
+* Skylar and Plux
 * Sophont
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
@@ -119,9 +125,11 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Steel rats
 * Stories: the Path of Destinies
 * Styx 2
+* Supraland
 * Tartarus
 * Train Sim World
 * Tropico 6
+* Urban Trial Playground
 * Uventa
 * Visage
 * ZED
