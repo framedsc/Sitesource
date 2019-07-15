@@ -70,6 +70,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Alice VR
 * Ancestors Legacy
 * Another Sight Definitive Edition
+* Asemblance: Oversight
 * Bard's Tale IV: Barrows Deep
 * Burning Daylight
 * Bright Memory
@@ -103,6 +104,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Marvel vs. Capcom: Infinite
 * Mutant Year Zero: Road to Eden
 * NBA 2K Playgrounds 2
+* Nephise: Ascension
 * Observer
 * Overkill's The Walking Dead
 * Planet Alpha
@@ -118,6 +120,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * The Sinking City
 * Shape of the World
 * Skylar and Plux
+* SolSeraph
 * Sophont
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
@@ -132,6 +135,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Urban Trial Playground
 * Uventa
 * Visage
+* Wartile
 * ZED
 
 ## Downloading the unlocker
