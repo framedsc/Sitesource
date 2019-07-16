@@ -118,6 +118,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remothered: Tormented Fathers
 * Ruiner
 * The Sinking City
+* Sinner: Sacrifice for Redemption
 * Shape of the World
 * Skylar and Plux
 * SolSeraph
