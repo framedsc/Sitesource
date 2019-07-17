@@ -137,11 +137,12 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Uventa
 * Visage
 * Wartile
+* XING The Land Beyond
 * ZED
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.5](https://mega.nz/#!0UJSyYpa!1zD_LXhQuG2h87qlQn7XCyz0lehiCD1jAZ5KK6e6-pU)
+* [Universal UE4 Unlocker v1.0.6](https://mega.nz/#!4AJBmajK!eeSzCmZKZnBjQRuR_3nEc7Z1vRbAmWT9P2paN8VxXUg)
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
