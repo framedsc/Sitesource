@@ -99,6 +99,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Hunting Simulator
 * Insomnia the Ark
 * Jump Force (limited)
+* Killsquad
 * Laser League
 * Layers of Fear 2
 * Marvel vs. Capcom: Infinite
@@ -106,7 +107,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
+* Operencia: The Stolen Sun
 * Overkill's The Walking Dead
+* Past Cure
 * Planet Alpha
 * Project Remedium
 * Protocol
