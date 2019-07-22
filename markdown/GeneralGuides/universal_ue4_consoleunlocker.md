@@ -82,6 +82,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Deliver Us The Moon
 * Desolate
 * Dreamscaper
 * Driftland
