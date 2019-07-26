@@ -104,6 +104,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Laser League
 * Layers of Fear 2
 * Marvel vs. Capcom: Infinite
+* MotoGP 19
 * Mutant Year Zero: Road to Eden
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
