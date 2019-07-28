@@ -84,6 +84,8 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Darksiders 3
 * Deliver Us The Moon
 * Desolate
+* Deep Rock Galactic
+* Donensbourgh
 * Dreamscaper
 * Driftland
 * Earthfall
