@@ -13,7 +13,7 @@ Ansel | No
 DirectX versions | DirectX 11
  
 ##Tools
-* [CE table - Camera by IDK31](..\CheatTables\RiME.CT)  
+* [CE table - Camera by One3rd and IDK31](..\CheatTables\RiME.CT)  
 **Features**: Camera Control, FoV, Tilt, Timestop
 
 ##Cheat table notes
