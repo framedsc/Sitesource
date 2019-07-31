@@ -113,6 +113,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Observer
 * Operencia: The Stolen Sun
 * Overkill's The Walking Dead
+* Paranormal Activity The Lost Soul
 * Past Cure
 * Planet Alpha
 * Project Remedium
@@ -130,6 +131,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Skylar and Plux
 * SolSeraph
 * Sophont
+* Soul Valley
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
 * Stardrop
