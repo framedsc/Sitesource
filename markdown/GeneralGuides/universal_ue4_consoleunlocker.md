@@ -72,8 +72,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Another Sight Definitive Edition
 * Asemblance: Oversight
 * Bard's Tale IV: Barrows Deep
-* Burning Daylight
+* The Blackout Club
 * Bright Memory
+* Burning Daylight
 * Call of Cthulhu
 * Captain Starshot
 * Close to the Sun
@@ -107,6 +108,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Layers of Fear 2
 * Marvel vs. Capcom: Infinite
 * MotoGP 19
+* Morphies Law Remorphed
 * Mutant Year Zero: Road to Eden
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
