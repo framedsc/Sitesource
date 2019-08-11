@@ -1,4 +1,4 @@
-![Watch_Dogs 2](Images\game_header.png "Shot by Author"){.shadowed}
+![Watch_Dogs 2](Images\wd2_header.png "Shot by random ork"){.shadowed}
 
 ## Summary
 
