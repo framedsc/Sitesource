@@ -21,9 +21,9 @@ DirectX versions | DirectX 11
 
 
 ### Additional Notes
+
 * In order to use camera tools you need to desable anti-cheat by launching the game with the **-eac_launcher** command line argument
 * Game support hotsampling only with camera tools (see discription in archive)
-* If **Extreme Injector v3.exe** wont launch - use [alternative injector](https://www.dropbox.com/s/5pplvb5e73oq251/Xenos%20injector%202.3.2.rar?dl=0)
 
 ## Useful Links
 
