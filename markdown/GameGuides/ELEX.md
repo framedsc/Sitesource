@@ -19,7 +19,7 @@ DirectX versions | DirectX 11
 
 ## Tips
 
-* After enabling debug mode, use the following keys
+* After enabling debug mode, use the following keys (note: CTRL_L is left Control, ALT_R is right Alt etc.)
 
  Feature | Key
 --|--
@@ -27,7 +27,7 @@ Toggle HUD | Ctrl_L+H
 Toggle Time Freeze | PAUSE
 Toggle Free Fly Cam | CTRL_L+INSERT
 
-* Full list of commands you can see **and remap** in "\ELEX\data\ini\ConfigDefault.xml" in "DebugKeys" section.
+* For a full list of commands (and remap them) please see the file `\ELEX\data\ini\ConfigDefault.xml` in the `DebugKeys` section of the file.
 
 ## Useful Links
 
