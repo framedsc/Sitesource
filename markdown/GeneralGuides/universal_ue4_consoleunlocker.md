@@ -45,14 +45,14 @@ likely 80), `pause` (to toggle the pause of the game) and a lot of console varia
 It might be the `~` key doesn't do anything, even though the console was created successfully by the dll. This might be caused because the game unbound the `~` key
 and therefore it's not possible to open the console. However it's easy to correct this. Follow these steps
 
-* In explorer go to: c:\users\*<your username>*\AppData\Local\*<game name>*\Saved\Config\WindowsNoEditor 
+* In explorer go to: `c:\users\<your username>\AppData\Local\<game name>\Saved\Config\WindowsNoEditor`
 * open Input.ini
 * Add:
 ```
 [/Script/Engine.InputSettings]
 ConsoleKey=Tilde
 ```
-* Save and set it to readonly. You can also set it to another key, e.g. K. 
+* Save and set the file to readonly. You can also set it to another key, e.g. K. 
 
 ## Dumping names / object addresses
 The unlocker has another feature up its sleeve: it can dump two text files in the game folder called UE4Tools_Names.txt and UE4Tools_Objects.txt. To do that, press **Numpad /**.
@@ -68,38 +68,104 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 * Agony
 * Alice VR
+* Ancestors Legacy
+* Another Sight Definitive Edition
+* Asemblance: Oversight
 * Bard's Tale IV: Barrows Deep
+* The Blackout Club
+* Bright Memory
+* Burning Daylight
 * Call of Cthulhu
+* Captain Starshot
 * Close to the Sun
 * Conarium
+* Dark Future: Blood Red States
+* Dark Deception
+* Dark Occult
 * Darksiders 3
-* Echo
+* Deliver Us The Moon
+* Desolate
+* Deep Rock Galactic
+* Donensbourgh
+* Dreamscaper
+* Driftland
 * Earthfall
+* Echo
+* Elea
 * Extinction
 * Fade to silence
 * The Fidelio Incident
-* Geneis Alpha One
+* Fighting Ex Layer
+* Genesis Alpha One
+* Gray Dawn
 * Hellblade: Senua's Sacrifice
+* Hollow
+* Hunting Simulator
 * Insomnia the Ark
+* Jump Force (limited)
+* Killsquad
+* Laser League
+* Layers of Fear 2
 * Marvel vs. Capcom: Infinite
+* MotoGP 19
+* Morphies Law Remorphed
+* Mutant Year Zero: Road to Eden
+* NBA 2K Playgrounds 2
+* Nephise: Ascension
 * Observer
+* Operencia: The Stolen Sun
 * Overkill's The Walking Dead
+* Paranormal Activity The Lost Soul
+* Past Cure
 * Planet Alpha
 * Project Remedium
+* Protocol
 * Occupation
+* Omen of Sorrow
 * Omensight
+* Quantum Replica
 * Redeemer
 * Remothered: Tormented Fathers
 * Ruiner
+* The Sinking City
+* Sinner: Sacrifice for Redemption
+* Shape of the World
+* Skylar and Plux
+* SolSeraph
+* Sophont
+* Soul Valley
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
+* Stardrop
 * Steel rats
 * Stories: the Path of Destinies
+* Styx 2
+* Supraland
+* Tartarus
+* Train Sim World
+* Tropico 6
+* Urban Trial Playground
+* Uventa
+* Visage
+* Wartile
+* XING The Land Beyond
+* ZED
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.3](https://mega.nz/#!kNZiWSRT!NToGhlcZtJ2pX_2rnW5viZXOV_3Z77Wduc8Gbn6kNyk)
+* [Universal UE4 Unlocker v1.0.6](https://mega.nz/#!4AJBmajK!eeSzCmZKZnBjQRuR_3nEc7Z1vRbAmWT9P2paN8VxXUg)
+
+## Troubleshooting
+You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
+When that happens, the unlocker will try to auto-detect which engine version is being used. If that fails, it's likely not going to work out however. 
+If it succeeds, the console can be created most likely. 
+
+If you get AOB errors when injecting the dll, it might be the engine's code hasn't been fully initialized yet and AOB scanning can't
+find it. Simply load a level and try again by pressing `CTRL+END`. 
+
+If the game crashes when injecting the unlocker, try to inject it when a level is loaded. 
 
 ## Credits
 
 The Universal Unreal Engine 4 Unlocker / dumper was created by Otis_Inf and SunBeam. Dumper code is based on the SDK generator by Kn4ck3r. 
+Special thanks to Pino44io for testing.
