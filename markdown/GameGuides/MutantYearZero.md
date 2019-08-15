@@ -18,7 +18,7 @@ DirectX versions | DirectX 11
 **Features**: Camera control, FoV, Tilt, Timestop and HUD Toggle
 * [CE table by One3rd](..\CheatTables\MutantYearZero_One3rd.CT)  
 **Features**: Camera control, FoV, Tilt
-* [Pause Menu HUD Toggle by One3rd and Pino44io](https://mega.nz/#!mQA1hYJB!_LT7F85qXAcW89mlXBk562rHTb32UNlHWyLnkgt8-tk)  
+* [Pause Menu HUD Toggle by One3rd and Pino44io](https://www.mediafire.com/file/aqqo5j7uvkzza3b/MutantYearZero_HUDToggle.rar/file)  
 **Features**: Toggle for the in-game and pause menu HUD
 
 ##Useful Links
