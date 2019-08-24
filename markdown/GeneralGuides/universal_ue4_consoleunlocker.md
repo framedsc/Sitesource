@@ -47,8 +47,9 @@ and therefore it's not possible to open the console. However it's easy to correc
 
 * In explorer go to: `c:\users\<your username>\AppData\Local\<game name>\Saved\Config\WindowsNoEditor`
 * open Input.ini
-* Add:
+* Add (pay attention to the empty line, that has to be there):
 ```
+
 [/Script/Engine.InputSettings]
 ConsoleKey=Tilde
 ```
@@ -124,6 +125,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Omen of Sorrow
 * Omensight
 * Quantum Replica
+* RAD
 * Redeemer
 * Remnant: From the Ashes
 * Remothered: Tormented Fathers
@@ -154,7 +156,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.6](https://mega.nz/#!4AJBmajK!eeSzCmZKZnBjQRuR_3nEc7Z1vRbAmWT9P2paN8VxXUg)
+* [Universal UE4 Unlocker v1.0.7](https://mega.nz/#!EdxxjQYL!oL71A03Afk-s25r6lbzxf9NlZ1DYDOjh4jdciPxOtfk)
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
