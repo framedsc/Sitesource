@@ -70,6 +70,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Agony
 * Alice VR
 * Ancestors Legacy
+* Ancestors - THe Humankind Odyssey
 * Another Sight Definitive Edition
 * Asemblance: Oversight
 * Bard's Tale IV: Barrows Deep
@@ -105,6 +106,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Insomnia the Ark
 * Jump Force (limited)
 * Killsquad
+* Koral
 * Laser League
 * Layers of Fear 2
 * Marvel vs. Capcom: Infinite
