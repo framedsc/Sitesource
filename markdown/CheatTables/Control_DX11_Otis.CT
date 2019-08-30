@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>11</ID>
       <Description>"Enable Hotsampling support (Windowed mode). Leave enabled"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf and Hattiwatti
 // See for info about locations/data:
@@ -86,7 +86,7 @@ dealloc(newmem)
     <CheatEntry>
       <ID>6</ID>
       <Description>"Toggle pause (NUMPAD 0)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf and Hattiwatti
 // See for info about locations/data:
@@ -152,11 +152,20 @@ CoherentGTCore.WebCore::GraphicsLayer::setOpacity:
   ret
 
 </AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
     </CheatEntry>
     <CheatEntry>
       <ID>5</ID>
       <Description>"Toggle debug camera (INS)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf and Hattiwatti
 // See for info about locations/data:
@@ -228,9 +237,6 @@ code:
   mov [rbx+74], edx
   mov edx, [rcx+8]
   mov [rbx+78], rdx
-  // write a better rotation speed (0.04 instead of 1.0). Is at offset 8C
-  mov edx, (float)0.04
-  mov [rbx+8C], edx
   pop edx
   // set flag
   mov cl, 01
@@ -294,7 +300,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>24</ID>
           <Description>"Freecam FoV (NUMPAD-/+ Speed: +CTRL. Reset: CRTL-ALT-NUMPAD)"</Description>
-          <LastState Value="1.134464025" RealAddress="2732A54C750"/>
+          <LastState Value="1.134464025" RealAddress="2E06BBB0750"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -344,6 +350,35 @@ dealloc(newmem)
               </Keys>
               <Value>1.1344</Value>
               <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Rotation speed (F9: 0.04, for mouse. CTRL-F9: 0.7, for controller)"</Description>
+          <LastState Value="1" RealAddress="2E06BBB07FC"/>
+          <VariableType>Float</VariableType>
+          <Address>freeCameraStructAddress</Address>
+          <Offsets>
+            <Offset>8C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>120</Key>
+              </Keys>
+              <Value>0.04</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>120</Key>
+              </Keys>
+              <Value>0.7</Value>
+              <ID>1</ID>
             </Hotkey>
           </Hotkeys>
         </CheatEntry>
@@ -471,7 +506,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>36</ID>
           <Description>"Depth of Field (F3: Off, CTRL-F3: On)"</Description>
-          <LastState Value="0" RealAddress="7FFB9199C13C"/>
+          <LastState Value="1" RealAddress="7FFB7A6CC13C"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderDepthOfField</Address>
           <Hotkeys>
@@ -497,7 +532,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>37</ID>
           <Description>"Motion Blur (F4: Off, CTRL-F4: On)"</Description>
-          <LastState Value="1" RealAddress="7FFB9199C13D"/>
+          <LastState Value="1" RealAddress="7FFB7A6CC13D"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderVectorBlur</Address>
           <Hotkeys>
@@ -523,7 +558,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>35</ID>
           <Description>"Bloom (F5: Off, CTRL-F5: On)"</Description>
-          <LastState Value="1" RealAddress="7FFB9199C17B"/>
+          <LastState Value="1" RealAddress="7FFB7A6CC17B"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderBloom</Address>
           <Hotkeys>
@@ -549,7 +584,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>38</ID>
           <Description>"Screenspace AA (F6: Off, CTRL-F6: On)"</Description>
-          <LastState Value="1" RealAddress="7FFB9199C14E"/>
+          <LastState Value="1" RealAddress="7FFB7A6CC14E"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::ScreenSpaceAntialiasing</Address>
           <Hotkeys>
@@ -566,6 +601,32 @@ dealloc(newmem)
               <Keys>
                 <Key>17</Key>
                 <Key>117</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>42</ID>
+          <Description>"Object highlights (F7: Off, CTRL-F7: On)"</Description>
+          <LastState Value="1" RealAddress="7FFB7A6CC13F"/>
+          <VariableType>Byte</VariableType>
+          <Address>rend::RenderOptions::RenderObjectHighlight</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>118</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>118</Key>
               </Keys>
               <Value>1</Value>
               <ID>1</ID>
@@ -614,20 +675,6 @@ dealloc(newmem)
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF8080</Color>
       <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>39</ID>
-      <Description>"No description"</Description>
-      <LastState Value="0.03125" RealAddress="2732A54C7F8"/>
-      <VariableType>Float</VariableType>
-      <Address>2732A54C7F8</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>40</ID>
-      <Description>"rotationSpeed"</Description>
-      <LastState Value="0.03999999911" RealAddress="2732A54C7FC"/>
-      <VariableType>Float</VariableType>
-      <Address>2732A54C7FC</Address>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols>
