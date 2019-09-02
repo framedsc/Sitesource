@@ -70,11 +70,12 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Agony
 * Alice VR
 * Ancestors Legacy
-* Ancestors - THe Humankind Odyssey
+* Ancestors - The Humankind Odyssey
 * Another Sight Definitive Edition
 * Asemblance: Oversight
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
+* Blair Witch
 * Bright Memory
 * Burning Daylight
 * Call of Cthulhu
