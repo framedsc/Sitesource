@@ -110,6 +110,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Koral
 * Laser League
 * Layers of Fear 2
+* Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
 * MotoGP 19
 * Morphies Law Remorphed
@@ -159,7 +160,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.7](https://mega.nz/#!EdxxjQYL!oL71A03Afk-s25r6lbzxf9NlZ1DYDOjh4jdciPxOtfk)
+* [Universal UE4 Unlocker v1.0.8](https://mega.nz/#!JAh22S7b!SJ3qiuZEIf3-MelZhL-oZSHY3W_OTUG2bd2WQGHEFwo)
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
