@@ -16,16 +16,14 @@ DirectX versions | DirectX 11, DirectX 12
  
 ## Tools
 
-* `Cheat Engine Table by Otis_Inf & HattiWatti`  
-[DX11](https://framedsc.github.io/CheatTables/Control_DX11_Otis.CT)  
-[DX12](https://framedsc.github.io/CheatTables/Control_DX12_Otis.CT)  
+* **Cheat Engine Table by Otis_Inf & HattiWatti**  
+[DX11 Cheat Table](https://framedsc.github.io/CheatTables/Control_DX11_Otis.CT)  
+[DX12 Cheat Table](https://framedsc.github.io/CheatTables/Control_DX12_Otis.CT)  
 **Features**: Debug Camera, FOV, Time stop, Hotsampling, Hud Toggle, Render Toggles
 
-## Using The CE Table
+## Using The CE Table 
 
-First, [read the general Cheat Engine guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm) if you have't already to learn how to use cheat engine table (don't worry, it's easy).
-
-To enable hotsampling (via SRWE)... enable the hotsampling script. I also had to check the `Force EXITSIZEMOVE` option in SRWE. Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
+First, [read the general Cheat Engine guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
 
 All hotkeys are mentioned in the table, but here's some general info.
 
@@ -37,3 +35,7 @@ The default rotation speed is perfect for controllers. If using a keyboard: Pres
 Press ESC twice to force the changes. This can be done while the game is frozen.
 
 The render effect section contains some more useful toggles. Hotkeys for these are listed in the table.
+
+## SRWE
+
+To enable hotsampling (via SRWE)... enable the hotsampling script. You mayalso need to check the `Force EXITSIZEMOVE` option in SRWE. Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
