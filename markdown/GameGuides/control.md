@@ -37,7 +37,3 @@ The default rotation speed is perfect for controllers. If using a keyboard: Pres
 Press ESC twice to force the changes. This can be done while the game is frozen.
 
 The render effect section contains some more useful toggles. Hotkeys for these are listed in the table.
-
-## ReShade
-
-There is a DX12 ReShade DLL floating around, but be aware that this DLL may cause issues when playing Control. Several users experienced memory leaks, causing VRAM usage to climb, which is accelerated at high resolutions. Eventually the game will stop loading textures, forcing you to restart the game. 
