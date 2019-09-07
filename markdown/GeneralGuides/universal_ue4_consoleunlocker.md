@@ -73,6 +73,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ancestors - The Humankind Odyssey
 * Another Sight Definitive Edition
 * Asemblance: Oversight
+* Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
 * Blair Witch
@@ -82,6 +83,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Captain Starshot
 * Close to the Sun
 * Conarium
+* Creature in the Well
 * Dark Future: Blood Red States
 * Dark Deception
 * Dark Occult
