@@ -143,6 +143,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Soul Valley
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
+* Spyro Reignited Trilogy
 * Stardrop
 * Steel rats
 * Stories: the Path of Destinies
