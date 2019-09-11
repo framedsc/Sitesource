@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16332</ID>
+      <Description>"=== Greedfall Photo Mode v1"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>804000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16333</ID>
+      <Description>"=== by Jim2point0 - framedsc.github.io"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>804000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16334</ID>
+      <Description>"_________________________________________________________"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16323</ID>
+      <Description>"&lt;- Check this box (enables photo mode, keep activated)"</Description>
+      <LastState/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+/////// GET SOME AOBS OUT OF THE WAY
+aobscanmodule(cameraWrite1AOB,Engine.dll,66 0F 7F 9B E0 00 00 00 48 8B 9C 24 B0)
+aobscanmodule(cameraWrite2AOB,Engine.dll,66 0F 7F 99 E0 00 00 00 0F 28 07 0F 28)
+aobscanmodule(fovWriteAOB,Engine.dll,CC 48 81 C1 E0 01 00 00 F3 0F 10 41 10 0F 2E C1 7A 02 74 0A F3 0F 11 49 10 E9 20 88 AA FF C3)
+aobscanmodule(gameSpeedAOB,Engine.dll,F3 0F 10 47 24 F3 0F 59 47 20 F3 0F 59 C1 F3 0F 5D)
+aobscanmodule(hudAOB,Game.dll,83 7A 40 01 74 0A 48 83 C4 20)
+aobscanmodule(timeOfDayAOB,Game.dll,F3 0F 11 43 2C 76 43 F3 0F 58 CA 44 89 6B 34)
+
+/////// LABELS AND SYMBOLS
+
+alloc(getTimescale,2048,"Engine.dll")
+alloc(getHUD,2048,"Game.dll")
+label(returnhereTime)
+label(exitTime)
+
+label(_gameSpeed)
+registersymbol(_gameSpeed)
+
+label(returnHUD)
+label(exitHUD)
+label(_hud)
+registersymbol(_hud)
+
+label(getTimeOfDay)
+label(returnhereTOD)
+label(exitTOD)
+label(_timeOfDay)
+registersymbol(_timeOfDay)
+
+registersymbol(cameraWrite1AOB)
+registersymbol(cameraWrite2AOB)
+registersymbol(fovWriteAOB)
+registersymbol(gameSpeedAOB)
+registersymbol(hudAOB)
+registersymbol(timeOfDayAOB)
+
+/////// CUSTOM SCRIPTS
+
+getTimescale:
+mov [_gameSpeed],rdi
+movss xmm0,[rdi+24]
+jmp exitTime
+
+exitTime:
+jmp returnhereTime
+
+///////////////
+
+getHUD:
+mov [_hud],rdx
+cmp dword ptr [rdx+40],01
+je Game.dll+85A711
+jmp exitHUD
+
+exitHUD:
+jmp returnHUD
+
+///////////////
+
+getTimeOfDay:
+mov [_timeOfDay],rbx
+movss [rbx+2C],xmm0
+jmp exitTOD
+
+exitTOD:
+jmp returnhereTOD
+
+/////// SYMBOL DEFAULTS
+
+_gameSpeed:
+dq 0
+_hud:
+dq 0
+_timeOfDay:
+dq 0
+
+/////// HOOKS
+
+gameSpeedAOB:
+jmp getTimescale
+returnhereTime:
+
+//
+
+hudAOB:
+jmp getHUD
+nop
+returnHUD:
+
+//
+
+timeOfDayAOB:
+jmp getTimeOfDay
+returnhereTOD:
+
+[DISABLE]
+dealloc(getTimescale)
+dealloc(getHUD)
+///
+gameSpeedAOB:
+movss xmm0,[rdi+24]
+hudAOB:
+cmp dword ptr [rdx+40],01
+je Game.dll+85A711
+timeOfDayAOB:
+movss [rbx+2C],xmm0
+///
+unregistersymbol(_hud)
+unregistersymbol(_gameSpeed)
+unregistersymbol(_timeOfDay)
+unregistersymbol(cameraWrite1AOB)
+unregistersymbol(cameraWrite2AOB)
+unregistersymbol(fovWriteAOB)
+unregistersymbol(gameSpeedAOB)
+unregistersymbol(hudAOB)
+unregistersymbol(timeOfDayAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16326</ID>
+          <Description>"--- F1/F2 = Enable/Disable Camera"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16327</ID>
+          <Description>"--- F3/F4 = Hide/Show HUD"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10355</ID>
+          <Description>"--- Num0 = Freeze Game, Num . = resume"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16340</ID>
+          <Description>"--- Page Up/Down = Increase/Decrease ToD"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9802</ID>
+          <Description>"Camera"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(camera,2048,"Engine.dll")
+label(returnCamera)
+label(exitCamera)
+label(_cameraBase)
+registersymbol(_cameraBase)
+
+camera:
+mov [_cameraBase],rcx
+jmp exitCamera
+
+exitCamera:
+jmp returnCamera
+
+///
+_cameraBase:
+dq 0
+///
+
+cameraWrite2AOB:
+jmp camera
+nop
+nop
+nop
+returnCamera:
+
+cameraWrite1AOB:
+db 90 90 90 90 90 90 90 90
+
+fovWriteAOB+14:
+db 90 90 90 90 90
+ 
+ 
+[DISABLE]
+dealloc(camera)
+cameraWrite2AOB:
+movdqa [rcx+000000E0],xmm3
+cameraWrite1AOB:
+movdqa [rbx+000000E0],xmm3
+fovWriteAOB+14:
+movss [rcx+10],xmm1
+unregistersymbol(_cameraBase)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Activate</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>113</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>8977</ID>
+              <Description>"X -- Numpad 4/6"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_cameraBase</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9798</ID>
+              <Description>"Y -- Numpad 2/8"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_cameraBase</Address>
+              <Offsets>
+                <Offset>E0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>8976</ID>
+              <Description>"Z -- Numpad 7/9"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_cameraBase</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>10</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9806</ID>
+              <Description>"FOV -- Numpad -\+"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_cameraBase</Address>
+              <Offsets>
+                <Offset>1F0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>70</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9808</ID>
+          <Description>"Combat HUD"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>_hud</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9809</ID>
+          <Description>"Explore HUD"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>_hud</Address>
+          <Offsets>
+            <Offset>3c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9817</ID>
+          <Description>"Game Speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_gameSpeed</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <Value>0.00001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>110</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16339</ID>
+          <Description>"Time of Day"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_timeOfDay</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>33</Key>
+              </Keys>
+              <Value>.25</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <Value>.25</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16338</ID>
+      <Description>"======= INFO ======="</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16328</ID>
+      <Description>"HUD Toggle requires subtitles to be enabled"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16330</ID>
+      <Description>"Open/close menu (ESC) to enable hud toggle"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16331</ID>
+      <Description>"Open/close menu to update hud settings"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16336</ID>
+      <Description>"Fog"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"Engine.dll"+377EDA)
+label(returnhere)
+label(exit)
+label(_fog)
+registersymbol(_fog)
+
+newmem:
+mov [_fog],rbx
+//mov [rbx+00000178],eax
+jmp exit
+
+exit:
+jmp returnhere
+
+///
+_fog:
+dq 0
+///
+
+"Engine.dll"+377EDA:
+jmp newmem
+nop
+returnhere:
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+"Engine.dll"+377EDA:
+mov [rbx+00000178],eax
+unregistersymbol(_fog)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16341</ID>
+          <Description>"100 = A little Fog || 5000 = Much Fog"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16337</ID>
+          <Description>"Fog"</Description>
+          <VariableType>2 Bytes</VariableType>
+          <Address>_fog</Address>
+          <Offsets>
+            <Offset>178</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
