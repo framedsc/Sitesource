@@ -31,7 +31,7 @@ Delay between activating hotkeys - 50
 
 * **Free Camera & FOV** - **`F1`**  
 This gives you control over the coordinates, though it will not be normal WASD camera movement. The hotkeys display when you enable the script.  
-The default rotation speed is perfect for controllers. If using a keyboard: Press 
+Hold **`ALT`** for faster camera movement. 
 * **Freeze Game** - **`Numpad 0`**  
 While the game is frozen, you can still access the menu to change options. You can also change the time of day (see below). **`Numpad .`** to resume the game.
 * **Toggle Hud** - **`F3/F4`**  
