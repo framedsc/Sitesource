@@ -92,6 +92,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Desolate
 * Deep Rock Galactic
 * Donensbourgh
+* Draugen
 * Dreamscaper
 * Driftland
 * Earthfall
@@ -114,8 +115,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Layers of Fear 2
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
-* MotoGP 19
+* Monster Jam Steel Titans
 * Morphies Law Remorphed
+* MotoGP 19
 * Mutant Year Zero: Road to Eden
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
