@@ -72,6 +72,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ancestors Legacy
 * Ancestors - The Humankind Odyssey
 * Another Sight Definitive Edition
+* Apsulov: End of Gods
 * Asemblance: Oversight
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
@@ -141,6 +142,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * The Sinking City
 * Sinner: Sacrifice for Redemption
 * Shape of the World
+* Silver Chains
 * Skylar and Plux
 * SolSeraph
 * Sophont
@@ -152,8 +154,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Steel rats
 * Stories: the Path of Destinies
 * Styx 2
+* Subdivision Infinity DX
 * Supraland
 * Tartarus
+* Tower of Fate
 * Train Sim World
 * Tropico 6
 * Urban Trial Playground
