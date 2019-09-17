@@ -78,6 +78,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
 * Blair Witch
+* Borderlands 3
 * Bright Memory
 * Burning Daylight
 * Call of Cthulhu
@@ -169,7 +170,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.9](https://mega.nz/#!VUJlGKjK!eQdW3VDxYd9l8OmIESAzgEZask3JStAYyZpucQXAig4)
+* [Universal UE4 Unlocker v1.0.11](https://mega.nz/#!VMZRnYAK!evJ9YaR4NYbFazRiNOYDlO6Y_lr7djsRNsOGI9z2ZDM)
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
