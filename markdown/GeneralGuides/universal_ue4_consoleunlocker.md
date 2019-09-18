@@ -170,7 +170,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.11](https://mega.nz/#!VMZRnYAK!evJ9YaR4NYbFazRiNOYDlO6Y_lr7djsRNsOGI9z2ZDM)
+* [Universal UE4 Unlocker v1.0.12](https://mega.nz/#!JMowyQrJ!6fqduYy7O4CNhpQz_SVclpU2uf70DFJ9HDqpeEFsfXg)
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
