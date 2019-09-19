@@ -90,9 +90,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Deep Rock Galactic
 * Deliver Us The Moon
 * Desolate
-* Deep Rock Galactic
+* Devil's Hunt
 * Donensbourgh
 * Draugen
 * Dreamscaper
@@ -115,6 +116,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Koral
 * Laser League
 * Layers of Fear 2
+* Ling: a Road Alone 
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
 * Monster Jam Steel Titans
@@ -141,9 +143,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remothered: Tormented Fathers
 * Ruiner
 * The Sinking City
-* Sinner: Sacrifice for Redemption
+* Session: Skateboarding Sim Game
 * Shape of the World
 * Silver Chains
+* Sinner: Sacrifice for Redemption
 * Skylar and Plux
 * SolSeraph
 * Sophont
