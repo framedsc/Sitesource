@@ -90,6 +90,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Daymare: 1998
 * Deep Rock Galactic
 * Deliver Us The Moon
 * Desolate
