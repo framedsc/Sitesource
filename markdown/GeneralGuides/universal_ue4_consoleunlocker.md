@@ -177,6 +177,20 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 * [Universal UE4 Unlocker v1.0.13](https://mega.nz/#!xExGzIpJ!BAEOjKWiC4VkK1JR2rtXqylgbjwfDpo_xSzEa4BtdF8)
 
+## Console tricks
+The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
+Additionally, it supports multiple commands on the same line, where you separate the commands with the `|` character. Combined with copy/paste you can
+create long strings of commands in a text file and copy/paste them over to execute all the commands in one go. 
+
+Examples:
+```
+showhud 0|fov 60|pause|toggledebugcamera|r.postprocessaaquality 2
+```
+This hides the hud, sets fov to 60, pauses the game, enables the debug camera and sets the AA to a lower quality so you don't have jitter blur. 
+
+The console also remembers a history of commands, and keeps the line with multiple concatenated commands as one line. To show the history, press the arrow-up key
+in the console. 
+
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
 When that happens, the unlocker will try to auto-detect which engine version is being used. If that fails, it's likely not going to work out however. 
