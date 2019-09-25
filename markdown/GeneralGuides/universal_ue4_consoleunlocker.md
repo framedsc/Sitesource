@@ -118,6 +118,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Laser League
 * Layers of Fear 2
 * Ling: a Road Alone 
+* Little Brother Jim
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
 * Monster Jam Steel Titans
