@@ -49,13 +49,16 @@ all at the same time, you would just need to paste `pause | toggledebugcamera | 
 
 Some commands above start with the prefix `sg.` - these are scalability groups. Scalability groups come in levels that correspond to Low / Medium / High / Epic, as you'd find in a graphics settings menu. In-game settings usually display Level 0 (Low quality) up to Level 3 (Epic quality). You can force it up to Level 4 (Cinematic quality) through the console, at the obvious cost of performance.
 
+*Games may occasionally include a Level 5 Scalability Group, you can go to that for maximum settings.   
+Or you can continue to read to learn how to make your own **Super** Cinematic scalability group.*
+
 ### Setting custom scalability levels
 
 As scalability groups are simply groups of render settings, you can make "custom profiles" by modifying them. This has many uses, from turning off certain post-processing effects completely, to changing Epic settings to include Cinematic-quality effects, and many more, all without the need of the console.
 
 You will need access to your game's Scalability.ini, typically found through the path `~\AppData\Local\[GAME]\Saved\Config\WindowsNoEditor\Scalability.ini`. 
 
-@alert important
+@alert warning
 Some games may limit modification of WindowsNoEditor .ini files, meaning your tweaks may not do anything. There is no way to bypass that limitation. 
 @end
 
@@ -65,33 +68,39 @@ Scalability groups correspond to their command names, without the `sg.` prefix. 
 
 Here are a few examples of how the file can be modified:
 
-**Removing bloom and motion blur**
-```
+@tabs
+@tab Removing bloom and motion blur
+```ini
 [PostProcessQuality@3]
 r.BloomQuality=0
 r.MotionBlurQuality=0
+
 ```
 This completely removes Bloom and Motion Blur when Post Processing is set to Epic. Quality levels of 0 mean that they are entirely disabled. 
-
-**Cinematic shadows by default**
-```
+@end
+@tab Cinematic shadows by default
+```ini
 [ShadowQuality@3]
 r.Shadow.MaxResolution=8196
 r.Shadow.CSM.MaxCascades=16
 r.Shadow.RadiusThreshold=0.01
+
 ```
 This makes shadow maps render at a *very* intensive 8K resolution with much better quality when Shadows are set to Epic.
-
-**"Epic" textures**
-```
+@end
+@tab "Epic" textures
+```ini
 [TextureQuality@3]
 r.Streaming.MipBias=2.5
 r.MaxAnisotropy=0
 r.Streaming.PoolSize=200
+
 ```
 When textures are set to Epic, this makes them look the same as they would on Low settings. Why you would do this is beyond me, but it's an example all the same. 
+@end
+@endtabs 
 
-@alert tip
+@alert info
 For a full reference to what's capable, check the [Scalability Reference](https://docs.unrealengine.com/en-US/Engine/Performance/Scalability/ScalabilityReference/index.html). Note that these are default settings by Unreal developers, your game is likely to have these already changed.
 @end 
 
@@ -109,27 +118,28 @@ Similar to scalability groups, modifying this file can be used to push the game'
 
 This file can be typically found through the path `~\AppData\Local\[GAME]\Saved\Config\WindowsNoEditor\Engine.ini`. 
 
-@alert important
+@alert warning
 Like above, some games may limit edits to this file, causing tweaks to have no effects.
 @end
 
 The file needs to be started with `[/script/engine.renderersettings]`. All commands that follow typically have the `r.` prefix, as they relate to rendering properties.
 
 Here's an example of how the file could look like:
-```
+```ini
 [/script/engine.renderersettings]
 r.ScreenPercentage=150
 r.ViewDistanceScale=2
 ```
+
 This forces the game to always render at 150% native resolution, with draw distance doubled from its native settings. You can also add the same `r.` commands from the scalability groups to enforce them by default.
 
 For a full list of `r.` commands, [click here](https://digilander.libero.it/ZioYuri78/). 
 
 @alert tip
 Use the console to test out these commands and find the appropriate values in-game before adding them to the .ini. It'll save time!
-@end
+@end    
 
-@alert important
+@alert info
 These commands are meant for the developers. Most are likely to have zero effect as a result. Only a handful of commands meant for runtime (typically those you'd see in graphics settings) may work.
 @end
 
