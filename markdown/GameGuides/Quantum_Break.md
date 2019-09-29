@@ -17,8 +17,10 @@ DirectX versions | DirectX 11
 * [Camera tools by Hattiwatti](https://cinetools.xyz/download/CT_QuantumBreak_20181024.zip)  
 **Features**: Free Camera, FOV Control, Timestop, HUD toggle, DOF override (cutscenes), Filmgrain toggle, Movement Blur toggle
 
-@alert Important In order to hotsample you just have to open the tool.
-For custom aspect ratios you will need to set the AR while you are in freecam mode.@end
+@alert Important 
+In order to hotsample you just have to open the tool.
+For custom aspect ratios you will need to set the AR while you are in freecam mode.
+@end
 
 ## Usage
 

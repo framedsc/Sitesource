@@ -78,20 +78,24 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
 * Blair Witch
+* Borderlands 3
 * Bright Memory
 * Burning Daylight
 * Call of Cthulhu
 * Captain Starshot
 * Close to the Sun
+* Code Vein
 * Conarium
 * Creature in the Well
 * Dark Future: Blood Red States
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Daymare: 1998
+* Deep Rock Galactic
 * Deliver Us The Moon
 * Desolate
-* Deep Rock Galactic
+* Devil's Hunt
 * Donensbourgh
 * Draugen
 * Dreamscaper
@@ -114,6 +118,8 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Koral
 * Laser League
 * Layers of Fear 2
+* Ling: a Road Alone 
+* Little Brother Jim
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
 * Monster Jam Steel Titans
@@ -140,10 +146,12 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remothered: Tormented Fathers
 * Ruiner
 * The Sinking City
-* Sinner: Sacrifice for Redemption
+* Session: Skateboarding Sim Game
 * Shape of the World
 * Silver Chains
+* Sinner: Sacrifice for Redemption
 * Skylar and Plux
+* The Sojourn
 * SolSeraph
 * Sophont
 * Soul Valley
@@ -169,7 +177,21 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.9](https://mega.nz/#!VUJlGKjK!eQdW3VDxYd9l8OmIESAzgEZask3JStAYyZpucQXAig4)
+* [Universal UE4 Unlocker v1.0.13](https://mega.nz/#!xExGzIpJ!BAEOjKWiC4VkK1JR2rtXqylgbjwfDpo_xSzEa4BtdF8)
+
+## Console tricks
+The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
+Additionally, it supports multiple commands on the same line, where you separate the commands with the `|` character. Combined with copy/paste you can
+create long strings of commands in a text file and copy/paste them over to execute all the commands in one go. 
+
+Examples:
+```
+showhud 0|fov 60|pause|toggledebugcamera|r.postprocessaaquality 2
+```
+This hides the hud, sets fov to 60, pauses the game, enables the debug camera and sets the AA to a lower quality so you don't have jitter blur. 
+
+The console also remembers a history of commands, and keeps the line with multiple concatenated commands as one line. To show the history, press the arrow-up key
+in the console. 
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 
