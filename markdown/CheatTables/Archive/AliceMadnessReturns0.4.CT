@@ -1,0 +1,2381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>11830</ID>
+      <Description>"--------- Alice: Madness Returns ---------"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12251</ID>
+      <Description>"Camera [Page Dn] (AOB to camera - if it does not work use backup or reload level)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aobCamera, 00 00 80 BF 00 00 80 BF 00 ?? ?? ?? 67 5C)
+label(_aobCamera)
+registersymbol(_aobCamera)
+
+aobCamera+1c:
+_aobCamera:
+
+[DISABLE]
+unregistersymbol(_aobCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12252</ID>
+          <Description>"base camera structure"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF73C"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11819</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF86C"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+130</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11818</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF870"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+134</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11817</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF874"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+138</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11825</ID>
+          <Description>"Y Rotation [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF878"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+13c</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11826</ID>
+          <Description>"X Rotation  [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF87C"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+140</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11827</ID>
+          <Description>"Tilt [-,=]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF880"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+144</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11829</ID>
+          <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="11FDF73C"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12294</ID>
+      <Description>"Post Processing [Del] (only tonemap working so far)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem1,2048)
+label(returnhere)
+label(exit)
+label(DOFEnable1)
+registersymbol(DOFEnable1)
+
+newmem1: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [DOFEnable1],ecx
+mov ecx,[ecx+3C]
+add ecx,ecx
+
+exit:
+jmp returnhere
+
+//  Define variable
+DOFEnable1:
+dd 0
+//
+
+"AliceMadnessReturns.exe"+453D01:
+jmp newmem1
+returnhere:
+
+[DISABLE]
+dealloc(newmem1)
+"AliceMadnessReturns.exe"+453D01:
+mov ecx,[ecx+3C]
+add ecx,ecx
+unregistersymbol(DOFEnable1)
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12099</ID>
+          <Description>"[---  DOF Effect Enable [P]  ---]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <VariableType>Byte</VariableType>
+          <Address>DOFEnable1</Address>
+          <Offsets>
+            <Offset>3C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>7</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>11869</ID>
+              <Description>"DOF Focus Distance [ [ ] (default=800)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>84</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11871</ID>
+              <Description>"DOF Focus Inner Radius [ ] ] (default=400)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>80</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11921</ID>
+              <Description>"DOF MaxNearBlurAmount [;] (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11922</ID>
+              <Description>"DOF MaxFarBlurAmount ['] (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>70</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11876</ID>
+              <Description>"DOF FallOffExponent [/] (default=2)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>64</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>191</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>191</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11872</ID>
+              <Description>"DOF BlurKernelSize - [\] (default=16, 0 - 64)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>220</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>220</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12292</ID>
+              <Description>"dofenable ?"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Byte</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12295</ID>
+              <Description>"bEnableReferenceDOF (0=false,2=true)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Byte</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12205</ID>
+          <Description>"[---  Bloom Settings  ---]"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12203</ID>
+              <Description>"BlurBloomKernelSize (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12202</ID>
+              <Description>"BloomScale (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>C4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12115</ID>
+          <Description>"[---  ToneMap Settings  ---]"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12123</ID>
+              <Description>"SceneShadows BLU (default=0)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12124</ID>
+              <Description>"SceneShadows RED (default=0)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12125</ID>
+              <Description>"SceneShadows GRN (default=-0.003)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12120</ID>
+              <Description>"HighLights RED (default=0.8)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12121</ID>
+              <Description>"HighLights GRN (default=0.8)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12122</ID>
+              <Description>"HighLights BLU (default=0.8)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>F8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12117</ID>
+              <Description>"MidTones BLU (default=1.1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12118</ID>
+              <Description>"MidTones RED (default=1.1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>100</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12119</ID>
+              <Description>"MidTones GRN (default=1.1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>104</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12116</ID>
+              <Description>"SceneDesaturation (default=0.0)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>108</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12296</ID>
+      <Description>"Backup Scripts (click to expand)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12259</ID>
+          <Description>"Camera BACKUP (opcode - doesn't work in cutscenes)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],eax
+mov [edi+ecx*4-08],eax
+mov eax,[esi+ecx*4-04]
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"MSVCR90.dll"+3AF74:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"MSVCR90.dll"+3AF74:
+mov [edi+ecx*4-08],eax
+mov eax,[esi+ecx*4-04]
+unregistersymbol(pCamera)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12260</ID>
+              <Description>"X [Numpad 4,6]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFFF4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12261</ID>
+              <Description>"Y [Numpad 2,8]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFFF8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12262</ID>
+              <Description>"Z [Numpad 3,9]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFFFC</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>40</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>40</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12263</ID>
+              <Description>"Y Rotation [arrow keys]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12264</ID>
+              <Description>"X Rotation  [arrow keys]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12265</ID>
+              <Description>"Tilt [-,=]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>189</Key>
+                  </Keys>
+                  <Value>250</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>187</Key>
+                  </Keys>
+                  <Value>250</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>187</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12266</ID>
+              <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFEC4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12113</ID>
+          <Description>"Post Processing [Del] - backup opcode"</Description>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem1,2048)
+label(returnhere)
+label(exit)
+label(DOFEnable1)
+registersymbol(DOFEnable1)
+
+newmem1: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [DOFEnable1],eax
+mov eax,[eax+08]
+mov [esi+00000098],eax
+
+exit:
+jmp returnhere
+
+//  Define variable
+DOFEnable1:
+dd 0
+//
+
+"AliceMadnessReturns.exe"+24B723:
+jmp newmem1
+nop
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem1)
+"AliceMadnessReturns.exe"+24B723:
+mov eax,[eax+08]
+mov [esi+00000098],eax
+unregistersymbol(DOFEnable1)
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-0C] - x</Description>
+      <Address>7455AF68</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF68</ModuleNameOffset>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-08] - tilt</Description>
+      <Address>739CAF70</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF70</ModuleNameOffset>
+      <Before>
+        <Byte>F4</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-08],eax</Description>
+      <Address>739CAF74</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF74</ModuleNameOffset>
+      <Before>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>FC</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-04]</Description>
+      <Address>739CAF78</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF78</ModuleNameOffset>
+      <Before>
+        <Byte>F8</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>FC</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>FC</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-04],eax</Description>
+      <Address>739CAF7C</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF7C</ModuleNameOffset>
+      <Before>
+        <Byte>F8</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>FC</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>FC</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>04</Byte>
+        <Byte>8D</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[eax+08] - WORKS MOST OF THE TIME. Not in all cutscenes.</Description>
+      <Address>0086A17B</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>46A17B</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>78</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>80</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+3C] - dof</Description>
+      <Address>00853CC6</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>453CC6</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>E2</Byte>
+        <Byte>01</Byte>
+        <Byte>0B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>D1</Byte>
+        <Byte>E8</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ecx+3C],04</Description>
+      <Address>00AF8759</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>6F8759</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>3B</Byte>
+        <Byte>C7</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>41</Byte>
+        <Byte>3C</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ecx+3C]</Description>
+      <Address>00853D01</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>453D01</ModuleNameOffset>
+      <Before>
+        <Byte>0B</Byte>
+        <Byte>D6</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>03</Byte>
+        <Byte>C9</Byte>
+        <Byte>33</Byte>
+        <Byte>CA</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edi,eax - desat</Description>
+      <Address>00862F27</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>462F27</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea edi,[ebp-000000EC]</Description>
+      <Address>00C99946</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>899946</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>BD</Byte>
+        <Byte>14</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>33</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[eax+08]</Description>
+      <Address>0064B723</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>24B723</ModuleNameOffset>
+      <Before>
+        <Byte>96</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edi,eax - write desat</Description>
+      <Address>00862F27</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>462F27</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[ebp-000000EC]</Description>
+      <Address>00C9997D</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>89997D</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>B5</Byte>
+        <Byte>14</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[ebp-000000E8]</Description>
+      <Address>00C20C83</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>820C83</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>B5</Byte>
+        <Byte>18</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[ebp-000000EC]</Description>
+      <Address>00C9990D</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>89990D</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>B5</Byte>
+        <Byte>14</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax] - fov</Description>
+      <Address>00509E6E</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>109E6E</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>0E</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>19</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-0C] - z</Description>
+      <Address>739CAF68</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF68</ModuleNameOffset>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-10]</Description>
+      <Address>739CAF60</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF60</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>EC</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :jb MSVCR90.memcpy+84</Description>
+      <Address>739CAE78</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AE78</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>03</Byte>
+        <Byte>83</Byte>
+        <Byte>F9</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>72</Byte>
+        <Byte>2A</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>FF</Byte>
+        <Byte>24</Byte>
+        <Byte>95</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-10],eax</Description>
+      <Address>739CAF64</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF64</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-0C],eax</Description>
+      <Address>739CAF6C</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF6C</ModuleNameOffset>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F8</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[eax+00000378]</Description>
+      <Address>0086A162</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>46A162</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>C8</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>88</Byte>
+        <Byte>78</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>90</Byte>
+        <Byte>7C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+3C] - dofenable byte</Description>
+      <Address>00853CC6</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>453CC6</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>E2</Byte>
+        <Byte>01</Byte>
+        <Byte>0B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>D1</Byte>
+        <Byte>E8</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ecx+3C],04</Description>
+      <Address>00AF8759</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>6F8759</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>3B</Byte>
+        <Byte>C7</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>41</Byte>
+        <Byte>3C</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ecx+3C]</Description>
+      <Address>00853D01</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>453D01</ModuleNameOffset>
+      <Before>
+        <Byte>0B</Byte>
+        <Byte>D6</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>03</Byte>
+        <Byte>C9</Byte>
+        <Byte>33</Byte>
+        <Byte>CA</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-04] - cutscene z</Description>
+      <Address>747AAF78</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF78</ModuleNameOffset>
+      <Before>
+        <Byte>F8</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>FC</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>FC</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-0C] cutscene rotx</Description>
+      <Address>747AAF68</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF68</ModuleNameOffset>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-10]</Description>
+      <Address>747AAF60</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF60</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>EC</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :jb MSVCR90.memcpy+84</Description>
+      <Address>747AAE78</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AE78</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>03</Byte>
+        <Byte>83</Byte>
+        <Byte>F9</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>72</Byte>
+        <Byte>2A</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>FF</Byte>
+        <Byte>24</Byte>
+        <Byte>95</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-10],eax</Description>
+      <Address>747AAF64</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF64</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-08],eax cut tilt</Description>
+      <Address>747AAF74</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF74</ModuleNameOffset>
+      <Before>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>FC</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-04]</Description>
+      <Address>747AAF78</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF78</ModuleNameOffset>
+      <Before>
+        <Byte>F8</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>FC</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>FC</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-08]</Description>
+      <Address>747AAF70</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AF70</ModuleNameOffset>
+      <Before>
+        <Byte>F4</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F8</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :jb MSVCR90.memcpy+84</Description>
+      <Address>747AAE78</Address>
+      <ModuleName>MSVCR90.dll</ModuleName>
+      <ModuleNameOffset>3AE78</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>03</Byte>
+        <Byte>83</Byte>
+        <Byte>F9</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>72</Byte>
+        <Byte>2A</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>FF</Byte>
+        <Byte>24</Byte>
+        <Byte>95</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm5,[eax+000004A4] - AR</Description>
+      <Address>006580E2</Address>
+      <ModuleName>AliceMadnessReturns.exe</ModuleName>
+      <ModuleNameOffset>2580E2</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>40</Byte>
+        <Byte>74</Byte>
+        <Byte>2A</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>A8</Byte>
+        <Byte>A4</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+        <Byte>83</Byte>
+        <Byte>78</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>DOFEnable1</Name>
+      <Address>04BC0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_aobCamera</Name>
+      <Address>11FDF73C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>04CB0018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pAR</Name>
+      <Address>10040018</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

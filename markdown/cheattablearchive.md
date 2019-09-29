@@ -6,13 +6,26 @@ and this archive might just have what you're looking for.
 
 **Disclaimer**: A lot of them might not work anymore, or it's unknown how to use their features. If so, too bad.
 
+If you still want to know how these tables work try searching in the webarchive of the [DET forums](https://web.archive.org/web/20180208220211/http://www.deadendthrills.com/forum/discussion/501/game-guide-index).
+
+In the case you manage to use one of these tables, its encuraged creating a guide of the correspondent game for future players.
+
 @alert tip
 Some of the games below have received full camera tools, and you should first look if one of the camera makers have made
 camera tools for the game instead of using these old cheat tables. 
 @end
 
-### Assassin's Creed III
-- [AC3SP.CT](CheatTables/Archive/AC3SP.CT)
+### ABZU
+- [AbzuGame-Win64-Shipping_det.CT](CheatTables/Archive/AbzuGame-Win64-Shipping_det.CT)
+
+###ADR1FT ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180212020403/http://www.deadendthrills.com/forum/discussion/515/guide-adr1ft))
+- [ADR1FT.CT](CheatTables/Archive/ADR1FT.CT)
+
+###Alice: Madness Returns ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180625082338/http://www.deadendthrills.com/forum/discussion/445/guide-alice-madness-returns))
+- [AliceMadnessReturns0.4.CT](CheatTables/Archive/AliceMadnessReturns0.4.CT)
+
+###Assassin's Creed III + Liberation
+- [AC3SP.CT](CheatTables/Archive/AC3SP.CT) ([HUD toggle](https://mega.nz/#!kdhT3KIQ!iPW6XIlrmQL4nLxCOSJj8bsZHEdeHaL5n-9r_zQIQ0A))
 
 ###Assassin's Creed IV: Black Flag
 - [AC4BFSP.CT](CheatTables/Archive/AC4BFSP.CT)
@@ -40,8 +53,17 @@ camera tools for the game instead of using these old cheat tables.
 ###Alan Wake
 - [AlanWake.CT](CheatTables/Archive/AlanWake.CT)
 
+###Alan Wake's American Nightmare ([DET forums archive guide](https://web.archive.org/web/20180105152811/http://deadendthrills.com/forum/discussion/518/guide-alan-wake-s-american-nightmare))
+- [alan_wakes_american_nightmare.CT](CheatTables/Archive/alan_wakes_american_nightmare.CT)
+
+###Batman: Arkham City ([DET forums archive guide](https://web.archive.org/web/20151211055428/http://www.deadendthrills.com/forum/discussion/421/guide-batman-arkham-city/p1))
+- [BatmanAC v0.5.2.CT](CheatTables/Archive/BatmanACv0.5.2.CT)
+
 ###Batman: Arkham Knight
 - [BatmanAK.CT](CheatTables/Archive/BatmanAK.CT)
+
+###Batman: Arkham Origins ([DET forums archive guide](https://web.archive.org/web/20151211052932/http://www.deadendthrills.com/forum/discussion/417/guide-batman-akham-origins/p1))
+- [BatmanOriginsMerged v1.5.CT](CheatTables/Archive/BatmanOriginsMergedv1.5.CT)
 
 ###Battlefield 4
 - [battlefield4.CT](CheatTables/Archive/battlefield4.CT)
@@ -145,6 +167,9 @@ camera tools for the game instead of using these old cheat tables.
 ###Far Cry Primal
 - [FCPrimal.CT](CheatTables/Archive/FCPrimal.CT)
 
+###HAWKEN ([DET forums archive guide](https://web.archive.org/web/20170428195521/http://www.deadendthrills.com/forum/discussion/446/guide-hawken/p1))
+- [HawkenGame-Win32-Shipping.CT](CheatTables/Archive/HawkenGame-Win32-Shipping.CT) 
+
 ###Hitman (2016)
 - [Hitman_2016.CT](CheatTables/Archive/Hitman_2016.CT)
 - [Hitman_2016_1-6-0.CT](CheatTables/Archive/Hitman_2016_1-6-0.CT)
@@ -182,8 +207,17 @@ camera tools for the game instead of using these old cheat tables.
 - [LordsOfTheFallen_aobTest.CT](CheatTables/Archive/LordsOfTheFallen_aobTest.CT)
 - [LordsOfTheFallen_stats.CT](CheatTables/Archive/LordsOfTheFallen_stats.CT)
 
+###Lost Planet 3 ([DET forums archive guide](https://web.archive.org/web/20151211055409/http://www.deadendthrills.com/forum/discussion/438/guide-lost-planet-3/p1))
+- [LostPlanet3 v1.3.CT](CheatTables/Archive/LostPlanet3v1.3.CT)
+
 ###Mad Max
 - [MadMax.CT](CheatTables/Archive/MadMax.CT)
+
+###Max Payne 3
+- [MaxPayne3-Merged_DET+mgr.inz.Player.CT](CheatTables/Archive/MaxPayne3-Merged_DET+mgr.inz.Player.CT)
+
+###Murdered: Soul Suspect ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180213095325/http://deadendthrills.com/forum/discussion/440/guide-murdered-soul-suspect))
+- [Murdered_Soul_Suspect_v1.0.CT](CheatTables/Archive/Murdered_Soul_Suspect_v1.0.CT)
 
 *unknown Metro CT*:
 - [metro.CT](CheatTables/Archive/metro.CT)
@@ -195,6 +229,12 @@ camera tools for the game instead of using these old cheat tables.
 ###No Man's Sky
 - [NMS.CT](CheatTables/Archive/NMS.CT)
 
+###No Man's Sky
+- [NMS.CT](CheatTables/Archive/NMS.CT)
+
+###Prince of Persia ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180625082328/http://www.deadendthrills.com/forum/discussion/434/guide-prince-of-persia))
+- [PrinceOfPersia_Launcherv1.0.CT](CheatTables/Archive/PrinceOfPersia_Launcherv1.0.CT)
+
 ###Quantum Break
 - [QuantumBreak_VisualEffects.CT](CheatTables/Archive/QuantumBreak_VisualEffects.CT)
 
@@ -203,6 +243,9 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Rise of the Tomb Raider
 - [ROTTR.CT](CheatTables/Archive/ROTTR.CT)
+
+###Saints Row IV ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180727102553/http://deadendthrills.com/forum/discussion/383/guide-saints-row-iv))
+- [SaintsRowIV(F5-F7binds).CT](CheatTables/Archive/SaintsRowIV(F5-F7binds).CT)
 
 *unknown "SH" CT*:
 - [SH.CT](CheatTables/Archive/SH.CT)
@@ -221,6 +264,9 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Tomb Raider (2013)
 - [TombRaider.CT](CheatTables/Archive/TombRaider.CT)
+
+###Tomb Raider: Anniversary
+- [Tomb_Raider_Anniversary.CT](CheatTables/Archive/Tomb_Raider_Anniversary.CT)
 
 ###The Vanishing of Ethan Carter
 - [ethan_carter.CT](CheatTables/Archive/ethan_carter.CT)
@@ -250,6 +296,9 @@ camera tools for the game instead of using these old cheat tables.
 - [witcher3_106.CT](CheatTables/Archive/witcher3_106.CT)
 - [witcher3_aob.CT](CheatTables/Archive/witcher3_aob.CT)
 - [w3_first_person.CT](CheatTables/Archive/w3_first_person.CT)
+
+###Tron: Evolution ([DET forums archive guide for ](https://web.archive.org/web/20180625082348/http://www.deadendthrills.com/forum/discussion/455/guide-tron-evolution))
+- [TRON_Evolutionv1.2.CT](CheatTables/Archive/TRON_Evolutionv1.2.CT)
 
 ###Wolfenstein: The New Order
 - [WolfNewOrder_x64.CT](CheatTables/Archive/WolfNewOrder_x64.CT)

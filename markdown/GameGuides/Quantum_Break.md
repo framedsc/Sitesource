@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera tools by Hattiwatti](https://cinetools.xyz/download/CT_QuantumBreak_20181024.zip)  
+* [Camera tools by Hattiwatti](https://cinetools.xyz/download/)  
 **Features**: Free Camera, FOV Control, Timestop, HUD toggle, DOF override (cutscenes), Filmgrain toggle, Movement Blur toggle
 
 @alert Important 
@@ -35,6 +35,10 @@ For custom aspect ratios you will need to set the AR while you are in freecam mo
 - **DELETE** - Toggle timestop
 - **HOME** - Toggle HUD
 - **END** - Toggle tools UI
+- **WASD** - Camera movement
+- **Mouse** - Camera orientation
+- **PageUp** - Increase FoV
+- **PageDown** - Decrease FoV
 
 ## Useful Links
 
