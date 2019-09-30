@@ -103,6 +103,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Earthfall
 * Echo
 * Elea
+* Everspace
 * Extinction
 * Fade to silence
 * The Fidelio Incident
