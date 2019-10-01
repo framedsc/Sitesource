@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13503</ID>
+      <Description>"This table was made by One3rd for the Steam version of Little Nightmares."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13500</ID>
+      <Description>"Enable camera script with [Page Dn]. Read *Table Extras* (bottom right button) for further details."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13502</ID>
+      <Description>"***"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13296</ID>
+      <Description>"FLY - No modifier"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13290</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13298</ID>
+          <Description>"MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13297</ID>
+          <Description>"FLY: Up, down - 9, 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13292</ID>
+      <Description>"AIM - Hold down PLUS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13339</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13244</ID>
+          <Description>"PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13246</ID>
+          <Description>"ZOOM: In, out - 9, 7 (reset to 60: NUMPAD *)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13242</ID>
+          <Description>"TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12251</ID>
+      <Description>"Camera Addresses [Page Dn]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,LittleNightmares.exe)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],rcx
+mov eax,[rcx+00000438]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pCamera:
+dd 0
+//
+
+"LittleNightmares.exe"+148B4F6:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"LittleNightmares.exe"+148B4F6:
+mov eax,[rcx+00000438]
+unregistersymbol(pCamera)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "LittleNightmares.exe"+148B4F6
+
+"LittleNightmares.exe"+148B4D0: 5F                          -  pop rdi
+"LittleNightmares.exe"+148B4D1: C3                          -  ret
+"LittleNightmares.exe"+148B4D2: 48 8B 8B 50 04 00 00        -  mov rcx,[rbx+00000450]
+"LittleNightmares.exe"+148B4D9: 0F 57 C0                    -  xorps xmm0,xmm0
+"LittleNightmares.exe"+148B4DC: 48 85 C9                    -  test rcx,rcx
+"LittleNightmares.exe"+148B4DF: 74 43                       -  je LittleNightmares.exe+148B524
+"LittleNightmares.exe"+148B4E1: 0F 2F 81 28 04 00 00        -  comiss xmm0,[rcx+00000428]
+"LittleNightmares.exe"+148B4E8: 73 3A                       -  jae LittleNightmares.exe+148B524
+"LittleNightmares.exe"+148B4EA: F2 0F 10 81 30 04 00 00     -  movsd xmm0,[rcx+00000430]
+"LittleNightmares.exe"+148B4F2: F2 0F 11 06                 -  movsd [rsi],xmm0
+// ---------- INJECTING HERE ----------
+"LittleNightmares.exe"+148B4F6: 8B 81 38 04 00 00           -  mov eax,[rcx+00000438]
+// ---------- DONE INJECTING  ----------
+"LittleNightmares.exe"+148B4FC: 89 46 08                    -  mov [rsi+08],eax
+"LittleNightmares.exe"+148B4FF: F2 0F 10 81 3C 04 00 00     -  movsd xmm0,[rcx+0000043C]
+"LittleNightmares.exe"+148B507: F2 0F 11 07                 -  movsd [rdi],xmm0
+"LittleNightmares.exe"+148B50B: 8B 81 44 04 00 00           -  mov eax,[rcx+00000444]
+"LittleNightmares.exe"+148B511: 89 47 08                    -  mov [rdi+08],eax
+"LittleNightmares.exe"+148B514: 48 8B 5C 24 50              -  mov rbx,[rsp+50]
+"LittleNightmares.exe"+148B519: 48 8B 74 24 58              -  mov rsi,[rsp+58]
+"LittleNightmares.exe"+148B51E: 48 83 C4 40                 -  add rsp,40
+"LittleNightmares.exe"+148B522: 5F                          -  pop rdi
+"LittleNightmares.exe"+148B523: C3                          -  ret
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12252</ID>
+          <Description>"base camera structure"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11819</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>430</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11818</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>434</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11817</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>438</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11825</ID>
+          <Description>"Y Rotation (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>43c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11826</ID>
+          <Description>"X Rotation (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>440</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11827</ID>
+          <Description>"Tilt (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>444</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>90</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11829</ID>
+          <Description>"FOV"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>448</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>60</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov eax,[rcx+00000438] - z-axis</Description>
+      <Address>140FBB4F6</Address>
+      <ModuleName>LittleNightmares.exe</ModuleName>
+      <ModuleNameOffset>148B4F6</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>81</Byte>
+        <Byte>38</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rcx+00000438]</Description>
+      <Address>140CF0EB0</Address>
+      <ModuleName>LittleNightmares.exe</ModuleName>
+      <ModuleNameOffset>11C0EB0</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>81</Byte>
+        <Byte>38</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rdx+08]</Description>
+      <Address>13FEC40F1</Address>
+      <ModuleName>LittleNightmares.exe</ModuleName>
+      <ModuleNameOffset>1A40F1</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+08],eax</Description>
+      <Address>13FEC40F4</Address>
+      <ModuleName>LittleNightmares.exe</ModuleName>
+      <ModuleNameOffset>1A40F4</ModuleNameOffset>
+      <Before>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+        <Byte>CC</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>13FA30029</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>This table is for Little Nightmares. It adds a pause camera with FOV and Tilt control.
+
+1. Press [Page Dn] to enable the camera script.
+2. Go into the the main menu by pressing [Esc].
+3. Togle the HUD with [Caps Lock] (Note: requires seperate HUD Toggle Mod by Pino44io to be installed. https://www.mediafire.com/?ykl7w79394ehm8h
+4. Move camera with NUMPAD keys.
+
+You can disable Chromatic Aberration by editing the ..\Steam\steamapps\common\Little Nightmares\Atlas\Saved\Config\WindowsNoEditor\Scalability.ini file and adding the following two lines.
+
+[PostProcessQuality@3]
+r.SceneColorFringeQuality=0
+
+
+
+Random Notes:
+==================
+z-axis : 151 on fridge, -749 on ground
+</Comments>
+</CheatTable>

@@ -1,0 +1,2914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12255</ID>
+      <Description>"------------- Deadpool (Steam Version) -------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12256</ID>
+      <Description>"------------- See Table Extras for detailed instructions"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12609</ID>
+      <Description>"Camera AOB [Page Dn]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,256)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+aobscanmodule(pCameraAOB,DP.exe,D9 86 DC 00 00 00 D9 58)
+registersymbol(pCameraAOB)
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+// read pause camera z-axis
+mov [pCamera],esi
+fld dword ptr [esi+000000DC]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pCamera:
+dd 0
+//
+
+pCameraAOB:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+pCameraAOB:
+//db D9 86 DC 00 00 00
+fld dword ptr [esi+000000DC]
+unregistersymbol(pCamera)
+unregistersymbol(pCameraAOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "DP.exe"+6FE3D
+
+"DP.exe"+6FE1F: 8B CE                 -  mov ecx,esi
+"DP.exe"+6FE21: FF D2                 -  call edx
+"DP.exe"+6FE23: 85 C0                 -  test eax,eax
+"DP.exe"+6FE25: 74 41                 -  je DP.exe+6FE68
+"DP.exe"+6FE27: D9 86 D4 00 00 00     -  fld dword ptr [esi+000000D4]
+"DP.exe"+6FE2D: 8B 44 24 0C           -  mov eax,[esp+0C]
+"DP.exe"+6FE31: D9 18                 -  fstp dword ptr [eax]
+"DP.exe"+6FE33: 5F                    -  pop edi
+"DP.exe"+6FE34: D9 86 D8 00 00 00     -  fld dword ptr [esi+000000D8]
+"DP.exe"+6FE3A: D9 58 04              -  fstp dword ptr [eax+04]
+// ---------- INJECTING HERE ----------
+"DP.exe"+6FE3D: D9 86 DC 00 00 00     -  fld dword ptr [esi+000000DC]
+// ---------- DONE INJECTING  ----------
+"DP.exe"+6FE43: D9 58 08              -  fstp dword ptr [eax+08]
+"DP.exe"+6FE46: 8B 8E E0 00 00 00     -  mov ecx,[esi+000000E0]
+"DP.exe"+6FE4C: 8B 44 24 0C           -  mov eax,[esp+0C]
+"DP.exe"+6FE50: 89 08                 -  mov [eax],ecx
+"DP.exe"+6FE52: 8B 96 E4 00 00 00     -  mov edx,[esi+000000E4]
+"DP.exe"+6FE58: 89 50 04              -  mov [eax+04],edx
+"DP.exe"+6FE5B: 8B 8E E8 00 00 00     -  mov ecx,[esi+000000E8]
+"DP.exe"+6FE61: 89 48 08              -  mov [eax+08],ecx
+"DP.exe"+6FE64: 5E                    -  pop esi
+"DP.exe"+6FE65: C2 08 00              -  ret 0008
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12610</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>d4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12611</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12612</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>DC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12613</ID>
+          <Description>"Y Rotation [arrow keys]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>e0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12614</ID>
+          <Description>"X Rotation [arrow keys]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>e4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12615</ID>
+          <Description>"Tilt [-,=]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>e8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>400</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>400</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>189</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>189</Key>
+              </Keys>
+              <Value>16400</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12594</ID>
+      <Description>"FOV Script AOB [Page Dn]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,256)
+label(returnhere)
+label(exit)
+label(pFOV)
+registersymbol(pFOV)
+aobscanmodule(pFOVAOB,DP.exe,D9 81 28 03 00 00)
+registersymbol(pFOVAOB)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pFOV],ecx
+fld dword ptr [ecx+00000328]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pFOV:
+dd 0
+//
+
+pFOVAOB:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+pFOVAOB:
+//db D9 81 28 03 00 00
+fld dword ptr [ecx+00000328]
+unregistersymbol(pFOV)
+unregistersymbol(pFOVAOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "DP.exe"+4D0DC
+
+"DP.exe"+4D0BC: 80 B8 E4 03 00 00 00  -  cmp byte ptr [eax+000003E4],00
+"DP.exe"+4D0C3: 74 08                 -  je DP.exe+4D0CD
+"DP.exe"+4D0C5: 38 51 5E              -  cmp [ecx+5E],dl
+"DP.exe"+4D0C8: 77 03                 -  ja DP.exe+4D0CD
+"DP.exe"+4D0CA: D9 EE                 -  fldz
+"DP.exe"+4D0CC: C3                    -  ret
+"DP.exe"+4D0CD: 84 91 CC 01 00 00     -  test [ecx+000001CC],dl
+"DP.exe"+4D0D3: 74 07                 -  je DP.exe+4D0DC
+"DP.exe"+4D0D5: D9 81 D0 01 00 00     -  fld dword ptr [ecx+000001D0]
+"DP.exe"+4D0DB: C3                    -  ret
+// ---------- INJECTING HERE ----------
+"DP.exe"+4D0DC: D9 81 28 03 00 00     -  fld dword ptr [ecx+00000328]
+// ---------- DONE INJECTING  ----------
+"DP.exe"+4D0E2: C3                    -  ret
+"DP.exe"+4D0E3: CC                    -  int 3
+"DP.exe"+4D0E4: CC                    -  int 3
+"DP.exe"+4D0E5: CC                    -  int 3
+"DP.exe"+4D0E6: CC                    -  int 3
+"DP.exe"+4D0E7: CC                    -  int 3
+"DP.exe"+4D0E8: CC                    -  int 3
+"DP.exe"+4D0E9: CC                    -  int 3
+"DP.exe"+4D0EA: CC                    -  int 3
+"DP.exe"+4D0EB: CC                    -  int 3
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12361</ID>
+          <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pFOV</Address>
+          <Offsets>
+            <Offset>328</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12605</ID>
+      <Description>"Health Script AOB [ [ ] then [ ] ] to freeze health"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,256)
+label(returnhere)
+label(exit)
+label(pHealth)
+registersymbol(pHealth)
+aobscanmodule(pHealthAOB,DP.exe,54 F3 0F 10 80 50 03 00 00)
+registersymbol(pHealthAOB)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pHealth],eax
+movss xmm0,[eax+00000350]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pHealth:
+dd 0
+//
+
+pHealthAOB+1:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+pHealthAOB+1:
+//db F3 0F 10 80 50 03 00 00
+movss xmm0,[eax+00000350]
+unregistersymbol(pHealth)
+unregistersymbol(pHealthAOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "DP.exe"+418909
+
+"DP.exe"+4188F9: CC                             -  int 3
+"DP.exe"+4188FA: CC                             -  int 3
+"DP.exe"+4188FB: CC                             -  int 3
+"DP.exe"+4188FC: CC                             -  int 3
+"DP.exe"+4188FD: CC                             -  int 3
+"DP.exe"+4188FE: CC                             -  int 3
+"DP.exe"+4188FF: CC                             -  int 3
+"DP.exe"+418900: 8B 41 28                       -  mov eax,[ecx+28]
+"DP.exe"+418903: 8B 49 2C                       -  mov ecx,[ecx+2C]
+"DP.exe"+418906: D9 41 54                       -  fld dword ptr [ecx+54]
+// ---------- INJECTING HERE ----------
+"DP.exe"+418909: F3 0F 10 80 50 03 00 00        -  movss xmm0,[eax+00000350]
+// ---------- DONE INJECTING  ----------
+"DP.exe"+418911: F3 0F 5C 80 54 03 00 00        -  subss xmm0,[eax+00000354]
+"DP.exe"+418919: 83 EC 0C                       -  sub esp,0C
+"DP.exe"+41891C: D9 5C 24 08                    -  fstp dword ptr [esp+08]
+"DP.exe"+418920: D9 EE                          -  fldz
+"DP.exe"+418922: D9 5C 24 04                    -  fstp dword ptr [esp+04]
+"DP.exe"+418926: F3 0F 11 04 24                 -  movss [esp],xmm0
+"DP.exe"+41892B: E8 60 A8 C9 FF                 -  call DP.exe+B3190
+"DP.exe"+418930: 83 C4 0C                       -  add esp,0C
+"DP.exe"+418933: C3                             -  ret
+"DP.exe"+418934: CC                             -  int 3
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>219</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12606</ID>
+          <Description>"Health"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pHealth</Address>
+          <Offsets>
+            <Offset>350</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12597</ID>
+      <Description>"DP Points Script AOB"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,256)
+label(returnhere)
+label(exit)
+label(pDP)
+registersymbol(pDP)
+aobscanmodule(pDPAOB,DP.exe,D9 81 08 05 00 00)
+registersymbol(pDPAOB)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pDP],ecx
+fld dword ptr [ecx+00000508]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pDP:
+dd 0
+//
+
+pDPAOB:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+pDPAOB:
+fld dword ptr [ecx+00000508]
+unregistersymbol(pDP)
+unregistersymbol(pDPAOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "DP.exe"+56F330
+
+"DP.exe"+56F31D: CC                             -  int 3
+"DP.exe"+56F31E: CC                             -  int 3
+"DP.exe"+56F31F: CC                             -  int 3
+"DP.exe"+56F320: C7 05 E0 62 4B 01 00 00 00 00  -  mov [DP.exe+12562E0],00000000
+"DP.exe"+56F32A: C3                             -  ret
+"DP.exe"+56F32B: CC                             -  int 3
+"DP.exe"+56F32C: CC                             -  int 3
+"DP.exe"+56F32D: CC                             -  int 3
+"DP.exe"+56F32E: CC                             -  int 3
+"DP.exe"+56F32F: CC                             -  int 3
+// ---------- INJECTING HERE ----------
+"DP.exe"+56F330: D9 81 08 05 00 00              -  fld dword ptr [ecx+00000508]
+// ---------- DONE INJECTING  ----------
+"DP.exe"+56F336: C3                             -  ret
+"DP.exe"+56F337: CC                             -  int 3
+"DP.exe"+56F338: CC                             -  int 3
+"DP.exe"+56F339: CC                             -  int 3
+"DP.exe"+56F33A: CC                             -  int 3
+"DP.exe"+56F33B: CC                             -  int 3
+"DP.exe"+56F33C: CC                             -  int 3
+"DP.exe"+56F33D: CC                             -  int 3
+"DP.exe"+56F33E: CC                             -  int 3
+"DP.exe"+56F33F: CC                             -  int 3
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12598</ID>
+          <Description>"Pointer to DP Points (set me to whatever)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pDP</Address>
+          <Offsets>
+            <Offset>508</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"[X] &lt;== Dead Pool Cheats - vunknown Script AOB - by Recifense"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{
+===========================================
+ Game Title    : Dead Pool
+ Game Version  : Unknown
+ Game Sponsor  : FairLight
+ Proces Name   : DP.exe
+ Script Version: 1.0 (AOB)
+ CE Version    : 6.3
+ Release date  : 25-Jun-2013
+ Author        : Recifense
+ History:
+ 25-Jun-13: First Release
+ Features:
+ - God Mode
+ - Minimum DP Points
+ - Unlimited Ammo (No Reload)
+ - Some Pointers
+===========================================
+}
+
+//=========================================
+// Definitions
+define(LUDO,"DP.exe")
+//=========================================
+[ENABLE]
+//=========================================
+//LuaCall(CheckVersion())
+//=========================================
+alloc(MyCode,4096,LUDO)
+//=========================================
+// Find code to be patched
+AOBScan(aobFHPR,d9 41 54 f3 0f 10 80 50 03 00 00 f3 0f 5c 80 54 03 00 00 83 ec)
+AOBScan(aobGDMD,f3 0f 10 86 40 03 00 00 f3 0f 5c 44 24 14 83 4e 20 08 8d 4c 24)
+AOBScan(aobMDPP,d9 81 08 05 00 00 c3 cc cc ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??)
+AOBScan(aobMPAM,89 81 b4 02 00 00 e8 ?? ?? ?? ?? c2 04 00 ?? ?? ?? ?? ?? ?? ??)
+
+//=========================================
+// Declaration section
+label(_FindHumanPlayer)
+label(_BackFHP)
+label(_ExitFHP)
+label(_GodMode)
+label(_BackGMD)
+label(_ExitGMD)
+label(_MonDPPoints)
+label(_BackMDP)
+label(_ExitMDP)
+label(_MonPlayerAmmo)
+label(_BackMPA)
+label(_ExitMPA)
+label(pHero)
+label(pPoints)
+label(iEnableGMD)
+label(iEnableMDP)
+label(iEnableMPA)
+label(fMinDPP)
+label(pFHPR)
+
+//=========================================
+// Registering Symbols
+registersymbol(MyCode)
+registersymbol(pHero)
+registersymbol(pPoints)
+registersymbol(iEnableGMD)
+registersymbol(iEnableMDP)
+registersymbol(iEnableMPA)
+registersymbol(fMinDPP)
+registersymbol(aobFHPR)
+registersymbol(aobGDMD)
+registersymbol(aobMDPP)
+registersymbol(aobMPAM)
+registersymbol(pFHPR)
+
+//=========================================
+MyCode:
+//=========================================
+// Main game screen
+_FindHumanPlayer:
+ push eax
+
+ mov [pHero+04],eax
+ lea eax,[eax+10]
+ mov [pHero],eax
+
+_ExitFHP:
+ pop eax
+
+ movss xmm0,[eax+00000350]         // Original code (rds HP)
+ jmp _BackFHP                      // Back to main code
+
+//=========================================
+// During Combat
+_GodMode:
+ push ecx
+
+ cmp dword ptr [iEnableGMD],0
+ je _ExitGMD                       // Jump if feature is disabled
+
+ cmp esi,[pHero]
+ jne _ExitGMD
+
+ mov ecx,[esi+00000344]
+ mov [esi+00000340],ecx
+
+ xor ecx,ecx
+ mov [esp+18],ecx
+
+_ExitGMD:
+ pop ecx
+
+ movss xmm0,[esi+00000340]         // Original code (rds HP)
+ jmp _BackGMD                      // Back to main code
+
+//=========================================
+// Main Screen
+_MonDPPoints:
+ push eax
+
+ mov [pPoints],ecx
+
+ cmp dword ptr [iEnableMDP],0
+ je _ExitMDP                       // Jump if feature is disabled
+
+ mov eax,[fMinDPP]
+ cmp eax,[ecx+00000508]
+ jle _ExitMDP
+
+ mov [ecx+00000508],eax
+
+_ExitMDP:
+ pop eax
+
+ fld dword ptr [ecx+00000508]      // Original code (rds DPP)
+ jmp _BackMDP                      // Back to main code
+
+//=========================================
+// When Shooting (No Reload)
+_MonPlayerAmmo:
+ push ebx
+
+ cmp dword ptr [iEnableMPA],0
+ je _ExitMPA                       // Jump if feature is disabled
+
+ mov ebx,[ecx+1c]
+ cmp ebx,[pHero+04]
+ jne _ExitMPA
+
+ mov eax,[ecx+000002B4]
+
+_ExitMPA:
+ pop ebx
+
+ mov [ecx+000002B4],eax            // Original code (upds Ammo)
+ jmp _BackMPA                      // Back to main code
+
+//=========================================
+ db '=================================&gt;'
+ db 'CE6.2 Script by Recifense 062513'
+//=========================================
+// Variables
+iEnableGMD:
+ dd 0
+iEnableMDP:
+ dd 0
+iEnableMPA:
+ dd 0
+pHero:
+ dd MyCode
+ dd MyCode
+pPoints:
+ dd 0
+fMinDPP:
+ dd (float)200000.0
+
+//=========================================
+// Hacking Points
+aobFHPR+03:
+pFHPR:
+ jmp _FindHumanPlayer
+ nop
+ nop
+ nop
+_BackFHP:
+
+aobGDMD:
+ jmp _GodMode
+ nop
+ nop
+ nop
+_BackGMD:
+
+aobMDPP:
+ jmp _MonDPPoints
+ nop
+_BackMDP:
+
+aobMPAM:
+ jmp _MonPlayerAmmo
+ nop
+_BackMPA:
+
+//=========================================
+// Script for Restoring Original Codes
+[DISABLE]
+pFHPR:
+// movss xmm0,[eax+00000350]
+ db f3 0f 10 80 50 03 00 00
+
+aobGDMD:
+// movss xmm0,[esi+00000340]
+ db f3 0f 10 86 40 03 00 00
+
+aobMDPP:
+// fld dword ptr [ecx+00000508]
+ db d9 81 08 05 00 00
+
+aobMPAM:
+// mov [ecx+000002B4],eax
+ db 89 81 b4 02 00 00
+
+//=========================================
+// Unregistering Symbols
+unregistersymbol(MyCode)
+unregistersymbol(pHero)
+unregistersymbol(pPoints)
+unregistersymbol(iEnableGMD)
+unregistersymbol(iEnableMDP)
+unregistersymbol(iEnableMPA)
+unregistersymbol(fMinDPP)
+unregistersymbol(aobFHPR)
+unregistersymbol(aobGDMD)
+unregistersymbol(aobMDPP)
+unregistersymbol(aobMPAM)
+
+//=========================================
+dealloc(MyCode)
+//============= Scripts End ===============
+
+// ****************************************
+// NOTES
+// ****************************************
+{
+define(FHPR,DP.exe+00418909)
+define(GDMD,DP.exe+006dc4bc)
+define(MDPP,DP.exe+0056f330)
+define(MPAM,DP.exe+005e0834)
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12599</ID>
+          <Description>"Enable with [CTRL+Home], Disable with [CTRL+End]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"Enable/Disable God Mode =&gt; (1/0)"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>iEnableGMD</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>36</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>35</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>29</ID>
+          <Description>"Enable/Disable Minimum DP Points =&gt; (1/0)"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>iEnableMDP</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>36</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>35</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Minimum DP Points Value ==&gt;"</Description>
+              <Color>0080FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>fMinDPP</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Enable/Disable Unlimted Ammo (No Reload) =&gt; (1/0)"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>iEnableMPA</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>36</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>35</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12607</ID>
+      <Description>"No description"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>6</ByteLength>
+      <Address>DP.exe+4D0DC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12608</ID>
+      <Description>"No description"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>6</ByteLength>
+      <Address>PhysXCore.dll+DB3D0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12616</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>0FA578EC</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+000001D0] - fov keybind</Description>
+      <Address>003BD0D5</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>4D0D5</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>07</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [ecx+000001D0],xmm0</Description>
+      <Address>0155BECF</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>41BECF</ModuleNameOffset>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>CC</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>81</Byte>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>A1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ecx+00000094],04 - hudtoggle1</Description>
+      <Address>01391560</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>2C1560</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>81</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>07</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ecx+00000094],02</Description>
+      <Address>012C7B00</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>187B00</ModuleNameOffset>
+      <Before>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>81</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>1B</Byte>
+        <Byte>6A</Byte>
+        <Byte>00</Byte>
+        <Byte>6A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :xor eax,[esi+00000094]</Description>
+      <Address>01331E13</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1F1E13</ModuleNameOffset>
+      <Before>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+        <Byte>C0</Byte>
+        <Byte>03</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>33</Byte>
+        <Byte>86</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>04</Byte>
+        <Byte>31</Byte>
+        <Byte>86</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :xor [esi+00000094],eax</Description>
+      <Address>01331E1C</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1F1E1C</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>31</Byte>
+        <Byte>86</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [esi+000001E8],02 - togglehud2</Description>
+      <Address>0198672E</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>8B672E</ModuleNameOffset>
+      <Before>
+        <Byte>13</Byte>
+        <Byte>4A</Byte>
+        <Byte>D9</Byte>
+        <Byte>FF</Byte>
+        <Byte>5F</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>86</Byte>
+        <Byte>E8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>28</Byte>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>E4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [esi+000001E8],08</Description>
+      <Address>019F676B</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>8B676B</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>86</Byte>
+        <Byte>E8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>5B</Byte>
+        <Byte>74</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>16</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[ecx+000001E8]</Description>
+      <Address>018F6124</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>7B6124</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>91</Byte>
+        <Byte>E8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>33</Byte>
+        <Byte>D0</Byte>
+        <Byte>83</Byte>
+        <Byte>E2</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :xor [ecx+000001E8],edx</Description>
+      <Address>018F612F</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>7B612F</ModuleNameOffset>
+      <Before>
+        <Byte>33</Byte>
+        <Byte>D0</Byte>
+        <Byte>83</Byte>
+        <Byte>E2</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>31</Byte>
+        <Byte>91</Byte>
+        <Byte>E8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [esi+000001E8],02</Description>
+      <Address>0165ABDD</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>51ABDD</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>23</Byte>
+        <Byte>99</Byte>
+        <Byte>0A</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>86</Byte>
+        <Byte>E8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>E8</Byte>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :inc [esi+04] - access hud/pause</Description>
+      <Address>01AC2312</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>9F2312</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>47</Byte>
+        <Byte>83</Byte>
+        <Byte>C6</Byte>
+        <Byte>08</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :dec [esi+04]</Description>
+      <Address>01AC2397</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>9F2397</ModuleNameOffset>
+      <Before>
+        <Byte>8D</Byte>
+        <Byte>58</Byte>
+        <Byte>01</Byte>
+        <Byte>8B</Byte>
+        <Byte>0F</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>4E</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>18</Byte>
+        <Byte>8B</Byte>
+        <Byte>16</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov al,[edi+00000498] - pause</Description>
+      <Address>01721F16</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>651F16</ModuleNameOffset>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>08</Byte>
+        <Byte>57</Byte>
+        <Byte>8B</Byte>
+        <Byte>F9</Byte>
+      </Before>
+      <Actual>
+        <Byte>8A</Byte>
+        <Byte>87</Byte>
+        <Byte>98</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>3C</Byte>
+        <Byte>04</Byte>
+        <Byte>75</Byte>
+        <Byte>5E</Byte>
+        <Byte>56</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+00000498],al</Description>
+      <Address>01721FB0</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>651FB0</ModuleNameOffset>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>87</Byte>
+        <Byte>98</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp dword ptr [edi+44],00 - togglehud</Description>
+      <Address>018F4175</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>694175</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>7F</Byte>
+        <Byte>44</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>12</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp dword ptr [eax+44],00</Description>
+      <Address>013012E6</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>A12E6</ModuleNameOffset>
+      <Before>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>B9</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>78</Byte>
+        <Byte>44</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>1F</Byte>
+        <Byte>8B</Byte>
+        <Byte>70</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp dword ptr [esi+44],00</Description>
+      <Address>015F5E3E</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>395E3E</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>34</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>7E</Byte>
+        <Byte>44</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>42</Byte>
+        <Byte>8B</Byte>
+        <Byte>7E</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+44],ecx</Description>
+      <Address>0182450B</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>5C450B</ModuleNameOffset>
+      <Before>
+        <Byte>07</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>44</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+00000498],al - menu?</Description>
+      <Address>018B1FA3</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>651FA3</ModuleNameOffset>
+      <Before>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>87</Byte>
+        <Byte>98</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+00000498],al</Description>
+      <Address>018B1FB0</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>651FB0</ModuleNameOffset>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>87</Byte>
+        <Byte>98</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+00000498],al</Description>
+      <Address>018B1FA3</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>651FA3</ModuleNameOffset>
+      <Before>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>87</Byte>
+        <Byte>98</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [esi+000000DC] - z-axis</Description>
+      <Address>002CFE3D</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>6FE3D</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>86</Byte>
+        <Byte>DC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+000000DC]</Description>
+      <Address>0187C744</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>71C744</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>9E</Byte>
+        <Byte>DC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>96</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+00000394],xmm2 - write fov? 0.88 default 0.44 zoom</Description>
+      <Address>014D1132</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>371132</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>8C</Byte>
+        <Byte>DC</Byte>
+        <Byte>FC</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>90</Byte>
+        <Byte>94</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+00000328] - FOV pause menu</Description>
+      <Address>002AD0DC</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>4D0DC</ModuleNameOffset>
+      <Before>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+00000328]</Description>
+      <Address>00646551</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>2D6551</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>99</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+00000508] - DP Points</Description>
+      <Address>0073F330</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>56F330</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>81</Byte>
+        <Byte>08</Byte>
+        <Byte>05</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+00000350] - HEALTH?</Description>
+      <Address>007EEC25</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>61EC25</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>74</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>80</Byte>
+        <Byte>54</Byte>
+        <Byte>03</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm0,[ecx+00000340]</Description>
+      <Address>005CC053</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>38C053</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>81</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>16</Byte>
+        <Byte>F6</Byte>
+        <Byte>41</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>003E1EFD</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1A1EFD</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>0E</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>86</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[esi+00000340]</Description>
+      <Address>009748C9</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>7348C9</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>31</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8E</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+00000350]</Description>
+      <Address>01378909</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>418909</ModuleNameOffset>
+      <Before>
+        <Byte>49</Byte>
+        <Byte>2C</Byte>
+        <Byte>D9</Byte>
+        <Byte>41</Byte>
+        <Byte>54</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>54</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[edi+00000340]</Description>
+      <Address>0026D394</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>2D394</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>B5</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>87</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>87</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>006EDCFA</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>4ADCFA</ModuleNameOffset>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>8E</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[edi+00000340]</Description>
+      <Address>0068991F</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>44991F</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>2D</Byte>
+        <Byte>8B</Byte>
+        <Byte>4E</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>87</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>87</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+00000350]</Description>
+      <Address>005B2A04</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>372A04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>51</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>54</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edx+00000350]</Description>
+      <Address>005B2A16</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>372A16</ModuleNameOffset>
+      <Before>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>82</Byte>
+        <Byte>50</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>0C</Byte>
+        <Byte>D8</Byte>
+        <Byte>61</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>009B6CD8</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>776CD8</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>28</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>FE</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>00439DED</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1F9DED</ModuleNameOffset>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>51</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>005B346E</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>37346E</ModuleNameOffset>
+      <Before>
+        <Byte>18</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>53</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>0052000B</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>2E000B</ModuleNameOffset>
+      <Before>
+        <Byte>60</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>5C</Byte>
+        <Byte>53</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm0,[edi+00000340]</Description>
+      <Address>003967E3</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1567E3</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>87</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>3B</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm0,[esi+00000340]</Description>
+      <Address>0091C45F</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>6DC45F</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>07</Byte>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>0091C4BC</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>6DC4BC</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>C4</Byte>
+        <Byte>B6</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+00000340],xmm0</Description>
+      <Address>0091C4D2</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>6DC4D2</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+        <Byte>51</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm0,[esi+00000340]</Description>
+      <Address>0091C584</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>6DC584</ModuleNameOffset>
+      <Before>
+        <Byte>F6</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>1C</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :subss xmm0,[esi+00000340]</Description>
+      <Address>005B34A1</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>3734A1</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>05</Byte>
+        <Byte>7C</Byte>
+        <Byte>3A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ebx+00000340]</Description>
+      <Address>007F5DD2</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>5B5DD2</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>9B</Byte>
+        <Byte>70</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[esi+00000340]</Description>
+      <Address>00439E22</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1F9E22</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>2B</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8E</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :subss xmm0,[eax+00000350]</Description>
+      <Address>005E13C4</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>3A13C4</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>54</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C9</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+00000340]</Description>
+      <Address>00439EAC</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>1F9EAC</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>63</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>86</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm0,[edi+00000340]</Description>
+      <Address>009B6D2D</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>776D2D</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>87</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>76</Byte>
+        <Byte>07</Byte>
+        <Byte>83</Byte>
+        <Byte>8B</Byte>
+        <Byte>98</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+000000D4] - write x</Description>
+      <Address>0157C732</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>71C732</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+        <Byte>D4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+000000D8] - write y</Description>
+      <Address>00B4463C</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>71C73B</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+        <Byte>D8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+000000DC] - write z</Description>
+      <Address>00B44645</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>71C744</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+        <Byte>DC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>96</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000E8],eax - writes tilt</Description>
+      <Address>0157C75F</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>71C75F</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+00000328] - writes FOV</Description>
+      <Address>01136551</Address>
+      <ModuleName>DP.exe</ModuleName>
+      <ModuleNameOffset>2D6551</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>99</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pFHPR</Name>
+      <Address>01758909</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Note: Use GeDoSaTo for Hud toggle. I had to set the DP.exe to WinXP compatable for the game to stop crashing (or not even start up) when GeDoSaTo was enabled.
+Note2: Alt-tab can sometimes crash/freeze the game. If it does work use alt-tab to get back into the game rather than clicking the icon on taskbar...this crashes it for me for some reason.
+Note3: Use Alt-Enter to change to windowed mode before alt-tabing out, still alt-tab back in. This method hasn't crashed at all on me so far.
+
+One3rd Scripts
+=================
+- Camera and FOV script are fairly straight forward. [Page Dn] to enable both at the same time.
+- Health script allows you to freeze deadpools health (different to using the God cheat below) which also retains the visual damage sustained as well.
+- DP Points script is just a pointer to the value and allows you to set the the DP points value to whatever you want manually.
+- v1.1 - AOB scanned opcodes
+ 
+Recifense Deadpool Cheats
+===========================================
+ Game Title    : Dead Pool
+ Game Version  : Unknown
+ Game Sponsor  : FairLight
+ Proces Name   : DP.exe
+ Script Version: 1.0 (AOB)
+ CE Version    : 6.3
+ Release date  : 25-Jun-2013
+ Author        : Recifense
+ History:
+ 25-Jun-13: First Release
+ Features:
+ - God Mode                  [1]
+ - Minimum DP Points         [2]
+ - Unlimited Ammo (No Reload)[3]
+ - Some Pointers             [4]
+===========================================
+[1] That's it;
+[2] The DP points will not go under minimum value (default = 200000)
+[3] That's it;
+[4] Used on the table.
+===========================================
+HOTKEYS:
+CTRL+Home = Enable  all cheats;
+CTRL+End  = Disable all cheats;
+===========================================
+Cheers!
+</Comments>
+</CheatTable>
