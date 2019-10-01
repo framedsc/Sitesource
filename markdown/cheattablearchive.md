@@ -88,7 +88,7 @@ camera tools for the game instead of using these old cheat tables.
 ###Blacklist
 - [Blacklist_DX11_game_v0.1.CT](Blacklist_DX11_game_v0.1.CT)
 
-###blur
+###Blur
 - [Blur.CT](CheatTables/Archive/Blur.CT)
 
 ###Borderlands 2
@@ -218,8 +218,6 @@ camera tools for the game instead of using these old cheat tables.
 - [hitman_abs.CT](CheatTables/Archive/hitman_abs.CT)
 - [hitman_abs_cheats.CT](CheatTables/Archive/hitman_abs_cheats.CT)
 - [hitman_abs_split.CT](CheatTables/Archive/hitman_abs_split.CT)
-
-*unknown Hitman CT*:
 - [hitman_fov.CT](CheatTables/Archive/hitman_fov.CT)
 
 ###Homefront: The Revolution
@@ -237,9 +235,6 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Killer Is Dead
 - [KiD_DOF_Tonemap_v0.7.1.CT](CheatTables/Archive/KiD_DOF_Tonemap_v0.7.1.CT)
-
-*unknown "Kingdom" CT*:
-- [kingdom.CT](CheatTables/Archive/kingdom.CT)
 
 ###KingsQuest
 - [KingsQuest_0.9.CT](CheatTables/Archive/KingsQuest_0.9.CT)
@@ -283,7 +278,7 @@ camera tools for the game instead of using these old cheat tables.
 ###Murdered: Soul Suspect ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180213095325/http://deadendthrills.com/forum/discussion/440/guide-murdered-soul-suspect))
 - [Murdered_Soul_Suspect_v1.0.CT](CheatTables/Archive/Murdered_Soul_Suspect_v1.0.CT)
 
-*unknown Metro CT*:
+###Metro 2033 / Last Light
 - [metro.CT](CheatTables/Archive/metro.CT)
 
 ###Need for Speed: Most Wanted
@@ -310,9 +305,6 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Saints Row IV ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180727102553/http://deadendthrills.com/forum/discussion/383/guide-saints-row-iv))
 - [SaintsRowIV(F5-F7binds).CT](CheatTables/Archive/SaintsRowIV(F5-F7binds).CT)
-
-*unknown "SH" CT*:
-- [SH.CT](CheatTables/Archive/SH.CT)
 
 ###Singularity
 - [Singularity_One3rd.CT](CheatTables/Archive/Singularity_One3rd.CT)
