@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12255</ID>
+      <Description>"------------- Deadlight Director's Cut (Steam Version) -------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12256</ID>
+      <Description>"------------- See Table Extras for detailed instructions"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12251</ID>
+      <Description>"Camera [Page Dn] (AOB, must set FOV first)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aobCamera, 00 00 ?? 42 ?? ?? ?? 3F 8F AA AA 3F 00)
+label(_aobCamera)
+registersymbol(_aobCamera)
+aobCamera:
+_aobCamera:
+
+[DISABLE]
+unregistersymbol(_aobCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12252</ID>
+          <Description>"base camera structure"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11819</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+1B4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11818</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+1B8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11817</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+1Bc</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11825</ID>
+          <Description>"Y Rotation [arrow keys]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+1c0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11826</ID>
+          <Description>"X Rotation  [arrow keys]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+1c4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11827</ID>
+          <Description>"Tilt [-,=]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+1c8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11829</ID>
+          <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12253</ID>
+      <Description>"No description"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>13</ByteLength>
+      <Address>7FFF655B454</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12254</ID>
+      <Description>"No description"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>13</ByteLength>
+      <Address>7FFF9E41F54</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov eax,[r8] - fov</Description>
+      <Address>13F227A3E</Address>
+      <ModuleName>LOTDGame.exe</ModuleName>
+      <ModuleNameOffset>B7A3E</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>FA</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+        <Byte>07</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>02</Byte>
+        <Byte>C3</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [r10],eax</Description>
+      <Address>13F227A41</Address>
+      <ModuleName>LOTDGame.exe</ModuleName>
+      <ModuleNameOffset>B7A41</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>07</Byte>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>6C</Byte>
+        <Byte>49</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rax,[rdx+rcx] - x</Description>
+      <Address>63EBBFAF</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>3BFAF</ModuleNameOffset>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>E9</Byte>
+        <Byte>03</Byte>
+        <Byte>74</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>0A</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rax,[rdx+rcx]</Description>
+      <Address>63EBC154</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>3C154</ModuleNameOffset>
+      <Before>
+        <Byte>14</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>E9</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>0A</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>FF</Byte>
+        <Byte>C9</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx],rax</Description>
+      <Address>63EBC15B</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>3C15B</ModuleNameOffset>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>0A</Byte>
+        <Byte>49</Byte>
+        <Byte>FF</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>F0</Byte>
+        <Byte>49</Byte>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>For Camera script to work you will need to add, and use, the FOV keybinds to ..\Documents\my games\UnrealEngine3\LOTDGame\Config\LOTDInput.ini under the [LOTDGame.LOTDPlayerInput] section like below.
+Bindings=(Name="F1",Command="ToggleHud",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F2",Command="FOV 70",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F2",Command="FOV 0",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F3",Command="FOV 45",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+</Comments>
+</CheatTable>

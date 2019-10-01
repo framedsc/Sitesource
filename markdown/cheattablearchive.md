@@ -23,6 +23,7 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Alice: Madness Returns ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180625082338/http://www.deadendthrills.com/forum/discussion/445/guide-alice-madness-returns))
 - [AliceMadnessReturns0.4.CT](CheatTables/Archive/AliceMadnessReturns0.4.CT)
+- [alice2_freecam0.03.CT](CheatTables/Archive/alice2_freecam0.03.CT)
 
 ###Assassin's Creed III + Liberation
 - [AC3SP.CT](CheatTables/Archive/AC3SP.CT) ([HUD toggle](https://mega.nz/#!kdhT3KIQ!iPW6XIlrmQL4nLxCOSJj8bsZHEdeHaL5n-9r_zQIQ0A))
@@ -46,6 +47,7 @@ camera tools for the game instead of using these old cheat tables.
 ###Assassin's Creed Rogue
 - [AC_Rogue.CT](CheatTables/Archive/AC_Rogue.CT)
 - [AC_Rogue_jim2point0.CT](CheatTables/Archive/AC_Rogue_jim2point0.CT)
+- [ACRogue_Zanzer.CT](CheatTables/Archive/ACRogue_Zanzer.CT)
 
 ###Alien Isolation
 - [AI.CT](CheatTables/Archive/AI.CT)
@@ -73,9 +75,18 @@ camera tools for the game instead of using these old cheat tables.
 ###Battlefield: Bad Company 2
 - [badcompany2.CT](CheatTables/Archive/badcompany2.CT)
 
+###Bayonetta
+- [Bayonetta_Screenshot_Table_1.2.1.CT](CheatTables/Archive/Bayonetta_Screenshot_Table_1.2.1.CT)
+
+###BioShock 2 HD
+- [Bioshock2_in_work.CT](CheatTables/Archive/Bioshock2_in_work.CT)
+
 ###BioShock Infinite
 - [BioShockInfinite.CT](CheatTables/Archive/BioShockInfinite.CT)
 - [BioShockInfinite2.CT](CheatTables/Archive/BioShockInfinite2.CT)
+
+###Blacklist
+- [Blacklist_DX11_game_v0.1.CT](Blacklist_DX11_game_v0.1.CT)
 
 ###blur
 - [Blur.CT](CheatTables/Archive/Blur.CT)
@@ -86,8 +97,17 @@ camera tools for the game instead of using these old cheat tables.
 ###Borderlands: The Pre-sequel
 - [BorderlandsPreSequel.CT](CheatTables/Archive/BorderlandsPreSequel.CT)
 
+###BrutalLegend
+- [BrutalLegend_v0.7.CT](CheatTables/Archive/BrutalLegend_v0.7.CT)
+
 ###Bulletstorm
 - [bulletstorm.CT](CheatTables/Archive/bulletstorm.CT)
+
+###Burning Daylight
+- [BurningDaylight.CT](CheatTables/Archive/BurningDaylight.CT)
+
+###Castlevania: Lords of Shadow - Ultimate Edition
+- [CastlevaniaLoSUE_1.5.CT](CheatTables/Archive/CastlevaniaLoSUE_1.5.CT)
 
 ###Castlevania: Lords of Shadow 2
 - [CLOS2_steam.CT](CheatTables/Archive/CLOS2_steam.CT)
@@ -116,6 +136,12 @@ camera tools for the game instead of using these old cheat tables.
 - [darksouls3(2).CT](CheatTables/Archive/darksouls3(2).CT)
 - [darksouls3.CT](CheatTables/Archive/darksouls3.CT)
 
+###Deadlight
+- [Deadlight.CT](CheatTables/Archive/Deadlight.CT)
+
+###Dead Pool
+- [DP_v1.1.CT](CheatTables/Archive/DP_v1.1.CT)
+
 ###Dead Rising 3
 - [deadrising3.CT](CheatTables/Archive/deadrising3.CT)
 
@@ -135,6 +161,7 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Dishonored
 - [Dishonored.CT](CheatTables/Archive/Dishonored.CT)
+- [Dishonored_pause_camera_1.1.CT](CheatTables/Archive/Dishonored_pause_camera_1.1.CT)
 
 ###DmC: Devil May Cry
 - [DMC-DevilMayCry.CT](CheatTables/Archive/DMC-DevilMayCry.CT)
@@ -148,14 +175,23 @@ camera tools for the game instead of using these old cheat tables.
 - [DragonAgeInquisition.CT](CheatTables/Archive/DragonAgeInquisition.CT)
 - [DragonAgeInquisition2.CT](CheatTables/Archive/DragonAgeInquisition2.CT)
 
+###Dragon's Dogma: Dark Arisen (GOG)
+- [ddda_GOG_stamina_1.CT](CheatTables/Archive/ddda_GOG_stamina_1.CT)
+
 ###Dying Light
 - [DyingLightScreenshots.CT](CheatTables/Archive/DyingLightScreenshots.CT)
+- [DyingLightPhotography_One3rd_v0.4.CT](CheatTables/Archive/DyingLightPhotography_One3rd_v0.4.CT)
 
 ###Enslaved: Odyssey to the West
 - [Enslaved.CT](CheatTables/Archive/Enslaved.CT)
+- [Enslaved_v1.0.CT](CheatTables/Archive/Enslaved_v1.0.CT)
+
+###Everspace
+- [Everspace_One3rd.CT](CheatTables/Archive/Everspace_One3rd.CT)
 
 ###The Evil Within
 - [EvilWithin.CT](CheatTables/Archive/EvilWithin.CT)
+- [EvilWithin_FOV_Currency.CT](CheatTables/Archive/EvilWithin_FOV_Currency.CT)
 
 ###Fable 3
 - [Fable3_aob.CT](CheatTables/Archive/Fable3_aob.CT)
@@ -190,14 +226,35 @@ camera tools for the game instead of using these old cheat tables.
 - [homefront2_release.CT](CheatTables/Archive/homefront2_release.CT)
 - [homefront2_release_camera.CT](CheatTables/Archive/homefront2_release_camera.CT) 
 
+###Homeworld: Deserts Of Kharak
+- [DesertsOfKharak64_Homeworld_v1-3-0_Steam_TP_CE68_S10_T10.CT](CheatTables/Archive/DesertsOfKharak64_Homeworld_v1-3-0_Steam_TP_CE68_S10_T10.CT)
+
+###Homeworld Remastered Collection
+- [HomeworldRM_One3rd_v1.1.CT](CheatTables/Archive/HomeworldRM_One3rd_v1.1.CT)
+
+###Inside
+- [INSIDE_V2.0.CT](CheatTables/Archive/INSIDE_V2.0.CT)
+
+###Killer Is Dead
+- [KiD_DOF_Tonemap_v0.7.1.CT](CheatTables/Archive/KiD_DOF_Tonemap_v0.7.1.CT)
+
 *unknown "Kingdom" CT*:
 - [kingdom.CT](CheatTables/Archive/kingdom.CT)
+
+###KingsQuest
+- [KingsQuest_0.9.CT](CheatTables/Archive/KingsQuest_0.9.CT)
+
+###LA Noire
+- [LANoire_freecam0.06.2.CT](CheatTables/Archive/LANoire_freecam0.06.2.CT)
 
 ###Lichdom: Battlemage
 - [LichdomBattlemage.CT](CheatTables/Archive/LichdomBattlemage.CT)
 
 ###Life Is Strange
 - [LifeIsStrange.CT](CheatTables/Archive/LifeIsStrange.CT)
+
+###Little Nightmares
+- [LittleNightmares_v1.0.CT](CheatTables/Archive/LittleNightmares_v1.0.CT)
 
 ###Lords of the Fallen
 - [LordsOfTheFallen.CT](CheatTables/Archive/LordsOfTheFallen.CT)
@@ -212,9 +269,16 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Mad Max
 - [MadMax.CT](CheatTables/Archive/MadMax.CT)
+- [MadMax_det.CT](CheatTables/Archive/MadMax_det.CT)
+
+###Mafia 3
+- [mafia3.CT](CheatTables/Archive/mafia3.CT)
 
 ###Max Payne 3
 - [MaxPayne3-Merged_DET+mgr.inz.Player.CT](CheatTables/Archive/MaxPayne3-Merged_DET+mgr.inz.Player.CT)
+
+###Mutant Year Zero
+- [MutantYearZero_One3rd.CT](CheatTables/Archive/MutantYearZero_One3rd.CT)
 
 ###Murdered: Soul Suspect ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180213095325/http://deadendthrills.com/forum/discussion/440/guide-murdered-soul-suspect))
 - [Murdered_Soul_Suspect_v1.0.CT](CheatTables/Archive/Murdered_Soul_Suspect_v1.0.CT)
@@ -229,8 +293,8 @@ camera tools for the game instead of using these old cheat tables.
 ###No Man's Sky
 - [NMS.CT](CheatTables/Archive/NMS.CT)
 
-###No Man's Sky
-- [NMS.CT](CheatTables/Archive/NMS.CT)
+###Observer
+- [observer_fc_1.2_AltCamera.CT](CheatTables/Archive/observer_fc_1.2_AltCamera.CT)
 
 ###Prince of Persia ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180625082328/http://www.deadendthrills.com/forum/discussion/434/guide-prince-of-persia))
 - [PrinceOfPersia_Launcherv1.0.CT](CheatTables/Archive/PrinceOfPersia_Launcherv1.0.CT)
@@ -250,9 +314,20 @@ camera tools for the game instead of using these old cheat tables.
 *unknown "SH" CT*:
 - [SH.CT](CheatTables/Archive/SH.CT)
 
+###Singularity
+- [Singularity_One3rd.CT](CheatTables/Archive/Singularity_One3rd.CT)
+
+###Splinter Cell Conviction
+- [Conviction_game_v0.1.CT](CheatTables/Archive/Conviction_game_v0.1.CT)
+
+###Styx: Master of Shadows
+- [StyxGame_32-bit_v0.2.CT](CheatTables/Archive/StyxGame_32-bit_v0.2.CT)
+- [StyxGame_64-bit_v0.1.CT](CheatTables/Archive/StyxGame_64-bit_v0.1.CT)
+
 ###Middle-earth: Shadow of Mordor
 - [ShadowOfMordor.CT](CheatTables/Archive/ShadowOfMordor.CT)
 - [ShadowOfMordor_aob_latest_rotation.CT](CheatTables/Archive/ShadowOfMordor_aob_latest_rotation.CT)
+- [ShadowOfMordor_aob_Latest_with_FOV_rotation_cheats.CT](CheatTables/Archive/ShadowOfMordor_aob_Latest_with_FOV_rotation_cheats.CT)
 - [ShadowOfMordor_aob.CT](CheatTables/Archive/ShadowOfMordor_aob.CT)
 
 ###Spec Ops: The Line
@@ -268,6 +343,9 @@ camera tools for the game instead of using these old cheat tables.
 ###Tomb Raider: Anniversary
 - [Tomb_Raider_Anniversary.CT](CheatTables/Archive/Tomb_Raider_Anniversary.CT)
 
+###Transformers War For Cybertron
+- [TWFC.CT](CheatTables/Archive/TWFC.CT)
+
 ###The Vanishing of Ethan Carter
 - [ethan_carter.CT](CheatTables/Archive/ethan_carter.CT)
 
@@ -279,6 +357,9 @@ camera tools for the game instead of using these old cheat tables.
 - [watch_dogs_patch1.CT](CheatTables/Archive/watch_dogs_patch1.CT)
 - [watch_dogs_patch2.CT](CheatTables/Archive/watch_dogs_patch2.CT)
 - [watch_dogs_screenshots.CT](CheatTables/Archive/watch_dogs_screenshots.CT)
+
+###The Walking Dead Season 1
+- [twd1_fc_xb.ct](CheatTables/Archive/twd1_fc_xb.ct)
 
 ###The Witcher 2: Assassins of Kings
 - [witcher2.CT](CheatTables/Archive/witcher2.CT)
@@ -297,11 +378,24 @@ camera tools for the game instead of using these old cheat tables.
 - [witcher3_aob.CT](CheatTables/Archive/witcher3_aob.CT)
 - [w3_first_person.CT](CheatTables/Archive/w3_first_person.CT)
 
+###Wolverine
+- [Wolverine_NewCamera_v1.0.CT](CheatTables/Archive/Wolverine_NewCamera_v1.0.CT)
+
+###Tower of Monsters
+- [TS.CT](CheatTables/Archive/TS.CT)
+
 ###Tron: Evolution ([DET forums archive guide for ](https://web.archive.org/web/20180625082348/http://www.deadendthrills.com/forum/discussion/455/guide-tron-evolution))
 - [TRON_Evolutionv1.2.CT](CheatTables/Archive/TRON_Evolutionv1.2.CT)
+- [TRON_Evolution_v1.4.CT](CheatTables/Archive/TRON_Evolution_v1.4.CT)
 
 ###Wolfenstein: The New Order
 - [WolfNewOrder_x64.CT](CheatTables/Archive/WolfNewOrder_x64.CT)
 
 ###Wolfenstein: The Old Blood
 - [WolfOldBlood_x64.CT](CheatTables/Archive/WolfOldBlood_x64.CT)
+
+###XCOM 2
+- [XCom2_AOB_to_FOV_v4.CT](CheatTables/Archive/XCom2_AOB_to_FOV_v4.CT)
+
+###Yaiba: Ninja Gaiden Z
+- [NRZGame.CT](CheatTables/Archive/NRZGame.CT)

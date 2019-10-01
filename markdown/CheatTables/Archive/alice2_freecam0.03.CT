@@ -1,0 +1,1450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="19">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>135</ID>
+      <Description>"Alice: Madness Returns - Freecam v0.03 by IDK31"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>136</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>125</ID>
+      <Description>"&gt;&gt; CAMERA CONTROLS"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"AliceMadnessReturns.exe"+827DEB
+[ENABLE]
+
+aobscanmodule(camAOB,AliceMadnessReturns.exe,8B 47 08 6A 00 89)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_camera,4)
+
+newmem:
+
+code:
+  mov [_camera],edi
+  mov eax,[edi+08]
+  push 00
+  jmp return
+
+camAOB:
+  jmp code
+return:
+registersymbol(camAOB)
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 50
+symbolCheckT.OnTimer = function(sender)
+
+  local function cbase() return readInteger("_camera") end
+
+  -- CAMERA ADDRESSES
+  local function camlockAD() return cbase()-0x17F end -- on/off at bit 4
+  local function camXAD() return cbase()+0x8 end
+  local function camYAD() return cbase()+0xC end
+  local function camZAD() return cbase()+0x10 end
+  local function pitchAD() return cbase()+0x14 end
+  local function yawAD() return cbase()+0x18 end
+  local function rollAD() return cbase()+0x1C end
+  local function FOVAD() return cbase()+0x20 end
+  -- paused cam
+  local function p_camXAD() return cbase()-0x40 end
+  local function p_camYAD() return cbase()-0x3C end
+  local function p_camZAD() return cbase()-0x38 end
+  local function p_pitchAD() return cbase()-0x34 end
+  local function p_yawAD() return cbase()-0x30 end
+  local function p_rollAD() return cbase()-0x2C end
+  local function p_FOVAD() return cbase()-0x28 end
+
+  -- VARIABLES
+  local flySpeed  = 6
+  local aimSpeed  = 40 -- int
+  local rollSpeed = 40 -- int
+  local FOVSpeed  = math.pi/20
+  local ultraFast = 100 -- how fast in ultra-fast mode
+  local fastMult  = 10 -- how fast in fast mode
+  local slowDiv   = 10 -- how slow in slow mode
+
+  local function freecamEnabled()
+   if readBytes(camlockAD(),1,false)&amp;16 == 0 then return true end
+   return false
+  end
+
+  local function gameHasFocus()
+    if getOpenedProcessID() == getForegroundProcess() then return true end
+    return false
+  end
+
+  local function requiredConditions()
+    if freecamEnabled() and gameHasFocus() then return true end
+    return false
+  end
+
+  local function toggleFreecam()
+    if not gameHasFocus() then return end
+    if freecamEnabled() then
+      writeBytes(camlockAD(), readBytes(camlockAD(),1,false)-16)
+    else
+      writeBytes(camlockAD(), readBytes(camlockAD(),1,false)+16)
+    end
+  end
+
+  local flySpeedOrig  = flySpeed
+  local aimSpeedOrig  = aimSpeed
+  local rollSpeedOrig = rollSpeed
+  local FOVSpeedOrig  = FOVSpeed
+
+  local ultraFastModeEnabled = false
+  local fastModeEnabled = false
+  local slowModeEnabled = false
+
+  local didReset = true
+  local didSlow = false
+  local didFast = false
+  local didUltraFast = false
+
+  checkCamKeys = createTimer()
+  checkCamKeys.setInterval(100)
+  checkCamKeys.onTimer = function()
+    if not gameHasFocus() then return end
+    if isKeyPressed(VK_T) and not isKeyPressed(VK_MENU) then
+      if not didUltraFast then
+        flySpeed  = flySpeedOrig*ultraFast
+        aimSpeed  = aimSpeedOrig*fastMult
+        rollSpeed = rollSpeedOrig*fastMult
+        FOVSpeed  = FOVSpeedOrig*fastMult
+        didReset  = false
+        didUltraFast = true
+      end
+    elseif isKeyPressed(VK_F) and not isKeyPressed(VK_MENU) then
+      if not didFast then
+        flySpeed  = flySpeedOrig*fastMult
+        aimSpeed  = aimSpeedOrig*fastMult
+        rollSpeed = rollSpeedOrig*fastMult
+        FOVSpeed  = FOVSpeedOrig*fastMult
+        didReset  = false
+        didFast   = true
+      end
+    elseif isKeyPressed(VK_C) and not isKeyPressed(VK_MENU) then
+      if not didSlow then
+        flySpeed  = flySpeedOrig/slowDiv
+        aimSpeed  = aimSpeedOrig/slowDiv
+        rollSpeed = rollSpeedOrig/slowDiv
+        FOVSpeed  = FOVSpeedOrig/slowDiv
+        didReset  = false
+        didSlow   = true
+      end
+    elseif not didReset then
+      flySpeed  = flySpeedOrig
+      aimSpeed  = aimSpeedOrig
+      rollSpeed = rollSpeedOrig
+      FOVSpeed  = FOVSpeedOrig
+      didUltraFast = false
+      didFast   = false
+      didSlow   = false
+      didReset  = true
+      ultraFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  local function resetSpeed()
+    flySpeed  = flySpeedOrig
+    aimSpeed  = aimSpeedOrig
+    rollSpeed = rollSpeedOrig
+    FOVSpeed  = FOVSpeedOrig
+    ultraFastModeEnabled = false
+    fastModeEnabled = false
+    slowModeEnabled = false
+  end
+
+  local function goUltraFast()
+    if ultraFastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*ultraFast
+      aimSpeed  = aimSpeedOrig*fastMult
+      rollSpeed = rollSpeedOrig*fastMult
+      FOVSpeed  = FOVSpeedOrig*fastMult
+      ultraFastModeEnabled = true
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  local function goFast()
+    if fastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*fastMult
+      aimSpeed  = aimSpeedOrig*fastMult
+      rollSpeed = rollSpeedOrig*fastMult
+      FOVSpeed  = FOVSpeedOrig*fastMult
+      ultraFastModeEnabled = false
+      fastModeEnabled = true
+      slowModeEnabled = false
+    end
+  end
+
+  local function goSlow()
+    if slowModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig/slowDiv
+      aimSpeed  = aimSpeedOrig/slowDiv
+      rollSpeed = rollSpeedOrig/slowDiv
+      FOVSpeed  = FOVSpeedOrig/slowDiv
+      ultraFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = true
+    end
+  end
+
+  local function move(moveDir)
+    if not requiredConditions() then return end
+    local camX = readFloat(camXAD())
+    local camY = readFloat(camYAD())
+    local camZ = readFloat(camZAD())
+    local yaw = math.pi*readInteger(yawAD())/32768
+    if moveDir == "up" then
+      writeFloat(camZAD(), camZ+flySpeed)
+      writeFloat(p_camZAD(), camZ+flySpeed)
+      return
+    elseif moveDir == "down" then
+      writeFloat(camZAD(), camZ-flySpeed)
+      writeFloat(p_camZAD(), camZ-flySpeed)
+      return
+    elseif moveDir == "forward" then
+      writeFloat(camXAD(), camX+flySpeed*math.cos(yaw))
+      writeFloat(camYAD(), camY+flySpeed*math.sin(yaw))
+      writeFloat(p_camXAD(), camX+flySpeed*math.cos(yaw))
+      writeFloat(p_camYAD(), camY+flySpeed*math.sin(yaw))
+      return
+    elseif moveDir == "backward" then
+      writeFloat(camXAD(), camX-flySpeed*math.cos(yaw))
+      writeFloat(camYAD(), camY-flySpeed*math.sin(yaw))
+      writeFloat(p_camXAD(), camX-flySpeed*math.cos(yaw))
+      writeFloat(p_camYAD(), camY-flySpeed*math.sin(yaw))
+      return
+    elseif moveDir == "left" then
+      writeFloat(camXAD(), camX+flySpeed*math.sin(yaw))
+      writeFloat(camYAD(), camY-flySpeed*math.cos(yaw))
+      writeFloat(p_camXAD(), camX+flySpeed*math.sin(yaw))
+      writeFloat(p_camYAD(), camY-flySpeed*math.cos(yaw))
+      return
+    elseif moveDir == "right" then
+      writeFloat(camXAD(), camX-flySpeed*math.sin(yaw))
+      writeFloat(camYAD(), camY+flySpeed*math.cos(yaw))
+      writeFloat(p_camXAD(), camX-flySpeed*math.sin(yaw))
+      writeFloat(p_camYAD(), camY+flySpeed*math.cos(yaw))
+      return
+    end
+  end
+
+  local function pan(panDir)
+    if panDir == "panUp" then
+      writeInteger(pitchAD(), readInteger(pitchAD())+aimSpeed)
+      writeInteger(p_pitchAD(), readInteger(pitchAD())+aimSpeed)
+      return
+    elseif panDir == "panDown" then
+      writeInteger(pitchAD(), readInteger(pitchAD())-aimSpeed)
+      writeInteger(p_pitchAD(), readInteger(pitchAD())-aimSpeed)
+      return
+    elseif panDir == "panLeft" then
+      writeInteger(yawAD(), readInteger(yawAD())-aimSpeed)
+      writeInteger(p_yawAD(), readInteger(yawAD())-aimSpeed)
+      return
+    elseif panDir == "panRight" then
+      writeInteger(yawAD(), readInteger(yawAD())+aimSpeed)
+      writeInteger(p_yawAD(), readInteger(yawAD())+aimSpeed)
+      return
+    end
+  end
+
+  local function zoomIn()
+    if not requiredConditions() then return end
+    writeFloat(FOVAD(), readFloat(FOVAD())+FOVSpeed)
+    writeFloat(p_FOVAD(), readFloat(FOVAD())+FOVSpeed)
+  end
+
+  local function zoomOut()
+    if not requiredConditions() then return end
+    writeFloat(FOVAD(), readFloat(FOVAD())-FOVSpeed)
+    writeFloat(p_FOVAD(), readFloat(FOVAD())-FOVSpeed)
+  end
+
+  local function rollLeft()
+    if not requiredConditions() then return end
+    writeInteger(rollAD(), readInteger(rollAD())+rollSpeed)
+    writeInteger(p_rollAD(), readInteger(rollAD())+rollSpeed)
+  end
+
+  local function rollRight()
+    if not requiredConditions() then return end
+    writeInteger(rollAD(), readInteger(rollAD())-rollSpeed)
+    writeInteger(p_rollAD(), readInteger(rollAD())-rollSpeed)
+  end
+
+  local function rollReset()
+    if not requiredConditions() then return end
+    writeInteger(rollAD(), 0)
+    writeInteger(p_rollAD(), 0)
+  end
+
+  local function moveForward() move("forward") end
+  local function moveBackward() move("backward") end
+  local function moveLeft() move("left") end
+  local function moveRight() move("right") end
+  local function moveUp() move("up") end
+  local function moveDown() move("down") end
+  local function panUp() pan("panUp") end
+  local function panDown() pan("panDown") end
+  local function panLeft() pan("panLeft") end
+  local function panRight() pan("panRight") end
+
+  camHotkeys = {
+    createHotkey(toggleFreecam, VK_NEXT), -- leave at pos 1
+    createHotkey(toggleUseZ, VK_NUMPAD2), -- leave at pos 2
+    createHotkey(goUltraFast, VK_MENU, VK_T), -- leave at pos 3
+    createHotkey(goFast, VK_MENU, VK_F), -- leave at pos 4
+    createHotkey(goSlow, VK_MENU, VK_C), -- leave at pos 5
+    createHotkey(moveForward, VK_NUMPAD8),
+    createHotkey(moveBackward, VK_NUMPAD5),
+    createHotkey(moveLeft, VK_NUMPAD4),
+    createHotkey(moveRight, VK_NUMPAD6),
+    createHotkey(moveUp, VK_NUMPAD9),
+    createHotkey(moveDown, VK_NUMPAD7),
+    createHotkey(panUp, VK_ADD, VK_NUMPAD8),
+    createHotkey(panDown, VK_ADD, VK_NUMPAD5),
+    createHotkey(panLeft, VK_ADD, VK_NUMPAD4),
+    createHotkey(panRight, VK_ADD, VK_NUMPAD6),
+    createHotkey(rollLeft, VK_ADD, VK_NUMPAD3),
+    createHotkey(rollRight, VK_ADD, VK_NUMPAD1),
+    createHotkey(rollReset, VK_ADD, VK_NUMPAD2),
+    createHotkey(zoomIn, VK_ADD, VK_NUMPAD7),
+    createHotkey(zoomOut, VK_ADD, VK_NUMPAD9)
+  }
+  local smDelay = 6 -- what index to start applying a small delay
+  for i=1,smDelay-1,1 do camHotkeys[i].DelayBetweenActivate = 1000 end
+  for i=smDelay,#camHotkeys,1 do camHotkeys[i].DelayBetweenActivate = 10 end
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+camAOB:
+  db 8B 47 08 6A 00
+
+unregistersymbol(camAOB)
+dealloc(newmem)
+
+{$lua}
+if checkCamKeys ~= nil then
+  checkCamKeys.destroy()
+  checkCamKeys = nil
+end
+
+if camHotkeys ~= nil then
+  for i,v in ipairs(camHotkeys) do v.destroy() end
+  camHotkeys = nil
+end
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>371</ID>
+          <Description>"Toggle freecam - PAGEDOWN"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>373</ID>
+          <Description>"MOVE - Numpad 8,5,4,6,7,9;  AIM - PLUS+[key]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>374</ID>
+          <Description>"ZOOM - Numpad PLUS+7/9; TILT - Numpad 1/3 (reset:2)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>372</ID>
+          <Description>"C - Slow, F - Fast, T - Ultrafast (ALT+[key] to toggle)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>4080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>132</ID>
+          <Description>"Freecam lock on/off"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <LastState Value="1" RealAddress="2DE4802D"/>
+          <VariableType>Binary</VariableType>
+          <BitStart>4</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>FFFFFE81</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>134</ID>
+          <Description>"FOV (default 90)"</Description>
+          <LastState Value="90" RealAddress="2DE481CC"/>
+          <VariableType>Float</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>131</ID>
+          <Description>"Pitch"</Description>
+          <LastState Value="-948" RealAddress="2DE481C0"/>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>130</ID>
+          <Description>"Yaw"</Description>
+          <LastState Value="-24076" RealAddress="2DE481C4"/>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>129</ID>
+          <Description>"Roll"</Description>
+          <LastState Value="0" RealAddress="2DE481C8"/>
+          <ShowAsSigned>1</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>126</ID>
+          <Description>"Camera X"</Description>
+          <LastState Value="149418.8125" RealAddress="2DE481B4"/>
+          <VariableType>Float</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>128</ID>
+          <Description>"Camera Y"</Description>
+          <LastState Value="39067.36719" RealAddress="2DE481B8"/>
+          <VariableType>Float</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>127</ID>
+          <Description>"Camera Z"</Description>
+          <LastState Value="1692.245483" RealAddress="2DE481BC"/>
+          <VariableType>Float</VariableType>
+          <Address>_camera</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>387</ID>
+          <Description>"&gt;&gt; paused"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>386</ID>
+              <Description>"FOV (paused)"</Description>
+              <LastState Value="89.99997711" RealAddress="2DE48184"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFD8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>383</ID>
+              <Description>"Pitch (paused)"</Description>
+              <LastState Value="4294966345" RealAddress="2DE48178"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFCC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>385</ID>
+              <Description>"Yaw (paused)"</Description>
+              <LastState Value="4294943223" RealAddress="2DE4817C"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFD0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>384</ID>
+              <Description>"Roll (paused)"</Description>
+              <LastState Value="0" RealAddress="2DE48180"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFD4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>380</ID>
+              <Description>"Camera X (paused)"</Description>
+              <LastState Value="149418.7969" RealAddress="2DE4816C"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFC0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>382</ID>
+              <Description>"Camera Y (paused)"</Description>
+              <LastState Value="39067.37109" RealAddress="2DE48170"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFC4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>381</ID>
+              <Description>"Camera Z (paused)"</Description>
+              <LastState Value="1692.245605" RealAddress="2DE48174"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>FFFFFFC8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31</ID>
+      <Description>"&gt;&gt; PLAYER SETTINGS"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AliceMadnessReturns.exe
+  Version: 
+  Date   : 2016-05-03
+  Author : sudoku
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(playerAOB,AliceMadnessReturns.exe,8B 50 64 F3 0F 10 05 40 CD 1B 01) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_player,4)
+
+newmem:
+
+code:
+  mov [_player],eax
+  mov edx,[eax+64]
+  movss xmm0,[AliceMadnessReturns.GColor::Format+1E34D0]
+  jmp return
+
+playerAOB:
+  jmp code
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(playerAOB)
+
+[DISABLE]
+
+playerAOB:
+  db 8B 50 64 F3 0F 10 05 40 CD 1B 01
+
+unregistersymbol(playerAOB)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "AliceMadnessReturns.exe"+46A11E
+
+"AliceMadnessReturns.exe"+46A0F8: E8 13 10 F4 FF           -  call AliceMadnessReturns.exe+3AB110
+"AliceMadnessReturns.exe"+46A0FD: 8D 8D DC F9 FF FF        -  lea ecx,[ebp-00000624]
+"AliceMadnessReturns.exe"+46A103: 51                       -  push ecx
+"AliceMadnessReturns.exe"+46A104: 8D 95 94 FB FF FF        -  lea edx,[ebp-0000046C]
+"AliceMadnessReturns.exe"+46A10A: 52                       -  push edx
+"AliceMadnessReturns.exe"+46A10B: 50                       -  push eax
+"AliceMadnessReturns.exe"+46A10C: 8B CF                    -  mov ecx,edi
+"AliceMadnessReturns.exe"+46A10E: E8 6D 92 E4 FF           -  call AliceMadnessReturns.exe+2B3380
+"AliceMadnessReturns.exe"+46A113: E9 84 06 00 00           -  jmp AliceMadnessReturns.exe+46A79C
+"AliceMadnessReturns.exe"+46A118: 8B 81 2C 02 00 00        -  mov eax,[ecx+0000022C]
+// ---------- INJECTING HERE ----------
+"AliceMadnessReturns.exe"+46A11E: 8B 50 64                 -  mov edx,[eax+64]
+"AliceMadnessReturns.exe"+46A121: F3 0F 10 05 40 CD 1B 01  -  movss xmm0,[AliceMadnessReturns.exe+DBCD40]
+// ---------- DONE INJECTING  ----------
+"AliceMadnessReturns.exe"+46A129: F3 0F 10 0D 50 CD 1B 01  -  movss xmm1,[AliceMadnessReturns.exe+DBCD50]
+"AliceMadnessReturns.exe"+46A131: 83 C0 64                 -  add eax,64
+"AliceMadnessReturns.exe"+46A134: 89 95 D4 FE FF FF        -  mov [ebp-0000012C],edx
+"AliceMadnessReturns.exe"+46A13A: 8B 50 04                 -  mov edx,[eax+04]
+"AliceMadnessReturns.exe"+46A13D: F3 0F 10 95 D4 FE FF FF  -  movss xmm2,[ebp-0000012C]
+"AliceMadnessReturns.exe"+46A145: 89 95 D8 FE FF FF        -  mov [ebp-00000128],edx
+"AliceMadnessReturns.exe"+46A14B: 8B 40 08                 -  mov eax,[eax+08]
+"AliceMadnessReturns.exe"+46A14E: F3 0F 10 9D D8 FE FF FF  -  movss xmm3,[ebp-00000128]
+"AliceMadnessReturns.exe"+46A156: 89 85 DC FE FF FF        -  mov [ebp-00000124],eax
+"AliceMadnessReturns.exe"+46A15C: 8B 81 C8 03 00 00        -  mov eax,[ecx+000003C8]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Player X"</Description>
+          <LastState Value="149234.6562" RealAddress="235DA064"/>
+          <VariableType>Float</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>64</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"Player Y"</Description>
+          <LastState Value="38864.67578" RealAddress="235DA068"/>
+          <VariableType>Float</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>68</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>33</ID>
+          <Description>"Player Z"</Description>
+          <LastState Value="1605.082153" RealAddress="235DA06C"/>
+          <VariableType>Float</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>6C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6972</ID>
+          <Description>"Size"</Description>
+          <LastState Value="1" RealAddress="235DA07C"/>
+          <VariableType>Float</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>7C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6973</ID>
+          <Description>"Z offset"</Description>
+          <LastState Value="0" RealAddress="235DA094"/>
+          <VariableType>Float</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>94</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Health"</Description>
+          <LastState Value="72" RealAddress="235DA350"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>350</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Max health"</Description>
+          <LastState Value="80" RealAddress="235DA354"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_player</Address>
+          <Offsets>
+            <Offset>354</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>388</ID>
+      <Description>"&gt;&gt; GAME SPEED"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"AliceMadnessReturns.exe"+3CAA40
+[ENABLE]
+
+aobscanmodule(speedAOB,AliceMadnessReturns.exe,F3 0F 10 81 BC 03 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_speed,4)
+
+newmem:
+
+code:
+  mov [_speed],ecx
+  movss xmm0,[ecx+000003BC]
+  jmp return
+
+speedAOB:
+  jmp code
+  nop
+  nop
+  nop
+return:
+registersymbol(speedAOB)
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 50
+symbolCheckT.OnTimer = function(sender)
+
+  local function base() return readInteger("_speed") end
+
+  -- ADDRESSES
+  local function slomoAD() return base()+0x3BC end
+
+  -- VARIABLES
+  local slow1 = 0.1
+  local slow2 = 0.2
+  local slow3 = 0.5
+  local normal = 1
+  local fast1 = 2
+  local fast2 = 5
+
+
+  -- FUNCTIONS...
+
+  local function requiredConditions()
+    if getOpenedProcessID() == getForegroundProcess() then return true end
+    return false
+  end
+
+  local function goSlow1()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), slow1)
+  end
+
+  local function goSlow2()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), slow2)
+  end
+
+  local function goSlow3()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), slow3)
+  end
+
+  local function goNormal()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), normal)
+  end
+
+  local function goFast1()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), fast1)
+  end
+
+  local function goFast2()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), fast2)
+  end
+
+  -- CREATE HOTKEYS
+  slomoHotkeys = {
+    createHotkey(goSlow1, VK_F6),
+    createHotkey(goSlow2, VK_F7),
+    createHotkey(goSlow3, VK_F8),
+    createHotkey(goNormal, VK_F9),
+    createHotkey(goFast1, VK_F10),
+    createHotkey(goFast2, VK_F11)
+  }
+  for i,v in ipairs(slomoHotkeys) do
+    v.DelayBetweenActivate = 1000
+  end
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+speedAOB:
+  db F3 0F 10 81 BC 03 00 00
+
+unregistersymbol(speedAOB)
+dealloc(newmem)
+
+{$lua}
+if slomoHotkeys ~= nil then
+  for i,v in ipairs(slomoHotkeys) do v.destroy() end
+  slomoHotkeys = nil
+end
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6971</ID>
+          <Description>"Speed: F6-F11 slow to fast (default F9)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>389</ID>
+          <Description>"Slomo"</Description>
+          <LastState Value="0" RealAddress="246627BC"/>
+          <VariableType>Float</VariableType>
+          <Address>_speed</Address>
+          <Offsets>
+            <Offset>3BC</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>432</ID>
+      <Description>"&gt;&gt; TONEMAPPING/DOF"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"AliceMadnessReturns.exe"+462EE0
+[ENABLE]
+
+aobscanmodule(tonesAOB,AliceMadnessReturns.exe,39 83 7C 02 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_tones,4)
+
+newmem:
+
+code:
+  mov [_tones],ebx
+  cmp [ebx+0000027C],eax
+  jmp return
+
+tonesAOB:
+  jmp code
+  nop
+return:
+registersymbol(tonesAOB)
+
+[DISABLE]
+
+tonesAOB:
+  db 39 83 7C 02 00 00
+
+unregistersymbol(tonesAOB)
+dealloc(newmem)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7024</ID>
+          <Description>"&gt;&gt; Tonemapping"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>7000</ID>
+              <Description>"&gt;&gt; Gamma"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>FF0000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>//"AliceMadnessReturns.exe"+2CA9D9
+[ENABLE]
+
+aobscanmodule(gammaAOB,AliceMadnessReturns.exe,D9 42 44 D9 E1)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_gamma,4)
+
+newmem:
+
+code:
+  mov [_gamma],edx
+  fld dword ptr [edx+44]
+  fabs 
+  jmp return
+
+gammaAOB:
+  jmp code
+return:
+registersymbol(gammaAOB)
+
+[DISABLE]
+
+gammaAOB:
+  db D9 42 44 D9 E1
+
+unregistersymbol(gammaAOB)
+dealloc(newmem)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>7001</ID>
+                  <Description>"Gamma"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>_gamma</Address>
+                  <Offsets>
+                    <Offset>44</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>433</ID>
+              <Description>"Desaturation"</Description>
+              <LastState Value="0" RealAddress="15B93B0C"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>30C</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>434</ID>
+              <Description>"Highlights RED"</Description>
+              <LastState Value="0.6000000238" RealAddress="15B93B10"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>310</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>435</ID>
+              <Description>"Highlights GREEN"</Description>
+              <LastState Value="0.5799999833" RealAddress="15B93B14"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>314</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>436</ID>
+              <Description>"Highlights BLUE"</Description>
+              <LastState Value="0.6499999762" RealAddress="15B93B18"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>318</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>437</ID>
+              <Description>"Midtones RED"</Description>
+              <LastState Value="1.220000029" RealAddress="15B93B1C"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>31C</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>439</ID>
+              <Description>"Midtones GREEN"</Description>
+              <LastState Value="1.24000001" RealAddress="15B93B20"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>320</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>438</ID>
+              <Description>"Midtones BLUE"</Description>
+              <LastState Value="1.019999981" RealAddress="15B93B24"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>324</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>440</ID>
+              <Description>"Shadows RED"</Description>
+              <LastState Value="0.0005000000237" RealAddress="15B93B28"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>328</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>442</ID>
+              <Description>"Shadows GREEN"</Description>
+              <LastState Value="0.0005000000237" RealAddress="15B93B2C"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>32C</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>441</ID>
+              <Description>"Shadows BLUE"</Description>
+              <LastState Value="0.001500000013" RealAddress="15B93B30"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>330</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7027</ID>
+          <Description>"&gt;&gt; DOF"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>7011</ID>
+              <Description>"Blur kernel size"</Description>
+              <LastState Value="16" RealAddress="15B93A7C"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>27C</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7028</ID>
+              <Description>"Foreground blur"</Description>
+              <LastState Value="1" RealAddress="15B93A84"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>284</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7017</ID>
+              <Description>"Background blur"</Description>
+              <LastState Value="1" RealAddress="15B93A88"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>288</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7018</ID>
+              <Description>"Focus inner-radius?"</Description>
+              <LastState Value="0" RealAddress="15B93A94"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>294</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7019</ID>
+              <Description>"unknown (set to 0)"</Description>
+              <LastState Value="11000" RealAddress="15B93A98"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>298</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7021</ID>
+              <Description>"Foreground plane distance?"</Description>
+              <LastState Value="1000" RealAddress="15B93A9C"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>29C</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7022</ID>
+              <Description>"Background plane distance?"</Description>
+              <LastState Value="1000" RealAddress="15B93AA0"/>
+              <VariableType>Float</VariableType>
+              <Address>_tones</Address>
+              <Offsets>
+                <Offset>2A0</Offset>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7008</ID>
+      <Description>"&gt;&gt; HUD"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"AliceMadnessReturns.exe"+841BF2
+[ENABLE]
+
+aobscanmodule(hudAOB,AliceMadnessReturns.exe,F6 80 3C 02 00 00 02 75)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_hud,4)
+
+newmem:
+
+code:
+  mov [_hud],eax
+  test byte ptr [eax+0000023C],02
+  jmp return
+
+hudAOB:
+  jmp code
+  nop
+  nop
+return:
+registersymbol(hudAOB)
+
+[DISABLE]
+
+hudAOB:
+  db F6 80 3C 02 00 00 02
+
+unregistersymbol(hudAOB)
+dealloc(newmem)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7009</ID>
+          <Description>"HUD on/off"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <LastState Value="0" RealAddress="3CB35C3C"/>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_hud</Address>
+          <Offsets>
+            <Offset>23C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7004</ID>
+      <Description>"&gt;&gt; MISC"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7002</ID>
+          <Description>"&gt;&gt; GRAVITY"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//"AliceMadnessReturns.exe"+44CB70
+[ENABLE]
+
+aobscanmodule(gravityAOB,AliceMadnessReturns.exe,F3 0F 10 81 78 04 00 00 0F 57)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_gravity,4)
+
+newmem:
+
+code:
+  mov [_gravity],ecx
+  movss xmm0,[ecx+00000478]
+  jmp return
+
+gravityAOB:
+  jmp code
+  nop
+  nop
+  nop
+return:
+registersymbol(gravityAOB)
+
+[DISABLE]
+
+gravityAOB:
+  db F3 0F 10 81 78 04 00 00
+
+unregistersymbol(gravityAOB)
+dealloc(newmem)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>7003</ID>
+              <Description>"Gravity"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_gravity</Address>
+              <Offsets>
+                <Offset>478</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6994</ID>
+          <Description>"&gt;&gt; FOG"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//"AliceMadnessReturns.exe"+6BA764
+[ENABLE]
+
+aobscanmodule(fogAOB,AliceMadnessReturns.exe,D8 60 08 D9 ED)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_fog,4)
+
+newmem:
+
+code:
+  mov [_fog],eax
+  fsub dword ptr [eax+08]
+  fldln2 
+  jmp return
+
+fogAOB:
+  jmp code
+return:
+registersymbol(fogAOB)
+
+[DISABLE]
+
+fogAOB:
+  db D8 60 08 D9 ED
+
+unregistersymbol(fogAOB)
+dealloc(newmem)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>6995</ID>
+              <Description>"Fog intensity"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_fog</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6999</ID>
+              <Description>"Fog distance"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_fog</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6998</ID>
+              <Description>"Fog RED"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_fog</Address>
+              <Offsets>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6997</ID>
+              <Description>"Fog GREEN"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_fog</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6996</ID>
+              <Description>"Fog BLUE"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_fog</Address>
+              <Offsets>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_fov</Name>
+      <Address>052B0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_camID</Name>
+      <Address>052B0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_hp</Name>
+      <Address>052B0030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_ammo</Name>
+      <Address>052B0020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DOFEnable1</Name>
+      <Address>04BC0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_aobCamera</Name>
+      <Address>11FDF73C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>04CB0018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pAR</Name>
+      <Address>10040018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_player</Name>
+      <Address>150B0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_camera</Name>
+      <Address>150B0030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_camera2</Name>
+      <Address>08350010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_camera3</Name>
+      <Address>08350020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_speed</Name>
+      <Address>150B0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_desat</Name>
+      <Address>095C0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_tones</Name>
+      <Address>150B0020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_fog</Name>
+      <Address>09630060</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_gamma</Name>
+      <Address>09630050</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_gravity</Name>
+      <Address>09630040</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_hud</Name>
+      <Address>150B0040</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
