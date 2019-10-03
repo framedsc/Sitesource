@@ -1,0 +1,5045 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"[Enable]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>000080</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc( EPhysicsHandler_Hook, 1024 )
+registersymbol( EPhysicsHandler_Hook )
+label( p0 )
+registersymbol( p0 )
+label( p1 )
+registersymbol( p1 )
+label( p2 )
+registersymbol( p2 )
+label( back )
+label(exit)
+
+EPhysicsHandler_Hook+100:
+p0:
+dd 0
+
+EPhysicsHandler_Hook+104:
+p1:
+dd 0
+
+EPhysicsHandler_Hook+108:
+p2:
+dd 0
+
+EPhysicsHandler_Hook:
+cmp [ecx+2A4],(float)1.0
+jne exit
+push ebx
+mov [p1],ecx
+mov ebx,[ecx+160]
+mov [p0],ebx
+mov ebx,[ecx+10C]
+mov [p2],ebx
+pop ebx
+exit:
+movzx edx,byte ptr [ecx+104]
+jmp back
+
+aobscan( dwEPhysicsHook_AOB, 0FB691????????83FA0E0F87????????FF2495????????8B11 )
+label( dwEPhysicsHook )
+registersymbol( dwEPhysicsHook )
+dwEPhysicsHook_AOB:
+dwEPhysicsHook:
+jmp EPhysicsHandler_Hook
+db 90 90
+back:
+
+aobscan( GetIndex_AOB, 558BEC83EC148B4130565733FF )
+label( GetIndex )
+registersymbol( GetIndex )
+GetIndex_AOB:
+GetIndex:
+
+aobscan( SetIndex_AOB, 558BEC5153568BF18B4618578975FC85C0 )
+label( SetIndex )
+registersymbol( SetIndex )
+SetIndex_AOB:
+SetIndex:
+
+[DISABLE]
+
+dwEPhysicsHook:
+movzx edx,byte ptr [ecx+104]
+
+unregistersymbol( dwEPhysicsHook )
+unregistersymbol( p2 )
+unregistersymbol( p1 )
+unregistersymbol( p0 )
+unregistersymbol( EPhysicsHandler_Hook )
+dealloc( EPhysicsHandler_Hook )
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"[Character]"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>255</ID>
+              <Description>"[Mana]"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>248</ID>
+                  <Description>"Mana"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>A60</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>308</ID>
+                  <Description>"Mana Delta (subtraction on cast)"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>1228</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>249</ID>
+                  <Description>"Mana Max"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>A64</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>307</ID>
+                  <Description>"Mana Recharge Timer (keep it on - to instant recharge)"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>1224</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>254</ID>
+              <Description>"[Health]"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>15</ID>
+                  <Description>"Health"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>344</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>247</ID>
+                  <Description>"Health Max"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>348</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>256</ID>
+              <Description>"[Air]"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>250</ID>
+                  <Description>"Air"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>AB8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>251</ID>
+                  <Description>"Air Max"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>ABC</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>257</ID>
+              <Description>"[Speed]"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>253</ID>
+                  <Description>"Speed"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>318</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>252</ID>
+                  <Description>"Speed Modifier (changes on draw/hide weapons/sprint/crouch)"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>58C</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>260</ID>
+              <Description>"[Inventory]"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>266</ID>
+                  <Description>"[Resources]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" Activated="0" RealAddress="00000000"/>
+                  <Color>FF0000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>261</ID>
+                      <Description>"Slot"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <ShowAsHex>1</ShowAsHex>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>C8</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>304</ID>
+                          <Description>"Item"</Description>
+                          <LastState Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>String</VariableType>
+                          <Length>100</Length>
+                          <Unicode>1</Unicode>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                            <Offset>38</Offset>
+                            <Offset>48</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>294</ID>
+                          <Description>"Content"</Description>
+                          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>4C</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>292</ID>
+                      <Description>"Slot"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <ShowAsHex>1</ShowAsHex>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>C</Offset>
+                        <Offset>C8</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>302</ID>
+                          <Description>"Item"</Description>
+                          <LastState Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>String</VariableType>
+                          <Length>100</Length>
+                          <Unicode>1</Unicode>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                            <Offset>38</Offset>
+                            <Offset>C</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>295</ID>
+                          <Description>"Content"</Description>
+                          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>10</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>296</ID>
+                      <Description>"Slot"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <ShowAsHex>1</ShowAsHex>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>18</Offset>
+                        <Offset>C8</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>306</ID>
+                          <Description>"Item"</Description>
+                          <LastState Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>String</VariableType>
+                          <Length>100</Length>
+                          <Unicode>1</Unicode>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                            <Offset>38</Offset>
+                            <Offset>18</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>297</ID>
+                          <Description>"Content"</Description>
+                          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>1C</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>298</ID>
+                      <Description>"Slot04"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <ShowAsHex>1</ShowAsHex>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>24</Offset>
+                        <Offset>C8</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>305</ID>
+                          <Description>"Item"</Description>
+                          <LastState Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>String</VariableType>
+                          <Length>100</Length>
+                          <Unicode>1</Unicode>
+                          <ZeroTerminate>1</ZeroTerminate>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>0</Offset>
+                            <Offset>38</Offset>
+                            <Offset>24</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>299</ID>
+                          <Description>"Content"</Description>
+                          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                          <Color>80000008</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>p1</Address>
+                          <Offsets>
+                            <Offset>28</Offset>
+                            <Offset>C8</Offset>
+                            <Offset>59C</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>291</ID>
+                      <Description>"Sokolov's Health Elixir"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>D4</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>262</ID>
+                      <Description>"Piero's Spiritual Remedy"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>D8</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>267</ID>
+                  <Description>"[Ammo]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" Activated="0" RealAddress="00000000"/>
+                  <Color>FF0000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>265</ID>
+                      <Description>"Regular/Bullet"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>268</ID>
+                      <Description>"Regular/Bullet Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>4</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>269</ID>
+                      <Description>"Explosive Bullet"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>8</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>270</ID>
+                      <Description>"Explosive Bullet Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>C</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>271</ID>
+                      <Description>"Crossbow/Wristbow Bolt"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>10</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>272</ID>
+                      <Description>"Crossbow/Wristbow Bolt Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>14</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>273</ID>
+                      <Description>"Sleep Dart"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>18</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>274</ID>
+                      <Description>"Sleep Dart Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>1C</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>275</ID>
+                      <Description>"Incendiary Bolt"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>20</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>276</ID>
+                      <Description>"Incendiary Bolt Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>24</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>277</ID>
+                      <Description>"Springrazor"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>28</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>278</ID>
+                      <Description>"Springrazor Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>2C</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>279</ID>
+                      <Description>"Grenade"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>30</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>280</ID>
+                      <Description>"Grenade Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>34</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>281</ID>
+                      <Description>"Sticky Grenade"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>38</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>282</ID>
+                      <Description>"Sticky Grenade Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>3C</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>283</ID>
+                      <Description>"Explosive Bolt"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>40</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>284</ID>
+                      <Description>"Explosive Bolt Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>44</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>285</ID>
+                      <Description>"Arc Mine"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>286</ID>
+                      <Description>"Arc Mine Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>4C</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>287</ID>
+                      <Description>"Chokedust"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>50</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>288</ID>
+                      <Description>"Chokedust Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>54</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>289</ID>
+                      <Description>"Stun Mine"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>58</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>290</ID>
+                      <Description>"Stun Mine Max"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>5C</Offset>
+                        <Offset>BC</Offset>
+                        <Offset>59C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>321</ID>
+              <Description>"[Spells]"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>FF0000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>330</ID>
+                  <Description>"[Blink]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" Activated="0" RealAddress="00000000"/>
+                  <Color>FF0000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>324</ID>
+                      <Description>"ID"</Description>
+                      <LastState Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>String</VariableType>
+                      <Length>100</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                        <Offset>0</Offset>
+                        <Offset>3C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>58</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>320</ID>
+                      <Description>"Cooldown Time"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>138</Offset>
+                        <Offset>58</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>343</ID>
+                      <Description>"Mana Consumption"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>8C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>58</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>325</ID>
+                      <Description>"Distance"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>160</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>58</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>326</ID>
+                      <Description>"Height"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>164</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>58</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>331</ID>
+                  <Description>"[Dark Vision]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" Activated="0" RealAddress="00000000"/>
+                  <Color>FF0000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>345</ID>
+                      <Description>"ID"</Description>
+                      <LastState Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>String</VariableType>
+                      <Length>100</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                        <Offset>0</Offset>
+                        <Offset>3C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>64</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>333</ID>
+                      <Description>"Mana Consumption"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>8C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>64</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>332</ID>
+                      <Description>"Duration Counter"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>94</Offset>
+                        <Offset>64</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>334</ID>
+                  <Description>"[Bend Time]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" Activated="0" RealAddress="00000000"/>
+                  <Color>FF0000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>344</ID>
+                      <Description>"ID"</Description>
+                      <LastState Activated="0" RealAddress="00000000"/>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>80000008</Color>
+                      <VariableType>String</VariableType>
+                      <Length>100</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                        <Offset>0</Offset>
+                        <Offset>3C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>5C</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>336</ID>
+                      <Description>"Mana Consumption"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>8C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>5C</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>354</ID>
+                      <Description>"SloMo Value (default: 0.89)"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>188</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>5C</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>356</ID>
+                      <Description>"Duration (default: 8)"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>18C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>5C</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>357</ID>
+                  <Description>"[Summon Assassin]"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" Activated="0" RealAddress="00000000"/>
+                  <Color>FF0000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>358</ID>
+                      <Description>"ID"</Description>
+                      <LastState Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>String</VariableType>
+                      <Length>100</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>0</Offset>
+                        <Offset>0</Offset>
+                        <Offset>3C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>60</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>360</ID>
+                      <Description>"Mana Consumption"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>8C</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>60</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>361</ID>
+                      <Description>"Distance"</Description>
+                      <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                      <Color>80000008</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>p1</Address>
+                      <Offsets>
+                        <Offset>1A8</Offset>
+                        <Offset>8C</Offset>
+                        <Offset>60</Offset>
+                        <Offset>38</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"[Scripts]"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>21</ID>
+              <Description>"Cheat Handler"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Activated="0"/>
+              <Color>80000008</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+alloc( KeyHandlerThread, 4096 )
+registersymbol( KeyHandlerThread )
+CreateThread( KeyHandlerThread )
+label( Toggle )
+label( Toggler )
+registersymbol( Toggler )
+label( KeyHandlerOff )
+registersymbol( KeyHandlerOff )
+label( ExitKeyHandler )
+label( bPlayersOnly )
+registersymbol( bPlayersOnly )
+label( TogglePlayersOnly )
+label( TogglePlayersOnly_exit )
+label( ToggleFly )
+label( bFly )
+registersymbol( bFly )
+label( ToggleFly_exit )
+label( ToggleGhost )
+label( bGhost )
+registersymbol( bGhost )
+label( ToggleGhost_exit )
+label( ToggleGod )
+label( bGod )
+registersymbol( bGod )
+label( ToggleGod_exit )
+label( ToggleSloMo1 )
+label( ToggleSloMo2 )
+label( ToggleSloMo3 )
+/*
+label( dwTable )
+label( s )
+label( string )
+label( GetIndexes )
+label( GetIndexes_exit )
+label( GetIndexes_loop )
+*/
+
+KeyHandlerThread+300:
+Toggler:
+dd 1
+
+KeyHandlerThread+304:
+KeyHandlerOff:
+dd 0
+
+KeyHandlerThread+308:
+bPlayersOnly:
+dd 0
+
+KeyHandlerThread+30C:
+bFly:
+dd 0
+
+KeyHandlerThread+310:
+bGhost:
+dd 0
+
+KeyHandlerThread+314:
+bGod:
+dd 0
+/*
+KeyHandlerThread+318:
+dwTable:
+dd 0
+
+KeyHandlerThread+800:
+string:
+db '[Index]: %08X - %08X',0
+
+KeyHandlerThread+900:
+s:
+dd 0
+*/
+KeyHandlerThread:
+push 0a
+call kernel32.Sleep
+
+cmp [KeyHandlerOff],1
+je ExitKeyHandler
+
+push 71 //F2
+call GetAsyncKeyState
+test ax,ax
+jne Toggle
+
+cmp [Toggler],1
+jne KeyHandlerThread
+
+push 61 //VK_NUMPAD1
+call GetAsyncKeyState
+test ax,ax
+jne TogglePlayersOnly
+
+push 62 //VK_NUMPAD2
+call GetAsyncKeyState
+test ax,ax
+jne ToggleFly
+
+push 63 //VK_NUMPAD3
+call GetAsyncKeyState
+test ax,ax
+jne ToggleGhost
+/*
+push 60 //VK_NUMPAD0
+call GetAsyncKeyState
+test ax,ax
+jne GetIndexes
+*/
+push 65 //VK_NUMPAD5
+call GetAsyncKeyState
+test ax,ax
+jne ToggleGod
+
+push 67 //VK_NUMPAD7
+call GetAsyncKeyState
+test ax,ax
+jne ToggleSloMo1
+
+push 68 //VK_NUMPAD8
+call GetAsyncKeyState
+test ax,ax
+jne ToggleSloMo2
+
+push 69 //VK_NUMPAD9
+call GetAsyncKeyState
+test ax,ax
+jne ToggleSloMo3
+jmp KeyHandlerThread
+
+TogglePlayersOnly:
+xor [bPlayersOnly],1
+cmp [bPlayersOnly],0
+je @f
+mov ecx,[p0]
+or dword ptr [ecx+2EC],400
+jmp TogglePlayersOnly_exit
+@@:
+mov ecx,[p0]
+and dword ptr [ecx+2EC],FFFFF2FF
+TogglePlayersOnly_exit:
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ToggleFly:
+xor [bFly],1
+cmp [bFly],0
+je @f
+push 0
+push 397
+mov ecx,[p2]
+call GetIndex
+mov ebx,[p1]
+mov ecx,[ebx+10C]
+mov ecx,[ecx+18]
+mov [ecx+10],eax
+mov [ecx+28],eax
+mov byte ptr [ebx+104],4
+mov ecx,[ebx+1B0]
+mov [ecx+298],(float)2.0
+mov [ebx+318],(float)40.0
+jmp ToggleFly_exit
+@@:
+push 0
+push 393
+mov ecx,[p2]
+call GetIndex
+mov ebx,[p1]
+mov ecx,[ebx+10C]
+mov ecx,[ecx+18]
+mov [ecx+28],eax
+push 0
+push 64
+mov ecx,[p2]
+call SetIndex
+mov ebx,[p1]
+mov byte ptr [ebx+104],1
+mov ecx,[ebx+1B0]
+mov [ecx+298],(float)0.3
+mov [ebx+318],(float)1.0
+ToggleFly_exit:
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ToggleGhost:
+xor [bGhost],1
+cmp [bGhost],0
+je @f
+mov ebx,[p1]
+mov byte ptr [ebx+127],80
+jmp ToggleGhost_exit
+@@:
+mov ebx,[p1]
+mov byte ptr [ebx+127],50
+ToggleGhost_exit:
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ToggleGod:
+xor [bGod],1
+cmp [bGod],0
+je @f
+mov ebx,[p2]
+mov byte ptr [ebx+38C],40
+jmp ToggleGod_exit
+@@:
+mov ebx,[p2]
+mov byte ptr [ebx+38C],0
+ToggleGod_exit:
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ToggleSloMo1:
+mov ebx,[p0]
+mov [ebx+384],(float)0.5
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ToggleSloMo2:
+mov ebx,[p0]
+mov [ebx+384],(float)1.0
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ToggleSloMo3:
+mov ebx,[p0]
+mov [ebx+384],(float)1.5
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+/*
+GetIndexes:
+mov eax,dwTable
+GetIndexes_loop:
+cmp [eax],0
+je GetIndexes_exit
+push eax // table address
+mov edx,[eax]
+push [edx+28] // +28
+push edx // Index
+push string
+push 104 // MAX_PATH
+push s // buffer
+call sprintf_s
+add esp,14
+push s
+call OutputDebugStringA
+pop eax
+add eax,4
+jmp GetIndexes_loop
+GetIndexes_exit:
+push C8
+call kernel32.Sleep
+jmp KeyHandlerThread
+*/
+Toggle:
+xor [Toggler],1
+push 96
+call kernel32.Sleep
+jmp KeyHandlerThread
+
+ExitKeyHandler:
+ret
+
+[DISABLE]
+
+KeyHandlerOff:
+dd 1
+
+unregistersymbol( bGod )
+unregistersymbol( bGhost )
+unregistersymbol( bFly )
+unregistersymbol( bPlayersOnly )
+unregistersymbol( KeyHandlerOff )
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>26</ID>
+                  <Description>"SloMo"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p0</Address>
+                  <Offsets>
+                    <Offset>384</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>146</ID>
+                  <Description>"PlayersOnly"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="24330308"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>bPlayersOnly</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>147</ID>
+                  <Description>"Fly"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="2433030C"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>bFly</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>148</ID>
+                  <Description>"Ghost"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="24330310"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>bGhost</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>246</ID>
+                  <Description>"God"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="24330314"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>bGod</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"[Debug]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"p0"</Description>
+          <LastState Value="??" Activated="0" RealAddress="17220100"/>
+          <ShowAsHex>1</ShowAsHex>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>p0</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>11</ID>
+              <Description>"SloMo"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>p0</Address>
+              <Offsets>
+                <Offset>384</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6</ID>
+              <Description>"PlayersOnly (2xx-&gt;6xx)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <ShowAsHex>1</ShowAsHex>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>p0</Address>
+              <Offsets>
+                <Offset>2EC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"p1"</Description>
+          <LastState Value="??" Activated="0" RealAddress="17220104"/>
+          <ShowAsHex>1</ShowAsHex>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>p1</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2</ID>
+              <Description>"EPhysics"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <ShowAsHex>1</ShowAsHex>
+              <Color>80000008</Color>
+              <VariableType>Byte</VariableType>
+              <Address>p1</Address>
+              <Offsets>
+                <Offset>104</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>18</ID>
+                  <Description>"WalkingSpeed"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>2F0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17</ID>
+                  <Description>"WalkingFriction"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>284</Offset>
+                    <Offset>1B0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20</ID>
+                  <Description>"FlyingSpeed"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>2F8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>19</ID>
+                  <Description>"FlyingFriction"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>p1</Address>
+                  <Offsets>
+                    <Offset>298</Offset>
+                    <Offset>1B0</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"WallHack (50xxxxxx -&gt; 80xxxxxx)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <ShowAsHex>1</ShowAsHex>
+              <Color>80000008</Color>
+              <VariableType>Byte</VariableType>
+              <Address>p1</Address>
+              <Offsets>
+                <Offset>127</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"p2"</Description>
+          <LastState Value="??" Activated="0" RealAddress="17220108"/>
+          <ShowAsHex>1</ShowAsHex>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>p2</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13</ID>
+              <Description>"Axis_X"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <ShowAsHex>1</ShowAsHex>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>p2</Address>
+              <Offsets>
+                <Offset>10</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14</ID>
+              <Description>"Axis_Y"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <ShowAsHex>1</ShowAsHex>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>p2</Address>
+              <Offsets>
+                <Offset>28</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16</ID>
+              <Description>"God (01138000 - enemies don't attack; xxxxxx40 - god)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <ShowAsHex>1</ShowAsHex>
+              <Color>80000008</Color>
+              <VariableType>Byte</VariableType>
+              <Address>p2</Address>
+              <Offsets>
+                <Offset>38C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>68</ID>
+      <Description>"Enemies Ignore You [V / Alt+V]"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048) //2kb should be enough
+label(returnhere)
+label(originalcode)
+label(exit)
+label(stealth)
+registersymbol(stealth)
+aobscan(stealthaob,0f b6 81 ac 00 00 00 c3 cc cc cc)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [ecx+000000AC],(int)0
+
+originalcode:
+movzx eax,byte ptr [ecx+000000AC]
+
+exit:
+jmp returnhere
+
+stealthaob:
+stealth:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+stealth:
+movzx eax,byte ptr [ecx+000000AC]
+//Alt: db 0F B6 81 AC 00 00 00
+unregistersymbol(stealth)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>86</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>86</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12354</ID>
+      <Description>"Camera Script [Pg Dn]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],eax
+movss xmm0,[eax+000000C4]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pCamera:
+dd 0
+//
+
+"Dishonored.exe"+6BA466:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+"Dishonored.exe"+6BA466:
+movss xmm0,[eax+000000C4]
+unregistersymbol(pCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12386</ID>
+          <Description>"FOV script [Pg Dn] - enable UE3 FOV keybind first"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pFOV)
+registersymbol(pFOV)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pFOV],ecx
+movss xmm0,[ecx+0000025C]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pFOV:
+dd 0
+//
+
+"Dishonored.exe"+1BDC2D:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+"Dishonored.exe"+1BDC2D:
+movss xmm0,[ecx+0000025C]
+unregistersymbol(pFOV)
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12361</ID>
+              <Description>"FOV"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pFOV</Address>
+              <Offsets>
+                <Offset>25C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12355</ID>
+          <Description>"X Axis"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>C4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12356</ID>
+          <Description>"Y Axie"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>C8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12357</ID>
+          <Description>"Z Axis"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12358</ID>
+          <Description>"Y Rotation"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>D0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12359</ID>
+          <Description>"X Rotation"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>D4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12360</ID>
+          <Description>"Tilt"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>400</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>400</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>189</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10301</ID>
+          <Description>"Yrot [I,K]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>50</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12373</ID>
+          <Description>"Yrot [I,K] 2"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>64</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10302</ID>
+          <Description>"Zrot [J,L]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>54</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12374</ID>
+          <Description>"Zrot [J,L] 2"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>60</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10303</ID>
+          <Description>"Xrot [O , .]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>58</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12220</ID>
+          <Description>"Arot [U , M]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>5C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>77</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>77</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12387</ID>
+      <Description>"--------------------------------------------"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx] - write fov</Description>
+      <Address>00415BE3</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>15BE3</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+        <Byte>14</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ecx+0000025C] - read fov</Description>
+      <Address>005BDC2D</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>1BDC2D</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+        <Byte>74</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>5C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>FC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000007 - write x</Description>
+      <Address>005BDCBF</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>1BDCBF</ModuleNameOffset>
+      <Before>
+        <Byte>BA</Byte>
+        <Byte>30</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>B9</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000007</Description>
+      <Address>005BDCBF</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>1BDCBF</ModuleNameOffset>
+      <Before>
+        <Byte>BA</Byte>
+        <Byte>30</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>B9</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[ebp-00000140] - write x2</Description>
+      <Address>00AD7C7C</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6D7C7C</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>0A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>B5</Byte>
+        <Byte>C0</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>82</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+08],ecx</Description>
+      <Address>00AD81BA</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6D81BA</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>AC</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>56</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[ebp-00000140] - write y2</Description>
+      <Address>00AD7C7C</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6D7C7C</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>0A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>B5</Byte>
+        <Byte>C0</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>82</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+0C],edx</Description>
+      <Address>00AD81BD</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6D81BD</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>AC</Byte>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>56</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>A7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ebx+000002F8] - write z shadows?</Description>
+      <Address>00864443</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>464443</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>F8</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>9B</Byte>
+        <Byte>F8</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>80</Byte>
+        <Byte>FC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000CC],xmm0 - write z</Description>
+      <Address>0064DD4B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD4B</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BE</Byte>
+        <Byte>08</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ecx+000000CC] - read z</Description>
+      <Address>0056DF77</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>16DF77</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4D</Byte>
+        <Byte>DC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ecx+000000C4] - x</Description>
+      <Address>0056DF28</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>16DF28</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>3C</Byte>
+        <Byte>56</Byte>
+        <Byte>57</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[eax+000000C4]</Description>
+      <Address>004C6469</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>C6469</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>55</Byte>
+        <Byte>D4</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>5D</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm3,[eax+000000C4]</Description>
+      <Address>00AC4D7D</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6C4D7D</ModuleNameOffset>
+      <Before>
+        <Byte>4D</Byte>
+        <Byte>FC</Byte>
+        <Byte>D9</Byte>
+        <Byte>45</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>98</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00ABA466</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6BA466</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>48</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>05</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax]</Description>
+      <Address>00418C79</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>18C79</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>21</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ebx+000000C4]</Description>
+      <Address>00C47C80</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>847C80</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00968C92</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>568C92</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>48</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>B3</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[edi+000000C4]</Description>
+      <Address>006BDC46</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BDC46</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>28</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>87</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>8F</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[eax]</Description>
+      <Address>006BDE4B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BDE4B</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4D</Byte>
+        <Byte>E0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>E1</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[eax]</Description>
+      <Address>006BE723</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BE723</ModuleNameOffset>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>20</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>89</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm3,[ecx]</Description>
+      <Address>006BF730</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BF730</ModuleNameOffset>
+      <Before>
+        <Byte>71</Byte>
+        <Byte>3B</Byte>
+        <Byte>D6</Byte>
+        <Byte>75</Byte>
+        <Byte>6D</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[esi+000000C4]</Description>
+      <Address>00C28DBE</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>828DBE</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>B8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8E</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>88</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ebx+000000C4]</Description>
+      <Address>00B17374</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>717374</ModuleNameOffset>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :subss xmm1,[eax]</Description>
+      <Address>00C7222B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>87222B</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax]</Description>
+      <Address>00BC012D</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7C012D</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>49</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>01</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[ecx+000000C4]</Description>
+      <Address>00C6FDA5</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>86FDA5</ModuleNameOffset>
+      <Before>
+        <Byte>73</Byte>
+        <Byte>24</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>91</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00C83BAF</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>883BAF</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[esi+000000C4]</Description>
+      <Address>00C65FC3</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>865FC3</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>96</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>9E</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+000000C4]</Description>
+      <Address>00BBB099</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7BB099</ModuleNameOffset>
+      <Before>
+        <Byte>4D</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>18</Byte>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fsub dword ptr [edi+000000C4]</Description>
+      <Address>00ABB04A</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6BB04A</ModuleNameOffset>
+      <Before>
+        <Byte>E0</Byte>
+        <Byte>11</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>50</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>A7</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>50</Byte>
+        <Byte>D9</Byte>
+        <Byte>87</Byte>
+        <Byte>E4</Byte>
+        <Byte>11</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[edi+000000C4]</Description>
+      <Address>00ABB075</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6BB075</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>1B</Byte>
+        <Byte>E1</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>97</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :addss xmm0,[esi+000000C4]</Description>
+      <Address>0064DD19</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD19</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>AC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000C4],xmm0</Description>
+      <Address>0064DD21</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD21</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+000000C4]</Description>
+      <Address>0056E0CD</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>16E0CD</ModuleNameOffset>
+      <Before>
+        <Byte>5E</Byte>
+        <Byte>8B</Byte>
+        <Byte>E5</Byte>
+        <Byte>5D</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>91</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+000000C4]</Description>
+      <Address>0064E626</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24E626</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>10</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[edi]</Description>
+      <Address>0064B726</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24B726</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+000000C4]</Description>
+      <Address>00B666B0</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7666B0</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>40</Byte>
+        <Byte>01</Byte>
+        <Byte>93</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>F8</Byte>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fsub dword ptr [edi]</Description>
+      <Address>00B010B5</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7010B5</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>7D</Byte>
+        <Byte>0C</Byte>
+        <Byte>D9</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>27</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>E1</Byte>
+        <Byte>D9</Byte>
+        <Byte>C9</Byte>
+        <Byte>DB</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[eax]</Description>
+      <Address>00ABF73B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6BF73B</ModuleNameOffset>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>74</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[eax+000000C4]</Description>
+      <Address>00ACE5CD</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6CE5CD</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>25</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>90</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>05</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000007 - write tilt?</Description>
+      <Address>005BDCBF</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>1BDCBF</ModuleNameOffset>
+      <Before>
+        <Byte>BA</Byte>
+        <Byte>30</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>B9</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[eax+00000344] - access tilt</Description>
+      <Address>005E2422</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>1E2422</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>80</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>5E</Byte>
+        <Byte>5D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[edi+00000344]</Description>
+      <Address>00AD7E90</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6D7E90</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>28</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>8F</Byte>
+        <Byte>D0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[ecx+08]</Description>
+      <Address>00402C39</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2C39</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C1</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>56</Byte>
+        <Byte>8B</Byte>
+        <Byte>F2</Byte>
+        <Byte>C1</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov esi,ebx</Description>
+      <Address>005BDCA4</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>1BDCA4</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>F3</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>82</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000C4],xmm0 - writes x</Description>
+      <Address>0064DD21</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD21</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ecx+000000C4] - accesses x</Description>
+      <Address>0056DF28</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>16DF28</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>3C</Byte>
+        <Byte>56</Byte>
+        <Byte>57</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00ABA466</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6BA466</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>48</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>05</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ebx]</Description>
+      <Address>00BA073D</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7A073D</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>F4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax]</Description>
+      <Address>00418C79</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>18C79</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>21</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ebx+000000C4]</Description>
+      <Address>00C47C80</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>847C80</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00968C92</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>568C92</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>48</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>B3</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :addss xmm0,[esi+000000C4]</Description>
+      <Address>0064DD19</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD19</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>AC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000C4],xmm0</Description>
+      <Address>0064DD21</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD21</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+000000C4]</Description>
+      <Address>0056E0CD</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>16E0CD</ModuleNameOffset>
+      <Before>
+        <Byte>5E</Byte>
+        <Byte>8B</Byte>
+        <Byte>E5</Byte>
+        <Byte>5D</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>91</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+000000C4]</Description>
+      <Address>0064E626</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24E626</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>10</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[edi]</Description>
+      <Address>0064B726</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24B726</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[edi+000000C4]</Description>
+      <Address>006BDC46</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BDC46</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>28</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>87</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>8F</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[eax]</Description>
+      <Address>006BDE4B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BDE4B</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4D</Byte>
+        <Byte>E0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>E1</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[eax]</Description>
+      <Address>006BE723</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BE723</ModuleNameOffset>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>20</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>89</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm3,[ecx]</Description>
+      <Address>006BF730</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2BF730</ModuleNameOffset>
+      <Before>
+        <Byte>71</Byte>
+        <Byte>3B</Byte>
+        <Byte>D6</Byte>
+        <Byte>75</Byte>
+        <Byte>6D</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :subss xmm1,[eax]</Description>
+      <Address>00C7222B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>87222B</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ebx+000000C4]</Description>
+      <Address>00B17374</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>717374</ModuleNameOffset>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [esi-00000408]</Description>
+      <Address>00B5C88E</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>75C88E</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>10</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>86</Byte>
+        <Byte>F8</Byte>
+        <Byte>FB</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>18</Byte>
+        <Byte>D9</Byte>
+        <Byte>86</Byte>
+        <Byte>FC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi-00000404]</Description>
+      <Address>00B5C5B5</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>75C5B5</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>38</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>FC</Byte>
+        <Byte>FB</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>F4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>0057F8E9</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>17F8E9</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>5E</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>06</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[ecx+000000C4]</Description>
+      <Address>00C6FDA5</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>86FDA5</ModuleNameOffset>
+      <Before>
+        <Byte>73</Byte>
+        <Byte>24</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>91</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax]</Description>
+      <Address>00939094</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>539094</ModuleNameOffset>
+      <Before>
+        <Byte>4D</Byte>
+        <Byte>DC</Byte>
+        <Byte>D8</Byte>
+        <Byte>61</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>01</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00C83BAF</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>883BAF</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[esi+000000C4]</Description>
+      <Address>00C65FC3</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>865FC3</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>96</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>9E</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+000000C4]</Description>
+      <Address>00BBB099</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7BB099</ModuleNameOffset>
+      <Before>
+        <Byte>4D</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>18</Byte>
+        <Byte>D9</Byte>
+        <Byte>81</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ecx+000000C4]</Description>
+      <Address>00BB3C4F</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7B3C4F</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>C6</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>85</Byte>
+        <Byte>48</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[ecx+000000C4]</Description>
+      <Address>00BB3CB1</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>7B3CB1</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>7F</Byte>
+        <Byte>54</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>91</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>81</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[eax+000000C4]</Description>
+      <Address>21AC0006</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>18</Byte>
+        <Byte>00</Byte>
+        <Byte>AC</Byte>
+        <Byte>21</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000CC],xmm0 - wrire z</Description>
+      <Address>0064DD4B</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD4B</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>CC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BE</Byte>
+        <Byte>08</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000C4],xmm0 - write x normal</Description>
+      <Address>0064DD21</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD21</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+000000C4],xmm0</Description>
+      <Address>0064DD21</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24DD21</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[ecx+000000C4] - reads x</Description>
+      <Address>0056DF28</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>16DF28</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>3C</Byte>
+        <Byte>56</Byte>
+        <Byte>57</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[eax+000000C4]</Description>
+      <Address>00ABA466</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>6BA466</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>48</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>05</Byte>
+        <Byte>C4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000021 - write dof?</Description>
+      <Address>0064BA86</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24BA86</ModuleNameOffset>
+      <Before>
+        <Byte>C6</Byte>
+        <Byte>64</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>B9</Byte>
+        <Byte>21</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [esi+08],xmm0</Description>
+      <Address>006AD2FE</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>2AD2FE</ModuleNameOffset>
+      <Before>
+        <Byte>58</Byte>
+        <Byte>C2</Byte>
+        <Byte>09</Byte>
+        <Byte>5E</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F6</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+        <Byte>02</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000021 - one address</Description>
+      <Address>0064BA86</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>24BA86</ModuleNameOffset>
+      <Before>
+        <Byte>C6</Byte>
+        <Byte>64</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>21</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>5F</Byte>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000018</Description>
+      <Address>0084D17C</Address>
+      <ModuleName>Dishonored.exe</ModuleName>
+      <ModuleNameOffset>44D17C</ModuleNameOffset>
+      <Before>
+        <Byte>BB</Byte>
+        <Byte>3C</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>18</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>8B</Byte>
+        <Byte>B3</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pFOV</Name>
+      <Address>0E7F0018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>34360018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>p0</Name>
+      <Address>17220100</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>p1</Name>
+      <Address>17220104</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>p2</Name>
+      <Address>17220108</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dwEPhysicsHook</Name>
+      <Address>006A2C01</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GetIndex</Name>
+      <Address>00463320</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SetIndex</Name>
+      <Address>0042F120</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Toggler</Name>
+      <Address>24330300</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>KeyHandlerOff</Name>
+      <Address>24330304</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bPlayersOnly</Name>
+      <Address>24330308</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bFly</Name>
+      <Address>2433030C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bGhost</Name>
+      <Address>24330310</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bGod</Name>
+      <Address>24330314</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>1. Open the game
+2. Open the table and attach it to the game executable.
+3. Click [enable]
+4. Expand [scripts] and click [cheat handler]
+Numpad 1 = PlayersOnly (pauses the game and lets you move around)
+Numpad 2 = Fly
+Numpad 3 = Ghost
+Numpad 5 = God
+V = Invisible to enemies (they wont attack you)
+Alt + V = Visible again
+
+5. Camera Script
+numpad = xyz movement
+-,+ = tilt
+arrow keys = camera rotation
+ijklumo. = camera rotation (when above doesn't work)
+KP_minus,KP_plus = FOV (must enable first with UE3 FOV bind)
+</Comments>
+</CheatTable>

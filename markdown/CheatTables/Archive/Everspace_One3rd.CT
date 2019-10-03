@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12211</ID>
+      <Description>"Camera [Page down]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//alloc(newmem,256)
+alloc(newmem,2048,"RSG-Win64-Shipping.exe"+4457FF)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],rdx
+mov eax,[rdx+30]
+mov [rcx+30],eax
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"RSG-Win64-Shipping.exe"+4457FF:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"RSG-Win64-Shipping.exe"+4457FF:
+mov eax,[rdx+30]
+mov [rcx+30],eax
+unregistersymbol(pCamera)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RSG-Win64-Shipping.exe"+4457FF
+
+"RSG-Win64-Shipping.exe"+4457DD: 0F B6 42 27        -  movzx eax,byte ptr [rdx+27]
+"RSG-Win64-Shipping.exe"+4457E1: 88 41 27           -  mov [rcx+27],al
+"RSG-Win64-Shipping.exe"+4457E4: 0F B6 42 28        -  movzx eax,byte ptr [rdx+28]
+"RSG-Win64-Shipping.exe"+4457E8: 88 41 28           -  mov [rcx+28],al
+"RSG-Win64-Shipping.exe"+4457EB: 0F B6 42 29        -  movzx eax,byte ptr [rdx+29]
+"RSG-Win64-Shipping.exe"+4457EF: 88 41 29           -  mov [rcx+29],al
+"RSG-Win64-Shipping.exe"+4457F2: 0F B6 42 2A        -  movzx eax,byte ptr [rdx+2A]
+"RSG-Win64-Shipping.exe"+4457F6: 88 41 2A           -  mov [rcx+2A],al
+"RSG-Win64-Shipping.exe"+4457F9: 8B 42 2C           -  mov eax,[rdx+2C]
+"RSG-Win64-Shipping.exe"+4457FC: 89 41 2C           -  mov [rcx+2C],eax
+// ---------- INJECTING HERE ----------
+"RSG-Win64-Shipping.exe"+4457FF: 8B 42 30           -  mov eax,[rdx+30]
+"RSG-Win64-Shipping.exe"+445802: 89 41 30           -  mov [rcx+30],eax
+// ---------- DONE INJECTING  ----------
+"RSG-Win64-Shipping.exe"+445805: 0F B6 42 34        -  movzx eax,byte ptr [rdx+34]
+"RSG-Win64-Shipping.exe"+445809: 88 41 34           -  mov [rcx+34],al
+"RSG-Win64-Shipping.exe"+44580C: 8B 42 38           -  mov eax,[rdx+38]
+"RSG-Win64-Shipping.exe"+44580F: 89 41 38           -  mov [rcx+38],eax
+"RSG-Win64-Shipping.exe"+445812: 8B 42 3C           -  mov eax,[rdx+3C]
+"RSG-Win64-Shipping.exe"+445815: 89 41 3C           -  mov [rcx+3C],eax
+"RSG-Win64-Shipping.exe"+445818: 0F B6 42 40        -  movzx eax,byte ptr [rdx+40]
+"RSG-Win64-Shipping.exe"+44581C: 88 41 40           -  mov [rcx+40],al
+"RSG-Win64-Shipping.exe"+44581F: 0F B6 42 41        -  movzx eax,byte ptr [rdx+41]
+"RSG-Win64-Shipping.exe"+445823: 88 41 41           -  mov [rcx+41],al
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13246</ID>
+          <Description>"ZOOM: In, out - Plus, Minus (set to 65: NUMPAD *, reset to 90: NUMPAD 9)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13237</ID>
+          <Description>"FOV (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>65</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>90</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>128</ID>
+      <Description>"Inf Health"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(infhealth,RSG-Win64-Shipping.exe,F3 0F 11 8F 24 01 00 00 73)
+alloc(newmem,$1000,infhealth)
+
+label(code)
+label(return)
+
+registersymbol(infhealth)
+
+newmem:
+  cmp [rdi+00000008],00040048
+  jne code
+  jmp return
+
+code:
+  movss [rdi+00000124],xmm1
+  jmp return
+
+infhealth:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+infhealth:
+  db F3 0F 11 8F 24 01 00 00
+
+unregistersymbol(infhealth)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>130</ID>
+      <Description>"Inf Shield"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(infshield,RSG-Win64-Shipping.exe,F3 0F 11 8B F0 00 00 00 73)
+alloc(newmem,$1000,infshield)
+
+label(code)
+label(return)
+
+registersymbol(infshield)
+
+aobscanmodule(infshield2,RSG-Win64-Shipping.exe,89 AF F0 00 00 00 48 8D)
+alloc(newmem2,$1000,infshield2)
+
+label(code2)
+label(return2)
+
+registersymbol(infshield2)
+
+newmem:
+  cmp [rbx+00000008],00040048
+  jne code
+  jmp return
+
+code:
+  movss [rbx+000000F0],xmm1
+  jmp return
+
+newmem2:
+  cmp [rdi+00000008],00040048
+  jne code2
+  jmp return2
+
+code2:
+  mov [rdi+000000F0],ebp
+  jmp return2
+
+infshield:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+infshield2:
+  jmp newmem2
+  nop
+return2:
+
+[DISABLE]
+
+infshield:
+  db F3 0F 11 8B F0 00 00 00
+
+unregistersymbol(infshield)
+dealloc(newmem)
+
+infshield2:
+  db 89 AF F0 00 00 00
+
+unregistersymbol(infshield2)
+dealloc(newmem2)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>131</ID>
+      <Description>"Inf Energy/No Energy Consumption"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(infenergy,RSG-Win64-Shipping.exe,F3 0F 10 83 7C 01 00 00 40)
+alloc(newmem,$1000,infenergy)
+
+label(code)
+label(return)
+
+registersymbol(infenergy)
+
+newmem:
+
+code:
+  movss xmm0,[rbx+0000017C]
+  mov [rbx+0000017C],(float)500
+  mov [rbx+00000180],0
+  jmp return
+
+infenergy:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+infenergy:
+  db F3 0F 10 83 7C 01 00 00
+
+unregistersymbol(infenergy)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>78</ID>
+      <Description>"Inf Fuel"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(inffuel,RSG-Win64-Shipping.exe,89 83 88 00 00 00 49)
+registersymbol(inffuel)
+
+inffuel:
+  db 90 90 90 90 90 90
+
+[DISABLE]
+
+inffuel:
+  db 89 83 88 00 00 00
+
+unregistersymbol(inffuel)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>132</ID>
+      <Description>"Inf Missiles"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(infmissiles,RSG-Win64-Shipping.exe,FF 4C 01 08 48 8B 9F E0 00 00 00)
+registersymbol(infmissiles)
+
+infmissiles:
+  db 90 90 90 90
+
+[DISABLE]
+
+infmissiles:
+  db FF 4C 01 08
+
+unregistersymbol(infmissiles)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>133</ID>
+      <Description>"Inf Consumables"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(infcon,RSG-Win64-Shipping.exe,FF 4C C8 08 48 8B 83 F0 00 00 00)
+registersymbol(infcon)
+
+infcon:
+  db 90 90 90 90
+
+[DISABLE]
+
+infcon:
+  db FF 4C C8 08
+
+unregistersymbol(infcon)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>134</ID>
+      <Description>"Inf Resources"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(infres,RSG-Win64-Shipping.exe,8B 41 FC 41 89 44 09 FC)
+alloc(newmem,$1000,infres)
+
+label(code)
+label(return)
+
+registersymbol(infres)
+
+newmem:
+
+code:
+  mov [rcx-04],64
+  mov eax,[rcx-04]
+  mov [r9+rcx-04],eax
+  jmp return
+
+infres:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+infres:
+  db 8B 41 FC 41 89 44 09 FC
+
+unregistersymbol(infres)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>135</ID>
+      <Description>"No Cooldown"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(nocd,RSG-Win64-Shipping.exe,F3 0F 11 83 D8 03 00 00 77)
+alloc(newmem,$1000,nocd)
+
+label(code)
+label(return)
+
+registersymbol(nocd)
+
+newmem:
+
+code:
+  xorps xmm0,xmm0
+  movss [rbx+000003D8],xmm0
+  jmp return
+
+nocd:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+nocd:
+  db F3 0F 11 83 D8 03 00 00
+
+unregistersymbol(nocd)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>136</ID>
+      <Description>"Instant Weapon Charge"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(instwc,RSG-Win64-Shipping.exe,F3 0F 11 89 B0 05 00 00)
+alloc(newmem,$1000,instwc)
+
+label(code)
+label(return)
+
+registersymbol(instwc)
+
+newmem:
+
+code:
+  mov [rcx+000005B0],(float)0.999999
+  jmp return
+
+instwc:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+instwc:
+  db F3 0F 11 89 B0 05 00 00
+
+unregistersymbol(instwc)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>137</ID>
+      <Description>"Instant Fire"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(instfire,RSG-Win64-Shipping.exe,F3 0F 11 4B 44 85)
+alloc(newmem,$1000,instfire)
+
+label(code)
+label(return)
+
+registersymbol(instfire)
+
+newmem:
+
+code:
+  xorps xmm1,xmm1
+  movss [rbx+44],xmm1
+  jmp return
+
+instfire:
+  jmp newmem
+return:
+
+[DISABLE]
+
+instfire:
+  db F3 0F 11 4B 44
+
+unregistersymbol(instfire)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>138</ID>
+      <Description>"Rapid Fire"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(rapidfire,RSG-Win64-Shipping.exe,F3 0F 10 81 68 04 00 00 0F)
+alloc(newmem,$1000,rapidfire)
+
+label(code)
+label(return)
+
+registersymbol(rapidfire)
+
+newmem:
+
+code:
+  movss xmm0,[rcx+00000468]
+  mov [rcx+00000468],0
+  mov [rcx+000003D8],0
+  jmp return
+
+rapidfire:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+rapidfire:
+  db F3 0F 10 81 68 04 00 00
+
+unregistersymbol(rapidfire)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Credits Gained Multiplier"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(cgm,RSG-Win64-Shipping.exe,01 B8 A0 00 00 00)
+alloc(newmem,$1000,cgm)
+
+label(code)
+label(return)
+label(mulval)
+
+registersymbol(cgm)
+registersymbol(mulval)
+
+newmem:
+  cmp edi,0
+  jl code
+  imul edi,[mulval]
+
+code:
+  add [rax+000000A0],edi
+  jmp return
+
+mulval:
+  dq 2
+
+cgm:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+cgm:
+  db 01 B8 A0 00 00 00
+
+unregistersymbol(cgm)
+unregistersymbol(mulval)
+dealloc(newmem)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Multiplier"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>mulval</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>120</ID>
+      <Description>"No Handicaps"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(handicaps,RSG-Win64-Shipping.exe,48 8B C4 48 89 50 10 48 89 48 08 55 48 8D 68 A1 48 81 EC E0)
+alloc(newmem,$1000,handicaps)
+
+label(code)
+label(return)
+
+registersymbol(handicaps)
+
+newmem:
+
+code:
+  ret
+  jmp return
+
+handicaps:
+  jmp newmem
+  nop
+  nop
+return:
+
+[DISABLE]
+
+handicaps:
+  db 48 8B C4 48 89 50 10
+
+unregistersymbol(handicaps)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>117</ID>
+      <Description>"Inf Time For Tuning Upgrades"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(tutimer,RSG-Win64-Shipping.exe,F3 0F 11 44 28 08)
+alloc(newmem,$1000,tutimer)
+
+label(code)
+label(return)
+
+registersymbol(tutimer)
+
+newmem:
+
+code:
+  mov [rax+rbp+08],(float)600
+  jmp return
+
+tutimer:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+tutimer:
+  db F3 0F 11 44 28 08
+
+unregistersymbol(tutimer)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>48</ID>
+      <Description>"Ignore Crafting Requirements"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(icr,RSG-Win64-Shipping.exe,0F B6 C3 48 83 C4 78 41 5C 5B C3 49 63)
+alloc(newmem,$1000,icr)
+
+label(code)
+label(return)
+
+registersymbol(icr)
+
+newmem:
+
+code:
+  mov bl,01
+  movzx eax,bl
+  add rsp,78
+  jmp return
+
+icr:
+  jmp newmem
+  nop
+  nop
+return:
+
+[DISABLE]
+
+icr:
+  db 0F B6 C3 48 83 C4 78
+
+unregistersymbol(icr)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>95</ID>
+      <Description>"Unlock All Blueprints"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(blueprints,RSG-Win64-Shipping.exe,80 7C 29 30 00)
+alloc(newmem,$1000,blueprints)
+
+label(code)
+label(return)
+
+registersymbol(blueprints)
+
+newmem:
+  mov byte ptr [rcx+rbp+30],1
+
+code:
+  cmp byte ptr [rcx+rbp+30],00
+  jmp return
+
+blueprints:
+  jmp newmem
+return:
+
+[DISABLE]
+
+blueprints:
+  db 80 7C 29 30 00
+
+unregistersymbol(blueprints)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>139</ID>
+      <Description>"Sensor Range Pointer"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2018-05-13
+  Author : Squall8
+}
+
+[ENABLE]
+aobscanmodule(sensor,RSG-Win64-Shipping.exe,F3 0F 10 B3 8C 02 00 00)
+alloc(newmem,$1000,sensor)
+
+label(code)
+label(return)
+label(srp)
+
+registersymbol(sensor)
+registersymbol(srp)
+
+newmem:
+  mov [srp],rbx
+
+code:
+  movss xmm6,[rbx+0000028C]
+  jmp return
+
+srp:
+  dq 0
+
+sensor:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+sensor:
+  db F3 0F 10 B3 8C 02 00 00
+
+unregistersymbol(sensor)
+unregistersymbol(srp)
+dealloc(newmem)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>75</ID>
+          <Description>"Sensor Range"</Description>
+          <VariableType>Float</VariableType>
+          <Address>srp</Address>
+          <Offsets>
+            <Offset>28C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>76</ID>
+      <Description>"Tractor Beam Range Pointer"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.03
+  Date   : 2017-09-04
+  Author : Squall8 &amp; Bakfiets
+}
+
+[ENABLE]
+aobscanmodule(tractorrange,PhysX3Common_x64.dll,F3 44 0F 58 52 04)
+alloc(newmem,$1000,tractorrange)
+
+label(code)
+label(return)
+label(tp)
+
+registersymbol(tractorrange)
+registersymbol(tp)
+
+newmem:
+  cmp [rdx+04],(float)10000
+  jl code
+  cmp [rdx-08],#267
+  jne code
+  mov [tp],rdx
+
+code:
+  addss xmm10,[rdx+04]
+  jmp return
+
+tp:
+  dq 0
+
+tractorrange:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+tractorrange:
+  db F3 44 0F 58 52 04
+
+unregistersymbol(tractorrange)
+unregistersymbol(tp)
+dealloc(newmem)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"Tractor Beam Range"</Description>
+          <VariableType>Float</VariableType>
+          <Address>tp</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>192</Key>
+              </Keys>
+              <Value>2000000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <Value>10000</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>118</ID>
+      <Description>"[gideon25's Mods Script]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>106</ID>
+          <Description>"Lots Of Mods"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : RSG-Win64-Shipping.exe
+  Version: 1.2.3
+  Date   : 2017-10-26
+  Author : gideon25
+}
+
+[ENABLE]
+aobscanmodule(mods,RSG-Win64-Shipping.exe,7C 13 C6 07 04)
+alloc(newmem,$1000,mods)
+
+label(code)
+label(return)
+
+registersymbol(mods)
+
+newmem:
+
+code:
+  jmp RSG-Win64-Shipping.AModBase::Install+B1
+  mov byte ptr [rdi],04
+  jmp return
+
+mods:
+  jmp newmem
+return:
+
+[DISABLE]
+
+mods:
+  db 7C 13 C6 07 04
+
+unregistersymbol(mods)
+dealloc(newmem)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov eax,[rdx+30] - access fov</Description>
+      <Address>1403E57FF</Address>
+      <ModuleName>RSG-Win64-Shipping.exe</ModuleName>
+      <ModuleNameOffset>4457FF</ModuleNameOffset>
+      <Before>
+        <Byte>42</Byte>
+        <Byte>2C</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movntps [r9],xmm0</Description>
+      <Address>1418D5372</Address>
+      <ModuleName>RSG-Win64-Shipping.exe</ModuleName>
+      <ModuleNameOffset>1AA5372</ModuleNameOffset>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>5A</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2B</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>83</Byte>
+        <Byte>C1</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+30],eax - write fov</Description>
+      <Address>1403E5802</Address>
+      <ModuleName>RSG-Win64-Shipping.exe</ModuleName>
+      <ModuleNameOffset>445802</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>42</Byte>
+        <Byte>34</Byte>
+        <Byte>88</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rbx+00000238] - action freeze fov</Description>
+      <Address>141068DD2</Address>
+      <ModuleName>RSG-Win64-Shipping.exe</ModuleName>
+      <ModuleNameOffset>1238DD2</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>EB</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>38</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi+00000238],xmm0</Description>
+      <Address>1415B83BD</Address>
+      <ModuleName>RSG-Win64-Shipping.exe</ModuleName>
+      <ModuleNameOffset>17883BD</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>38</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>infhealth</Name>
+      <Address>13FFB0127</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infshield</Name>
+      <Address>13FFB05C8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infshield2</Name>
+      <Address>13FFAE011</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>nocd</Name>
+      <Address>13FFB0A76</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>13FB30029</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>infenergy</Name>
+      <Address>13FFA1F91</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Cheat table by Squall8
+http://fearlessrevolution.com/viewtopic.php?f=4&amp;t=2800
+</Comments>
+</CheatTable>

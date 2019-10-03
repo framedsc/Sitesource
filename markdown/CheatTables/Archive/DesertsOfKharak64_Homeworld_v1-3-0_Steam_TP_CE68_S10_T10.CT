@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"[X] &lt;== Homeworld Deserts of Kharak v1.3.0 Steam Script v1.0"</Description>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{
+===========================================
+ Game Title    : Homeworld Deserts of Kharak
+ Game Version  : 1.3.0 (Steam)
+ Game Sponsor  : TP
+ Process Name  : DesertsOfKharak64.exe
+ Relevant Info : Mono Engine/64bits/RTS
+ Script Version: 1.0
+ CE Version    : 6.8
+ Release date  : 13-Mar-2019
+ Author        : Recifense
+ History:
+ 13-Mar-2019: First Release
+ Features:
+ - Minimum Resources
+ - God Mode
+   - Include Friends
+ - Some Pointers
+===========================================
+}
+
+//=========================================
+// Checking CE version
+{$lua}
+  if(getCEVersion() &lt; 6.8) then
+    ShowMessage('Sorry. CE version should be 6.8 or above')
+  end
+{$asm}
+
+//=========================================
+// Checking Selected Process
+{$lua}
+  if(process == nil) then
+    ShowMessage('No process was selected')
+  elseif (string.upper(process) ~= string.upper("DesertsOfKharak64.exe")) then
+    ShowMessage('Warning. Expected Process = DesertsOfKharak64.exe')
+  end
+{$asm}
+
+//=========================================
+// Checking if CE mono features are ON
+{$lua}
+  monoAA_USEMONO(process,false)
+{$asm}
+
+//=========================================
+// Constants used in the script (that can be changed)
+define(ctCE68,(float)6.8)
+
+//=========================================
+[ENABLE]
+//=========================================
+// Definitions
+define(LUDO,"DesertsOfKharak64.exe")
+define(MOGS,BBI.Game.Simulation:Commander:GetChecksum+0000)
+define(MOUO,BBI.Game.Simulation:UnitState:StoreHealth+00e2)
+
+//=========================================
+// Check if script is compatible to this game version
+// If false the script will not be loaded
+
+assert(MOGS,55 48 8b ec 56 57 41 56 41 57 48 81 ec d0 00 00 00)
+assert(MOUO,49 63 44 24 14 41 89 07 49 63 44 24 10 41 89 06)
+
+//=========================================
+alloc(MyCode,4096,$process)
+//=========================================
+// Declaration section
+label(_MonGameSim)
+label(_BackMGS)
+label(_MonUnitOwner)
+label(_BackMUO)
+
+label(iEnableMMR)
+label(iEnableGMD)
+label(iEnableGMI)
+label(iID)
+label(iTeam)
+
+label(pCommander)
+label(pStorage)
+label(pSim)
+label(pList)
+
+label(pMOGS)
+label(pMOUO)
+
+//=========================================
+// Registering Symbols
+registersymbol(MyCode)
+registersymbol(iEnableMMR)
+registersymbol(iEnableGMD)
+registersymbol(iEnableGMI)
+registersymbol(iID)
+registersymbol(iTeam)
+registersymbol(pCommander)
+registersymbol(pStorage)
+registersymbol(pSim)
+registersymbol(pList)
+
+registersymbol(pMOGS)
+registersymbol(pMOUO)
+
+//=========================================
+MyCode:
+//=========================================
+// All the time
+_MonGameSim:
+ mov [pRDI],rdi
+
+ mov [pSim],rcx
+
+ xor rax,rax
+
+ mov eax,[rcx+000000c0]
+ cmp eax,#9
+ jns _ExitMGS
+
+ mov r11,pList
+ mov [r11+rax*8],rcx
+
+ mov edi,[rcx+000000d0]
+ mov r11,iTeams
+ mov [r11+rax*4],edi
+
+ mov r11,[rcx+20]
+ test r11,r11
+ jz _ExitMGS
+
+ cmp dword ptr [r11+10],#3
+ js _ExitMGS
+
+ mov eax,[rcx+000000c0]
+ cmp eax,#1
+ jne _ExitMGS
+
+ mov [iID],eax
+
+ mov [pCommander],rcx
+
+ mov eax,[rcx+000000d0]
+ mov [iTeam],eax
+
+ mov r11,[rcx+28]
+ mov [pStorage],r11
+
+ test r11,r11
+ jz _ExitMGS
+
+ mov r11,[r11+10]
+ test r11,r11
+ jz _ExitMGS
+
+ mov r11,[r11+28]
+ test r11,r11
+ jz _ExitMGS
+
+ mov rdi,[r11+20]
+ test rdi,rdi
+ jz _ExitMGS
+
+ cmp dword ptr [iEnableMMR],0
+ je _ExitMGS                       // Jump if feature is disabled
+
+ cmp dword ptr [rdi+28],00
+ je _MonGS00
+
+ mov eax,#6800
+
+ cmp [rdi+28],eax
+ jns _MonGS00
+
+ mov [rdi+28],eax
+
+_MonGS00:
+ mov rdi,[r11+28]
+ test rdi,rdi
+ jz _ExitMGS
+
+ cmp dword ptr [rdi+28],00
+ je _MonGS01
+
+ mov eax,#2680
+
+ cmp [rdi+28],eax
+ jns _MonGS01
+
+ mov [rdi+28],eax
+
+_MonGS01:
+ mov rdi,[r11+30]
+ test rdi,rdi
+ jz _ExitMGS
+
+ cmp dword ptr [rdi+28],00
+ je _MonGS02
+
+ mov eax,#1680
+
+ cmp [rdi+28],eax
+ jns _MonGS02
+
+ mov [rdi+28],eax
+
+_MonGS02:
+_ExitMGS:
+ mov rdi,[pRDI]
+
+ push rbp                          // Original code
+ mov rbp,rsp                       // Original code
+ push rsi                          // Original code
+ push rdi                          // Original code
+ push r14                          // Original code
+ push r15                          // Original code
+ sub rsp,000000D0                  // Original code
+
+ mov r11,_BackMGS
+ jmp r11                           // Back to main code
+
+//=========================================
+// All the time
+_MonUnitOwner:
+ mov dword ptr [r12+1c],00
+
+ cmp dword ptr [iEnableGMD],0
+ je _ExitMUO                       // Jump if feature is disabled
+
+ xor rax,rax
+
+ mov eax,[r15-04]
+ cmp eax,[iID]
+ je _MonUO00
+
+ cmp dword ptr [iEnableGMI],0
+ je _ExitMUO                       // Jump if feature is disabled
+
+ cmp eax,#09
+ jns _ExitMUO
+
+ mov r11,iTeams
+ mov eax,[r11+rax*4]
+
+ cmp eax,[iTeam]
+ jne _ExitMUO
+
+_MonUO00:
+ movsxd rax,dword ptr [r12+10]
+ mov [r12+14],eax
+
+ mov dword ptr [r12+1c],01
+
+_ExitMUO:
+ movsxd rax,dword ptr [r12+14]     // Original code
+ mov [r15],eax                     // Original code
+ movsxd rax,dword ptr [r12+10]     // Original code
+ mov [r14],eax                     // Original code
+
+ mov r11,_BackMUO
+ jmp r11                           // Back to main code
+
+//=========================================
+align 10,'='
+//=========================================
+ db '===============================&gt;'
+ db 'CE6.8 Script by Recifense 190313'
+//=========================================
+// Variables
+iEnableMMR:
+ dd 0
+iEnableGMD:
+ dd 0
+iEnableGMI:
+ dd 0
+ dd 0
+iID:
+ dd #99
+iTeam:
+ dd #99
+iTeams:
+ dd 0,0,0,0,0,0,0,0,0
+ dd 0
+pCommander:
+ dq MyCode
+pSim:
+ dq 0
+pStorage:
+ dq 0
+pRDI:
+ dq 0
+pList:
+ dq 0,0,0,0,0,0,0,0,0,0
+
+//=========================================
+// Hacking Points
+MOGS:
+pMOGS:
+ mov r11,_MonGameSim
+ jmp r11
+ nop
+ nop
+ nop
+ nop
+_BackMGS:
+
+MOUO:
+pMOUO:
+ mov r11,_MonUnitOwner
+ jmp r11
+ nop
+ nop
+ nop
+_BackMUO:
+
+//=========================================
+// Script for Restoring Original Codes
+[DISABLE]
+pMOGS:
+ db 55 48 8b ec 56 57 41 56 41 57 48 81 ec d0 00 00 00
+
+pMOUO:
+ db 49 63 44 24 14 41 89 07 49 63 44 24 10 41 89 06
+
+//=========================================
+// Unregistering Symbols
+unregistersymbol(MyCode)
+unregistersymbol(iEnableMMR)
+unregistersymbol(iEnableGMD)
+unregistersymbol(iEnableGMI)
+unregistersymbol(iID)
+unregistersymbol(iTeam)
+unregistersymbol(pCommander)
+unregistersymbol(pStorage)
+unregistersymbol(pSim)
+unregistersymbol(pList)
+
+unregistersymbol(pMOGS)
+unregistersymbol(pMOUO)
+
+//=========================================
+// Turning CE mono features OFF
+{$lua}
+  monopipe.destroy()
+  monopipe=nil
+{$asm}
+
+//=========================================
+dealloc(MyCode)
+//============= Scripts End ===============
+
+// ****************************************
+// NOTES
+// ****************************************
+{
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"[X] &lt;== Minimum Resources (RUs and CUs)      (HK: ^1/^0)"</Description>
+          <LastState/>
+          <Color>C08000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[enable]
+{$LUA}
+writeInteger("iEnableMMR",1)
+memrec.Color=0x0004000
+{$ASM}
+
+[disable]
+{$LUA}
+writeInteger("iEnableMMR",0)
+memrec.Color=0x0c08000
+{$ASM}
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Activate</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>96</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"[X] &lt;==God Mode      (HK: ^1/^0)"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <LastState/>
+          <Color>C08000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[enable]
+{$LUA}
+writeInteger("iEnableGMD",1)
+memrec.Color=0x0004000
+{$ASM}
+
+[disable]
+{$LUA}
+writeInteger("iEnableGMD",0)
+memrec.Color=0x0c08000
+{$ASM}
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Activate</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>96</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14</ID>
+              <Description>"[X] &lt;== Include Friends     (HK: ^7/^4)"</Description>
+              <LastState/>
+              <Color>C08000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[enable]
+{$LUA}
+writeInteger("iEnableGMI",1)
+memrec.Color=0x0004000
+{$ASM}
+
+[disable]
+{$LUA}
+writeInteger("iEnableGMI",0)
+memrec.Color=0x0c08000
+{$ASM}
+
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Activate</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Deactivate</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>228</ID>
+      <Description>"[X] &lt;== Table/Script Information"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[enable]
+define(test,LUDO)
+
+{$LUA}
+getMainForm().CommentButton.doClick()
+{$ASM}
+
+[disable]
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>Recifense</Name>
+      <Address>20190313</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>===========================================
+ Game Title    : Homeworld Deserts of Kharak
+ Game Version  : 1.3.0 (Steam)
+ Game Sponsor  : TP
+ Process Name  : DesertsOfKharak64.exe
+ Relevant Info : Mono Engine/64bits/RTS
+ Script Version: 1.0
+ CE Version    : 6.8
+ Release date  : 13-Mar-2019
+ Author        : Recifense
+ History:
+ 13-Mar-2019: First Release
+ Features: 
+ - Minimum Resources        [1]
+   - CUs     (6800)
+   - RUs     (2680)
+   - Unknown (1680)
+ - God Mode                 [2]
+   - Include Friends        [3]
+ - Some Pointers            [4]
+===========================================
+[1] Human Player's Resources will not go under a minimum value;
+[2] For Human Player's units;
+[3] Friends' units can be included in GM;
+[4] Not used
+===========================================
+[USAGE]
+1) Run CE68 or greater;
+2) Run Game;
+3) Start/Load a new game or a Skirmish match;   &lt;==[IMPORTANT]
+4) Load the game process "DesertsOfKharak64.exe" in CE;
+5) Load this table and activate the main script;
+6) Now Activate the script of each cheat you want to use;
+7) Game On;
+[NOTE]
+- Before closing the game, deactivate the main script or close CE.
+===========================================
+HOTKEYS:
+- See each table entry;
+- Decoding: :))
+^1 = Control + Numeric 1
+^0 = Control + Numeric 0
+^7 = Control + Numeric 7
+^4 = Control + Numeric 4
+===========================================
+[ADVICE]
+When you can, save the game before starting using table/cheat. So you can always come back in case you don't like the result.
+===========================================
+[INFO]
+Tested on Win 10 64bits
+===========================================
+Cheers!
+</Comments>
+</CheatTable>
