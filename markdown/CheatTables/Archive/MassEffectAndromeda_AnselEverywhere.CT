@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Enable Ansel Everywhere 1"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>define(address,MassEffectAndromeda.exe+10DE869)
+define(bytes,75 DD 48 8B 3D D6 7F 1F 03)
+
+[ENABLE]
+assert(address,bytes)
+alloc(newmem,$1000,MassEffectAndromeda.exe+10DE869)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  // we'll exclude the next statement so the check always succeeds
+  // jne MassEffectAndromeda.exe+10DE848
+  mov rdi,[MassEffectAndromeda.exe+42D6848]
+  jmp return
+
+address:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+address:
+  db bytes
+  // jne MassEffectAndromeda.exe+10DE848
+  // mov rdi,[MassEffectAndromeda.exe+42D6848]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MassEffectAndromeda.exe"+10DE869
+
+"MassEffectAndromeda.exe"+10DE846: 75 07                    -  jne MassEffectAndromeda.exe+10DE84F
+"MassEffectAndromeda.exe"+10DE848: 33 C0                    -  xor eax,eax
+"MassEffectAndromeda.exe"+10DE84A: E9 9E 04 00 00           -  jmp MassEffectAndromeda.exe+10DECED
+"MassEffectAndromeda.exe"+10DE84F: 48 8B 3D F2 7F 1F 03     -  mov rdi,[MassEffectAndromeda.exe+42D6848]
+"MassEffectAndromeda.exe"+10DE856: 48 85 FF                 -  test rdi,rdi
+"MassEffectAndromeda.exe"+10DE859: 74 17                    -  je MassEffectAndromeda.exe+10DE872
+"MassEffectAndromeda.exe"+10DE85B: 48 8B 07                 -  mov rax,[rdi]
+"MassEffectAndromeda.exe"+10DE85E: 48 8B CF                 -  mov rcx,rdi
+"MassEffectAndromeda.exe"+10DE861: FF 90 F8 00 00 00        -  call qword ptr [rax+000000F8]
+"MassEffectAndromeda.exe"+10DE867: 84 C0                    -  test al,al
+// ---------- INJECTING HERE ----------
+"MassEffectAndromeda.exe"+10DE869: 75 DD                    -  jne MassEffectAndromeda.exe+10DE848
+"MassEffectAndromeda.exe"+10DE86B: 48 8B 3D D6 7F 1F 03     -  mov rdi,[MassEffectAndromeda.exe+42D6848]
+// ---------- DONE INJECTING  ----------
+"MassEffectAndromeda.exe"+10DE872: 48 8B 05 17 5C 32 03     -  mov rax,[MassEffectAndromeda.exe+4404490]
+"MassEffectAndromeda.exe"+10DE879: 0F 29 B4 24 80 00 00 00  -  movaps [rsp+00000080],xmm6
+"MassEffectAndromeda.exe"+10DE881: 0F 57 F6                 -  xorps xmm6,xmm6
+"MassEffectAndromeda.exe"+10DE884: 0F 2F B0 DC 00 00 00     -  comiss xmm6,[rax+000000DC]
+"MassEffectAndromeda.exe"+10DE88B: 72 56                    -  jb MassEffectAndromeda.exe+10DE8E3
+"MassEffectAndromeda.exe"+10DE88D: 66 C7 46 04 01 01        -  mov word ptr [rsi+04],0101
+"MassEffectAndromeda.exe"+10DE893: C6 46 06 01              -  mov byte ptr [rsi+06],01
+"MassEffectAndromeda.exe"+10DE897: 4C 89 35 82 82 1F 03     -  mov [MassEffectAndromeda.exe+42D6B20],r14
+"MassEffectAndromeda.exe"+10DE89E: 48 85 FF                 -  test rdi,rdi
+"MassEffectAndromeda.exe"+10DE8A1: 74 47                    -  je MassEffectAndromeda.exe+10DE8EA
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Enable Ansel Everywhere 2"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>define(address,MassEffectAndromeda.exe+10DE88B)
+define(bytes,72 56 66 C7 46 04 01 01)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,MassEffectAndromeda.exe+10DE88B)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  // we'll exclude the next statement so the check always succeeds
+  // jb MassEffectAndromeda.exe+10DE8E3
+  mov word ptr [rsi+04],0101
+  jmp return
+
+address:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // jb MassEffectAndromeda.exe+10DE8E3
+  // mov word ptr [rsi+04],0101
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MassEffectAndromeda.exe"+10DE88B
+
+"MassEffectAndromeda.exe"+10DE85B: 48 8B 07                 -  mov rax,[rdi]
+"MassEffectAndromeda.exe"+10DE85E: 48 8B CF                 -  mov rcx,rdi
+"MassEffectAndromeda.exe"+10DE861: FF 90 F8 00 00 00        -  call qword ptr [rax+000000F8]
+"MassEffectAndromeda.exe"+10DE867: 84 C0                    -  test al,al
+"MassEffectAndromeda.exe"+10DE869: 75 DD                    -  jne MassEffectAndromeda.exe+10DE848
+"MassEffectAndromeda.exe"+10DE86B: 48 8B 3D D6 7F 1F 03     -  mov rdi,[MassEffectAndromeda.exe+42D6848]
+"MassEffectAndromeda.exe"+10DE872: 48 8B 05 17 5C 32 03     -  mov rax,[MassEffectAndromeda.exe+4404490]
+"MassEffectAndromeda.exe"+10DE879: 0F 29 B4 24 80 00 00 00  -  movaps [rsp+00000080],xmm6
+"MassEffectAndromeda.exe"+10DE881: 0F 57 F6                 -  xorps xmm6,xmm6
+"MassEffectAndromeda.exe"+10DE884: 0F 2F B0 DC 00 00 00     -  comiss xmm6,[rax+000000DC]
+// ---------- INJECTING HERE ----------
+"MassEffectAndromeda.exe"+10DE88B: 72 56                    -  jb MassEffectAndromeda.exe+10DE8E3
+"MassEffectAndromeda.exe"+10DE88D: 66 C7 46 04 01 01        -  mov word ptr [rsi+04],0101
+// ---------- DONE INJECTING  ----------
+"MassEffectAndromeda.exe"+10DE893: C6 46 06 01              -  mov byte ptr [rsi+06],01
+"MassEffectAndromeda.exe"+10DE897: 4C 89 35 82 82 1F 03     -  mov [MassEffectAndromeda.exe+42D6B20],r14
+"MassEffectAndromeda.exe"+10DE89E: 48 85 FF                 -  test rdi,rdi
+"MassEffectAndromeda.exe"+10DE8A1: 74 47                    -  je MassEffectAndromeda.exe+10DE8EA
+"MassEffectAndromeda.exe"+10DE8A3: 48 8B 07                 -  mov rax,[rdi]
+"MassEffectAndromeda.exe"+10DE8A6: 48 8B CF                 -  mov rcx,rdi
+"MassEffectAndromeda.exe"+10DE8A9: FF 90 90 00 00 00        -  call qword ptr [rax+00000090]
+"MassEffectAndromeda.exe"+10DE8AF: 84 C0                    -  test al,al
+"MassEffectAndromeda.exe"+10DE8B1: 75 30                    -  jne MassEffectAndromeda.exe+10DE8E3
+"MassEffectAndromeda.exe"+10DE8B3: 48 8B 07                 -  mov rax,[rdi]
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of jne MassEffectAndromeda.exe+10DE848</Description>
+      <Address>1410DE869</Address>
+      <ModuleName>MassEffectAndromeda.exe</ModuleName>
+      <ModuleNameOffset>10DE869</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>75</Byte>
+        <Byte>DD</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>3D</Byte>
+        <Byte>D6</Byte>
+        <Byte>7F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jb MassEffectAndromeda.exe+10DE8E3</Description>
+      <Address>1410DE88B</Address>
+      <ModuleName>MassEffectAndromeda.exe</ModuleName>
+      <ModuleNameOffset>10DE88B</ModuleNameOffset>
+      <Before>
+        <Byte>B0</Byte>
+        <Byte>DC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>72</Byte>
+        <Byte>56</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>C7</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

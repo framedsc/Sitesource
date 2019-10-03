@@ -1,0 +1,5477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13503</ID>
+      <Description>"This table was made by One3rd for the Steam version of Lords of Shadow - Ultimate Edition."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13500</ID>
+      <Description>"Enable camera script with [Page Dn]. Read *Table Extras* (bottom right button) for further details."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13502</ID>
+      <Description>"***"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13296</ID>
+      <Description>"FLY - No modifier"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13290</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13298</ID>
+          <Description>"MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13297</ID>
+          <Description>"FLY: Up, down - 9, 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13292</ID>
+      <Description>"AIM - Hold down PLUS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13339</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13244</ID>
+          <Description>"PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13246</ID>
+          <Description>"ZOOM: In, out - 9, 7 (reset to 60: NUMPAD *)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13242</ID>
+          <Description>"TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13224</ID>
+      <Description>"Camera Addresses (incl. cutscenes) [Page Dn]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+
+label(pCamera)
+registersymbol(pCamera)
+
+newmem:
+mov [pCamera],eax
+//mov [eax+14],ecx
+mov edx,[ebx+04]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+pCamera:
+dd 0
+///
+
+
+//x
+"castlevanialosue.exe"+43F8CF:
+jmp newmem
+nop
+//z
+"castlevanialosue.exe"+43F8D5:
+db 90 90 90
+//y
+"castlevanialosue.exe"+43F8DB:
+db 90 90 90
+//roty
+"castlevanialosue.exe"+43F8E7:
+db 90 90 90
+//rotx
+"castlevanialosue.exe"+43F8ED:
+db 90 90 90
+//tilt
+"castlevanialosue.exe"+43F8F3:
+db 90 90 90
+//FOV
+"castlevanialosue.exe"+43F929:
+db 90 90 90
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+//x
+"castlevanialosue.exe"+43F8CF:
+mov [eax+14],ecx
+mov edx,[ebx+04]
+//z
+"castlevanialosue.exe"+43F8D5:
+mov [eax+18],edx
+mov ecx,[ebx+08]
+//y
+"castlevanialosue.exe"+43F8DB:
+mov [eax+1C],ecx
+mov edx,[ebx+0C]
+//roty
+"castlevanialosue.exe"+43F8E7:
+mov [eax+08],edx
+mov ecx,[ebx+10]
+//rotx
+"castlevanialosue.exe"+43F8ED:
+mov [eax+0C],ecx
+mov edx,[ebx+14]
+//tilt
+"castlevanialosue.exe"+43F8F3:
+mov [eax+10],edx
+mov ecx,[ebx+18]
+//FOV
+"castlevanialosue.exe"+43F929:
+fstp dword ptr [ecx+3C]
+mov edx,[ebx+34]
+unregistersymbol(pCamera)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13231</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13233</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13232</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>1c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13234</ID>
+          <Description>"Y Rotation (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>08</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13235</ID>
+          <Description>"X Rotation (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>0c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13236</ID>
+          <Description>"Tilt (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.02</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>-1.5</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13237</ID>
+          <Description>"FOV (radians)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>3c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.08</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.08</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>1.4</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13217</ID>
+      <Description>"Game Speed [F5] - cutscene"</Description>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+
+label(gameSpeed)
+registersymbol(gameSpeed)
+
+newmem:
+mov [gameSpeed],ecx
+fld dword ptr [eax+30]
+fstp dword ptr [ecx+30]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+gameSpeed:
+dd 0
+///
+
+"castlevanialosue.exe"+488C2:
+jmp newmem
+nop
+//writes time1
+//"castlevanialosue.exe"+48B4D:
+//db 90 90 90
+//writes time2
+//"castlevanialosue.exe"+488C5:
+//db 90 90 90
+//writes time2
+//"castlevanialosue.exe"+48C92:
+//db 90 90 90
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"castlevanialosue.exe"+488C2:
+fld dword ptr [eax+30]
+fstp dword ptr [ecx+30]
+//1
+//"castlevanialosue.exe"+48B4D:
+//fst dword ptr [ecx+30]
+//fstp dword ptr [ecx+34]
+//2
+//"castlevanialosue.exe"+488C5:
+//fstp dword ptr [ecx+30]
+//fld dword ptr [eax+34]
+//3
+//"castlevanialosue.exe"+48C92:
+//fst dword ptr [ecx+30]
+//pop esi
+//fstp dword ptr [ecx+34]
+unregistersymbol(gameSpeed)
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>122</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13218</ID>
+          <Description>"F5 = Pause \ F6 = Resume \ ALT+X = 0.3 \ ALT+F5 = 0 \ Ctrl+F6 = 2"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13219</ID>
+          <Description>"Game Speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>gameSpeed</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+              </Keys>
+              <Value>0.0001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>117</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>116</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.3</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>117</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>timestop - when using KB controls</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>222</Key>
+              </Keys>
+              <Value>0.3</Value>
+              <Description>slomo - when using KB controls</Description>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>22828</ID>
+      <Description>"HUD Toggle (  Disable = [ , Enable = ] , reset = Shift+[  )"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>8000FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13504</ID>
+          <Description>"HUD (Health and Energy meters)"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>castlevanialosue.exe+9B1C1C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>5</Value>
+              <Description>Disable HUD</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>3</Value>
+              <Description>Enable HUD</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>Main Menu HUD</Description>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22826</ID>
+          <Description>"Game HUD Toggle (remaining elements)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+"castlevanialosue.exe"+429170:
+ret 0014
+
+[DISABLE]
+"castlevanialosue.exe"+429170:
+sub esp,08
+
+{
+// ORIGINAL CODE - INJECTION POINT: "castlevanialosue.exe"+429170
+
+"castlevanialosue.exe"+429166: CC                 -  int 3
+"castlevanialosue.exe"+429167: CC                 -  int 3
+"castlevanialosue.exe"+429168: CC                 -  int 3
+"castlevanialosue.exe"+429169: CC                 -  int 3
+"castlevanialosue.exe"+42916A: CC                 -  int 3
+"castlevanialosue.exe"+42916B: CC                 -  int 3
+"castlevanialosue.exe"+42916C: CC                 -  int 3
+"castlevanialosue.exe"+42916D: CC                 -  int 3
+"castlevanialosue.exe"+42916E: CC                 -  int 3
+"castlevanialosue.exe"+42916F: CC                 -  int 3
+// ---------- INJECTING HERE ----------
+"castlevanialosue.exe"+429170: 83 EC 08           -  sub esp,08
+"castlevanialosue.exe"+429173: 56                 -  push esi
+"castlevanialosue.exe"+429174: 8B F1              -  mov esi,ecx
+// ---------- DONE INJECTING  ----------
+"castlevanialosue.exe"+429176: 8B 46 48           -  mov eax,[esi+48]
+"castlevanialosue.exe"+429179: 8B 0E              -  mov ecx,[esi]
+"castlevanialosue.exe"+42917B: 89 08              -  mov [eax],ecx
+"castlevanialosue.exe"+42917D: 8B 56 04           -  mov edx,[esi+04]
+"castlevanialosue.exe"+429180: 89 50 04           -  mov [eax+04],edx
+"castlevanialosue.exe"+429183: 8B 46 48           -  mov eax,[esi+48]
+"castlevanialosue.exe"+429186: 8B 4E 08           -  mov ecx,[esi+08]
+"castlevanialosue.exe"+429189: 89 48 08           -  mov [eax+08],ecx
+"castlevanialosue.exe"+42918C: 8B 56 0C           -  mov edx,[esi+0C]
+"castlevanialosue.exe"+42918F: 89 50 0C           -  mov [eax+0C],edx
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Activate</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13505</ID>
+      <Description>"AR Unlocker (manual enable then select from dropdown or edit number manually)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+
+label(AspectRatio)
+registersymbol(AspectRatio)
+
+newmem:
+mov [AspectRatio],edx
+//fstp dword ptr [edx+40]
+mov eax,[ebx+34]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+AspectRatio:
+dd 0
+///
+
+"castlevanialosue.exe"+43F935:
+jmp newmem
+nop
+
+"castlevanialosue.exe"+43F9AB:
+db 90 90 90
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"castlevanialosue.exe"+43F935:
+fstp dword ptr [edx+40]
+mov eax,[ebx+34]
+
+"castlevanialosue.exe"+43F9AB:
+fst dword ptr [eax+40]
+mov eax,[ebx+34]
+unregistersymbol(AspectRatio)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13506</ID>
+          <Description>"Aspect Ratio"</Description>
+          <DropDownList>1.777777777777778:16_9
+2.333333333333333:21_9
+0.75:3_4
+1:1
+</DropDownList>
+          <VariableType>Float</VariableType>
+          <Address>AspectRatio</Address>
+          <Offsets>
+            <Offset>40</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13511</ID>
+      <Description>"Experience Points"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1A13404C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13508</ID>
+      <Description>"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"inf_hp"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+aobscan(hp_aob,DB 86 88 04 00 00 85 C0)
+label(hp_jmp)
+registersymbol(hp_jmp)
+label(hp_p)
+registersymbol(hp_p)
+label(hp_t)
+registersymbol(hp_t)
+
+newmem:
+push eax
+mov eax,[hp_t]
+mov [hp_p],esi
+cmp [esi+00000488],eax
+jge short originalcode
+mov [esi+00000488],eax
+
+originalcode:
+pop eax
+fild dword ptr [esi+00000488]
+
+exit:
+jmp returnhere
+
+hp_p:
+dd 0
+
+hp_t:
+dd 64
+
+hp_aob: //"CastlevaniaLoSUE.exe"+1395CB:
+hp_jmp:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+hp_jmp:
+db DB 86 88 04 00 00 85 C0
+unregistersymbol(hp_jmp)
+unregistersymbol(hp_p)
+unregistersymbol(hp_t)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>54</ID>
+          <Description>"health - current"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>hp_p</Address>
+          <Offsets>
+            <Offset>488</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"health - threshold"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>hp_t</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31</ID>
+      <Description>"inf_energy"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+aobscan(energy_aob,D9 59 2C 5B C2 0C 00)
+label(light)
+label(shadow)
+label(light_assign)
+label(shadow_assign)
+label(energy_jmp)
+registersymbol(energy_jmp)
+label(light_c)
+registersymbol(light_c)
+label(light_p)
+registersymbol(light_p)
+label(shadow_c)
+registersymbol(shadow_c)
+label(shadow_p)
+registersymbol(shadow_p)
+label(light_t)
+registersymbol(light_t)
+label(shadow_t)
+registersymbol(shadow_t)
+
+newmem:
+
+light:
+cmp [ecx+cc],(int)6
+jne short shadow
+cmp [ecx+d0],(int)8
+jne short shadow
+mov [light_c],(int)1
+mov [light_p],ecx
+
+shadow:
+cmp [ecx+60],(int)1792
+jne short originalcode
+cmp [ecx+b8],(int)5
+jne short originalcode
+mov [shadow_c],(int)1
+mov [shadow_p],ecx
+
+originalcode:
+fstp dword ptr [ecx+2C]
+
+light_assign:
+cmp [light_c],(int)1
+jne short shadow_assign
+mov edi,[light_t]
+cmp [ecx+2c],edi
+jge short +3
+mov [ecx+2c],edi
+mov [light_c],(int)0
+
+shadow_assign:
+cmp [shadow_c],(int)1
+jne short exit
+mov edi,[shadow_t]
+cmp [ecx+2c],edi
+jge short +3
+mov [ecx+2c],edi
+mov [shadow_c],(int)0
+
+exit:
+pop ebx
+ret 000C
+jmp returnhere
+
+light_c:
+dd 0
+
+shadow_c:
+dd 0
+
+light_p:
+dd 0
+
+shadow_p:
+dd 0
+
+light_t:
+dd 41100000
+
+shadow_t:
+dd 41100000
+
+energy_aob: //"CastlevaniaLoSUE.exe"+3AE11:
+energy_jmp:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+energy_jmp:
+db D9 59 2C 5B C2 0C 00
+unregistersymbol(energy_jmp)
+unregistersymbol(light_c)
+unregistersymbol(shadow_c)
+unregistersymbol(light_t)
+unregistersymbol(shadow_t)
+unregistersymbol(light_p)
+unregistersymbol(shadow_p)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>56</ID>
+          <Description>"light magic - current"</Description>
+          <VariableType>Float</VariableType>
+          <Address>light_p</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"light magic - threshold"</Description>
+          <VariableType>Float</VariableType>
+          <Address>light_t</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"shadow magic - current"</Description>
+          <VariableType>Float</VariableType>
+          <Address>shadow_p</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>33</ID>
+          <Description>"shadow magic - threshold"</Description>
+          <VariableType>Float</VariableType>
+          <Address>shadow_t</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>43</ID>
+      <Description>"inf_focus/timer"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+aobscan(focus_aob,89 51 04 8B 50 08 89 51 08 B9 04 00 00 00 39 48 08)
+label(focus_jmp)
+registersymbol(focus_jmp)
+label(focus)
+label(timer)
+label(focus_p)
+registersymbol(focus_p)
+label(focus_c)
+registersymbol(focus_c)
+label(focus_t)
+registersymbol(focus_t)
+label(timer_p)
+registersymbol(timer_p)
+label(timer_c)
+registersymbol(timer_c)
+label(timer_t)
+registersymbol(timer_t)
+
+newmem:
+
+focus:
+cmp [ecx+68],(int)7
+jne short timer
+cmp [ecx+a0],(int)0
+jne short timer
+cmp [ecx+a4],(int)0
+jne short timer
+cmp [ecx+a8],(int)3
+jne short timer
+cmp [ecx+c8],(int)3
+jne short timer
+cmp [ecx+e8],(int)3
+jne short timer
+mov [focus_p],ecx
+cmp [focus_c],(int)1
+jne short originalcode
+cmp edx,[focus_t]
+jge short originalcode
+mov edx,[focus_t]
+
+timer:
+cmp [ecx],(int)0
+jne short originalcode
+cmp [ecx+08],(int)3
+jne short originalcode
+cmp [ecx+18],(int)4
+jne short originalcode
+cmp [ecx+1c],(int)0
+jne short originalcode
+cmp [ecx+28],(int)0
+jne short originalcode
+cmp [ecx+58],(int)0
+jne short originalcode
+cmp [ecx+5c],(int)0
+jne short originalcode
+cmp [ecx+78],(int)4
+jne short originalcode
+cmp [ecx+7c],(int)0
+jne short originalcode
+mov [timer_p],ecx
+cmp [timer_c],(int)1
+jne short originalcode
+cmp edx,[timer_t]
+jge short originalcode
+mov edx,[timer_t]
+
+originalcode:
+mov [ecx+04],edx
+mov edx,[eax+08]
+
+exit:
+jmp returnhere
+
+focus_p:
+dd 0
+
+focus_c:
+dd 1
+
+focus_t:
+dd 40790000
+
+timer_p:
+dd 0
+
+timer_c:
+dd 0
+
+timer_t:
+dd 40A00000
+
+focus_aob: //"CastlevaniaLoSUE.exe"+57FE5F:
+focus_jmp:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+focus_jmp:
+db 89 51 04 8B 50 08
+unregistersymbol(focus_jmp)
+unregistersymbol(focus_p)
+unregistersymbol(focus_c)
+unregistersymbol(focus_t)
+unregistersymbol(timer_p)
+unregistersymbol(timer_c)
+unregistersymbol(timer_t)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"inf_focus // 1=on 0=off"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>focus_c</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"focus"</Description>
+          <VariableType>Float</VariableType>
+          <Address>focus_p</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"inf_time // 1=on 0=off"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>timer_c</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>51</ID>
+          <Description>"time"</Description>
+          <VariableType>Float</VariableType>
+          <Address>timer_p</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>38</ID>
+      <Description>"inf_items/xp"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+aobscan(xp_aob,89 51 2C 5B C2 0C 00)
+label(xp_jmp)
+registersymbol(xp_jmp)
+label(xp)
+label(daggers)
+label(darkcrystal)
+label(holywater)
+label(xp_p)
+registersymbol(xp_p)
+label(daggers_p)
+registersymbol(daggers_p)
+label(daggers_t)
+registersymbol(daggers_t)
+label(darkcrystal_p)
+registersymbol(darkcrystal_p)
+label(darkcrystal_t)
+registersymbol(darkcrystal_t)
+label(holywater_t)
+registersymbol(holywater_t)
+label(holywater_p)
+registersymbol(holywater_p)
+
+newmem:
+
+xp:
+cmp [ecx+8c],(int)67
+jne short daggers
+mov [xp_p],ecx
+
+daggers:
+cmp [ecx+a8],(int)512
+jne short darkcrystal
+mov [daggers_p],ecx
+cmp edx,[daggers_t]
+jge short darkcrystal
+mov edx,[daggers_t]
+
+darkcrystal:
+cmp [ecx+90],(int)1792
+jne short holywater
+mov [darkcrystal_p],ecx
+cmp edx,[darkcrystal_t]
+jge holywater
+mov edx,[darkcrystal_t]
+
+holywater:
+cmp [ecx+60],(int)1792
+jne short originalcode
+mov [holywater_p],ecx
+cmp edx,[holywater_t]
+jge short originalcode
+mov edx,[holywater_t]
+
+originalcode:
+mov [ecx+2C],edx
+pop ebx
+ret 000C
+
+exit:
+jmp returnhere
+
+xp_p:
+dd 0
+
+daggers_p:
+dd 0
+
+daggers_t:
+dd 63
+
+darkcrystal_p:
+dd 0
+
+darkcrystal_t:
+dd 4
+
+holywater_p:
+dd 0
+
+holywater_t:
+dd 63
+
+xp_aob: //"CastlevaniaLoSUE.exe"+3A9CF:
+xp_jmp:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+xp_jmp:
+db 89 51 2C 5B C2 0C 00
+unregistersymbol(xp_jmp)
+unregistersymbol(xp_p)
+unregistersymbol(daggers_p)
+unregistersymbol(daggers_t)
+unregistersymbol(darkcrystal_p)
+unregistersymbol(darkcrystal_t)
+unregistersymbol(holywater_p)
+unregistersymbol(holywater_t)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"expirience"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>xp_p</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>58</ID>
+          <Description>"daggers - current"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>daggers_p</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>40</ID>
+          <Description>"daggers - threshold"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>daggers_t</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"dark cystal pieces - current"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>darkcrystal_p</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"dark crystal pieces - threshold"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>darkcrystal_t</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"holy water flasks - current"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>holywater_p</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>46</ID>
+          <Description>"holy water flasks - threshold"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>holywater_t</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13509</ID>
+      <Description>"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11207</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>62</ID>
+      <Description>"&lt;========= Debug and Testing Information ============="</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13186</ID>
+          <Description>"&gt;&gt;&gt;&gt;&gt; Camera Addresses [Page Dn] - normal gameplay camera structure"</Description>
+          <LastState/>
+          <Color>000000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],esi
+//mov [esi+000000E8],eax
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pCamera:
+dd 0
+//
+
+
+//x-axis
+"castlevanialosue.exe"+9BDD6:
+jmp newmem
+nop
+//z-axis
+"castlevanialosue.exe"+9BDE2:
+db 90 90 90 90 90 90
+//y-axis
+"castlevanialosue.exe"+9BDEE:
+db 90 90 90 90 90 90
+//roty
+"castlevanialosue.exe"+9BDFA:
+db 90 90 90 90 90 90
+//rotx
+"castlevanialosue.exe"+9BE06:
+db 90 90 90 90 90 90
+//tilt
+"castlevanialosue.exe"+9BE12:
+db 90 90 90 90 90 90
+//FOV
+//"castlevanialosue.exe"+9BDCA:
+//db 90 90 90 90 90 90
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+
+//x-axis
+"castlevanialosue.exe"+9BDD6:
+mov [esi+000000E8],eax
+//z-axis
+"castlevanialosue.exe"+9BDE2:
+mov [esi+000000EC],ecx
+//y-axis
+"castlevanialosue.exe"+9BDEE:
+mov [esi+000000F0],edx
+//roty
+"castlevanialosue.exe"+9BDFA:
+mov [esi+000000F4],eax
+//rotx
+"castlevanialosue.exe"+9BE06:
+mov [esi+000000F8],ecx
+//tilt
+"castlevanialosue.exe"+9BE12:
+mov [esi+000000FC],edx
+//FOV
+//"castlevanialosue.exe"+9BDCA:
+//fstp dword ptr [esi+00000114]
+
+unregistersymbol(pCamera)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "castlevanialosue.exe"+9BDE2
+
+"castlevanialosue.exe"+9BDA6: D9 9E 14 03 00 00  -  fstp dword ptr [esi+00000314]
+"castlevanialosue.exe"+9BDAC: D9 86 E4 02 00 00  -  fld dword ptr [esi+000002E4]
+"castlevanialosue.exe"+9BDB2: D9 9E 10 01 00 00  -  fstp dword ptr [esi+00000110]
+"castlevanialosue.exe"+9BDB8: D9 86 E8 02 00 00  -  fld dword ptr [esi+000002E8]
+"castlevanialosue.exe"+9BDBE: D9 9E 0C 01 00 00  -  fstp dword ptr [esi+0000010C]
+"castlevanialosue.exe"+9BDC4: D9 86 EC 02 00 00  -  fld dword ptr [esi+000002EC]
+"castlevanialosue.exe"+9BDCA: D9 9E 14 01 00 00  -  fstp dword ptr [esi+00000114]
+"castlevanialosue.exe"+9BDD0: 8B 86 D8 02 00 00  -  mov eax,[esi+000002D8]
+"castlevanialosue.exe"+9BDD6: 89 86 E8 00 00 00  -  mov [esi+000000E8],eax
+"castlevanialosue.exe"+9BDDC: 8B 8E DC 02 00 00  -  mov ecx,[esi+000002DC]
+// ---------- INJECTING HERE ----------
+"castlevanialosue.exe"+9BDE2: 89 8E EC 00 00 00  -  mov [esi+000000EC],ecx
+// ---------- DONE INJECTING  ----------
+"castlevanialosue.exe"+9BDE8: 8B 96 E0 02 00 00  -  mov edx,[esi+000002E0]
+"castlevanialosue.exe"+9BDEE: 89 96 F0 00 00 00  -  mov [esi+000000F0],edx
+"castlevanialosue.exe"+9BDF4: 8B 86 CC 02 00 00  -  mov eax,[esi+000002CC]
+"castlevanialosue.exe"+9BDFA: 89 86 F4 00 00 00  -  mov [esi+000000F4],eax
+"castlevanialosue.exe"+9BE00: 8B 8E D0 02 00 00  -  mov ecx,[esi+000002D0]
+"castlevanialosue.exe"+9BE06: 89 8E F8 00 00 00  -  mov [esi+000000F8],ecx
+"castlevanialosue.exe"+9BE0C: 8B 96 D4 02 00 00  -  mov edx,[esi+000002D4]
+"castlevanialosue.exe"+9BE12: 89 96 FC 00 00 00  -  mov [esi+000000FC],edx
+"castlevanialosue.exe"+9BE18: 5E                 -  pop esi
+"castlevanialosue.exe"+9BE19: 83 C4 20           -  add esp,20
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10268</ID>
+          <Description>"&gt;&gt;&gt;&gt;&gt; Game Speed [F5] - old script"</Description>
+          <LastState/>
+          <Color>000000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+
+label(gameSpeed)
+registersymbol(gameSpeed)
+
+newmem:
+mov [gameSpeed],ecx
+fst dword ptr [ecx+30]
+fstp dword ptr [ecx+34]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+gameSpeed:
+dd 0
+///
+
+"castlevanialosue.exe"+48B4D:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"castlevanialosue.exe"+48B4D:
+fst dword ptr [ecx+30]
+fstp dword ptr [ecx+34]
+unregistersymbol(gameSpeed)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "castlevanialosue.exe"+48B4D
+
+"castlevanialosue.exe"+48B3A: CC                       -  int 3
+"castlevanialosue.exe"+48B3B: CC                       -  int 3
+"castlevanialosue.exe"+48B3C: CC                       -  int 3
+"castlevanialosue.exe"+48B3D: CC                       -  int 3
+"castlevanialosue.exe"+48B3E: CC                       -  int 3
+"castlevanialosue.exe"+48B3F: CC                       -  int 3
+"castlevanialosue.exe"+48B40: 80 79 2C 00              -  cmp byte ptr [ecx+2C],00
+"castlevanialosue.exe"+48B44: 75 0D                    -  jne castlevanialosue.exe+48B53
+"castlevanialosue.exe"+48B46: D9 44 24 04              -  fld dword ptr [esp+04]
+"castlevanialosue.exe"+48B4A: D9 51 38                 -  fst dword ptr [ecx+38]
+// ---------- INJECTING HERE ----------
+"castlevanialosue.exe"+48B4D: D9 51 30                 -  fst dword ptr [ecx+30]
+"castlevanialosue.exe"+48B50: D9 59 34                 -  fstp dword ptr [ecx+34]
+// ---------- DONE INJECTING  ----------
+"castlevanialosue.exe"+48B53: C2 04 00                 -  ret 0004
+"castlevanialosue.exe"+48B56: CC                       -  int 3
+"castlevanialosue.exe"+48B57: CC                       -  int 3
+"castlevanialosue.exe"+48B58: CC                       -  int 3
+"castlevanialosue.exe"+48B59: CC                       -  int 3
+"castlevanialosue.exe"+48B5A: CC                       -  int 3
+"castlevanialosue.exe"+48B5B: CC                       -  int 3
+"castlevanialosue.exe"+48B5C: CC                       -  int 3
+"castlevanialosue.exe"+48B5D: CC                       -  int 3
+"castlevanialosue.exe"+48B5E: CC                       -  int 3
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13172</ID>
+          <Description>"static x-axis"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>00E73B5C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13165</ID>
+          <Description>"static z-axis"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>castlevanialosue.exe+A73B60</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13173</ID>
+          <Description>"static y-axis"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>00E73B64</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>61</ID>
+          <Description>"menu 0, normal 1"</Description>
+          <VariableType>Float</VariableType>
+          <Address>castlevanialosue.exe+9BC830</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63</ID>
+          <Description>"0.4 slowmo"</Description>
+          <VariableType>Float</VariableType>
+          <Address>castlevanialosue.exe+9BC83C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64</ID>
+          <Description>"0.4 slowmo"</Description>
+          <VariableType>Float</VariableType>
+          <Address>castlevanialosue.exe+9BC840</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65</ID>
+          <Description>"No description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>19513340</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"====================================="</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13208</ID>
+          <Description>"pause"</Description>
+          <VariableType>Float</VariableType>
+          <Address>22065C88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13195</ID>
+          <Description>"fov"</Description>
+          <VariableType>Float</VariableType>
+          <Address>21FA3548</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13196</ID>
+          <Description>"test time stop"</Description>
+          <VariableType>Float</VariableType>
+          <Address>1ED74E80</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>188</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>190</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13197</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>1FE1CB10</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13198</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>0018FE54</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13199</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>0018FE10</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13507</ID>
+          <Description>"No description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>1D23C780</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13510</ID>
+          <Description>"text hud?"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>00DB1CCC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13512</ID>
+          <Description>"shadow magic"</Description>
+          <VariableType>Float</VariableType>
+          <Address>00E2FF44</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13513</ID>
+          <Description>"powercrystals"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>00E2D17C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13514</ID>
+          <Description>"No Description"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>00E2D17C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13515</ID>
+          <Description>"near powercrystal - changes on enter menu"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>4 Bytes</VariableType>
+          <Address>00E2D3AB</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13516</ID>
+          <Description>"No description"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>00E2D608</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13517</ID>
+          <Description>"No description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>castlevanialosue.exe+9BC82C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13518</ID>
+          <Description>"====================="</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22829</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>1D409A80</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22830</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>1D409A88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22831</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>1FF0A9F0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22833</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+"castlevanialosue.exe"+488A0:
+ret 0004
+
+[DISABLE]
+"castlevanialosue.exe"+488A0:
+mov eax,[esp+04]
+//fld dword ptr [eax+1C]
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "castlevanialosue.exe"+488A0
+
+"castlevanialosue.exe"+48896: CC                       -  int 3 
+"castlevanialosue.exe"+48897: CC                       -  int 3 
+"castlevanialosue.exe"+48898: CC                       -  int 3 
+"castlevanialosue.exe"+48899: CC                       -  int 3 
+"castlevanialosue.exe"+4889A: CC                       -  int 3 
+"castlevanialosue.exe"+4889B: CC                       -  int 3 
+"castlevanialosue.exe"+4889C: CC                       -  int 3 
+"castlevanialosue.exe"+4889D: CC                       -  int 3 
+"castlevanialosue.exe"+4889E: CC                       -  int 3 
+"castlevanialosue.exe"+4889F: CC                       -  int 3 
+// ---------- INJECTING HERE ----------
+"castlevanialosue.exe"+488A0: 8B 44 24 04              -  mov eax,[esp+04]
+"castlevanialosue.exe"+488A4: D9 40 1C                 -  fld dword ptr [eax+1C]
+// ---------- DONE INJECTING  ----------
+"castlevanialosue.exe"+488A7: D9 59 1C                 -  fstp dword ptr [ecx+1C]
+"castlevanialosue.exe"+488AA: D9 40 20                 -  fld dword ptr [eax+20]
+"castlevanialosue.exe"+488AD: D9 59 20                 -  fstp dword ptr [ecx+20]
+"castlevanialosue.exe"+488B0: D9 40 24                 -  fld dword ptr [eax+24]
+"castlevanialosue.exe"+488B3: D9 59 24                 -  fstp dword ptr [ecx+24]
+"castlevanialosue.exe"+488B6: D9 40 28                 -  fld dword ptr [eax+28]
+"castlevanialosue.exe"+488B9: D9 59 28                 -  fstp dword ptr [ecx+28]
+"castlevanialosue.exe"+488BC: 8A 50 2C                 -  mov dl,[eax+2C]
+"castlevanialosue.exe"+488BF: 88 51 2C                 -  mov [ecx+2C],dl
+"castlevanialosue.exe"+488C2: D9 40 30                 -  fld dword ptr [eax+30]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>hp :mov [ecx+00000488],edx</Description>
+      <Address>0007BDEC</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>7BDEC</ModuleNameOffset>
+      <Before>
+        <Byte>9C</Byte>
+        <Byte>C2</Byte>
+        <Byte>4A</Byte>
+        <Byte>23</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>91</Byte>
+        <Byte>88</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>C3</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>xp :mov [ecx+2C],edx</Description>
+      <Address>0043A9CF</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>3A9CF</ModuleNameOffset>
+      <Before>
+        <Byte>14</Byte>
+        <Byte>8B</Byte>
+        <Byte>12</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>5B</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>energy :fstp dword ptr [ecx+2C]</Description>
+      <Address>0043AE11</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>3AE11</ModuleNameOffset>
+      <Before>
+        <Byte>14</Byte>
+        <Byte>DD</Byte>
+        <Byte>02</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>5B</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>hp :fild dword ptr [esi+00000488]</Description>
+      <Address>005395CB</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>1395CB</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>1C</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>86</Byte>
+        <Byte>88</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>17</Byte>
+        <Byte>7E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>ml :fld dword ptr [00E2BD6C]</Description>
+      <Address>00534D84</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>134D84</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>BC</Byte>
+        <Byte>D8</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+        <Byte>6C</Byte>
+        <Byte>BD</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>ms :fld dword ptr [00E2EF0C]</Description>
+      <Address>00534D8D</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>134D8D</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+        <Byte>0C</Byte>
+        <Byte>EF</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>1F</Byte>
+        <Byte>7E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[eax+2C]</Description>
+      <Address>0053EF5E</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>13EF5E</ModuleNameOffset>
+      <Before>
+        <Byte>78</Byte>
+        <Byte>29</Byte>
+        <Byte>02</Byte>
+        <Byte>75</Byte>
+        <Byte>0B</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>0C</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>focus :mov [ecx+04],edx</Description>
+      <Address>0097FE5F</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>57FE5F</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>11</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>focus :mov edx,[ebp+04]</Description>
+      <Address>0097FD54</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>57FD54</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>24</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>fairies :mov eax,[CastlevaniaLoSUE.exe+A2F3BC]</Description>
+      <Address>00539138</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>139138</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>98</Byte>
+        <Byte>FA</Byte>
+        <Byte>2E</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>A1</Byte>
+        <Byte>BC</Byte>
+        <Byte>F3</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>3B</Byte>
+        <Byte>87</Byte>
+        <Byte>A0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>fairies :mov ecx,[CastlevaniaLoSUE.exe+A2F3BC]</Description>
+      <Address>00539184</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>139184</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>9C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>BC</Byte>
+        <Byte>F3</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>8F</Byte>
+        <Byte>A0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :dec [eax+00000090]</Description>
+      <Address>006F273C</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>2F273C</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>E8</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4E</Byte>
+        <Byte>1C</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :inc [eax+00000090]</Description>
+      <Address>006F24DC</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>2F24DC</ModuleNameOffset>
+      <Before>
+        <Byte>C6</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>80</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+        <Byte>10</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :inc [esi+04]</Description>
+      <Address>005DB893</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>1DB893</ModuleNameOffset>
+      <Before>
+        <Byte>56</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :add dword ptr [esi+04],-01</Description>
+      <Address>005DBE4A</Address>
+      <ModuleName>CastlevaniaLoSUE.exe</ModuleName>
+      <ModuleNameOffset>1DBE4A</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>06</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30] - time (0-1)</Description>
+      <Address>00448B4D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B4D</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+30]</Description>
+      <Address>00448B69</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B69</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+        <Byte>D9</Byte>
+        <Byte>EE</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+30]</Description>
+      <Address>004488C2</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C2</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>2C</Byte>
+        <Byte>88</Byte>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fmul dword ptr [ecx+30]</Description>
+      <Address>00448BFB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48BFB</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>1C</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>49</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>28</Byte>
+        <Byte>75</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004488C5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C5</ModuleNameOffset>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+04] - camz1</Description>
+      <Address>0047D705</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>7D705</ModuleNameOffset>
+      <Before>
+        <Byte>A6</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>A6</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[esi+00000098]</Description>
+      <Address>004C98AC</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C98AC</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8E</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>96</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fadd dword ptr [edi+04]</Description>
+      <Address>004C9923</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C9923</ModuleNameOffset>
+      <Before>
+        <Byte>CB</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>5F</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [edi+04]</Description>
+      <Address>004C9926</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C9926</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>5F</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+        <Byte>D8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fsubr dword ptr [ebp+04]</Description>
+      <Address>004C767F</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C767F</ModuleNameOffset>
+      <Before>
+        <Byte>34</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>6D</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>1C</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fadd dword ptr [ebp+04]</Description>
+      <Address>004C7CD6</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C7CD6</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>5D</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>45</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>5D</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ebp+04]</Description>
+      <Address>004C7CD9</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C7CD9</ModuleNameOffset>
+      <Before>
+        <Byte>5D</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>45</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>5D</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+        <Byte>DE</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [esi+00000098]</Description>
+      <Address>004C922F</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C922F</ModuleNameOffset>
+      <Before>
+        <Byte>9E</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>86</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>DE</Byte>
+        <Byte>C2</Byte>
+        <Byte>D9</Byte>
+        <Byte>C9</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+00000098]</Description>
+      <Address>004C9239</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C9239</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>DE</Byte>
+        <Byte>C2</Byte>
+        <Byte>D9</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>9E</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>86</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fsub dword ptr [edi+04]</Description>
+      <Address>004C99FB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C99FB</ModuleNameOffset>
+      <Before>
+        <Byte>D8</Byte>
+        <Byte>27</Byte>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>67</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+        <Byte>D8</Byte>
+        <Byte>67</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fadd dword ptr [eax+04]</Description>
+      <Address>007AF4AA</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AF4AA</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>42</Byte>
+        <Byte>04</Byte>
+        <Byte>6A</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fadd dword ptr [eax+04]</Description>
+      <Address>007AF4BE</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AF4BE</ModuleNameOffset>
+      <Before>
+        <Byte>D8</Byte>
+        <Byte>02</Byte>
+        <Byte>D9</Byte>
+        <Byte>42</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+04],eax</Description>
+      <Address>004C9B44</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>C9B44</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>17</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+04]</Description>
+      <Address>004CA3E4</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>CA3E4</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D8</Byte>
+        <Byte>23</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>63</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[esi+00000098]</Description>
+      <Address>004BF67A</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>BF67A</ModuleNameOffset>
+      <Before>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+        <Byte>52</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>96</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ebx+04]</Description>
+      <Address>004B2FB4</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>B2FB4</ModuleNameOffset>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>3C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>4B</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>40</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fcomp dword ptr [ecx+00000098]</Description>
+      <Address>0046CAB4</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>6CAB4</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>99</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>DF</Byte>
+        <Byte>E0</Byte>
+        <Byte>F6</Byte>
+        <Byte>C4</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+00000098]</Description>
+      <Address>0046CAE4</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>6CAE4</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>44</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>81</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>48</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+00000098]</Description>
+      <Address>00473918</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>73918</ModuleNameOffset>
+      <Before>
+        <Byte>96</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[ecx+00000098]</Description>
+      <Address>00463A7C</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>63A7C</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>91</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>89</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+04]</Description>
+      <Address>007AB0FE</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AB0FE</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>87</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>66</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>E1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+04]</Description>
+      <Address>007AB190</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AB190</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>89</Byte>
+        <Byte>38</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+04]</Description>
+      <Address>0079551C</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>39551C</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>D4</Byte>
+        <Byte>8C</Byte>
+        <Byte>1F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>66</Byte>
+        <Byte>04</Byte>
+        <Byte>8B</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+00000098]</Description>
+      <Address>00473A27</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>73A27</ModuleNameOffset>
+      <Before>
+        <Byte>96</Byte>
+        <Byte>94</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000009 - camz2</Description>
+      <Address>0049AE96</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9AE96</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>51</Byte>
+        <Byte>8B</Byte>
+        <Byte>CD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+10],edx</Description>
+      <Address>0049BBB9</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BBB9</ModuleNameOffset>
+      <Before>
+        <Byte>4E</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>56</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+0C],ecx - camy</Description>
+      <Address>0049BBB3</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BBB3</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>D2</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>4E</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000009</Description>
+      <Address>0049AE96</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9AE96</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>51</Byte>
+        <Byte>8B</Byte>
+        <Byte>CD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+14],eax - camx</Description>
+      <Address>0049BBBF</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BBBF</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>46</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>87</Byte>
+        <Byte>04</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,00000009</Description>
+      <Address>0049AE96</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9AE96</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>51</Byte>
+        <Byte>8B</Byte>
+        <Byte>CD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[eax+08]</Description>
+      <Address>0049BBBC</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BBBC</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>56</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>14</Byte>
+        <Byte>D9</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [castlevanialosue.exe+A73B60],edx- static z</Description>
+      <Address>00832F4D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>432F4D</ModuleNameOffset>
+      <Before>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>56</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>15</Byte>
+        <Byte>60</Byte>
+        <Byte>3B</Byte>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>5C</Byte>
+        <Byte>A3</Byte>
+        <Byte>64</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [castlevanialosue.exe+A73B60],eax</Description>
+      <Address>008333B3</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4333B3</ModuleNameOffset>
+      <Before>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>60</Byte>
+        <Byte>3B</Byte>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4E</Byte>
+        <Byte>5C</Byte>
+        <Byte>89</Byte>
+        <Byte>0D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [castlevanialosue.exe+A73B5C],ecx - statix x</Description>
+      <Address>00832F44</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>432F44</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>4E</Byte>
+        <Byte>54</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>0D</Byte>
+        <Byte>5C</Byte>
+        <Byte>3B</Byte>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>56</Byte>
+        <Byte>58</Byte>
+        <Byte>89</Byte>
+        <Byte>15</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [castlevanialosue.exe+A73B5C],edx</Description>
+      <Address>008333AA</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4333AA</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>56</Byte>
+        <Byte>54</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>15</Byte>
+        <Byte>5C</Byte>
+        <Byte>3B</Byte>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>58</Byte>
+        <Byte>A3</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000EC],ecx - writes to camera z-axis</Description>
+      <Address>0049BDE2</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BDE2</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>DC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8E</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>96</Byte>
+        <Byte>E0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[ebx+04]</Description>
+      <Address>0083F8D2</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8D2</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>0B</Byte>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>53</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000E8],eax - writes x-axis</Description>
+      <Address>0049BDD6</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BDD6</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>D8</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>86</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+        <Byte>DC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ebx]</Description>
+      <Address>0083F8CD</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8CD</ModuleNameOffset>
+      <Before>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0B</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>14</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000F0],edx - writes y-axis</Description>
+      <Address>0049BDEE</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BDEE</ModuleNameOffset>
+      <Before>
+        <Byte>96</Byte>
+        <Byte>E0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>96</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>CC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ebx+08]</Description>
+      <Address>0083F8D8</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8D8</ModuleNameOffset>
+      <Before>
+        <Byte>53</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>4B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>1C</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp byte ptr [ecx+000000E6],00 - tilt?</Description>
+      <Address>0079F543</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>39F543</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>4A</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>B9</Byte>
+        <Byte>E6</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>26</Byte>
+        <Byte>8B</Byte>
+        <Byte>77</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000F4],eax - write roty</Description>
+      <Address>0049BDFA</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BDFA</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>CC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>86</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+        <Byte>D0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000F4],edx</Description>
+      <Address>0049C0AA</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9C0AA</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>D4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>96</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000F8],ecx - write rotx</Description>
+      <Address>0049BE06</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BE06</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>D0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8E</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>96</Byte>
+        <Byte>D4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+000000FC],edx - write tilt</Description>
+      <Address>0049BE12</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BE12</ModuleNameOffset>
+      <Before>
+        <Byte>96</Byte>
+        <Byte>D4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>96</Byte>
+        <Byte>FC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+00000114] - write fov?</Description>
+      <Address>0049BDCA</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>9BDCA</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>EC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>9E</Byte>
+        <Byte>14</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>D8</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+30] - time</Description>
+      <Address>00448B69</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B69</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+        <Byte>D9</Byte>
+        <Byte>EE</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fmul dword ptr [ecx+30]</Description>
+      <Address>00448BFB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48BFB</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>1C</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>49</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>28</Byte>
+        <Byte>75</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30] - writes cutscene time  &lt;&lt;&lt;&lt;&lt;</Description>
+      <Address>0044898D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4898D</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>38</Byte>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>34</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>DD</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30]</Description>
+      <Address>02C20006</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>16</Byte>
+        <Byte>00</Byte>
+        <Byte>C2</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>E9</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004488C5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C5</ModuleNameOffset>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004489B2</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>489B2</ModuleNameOffset>
+      <Before>
+        <Byte>34</Byte>
+        <Byte>DE</Byte>
+        <Byte>CA</Byte>
+        <Byte>DE</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>DD</Byte>
+        <Byte>D8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+30] -cutscene time 2</Description>
+      <Address>00448B69</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B69</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+        <Byte>D9</Byte>
+        <Byte>EE</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+30]</Description>
+      <Address>004488C2</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C2</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>2C</Byte>
+        <Byte>88</Byte>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fmul dword ptr [ecx+30]</Description>
+      <Address>00448BFB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48BFB</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>1C</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>49</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>28</Byte>
+        <Byte>75</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004488C5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C5</ModuleNameOffset>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+18],edx - cutscene z1 - Main Camera Struc?  &lt;&lt;&lt;&lt;&lt;&lt;</Description>
+      <Address>0083F8D5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8D5</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>14</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ecx+04],edx - cutscene z2</Description>
+      <Address>008C209F</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4C209F</ModuleNameOffset>
+      <Before>
+        <Byte>18</Byte>
+        <Byte>89</Byte>
+        <Byte>7E</Byte>
+        <Byte>68</Byte>
+        <Byte>5F</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>51</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>5E</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+04],edx - cutscene z3</Description>
+      <Address>004C8FE6</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>A10E5</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+14],ecx - main cam x</Description>
+      <Address>0083F8CF</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8CF</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>8B</Byte>
+        <Byte>0B</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>04</Byte>
+        <Byte>E9</Byte>
+        <Byte>26</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+1C],ecx - main cam y</Description>
+      <Address>0083F8DB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8DB</ModuleNameOffset>
+      <Before>
+        <Byte>26</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>0C</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>0C</Byte>
+        <Byte>83</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+08],edx - main cam roty</Description>
+      <Address>0083F8E7</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8E7</ModuleNameOffset>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>14</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+0C],ecx - main cam rotx</Description>
+      <Address>0083F8ED</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8ED</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>14</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+10],edx - main cam tilt</Description>
+      <Address>0083F8F3</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F8F3</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>18</Byte>
+        <Byte>83</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [edx+40] - AR? 1.77</Description>
+      <Address>0083F935</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F935</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>E0</Byte>
+        <Byte>55</Byte>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>5A</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [eax+40]</Description>
+      <Address>0083F9AB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F9AB</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>7A</Byte>
+        <Byte>2B</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>50</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>D8</Byte>
+        <Byte>3D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+3C] - FOV  default=1.40</Description>
+      <Address>0083F929</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F929</ModuleNameOffset>
+      <Before>
+        <Byte>4B</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax+44] - AR2? 1.33</Description>
+      <Address>0083F93E</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F93E</ModuleNameOffset>
+      <Before>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>44</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [castlevanialosue.exe+A2E2C4],00000000 - writes to health bar hud</Description>
+      <Address>0053941E</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>13941E</ModuleNameOffset>
+      <Before>
+        <Byte>97</Byte>
+        <Byte>BC</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>05</Byte>
+        <Byte>C4</Byte>
+        <Byte>E2</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C6</Byte>
+        <Byte>87</Byte>
+        <Byte>D3</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ecx+2C] - Experience Points</Description>
+      <Address>0043AA46</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AA46</ModuleNameOffset>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>5B</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+        <Byte>5F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fild dword ptr [esi+2C]</Description>
+      <Address>0070DA44</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>30DA44</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>5F</Byte>
+        <Byte>59</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>DB</Byte>
+        <Byte>46</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>08</Byte>
+        <Byte>DD</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+00000174],eax - writes resolution?</Description>
+      <Address>5A8CA733</Address>
+      <ModuleName>gameoverlayrenderer.dll</ModuleName>
+      <ModuleNameOffset>6A733</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>FC</Byte>
+        <Byte>5B</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>87</Byte>
+        <Byte>74</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>8B</Byte>
+        <Byte>E5</Byte>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+00000174],eax</Description>
+      <Address>5A8CA794</Address>
+      <ModuleName>gameoverlayrenderer.dll</ModuleName>
+      <ModuleNameOffset>6A794</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>74</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>8B</Byte>
+        <Byte>E5</Byte>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[castlevanialosue.exe+9B1C1C] - HUD (0,5,3)</Description>
+      <Address>00452E90</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>52E90</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>1C</Byte>
+        <Byte>1C</Byte>
+        <Byte>DB</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [castlevanialosue.exe+9B1C1C],eax</Description>
+      <Address>00454C8B</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>54C8B</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>1C</Byte>
+        <Byte>1C</Byte>
+        <Byte>DB</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+        <Byte>74</Byte>
+        <Byte>10</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [edx+40] - AR (default=1.7777)</Description>
+      <Address>0083F935</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F935</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>E0</Byte>
+        <Byte>55</Byte>
+        <Byte>E7</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>5A</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [eax+40]</Description>
+      <Address>0083F9AB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>43F9AB</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>7A</Byte>
+        <Byte>2B</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>50</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+        <Byte>D8</Byte>
+        <Byte>3D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [edx+40]</Description>
+      <Address>0C580006</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>58</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5A</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [castlevanialosue.exe+A2FF44] - shadow magic</Description>
+      <Address>0053E8AA</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>13E8AA</ModuleNameOffset>
+      <Before>
+        <Byte>9E</Byte>
+        <Byte>74</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+        <Byte>44</Byte>
+        <Byte>FF</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+        <Byte>7C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fcomp dword ptr [castlevanialosue.exe+A2FF44]</Description>
+      <Address>005394A1</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>1394A1</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>F4</Byte>
+        <Byte>E8</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>1D</Byte>
+        <Byte>44</Byte>
+        <Byte>FF</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>DF</Byte>
+        <Byte>E0</Byte>
+        <Byte>F6</Byte>
+        <Byte>C4</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [castlevanialosue.exe+A2FF44]</Description>
+      <Address>00534E8D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>134E8D</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>05</Byte>
+        <Byte>44</Byte>
+        <Byte>FF</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>1F</Byte>
+        <Byte>7E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+2C]</Description>
+      <Address>0043AE88</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AE88</ModuleNameOffset>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>5B</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+        <Byte>5F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+2C] - write shadow magic</Description>
+      <Address>0043AE81</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>3AE81</ModuleNameOffset>
+      <Before>
+        <Byte>14</Byte>
+        <Byte>DD</Byte>
+        <Byte>02</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>5B</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[castlevanialosue.exe+A2D17C] - powercrystals</Description>
+      <Address>005392DB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>1392DB</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>90</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>A1</Byte>
+        <Byte>7C</Byte>
+        <Byte>D1</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>3B</Byte>
+        <Byte>87</Byte>
+        <Byte>A4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[castlevanialosue.exe+A2D17C]</Description>
+      <Address>00539320</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>139320</ModuleNameOffset>
+      <Before>
+        <Byte>8F</Byte>
+        <Byte>A0</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>15</Byte>
+        <Byte>7C</Byte>
+        <Byte>D1</Byte>
+        <Byte>E2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>97</Byte>
+        <Byte>A4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [castlevanialosue.exe+9BC82C] - writes to sound ramp up?</Description>
+      <Address>00841DBB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>441DBB</ModuleNameOffset>
+      <Before>
+        <Byte>C6</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>1D</Byte>
+        <Byte>2C</Byte>
+        <Byte>C8</Byte>
+        <Byte>DB</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>80</Byte>
+        <Byte>3D</Byte>
+        <Byte>7D</Byte>
+        <Byte>69</Byte>
+        <Byte>E7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx]</Description>
+      <Address>0044A42A</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4A42A</ModuleNameOffset>
+      <Before>
+        <Byte>07</Byte>
+        <Byte>DD</Byte>
+        <Byte>DA</Byte>
+        <Byte>DD</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>DD</Byte>
+        <Byte>D8</Byte>
+        <Byte>D8</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx]</Description>
+      <Address>0044A43C</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4A43C</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>7A</Byte>
+        <Byte>EE</Byte>
+        <Byte>DD</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>DD</Byte>
+        <Byte>D8</Byte>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups xmm0,[ecx] - shaders 1.0f</Description>
+      <Address>5E4B7B04</Address>
+      <ModuleName>nvd3dum.dll</ModuleName>
+      <ModuleNameOffset>747B04</ModuleNameOffset>
+      <Before>
+        <Byte>18</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>04</Byte>
+        <Byte>0E</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp eax,[edx]</Description>
+      <Address>5E4B7032</Address>
+      <ModuleName>nvd3dum.dll</ModuleName>
+      <ModuleNameOffset>747032</ModuleNameOffset>
+      <Before>
+        <Byte>8D</Byte>
+        <Byte>49</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>3B</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>19</Byte>
+        <Byte>83</Byte>
+        <Byte>C1</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups xmm0,[ecx]</Description>
+      <Address>5E4B7390</Address>
+      <ModuleName>nvd3dum.dll</ModuleName>
+      <ModuleNameOffset>747390</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>52</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fmul dword ptr [edi+14] - float transparent for hud text element</Description>
+      <Address>00894CB9</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>494CB9</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>4F</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>DA</Byte>
+        <Byte>8C</Byte>
+        <Byte>24</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax+14],edx - writes to ^</Description>
+      <Address>0082919E</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>42919E</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>56</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>46</Byte>
+        <Byte>18</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ecx+14],edx</Description>
+      <Address>008932EE</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>4932EE</ModuleNameOffset>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>24</Byte>
+        <Byte>D9</Byte>
+        <Byte>14</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>C9</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30] - write time</Description>
+      <Address>00448B4D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B4D</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004488C5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C5</ModuleNameOffset>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30]</Description>
+      <Address>00448C92</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48C92</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30] - writes gamespeed when damage</Description>
+      <Address>00448C92</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48C92</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+30] - reads gamespeed</Description>
+      <Address>00448CB4</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48CB4</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>DD</Byte>
+        <Byte>18</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>5E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004488C5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C5</ModuleNameOffset>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30]</Description>
+      <Address>00448C92</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48C92</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+30] - access gametime</Description>
+      <Address>00448B69</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B69</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+        <Byte>D9</Byte>
+        <Byte>EE</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30]</Description>
+      <Address>00448B4D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B4D</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+30] &lt;--- null the function at this opcode</Description>
+      <Address>004488C2</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C2</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>2C</Byte>
+        <Byte>88</Byte>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fmul dword ptr [ecx+30]</Description>
+      <Address>00448BFB</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48BFB</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>1C</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D8</Byte>
+        <Byte>49</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>28</Byte>
+        <Byte>75</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+30]</Description>
+      <Address>004488C5</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488C5</ModuleNameOffset>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+        <Byte>CC</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>59</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+30]</Description>
+      <Address>00448CB4</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48CB4</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>DD</Byte>
+        <Byte>18</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>5E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+30]</Description>
+      <Address>00448C92</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48C92</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+38] - writes to gametime+8bytes</Description>
+      <Address>00448B4A</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48B4A</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>D9</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx+38]</Description>
+      <Address>004488D1</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>488D1</ModuleNameOffset>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>34</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>3C</Byte>
+        <Byte>D9</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fst dword ptr [ecx+38]</Description>
+      <Address>00448C8D</Address>
+      <ModuleName>castlevanialosue.exe</ModuleName>
+      <ModuleNameOffset>48C8D</ModuleNameOffset>
+      <Before>
+        <Byte>38</Byte>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+        <Byte>75</Byte>
+        <Byte>32</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>D9</Byte>
+        <Byte>51</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>xp_jmp</Name>
+      <Address>0043A9CF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>xp_p</Name>
+      <Address>036D007F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>daggers_p</Name>
+      <Address>036D0083</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>daggers_t</Name>
+      <Address>036D0087</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>darkcrystal_p</Name>
+      <Address>036D008B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>darkcrystal_t</Name>
+      <Address>036D008F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>holywater_t</Name>
+      <Address>036D0097</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>holywater_p</Name>
+      <Address>036D0093</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>sd_p</Name>
+      <Address>037F0020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>energy_p</Name>
+      <Address>012E0030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>energy1_p</Name>
+      <Address>03700000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>energy2_p</Name>
+      <Address>03700010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>hp2_jmp</Name>
+      <Address>005395CB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>check</Name>
+      <Address>03AF00A2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>check_l</Name>
+      <Address>037100A2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>check_s</Name>
+      <Address>037100A6</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>gameHUD</Name>
+      <Address>0C16000B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>hp_jmp</Name>
+      <Address>0053975B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>hp_p</Name>
+      <Address>10AE0026</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>hp_t</Name>
+      <Address>10AE002A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>energy_jmp</Name>
+      <Address>0043AE81</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>light_c</Name>
+      <Address>10AF00A1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>light_p</Name>
+      <Address>10AF00A9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>shadow_c</Name>
+      <Address>10AF00A5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>shadow_p</Name>
+      <Address>10AF00AD</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>light_t</Name>
+      <Address>10AF00B1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>shadow_t</Name>
+      <Address>10AF00B5</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>This table is for Lords of Shadow - Ultimate Edition. It adds time control and a camera with FOV and Tilt control. Not sure if these still work but I've included original Cheats by STN just in case. Details at URL below.
+http://fearlessrevolution.com/viewtopic.php?t=1329
+Screenshooting Notes
+=====================
+1. GeDoSaTo 0.21.2136 used for HUD toggle. Add below PSHash to game specific config (CastlevaniaLoSUE). 
+# HUDless
+injectPSHash b5c373cb
+2. Game can be run at NVidia DSR resolutions if the desktop is also at that same resolution before starting the game. 
+3. SRWE can also be used for resolution hotsampling. 
+4. Reshade v3.4.1 was used as the newer v4.0.2 had depth buffer issues.
+Finding HUD Addresses Methods
+==============================
+1. HUD toggle found by searching for 1.0f and whittle list down as much as possible. 
+2. Then setting to 0.0f on blocks of addresses and seeing if this set HUD to transparent. 
+3. Found one address that this removed a single HUD element and found the code that wrote to that.
+4. Found the beginning of that function and set to the Return opcode used at the end of the function which was "RET 0014".
+...
+5. Second method was to search for byte and changes when going into and out of the main menu which would change the HUD. Eventually found an address that was changing values between 0,5,3 and 3,5,0 going between main menu and game. Set value to 5 and HUD was disabled.
+</Comments>
+</CheatTable>

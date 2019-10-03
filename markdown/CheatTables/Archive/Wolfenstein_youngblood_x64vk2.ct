@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>87445</ID>
+      <Description>"Created by Idlehands88 (Big thanks to SunBeam for his Disable Restricted Mode to enable the Console)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Player"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <Color>808000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>87473</ID>
+              <Description>"Player Commands"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-26
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_GodMode,Youngblood_x64vk.exe,0F B6 87 20 00 01 00 84) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+D1681D9)
+
+registersymbol(p_god)
+label(p_god)
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [p_god],rdi
+  movzx eax,byte ptr [rdi+00010020]
+  jmp return
+
+p_god:
+dq
+
+INJECT_GodMode:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(INJECT_GodMode)
+
+[DISABLE]
+
+INJECT_GodMode:
+  db 0F B6 87 20 00 01 00
+
+unregistersymbol(p_god)
+unregistersymbol(INJECT_GodMode)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+D1681D9
+
+"Youngblood_x64vk.exe"+D1681BB: 7E 1C                       -  jle Youngblood_x64vk.exe+D1681D9
+"Youngblood_x64vk.exe"+D1681BD: 4C 89 E3                    -  mov rbx,r12
+"Youngblood_x64vk.exe"+D1681C0: 48 8B 45 08                 -  mov rax,[rbp+08]
+"Youngblood_x64vk.exe"+D1681C4: 48 8B 0C 03                 -  mov rcx,[rbx+rax]
+"Youngblood_x64vk.exe"+D1681C8: 48 8B 01                    -  mov rax,[rcx]
+"Youngblood_x64vk.exe"+D1681CB: FF 50 60                    -  call qword ptr [rax+60]
+"Youngblood_x64vk.exe"+D1681CE: FF C6                       -  inc esi
+"Youngblood_x64vk.exe"+D1681D0: 48 8D 5B 08                 -  lea rbx,[rbx+08]
+"Youngblood_x64vk.exe"+D1681D4: 3B 75 10                    -  cmp esi,[rbp+10]
+"Youngblood_x64vk.exe"+D1681D7: 7C E7                       -  jl Youngblood_x64vk.exe+D1681C0
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+D1681D9: 0F B6 87 20 00 01 00        -  movzx eax,byte ptr [rdi+00010020]
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+D1681E0: 84 C0                       -  test al,al
+"Youngblood_x64vk.exe"+D1681E2: 78 15                       -  js Youngblood_x64vk.exe+D1681F9
+"Youngblood_x64vk.exe"+D1681E4: A8 01                       -  test al,01
+"Youngblood_x64vk.exe"+D1681E6: 75 11                       -  jne Youngblood_x64vk.exe+D1681F9
+"Youngblood_x64vk.exe"+D1681E8: 48 8B 8F 30 0E 00 00        -  mov rcx,[rdi+00000E30]
+"Youngblood_x64vk.exe"+D1681EF: 48 85 C9                    -  test rcx,rcx
+"Youngblood_x64vk.exe"+D1681F2: 74 05                       -  je Youngblood_x64vk.exe+D1681F9
+"Youngblood_x64vk.exe"+D1681F4: E8 97 CE 1C F3              -  call Youngblood_x64vk.exe+335090
+"Youngblood_x64vk.exe"+D1681F9: 48 89 F9                    -  mov rcx,rdi
+"Youngblood_x64vk.exe"+D1681FC: E8 5F D1 B6 F3              -  call Youngblood_x64vk.exe+CD5360
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87474</ID>
+                  <Description>"God Mode/No Target"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF
+2:God
+16:No Target
+18:God and No Target
+</DropDownList>
+                  <VariableType>Byte</VariableType>
+                  <Address>p_god</Address>
+                  <Offsets>
+                    <Offset>10020</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>106</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>0</ID>
+                      <ActivateSound>Deactivate</ActivateSound>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>111</Key>
+                      </Keys>
+                      <Value>2</Value>
+                      <ID>1</ID>
+                      <ActivateSound>Activate</ActivateSound>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87483</ID>
+                  <Description>"No Clip (Thanks to SunBeam)"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">5:OFF
+133:ON
+85:Lower Weapon
+192:No Clip and Lower Weapon
+</DropDownList>
+                  <VariableType>Byte</VariableType>
+                  <Address>p_god</Address>
+                  <Offsets>
+                    <Offset>4F20</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>133</Value>
+                      <ID>1</ID>
+                      <ActivateSound>Activate</ActivateSound>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>5</Value>
+                      <ID>0</ID>
+                      <ActivateSound>Deactivate</ActivateSound>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87452</ID>
+              <Description>"Infinite Cloak"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-25
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_Power,Youngblood_x64vk.exe,F3 0F 10 87 3C 26 00 00 F3) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+ECD6A8)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rdi+0000263C],(Float)1
+  movss xmm0,[rdi+0000263C]
+  jmp return
+
+INJECT_Power:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(INJECT_Power)
+
+[DISABLE]
+
+INJECT_Power:
+  db F3 0F 10 87 3C 26 00 00
+
+unregistersymbol(INJECT_Power)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+ECD6A8
+
+"Youngblood_x64vk.exe"+ECD680: 48 8B 06                 -  mov rax,[rsi]
+"Youngblood_x64vk.exe"+ECD683: 45 33 C9                 -  xor r9d,r9d
+"Youngblood_x64vk.exe"+ECD686: 48 8B CE                 -  mov rcx,rsi
+"Youngblood_x64vk.exe"+ECD689: FF 90 C0 00 00 00        -  call qword ptr [rax+000000C0]
+"Youngblood_x64vk.exe"+ECD68F: 48 8B 06                 -  mov rax,[rsi]
+"Youngblood_x64vk.exe"+ECD692: 45 33 C9                 -  xor r9d,r9d
+"Youngblood_x64vk.exe"+ECD695: 48 8D 15 24 FE 16 02     -  lea rdx,[Youngblood_x64vk.exe+303D4C0]
+"Youngblood_x64vk.exe"+ECD69C: 48 8B CE                 -  mov rcx,rsi
+"Youngblood_x64vk.exe"+ECD69F: 44 38 8F FB 1B 00 00     -  cmp [rdi+00001BFB],r9l
+"Youngblood_x64vk.exe"+ECD6A6: 74 25                    -  je Youngblood_x64vk.exe+ECD6CD
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+ECD6A8: F3 0F 10 87 3C 26 00 00  -  movss xmm0,[rdi+0000263C]
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+ECD6B0: F3 41 0F 59 C1           -  mulss xmm0,xmm9
+"Youngblood_x64vk.exe"+ECD6B5: 0F 28 D0                 -  movaps xmm2,xmm0
+"Youngblood_x64vk.exe"+ECD6B8: F3 41 0F 5D D3           -  minss xmm2,xmm11
+"Youngblood_x64vk.exe"+ECD6BD: 0F 28 C7                 -  movaps xmm0,xmm7
+"Youngblood_x64vk.exe"+ECD6C0: 0F 57 C9                 -  xorps xmm1,xmm1
+"Youngblood_x64vk.exe"+ECD6C3: F3 0F 10 C8              -  movss xmm1,xmm0
+"Youngblood_x64vk.exe"+ECD6C7: F3 0F 5F D1              -  maxss xmm2,xmm1
+"Youngblood_x64vk.exe"+ECD6CB: EB 03                    -  jmp Youngblood_x64vk.exe+ECD6D0
+"Youngblood_x64vk.exe"+ECD6CD: 0F 28 D7                 -  movaps xmm2,xmm7
+"Youngblood_x64vk.exe"+ECD6D0: FF 90 C0 00 00 00        -  call qword ptr [rax+000000C0]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87488</ID>
+              <Description>"Infinite Share Lives"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-27
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_InfiniteShareLives,Youngblood_x64vk.exe,8B 48 48 89 8B 10 08 00 00) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+B067388)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+48],#3
+  mov ecx,[rax+48]
+  mov [rbx+00000810],ecx
+  jmp return
+
+INJECT_InfiniteShareLives:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(INJECT_InfiniteShareLives)
+
+[DISABLE]
+
+INJECT_InfiniteShareLives:
+  db 8B 48 48 89 8B 10 08 00 00
+
+unregistersymbol(INJECT_InfiniteShareLives)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+B067388
+
+"Youngblood_x64vk.exe"+B067366: 48 89 F9                    -  mov rcx,rdi
+"Youngblood_x64vk.exe"+B067369: 85 F6                       -  test esi,esi
+"Youngblood_x64vk.exe"+B06736B: 7E 13                       -  jle Youngblood_x64vk.exe+B067380
+"Youngblood_x64vk.exe"+B06736D: E8 3E 2F 8D F5              -  call Youngblood_x64vk.exe+93A2B0
+"Youngblood_x64vk.exe"+B067372: 48 8B 0F                    -  mov rcx,[rdi]
+"Youngblood_x64vk.exe"+B067375: 8B 51 48                    -  mov edx,[rcx+48]
+"Youngblood_x64vk.exe"+B067378: 89 93 10 08 00 00           -  mov [rbx+00000810],edx
+"Youngblood_x64vk.exe"+B06737E: EB 05                       -  jmp Youngblood_x64vk.exe+B067385
+"Youngblood_x64vk.exe"+B067380: E8 DB 2F 8D F5              -  call Youngblood_x64vk.exe+93A360
+"Youngblood_x64vk.exe"+B067385: 48 8B 07                    -  mov rax,[rdi]
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+B067388: 8B 48 48                    -  mov ecx,[rax+48]
+"Youngblood_x64vk.exe"+B06738B: 89 8B 10 08 00 00           -  mov [rbx+00000810],ecx
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+B067391: 85 C9                       -  test ecx,ecx
+"Youngblood_x64vk.exe"+B067393: 0F 89 BF 00 00 00           -  jns Youngblood_x64vk.exe+B067458
+"Youngblood_x64vk.exe"+B067399: 49 8B 0C 2F                 -  mov rcx,[r15+rbp]
+"Youngblood_x64vk.exe"+B06739D: 48 83 B9 78 40 14 00 00     -  cmp qword ptr [rcx+00144078],00
+"Youngblood_x64vk.exe"+B0673A5: 75 26                       -  jne Youngblood_x64vk.exe+B0673CD
+"Youngblood_x64vk.exe"+B0673A7: 48 8D 0D 52 B7 98 F7        -  lea rcx,[Youngblood_x64vk.exe+29F2B00]
+"Youngblood_x64vk.exe"+B0673AE: E8 0D 11 0F F6              -  call Youngblood_x64vk.exe+11584C0
+"Youngblood_x64vk.exe"+B0673B3: 48 8B 05 66 D1 FF F7        -  mov rax,[Youngblood_x64vk.exe+3064520]
+"Youngblood_x64vk.exe"+B0673BA: 48 8D 15 4F 41 65 F7        -  lea rdx,[Youngblood_x64vk.exe+26BB510]
+"Youngblood_x64vk.exe"+B0673C1: 48 8D 0D 58 D1 FF F7        -  lea rcx,[Youngblood_x64vk.exe+3064520]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87450</ID>
+              <Description>"Max/Infinite Boost Timers (Must purchase the Boost)"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-25
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_ArmorBoost,Youngblood_x64vk.exe,8B 54 0F 08 3B D0) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+EC3963)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rdi+rcx+08],#2000000000
+  mov edx,[rdi+rcx+08]
+  cmp edx,eax
+  jmp return
+
+INJECT_ArmorBoost:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT_ArmorBoost)
+
+[DISABLE]
+
+INJECT_ArmorBoost:
+  db 8B 54 0F 08 3B D0
+
+unregistersymbol(INJECT_ArmorBoost)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+EC3963
+
+"Youngblood_x64vk.exe"+EC393C: 7F 37                    -  jg Youngblood_x64vk.exe+EC3975
+"Youngblood_x64vk.exe"+EC393E: 48 8B C3                 -  mov rax,rbx
+"Youngblood_x64vk.exe"+EC3941: 48 2B C2                 -  sub rax,rdx
+"Youngblood_x64vk.exe"+EC3944: 0F 57 C9                 -  xorps xmm1,xmm1
+"Youngblood_x64vk.exe"+EC3947: F2 48 0F 2A C8           -  cvtsi2sd xmm1,rax
+"Youngblood_x64vk.exe"+EC394C: F2 0F 59 CE              -  mulsd xmm1,xmm6
+"Youngblood_x64vk.exe"+EC3950: F3 0F 10 05 7C 53 11 02  -  movss xmm0,[Youngblood_x64vk.exe+2FD8CD4]
+"Youngblood_x64vk.exe"+EC3958: 0F 5A C0                 -  vcvtps2pd xmm0,xmm0
+"Youngblood_x64vk.exe"+EC395B: F2 0F 59 C8              -  mulsd xmm1,xmm0
+"Youngblood_x64vk.exe"+EC395F: F2 0F 2C C1              -  cvttsd2si eax,xmm1
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+EC3963: 8B 54 0F 08              -  mov edx,[rdi+rcx+08]
+"Youngblood_x64vk.exe"+EC3967: 3B D0                    -  cmp edx,eax
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+EC3969: 0F 8E 99 00 00 00        -  jng Youngblood_x64vk.exe+EC3A08
+"Youngblood_x64vk.exe"+EC396F: 2B D0                    -  sub edx,eax
+"Youngblood_x64vk.exe"+EC3971: 89 54 0F 08              -  mov [rdi+rcx+08],edx
+"Youngblood_x64vk.exe"+EC3975: 48 89 5C 0F 10           -  mov [rdi+rcx+10],rbx
+"Youngblood_x64vk.exe"+EC397A: 41 FF CE                 -  dec r14d
+"Youngblood_x64vk.exe"+EC397D: 48 83 EF 18              -  sub rdi,18
+"Youngblood_x64vk.exe"+EC3981: 48 83 EE 01              -  sub rsi,01
+"Youngblood_x64vk.exe"+EC3985: 79 99                    -  jns Youngblood_x64vk.exe+EC3920
+"Youngblood_x64vk.exe"+EC3987: 49 8D 8F 38 4F 00 00     -  lea rcx,[r15+00004F38]
+"Youngblood_x64vk.exe"+EC398E: 49 8B D7                 -  mov rdx,r15
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87448</ID>
+              <Description>"Max/Infinite Skill Points"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-25
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_SkillPts,Youngblood_x64vk.exe,8B 50 18 39 97 00 02 00 00) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+31CC6A)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+18],#999
+  mov edx,[rax+18]
+  cmp [rdi+00000200],edx
+  jmp return
+
+INJECT_SkillPts:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(INJECT_SkillPts)
+
+[DISABLE]
+
+INJECT_SkillPts:
+  db 8B 50 18 39 97 00 02 00 00
+
+unregistersymbol(INJECT_SkillPts)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+31CC6A
+
+"Youngblood_x64vk.exe"+31CC35: F3 0F 59 C8                 -  mulss xmm1,xmm0
+"Youngblood_x64vk.exe"+31CC39: F3 48 0F 2C C1              -  cvttss2si rax,xmm1
+"Youngblood_x64vk.exe"+31CC3E: 49 03 07                    -  add rax,[r15]
+"Youngblood_x64vk.exe"+31CC41: 48 89 87 58 02 00 00        -  mov [rdi+00000258],rax
+"Youngblood_x64vk.exe"+31CC48: 33 DB                       -  xor ebx,ebx
+"Youngblood_x64vk.exe"+31CC4A: 48 89 9F 60 02 00 00        -  mov [rdi+00000260],rbx
+"Youngblood_x64vk.exe"+31CC51: E9 F0 06 00 00              -  jmp Youngblood_x64vk.exe+31D346
+"Youngblood_x64vk.exe"+31CC56: 8B B7 04 02 00 00           -  mov esi,[rdi+00000204]
+"Youngblood_x64vk.exe"+31CC5C: 48 8B 8F F8 01 00 00        -  mov rcx,[rdi+000001F8]
+"Youngblood_x64vk.exe"+31CC63: 48 8B 81 00 F1 01 00        -  mov rax,[rcx+0001F100]
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+31CC6A: 8B 50 18                    -  mov edx,[rax+18]
+"Youngblood_x64vk.exe"+31CC6D: 39 97 00 02 00 00           -  cmp [rdi+00000200],edx
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+31CC73: 7F 22                       -  jg Youngblood_x64vk.exe+31CC97
+"Youngblood_x64vk.exe"+31CC75: E8 66 CC B9 00              -  call Youngblood_x64vk.exe+EB98E0
+"Youngblood_x64vk.exe"+31CC7A: 48 85 C0                    -  test rax,rax
+"Youngblood_x64vk.exe"+31CC7D: 75 04                       -  jne Youngblood_x64vk.exe+31CC83
+"Youngblood_x64vk.exe"+31CC7F: 33 DB                       -  xor ebx,ebx
+"Youngblood_x64vk.exe"+31CC81: EB 0C                       -  jmp Youngblood_x64vk.exe+31CC8F
+"Youngblood_x64vk.exe"+31CC83: 33 D2                       -  xor edx,edx
+"Youngblood_x64vk.exe"+31CC85: 48 8B C8                    -  mov rcx,rax
+"Youngblood_x64vk.exe"+31CC88: E8 B3 31 70 00              -  call Youngblood_x64vk.exe+A1FE40
+"Youngblood_x64vk.exe"+31CC8D: 8B D8                       -  mov ebx,eax
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87465</ID>
+              <Description>"Health on Revive"</Description>
+              <LastState Value="50" RealAddress="14303E694"/>
+              <VariableType>Float</VariableType>
+              <Address>Youngblood_x64vk.exe+303E694</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87475</ID>
+              <Description>"Double Jump Height"</Description>
+              <LastState Value="10" RealAddress="14303AC74"/>
+              <VariableType>Float</VariableType>
+              <Address>14303AC74</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87468</ID>
+              <Description>"Auto Fill Keypad Code"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF
+1:ON
+</DropDownList>
+              <LastState Value="0" RealAddress="143044A30"/>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Youngblood_x64vk.exe+3044A30</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87459</ID>
+              <Description>"Weapon"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>808000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>87502</ID>
+                  <Description>"Max All Weapon Upgrades"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-28
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_WeaponUpgrades,Youngblood_x64vk.exe,0F B6 07 88 43 31) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+EC210C)
+aobscanmodule(INJECT_WeaponUpgrades2,Youngblood_x64vk.exe,0F B6 47 FC 88 43 32) // should be unique
+alloc(newmem2,$1000,"Youngblood_x64vk.exe"+EC2112)
+aobscanmodule(INJECT_WeaponUpgrades3,Youngblood_x64vk.exe,0F B6 47 F8 88 43 30) // should be unique
+alloc(newmem3,$1000,"Youngblood_x64vk.exe"+EC2105)
+
+label(code)
+label(return)
+label(code2)
+label(return2)
+label(code3)
+label(return3)
+
+newmem:
+
+code:
+  mov byte ptr [rdi],#2
+  movzx eax,byte ptr [rdi]
+  mov [rbx+31],al
+  jmp return
+
+INJECT_WeaponUpgrades:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT_WeaponUpgrades)
+
+newmem2:
+
+code2:
+  mov byte ptr [rdi-04],#2
+  movzx eax,byte ptr [rdi-04]
+  mov [rbx+32],al
+  jmp return2
+
+INJECT_WeaponUpgrades2:
+  jmp newmem2
+  nop
+  nop
+return2:
+registersymbol(INJECT_WeaponUpgrades2)
+
+newmem3:
+
+code3:
+  mov byte ptr [rdi-08],#2
+  movzx eax,byte ptr [rdi-08]
+  mov [rbx+30],al
+  jmp return3
+
+INJECT_WeaponUpgrades3:
+  jmp newmem3
+  nop
+  nop
+return3:
+registersymbol(INJECT_WeaponUpgrades3)
+
+[DISABLE]
+
+INJECT_WeaponUpgrades:
+  db 0F B6 07 88 43 31
+INJECT_WeaponUpgrades2:
+  db 0F B6 47 FC 88 43 32
+INJECT_WeaponUpgrades3:
+  db 0F B6 47 F8 88 43 30
+
+unregistersymbol(INJECT_WeaponUpgrades)
+dealloc(newmem)
+unregistersymbol(INJECT_WeaponUpgrades2)
+dealloc(newmem2)
+unregistersymbol(INJECT_WeaponUpgrades3)
+dealloc(newmem3)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+EC210C
+
+"Youngblood_x64vk.exe"+EC20E4: 0F 1F 40 00              -  nop [rax+00]
+"Youngblood_x64vk.exe"+EC20E8: 0F 1F 84 00 00 00 00 00  -  nop [rax+rax+00000000]
+"Youngblood_x64vk.exe"+EC20F0: 49 8B 07                 -  mov rax,[r15]
+"Youngblood_x64vk.exe"+EC20F3: 48 8D 1C 06              -  lea rbx,[rsi+rax]
+"Youngblood_x64vk.exe"+EC20F7: 49 8B 16                 -  mov rdx,[r14]
+"Youngblood_x64vk.exe"+EC20FA: 48 8B 12                 -  mov rdx,[rdx]
+"Youngblood_x64vk.exe"+EC20FD: 48 8B CB                 -  mov rcx,rbx
+"Youngblood_x64vk.exe"+EC2100: E8 0B AA 26 00           -  call Youngblood_x64vk.exe+112CB10
+"Youngblood_x64vk.exe"+EC2105: 0F B6 47 F8              -  movzx eax,byte ptr [rdi-08]
+"Youngblood_x64vk.exe"+EC2109: 88 43 30                 -  mov [rbx+30],al
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+EC210C: 0F B6 07                 -  movzx eax,byte ptr [rdi]
+"Youngblood_x64vk.exe"+EC210F: 88 43 31                 -  mov [rbx+31],al
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+EC2112: 0F B6 47 FC              -  movzx eax,byte ptr [rdi-04]
+"Youngblood_x64vk.exe"+EC2116: 88 43 32                 -  mov [rbx+32],al
+"Youngblood_x64vk.exe"+EC2119: 0F B6 47 04              -  movzx eax,byte ptr [rdi+04]
+"Youngblood_x64vk.exe"+EC211D: 88 43 33                 -  mov [rbx+33],al
+"Youngblood_x64vk.exe"+EC2120: 48 83 C6 38              -  add rsi,38
+"Youngblood_x64vk.exe"+EC2124: 4D 8D 76 08              -  lea r14,[r14+08]
+"Youngblood_x64vk.exe"+EC2128: 48 8D BF A0 00 00 00     -  lea rdi,[rdi+000000A0]
+"Youngblood_x64vk.exe"+EC212F: 48 81 FE 18 01 00 00     -  cmp rsi,00000118
+"Youngblood_x64vk.exe"+EC2136: 7C B8                    -  jl Youngblood_x64vk.exe+EC20F0
+"Youngblood_x64vk.exe"+EC2138: 49 83 C4 20              -  add r12,20
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87463</ID>
+                  <Description>"Infinite Ammo"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:OFF
+1:FULL
+2:RESERVE
+</DropDownList>
+                  <LastState Value="1" RealAddress="143045F30"/>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>143045F30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87460</ID>
+                  <Description>"Damage Scale"</Description>
+                  <LastState Value="-1" RealAddress="143045CF4"/>
+                  <VariableType>Float</VariableType>
+                  <Address>143045CF4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87462</ID>
+                  <Description>"Recoil Scale"</Description>
+                  <LastState Value="1" RealAddress="143038A24"/>
+                  <VariableType>Float</VariableType>
+                  <Address>143038A24</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87461</ID>
+                  <Description>"Bullet Spread"</Description>
+                  <LastState Value="1" RealAddress="143038994"/>
+                  <VariableType>Float</VariableType>
+                  <Address>Youngblood_x64vk.exe+3038994</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87467</ID>
+          <Description>"AI"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>808000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>87466</ID>
+              <Description>"Damage Scale"</Description>
+              <LastState Value="1" RealAddress="143032304"/>
+              <VariableType>Float</VariableType>
+              <Address>Youngblood_x64vk.exe+3032304</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87471</ID>
+          <Description>"MISC"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>808000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>0</ID>
+              <Description>"Disable Restricted Mode (Enable Console Commands) - Created by SunBeam"</Description>
+              <LastState Activated="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript Async="1">{$STRICT}
+
+{$lua}
+
+if syntaxcheck then return end
+
+[ENABLE]
+
+function _readInteger( Input )
+  -- thanks, Pox!
+  local Value = readInteger( Input )
+  if Value &lt; 0x80000000 then return Value
+  else return Value - 0x100000000 end
+end
+
+function aobscanex( aob, p, a, n, s, e, pb )
+  local p, a, n, s, e = p or '*X*W', a or fsmNotAligned, n or '0', s or 0x0, e or 0xffffffffffffffff
+  local ms = pb and createMemScan( pb ) or createMemScan()
+  local fl = createFoundList( ms )
+  ms.firstScan( soExactValue, vtByteArray, nil, aob, nil, s, e, p, a, n, true, false, false, false )
+  ms.waitTillDone()
+  fl.initialize()
+  local result = nil
+  if fl ~= nil and fl.getCount() &gt; 0 then
+    result = createStringlist()
+    for i = 1, fl.getCount() do result.add( fl.getAddress( i - 1 ) ) end
+  end
+  fl.destroy()
+  ms.destroy()
+  return result
+end
+
+local gameProcess = "Youngblood_x64vk.exe"
+local gameModule = getAddress( gameProcess )
+local t = aobscanex( "8BD3498BCD4C8B05????????41FF5018", nil, nil, nil, gameModule, gameModule + getModuleSize( gameProcess ) )
+t = tonumber( t[0], 16 ) + 0x5
+t = t + _readInteger( t + 0x3 ) + 0x7 -- gets the pointer » Youngblood_x64vk.exe+3064520
+t = readQword( t )
+t = readQword( t + 0x18 ) -- reach the CheckRestrictedMode function
+if readBytes( t, 1 ) == 0xE9 then
+  t = t + _readInteger( t + 0x1 ) + 0x5
+end
+unregisterSymbol( "CheckRestrictedMode" )
+registerSymbol( "CheckRestrictedMode", t, true )
+
+autoAssemble([[
+  CheckRestrictedMode:
+  db C7 81
+  CheckRestrictedMode+6:
+  db 00 00 00 00 C3
+]])
+
+[DISABLE]
+
+autoAssemble([[
+  CheckRestrictedMode:
+  db 89 91
+  CheckRestrictedMode+6:
+  db C3 45 8D 9E BA
+
+  unregistersymbol( CheckRestrictedMode )
+]])
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87482</ID>
+              <Description>"Auto Complete Challenges"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Youngblood_x64vk.exe
+  Version: 
+  Date   : 2019-07-26
+  Author : Idlehands88
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT_Challenges,Youngblood_x64vk.exe,44 8B 47 14 48 8D 14 81) // should be unique
+alloc(newmem,$1000,"Youngblood_x64vk.exe"+B2FFAB0)
+aobscanmodule(INJECT_Challenges2,Youngblood_x64vk.exe,42 8B 44 3F 14 42 89 44 33 0C FF C5) // should be unique
+alloc(newmem2,$1000,"Youngblood_x64vk.exe"+E9EC81)
+
+label(code)
+label(return)
+label(code2)
+label(return2)
+
+newmem:
+
+code:
+  mov [rdi+14],#100000
+  mov r8d,[rdi+14]
+  lea rdx,[rcx+rax*4]
+  jmp return
+
+INJECT_Challenges:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(INJECT_Challenges)
+
+newmem2:
+
+code2:
+  mov [rdi+r15+14],#100000
+  mov eax,[rdi+r15+14]
+  jmp return2
+
+INJECT_Challenges2:
+  jmp newmem2
+return2:
+registersymbol(INJECT_Challenges2)
+
+[DISABLE]
+
+INJECT_Challenges:
+  db 44 8B 47 14 48 8D 14 81
+INJECT_Challenges2:
+  db 42 8B 44 3F 14
+
+unregistersymbol(INJECT_Challenges)
+dealloc(newmem)
+unregistersymbol(INJECT_Challenges2)
+dealloc(newmem2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Youngblood_x64vk.exe"+B2FFAB0
+
+"Youngblood_x64vk.exe"+B2FFA86: 49 8B 04 08                 -  mov rax,[r8+rcx]
+"Youngblood_x64vk.exe"+B2FFA8A: 48 3B 90 60 40 14 00        -  cmp rdx,[rax+00144060]
+"Youngblood_x64vk.exe"+B2FFA91: 75 7B                       -  jne Youngblood_x64vk.exe+B2FFB0E
+"Youngblood_x64vk.exe"+B2FFA93: 45 84 C9                    -  test r9l,r9l
+"Youngblood_x64vk.exe"+B2FFA96: 74 0A                       -  je Youngblood_x64vk.exe+B2FFAA2
+"Youngblood_x64vk.exe"+B2FFA98: 41 C1 EA 05                 -  shr r10d,05
+"Youngblood_x64vk.exe"+B2FFA9C: 41 F6 C2 01                 -  test r10l,01
+"Youngblood_x64vk.exe"+B2FFAA0: 74 6C                       -  je Youngblood_x64vk.exe+B2FFB0E
+"Youngblood_x64vk.exe"+B2FFAA2: 49 8B 8B 98 00 00 00        -  mov rcx,[r11+00000098]
+"Youngblood_x64vk.exe"+B2FFAA9: 49 63 83 A0 00 00 00        -  movsxd  rax,dword ptr [r11+000000A0]
+// ---------- INJECTING HERE ----------
+"Youngblood_x64vk.exe"+B2FFAB0: 44 8B 47 14                 -  mov r8d,[rdi+14]
+"Youngblood_x64vk.exe"+B2FFAB4: 48 8D 14 81                 -  lea rdx,[rcx+rax*4]
+// ---------- DONE INJECTING  ----------
+"Youngblood_x64vk.exe"+B2FFAB8: 44 89 C0                    -  mov eax,r8d
+"Youngblood_x64vk.exe"+B2FFABB: 48 39 D1                    -  cmp rcx,rdx
+"Youngblood_x64vk.exe"+B2FFABE: 74 16                       -  je Youngblood_x64vk.exe+B2FFAD6
+"Youngblood_x64vk.exe"+B2FFAC0: 39 19                       -  cmp [rcx],ebx
+"Youngblood_x64vk.exe"+B2FFAC2: 74 0B                       -  je Youngblood_x64vk.exe+B2FFACF
+"Youngblood_x64vk.exe"+B2FFAC4: 48 83 C1 04                 -  add rcx,04
+"Youngblood_x64vk.exe"+B2FFAC8: 48 39 D1                    -  cmp rcx,rdx
+"Youngblood_x64vk.exe"+B2FFACB: 75 F3                       -  jne Youngblood_x64vk.exe+B2FFAC0
+"Youngblood_x64vk.exe"+B2FFACD: EB 07                       -  jmp Youngblood_x64vk.exe+B2FFAD6
+"Youngblood_x64vk.exe"+B2FFACF: 41 8D 04 30                 -  lea eax,[r8+rsi]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Big thanks to SunBeam for his Disable Restricted Mode to enable the Console
+</Comments>
+</CheatTable>

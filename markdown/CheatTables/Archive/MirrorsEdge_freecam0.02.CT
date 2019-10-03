@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="21">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>133</ID>
+      <Description>"Mirror's Edge - Freecam by IDK31 v0.02 w/ additions by Erika Tschinkel"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>134</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>105</ID>
+      <Description>"&gt;&gt; CAMERA CONTROLS **"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+//"MirrorsEdge.exe"+A6FF14 -- camera stuff
+aobscanmodule(camAOB,MirrorsEdge.exe,8B 06 8B 90 18 03 00 00 8D BE)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_cam,4)
+
+newmem:
+
+code:
+  mov [_cam],esi
+  mov eax,[esi]
+  mov edx,[eax+00000318]
+  jmp return
+
+camAOB:
+  jmp code
+  nop
+  nop
+  nop
+return:
+registersymbol(camAOB)
+
+//"MirrorsEdge.exe"+B9698B -- original camera ID
+aobscanmodule(origIDAOB,MirrorsEdge.exe,CC CC CC CC CC 8B 49 04 85 C9 8B 44 24 04 74 1D 8B 91 E8 00 00 00)
+alloc(newmem2,$1000)
+
+label(code2)
+label(return2)
+
+globalalloc(_origID,4)
+
+newmem2:
+
+code2:
+  mov [_origID],ecx
+  mov edx,[ecx+000000E8]
+  jmp return2
+
+origIDAOB+10:
+  jmp code2
+  nop
+return2:
+registersymbol(origIDAOB)
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 50
+symbolCheckT.OnTimer = function(sender)
+
+  local function cambase() return readInteger("_cam") end
+  local function camDefault() return readInteger("_origID") end
+
+  local function curIDAD() return cambase()+0x4F0 end
+  local function curID() return readInteger(curIDAD()) end
+  -- local freecamID = cambase()
+
+  -- write
+  local function camXAD() return cambase()+0xE8 end -- float
+  local function camYAD() return cambase()+0xEC end -- float
+  local function camZAD() return cambase()+0xF0 end -- float
+  local function pitchAD() return cambase()+0xF4 end -- 4 byte signed
+  local function yawAD() return cambase()+0xF8 end -- 4 byte signed
+  local function rollAD() return cambase()+0xFC end -- 4 byte signed
+  local function FOVAD() return cambase()+0x1CC end -- float
+
+  -- read
+  local function r_camXAD() return cambase()+0x4F8 end -- float
+  local function r_camYAD() return cambase()+0x4FC end -- float
+  local function r_camZAD() return cambase()+0x500 end -- float
+  local function r_pitchAD() return cambase()+0x504 end -- 4 byte signed
+  local function r_yawAD() return cambase()+0x508 end -- 4 byte signed
+  local function r_rollAD() return cambase()+0x50C end -- 4 byte signed
+  local function r_FOVAD() return cambase()+0x510 end -- float
+
+  -- CAMERA VARIABLES
+  local flySpeed  = 3 -- float
+  local aimSpeed  = 50 -- int
+  local rollSpeed = 50 -- int
+  local FOVSpeed  = 0.25 -- float
+  local ultraFast = 100 -- how fast in ultra-fast mode
+  local fastMult  = 10 -- how fast in fast mode
+  local slowDiv   = 10 -- how slow in slow mode
+
+  local function copyCamValues()
+    writeFloat(camXAD(), readFloat(r_camXAD()))
+    writeFloat(camYAD(), readFloat(r_camYAD()))
+    writeFloat(camZAD(), readFloat(r_camZAD()))
+    writeInteger(pitchAD(), readInteger(r_pitchAD()))
+    writeInteger(yawAD(), readInteger(r_yawAD()))
+    writeInteger(rollAD(), readInteger(r_rollAD()))
+    writeFloat(FOVAD(), readFloat(r_FOVAD()))
+  end
+
+  local function freecamEnabled()
+   if curID() == cambase() then return true end
+   return false
+  end
+
+  local function gameHasFocus()
+    if getOpenedProcessID() == getForegroundProcess() then return true end
+    return false
+  end
+
+  local function requiredConditions()
+    if freecamEnabled() and gameHasFocus() then return true end
+    return false
+  end
+
+  local function toggleFreecam()
+    if not gameHasFocus() then return end
+    if freecamEnabled() then
+      writeInteger(curIDAD(), camDefault())
+    else
+      copyCamValues()
+      writeInteger(curIDAD(), cambase())
+    end
+  end
+
+  -- WATCH FOR SPEED MODIFIER KEYS
+
+  local flySpeedOrig  = flySpeed
+  local aimSpeedOrig  = aimSpeed
+  local rollSpeedOrig = rollSpeed
+  local FOVSpeedOrig  = FOVSpeed
+
+  local ultraFastModeEnabled = false
+  local fastModeEnabled = false
+  local slowModeEnabled = false
+
+  local didReset = true
+  local didSlow = false
+  local didFast = false
+  local didUltraFast = false
+
+  checkCamKeys = createTimer()
+  checkCamKeys.setInterval(100)
+  checkCamKeys.onTimer = function()
+    if not requiredConditions() then return end
+    if isKeyPressed(VK_T) and not isKeyPressed(VK_MENU) then
+      if not didUltraFast then
+        flySpeed  = flySpeedOrig*ultraFast
+        aimSpeed  = aimSpeedOrig*fastMult
+        rollSpeed = rollSpeedOrig*fastMult
+        FOVSpeed  = FOVSpeedOrig*fastMult
+        didReset  = false
+        didUltraFast = true
+      end
+    elseif isKeyPressed(VK_F) and not isKeyPressed(VK_MENU) then
+      if not didFast then
+        flySpeed  = flySpeedOrig*fastMult
+        aimSpeed  = aimSpeedOrig*fastMult
+        rollSpeed = rollSpeedOrig*fastMult
+        FOVSpeed  = FOVSpeedOrig*fastMult
+        didReset  = false
+        didFast   = true
+      end
+    elseif isKeyPressed(VK_C) and not isKeyPressed(VK_MENU) then
+      if not didSlow then
+        flySpeed  = flySpeedOrig/slowDiv
+        aimSpeed  = aimSpeedOrig/slowDiv
+        rollSpeed = rollSpeedOrig/slowDiv
+        FOVSpeed  = FOVSpeedOrig/slowDiv
+        didReset  = false
+        didSlow   = true
+      end
+    elseif not didReset then
+      flySpeed  = flySpeedOrig
+      aimSpeed  = aimSpeedOrig
+      rollSpeed = rollSpeedOrig
+      FOVSpeed  = FOVSpeedOrig
+      didUltraFast = false
+      didFast   = false
+      didSlow   = false
+      didReset  = true
+    end
+  end
+
+ -- MOVEMENT SPEED TOGGLES...
+
+  local function resetSpeed()
+    flySpeed  = flySpeedOrig
+    aimSpeed  = aimSpeedOrig
+    rollSpeed = rollSpeedOrig
+    FOVSpeed  = FOVSpeedOrig
+    ultraFastModeEnabled = false
+    fastModeEnabled = false
+    slowModeEnabled = false
+  end
+
+  local function goUltraFast()
+    if ultraFastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*ultraFast
+      aimSpeed  = aimSpeedOrig*fastMult
+      rollSpeed = rollSpeedOrig*fastMult
+      FOVSpeed  = FOVSpeedOrig*fastMult
+      ultraFastModeEnabled = true
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  local function goFast()
+    if fastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*fastMult
+      aimSpeed  = aimSpeedOrig*fastMult
+      rollSpeed = rollSpeedOrig*fastMult
+      FOVSpeed  = FOVSpeedOrig*fastMult
+      ultraFastModeEnabled = false
+      fastModeEnabled = true
+      slowModeEnabled = false
+    end
+  end
+
+  local function goSlow()
+    if slowModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig/slowDiv
+      aimSpeed  = aimSpeedOrig/slowDiv
+      rollSpeed = rollSpeedOrig/slowDiv
+      FOVSpeed  = FOVSpeedOrig/slowDiv
+      ultraFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = true
+    end
+  end
+
+  -- CAMERA FUNCTIONS...
+
+  local function move(moveDir)
+    if not requiredConditions() then return end
+    local camZ = readFloat(camZAD())
+    if moveDir == "up" then
+      writeFloat(camZAD(), camZ+flySpeed)
+      return
+    elseif moveDir == "down" then
+      writeFloat(camZAD(), camZ-flySpeed)
+      return
+    end
+    local camX  = readFloat(camXAD())
+    local camY  = readFloat(camYAD())
+    local yaw = readInteger(yawAD())*math.pi/32768 -- to radians
+    if moveDir == "right" then
+      writeFloat(camXAD(), camX-flySpeed*math.sin(yaw))
+      writeFloat(camYAD(), camY+flySpeed*math.cos(yaw))
+    elseif moveDir == "left" then
+      writeFloat(camXAD(), camX+flySpeed*math.sin(yaw))
+      writeFloat(camYAD(), camY-flySpeed*math.cos(yaw))
+    elseif moveDir == "forward" then
+      writeFloat(camXAD(), camX+flySpeed*math.cos(yaw))
+      writeFloat(camYAD(), camY+flySpeed*math.sin(yaw))
+    elseif moveDir == "backward" then
+      writeFloat(camXAD(), camX-flySpeed*math.cos(yaw))
+      writeFloat(camYAD(), camY-flySpeed*math.sin(yaw))
+    else return
+    end
+  end
+
+  local function pan(panDir)
+    if not requiredConditions() then return end
+    if panDir == "panLeft" then
+      writeInteger(yawAD(), readInteger(yawAD())-aimSpeed)
+    elseif panDir == "panRight" then
+      writeInteger(yawAD(), readInteger(yawAD())+aimSpeed)
+    elseif panDir == "panUp" then
+      writeInteger(pitchAD(), readInteger(pitchAD())+aimSpeed)
+    elseif panDir == "panDown" then
+      writeInteger(pitchAD(), readInteger(pitchAD())-aimSpeed)
+    else return
+    end
+  end
+
+  local function zoomIn()
+    if not requiredConditions() then return end
+    writeFloat(FOVAD(), readFloat(FOVAD())+FOVSpeed)
+  end
+
+  local function zoomOut()
+    if not requiredConditions() then return end
+    writeFloat(FOVAD(), readFloat(FOVAD())-FOVSpeed)
+  end
+
+  local function rollLeft()
+    if not requiredConditions() then return end
+    writeInteger(rollAD(), readInteger(rollAD())+rollSpeed)
+  end
+
+  local function rollRight()
+    if not requiredConditions() then return end
+    writeInteger(rollAD(), readInteger(rollAD())-rollSpeed)
+  end
+
+  local function rollReset()
+    if not requiredConditions() then return end
+    writeFloat(rollAD(), 0)
+  end
+
+  local function moveForward() move("forward") end
+  local function moveBackward() move("backward") end
+  local function moveLeft() move("left") end
+  local function moveRight() move("right") end
+  local function moveUp() move("up") end
+  local function moveDown() move("down") end
+  local function panUp() pan("panUp") end
+  local function panDown() pan("panDown") end
+  local function panLeft() pan("panLeft") end
+  local function panRight() pan("panRight") end
+
+  -- CREATE HOTKEYS
+  camHotkeys = {
+    createHotkey(toggleFreecam, VK_NEXT), -- leave at pos 1
+    createHotkey(goUltraFast, VK_T, VK_MENU), -- leave at pos 2
+    createHotkey(goFast, VK_F, VK_MENU), -- leave at pos 3
+    createHotkey(goSlow, VK_C, VK_MENU), -- leave at pos 4
+    createHotkey(moveForward, VK_NUMPAD8),
+    createHotkey(moveBackward, VK_NUMPAD5),
+    createHotkey(moveLeft, VK_NUMPAD4),
+    createHotkey(moveRight, VK_NUMPAD6),
+    createHotkey(moveUp, VK_NUMPAD9),
+    createHotkey(moveDown, VK_NUMPAD7),
+    createHotkey(panUp, VK_ADD, VK_NUMPAD8),
+    createHotkey(panDown, VK_ADD, VK_NUMPAD5),
+    createHotkey(panLeft, VK_ADD, VK_NUMPAD4),
+    createHotkey(panRight, VK_ADD, VK_NUMPAD6),
+    createHotkey(rollLeft, VK_ADD, VK_NUMPAD3),
+    createHotkey(rollRight, VK_ADD, VK_NUMPAD1),
+    createHotkey(rollReset, VK_ADD, VK_NUMPAD2),
+    createHotkey(zoomIn, VK_ADD, VK_NUMPAD7),
+    createHotkey(zoomOut, VK_ADD, VK_NUMPAD9),
+  }
+  local smDelay = 5
+  for i=1,smDelay-1,1 do camHotkeys[i].DelayBetweenActivate = 1000 end
+  for i=smDelay,#camHotkeys,1 do camHotkeys[i].DelayBetweenActivate = 10 end
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+camAOB:
+  db 8B 06 8B 90 18 03 00 00
+
+unregistersymbol(camAOB)
+dealloc(newmem)
+
+origIDAOB+10:
+  db 8B 91 E8 00 00 00
+
+unregistersymbol(origIDAOB)
+dealloc(newmem2)
+{$lua}
+
+if checkCamKeys ~= nil then
+  checkCamKeys.destroy()
+  checkCamKeys = nil
+end
+
+if camHotkeys ~= nil then
+  for i,v in ipairs(camHotkeys) do v.destroy() end
+  camHotkeys = nil
+end
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6951</ID>
+          <Description>"Freecam on/off: PAGEDOWN"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6956</ID>
+          <Description>"SPEED: slow C, fast F, very fast T (+ALT to toggle)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6954</ID>
+          <Description>"MOVE: (numpad...) left 4, right 6, forward 8, backward 5, up 9, down 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6955</ID>
+          <Description>"AIM: (PLUS and numpad...) left 4, right 6, up 9, down 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6953</ID>
+          <Description>"ZOOM/ROLL: (PLUS and numpad...) in 9, out 7, left 1, right 3, reset 2"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6984</ID>
+          <Description>"&gt;&gt; Freecam values"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>115</ID>
+              <Description>"Freecam X"</Description>
+              <LastState Value="0" RealAddress="000100EC"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>107</ID>
+              <Description>"Freecam Y"</Description>
+              <LastState Value="0" RealAddress="000100F0"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>106</ID>
+              <Description>"Freecam Z"</Description>
+              <LastState Value="0" RealAddress="000100F4"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>117</ID>
+              <Description>"Freecam Pitch"</Description>
+              <LastState Value="8144" RealAddress="000100F8"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>120</ID>
+              <Description>"Freecam Yaw"</Description>
+              <LastState Value="0" RealAddress="000100FC"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>F8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>119</ID>
+              <Description>"Freecam Roll"</Description>
+              <LastState Value="8144" RealAddress="00010100"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>123</ID>
+              <Description>"Freecam FOV"</Description>
+              <LastState Value="0" RealAddress="000101D0"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>1CC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>131</ID>
+          <Description>"&gt;&gt; Readonly values"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>108</ID>
+              <Description>"Camera X"</Description>
+              <LastState Value="0" RealAddress="000104FC"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>4F8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>110</ID>
+              <Description>"Camera Y"</Description>
+              <LastState Value="9.183549616E-41" RealAddress="00010500"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>4FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>109</ID>
+              <Description>"Camera Z"</Description>
+              <LastState Value="0" RealAddress="00010504"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>500</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>111</ID>
+              <Description>"Camera Pitch"</Description>
+              <LastState Value="0" RealAddress="00010508"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>504</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>112</ID>
+              <Description>"Camera Yaw"</Description>
+              <LastState Value="0" RealAddress="0001050C"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>508</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>113</ID>
+              <Description>"Camera Roll"</Description>
+              <LastState Value="0" RealAddress="00010510"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>50C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>124</ID>
+              <Description>"Camera FOV"</Description>
+              <LastState Value="0" RealAddress="00010514"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>510</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>132</ID>
+          <Description>"&gt;&gt; Tint"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>126</ID>
+              <Description>"RED"</Description>
+              <LastState Value="0" RealAddress="000104A8"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>4A4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>128</ID>
+              <Description>"GREEN"</Description>
+              <LastState Value="0" RealAddress="000104AC"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>4A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>127</ID>
+              <Description>"BLUE"</Description>
+              <LastState Value="0" RealAddress="000104B0"/>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>4AC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6969</ID>
+      <Description>"&gt;&gt; GAME SPEED/TONEMAPPING **"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"MirrorsEdge.exe"+DC85FD
+[ENABLE]
+
+aobscanmodule(speedAOB,MirrorsEdge.exe,D9 80 2C 0C 00 00 D9 5E 18)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_speed,4)
+
+newmem:
+
+code:
+  mov [_speed],eax
+  fld dword ptr [eax+00000C2C]
+  jmp return
+
+speedAOB:
+  jmp code
+  nop
+return:
+registersymbol(speedAOB)
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 50
+symbolCheckT.OnTimer = function(sender)
+
+  local function base() return readInteger("_speed") end
+
+  -- ADDRESSES
+  local function slomoAD() return base()+0xC2C end
+
+  -- VARIABLES
+  local slow1 = 0.0000001
+  local slow2 = 0.1
+  local slow3 = 0.5
+  local normal = 1
+  local fast1 = 2
+  local fast2 = 5
+
+
+  -- FUNCTIONS...
+
+  local function requiredConditions()
+    if getOpenedProcessID() == getForegroundProcess() then return true end
+    return false
+  end
+
+  local function goSlow1()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), slow1)
+  end
+
+  local function goSlow2()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), slow2)
+  end
+
+  local function goSlow3()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), slow3)
+  end
+
+  local function goNormal()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), normal)
+  end
+
+  local function goFast1()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), fast1)
+  end
+
+  local function goFast2()
+    if not requiredConditions() then return end
+    writeFloat(slomoAD(), fast2)
+  end
+
+  -- CREATE HOTKEYS
+  slomoHotkeys = {
+    createHotkey(goSlow1, VK_F6),
+    createHotkey(goSlow2, VK_F7),
+    createHotkey(goSlow3, VK_F8),
+    createHotkey(goNormal, VK_F9),
+    createHotkey(goFast1, VK_F10),
+    createHotkey(goFast2, VK_F11)
+  }
+  for i,v in ipairs(slomoHotkeys) do
+    v.DelayBetweenActivate = 1000
+  end
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+speedAOB:
+  db D9 80 2C 0C 00 00
+
+unregistersymbol(speedAOB)
+dealloc(newmem)
+
+{$lua}
+if slomoHotkeys ~= nil then
+  for i,v in ipairs(slomoHotkeys) do v.destroy() end
+  slomoHotkeys = nil
+end
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6997</ID>
+          <Description>"&gt;&gt; TONEMAPPING"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>6985</ID>
+              <Description>"Desaturation"</Description>
+              <LastState Value="0" RealAddress="12E62258"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>258</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6977</ID>
+              <Description>"Highlights RED"</Description>
+              <LastState Value="1" RealAddress="12E6225C"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>25C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6976</ID>
+              <Description>"Highlights GREEN"</Description>
+              <LastState Value="1" RealAddress="12E62260"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>260</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6975</ID>
+              <Description>"Highlights BLUE"</Description>
+              <LastState Value="1" RealAddress="12E62264"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>264</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6980</ID>
+              <Description>"Midtones RED"</Description>
+              <LastState Value="1" RealAddress="12E62268"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>268</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6979</ID>
+              <Description>"Midtones GREEN"</Description>
+              <LastState Value="1" RealAddress="12E6226C"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>26C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6978</ID>
+              <Description>"Midtones BLUE"</Description>
+              <LastState Value="1" RealAddress="12E62270"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>270</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6981</ID>
+              <Description>"Shadows RED"</Description>
+              <LastState Value="0" RealAddress="12E62274"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>274</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6983</ID>
+              <Description>"Shadows GREEN"</Description>
+              <LastState Value="0" RealAddress="12E62278"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>278</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6982</ID>
+              <Description>"Shadows BLUE"</Description>
+              <LastState Value="0" RealAddress="12E6227C"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>27C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7000</ID>
+              <Description>"Whitewash"</Description>
+              <LastState Value="0" RealAddress="12E622B4"/>
+              <VariableType>Float</VariableType>
+              <Address>_speed</Address>
+              <Offsets>
+                <Offset>2B4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6971</ID>
+          <Description>"Speed: F6-F11 slow to fast (default F9)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6970</ID>
+          <Description>"Slomo"</Description>
+          <LastState Value="1" RealAddress="12E62C2C"/>
+          <VariableType>Float</VariableType>
+          <Address>_speed</Address>
+          <Offsets>
+            <Offset>C2C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>129</ID>
+      <Description>"&gt;&gt; DOF/SKY"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"MirrorsEdge.exe"+BDB3E2
+[ENABLE]
+
+aobscanmodule(dofxAOB,MirrorsEdge.exe,F3 0F 10 47 70 85 C0 F3 0F 11 46 14 8D)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_dofx,4)
+
+newmem:
+
+code:
+  mov [_dofx],edi
+  movss xmm0,[edi+70]
+  jmp return
+
+dofxAOB:
+  jmp code
+return:
+registersymbol(dofxAOB)
+
+[DISABLE]
+
+dofxAOB:
+  db F3 0F 10 47 70
+
+unregistersymbol(dofxAOB)
+dealloc(newmem)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6986</ID>
+          <Description>"Transition on/off"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>78</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6999</ID>
+          <Description>"Background blur"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>70</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6995</ID>
+          <Description>"Foreground blur"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>6C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6990</ID>
+          <Description>"Blur kernel size"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>68</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6991</ID>
+          <Description>"Distance"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>8C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6998</ID>
+          <Description>"Focus inner radius"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>90</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6996</ID>
+          <Description>"Bloom"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_dofx</Address>
+          <Offsets>
+            <Offset>A0</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>99</ID>
+      <Description>"&gt;&gt; MISC."</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+////"MirrorsEdge.exe"+743607 - RETICLE
+aobscanmodule(retAOB,MirrorsEdge.exe,8B 1E 57 57 57)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_reticle,4)
+
+newmem:
+
+code:
+  mov [_reticle],esi
+  mov ebx,[esi]
+  push edi
+  push edi
+  push edi
+  jmp return
+
+retAOB:
+  jmp code
+return:
+registersymbol(retAOB)
+
+//"MirrorsEdge.exe"+854BF3 -- OVERLAYS
+aobscanmodule(menuAOB,MirrorsEdge.exe,8B 11 56 50 8B 82 38 01 00 00) // should be unique
+alloc(newmem2,$1000)
+
+label(code2)
+label(return2)
+
+globalalloc(_menu,4)
+
+newmem2:
+
+code2:
+  mov [_menu],ecx
+  mov edx,[ecx]
+  push esi
+  push eax
+  mov eax,[edx+00000138]
+  jmp return2
+
+menuAOB:
+  jmp code2
+  nop
+  nop
+  nop
+  nop
+  nop
+return2:
+registersymbol(menuAOB)
+
+[DISABLE]
+
+retAOB:
+  db 8B 1E 57 57 57
+
+unregistersymbol(retAOB)
+dealloc(newmem)
+
+menuAOB:
+  db 8B 11 56 50 8B 82 38 01 00 00
+
+unregistersymbol(menuAOB)
+dealloc(newmem2)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6962</ID>
+          <Description>"Allow main menu freecam on/off (active = ON)"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+"MirrorsEdge.exe"+A70BBB:
+  db 90 90
+
+[DISABLE]
+
+"MirrorsEdge.exe"+A70BBB:
+  db 89 0F
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6966</ID>
+          <Description>"Main menu text on/off (can CRASH)"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <Color>0000FF</Color>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_menu</Address>
+          <Offsets>
+            <Offset>FC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6965</ID>
+          <Description>"Message boxes on/off (can CRASH)"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <Color>0000FF</Color>
+          <VariableType>Binary</VariableType>
+          <BitStart>0</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_menu</Address>
+          <Offsets>
+            <Offset>FC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>100</ID>
+          <Description>"Crosshair on/off"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_reticle</Address>
+          <Offsets>
+            <Offset>4E8</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6972</ID>
+      <Description>"** adds hotkeys"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_reticle</Name>
+      <Address>099D0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_menu</Name>
+      <Address>099D0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_dofx</Name>
+      <Address>099D0020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cam</Name>
+      <Address>099D0030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_origID</Name>
+      <Address>099D0040</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_speed</Name>
+      <Address>10DF0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

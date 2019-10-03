@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>93307</ID>
+      <Description>"no_All_HUD"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule(nophotohud,RAGE2.exe,1F 83 BB 90 05 00 00 01) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+B73AD4)
+
+label(code)
+label(return)
+
+newmem:
+  cmp dword ptr [rbx+00000590],02
+  jmp return
+
+code:
+  cmp dword ptr [rbx+00000590],01
+  jmp return
+
+nophotohud+01:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(nophotohud)
+
+[DISABLE]
+
+nophotohud+01:
+  db 83 BB 90 05 00 00 01
+
+unregistersymbol(nophotohud)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+B73AD4
+
+"RAGE2.exe"+B73AB3: 74 3E                 -  je RAGE2.exe+B73AF3
+"RAGE2.exe"+B73AB5: 48 8B 43 10           -  mov rax,[rbx+10]
+"RAGE2.exe"+B73AB9: 48 8D 4B 10           -  lea rcx,[rbx+10]
+"RAGE2.exe"+B73ABD: 48 8B 50 30           -  mov rdx,[rax+30]
+"RAGE2.exe"+B73AC1: 48 3B D7              -  cmp rdx,rdi
+"RAGE2.exe"+B73AC4: 75 3E                 -  jne RAGE2.exe+B73B04
+"RAGE2.exe"+B73AC6: 83 B9 A4 04 00 00 03  -  cmp dword ptr [rcx+000004A4],03
+"RAGE2.exe"+B73ACD: 0F 94 C0              -  sete al
+"RAGE2.exe"+B73AD0: 84 C0                 -  test al,al
+"RAGE2.exe"+B73AD2: 74 1F                 -  je RAGE2.exe+B73AF3
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+B73AD4: 83 BB 90 05 00 00 01  -  cmp dword ptr [rbx+00000590],01
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+B73ADB: 74 09                 -  je RAGE2.exe+B73AE6
+"RAGE2.exe"+B73ADD: 83 BB 8C 06 00 00 00  -  cmp dword ptr [rbx+0000068C],00
+"RAGE2.exe"+B73AE4: 7E 0D                 -  jle RAGE2.exe+B73AF3
+"RAGE2.exe"+B73AE6: B0 01                 -  mov al,01
+"RAGE2.exe"+B73AE8: 48 8B 5C 24 30        -  mov rbx,[rsp+30]
+"RAGE2.exe"+B73AED: 48 83 C4 20           -  add rsp,20
+"RAGE2.exe"+B73AF1: 5F                    -  pop rdi
+"RAGE2.exe"+B73AF2: C3                    -  ret
+"RAGE2.exe"+B73AF3: 48 8B 5C 24 30        -  mov rbx,[rsp+30]
+"RAGE2.exe"+B73AF8: 32 C0                 -  xor al,al
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>20</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>cheatoncam</Name>
+      <Address>20210B70000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatTimeOn</Name>
+      <Address>13B9E5F0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatFOV</Name>
+      <Address>13B9DED0020</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Time:
+On/Off - Ctrl + Num*
+Day - Ctrl + Num2
+Night - Ctrl + Num0
+Morning - Ctrl + Num1
+Evening - Ctrl + Num3
+Forward - Ctrl + Num8
+Backward - Ctrl + Num5
+Fast Forward - Ctrl + Alt + Num8
+Fast Backward - Ctrl + Alt + Num5
+//
+//
+Free Camera:
+On/Off - Alt + R
+Move - WASD Space C (original in-game hotkeys)
+Move Faster - hold Shift
+Move Slower - hold Ctrl
+Jump to Waypoint - Shift + R
+//
+//
+FOV:
+Normal Change - Num4 or Num7
+Fast Change - Ctrl + Num4 or  Ctrl + Num4
+Virtual-Key codes for chaing hotkeys inside LUA scripts:
+http://nehe.gamedev.net/article/msdn_virtualkey_codes/15009/
+</Comments>
+  <LuaScript>getApplication().Title = "NotCE"
+getMainForm().setCaption("NotCE")
+</LuaScript>
+</CheatTable>

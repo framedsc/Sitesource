@@ -1,0 +1,1903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12251</ID>
+      <Description>"Camera [Page Dn] (AOB, must set FOV first)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aobCamera, 01 73 65 72 00 00)
+label(_aobCamera)
+registersymbol(_aobCamera)
+aobCamera:
+_aobCamera:
+
+[DISABLE]
+unregistersymbol(_aobCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12252</ID>
+          <Description>"base camera structure"</Description>
+          <LastState Value="4.5447103E30" Activated="0" RealAddress="0209F1B8"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11819</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <LastState Value="802.8130493" Activated="0" RealAddress="0209F404"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+24C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11818</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <LastState Value="1133.661377" Activated="0" RealAddress="0209F414"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+25c</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11817</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <LastState Value="80.00353241" Activated="0" RealAddress="0209F424"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+26c</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11825</ID>
+          <Description>"Y Rotation [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address/>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11826</ID>
+          <Description>"X Rotation  [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address/>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11827</ID>
+          <Description>"Tilt [-,=]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address/>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11829</ID>
+          <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+          <LastState Value="0.9948376417" Activated="0" RealAddress="0209F428"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+270</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12375</ID>
+          <Description>"AR (Default=1.777777791)"</Description>
+          <LastState Value="1.777777791" Activated="0" RealAddress="0209F434"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+27c</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12376</ID>
+          <Description>"tilt?"</Description>
+          <LastState Value="0" Activated="0" RealAddress="0209F460"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+2a8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12378</ID>
+          <Description>"tilt?"</Description>
+          <LastState Value="0" Activated="0" RealAddress="0209F464"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+2ac</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12380</ID>
+          <Description>"tilt?"</Description>
+          <LastState Value="0" Activated="0" RealAddress="0209F468"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+2b0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12379</ID>
+          <Description>"tilt?"</Description>
+          <LastState Value="0" Activated="0" RealAddress="0209F46C"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+2b4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12393</ID>
+          <Description>"XrotA"</Description>
+          <LastState Value="-0.3510867953" Activated="0" RealAddress="0209F3F8"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+240</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12392</ID>
+          <Description>"XRotB"</Description>
+          <LastState Value="0.9343028069" Activated="0" RealAddress="0209F3FC"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+244</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12391</ID>
+          <Description>"XrotC"</Description>
+          <LastState Value="0.06178133935" Activated="0" RealAddress="0209F400"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+248</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12384</ID>
+          <Description>"YrotA"</Description>
+          <LastState Value="-0.9363363981" Activated="0" RealAddress="0209F408"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+250</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12383</ID>
+          <Description>"YrotB"</Description>
+          <LastState Value="-0.3500666022" Activated="0" RealAddress="0209F40C"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+254</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12382</ID>
+          <Description>"YrotC"</Description>
+          <LastState Value="-0.02698362805" Activated="0" RealAddress="0209F410"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+258</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12387</ID>
+          <Description>"ZrotA"</Description>
+          <LastState Value="-0.003583302721" Activated="0" RealAddress="0209F418"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+260</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12386</ID>
+          <Description>"ZrotB"</Description>
+          <LastState Value="-0.06732169539" Activated="0" RealAddress="0209F41C"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+264</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12385</ID>
+          <Description>"ZrotC"</Description>
+          <LastState Value="0.9977248907" Activated="0" RealAddress="0209F420"/>
+          <Color>0080FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+268</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>398</ID>
+      <Description>"---------- Cielos Cheats ----------"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>33</ID>
+          <Description>"Undead"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(healthreadAOB,Ryse.exe,44 8B 71 40 4C 8B E1)
+registersymbol(healthreadAOB)
+
+label(pPlayer)
+registersymbol(pPlayer)
+
+alloc(newmem,2048,healthreadAOB) //"Ryse.exe"+14D3029)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp dword ptr [rcx+78],0000fed0 //isplayer
+jne originalcode
+mov [pPlayer],rcx
+cmp [rcx+40],edx
+ja originalcode
+mov [rcx+40],edx
+inc dword ptr [rcx+40]
+
+originalcode:
+mov r14d,[rcx+40]
+mov r12,rcx
+
+exit:
+jmp returnhere
+
+///
+pPlayer:
+///
+
+healthreadAOB: //"Ryse.exe"+14D3029:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+healthreadAOB: //"Ryse.exe"+14D3029:
+db 44 8B 71 40 4C 8B E1
+//Alt: mov r14d,[rcx+40]
+//Alt: mov r12,rcx
+unregistersymbol(healthreadAOB)
+
+unregistersymbol(pPlayer)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>45</ID>
+              <Description>""</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>35</ID>
+                  <Description>"HP"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pPlayer</Address>
+                  <Offsets>
+                    <Offset>40</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Valor Points Fetch"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(valorptsreadAOB,Ryse.exe,8B 41 20 2B 41 2C)
+registersymbol(valorptsreadAOB)
+
+label(pSomeStats)
+registersymbol(pSomeStats)
+
+alloc(newmem,2048,valorptsreadAOB) //"Ryse.exe"+11162E7)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [pSomeStats],rcx
+
+originalcode:
+mov eax,[rcx+20]
+sub eax,[rcx+2C]
+
+exit:
+jmp returnhere
+
+///
+pSomeStats:
+///
+
+valorptsreadAOB: //"Ryse.exe"+11162E7:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+valorptsreadAOB: //"Ryse.exe"+11162E7:
+db 8B 41 20 2B 41 2C
+//Alt: mov eax,[rcx+20]
+//Alt: sub eax,[rcx+2C]
+unregistersymbol(valorptsreadAOB)
+
+unregistersymbol(pSomeStats)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"Valor Points Total"</Description>
+              <Options moHideChildren="1" moRecursiveSetValue="1"/>
+              <LastState Value="??" Activated="0" RealAddress="7F7F0000000000"/>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pSomeStats</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>38</ID>
+                  <Description>"Valor Points Total"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="7F7F0000000004"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pSomeStats</Address>
+                  <Offsets>
+                    <Offset>4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>148</ID>
+                  <Description>"Valor Points Total"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="7F7F0000000008"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pSomeStats</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>147</ID>
+                  <Description>"Valor Points Total"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="7F7F0000000020"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pSomeStats</Address>
+                  <Offsets>
+                    <Offset>20</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>149</ID>
+                  <Description>"Valor Points Total"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="7F7F0000000024"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pSomeStats</Address>
+                  <Offsets>
+                    <Offset>24</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>150</ID>
+                  <Description>"Valor Points Total"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="7F7F0000000028"/>
+                  <Color>80000008</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>pSomeStats</Address>
+                  <Offsets>
+                    <Offset>28</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>146</ID>
+              <Description>"Valor Points Used"</Description>
+              <LastState Value="??" Activated="0" RealAddress="7F7F000000002C"/>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pSomeStats</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>43</ID>
+          <Description>"Move Speed Mod Key (Alt)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+label(bEndThread_ryse_keylistener_mem)
+registersymbol(bEndThread_ryse_keylistener_mem)
+
+alloc(ryse_keylistener_mem,2048,"Ryse.exe")
+registersymbol(ryse_keylistener_mem)
+createthread(ryse_keylistener_mem)
+label(keylistenerstart)
+label(keylistenerend)
+label(keylistenerexit)
+label(bWalkKeyPressed)
+
+ryse_keylistener_mem:
+sub rsp,28
+
+keylistenerstart:
+
+mov rcx,12 //ALT key
+push rcx
+call GetAsyncKeyState
+add rsp,08
+shr ax,#15
+cmp ax,1
+jne @f
+mov byte ptr [bWalkKeyPressed],1
+jmp keylistenerend
+
+@@:
+mov byte ptr [bWalkKeyPressed],0
+
+keylistenerend:
+mov rcx,#100
+call Sleep
+cmp dword ptr [bEndThread_ryse_keylistener_mem],1
+jne keylistenerstart
+
+keylistenerexit:
+add rsp,28
+mov dword ptr [bEndThread_ryse_keylistener_mem],2
+ret
+
+///
+bEndThread_ryse_keylistener_mem:
+dd 0
+bWalkKeyPressed:
+dd 0
+///
+
+///***********************************************///
+
+aobscanmodule(yaxisreadAOB,Ryse.exe,F3 41 0F 59 C4 F3 0F 59 FF F3 0F 58 F8)
+registersymbol(yaxisreadAOB)
+
+label(fAxisMultiplier)
+registersymbol(fAxisMultiplier)
+label(pMovement)
+registersymbol(pMovement)
+
+alloc(newmem,2048,yaxisreadAOB) //"Ryse.exe"+14F2093)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [pMovement],rbx
+cmp byte ptr [bWalkKeyPressed],1
+jne originalcode
+mulss xmm8,[fAxisMultiplier]
+
+originalcode:
+mulss xmm0,xmm12
+
+exit:
+jmp returnhere
+
+///
+fAxisMultiplier:
+dd (float)0.4
+pMovement:
+///
+
+yaxisreadAOB: //"Ryse.exe"+14F2093:
+jmp newmem
+returnhere:
+
+///***********************************************///
+
+aobscanmodule(xaxisreadAOB,Ryse.exe,0F 28 C6 F3 41 0F 59 C9 F3 41 0F 59 C4)
+registersymbol(xaxisreadAOB)
+
+alloc(newmem1,2048,xaxisreadAOB) //"Ryse.exe"+14F21A1)
+label(returnhere1)
+label(originalcode1)
+label(exit1)
+
+newmem1: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [pMovement],rbx
+cmp byte ptr [bWalkKeyPressed],1
+jne originalcode1
+mulss xmm6,[fAxisMultiplier]
+
+originalcode1:
+movaps xmm0,xmm6
+mulss xmm1,xmm9
+
+exit1:
+jmp returnhere1
+
+///
+
+xaxisreadAOB: //"Ryse.exe"+14F21A1:
+jmp newmem1
+nop
+nop
+nop
+returnhere1:
+
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+//obtained from SubBeam's ACS script - start//
+{$lua}
+
+if( syntaxcheck == false ) then --actual execution
+  local starttime = getTickCount()
+
+if readInteger( "bEndThread_ryse_keylistener_mem" ) == 0 then --could be 2 already
+  writeInteger( "bEndThread_ryse_keylistener_mem", 1 ) --tell the thread to kill itself
+end
+
+while( getTickCount() &lt; starttime + 1000 ) and ( readInteger( "bEndThread_ryse_keylistener_mem" ) ~=2 ) do --wait till it has finished
+  sleep( 20 )
+end
+
+if( getTickCount() &gt; starttime + 1000 ) then --could happen when the window is shown
+  showMessage( 'Disabling the thread failed!' )
+  error( 'Thread disabling failed!' )
+end
+  sleep( 1 )
+end
+
+{$asm}
+//obtained from SubBeam's ACS script - end//
+
+//bEndThread_ryse_keylistener_mem:
+//dd 1
+
+///***********************************************///
+
+dealloc(newmem)
+yaxisreadAOB: //"Ryse.exe"+14F2093:
+db F3 41 0F 59 C4
+//Alt: mulss xmm0,xmm12
+unregistersymbol(yaxisreadAOB)
+
+unregistersymbol(fAxisMultiplier)
+unregistersymbol(pMovement)
+
+///***********************************************///
+
+dealloc(newmem1)
+xaxisreadAOB: //"Ryse.exe"+14F21A1:
+db 0F 28 C6 F3 41 0F 59 C9
+//Alt: movaps xmm0,xmm6
+//Alt: mulss xmm1,xmm9
+unregistersymbol(xaxisreadAOB)
+
+///***********************************************///
+
+unregistersymbol(bEndThread_ryse_keylistener_mem)
+unregistersymbol(bWalkKeyPressed)
+
+unregistersymbol(ryse_keylistener_mem)
+dealloc(ryse_keylistener_mem)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>47</ID>
+              <Description>"Move Speed (Alt-T/G:Sprint/Walk)"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0.400000006:Walk
+2:Sprint
+</DropDownList>
+              <LastState Value="0.400000006" Activated="0" RealAddress="136A80030"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>fAxisMultiplier</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>84</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>71</Key>
+                  </Keys>
+                  <Value>0.4</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>55</ID>
+          <Description>"Extend Vertical Cam Tilt Limit"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(vcamtiltlimitcorrectcalAOB,Ryse.exe,F3 41 0F 59 CA F3 41 0F 59 DA F3 0F 5C C1)
+registersymbol(vcamtiltlimitcorrectcalAOB)
+
+label(fCusVCamTiltLimit)
+registersymbol(fCusVCamTiltLimit)
+
+alloc(newmem,2048,vcamtiltlimitcorrectcalAOB) //"Ryse.exe"+1518C50)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+movss xmm1,[fCusVCamTiltLimit+4]
+movss xmm3,[fCusVCamTiltLimit]
+
+originalcode:
+mulss xmm1,xmm10
+
+exit:
+jmp returnhere
+
+///
+fCusVCamTiltLimit:
+dd (float)-90
+dd (float)74
+///
+
+vcamtiltlimitcorrectcalAOB: //"Ryse.exe"+1518C50:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+vcamtiltlimitcorrectcalAOB: //"Ryse.exe"+1518C50:
+db F3 41 0F 59 CA
+//Alt: mulss xmm1,xmm10
+unregistersymbol(vcamtiltlimitcorrectcalAOB)
+
+unregistersymbol(fCusVCamTiltLimit)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>""</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>56</ID>
+                  <Description>"Lower Limit"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>fCusVCamTiltLimit</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>57</ID>
+                  <Description>"Upper Limit"</Description>
+                  <LastState Value="??" Activated="0" RealAddress="00000000"/>
+                  <Color>80000008</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>fCusVCamTiltLimit+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>151</ID>
+          <Description>"Disable Auto Cam"</Description>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(hcamautocorrectAOB,Ryse.exe,F3 44 0F 11 4F 30)
+registersymbol(hcamautocorrectAOB)
+
+hcamautocorrectAOB: //"Ryse.exe"+1518F58:
+db 90 90 90 90 90 90
+//Alt: nop
+//Alt: nop
+//Alt: nop
+//Alt: nop
+//Alt: nop
+//Alt: nop
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+hcamautocorrectAOB: //"Ryse.exe"+1518F58:
+db F3 44 0F 11 4F 30
+//Alt: movss [rdi+30],xmm9
+unregistersymbol(hcamautocorrectAOB)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>142</ID>
+          <Description>"Player Coord Fetch"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(coordRead1AOB,Ryse.exe,44 8B A3 A8 00 00 00 ** ** ** ** ** ** ** ** ** ** B0)
+registersymbol(coordRead1AOB)
+
+label(pPlayerCoord)
+registersymbol(pPlayerCoord)
+
+///
+
+alloc(newmem,2048,coordRead1AOB) //"Ryse.exe"+BD3AD4)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp word ptr [ebx+44],fed0
+jne originalcode
+mov [pPlayerCoord],rbx
+
+originalcode:
+mov r12d,[rbx+000000A8]
+
+exit:
+jmp returnhere
+
+///
+pPlayerCoord:
+///
+
+coordRead1AOB: //"Ryse.exe"+BD3AD4:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+coordRead1AOB: //"Ryse.exe"+BD3AD4:
+db 44 8B A3 A8 00 00 00
+//Alt: mov r12d,[rbx+000000A8]
+unregistersymbol(coordRead1AOB)
+
+unregistersymbol(pPlayerCoord)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>143</ID>
+              <Description>"x"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pPlayerCoord</Address>
+              <Offsets>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>144</ID>
+              <Description>"y"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pPlayerCoord</Address>
+              <Offsets>
+                <Offset>AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>145</ID>
+              <Description>"z"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pPlayerCoord</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>159</ID>
+          <Description>"some horizontal angle cal"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="0"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(hcamanglereadAOB,Ryse.exe,F3 0F 10 47 30 F3 0F 10 53 68)
+registersymbol(hcamanglereadAOB)
+
+label(fCosine)
+registersymbol(fCosine)
+label(fSine)
+registersymbol(fSine)
+
+alloc(newmem,2048,hcamanglereadAOB) //"Ryse.exe"+1518FF2)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+fld dword ptr [rdi+30]
+fcos
+fstp dword ptr [fCosine]
+
+fld dword ptr [rdi+30]
+fsin
+fstp dword ptr [fSine]
+
+originalcode:
+movss xmm0,[rdi+30]
+
+exit:
+jmp returnhere
+
+///
+fCosine:
+dd 0
+fSine:
+dd 0
+///
+
+hcamanglereadAOB: //"Ryse.exe"+1518FF2:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+hcamanglereadAOB: //"Ryse.exe"+1518FF2:
+db F3 0F 10 47 30
+//Alt: movss xmm0,[rdi+30]
+unregistersymbol(hcamanglereadAOB)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>160</ID>
+              <Description>"fCosine"</Description>
+              <LastState Value="0" Activated="0" RealAddress="13A530029"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>fCosine</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>161</ID>
+              <Description>"fSine"</Description>
+              <LastState Value="0" Activated="0" RealAddress="13A53002D"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>fSine</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12397</ID>
+      <Description>"Arena Winnings Cash Grant  ;)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aobArenaCash, 54 72 79 20 74 6F 20 73 70 65 6E 64 20 74 68 65 20 73 70 65 63 69 66 69 65 64 20 61 6D 6F 75 6E 74 20 69 6E 20 67 6F 6C 64)
+label(_aobArenaCash)
+registersymbol(_aobArenaCash)
+aobArenaCash:
+_aobArenaCash:
+
+[DISABLE]
+unregistersymbol(_aobArenaCash)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12398</ID>
+          <Description>"Total Gold Winnings [change this to increase Gold]"</Description>
+          <LastState Value="5645" Activated="0" RealAddress="072391B0"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobArenaCash+a4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12399</ID>
+          <Description>"Total Gold Spent"</Description>
+          <LastState Value="3040" Activated="0" RealAddress="072391BC"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobArenaCash+b0</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>player coord writes Code :mov [rbx+20],ecx</Description>
+      <Address>1381C204E</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>11C204E</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D7</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4B</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>4B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>y axis read Code :movss xmm8,[rbx+00000344]</Description>
+      <Address>1384F2085</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>14F2085</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>7D</Byte>
+        <Byte>BB</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>x axis read Code :movss xmm6,[rbx+00000340]</Description>
+      <Address>1384F2199</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>14F2199</ModuleNameOffset>
+      <Before>
+        <Byte>E6</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>EE</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>B3</Byte>
+        <Byte>40</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C6</Byte>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>v cam tilt writes 2 Code :movss [rdi+34],xmm1</Description>
+      <Address>138518C92</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1518C92</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>76</Byte>
+        <Byte>3A</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>h cam correct Code :movss [rdi+30],xmm9</Description>
+      <Address>138518F58</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1518F58</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>86</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm6,[rax+0C] - xaxis</Description>
+      <Address>1379FC33A</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>9FC33A</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>70</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>78</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm6,[rax+0C]</Description>
+      <Address>1375EC0BF</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>5EC0BF</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>57</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>70</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>78</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+0C]</Description>
+      <Address>137EDBF7A</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>EDBF7A</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>50</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+0C]</Description>
+      <Address>13717DAFD</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>17DAFD</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>53</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>1D</Byte>
+        <Byte>56</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbx+0C]</Description>
+      <Address>1371E3493</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1E3493</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>40</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4B</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :subss xmm2,[rdi+0C]</Description>
+      <Address>1371C321C</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1C321C</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D3</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>57</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>47</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm4,[rdi+0C]</Description>
+      <Address>1371C32A3</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1C32A3</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>B4</Byte>
+        <Byte>0A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>67</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>6F</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdi+0C]</Description>
+      <Address>1371C3556</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1C3556</ModuleNameOffset>
+      <Before>
+        <Byte>C5</Byte>
+        <Byte>0A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>47</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4F</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[r12+000002D4]</Description>
+      <Address>137EF316C</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>EF316C</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>C1</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+        <Byte>D4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>1D</Byte>
+        <Byte>E2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rbp+0C]</Description>
+      <Address>137155AE3</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>155AE3</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4D</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+0C],eax - write x</Description>
+      <Address>1370829B3</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>829B3</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+1C],eax - write y</Description>
+      <Address>1370829CB</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>829CB</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>18</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>20</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+2C],eax - write z</Description>
+      <Address>1370829E3</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>829E3</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>30</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rax+30] - total gold winnings</Description>
+      <Address>138297538</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>1297538</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>2B</Byte>
+        <Byte>48</Byte>
+        <Byte>3C</Byte>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rsi]</Description>
+      <Address>1385EF21C</Address>
+      <ModuleName>Ryse.exe</ModuleName>
+      <ModuleNameOffset>15EF21C</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>F4</Byte>
+        <Byte>6E</Byte>
+        <Byte>F8</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>0F</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_AddPoints</Name>
+      <Address>0D930000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fCosine</Name>
+      <Address>13A530029</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fSine</Name>
+      <Address>13A53002D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>valorptsreadAOB</Name>
+      <Address> 1381162E7</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pSomeStats</Name>
+      <Address>136FF001B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_aobArenaCash</Name>
+      <Address>0723910C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bEndThread_ryse_keylistener_mem</Name>
+      <Address>136A9007F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>yaxisreadAOB</Name>
+      <Address> 1384F2093</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fAxisMultiplier</Name>
+      <Address>136A80030</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pMovement</Name>
+      <Address>136A80034</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>xaxisreadAOB</Name>
+      <Address> 1384F21A1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_aobCamera</Name>
+      <Address>0209F1B8</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>
+Cielos Cheats http://forum.cheatengine.org/viewtopic.php?p=5653470#5653470
+
+Pause camera allows camera position to be moved. Rotation does not currently work.
+
+To remove Main menu use "gfx_draw 0" in the console or the_janitor's HUD toggle.
+
+Moving the camera and/or changing FOV breaks lighting/shadows. To get around this, and the agressive culling, change the resolution to redraw everything in front of the camera. Rinse and repeat if necessary.
+</Comments>
+</CheatTable>

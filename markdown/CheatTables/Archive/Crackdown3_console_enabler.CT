@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"GEngine"</Description>
+      <LastState Value="000001C03812D6F0" RealAddress="1C03BF2B2F0"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>8 Bytes</VariableType>
+      <Address>Crackdown3.exe+6FDCE20</Address>
+      <Offsets>
+        <Offset>840</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"UConsole_Class"</Description>
+      <LastState Value="00007FF71B7419B0" RealAddress="1C017EBD800"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>8 Bytes</VariableType>
+      <Address>Crackdown3.exe+6FEA370</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"UE4 Goodies"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF00FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">[ENABLE]
+
+alloc( UEThread, 0x1000, Crackdown3.exe )
+registersymbol( UEThread )
+CreateThread( UEThread )
+label( UEThreadOff )
+registersymbol( UEThreadOff )
+label( UEThread_loop )
+
+label( bKeyPressed )
+registersymbol( bKeyPressed )
+
+label( CreateConsole_do )
+label( @L00000001 )
+label( @L00000002 )
+label( @L00000003 )
+label( @L00000004 )
+label( @L00000005 )
+label( @L00000006 )
+
+UEThread:
+sub rsp,28
+
+UEThread_loop:
+mov rcx,A
+call Sleep
+
+cmp [UEThreadOff],1
+jne short @f
+  add rsp,28
+  mov [UEThreadOff],2
+  ret
+@@:
+
+  //mov rcx,6E // VK_DECIMAL
+  //call GetAsyncKeyState
+  //test ax,ax
+  cmp byte ptr [bKeyPressed],0
+  je short @f
+
+    mov rcx,[Crackdown3.exe+6FDCE20] // GEngine
+    mov rcx,[rcx+840]                // GEngine_offset
+    call short CreateConsole_do
+    mov rcx,C8
+    call Sleep
+    mov byte ptr [bKeyPressed],0
+
+  @@:
+  jmp short UEThread_loop
+
+CreateConsole_do:
+mov [rsp+10],rbx
+push rbp
+push rsi
+push rdi
+sub rsp,50
+mov eax,[rcx+8]
+xor edi,edi
+shr eax,4
+mov rsi,rcx
+mov [rsp+70],rdi
+mov ebx,edi
+test al,1
+jne short @L00000001
+  mov rbx,[rcx+20]
+@L00000001:
+cmp [rbx+120],rdi
+je short @L00000003
+  call Crackdown3.exe+36E2103 // UConsole::GetPrivateStaticClass
+  mov rbp,[rbx+120]
+  mov rcx,rbp
+  test rbp,rbp
+  je short @L00000003
+@L00000002:
+  cmp rcx,rax
+  je short @L00000004
+    mov rcx,[rcx+30]
+    test rcx,rcx
+    jne short @L00000002
+@L00000003:
+  mov rbp,rdi
+@L00000004:
+  mov rbx,[rsp+70]
+  mov [rsp+80],rdi
+  cmp rbx,rdi
+  jne short @L00000005
+    lea rdx,[Crackdown3.exe+5033EE0] // L"NewObject with empty name ..."
+    mov rcx,rsi
+    call Crackdown3.exe+23C66E0 // FObjectInitializer::AssertIfInConstructor
+@L00000005:
+  mov [rsp+40],dil
+  xor r9d,r9d
+  mov [rsp+38],rdi
+  mov r8,rbx
+  mov [rsp+30],dil
+  mov rdx,rsi
+  mov [rsp+28],rdi
+  mov rcx,rbp
+  mov [rsp+20],edi
+  call Crackdown3.exe+23D5380 // StaticConstructObject_Internal
+  mov [rsi+38],rax // GameViewportClient-&gt;UConsole_offset
+  test rax,rax
+  je short @L00000006
+    lea rdi,[rax+28] // UConsole_offsetting_to_member_functions
+@L00000006:
+  call Crackdown3.exe+2237510 // GetGlobalLogSingleton
+  mov rcx,rax
+  mov rdx,rdi
+  call Crackdown3.exe+2230490 // FOutputDeviceRedirector::AddOutputDevice
+  mov rbx,[rsp+78]
+  xor eax,eax
+  add rsp,50
+  pop rdi
+  pop rsi
+  pop rbp
+  ret
+
+align 10 CC
+
+UEThreadOff:
+dd 0
+
+align 10 CC
+
+bKeyPressed:
+db 0
+
+[DISABLE]
+
+{$lua}
+
+if( syntaxcheck == false ) then --actual execution
+  local starttime = getTickCount()
+
+if readInteger( "UEThreadOff" ) == 0 then --could be 2 already
+  writeInteger( "UEThreadOff", 1 ) --tell the thread to kill itself
+end
+
+while( getTickCount() &lt; starttime + 1000 ) and ( readInteger( "UEThreadOff" ) ~= 2 ) do --wait till it has finished
+  sleep( 20 )
+end
+
+if( getTickCount() &gt; starttime + 1000 ) then --could happen when the window is shown
+  showMessage( 'Disabling the thread failed!' )
+  error( 'Thread disabling failed!' )
+end
+  sleep( 1 )
+end
+
+{$asm}
+
+unregistersymbol( bKeyPressed )
+unregistersymbol( UEThreadOff )
+unregistersymbol( UEThread )
+dealloc( UEThread )
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"bKeyPressed"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>bKeyPressed</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>110</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

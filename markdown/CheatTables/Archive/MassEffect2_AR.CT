@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12771</ID>
+      <Description>"AR Fix [Alt+P]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//"MassEffect2.exe"+10F6C0 - SCREEN
+aobscanmodule(screenAOB,MassEffect2.exe,8B 41 44 C3 CC CC CC CC CC CC CC CC CC CC CC CC 8B 41 48)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_screen,4)
+
+newmem:
+
+code:
+  mov [_screen],ecx
+  mov eax,[ecx+44]
+  ret 
+  int 3 
+  jmp return
+
+screenAOB:
+  jmp newmem
+return:
+registersymbol(screenAOB)
+
+//"MassEffect2.exe"+21312F - AR
+aobscanmodule(arAOB,MassEffect2.exe,D9 80 14 02 00 00 B9)
+alloc(newmem3,$1000)
+
+label(code3)
+label(return3)
+
+globalalloc(_ar,4)
+
+newmem3:
+
+code3:
+  mov [_ar],eax
+  add [_ar],214
+  fld dword ptr [eax+00000214]
+  jmp return3
+
+arAOB:
+  jmp newmem3
+  nop
+return3:
+registersymbol(arAOB)
+
+//"MassEffect2.exe"+5497E2 - writes AR
+aobscanmodule(writesAR,MassEffect2.exe,D9 19 C2 14 00 8B)
+alloc(newmem2,$1000)
+
+label(code2)
+label(return2)
+label(cond)
+
+newmem2:
+
+code2:
+  cmp [_ar],ecx
+  je cond
+  fstp dword ptr [ecx]
+  jmp cond
+
+cond:
+  ret 0014
+  jmp return2
+
+writesAR:
+  jmp newmem2
+return2:
+registersymbol(writesAR)
+
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 1000
+symbolCheckT.OnTimer = function(sender)
+
+
+local function screenBase() return readInteger("_screen") end
+local function screenX() return readInteger(screenBase()+0x44) end
+local function screenY() return readInteger(screenBase()+0x48) end
+local function trueAR() return screenX()/screenY() end
+
+local function cineAR() return readInteger("_ar") end
+
+local function writeAR()
+  writeFloat(cineAR(), trueAR())
+end
+
+hotkeysAR = {
+  createHotkey(writeAR, VK_MENU, VK_P)
+}
+for i,v in ipairs(hotkeysAR) do
+  v.DelayBetweenActivate = 1000
+end
+
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+screenAOB:
+  db 8B 41 44 C3 CC
+
+unregistersymbol(screenAOB)
+dealloc(newmem)
+
+writesAR:
+  db D9 19 C2 14 00
+
+unregistersymbol(writesAR)
+dealloc(newmem2)
+
+arAOB:
+  db D9 80 14 02 00 00
+
+unregistersymbol(arAOB)
+dealloc(newmem3)
+
+{$lua}
+if hotkeysAR ~= nil then
+  for i,v in ipairs(hotkeysAR) do v.destroy() end
+  hotkeysAR = nil
+end
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>80</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12774</ID>
+          <Description>"Cinematic AR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_ar</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12776</ID>
+          <Description>"Screen X"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_screen</Address>
+          <Offsets>
+            <Offset>44</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12775</ID>
+          <Description>"Screen Y"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_screen</Address>
+          <Offsets>
+            <Offset>48</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12826</ID>
+      <Description>"Render Flags"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"MassEffect2.exe"+10E74B
+[ENABLE]
+
+aobscanmodule(flagsAOB,MassEffect2.exe,8B 11 8B 52 08 8D 84 24 B4)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_flags,4)
+
+newmem:
+
+code:
+  mov [_flags],ecx
+  mov edx,[ecx]
+  mov edx,[edx+08]
+  jmp return
+
+flagsAOB:
+  jmp newmem
+return:
+registersymbol(flagsAOB)
+
+[DISABLE]
+
+flagsAOB:
+  db 8B 11 8B 52 08
+
+unregistersymbol(flagsAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12838</ID>
+          <Description>"HUD/overlays"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>7</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>3f</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12858</ID>
+          <Description>"Vignette Script"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//"MassEffect2.exe"+217AC3
+[ENABLE]
+
+aobscanmodule(vignAOB,MassEffect2.exe,8B 41 3C 75 02 D1 E8 83 E0 01 C2)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_vignette,4)
+
+newmem:
+
+code:
+  mov [_vignette],ecx
+  mov eax,[ecx+3C]
+  jne MassEffect2.GImage::GImage+21652A
+  jmp return
+
+vignAOB:
+  jmp newmem
+return:
+registersymbol(vignAOB)
+
+[DISABLE]
+
+vignAOB:
+  db 8B 41 3C 75 02
+
+unregistersymbol(vignAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12859</ID>
+              <Description>"Vignette on/off"</Description>
+              <VariableType>Binary</VariableType>
+              <BitStart>1</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>_vignette</Address>
+              <Offsets>
+                <Offset>3c</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12840</ID>
+          <Description>"Fog"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>3</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>41</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12839</ID>
+          <Description>"Reflections"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>42</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12832</ID>
+          <Description>"Decals"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>3c</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12833</ID>
+          <Description>"Particles"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>2</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>43</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12828</ID>
+          <Description>"Skeletal Meshes"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>41</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12837</ID>
+          <Description>"Lightshafts"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>5</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>3d</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12844</ID>
+          <Description>"Postprocessing"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>6</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>3c</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12841</ID>
+          <Description>"Dynamic Shadows"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>5</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>3c</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12836</ID>
+          <Description>"Shading"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>4</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_flags</Address>
+          <Offsets>
+            <Offset>3d</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12861</ID>
+      <Description>"Highlight boxes on/off (active = OFF)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+//"MassEffect2.exe"+49502C
+aobscanmodule(boxesAOB,MassEffect2.exe,83 BB B4 00 00 00 01)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [ebx+b4],0 //cmp dword ptr [ebx+000000B4],01
+  jmp return
+
+boxesAOB:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(boxesAOB)
+
+[DISABLE]
+
+boxesAOB:
+  db 83 BB B4 00 00 00 01
+
+unregistersymbol(boxesAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_screen</Name>
+      <Address>06760000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_ar</Name>
+      <Address>06760010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_vignette</Name>
+      <Address>06760020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_flags</Name>
+      <Address>06760030</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
