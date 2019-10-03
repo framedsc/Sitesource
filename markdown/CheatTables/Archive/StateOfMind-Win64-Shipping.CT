@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1722</ID>
+      <Description>"Camera [F1]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"StateOfMind-Win64-Shipping.exe"+1322C12) 
+registersymbol(_nx1)
+label(_nx1)
+label(returnhere)
+label(exit)
+
+newmem:
+mov [_nx1],rdi
+
+jmp exit
+
+
+exit:
+jmp returnhere
+
+//
+_nx1:
+dd 0
+//
+
+"StateOfMind-Win64-Shipping.exe"+1322C12:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+"StateOfMind-Win64-Shipping.exe"+1322C2D: /// z
+ db 90 90 90 90 90 90
+
+[DISABLE]
+dealloc(newmem)
+"StateOfMind-Win64-Shipping.exe"+1322C12:
+movsd [rdi+00000410],xmm0
+"StateOfMind-Win64-Shipping.exe"+1322C2D:
+mov [rdi+00000418],eax
+unregistersymbol(_nx1)
+//Alt: db F2 0F 11 87 10 04 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1723</ID>
+          <Description>"X [NumPad 4/NumPad 6]"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_nx1</Address>
+          <Offsets>
+            <Offset>410</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1724</ID>
+          <Description>"Y [NumPad 8/NumPad 5]"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_nx1</Address>
+          <Offsets>
+            <Offset>414</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1725</ID>
+          <Description>"Z [NumPad 9/NumPad 7]"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_nx1</Address>
+          <Offsets>
+            <Offset>418</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>70</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>70</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1727</ID>
+          <Description>"Use +Ctrl ot +Alt to slow down or speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>213</ID>
+      <Description>"FOV [F2]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"StateOfMind-Win64-Shipping.exe"+1322C41) 
+registersymbol(_fov)
+label(_fov)
+label(returnhere)
+label(exit)
+
+newmem:
+mov [_fov],rdi
+
+jmp exit
+
+
+exit:
+jmp returnhere
+
+//
+_fov:
+dd 0
+//
+
+"StateOfMind-Win64-Shipping.exe"+1322C41:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+"StateOfMind-Win64-Shipping.exe"+1322C41:
+movups [rdi+00000428],xmm0
+unregistersymbol(_fov)
+//Alt: db 0F 11 87 28 04 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1683</ID>
+          <Description>"FOV  [Key +] / [Key -]  "</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_fov</Address>
+          <Offsets>
+            <Offset>428</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1728</ID>
+          <Description>"Use +Ctrl ot +Alt to slow down or speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>218</ID>
+      <Description>"Camera rotation [F3]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"StateOfMind-Win64-Shipping.exe"+1322C37) 
+registersymbol(_rcord)
+label(_rcord)
+label(returnhere)
+label(exit)
+
+newmem:
+mov [_rcord],rdi
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//
+_rcord:
+dd 0
+//
+
+
+"StateOfMind-Win64-Shipping.exe"+1322C37:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+"StateOfMind-Win64-Shipping.exe"+1322C37:
+mov [rdi+00000424],eax
+unregistersymbol(_rcord)
+//Alt: db 89 87 24 04 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>219</ID>
+          <Description>"Rotation"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_rcord</Address>
+          <Offsets>
+            <Offset>424</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1691</ID>
+          <Description>"[NumPad 1/NumPad 3]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1692</ID>
+          <Description>"Use +Ctrl ot +Alt to slow down or speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"HUD Script [F4]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"StateOfMind-Win64-Shipping.exe"+203F66) 
+registersymbol(_hud)
+label(_hud)
+label(returnhere)
+label(exit)
+
+newmem:
+mov [_hud],rbx
+cmp byte ptr [rbx+000002E8],00
+jmp exit
+
+exit:
+jmp returnhere
+
+//
+_hud:
+dd 0
+//
+
+"StateOfMind-Win64-Shipping.exe"+203F66:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+"StateOfMind-Win64-Shipping.exe"+203F66:
+cmp byte ptr [rbx+000002E8],00
+unregistersymbol(_hud)
+//Alt: db 80 BB E8 02 00 00 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"HUD [Home / Ctrl+Home]"</Description>
+          <Color>008000</Color>
+          <VariableType>Byte</VariableType>
+          <Address>_hud</Address>
+          <Offsets>
+            <Offset>2E8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>36</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>220</ID>
+      <Description>"//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>103</ID>
+      <Description>"Old Camera [backup]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FFFFFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"StateOfMind-Win64-Shipping.exe"+112C3C7) 
+registersymbol(_xcord)
+label(_xcord)
+label(returnhere)
+label(exit)
+
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov [_xcord],rdi
+ucomiss xmm15,[rdi+000002B0]
+jmp exit
+
+
+exit:
+jmp returnhere
+
+//
+_xcord:
+dd 0
+//
+
+"StateOfMind-Win64-Shipping.exe"+112C3C7:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"StateOfMind-Win64-Shipping.exe"+112C3C7:
+ucomiss xmm15,[rdi+000002B0]
+unregistersymbol(_xcord)
+//Alt: db 44 0F 2E BF B0 02 00 00
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1672</ID>
+          <Description>"X [NumPad 4/NumPad 6]"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_xcord</Address>
+          <Offsets>
+            <Offset>2B8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>150</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>150</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <Value>19</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1673</ID>
+          <Description>"Y [NumPad 8/NumPad 5]"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_xcord</Address>
+          <Offsets>
+            <Offset>2B4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>150</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>150</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <Value>14</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1674</ID>
+          <Description>"Z [NumPad 9/NumPad 7]"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>_xcord</Address>
+          <Offsets>
+            <Offset>2BC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>150</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>150</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <Value>-15</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1689</ID>
+          <Description>"Reset to default [Home]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>2634D9</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1690</ID>
+          <Description>"Use +Alt or +Ctrl to slow down or speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>206</ID>
+      <Description>"off camera [backup]"</Description>
+      <LastState/>
+      <Color>FFFFFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+"StateOfMind-Win64-Shipping.exe"+106EAD1:
+db 90 90 90 90 90 90 90 90
+
+"StateOfMind-Win64-Shipping.exe"+1322C2D: /// z
+ db 90 90 90 90 90 90
+
+"StateOfMind-Win64-Shipping.exe"+1322C12: /// y
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+"StateOfMind-Win64-Shipping.exe"+106EAD1:
+movaps [rbx+000001B0],xmm13
+"StateOfMind-Win64-Shipping.exe"+1322C2D:
+mov [rdi+00000418],eax
+"StateOfMind-Win64-Shipping.exe"+1322C12:
+movsd [rdi+00000410],xmm0
+
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>203</ID>
+      <Description>"Camera rotation [backup]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FFFFFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"StateOfMind-Win64-Shipping.exe"+109000D) 
+registersymbol(_rot)
+label(_rot)
+label(returnhere)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov [_rot],rcx
+mov [rcx+000003B0],eax
+jmp exit
+
+
+exit:
+jmp returnhere
+
+//
+_rot:
+dd 0
+//
+
+"StateOfMind-Win64-Shipping.exe"+109000D:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"StateOfMind-Win64-Shipping.exe"+109000D:
+mov [rcx+000003B0],eax
+unregistersymbol(_rot)
+//Alt: db 89 81 B0 03 00 00
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>204</ID>
+          <Description>"No description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_rot</Address>
+          <Offsets>
+            <Offset>3B0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>71</Key>
+              </Keys>
+              <Value>11</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>72</Key>
+              </Keys>
+              <Value>11</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>?? ?? ?? ?? 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 02 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 3F ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 00 00 80 3F 00 00 00 00 00 00 ?? ??
+EA C0 F2 C2 51 06 75 C5 0E 15 35 43 00 00 00 00 00 00 80 3F 00 00 80 3F 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 02 00 00 BA EA 39 96 E7 4C B9 66 9D 75 BF F9 59 90 3E 82 BF 2F BD 93 3F 13 C3 B2 3E 13 BD 00 00 00 00 FF FF 3B AE 91 2F 31 26 39 46 71 B7 00 00 80 3F
+</Comments>
+</CheatTable>

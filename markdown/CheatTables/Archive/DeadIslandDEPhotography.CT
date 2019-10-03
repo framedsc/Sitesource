@@ -1,0 +1,5958 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <Forms>
+    <PackEdit Class="TCEForm" Encoding="Ascii85">tyRm8/3tp-opkKPO{a.F4Vn$A1t2tPTGKCBcTA5anucU1L4),plS.c3$7PkvNoO@]zyh*0EBFP)h8.h@7YsXo0P5jK99K[f1lh!8+FCq,se8{.%^7ei?aYqK;_H-4bm0u*WPUxxta+cGtZ]_!o+^f2u+Ms,F)$F*?4doP7Br46,k-K}Bx*V?qa{)Mp:%%l3ElTX%wH6Nu3G1TMwjOr!dv8#h+1*DE2}qP+!m}W]/KdVWO,ZgI#(}hmq;*z=J?L60YdE5zKSLRp@3W):X]$*(IODO:Pw0^1Lr-$7,Dw(kLX8JbZ5!O0i7ah8Af{YBW+zD1npM^#w1Fry#A;2]ouCioYxIbSdZLwZh9g{tP}$N:kufD@El*4yV2:0v]]-^/G}.rp%6[)UN3,V:lH0E,WNFf.O)NGsoQ+G,.fU!Q;+H@RxMMf*[I^.OIHMURk1!cIUW{a]Y3d:_Lo%Tvm.su?]Ml739S.p@HoZrk3-DX=hsOr;5-67$EZV_X)7MMAV}pv/fT+qfv=FF(,r6[x4Xd4b;NMkvqH6A6zJVCUZ4cLL?}q@O=Tm5XmS6^aZd[d:S2!5[6^.!Y7sv(GsI8JLg$DYU4:J?OLeYAA#)W?-eHdSp[KJFtEHbd8;:{,cdTVTF$_Z3cx2%d-W[dEmNZveixd=_o4s,,7K@MJKM;E!$%s*L-6m$M]3.HCW^s-E;UBZDl=2p9Y-esh!x3xsZ@#M;Ouz!1fE5ly0K/@1z=!6h5wIW;0V*v@.G;yXvH+dVv/Sds)u8,ul1PnzF$yYOrRgXjE0M]??}3urYO9nhKXOMNS;CixtH$4kM*pP;r:8:3dg7z.I!1uZ0OrExycwcOhb0VCbOQPeBuspo5ur(Unfoxo6F=#5g#(2Hx%1Z}y$w#{0WZw:lAu^0z0Hr[OSx-DN]$L84%f:ae$9:^dL*y4pV#v9qL%mMc6$)U-/izqgAzi%C@POETKm5!yJED0ag264THXFdV72$S*5.P+%0$@WEB0S.@pbyj3k[A-59.ijVsk.hTf{d1H.qajSMK^Zo/fFHrpJ^]mXjrVUAn#6U8FkPfY=fA;4iQkuS[:e]%PI9?.@:49O]XTc2g@^_37L}LewwDkpn%FHZK29cMtI%TB2{{@1iiO^!+Bq,am(S#MU9Q9X{ayZwpaX.}%OTe]appS#6qpp(hCR=;wGLXA_u2b,),AHPnuidKGAzt+Hc;W($1E+KB6RY$RG}HdavWHoDtuN]!g}*b#vPtLO79$z[p5jz1u5dP]98]xg</PackEdit>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>11102</ID>
+      <Description>"---&gt; Dying Light - deadendthrills.com"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11332</ID>
+      <Description>"------------ SCREENSHOTS ------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11093</ID>
+      <Description>"Game Speed [F1]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(gameSpeedAOB,engine_x64_rwdi.dll,48 8B 41 08 48 05 20 0F 00 00 80 78 30 00 74 09 80 78 48 00 75 03 B0 01)
+alloc(newmem,2048,"engine_x64_rwdi.dll")
+label(returnhere)
+label(exit)
+
+label(gameSpeed)
+registersymbol(gameSpeed)
+registersymbol(gameSpeedAOB)
+
+newmem:
+mov [gameSpeed],rax
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+gameSpeed:
+dq 0
+///
+
+//"engine_x64_rwdi.dll"+289D94:
+gameSpeedAOB+24:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+gameSpeedAOB+24:
+movss [rax+00000F48],xmm1
+unregistersymbol(gameSpeed)
+unregistersymbol(gameSpeedAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11095</ID>
+          <Description>"F1 = Freeze, F2 = Resume"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11094</ID>
+          <Description>"Game Speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>gameSpeed</Address>
+          <Offsets>
+            <Offset>F48</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>112</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>112</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11098</ID>
+      <Description>"FOV [F5]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(fovAOB,engine_x64_rwdi.dll,F3 0F 11 B3 x x x x F3 0F 59 35 x x x x 0F 28 C6 E8)
+alloc(newmem,2048,"engine_x64_rwdi.dll")
+label(returnhere)
+label(exit)
+
+label(fov)
+registersymbol(fov)
+registersymbol(fovAOB)
+
+newmem:
+mov [fov],rbx
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+fov:
+dq 0
+///
+
+fovAOB:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+fovAOB:
+movss [rbx+000002D4],xmm6
+unregistersymbol(fov)
+unregistersymbol(fovAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11329</ID>
+          <Description>"Numpad +/-"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11101</ID>
+          <Description>"FOV"</Description>
+          <VariableType>Float</VariableType>
+          <Address>fov</Address>
+          <Offsets>
+            <Offset>2D4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11288</ID>
+      <Description>"Camera [F6]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cameraAOB,engine_x64_rwdi.dll,89 41 0C 8B 42 04 89 41 1C 8B 42 08 89 41 2C 48 83 C4 48 C3 CC CC CC CC CC CC 48 8B C4)
+
+alloc(camZ,2048,"engine_x64_rwdi.dll")
+label(returnhere)
+label(exit)
+label(originalcode)
+
+label(camX)
+label(returnhereX)
+label(exitX)
+label(originalcodeX)
+
+label(camY)
+label(returnhereY)
+label(exitY)
+label(originalcodeY)
+
+label(pCamera)
+registersymbol(pCamera)
+registersymbol(cameraAOB)
+
+camZ:
+cmp [rcx+40],(float)0
+jne originalcode
+cmp [rcx+58],(float)-1
+jne originalcode
+mov [pCamera],rcx
+mov eax,[rdx+08]
+jmp exit
+
+originalcode:
+mov [rcx+1C],eax
+mov eax,[rdx+08]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+camX:
+cmp [rcx+40],(float)0
+jne originalcodeX
+cmp [rcx+58],(float)-1
+jne originalcodeX
+mov eax,[rdx+04]
+jmp exitX
+
+originalcodeX:
+mov [rcx+0C],eax
+mov eax,[rdx+04]
+jmp exitX
+
+exitX:
+jmp returnhereX
+
+////
+
+camY:
+cmp [rcx+40],(float)0
+jne originalcodeY
+cmp [rcx+58],(float)-1
+jne originalcodeY
+add rsp,48
+jmp exitY
+
+originalcodeY:
+mov [rcx+2C],eax
+add rsp,48
+jmp exitY
+
+exitY:
+jmp returnhereY
+
+///
+pCamera:
+dq 0
+///
+
+cameraAOB+6:
+jmp camZ
+nop
+returnhere:
+
+cameraAOB:
+jmp camX
+nop
+returnhereX:
+
+cameraAOB+c:
+jmp camY
+nop
+nop
+returnhereY:
+
+
+[DISABLE]
+dealloc(camZ)
+cameraAOB+6:
+mov [rcx+1C],eax
+mov eax,[rdx+08]
+//
+cameraAOB:
+mov [rcx+0C],eax
+mov eax,[rdx+04]
+//
+cameraAOB+c:
+mov [rcx+2C],eax
+add rsp,48
+unregistersymbol(pCamera)
+unregistersymbol(cameraAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11289</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11358</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11297</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11488</ID>
+      <Description>"Change Resolution AOB Scanned [by -One3rd-]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//alloc(newmem,2048,"engine_x64_rwdi.dll"+7196C3)
+aobscanmodule(pResAOB,engine_x64_rwdi.dll,8B 4D 00 8B 03 2B C1) // should be unique
+//alloc(newmem,$1000,"engine_x64_rwdi.dll"+7196C3)
+alloc(newmem,2048,"engine_x64_rwdi.dll")
+
+label(returnhere)
+label(exit)
+label(pRes)
+registersymbol(pRes)
+registersymbol(pResAOB)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pRes],rbp
+mov ecx,[rbp+00]
+mov eax,[rbx]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pRes:
+dd 0
+//
+
+pResAOB:
+jmp newmem
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+pResAOB:
+mov ecx,[rbp+00]
+mov eax,[rbx]
+unregistersymbol(pRes)
+unregistersymbol(pResAOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "engine_x64_rwdi.dll"+7196C3
+
+"engine_x64_rwdi.dll"+719697: 44 39 89 90 04 00 00  -  cmp [rcx+00000490],r9d
+"engine_x64_rwdi.dll"+71969E: 0F 8E 9F 00 00 00     -  jng engine_x64_rwdi.dll+719743
+"engine_x64_rwdi.dll"+7196A4: 48 89 5C 24 10        -  mov [rsp+10],rbx
+"engine_x64_rwdi.dll"+7196A9: 45 8B D1              -  mov r10d,r9d
+"engine_x64_rwdi.dll"+7196AC: 0F 1F 40 00           -  nop [rax+00]
+"engine_x64_rwdi.dll"+7196B0: 48 8B 87 88 04 00 00  -  mov rax,[rdi+00000488]
+"engine_x64_rwdi.dll"+7196B7: 48 8B 1E              -  mov rbx,[rsi]
+"engine_x64_rwdi.dll"+7196BA: 4D 8D 1C 02           -  lea r11,[r10+rax]
+"engine_x64_rwdi.dll"+7196BE: 48 85 DB              -  test rbx,rbx
+"engine_x64_rwdi.dll"+7196C1: 74 64                 -  je engine_x64_rwdi.dll+719727
+// ---------- INJECTING HERE ----------
+"engine_x64_rwdi.dll"+7196C3: 8B 4D 00              -  mov ecx,[rbp+00]
+"engine_x64_rwdi.dll"+7196C6: 8B 03                 -  mov eax,[rbx]
+// ---------- DONE INJECTING  ----------
+"engine_x64_rwdi.dll"+7196C8: 2B C1                 -  sub eax,ecx
+"engine_x64_rwdi.dll"+7196CA: 99                    -  cdq
+"engine_x64_rwdi.dll"+7196CB: 44 8B C0              -  mov r8d,eax
+"engine_x64_rwdi.dll"+7196CE: 41 8B 03              -  mov eax,[r11]
+"engine_x64_rwdi.dll"+7196D1: 2B C1                 -  sub eax,ecx
+"engine_x64_rwdi.dll"+7196D3: 44 33 C2              -  xor r8d,edx
+"engine_x64_rwdi.dll"+7196D6: 44 2B C2              -  sub r8d,edx
+"engine_x64_rwdi.dll"+7196D9: 99                    -  cdq
+"engine_x64_rwdi.dll"+7196DA: 33 C2                 -  xor eax,edx
+"engine_x64_rwdi.dll"+7196DC: 2B C2                 -  sub eax,edx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11489</ID>
+          <Description>"Fullscreen Resolution Selector"</Description>
+          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0000043800000780:1920x1080
+0000087000000F00:3840x2160
+00000B4000001400:5120x2880
+00000C8000000960:2400x3200
+0000115800000D02:3330x4440
+00000F0000000F00:3840x3840
+000007620000113A:4410x1890
+0000087000001400:5120x2160
+000006A4000013EC:5100x1700
+000007D000001770:6000x2000
+
+</DropDownList>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>8 Bytes</VariableType>
+          <Address>pRes</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11490</ID>
+          <Description>"Resolution X"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pRes</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11491</ID>
+          <Description>"Resolution Y"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pRes</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11325</ID>
+      <Description>"LOD Distance [F8]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[Enable]
+aobscanmodule(lodAOB,engine_x64_rwdi.dll,F3 0F 59 4A 28 F3 0F 59 C9 F3 0F 5E C1 F3 41 0F 11 86 84 01 00 00 49 8B 40 30 F3 0F 10 88 30 02 00 00 F3 0F 59 4A 2C)
+
+alloc(newmem,2048,gamedll_x64_rwdi.dll)
+label(returnhere)
+
+label(lodRange)
+registersymbol(lodRange)
+registersymbol(lodAOB)
+
+newmem:
+mov [lodRange],rdx
+mulss xmm1,[rdx+28]
+jmp returnhere
+
+//
+lodRange:
+dq 0
+//
+
+lodAOB:
+jmp newmem
+returnhere:
+
+[Disable]
+dealloc(newmem)
+lodAOB:
+mulss xmm1,[rdx+28]
+unregistersymbol(lodRange)
+unregistersymbol(lodAOB)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>119</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>119</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11330</ID>
+          <Description>"F8 = Max Range, F9 = Min Range"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11326</ID>
+          <Description>"LOD1"</Description>
+          <VariableType>Float</VariableType>
+          <Address>lodRange</Address>
+          <Offsets>
+            <Offset>28</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>119</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>120</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11327</ID>
+          <Description>"LOD2"</Description>
+          <VariableType>Float</VariableType>
+          <Address>lodRange</Address>
+          <Offsets>
+            <Offset>2C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>120</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>119</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11352</ID>
+      <Description>"Player Coords"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(playerAOB,engine_x64_rwdi.dll,F3 0F 58 83 C4 00 00 00 48)
+alloc(newmem,2048,"engine_x64_rwdi.dll")
+label(returnhere)
+label(exit)
+
+label(pCoords)
+registersymbol(pCoords)
+registersymbol(playerAOB)
+
+newmem:
+mov [pCoords],rbx
+addss xmm0,[rbx+000000BC]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+pCoords:
+dq 0
+///
+
+playerAOB-1F:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+playerAOB-1F:
+addss xmm0,[rbx+000000BC]
+unregistersymbol(pCoords)
+unregistersymbol(playerAOB)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11354</ID>
+          <Description>"Player X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCoords</Address>
+          <Offsets>
+            <Offset>BC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>71</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11356</ID>
+          <Description>"Player Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCoords</Address>
+          <Offsets>
+            <Offset>C4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>89</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>72</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11355</ID>
+          <Description>"Player Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCoords</Address>
+          <Offsets>
+            <Offset>C0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>33</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>33</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11496</ID>
+      <Description>"^------------ CHEATS ------------^"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF8080</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"F1 - INF. STAM"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+65692F)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//movss [rbx+00000DBC],xmm0
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+65692F:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+65692F:
+movss [rbx+00000DBC],xmm0
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <Description>Unminited stamina</Description>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"F2 - INF. HEALTH "</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+66D304)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//movss [rdx+00000D2C],xmm1
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+66D304:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+66D304:
+movss [rdx+00000D2C],xmm1
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <Description>Godmode</Description>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"F3 - INF CASH(ONCE ACTIVE, BUY SOMETHING) "</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+611C64)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rbx+00000BC8],#10000000000
+
+originalcode:
+//mov [rbx+00000BC8],ecx
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+611C64:
+jmp newmem
+nop
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+611C64:
+mov [rbx+00000BC8],ecx
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"F4 - INF. XP"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+6D78FA)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+add [rcx+00000080],#10000000000000
+originalcode:
+//add [rcx+00000080],edx
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+6D78FA:
+jmp newmem
+nop
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+6D78FA:
+add [rcx+00000080],edx
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"F5 - INF. FLASHLIGHT"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+733FED)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//movss [rcx+68],xmm0
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+733FED:
+jmp newmem
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+733FED:
+movss [rcx+68],xmm0
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"F6 - INF. DURABILITY"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+360769)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//movss [rbx+04],xmm6
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+360769:
+jmp newmem
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+360769:
+movss [rbx+04],xmm6
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>21</ID>
+      <Description>"F7 - INF ITEMS."</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+66F3F5)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [r13+50],#9999
+mov r9d,ebp
+originalcode:
+//dec [r13+50]
+//mov r9d,ebp
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+66F3F5:
+jmp newmem
+nop
+nop
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+66F3F5:
+dec [r13+50]
+mov r9d,ebp
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>118</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"F8 - INF. AMMO"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"gamedll_x64_rwdi.dll"+78733E)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [rax+50],#420
+call gamedll_x64_rwdi.dll+1EDAA0
+originalcode:
+//dec [rax+50]
+//call gamedll_x64_rwdi.dll+1EDAA0
+
+exit:
+jmp returnhere
+
+"gamedll_x64_rwdi.dll"+78733E:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+[DISABLE]
+dealloc(newmem)
+"gamedll_x64_rwdi.dll"+78733E:
+dec [rax+50]
+call gamedll_x64_rwdi.dll+1EDAA0
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>119</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :cmp [rax+38],r14l</Description>
+      <Address>7FEEB3D332D</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>5E332D</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>60</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>38</Byte>
+        <Byte>70</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>27</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+000002D4],xmm6</Description>
+      <Address>7FEE40AE0C4</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>11E0C4</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B3</Byte>
+        <Byte>D4</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>35</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbx+000000A8]</Description>
+      <Address>7FEE327FFCD</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>33FFCD</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>AC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>35</Byte>
+        <Byte>5F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbp+000000A8]</Description>
+      <Address>7FEE327C720</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>33C720</ModuleNameOffset>
+      <Before>
+        <Byte>9D</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8D</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+000000A8],xmm6</Description>
+      <Address>7FEE32804E2</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>3404E2</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B3</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jae gamedll_x64_rwdi.dll+C5A86</Description>
+      <Address>7FFCB5F55A7D</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C5A7D</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>73</Byte>
+        <Byte>07</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>89</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jae gamedll_x64_rwdi.dll+C5AA6</Description>
+      <Address>7FFCB5F55A9D</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C5A9D</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>73</Byte>
+        <Byte>07</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>89</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of push rax</Description>
+      <Address>7FF6B12D12F5</Address>
+      <ModuleName>DyingLightGame.exe</ModuleName>
+      <ModuleNameOffset>F12F5</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>53</Byte>
+        <Byte>51</Byte>
+        <Byte>52</Byte>
+        <Byte>56</Byte>
+        <Byte>57</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of add rcx,20</Description>
+      <Address>7306C019</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>3C019</ModuleNameOffset>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>0A</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C1</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>E0</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+000000E0],eax</Description>
+      <Address>7FF94004A401</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4BA401</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[rcx+000000E0]</Description>
+      <Address>7FF94004A20A</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4BA20A</ModuleNameOffset>
+      <Before>
+        <Byte>57</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>58</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm1,[rbx+000000E0]</Description>
+      <Address>7FF94004A3CD</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4BA3CD</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>17</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rdi+00001220],eax</Description>
+      <Address>7FF9406351F0</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>AA51F0</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>1C</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>20</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax+14],r11</Description>
+      <Address>7FF941FF068B</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4E068B</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>1C</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>58</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>58</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [r15+18],xmm0</Description>
+      <Address>7FF941FE083E</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4D083E</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>68</Byte>
+        <Byte>49</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx],xmm0</Description>
+      <Address>7FF9415A3ED0</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B93ED0</ModuleNameOffset>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+00000158],eax</Description>
+      <Address>7FF940F2B5AD</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51B5AD</ModuleNameOffset>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>58</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx-18],eax</Description>
+      <Address>7FF940F2BBFE</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51BBFE</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>FB</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>E8</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>BA</Byte>
+        <Byte>9D</Byte>
+        <Byte>AE</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+000001A0],rax</Description>
+      <Address>7FF940F2B5B5</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51B5B5</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>A8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+000001A0],xmm0</Description>
+      <Address>7FF940F2B5E6</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51B5E6</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx],xmm7</Description>
+      <Address>7FF940ABD3CF</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>AD3CF</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>39</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+000001A4],xmm0</Description>
+      <Address>7FF940F2B5EE</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51B5EE</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A4</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>57</Byte>
+        <Byte>1B</Byte>
+        <Byte>88</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [r12+000001A4],xmm1</Description>
+      <Address>7FF940F2A69F</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51A69F</ModuleNameOffset>
+      <Before>
+        <Byte>68</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>8C</Byte>
+        <Byte>24</Byte>
+        <Byte>A4</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>05</Byte>
+        <Byte>78</Byte>
+        <Byte>2A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx+000000F0],eax</Description>
+      <Address>7FF9403D58D2</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>5958D2</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+000000FC],xmm6</Description>
+      <Address>7FF9403D6360</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>596360</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B3</Byte>
+        <Byte>FC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>BB</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx+4C],eax</Description>
+      <Address>7FF9403E5683</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>5A5683</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>14</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx+64],eax</Description>
+      <Address>7FF9403E56A7</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>5A56A7</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>60</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[rcx]</Description>
+      <Address>7FF9415A3F08</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B93F08</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>CA</Byte>
+        <Byte>76</Byte>
+        <Byte>3A</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>14</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx],xmm0</Description>
+      <Address>7FF9415A3F19</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B93F19</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>77</Byte>
+        <Byte>23</Byte>
+        <Byte>80</Byte>
+        <Byte>79</Byte>
+        <Byte>19</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rdi+0000015C],r11d</Description>
+      <Address>7FF940F2BC0A</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51BC0A</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>5B</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>5C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx],xmm8</Description>
+      <Address>7FF9403D7528</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>597528</ModuleNameOffset>
+      <Before>
+        <Byte>9F</Byte>
+        <Byte>60</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>73</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+40],xmm0</Description>
+      <Address>7FF9416A352A</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C9352A</ModuleNameOffset>
+      <Before>
+        <Byte>5C</Byte>
+        <Byte>C6</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C7</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>77</Byte>
+        <Byte>07</Byte>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+000000A4],xmm0</Description>
+      <Address>7FFD08B2D60E</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>CED60E</ModuleNameOffset>
+      <Before>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>20</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx],xmm0</Description>
+      <Address>7FFD0F0D3640</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B93640</ModuleNameOffset>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx],xmm0</Description>
+      <Address>7FFD0F0D365A</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B9365A</ModuleNameOffset>
+      <Before>
+        <Byte>72</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>32</Byte>
+        <Byte>C0</Byte>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+00000158],eax</Description>
+      <Address>7FFD0EA5A73D</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51A73D</ModuleNameOffset>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>58</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx-18],eax</Description>
+      <Address>7FFD0EA5AD8E</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51AD8E</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>FB</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>E8</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>BA</Byte>
+        <Byte>AC</Byte>
+        <Byte>AE</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+000001A0],rax</Description>
+      <Address>7FFD0EA5A745</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51A745</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>A8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+000001A0],xmm0</Description>
+      <Address>7FFD0EA5A776</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51A776</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>B8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+000001A4],xmm0</Description>
+      <Address>7FFD0EA5A77E</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>51A77E</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>A4</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>57</Byte>
+        <Byte>1B</Byte>
+        <Byte>88</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm9,[rsi+00001204]</Description>
+      <Address>7FFBCD8B5985</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>AA5985</ModuleNameOffset>
+      <Before>
+        <Byte>4D</Byte>
+        <Byte>8B</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8E</Byte>
+        <Byte>04</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4D</Byte>
+        <Byte>85</Byte>
+        <Byte>FF</Byte>
+        <Byte>74</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of comiss xmm8,[rsi+00001204]</Description>
+      <Address>7FFBCD8B6775</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>AA6775</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>6B</Byte>
+        <Byte>E2</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>86</Byte>
+        <Byte>04</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>3B</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subss xmm6,[rsi+00001204]</Description>
+      <Address>7FFBCD8B67C4</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>AA67C4</ModuleNameOffset>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>F1</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>B6</Byte>
+        <Byte>04</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>28</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+00000954],xmm0</Description>
+      <Address>7FFBCD8BE4B7</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>AAE4B7</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>54</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>84</Byte>
+        <Byte>F6</Byte>
+        <Byte>74</Byte>
+        <Byte>15</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[rcx+0000121C]</Description>
+      <Address>7FFBCD70FF90</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>8FFF90</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>1C</Byte>
+        <Byte>12</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp [r12+r10+01C13F80],esi</Description>
+      <Address>7FFBCD27F4BA</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>46F4BA</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>74</Byte>
+        <Byte>05</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>43</Byte>
+        <Byte>39</Byte>
+        <Byte>B4</Byte>
+        <Byte>14</Byte>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+        <Byte>C1</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>84</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx+00000210],dl</Description>
+      <Address>7FFC1AEBCCBB</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>9FCCBB</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>91</Byte>
+        <Byte>10</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>99</Byte>
+        <Byte>F0</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [rdi+20]</Description>
+      <Address>7FFC1A9BDBAC</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4FDBAC</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>57</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>4F</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>48</Byte>
+        <Byte>F8</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of inc [rdi+40]</Description>
+      <Address>7FFC1A9BDBEF</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4FDBEF</ModuleNameOffset>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>47</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+        <Byte>38</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rdi+70],edx</Description>
+      <Address>7FFC1A9BDC83</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>4FDC83</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>57</Byte>
+        <Byte>70</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+000002A8],r12</Description>
+      <Address>7FFC2066A4E3</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>12A4E3</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>3D</Byte>
+        <Byte>49</Byte>
+        <Byte>F0</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>A6</Byte>
+        <Byte>A8</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>B7</Byte>
+        <Byte>A0</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00007E70],edx</Description>
+      <Address>7FFC1AB72AE0</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>6B2AE0</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>96</Byte>
+        <Byte>70</Byte>
+        <Byte>7E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of inc [rbx+00007E70]</Description>
+      <Address>7FFC1AB75062</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>6B5062</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>32</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>83</Byte>
+        <Byte>70</Byte>
+        <Byte>7E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+08],r8d</Description>
+      <Address>7FFC1AB72A2E</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>6B2A2E</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>3B</Byte>
+        <Byte>D0</Byte>
+        <Byte>72</Byte>
+        <Byte>D5</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>63</Byte>
+        <Byte>8E</Byte>
+        <Byte>58</Byte>
+        <Byte>7E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+00000384],xmm1</Description>
+      <Address>7FED8C894FD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994FD</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>7C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+50],eax - timeflow?</Description>
+      <Address>7FEDA265784</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A85784</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>EB</Byte>
+        <Byte>89</Byte>
+        <Byte>77</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups [rbx+50],xmm0</Description>
+      <Address>7FEDA26683B</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A8683B</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>15</Byte>
+        <Byte>47</Byte>
+        <Byte>16</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0D</Byte>
+        <Byte>19</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[gamedll_x64_rwdi.dll+1BEB050] - 0.1</Description>
+      <Address>7FEDA2656E7</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A856E7</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>77</Byte>
+        <Byte>44</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>05</Byte>
+        <Byte>63</Byte>
+        <Byte>59</Byte>
+        <Byte>16</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>50</Byte>
+        <Byte>8B</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+2C],xmm2 - CAM1</Description>
+      <Address>7FEDB096F50</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>676F50</ModuleNameOffset>
+      <Before>
+        <Byte>D0</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>D1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>51</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>58</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+2C],eax - WRITE X (6 ADDRESSES)</Description>
+      <Address>7FEDB096662</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>676662</ModuleNameOffset>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>1C</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>48</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+1C] - Z</Description>
+      <Address>7FEE23F42B1</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B242B1</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>7C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>6D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rax+1C]</Description>
+      <Address>7FEDAB55622</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>135622</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>0B</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>2C</Byte>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+1C],xmm3</Description>
+      <Address>7FEDB09A447</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>67A447</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>5A</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>59</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>52</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm5,[rdx+1C]</Description>
+      <Address>7FEDB096ED1</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>676ED1</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>0F</Byte>
+        <Byte>23</Byte>
+        <Byte>24</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>6A</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C1</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm6,[rdx+1C]</Description>
+      <Address>7FEDB096EF5</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>676EF5</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>52</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>72</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+1C]</Description>
+      <Address>7FEDB096F20</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>676F20</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>52</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>14</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm1,[rax+r10+10]</Description>
+      <Address>7FEDAEA9FB8</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>489FB8</ModuleNameOffset>
+      <Before>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>04</Byte>
+        <Byte>11</Byte>
+      </Before>
+      <Actual>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>4C</Byte>
+        <Byte>10</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>4C</Byte>
+        <Byte>11</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+1C],xmm3 - WRITE Z</Description>
+      <Address>7FEE115A447</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>67A447</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>5A</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>59</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>52</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rax+00000F50],xmm1 - time</Description>
+      <Address>7FEDACAFE04</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx+00000384],xmm1</Description>
+      <Address>7FEDACB94FD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994FD</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>7C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups [rbx+50],xmm0 - time</Description>
+      <Address>7FED489683B</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A8683B</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>15</Byte>
+        <Byte>47</Byte>
+        <Byte>16</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0D</Byte>
+        <Byte>19</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx],xmm7 - t2</Description>
+      <Address>7FED49584FF</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B484FF</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>39</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi],xmm7</Description>
+      <Address>7FED4958608</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B48608</ModuleNameOffset>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>3F</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+08],rax - t3</Description>
+      <Address>7252C1D2</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>3C1D2</ModuleNameOffset>
+      <Before>
+        <Byte>14</Byte>
+        <Byte>0A</Byte>
+        <Byte>49</Byte>
+        <Byte>FF</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>11</Byte>
+        <Byte>75</Byte>
+        <Byte>D5</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+28],eax</Description>
+      <Address>7FEE1395AEC</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>135AEC</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>E0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>E4</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rdi+000000A4] - TOD</Description>
+      <Address>7FED3736DA3</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>396DA3</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8F</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>35</Byte>
+        <Byte>A9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :addss xmm6,[rdi+000000A4]</Description>
+      <Address>7FEE002709B</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>39709B</ModuleNameOffset>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>F7</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>B7</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B7</Byte>
+        <Byte>A4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi+000000A4],xmm6</Description>
+      <Address>7FEE00270A3</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>3970A3</ModuleNameOffset>
+      <Before>
+        <Byte>B7</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B7</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>C1</Byte>
+        <Byte>33</Byte>
+        <Byte>ED</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbp+000000A4]</Description>
+      <Address>7FEE00231E3</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>3931E3</ModuleNameOffset>
+      <Before>
+        <Byte>9D</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8D</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>85</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rax+00000F50],xmm1 - time - 0.1</Description>
+      <Address>7FEE16CFE04</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+00000F50]</Description>
+      <Address>7FEE16CFE14</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE14</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rax+00000F50],xmm1</Description>
+      <Address>7FEE16CFE04</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbx+00000F50]</Description>
+      <Address>7FEE16D94E7</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994E7</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>B8</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+00000F50]</Description>
+      <Address>7FEE175DA90</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>31DA90</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>82</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm1,[rdx+28]</Description>
+      <Address>7FEE14579BD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>179BD</ModuleNameOffset>
+      <Before>
+        <Byte>5E</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>4A</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>42</Byte>
+        <Byte>10</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+50],eax - time - 0.1 - stops slomo when disabled</Description>
+      <Address>7FEE2CB5784</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A85784</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>EB</Byte>
+        <Byte>89</Byte>
+        <Byte>77</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups [rbx+50],xmm0</Description>
+      <Address>7FEE2CB683B</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A8683B</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>15</Byte>
+        <Byte>47</Byte>
+        <Byte>16</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0D</Byte>
+        <Byte>19</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+00000384],xmm1 - time2 - 0.1</Description>
+      <Address>7FEE16D94FD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994FD</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>7C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx],xmm7 - time3 - 0.1 8 addresses</Description>
+      <Address>7FEDA8284FF</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B484FF</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>39</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi],xmm7</Description>
+      <Address>7FEDA828608</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B48608</ModuleNameOffset>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>3F</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rdi+6C] - time3 - reads</Description>
+      <Address>7FED87A6A55</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A86A55</ModuleNameOffset>
+      <Before>
+        <Byte>8C</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4F</Byte>
+        <Byte>6C</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi],xmm7</Description>
+      <Address>7FEE2D78608</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B48608</ModuleNameOffset>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>3F</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+00000F50] - time4</Description>
+      <Address>7FED917FE14</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE14</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rax+00000F50],xmm1</Description>
+      <Address>7FED917FE04</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbx+00000F50]</Description>
+      <Address>7FED91894E7</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994E7</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>B8</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+00000F50]</Description>
+      <Address>7FED920DA90</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>31DA90</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>82</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm1,[rdx+28]</Description>
+      <Address>7FED8F079BD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>179BD</ModuleNameOffset>
+      <Before>
+        <Byte>5E</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>4A</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>42</Byte>
+        <Byte>10</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+00000384],xmm1 - time5</Description>
+      <Address>7FED91894FD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994FD</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>7C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm3,[rax+00000384]</Description>
+      <Address>7FED90B57C8</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1C57C8</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>98</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>B9</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rax+00000384]</Description>
+      <Address>7FED90ED071</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1FD071</ModuleNameOffset>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>8A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm7,[rax+00000384]</Description>
+      <Address>7FED90D49A1</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1E49A1</ModuleNameOffset>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>F1</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>B8</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>18</Byte>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm8,[rax+00000384]</Description>
+      <Address>7FED90D66F3</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1E66F3</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>70</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>9A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm3,[rax+00000384]</Description>
+      <Address>7FED90D1C74</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1E1C74</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>98</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>9F</Byte>
+        <Byte>9C</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rax+00000384]</Description>
+      <Address>7FED90F6D4F</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>206D4F</ModuleNameOffset>
+      <Before>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>68</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>92</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rax+00000384]</Description>
+      <Address>7FED90F6E43</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>206E43</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>68</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>5F</Byte>
+        <Byte>C8</Byte>
+        <Byte>0F</Byte>
+        <Byte>5D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rax+00000384]</Description>
+      <Address>7FED90ED2C1</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1FD2C1</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rax+00000384]</Description>
+      <Address>7FED90ED3B5</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1FD3B5</ModuleNameOffset>
+      <Before>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rax+00000384]</Description>
+      <Address>7FED90ED4AC</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>1FD4AC</ModuleNameOffset>
+      <Before>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>A1</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+00000384],xmm1 - time 0.1 - 1</Description>
+      <Address>7FEDB1494FD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994FD</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>84</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>7C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rax+00000F50],xmm1 - time - 0.1 - 2</Description>
+      <Address>7FEDB13FE04</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+50],eax - time - 0.1 - 3</Description>
+      <Address>7FED87A5784</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A85784</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>EB</Byte>
+        <Byte>89</Byte>
+        <Byte>77</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups [rbx+50],xmm0</Description>
+      <Address>7FED87A683B</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A8683B</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>15</Byte>
+        <Byte>47</Byte>
+        <Byte>16</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0D</Byte>
+        <Byte>19</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi+70],xmm0 time - 0.1 - 4</Description>
+      <Address>7FED87A69A2</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A869A2</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>77</Byte>
+        <Byte>68</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>70</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0D</Byte>
+        <Byte>A5</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+70],eax</Description>
+      <Address>7FED87A69CE</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A869CE</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>77</Byte>
+        <Byte>64</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>70</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>54</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi+7C],xmm1 - time - 0.69</Description>
+      <Address>7FED87A69AF</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A869AF</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>A5</Byte>
+        <Byte>45</Byte>
+        <Byte>16</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>7C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>9C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+7C],eax</Description>
+      <Address>7FED87A69D4</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>A869D4</ModuleNameOffset>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>70</Byte>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>54</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>7C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>58</Byte>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+00000F50] - access time</Description>
+      <Address>7FEDB13FE14</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE14</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rax+00000F50],xmm1</Description>
+      <Address>7FEDB13FE04</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>28FE04</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rbx+00000F50]</Description>
+      <Address>7FEDB1494E7</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2994E7</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>B8</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+00000F50]</Description>
+      <Address>7FEDB1CDA90</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>31DA90</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>82</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+14],xmm0 - camouflage</Description>
+      <Address>7FEE3718417</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C08417</ModuleNameOffset>
+      <Before>
+        <Byte>CE</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm0,[rsi+14]</Description>
+      <Address>7FEE37185AC</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C085AC</ModuleNameOffset>
+      <Before>
+        <Byte>5E</Byte>
+        <Byte>C3</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>46</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>EA</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm6,[rbx+14]</Description>
+      <Address>7FEDB1C8169</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C08169</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>F6</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>73</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>83</Byte>
+        <Byte>A9</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+14]</Description>
+      <Address>7FEE2B483B6</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>383B6</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>05</Byte>
+        <Byte>96</Byte>
+        <Byte>42</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm6,[rdx+14]</Description>
+      <Address>7FEE36BB0ED</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>BAB0ED</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>72</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>0E</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm8,[rdi+14]</Description>
+      <Address>7FEE364C0FA</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B3C0FA</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0D</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>47</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>4C</Byte>
+        <Byte>80</Byte>
+        <Byte>7F</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+14]</Description>
+      <Address>7FEE364D7B2</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B3D7B2</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C2</Byte>
+        <Byte>76</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm2,[rax+14]</Description>
+      <Address>7FEE3017CD3</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>507CD3</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>50</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>07</Byte>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm7,[rax+14]</Description>
+      <Address>7FEE2E5B0AA</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>34B0AA</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>2F</Byte>
+        <Byte>78</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>10</Byte>
+        <Byte>F6</Byte>
+        <Byte>86</Byte>
+        <Byte>15</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rbx+14]</Description>
+      <Address>7FEE37184BF</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C084BF</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>53</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>D1</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+14],xmm0</Description>
+      <Address>7FEE37184D0</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C084D0</ModuleNameOffset>
+      <Before>
+        <Byte>72</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+14],xmm6</Description>
+      <Address>7FEE37186BC</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C086BC</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>90</Byte>
+        <Byte>F5</Byte>
+        <Byte>14</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>73</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>73</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rbx+14]</Description>
+      <Address>7FEE37183FD</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C083FD</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>13</Byte>
+        <Byte>42</Byte>
+        <Byte>7F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>0D</Byte>
+        <Byte>52</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rbx+14],xmm0</Description>
+      <Address>7FEE3718417</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C08417</ModuleNameOffset>
+      <Before>
+        <Byte>CE</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+00003FA0],3F800000 - WRITE CAMO FILTER</Description>
+      <Address>7FEDB0FD7E3</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B3D7E3</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>0F</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>DC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>81</Byte>
+        <Byte>A0</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>17</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm6,[rbx+14] - access camo countdown</Description>
+      <Address>7FEDB1C8169</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>C08169</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>F6</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>73</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>83</Byte>
+        <Byte>A9</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+14]</Description>
+      <Address>7FEDA5F83B6</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>383B6</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>05</Byte>
+        <Byte>96</Byte>
+        <Byte>42</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm6,[rdx+14]</Description>
+      <Address>7FEDB16B0ED</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>BAB0ED</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>72</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>0E</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :comiss xmm8,[rdi+14]</Description>
+      <Address>7FEDB0FC0FA</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B3C0FA</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0D</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>47</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>73</Byte>
+        <Byte>4C</Byte>
+        <Byte>80</Byte>
+        <Byte>7F</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rdx+14]</Description>
+      <Address>7FEDB0FD7B2</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B3D7B2</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>78</Byte>
+        <Byte>13</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C2</Byte>
+        <Byte>76</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+00003FA0],3F800000 - write camo filter</Description>
+      <Address>7FEDB0FD7E3</Address>
+      <ModuleName>gamedll_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>B3D7E3</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>0F</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>DC</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>81</Byte>
+        <Byte>A0</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>17</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov r9d,[rcx] - resolution 1920</Description>
+      <Address>7FEEB247D31</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>227D31</ModuleNameOffset>
+      <Before>
+        <Byte>33</Byte>
+        <Byte>D2</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>09</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp dword ptr [rsi+10],10 - accesses full screen resolution 1920</Description>
+      <Address>7FEEB25542D</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>23542D</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>03</Byte>
+        <Byte>98</Byte>
+        <Byte>DF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>7E</Byte>
+        <Byte>10</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>0A</Byte>
+        <Byte>83</Byte>
+        <Byte>7E</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp [rsi+10],eax</Description>
+      <Address>7FEEB255465</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>235465</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>75</Byte>
+        <Byte>35</Byte>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>2E</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rbp+00]</Description>
+      <Address>7FEE2A996C3</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>7196C3</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+        <Byte>74</Byte>
+        <Byte>64</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>4D</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>2B</Byte>
+        <Byte>C1</Byte>
+        <Byte>99</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi],eax</Description>
+      <Address>7FEEB7325B3</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>7125B3</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>07</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rdx]</Description>
+      <Address>7FEEB73977C</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>71977C</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>D2</Byte>
+        <Byte>74</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>43</Byte>
+        <Byte>39</Byte>
+        <Byte>04</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rdi]</Description>
+      <Address>7FEEB7325F7</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>7125F7</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>A3</Byte>
+        <Byte>98</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov r9d,[rdi]</Description>
+      <Address>7FEEB73265B</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>71265B</ModuleNameOffset>
+      <Before>
+        <Byte>57</Byte>
+        <Byte>04</Byte>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>19</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>0F</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rcx+10]</Description>
+      <Address>7FEEB244BCE</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>224BCE</ModuleNameOffset>
+      <Before>
+        <Byte>7D</Byte>
+        <Byte>F7</Byte>
+        <Byte>8D</Byte>
+        <Byte>57</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rsi+10]</Description>
+      <Address>7FEEB255656</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>235656</ModuleNameOffset>
+      <Before>
+        <Byte>0B</Byte>
+        <Byte>2D</Byte>
+        <Byte>59</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>06</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rsi+10],eax</Description>
+      <Address>7FEE8D4567D</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>23567D</ModuleNameOffset>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>13</Byte>
+        <Byte>68</Byte>
+        <Byte>7F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>06</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rd3d11_x64_rwdi.dll+7AC50] - windowsizeX</Description>
+      <Address>7FEEC836E4A</Address>
+      <ModuleName>rd3d11_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>6E4A</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>8B</Byte>
+        <Byte>EB</Byte>
+        <Byte>12</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>05</Byte>
+        <Byte>00</Byte>
+        <Byte>3E</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>87</Byte>
+        <Byte>8B</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rbx]</Description>
+      <Address>7FEF1390A4E</Address>
+      <ModuleName>dxgi.dll</ModuleName>
+      <ModuleNameOffset>30A4E</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>D4</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>B8</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rcx] - WindowResX</Description>
+      <Address>7FEEB25227B</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>23227B</ModuleNameOffset>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rsi]</Description>
+      <Address>7FEEB255463</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>235463</ModuleNameOffset>
+      <Before>
+        <Byte>38</Byte>
+        <Byte>6E</Byte>
+        <Byte>74</Byte>
+        <Byte>75</Byte>
+        <Byte>35</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>39</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+        <Byte>75</Byte>
+        <Byte>2E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rsi],eax</Description>
+      <Address>7FEEB255659</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>235659</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>14</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rsi],eax</Description>
+      <Address>7FEEB255680</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>235680</ModuleNameOffset>
+      <Before>
+        <Byte>7F</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rsi]</Description>
+      <Address>7FEEB2556CD</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>2356CD</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>56</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0E</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>5C</Byte>
+        <Byte>36</Byte>
+        <Byte>DF</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov r8d,[rbx]</Description>
+      <Address>7FEEB254EE1</Address>
+      <ModuleName>engine_x64_rwdi.dll</ModuleName>
+      <ModuleNameOffset>234EE1</ModuleNameOffset>
+      <Before>
+        <Byte>23</Byte>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+        <Byte>FF</Byte>
+        <Byte>15</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>ammo</Name>
+      <Address>7FEDD4E6E52</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCoords</Name>
+      <Address>7FEECE3002B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>playerAOB</Name>
+      <Address>7FEED1CDF22</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pTime</Name>
+      <Address>7FEDCF50040</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>health</Name>
+      <Address>7FEDD3D8AF0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>EasyLockAOB</Name>
+      <Address>7FEDD0755D0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>tod_aob1</Name>
+      <Address>7FEDD2A23AD</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>forceTime</Name>
+      <Address>7FEDCF50048</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>teleport_aob1</Name>
+      <Address>7FEE4824E49</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>waypoint_aob1</Name>
+      <Address>7FEDF904290</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>waypoint_Z</Name>
+      <Address>7FEE3C50150</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>icamo_aob1</Name>
+      <Address>7FEE0713BF0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ItemEditDataAOB</Name>
+      <Address>7FFA5B763365</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>BaseItemTableAOB</Name>
+      <Address>7FFA5B3499FE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ItemEditData</Name>
+      <Address>7FFA59D10037</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>igh_aob1</Name>
+      <Address>7FFCD22544D2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ik_aob1</Name>
+      <Address>7FFC4BB542A5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>HunterUVBlockInstantCooldownUse</Name>
+      <Address>7FFD08B2D68E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DriveLevel</Name>
+      <Address>7FFBCCFEF4C8</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>t_aob1</Name>
+      <Address>7FFBCBFD64B1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>gw_aob1</Name>
+      <Address>7FFBC8848CBC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>saveLocation_status</Name>
+      <Address>7FFBCB6F0086</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>saved_X</Name>
+      <Address>7FFBCB6F008A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>saved_Z</Name>
+      <Address>7FFBCB6F008E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>saved_Y</Name>
+      <Address>7FFBCB6F0092</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>goToSaved_status</Name>
+      <Address>7FFBCB6F00DE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>goToWaypoint_status</Name>
+      <Address>7FFBCB6F0128</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>waypoint_X</Name>
+      <Address>7FFBCB6F0170</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>waypoint_Y</Name>
+      <Address>7FFBCB6F0174</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>t_values</Name>
+      <Address>7FFBCB6F0178</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Challenge/DLC</Name>
+      <Address>7FF838F2000F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Skills2</Name>
+      <Address>7FFC15DDEFEC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SurvivalRank</Name>
+      <Address>7FFC1B000FAE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>HunterLVL</Name>
+      <Address>7FFDCFBCE864</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>HP2</Name>
+      <Address>7FFF73B6E4B7</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GodMode</Name>
+      <Address>7FFF737CE49F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GodMode1</Name>
+      <Address>7FFA6077E4A9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GodMode2</Name>
+      <Address>7FFA6077E49F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CarGas</Name>
+      <Address>7FFA60C57D1F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>UnlimitedFlare</Name>
+      <Address>7FFCB91AC759</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>setFOV_aob1</Name>
+      <Address>7FFCB88BEC05</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InstantCooldownFlares</Name>
+      <Address>7FFCB8DCC759</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InstantKill</Name>
+      <Address>7FFCB8444075</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>playerStats</Name>
+      <Address>7FFCB8D773CD</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ici_aob1</Name>
+      <Address>7FFCB8E17F69</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>UnlimitedPotionDuration</Name>
+      <Address>7FFCB8C9AB5C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>FreeBluAOB1</Name>
+      <Address>7FFCB8516645</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>FreeBluAOB2</Name>
+      <Address>7FFCB851611E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>wisz_aob1</Name>
+      <Address>7FFCB8D1A31C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>itwu_aob1</Name>
+      <Address>7FFCB8E1807B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InfiniteGrapplingHook</Name>
+      <Address>7FFCB8ECBE1A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CarFire</Name>
+      <Address>7FFCB91C24A1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>GasFreeFlamethrower</Name>
+      <Address>7FFCB91C40C2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InfiniteNitro</Name>
+      <Address>7FFCB91C692A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>TheButton</Name>
+      <Address>7FFCB8CFA9DE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>iha_aob1</Name>
+      <Address>7FFCB90506F3</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>INJECT</Name>
+      <Address>7FFCB8DED7D1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CheckPoint</Name>
+      <Address>7FFCB8E048DE</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>equipment</Name>
+      <Address>7FEE639FD8B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>stamina</Name>
+      <Address>7FEE63BB6B6</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>durability</Name>
+      <Address>7FEE5DF793B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ih_aob1</Name>
+      <Address>7FEE626E097</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ih_aob2</Name>
+      <Address>7FEE626E079</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ica_aob1</Name>
+      <Address>7FEE64780A4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ioa_aob1</Name>
+      <Address>7FEE639F142</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>elp_aob1</Name>
+      <Address>7FEE5E73F9B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>iuf_aob1</Name>
+      <Address>7FEE6354545</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>UnlimitedCamouflage</Name>
+      <Address>7FEE63A8417</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pRes</Name>
+      <Address>7FEE2140028</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pResAOB</Name>
+      <Address>7FEE2A996C3</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

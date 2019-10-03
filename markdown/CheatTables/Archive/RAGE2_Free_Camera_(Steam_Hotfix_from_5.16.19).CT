@@ -1,0 +1,1371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>73699</ID>
+      <Description>"Time"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>globalalloc(cheatTimeOn,4) // global variable for createThread on/off
+cheatTimeOn:
+dd 0
+
+[ENABLE]
+
+aobscanmodule(manual_time,RAGE2.exe,F3 0F 10 81 80 00 00 00 48 8B) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+8853FA)
+
+label(code)
+label(return)
+
+label(time)
+registersymbol(time)
+
+newmem:
+  cmp [time],(float)1000.0
+  jne short @f
+  movss xmm0,[rcx+00000080]
+  movss [time],xmm0
+    @@:
+    movss xmm0,[time]
+    movss [rcx+00000080],xmm0
+    jmp return
+
+code:
+  movss xmm0,[rcx+00000080]
+  jmp return
+
+time:
+dd (float)1000.0
+
+manual_time:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(manual_time)
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+{$lua}
+
+local changeTime = 0.0015
+local changeTimeFast = 0.005
+
+createNativeThread(function(daytimer2)
+  sleep(200) -- delay for giving script time to write for "cheaton" proper value
+  while readFloat("cheatTimeOn") == 0 do -- while "cheaton" value equal "0" this cheat work
+    sleep(5) -- like timer interval
+
+    if readBytes("RAGE2.exe+3067348") == 0 then -- Check for Alt-Tab
+
+      local addTime = isKeyPressed(VK_CONTROL) and isKeyPressed(VK_NUMPAD8)
+      local subTime = isKeyPressed(VK_CONTROL) and isKeyPressed(VK_NUMPAD5)
+      local addTimeFast = isKeyPressed(VK_CONTROL) and isKeyPressed(VK_MENU) and isKeyPressed(VK_NUMPAD8)
+      local subTimeFast = isKeyPressed(VK_CONTROL) and isKeyPressed(VK_MENU) and isKeyPressed(VK_NUMPAD5)
+
+-- Time Switch
+      if addTime then
+        writeFloat("time", readFloat("time") + changeTime)
+      elseif readFloat("time") &gt; 24.0001 then
+        writeFloat("time", readFloat("time") - 24.0)
+      end
+
+      if subTime then
+        writeFloat("time", readFloat("time") - changeTime)
+      elseif readFloat("time") &lt; -0.0001 then
+        writeFloat("time", readFloat("time") + 24.0)
+      end
+
+      if addTimeFast then
+        writeFloat("time", readFloat("time") + changeTimeFast)
+      elseif readFloat("time") &gt; 24.0001 then
+        writeFloat("time", readFloat("time") - 24.0)
+      end
+
+      if subTimeFast then
+        writeFloat("time", readFloat("time") - changeTimeFast)
+      elseif readFloat("time") &lt; -0.0001 then
+        writeFloat("time", readFloat("time") + 24.0)
+      end
+
+    end
+  end
+end)
+
+{$asm}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+[DISABLE]
+
+manual_time:
+  db F3 0F 10 81 80 00 00 00
+unregistersymbol(time)
+unregistersymbol(manual_time)
+dealloc(newmem)
+
+cheatTimeOn:
+dd 1
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+8853FA
+
+"RAGE2.exe"+8853C0: F3 0F 59 89 88 00 00 00     -  mulss xmm1,[rcx+00000088]
+"RAGE2.exe"+8853C8: F3 0F 59 0D AC 1F EA 01     -  mulss xmm1,[RAGE2.exe+272737C]
+"RAGE2.exe"+8853D0: 80 B9 95 00 00 00 00        -  cmp byte ptr [rcx+00000095],00
+"RAGE2.exe"+8853D7: 74 08                       -  je RAGE2.exe+8853E1
+"RAGE2.exe"+8853D9: F3 0F 59 89 8C 00 00 00     -  mulss xmm1,[rcx+0000008C]
+"RAGE2.exe"+8853E1: F3 0F 58 89 80 00 00 00     -  addss xmm1,dword ptr [rcx+00000080]
+"RAGE2.exe"+8853E9: E8 12 B0 B5 FF              -  call RAGE2.exe+3E0400
+"RAGE2.exe"+8853EE: 48 8B 0D 4B F5 7D 02        -  mov rcx,[RAGE2.exe+3064940]
+"RAGE2.exe"+8853F5: 48 85 C9                    -  test rcx,rcx
+"RAGE2.exe"+8853F8: 74 17                       -  je RAGE2.exe+885411
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+8853FA: F3 0F 10 81 80 00 00 00     -  movss xmm0,[rcx+00000080]
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+885402: 48 8B 05 FF 26 77 02        -  mov rax,[RAGE2.exe+2FF7B08]
+"RAGE2.exe"+885409: F3 0F 11 80 E8 12 00 00     -  movss [rax+000012E8],xmm0
+"RAGE2.exe"+885411: 4C 8B 05 20 27 77 02        -  mov r8,[RAGE2.exe+2FF7B38]
+"RAGE2.exe"+885418: 4D 85 C0                    -  test r8,r8
+"RAGE2.exe"+88541B: 0F 84 E1 00 00 00           -  je RAGE2.exe+885502
+"RAGE2.exe"+885421: 49 8B 80 C0 05 00 00        -  mov rax,[r8+000005C0]
+"RAGE2.exe"+885428: 8B 0D B2 20 3B 02           -  mov ecx,[RAGE2.exe+2C374E0]
+"RAGE2.exe"+88542E: 8B 15 A8 20 3B 02           -  mov edx,[RAGE2.exe+2C374DC]
+"RAGE2.exe"+885434: 3B 90 A8 05 00 00           -  cmp edx,[rax+000005A8]
+"RAGE2.exe"+88543A: 75 1A                       -  jne RAGE2.exe+885456
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>106</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>73700</ID>
+          <Description>"Time_of_Day"</Description>
+          <Color>008000</Color>
+          <VariableType>Float</VariableType>
+          <Address>time</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>0.0</Value>
+              <Description>Night</Description>
+              <ID>7</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>12</Value>
+              <Description>Day</Description>
+              <ID>8</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>6.703104496</Value>
+              <Description>Red Morning</Description>
+              <ID>9</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>17.50818634</Value>
+              <Description>Red Evening</Description>
+              <ID>10</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>93292</ID>
+      <Description>"Calm_Enemies"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule(invis,RAGE2.exe,8B 41 30 89 47 30 8B 41 34 89 47 34 8B 41 38 89 47 38 8B 41 3C 89 47 3C 48 8D 54 24 60 48 8B CE E8 FE FC FF FF) // should be unique
+invis:
+  db 90 90 90 89 47 30
+registersymbol(invis)
+
+[DISABLE]
+
+invis:
+  db 8B 41 30 89 47 30
+unregistersymbol(invis)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+62B25D
+
+"RAGE2.exe"+62B23F: 8B 41 1C              -  mov eax,[rcx+1C]
+"RAGE2.exe"+62B242: 89 47 1C              -  mov [rdi+1C],eax
+"RAGE2.exe"+62B245: 8B 41 20              -  mov eax,[rcx+20]
+"RAGE2.exe"+62B248: 89 47 20              -  mov [rdi+20],eax
+"RAGE2.exe"+62B24B: 8B 41 24              -  mov eax,[rcx+24]
+"RAGE2.exe"+62B24E: 89 47 24              -  mov [rdi+24],eax
+"RAGE2.exe"+62B251: 8B 41 28              -  mov eax,[rcx+28]
+"RAGE2.exe"+62B254: 89 47 28              -  mov [rdi+28],eax
+"RAGE2.exe"+62B257: 8B 41 2C              -  mov eax,[rcx+2C]
+"RAGE2.exe"+62B25A: 89 47 2C              -  mov [rdi+2C],eax
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+62B25D: 8B 41 30              -  mov eax,[rcx+30]
+"RAGE2.exe"+62B260: 89 47 30              -  mov [rdi+30],eax
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+62B263: 8B 41 34              -  mov eax,[rcx+34]
+"RAGE2.exe"+62B266: 89 47 34              -  mov [rdi+34],eax
+"RAGE2.exe"+62B269: 8B 41 38              -  mov eax,[rcx+38]
+"RAGE2.exe"+62B26C: 89 47 38              -  mov [rdi+38],eax
+"RAGE2.exe"+62B26F: 8B 41 3C              -  mov eax,[rcx+3C]
+"RAGE2.exe"+62B272: 89 47 3C              -  mov [rdi+3C],eax
+"RAGE2.exe"+62B275: 48 8D 54 24 60        -  lea rdx,[rsp+60]
+"RAGE2.exe"+62B27A: 48 8B CE              -  mov rcx,rsi
+"RAGE2.exe"+62B27D: E8 FE FC FF FF        -  call RAGE2.exe+62AF80
+"RAGE2.exe"+62B282: 8B 08                 -  mov ecx,[rax]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>93307</ID>
+      <Description>"no_All_HUD"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule(nophotohud,RAGE2.exe,1F 83 BB 90 05 00 00 01) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+B73AD4)
+
+label(code)
+label(return)
+
+newmem:
+  cmp dword ptr [rbx+00000590],02
+  jmp return
+
+code:
+  cmp dword ptr [rbx+00000590],01
+  jmp return
+
+nophotohud+01:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(nophotohud)
+
+[DISABLE]
+
+nophotohud+01:
+  db 83 BB 90 05 00 00 01
+
+unregistersymbol(nophotohud)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+B73AD4
+
+"RAGE2.exe"+B73AB3: 74 3E                 -  je RAGE2.exe+B73AF3
+"RAGE2.exe"+B73AB5: 48 8B 43 10           -  mov rax,[rbx+10]
+"RAGE2.exe"+B73AB9: 48 8D 4B 10           -  lea rcx,[rbx+10]
+"RAGE2.exe"+B73ABD: 48 8B 50 30           -  mov rdx,[rax+30]
+"RAGE2.exe"+B73AC1: 48 3B D7              -  cmp rdx,rdi
+"RAGE2.exe"+B73AC4: 75 3E                 -  jne RAGE2.exe+B73B04
+"RAGE2.exe"+B73AC6: 83 B9 A4 04 00 00 03  -  cmp dword ptr [rcx+000004A4],03
+"RAGE2.exe"+B73ACD: 0F 94 C0              -  sete al
+"RAGE2.exe"+B73AD0: 84 C0                 -  test al,al
+"RAGE2.exe"+B73AD2: 74 1F                 -  je RAGE2.exe+B73AF3
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+B73AD4: 83 BB 90 05 00 00 01  -  cmp dword ptr [rbx+00000590],01
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+B73ADB: 74 09                 -  je RAGE2.exe+B73AE6
+"RAGE2.exe"+B73ADD: 83 BB 8C 06 00 00 00  -  cmp dword ptr [rbx+0000068C],00
+"RAGE2.exe"+B73AE4: 7E 0D                 -  jle RAGE2.exe+B73AF3
+"RAGE2.exe"+B73AE6: B0 01                 -  mov al,01
+"RAGE2.exe"+B73AE8: 48 8B 5C 24 30        -  mov rbx,[rsp+30]
+"RAGE2.exe"+B73AED: 48 83 C4 20           -  add rsp,20
+"RAGE2.exe"+B73AF1: 5F                    -  pop rdi
+"RAGE2.exe"+B73AF2: C3                    -  ret
+"RAGE2.exe"+B73AF3: 48 8B 5C 24 30        -  mov rbx,[rsp+30]
+"RAGE2.exe"+B73AF8: 32 C0                 -  xor al,al
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>105</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>88019</ID>
+      <Description>"Free Camera"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>25818</ID>
+          <Description>"Free_Camera"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>globalalloc(cheatoncam,4) // global variable for createThread on/off
+cheatoncam:
+dd 0
+
+{$lua}
+
+if syntaxcheck then return end
+
+[ENABLE]
+
+-------------------------------------------------------------------------------------
+-- Function for read and write group of values at once
+-- for write
+function packWrite(addr, fms, ...)
+  local packed = addr and string.pack(fms,...)
+  if packed then return writeBytes(addr,{packed:byte(1,-1)}) end
+end
+-- for read (not used here)
+--[[function packRead(addr, fms)
+  local sz = addr and string.packsize(fms)
+  local bt = sz and readBytes(addr,sz,true)
+  if bt and #bt == sz then
+    return string.unpack(fms,byteTableToString(bt))
+  end
+end]]
+-- maded by panraven
+-------------------------------------------------------------------------------------
+
+----------------------------------------------
+-- Freeze Player and Activate other scripts --
+----------------------------------------------
+local al=getAddressList()
+local i
+for i=0, al.Count-1 do
+  if al[i].Description=='Camera_Detach' then
+    al[i].Active=true
+  end
+  if al[i].Description=='freeze_player' then
+    al[i].Active=true
+  end
+  if al[i].Description=='Waypoint_XYZ (place after enable free cam)' then
+    al[i].Active=true
+  end
+  if al[i].Description=='No_Fall' then
+    al[i].Active=true
+  end
+end
+-------------------------------------
+-- Speed and Multipliers variables --
+-------------------------------------
+local NormalMult = 0.025
+local FastMult = 0.25
+local SlowMult = 0.002
+
+-- Save once current Camera XYZ values for further calculations
+sleep(200)
+local calcX = readFloat("camx") -- east/west
+local calcY = readFloat("camx+4") -- up/down
+local calcZ = readFloat("camx+8") -- north/south
+
+createThread(function(timer)
+sleep(200) -- delay for giving script time to write for "cheaton" proper value
+while readFloat("cheatoncam") == 0 do -- while "cheaton" value equal "0" this cheat work
+sleep(5) -- like timer interval
+
+if isKeyPressed(VK_MENU) and isKeyPressed(VK_R) then -- Disable script
+  writeFloat("cheatoncam", 1.0)
+end
+
+if readBytes("RAGE2.exe+3067348") == 0 then -- Check for Alt-Tab
+
+----------------------------
+-- Movements calculations --
+----------------------------
+-- read in-game sin/cos values
+local sinh = readFloat("camsin") -- "theHunterCotW_F.exe+1EA2C0C"
+local cosh = readFloat("camsin+4") -- "theHunterCotW_F.exe+1EA2C04"
+
+-------------------------
+-- Assign Hotkeys Here --
+-------------------------
+local MoveForward = isKeyPressed(VK_W) -- local variable for move forward hotkey
+local MoveBack = isKeyPressed(VK_S) -- local variable for move back hotkey
+local MoveLeft = isKeyPressed(VK_A) -- local variable for move left hotkey
+local MoveRight = isKeyPressed(VK_D) -- local variable for move right hotkey
+local MoveUp = isKeyPressed(VK_SPACE) -- local variable for move up hotkey
+local MoveDown = isKeyPressed(VK_C) -- local variable for move down hotkey
+local Faster = isKeyPressed(VK_SHIFT) --isKeyPressed(VK_SHIFT)
+local Slower = isKeyPressed(VK_MENU) --isKeyPressed(VK_CONTROL)
+local Telep = isKeyPressed(VK_SHIFT) and isKeyPressed(VK_R)
+
+----------------------------
+-- Movements calculations --
+----------------------------
+
+---- Forward
+  if MoveForward then
+    if Faster then
+      multFB = FastMult
+    elseif Slower then
+      multFB = SlowMult
+    else
+      multFB = NormalMult
+    end
+    calcX = calcX + (cosh * multFB) -- store calculated new camX value
+    calcZ = calcZ - (sinh * multFB) -- store calculated new camZ value
+  end
+
+---- Back
+  if MoveBack then -- start moving Back
+    if Faster then
+      multFB = FastMult
+    elseif Slower then
+      multFB = SlowMult
+    else
+      multFB = NormalMult
+    end
+    calcX = calcX - (cosh * multFB) -- store calculated new camX value
+    calcZ = calcZ + (sinh * multFB) -- store calculated new camZ value
+  end
+---- Right
+  if MoveRight then -- start moving Right
+    if Faster then
+      multRL = FastMult
+    elseif Slower then
+      multRL = SlowMult
+    else
+      multRL = NormalMult
+    end
+    calcX = calcX + (sinh * multRL) -- store calculated new camX value
+    calcZ = calcZ + (cosh * multRL) -- store calculated new camZ value
+  end
+---- Left
+  if MoveLeft then -- start moving Left
+    if Faster then
+      multRL = FastMult
+    elseif Slower then
+      multRL = SlowMult
+    else
+      multRL = NormalMult
+    end
+    calcX = calcX - (sinh * multRL) -- store calculated new camX value
+    calcZ = calcZ - (cosh * multRL) -- store calculated new camZ value
+  end
+---- Up
+  if MoveUp then -- start moving Up
+    if Faster then
+      multUpDown = FastMult
+    elseif Slower then
+      multUpDown = SlowMult
+    else
+      multUpDown = NormalMult
+    end
+    calcY = calcY + multUpDown -- store calculated new camY value
+  end
+---- Down
+  if MoveDown then -- start moving Down
+    if Faster then
+      multUpDown = FastMult
+    elseif Slower then
+      multUpDown = SlowMult
+    else
+      multUpDown = NormalMult
+    end
+    calcY = calcY - multUpDown -- store calculated new camY value
+  end
+
+-- write camX, camY, camZ values all at once, with using function
+packWrite("camx", 'fff', calcX, calcY, calcZ)
+
+--------------------------------------------------------------------------------
+-- Camera Teleport to Waypoint --
+if Telep and readFloat("waypoint") ~= 0.000 and readFloat("waypoint") ~= nil then -- check if waypoint was placed
+    calcX = readFloat("waypoint")
+    calcY = readFloat("waypoint+4")
+    calcZ = readFloat("waypoint+8")
+end
+
+end -- close alt-tab check
+end -- close while
+end) -- close timer function
+
+[DISABLE]
+
+-- Disabling scripts
+local al=getAddressList()
+local i
+for i=0, al.Count-1 do
+  if al[i].Description=='Camera_Detach' then
+    al[i].Active=false
+  end
+  if al[i].Description=='freeze_player' then
+    al[i].Active=false
+  end
+  if al[i].Description=='Waypoint_XYZ (place after enable free cam)' then
+    al[i].Active=false
+  end
+  if al[i].Description=='No_Fall' then
+    al[i].Active=false
+  end
+end
+
+{$asm}
+cheatoncam:
+dd 1 // give to "cheaton" any other value than "0" for stop thread from LUA
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>82</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>25819</ID>
+              <Description>"Values"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF8000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>28117</ID>
+                  <Description>"in-game alt/tab"</Description>
+                  <Color>008000</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>RAGE2.exe+3067348</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>87999</ID>
+                  <Description>"camx"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camx</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88000</ID>
+                  <Description>"camy"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camx+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88001</ID>
+                  <Description>"camz"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camx+8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88002</ID>
+                  <Description>"cam sinh"</Description>
+                  <Color>008000</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>camsin</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88003</ID>
+                  <Description>"cam cosh"</Description>
+                  <Color>008000</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>camsin+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88004</ID>
+                  <Description>"Waypoint X"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>waypoint</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88005</ID>
+                  <Description>"Waypoint Y"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>waypoint+4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>88006</ID>
+                  <Description>"Waypoint Z"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>waypoint+8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93285</ID>
+              <Description>"Camera_Detach"</Description>
+              <LastState/>
+              <Color>000000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(cam2detach,RAGE2.exe,44 0F 11 68 30 45) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+6BFC54)
+
+label(code)
+label(return)
+label(camx)
+registersymbol(camx)
+label(camsin)
+registersymbol(camsin)
+
+
+{
+je code
+-[rax+E8],0
++[rax+F0],0
+[rax+F8],0
+[rax+138],0
+[rax+13C],0
+[rax+140],0
+[rax+148],0
+[rax+198],0
+[rax+1A0],0
+[rax+1A8],0
+[rax+3C4],0
+[rax+3C8],0
+[rax+3CC],0
+[rax+3D4],0
+
+jne code
+[rax+13C],000C6DBC
+byte ptr[rax+13C],BC
+-[rax+14C],#1
+[rax+15C],00007065
+[rax+168],00007060
+[rax+16C],0000705B
+[rax+17C],00006FD5
+[rax+180],00006FD4
+-[rax+194],0000705A
+-[rax+3C4],#2
+[rax+3F0],0
+}
+newmem:
+  cmp byte ptr[rax+13C],BC
+  jne code
+
+  push rbx
+  mov rbx,[rcx+28]
+  mov [camsin],rbx
+  mov rbx,[rcx+8]
+  mov [camsin+4],rbx
+  pop rbx
+
+  cmp [camx],(float)90000
+  jne short @f
+  movups xmm8,[rax+30]
+  movups [camx],xmm8
+    @@:
+    movups xmm8,[camx]
+    movups [rax+30],xmm8
+    xorps xmm8,xmm8
+  jmp return
+
+code:
+  movups [rax+30],xmm13
+  jmp return
+
+camx:
+dd (float)90000
+dd (float)90000
+dd (float)90000
+camsin:
+dd 0
+dd 0
+
+cam2detach:
+  jmp newmem
+return:
+registersymbol(cam2detach)
+
+[DISABLE]
+
+cam2detach:
+  db 44 0F 11 68 30
+unregistersymbol(camx)
+unregistersymbol(camsin)
+unregistersymbol(cam2detach)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+6BFC54
+
+"RAGE2.exe"+6BFC28: 0F C6 C0 C6           -  shufps xmm0,xmm0,-3A
+"RAGE2.exe"+6BFC2C: F3 0F 10 CE           -  movss xmm1,xmm6
+"RAGE2.exe"+6BFC30: 41 0F 28 73 F0        -  movaps xmm6,[r11-10]
+"RAGE2.exe"+6BFC35: F3 41 0F 10 C1        -  movss xmm0,xmm9
+"RAGE2.exe"+6BFC3A: 45 0F 28 4B C0        -  movaps xmm9,[r11-40]
+"RAGE2.exe"+6BFC3F: 45 0F C6 ED 39        -  shufps xmm13,xmm13,39
+"RAGE2.exe"+6BFC44: 0F C6 C9 C9           -  shufps xmm1,xmm1,-37
+"RAGE2.exe"+6BFC48: 0F 11 48 10           -  movups [rax+10],xmm1
+"RAGE2.exe"+6BFC4C: 0F C6 C0 C9           -  shufps xmm0,xmm0,-37
+"RAGE2.exe"+6BFC50: 0F 11 40 20           -  movups [rax+20],xmm0
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+6BFC54: 44 0F 11 68 30        -  movups [rax+30],xmm13
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+6BFC59: 45 0F 28 6B 80        -  movaps xmm13,[r11-80]
+"RAGE2.exe"+6BFC5E: 49 8B E3              -  mov rsp,r11
+"RAGE2.exe"+6BFC61: 5B                    -  pop rbx
+"RAGE2.exe"+6BFC62: C3                    -  ret
+"RAGE2.exe"+6BFC63: CC                    -  int 3
+"RAGE2.exe"+6BFC64: CC                    -  int 3
+"RAGE2.exe"+6BFC65: CC                    -  int 3
+"RAGE2.exe"+6BFC66: CC                    -  int 3
+"RAGE2.exe"+6BFC67: CC                    -  int 3
+"RAGE2.exe"+6BFC68: CC                    -  int 3
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>73707</ID>
+              <Description>"freeze_player"</Description>
+              <LastState/>
+              <Color>000000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(freeze_player,RAGE2.exe,F2 0F 11 41 40 8B 45) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+6C9B2E)
+
+label(code)
+label(return)
+
+newmem:
+  mov [rcx+40],0
+  mov [rcx+44],0
+  mov eax,[rbp-80]
+  mov [rcx+48],0
+  jmp return
+
+code:
+  movsd [rcx+40],xmm0
+  mov eax,[rbp-80]
+  mov [rcx+48],eax
+  jmp return
+
+freeze_player:
+  jmp newmem
+  db 90 90 90 90 90 90
+return:
+registersymbol(freeze_player)
+
+[DISABLE]
+
+freeze_player:
+  db F2 0F 11 41 40 8B 45 80 89 41 48
+
+unregistersymbol(freeze_player)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+6C9B2E
+
+"RAGE2.exe"+6C9AF5: 48 C7 44 24 20 01 00 00 00  -  mov qword ptr [rsp+20],00000001
+"RAGE2.exe"+6C9AFE: 4C 8D 4D A0                 -  lea r9,[rbp-60]
+"RAGE2.exe"+6C9B02: 41 B8 01 00 00 00           -  mov r8d,00000001
+"RAGE2.exe"+6C9B08: 8B 15 96 2A 91 02           -  mov edx,[RAGE2.exe+2FDC5A4]
+"RAGE2.exe"+6C9B0E: 49 8B CF                    -  mov rcx,r15
+"RAGE2.exe"+6C9B11: E8 2A 40 CC FF              -  call RAGE2.exe+38DB40
+"RAGE2.exe"+6C9B16: EB 09                       -  jmp RAGE2.exe+6C9B21
+"RAGE2.exe"+6C9B18: F3 44 0F 10 35 5B DD 05 02  -  movss xmm14,[RAGE2.exe+272787C]
+"RAGE2.exe"+6C9B21: 48 8B 8F F0 2B 00 00        -  mov rcx,[rdi+00002BF0]
+"RAGE2.exe"+6C9B28: F2 0F 10 44 24 78           -  movsd xmm0,[rsp+78]
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+6C9B2E: F2 0F 11 41 40              -  movsd [rcx+40],xmm0
+"RAGE2.exe"+6C9B33: 8B 45 80                    -  mov eax,[rbp-80]
+"RAGE2.exe"+6C9B36: 89 41 48                    -  mov [rcx+48],eax
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+6C9B39: 48 8D 55 20                 -  lea rdx,[rbp+20]
+"RAGE2.exe"+6C9B3D: 48 8B CF                    -  mov rcx,rdi
+"RAGE2.exe"+6C9B40: E8 CB FD F6 FF              -  call RAGE2.exe+639910
+"RAGE2.exe"+6C9B45: F3 0F 59 F6                 -  mulss xmm6,xmm6
+"RAGE2.exe"+6C9B49: F3 0F 59 FF                 -  mulss xmm7,xmm7
+"RAGE2.exe"+6C9B4D: F3 0F 58 F7                 -  addss xmm6,xmm7
+"RAGE2.exe"+6C9B51: 0F 2F 35 14 D8 05 02        -  comiss xmm6,[RAGE2.exe+272736C]
+"RAGE2.exe"+6C9B58: 76 41                       -  jna RAGE2.exe+6C9B9B
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93291</ID>
+              <Description>"No_Fall"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(nofall,RAGE2.exe,88 43 71 84 C0 74 1D) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+22EC09)
+
+label(code)
+label(return)
+
+{
+jne code
+cmp [rbx+160],#3
+cmp [rbx+DAC],#1
+cmp [rbx+DC4],#1
+
+je code
+cmp [rbx+160],0
+cmp [rbx+DA8],0
+cmp [rbx+DAC],0
+cmp [rbx+DC0],0
+cmp [rbx+DC4],0
+
+}
+
+newmem:
+  cmp [rbx+160],#3
+  jne code
+//  mov [rbx+71],al
+  test al,al
+  jmp return
+
+code:
+  mov [rbx+71],al
+  test al,al
+  jmp return
+
+nofall:
+  jmp newmem
+return:
+registersymbol(nofall)
+
+[DISABLE]
+
+nofall:
+  db 88 43 71 84 C0
+
+unregistersymbol(nofall)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+22EC09
+
+"RAGE2.exe"+22EBDD: 44 0F 47 C1                    -  cmova r8d,ecx
+"RAGE2.exe"+22EBE1: 44 8D 4E 04                    -  lea r9d,[rsi+04]
+"RAGE2.exe"+22EBE5: 48 8D 54 24 20                 -  lea rdx,[rsp+20]
+"RAGE2.exe"+22EBEA: 48 8B C8                       -  mov rcx,rax
+"RAGE2.exe"+22EBED: E8 CE 17 07 01                 -  call RAGE2.exe+12A03C0
+"RAGE2.exe"+22EBF2: 48 8B 8B D8 00 00 00           -  mov rcx,[rbx+000000D8]
+"RAGE2.exe"+22EBF9: 48 8B 01                       -  mov rax,[rcx]
+"RAGE2.exe"+22EBFC: 4C 8D 44 24 20                 -  lea r8,[rsp+20]
+"RAGE2.exe"+22EC01: 48 8D 54 24 30                 -  lea rdx,[rsp+30]
+"RAGE2.exe"+22EC06: FF 50 28                       -  call qword ptr [rax+28]
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+22EC09: 88 43 71                       -  mov [rbx+71],al
+"RAGE2.exe"+22EC0C: 84 C0                          -  test al,al
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+22EC0E: 74 1D                          -  je RAGE2.exe+22EC2D
+"RAGE2.exe"+22EC10: 48 8B 8B D8 00 00 00           -  mov rcx,[rbx+000000D8]
+"RAGE2.exe"+22EC17: 48 8B 01                       -  mov rax,[rcx]
+"RAGE2.exe"+22EC1A: 4C 8D 43 70                    -  lea r8,[rbx+70]
+"RAGE2.exe"+22EC1E: 4C 8D 4C 24 30                 -  lea r9,[rsp+30]
+"RAGE2.exe"+22EC23: 48 8D 54 24 20                 -  lea rdx,[rsp+20]
+"RAGE2.exe"+22EC28: FF 50 30                       -  call qword ptr [rax+30]
+"RAGE2.exe"+22EC2B: EB 1E                          -  jmp RAGE2.exe+22EC4B
+"RAGE2.exe"+22EC2D: C7 83 B4 00 00 00 FF FF FF 00  -  mov [rbx+000000B4],00FFFFFF
+"RAGE2.exe"+22EC37: C7 83 B8 00 00 00 FF FF FF FF  -  mov [rbx+000000B8],FFFFFFFF
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>93338</ID>
+          <Description>"Optional"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>93336</ID>
+              <Description>"Hide_Weapons"</Description>
+              <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <LastState/>
+              <Color>000000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(hideweapons,RAGE2.exe,74 22 C7 45 87 EF BE AD DE) // should be unique
+hideweapons:
+  db 75 22
+registersymbol(hideweapons)
+
+aobscanmodule(hideweapons2,RAGE2.exe,74 38 84 C9 75 34) // should be unique
+hideweapons2:
+  db 75 38
+registersymbol(hideweapons2)
+
+[DISABLE]
+
+hideweapons:
+  db 74 22
+unregistersymbol(hideweapons)
+
+hideweapons2:
+  db 74 38
+unregistersymbol(hideweapons2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+840D6B
+
+"RAGE2.exe"+840D4C: 75 12                       -  jne RAGE2.exe+840D60
+"RAGE2.exe"+840D4E: 80 BF 2C 02 00 00 00        -  cmp byte ptr [rdi+0000022C],00
+"RAGE2.exe"+840D55: 74 38                       -  je RAGE2.exe+840D8F
+"RAGE2.exe"+840D57: 84 C9                       -  test cl,cl
+"RAGE2.exe"+840D59: 75 34                       -  jne RAGE2.exe+840D8F
+"RAGE2.exe"+840D5B: 41 38 0F                    -  cmp [r15],cl
+"RAGE2.exe"+840D5E: 75 2F                       -  jne RAGE2.exe+840D8F
+"RAGE2.exe"+840D60: 84 C0                       -  test al,al
+"RAGE2.exe"+840D62: 74 09                       -  je RAGE2.exe+840D6D
+"RAGE2.exe"+840D64: 80 BF 2C 02 00 00 00        -  cmp byte ptr [rdi+0000022C],00
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+840D6B: 74 22                       -  je RAGE2.exe+840D8F
+"RAGE2.exe"+840D6D: C7 45 87 EF BE AD DE        -  mov [rbp-79],DEADBEEF
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+840D74: 48 8D 97 C8 01 00 00        -  lea rdx,[rdi+000001C8]
+"RAGE2.exe"+840D7B: 48 8D 8E 90 14 00 00        -  lea rcx,[rsi+00001490]
+"RAGE2.exe"+840D82: 45 33 C9                    -  xor r9d,r9d
+"RAGE2.exe"+840D85: 4C 8D 45 87                 -  lea r8,[rbp-79]
+"RAGE2.exe"+840D89: E8 42 40 B2 FF              -  call RAGE2.exe+364DD0
+"RAGE2.exe"+840D8E: 90                          -  nop
+"RAGE2.exe"+840D8F: 48 8D 4D 97                 -  lea rcx,[rbp-69]
+"RAGE2.exe"+840D93: E8 08 04 89 FF              -  call RAGE2.exe+D11A0
+"RAGE2.exe"+840D98: 48 81 C4 D8 00 00 00        -  add rsp,000000D8
+"RAGE2.exe"+840D9F: 41 5F                       -  pop r15
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+840D55
+
+"RAGE2.exe"+840D2E: 75 15                       -  jne RAGE2.exe+840D45
+"RAGE2.exe"+840D30: 41 38 0F                    -  cmp [r15],cl
+"RAGE2.exe"+840D33: 75 10                       -  jne RAGE2.exe+840D45
+"RAGE2.exe"+840D35: 38 8F 28 02 00 00           -  cmp [rdi+00000228],cl
+"RAGE2.exe"+840D3B: 75 08                       -  jne RAGE2.exe+840D45
+"RAGE2.exe"+840D3D: 38 8F 2D 02 00 00           -  cmp [rdi+0000022D],cl
+"RAGE2.exe"+840D43: 74 1B                       -  je RAGE2.exe+840D60
+"RAGE2.exe"+840D45: 80 BF 2B 02 00 00 00        -  cmp byte ptr [rdi+0000022B],00
+"RAGE2.exe"+840D4C: 75 12                       -  jne RAGE2.exe+840D60
+"RAGE2.exe"+840D4E: 80 BF 2C 02 00 00 00        -  cmp byte ptr [rdi+0000022C],00
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+840D55: 74 38                       -  je RAGE2.exe+840D8F
+"RAGE2.exe"+840D57: 84 C9                       -  test cl,cl
+"RAGE2.exe"+840D59: 75 34                       -  jne RAGE2.exe+840D8F
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+840D5B: 41 38 0F                    -  cmp [r15],cl
+"RAGE2.exe"+840D5E: 75 2F                       -  jne RAGE2.exe+840D8F
+"RAGE2.exe"+840D60: 84 C0                       -  test al,al
+"RAGE2.exe"+840D62: 74 09                       -  je RAGE2.exe+840D6D
+"RAGE2.exe"+840D64: 80 BF 2C 02 00 00 00        -  cmp byte ptr [rdi+0000022C],00
+"RAGE2.exe"+840D6B: 74 22                       -  je RAGE2.exe+840D8F
+"RAGE2.exe"+840D6D: C7 45 87 EF BE AD DE        -  mov [rbp-79],DEADBEEF
+"RAGE2.exe"+840D74: 48 8D 97 C8 01 00 00        -  lea rdx,[rdi+000001C8]
+"RAGE2.exe"+840D7B: 48 8D 8E 90 14 00 00        -  lea rcx,[rsi+00001490]
+"RAGE2.exe"+840D82: 45 33 C9                    -  xor r9d,r9d
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93337</ID>
+              <Description>"Hide_Bottom_HUD"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(hidebottomhud,RAGE2.exe,74 0F 80 BF 2A 02 00 00 00) // should be unique
+hidebottomhud:
+  db 75 0F
+registersymbol(hidebottomhud)
+
+[DISABLE]
+
+hidebottomhud:
+  db 74 0F
+unregistersymbol(hidebottomhud)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+840B9B
+
+"RAGE2.exe"+840B71: 74 72                          -  je RAGE2.exe+840BE5
+"RAGE2.exe"+840B73: 4C 8B B6 00 2C 00 00           -  mov r14,[rsi+00002C00]
+"RAGE2.exe"+840B7A: 49 8B 5E 20                    -  mov rbx,[r14+20]
+"RAGE2.exe"+840B7E: 48 89 5D AF                    -  mov [rbp-51],rbx
+"RAGE2.exe"+840B82: 48 8B CB                       -  mov rcx,rbx
+"RAGE2.exe"+840B85: E8 36 05 84 00                 -  call RAGE2.exe+10810C0
+"RAGE2.exe"+840B8A: 90                             -  nop
+"RAGE2.exe"+840B8B: 80 BF 2B 02 00 00 00           -  cmp byte ptr [rdi+0000022B],00
+"RAGE2.exe"+840B92: 75 1C                          -  jne RAGE2.exe+840BB0
+"RAGE2.exe"+840B94: 80 BF 2C 02 00 00 00           -  cmp byte ptr [rdi+0000022C],00
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+840B9B: 74 0F                          -  je RAGE2.exe+840BAC
+"RAGE2.exe"+840B9D: 80 BF 2A 02 00 00 00           -  cmp byte ptr [rdi+0000022A],00
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+840BA4: 75 06                          -  jne RAGE2.exe+840BAC
+"RAGE2.exe"+840BA6: 41 80 3F 00                    -  cmp byte ptr [r15],00
+"RAGE2.exe"+840BAA: 74 04                          -  je RAGE2.exe+840BB0
+"RAGE2.exe"+840BAC: 32 C0                          -  xor al,al
+"RAGE2.exe"+840BAE: EB 02                          -  jmp RAGE2.exe+840BB2
+"RAGE2.exe"+840BB0: B0 01                          -  mov al,01
+"RAGE2.exe"+840BB2: 88 45 67                       -  mov [rbp+67],al
+"RAGE2.exe"+840BB5: C6 44 24 28 00                 -  mov byte ptr [rsp+28],00
+"RAGE2.exe"+840BBA: 48 C7 44 24 20 01 00 00 00     -  mov qword ptr [rsp+20],00000001
+"RAGE2.exe"+840BC3: 4C 8D 4D 67                    -  lea r9,[rbp+67]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>90835</ID>
+              <Description>"Waypoint_XYZ (place after enable free cam)"</Description>
+              <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <LastState/>
+              <Color>000000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(wayp,RAGE2.exe,F2 0F 11 89 D8 02 00 00) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+59F162)
+
+label(code)
+label(return)
+label(waypoint)
+registersymbol(waypoint)
+
+newmem:
+  movsd [rcx+000002D8],xmm1
+  mov [rcx+000002E0],eax
+  movss [waypoint],xmm1
+  mov [waypoint+8],eax
+  jmp return
+
+code:
+  movsd [rcx+000002D8],xmm1
+  mov [rcx+000002E0],eax
+  jmp return
+
+waypoint:
+dd 0
+dd 0
+dd 0
+
+wayp:
+  jmp newmem
+  nop
+  nop
+  nop
+  db 90 90 90 90 90 90
+return:
+registersymbol(wayp)
+
+[DISABLE]
+
+wayp:
+  db F2 0F 11 89 D8 02 00 00 89 81 E0 02 00 00
+
+unregistersymbol(wayp)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+59F162
+
+"RAGE2.exe"+59F136: F3 0F 10 C3                    -  movss xmm0,xmm3
+"RAGE2.exe"+59F13A: 0F C6 C0 E1                    -  shufps xmm0,xmm0,-1F
+"RAGE2.exe"+59F13E: F2 0F 11 44 24 20              -  movsd [rsp+20],xmm0
+"RAGE2.exe"+59F144: 0F 28 C8                       -  movaps xmm1,xmm0
+"RAGE2.exe"+59F147: EB 12                          -  jmp RAGE2.exe+59F15B
+"RAGE2.exe"+59F149: F2 0F 10 4A 28                 -  movsd xmm1,[rdx+28]
+"RAGE2.exe"+59F14E: 8B 42 30                       -  mov eax,[rdx+30]
+"RAGE2.exe"+59F151: F2 0F 11 4C 24 20              -  movsd [rsp+20],xmm1
+"RAGE2.exe"+59F157: 89 44 24 28                    -  mov [rsp+28],eax
+"RAGE2.exe"+59F15B: 4C 8B 05 1E 86 A5 02           -  mov r8,[RAGE2.exe+2FF7780]
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+59F162: F2 0F 11 89 D8 02 00 00        -  movsd [rcx+000002D8],xmm1
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+59F16A: 89 81 E0 02 00 00              -  mov [rcx+000002E0],eax
+"RAGE2.exe"+59F170: B8 10 00 00 00                 -  mov eax,00000010
+"RAGE2.exe"+59F175: C6 81 09 03 00 00 00           -  mov byte ptr [rcx+00000309],00
+"RAGE2.exe"+59F17C: F0 41 0F C1 80 38 40 00 00     - lock  xadd [r8+00004038],eax
+"RAGE2.exe"+59F185: 33 D2                          -  xor edx,edx
+"RAGE2.exe"+59F187: C7 44 24 48 06 FE FE 00        -  mov [rsp+48],00FEFE06
+"RAGE2.exe"+59F18F: 41 F7 B0 40 40 00 00           -  div [r8+00004040]
+"RAGE2.exe"+59F196: 49 8B 41 18                    -  mov rax,[r9+18]
+"RAGE2.exe"+59F19A: 0F 57 C0                       -  xorps xmm0,xmm0
+"RAGE2.exe"+59F19D: 8B CA                          -  mov ecx,edx
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>90836</ID>
+                  <Description>"Waypoint_Y"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+
+aobscanmodule(wayp2,RAGE2.exe,F3 41 0F 5C 8F E8 02 00 00) // should be unique
+alloc(newmem2,$1000,"RAGE2.exe"+59C920)
+
+label(code2)
+label(return2)
+
+newmem2:
+  movss [waypoint+04],xmm1
+  subss xmm1,[r15+000002E8]
+  jmp return2
+
+code2:
+  subss xmm1,[r15+000002E8]
+  jmp return2
+
+wayp2:
+  jmp newmem2
+  nop
+  nop
+  nop
+  nop
+return2:
+registersymbol(wayp2)
+
+[DISABLE]
+
+wayp2:
+  db F3 41 0F 5C 8F E8 02 00 00
+unregistersymbol(wayp2)
+dealloc(newmem2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+59C920
+
+"RAGE2.exe"+59C8E7: 48 8D 0D 3E CB AC 02        -  lea rcx,[RAGE2.exe+306942C]
+"RAGE2.exe"+59C8EE: E8 C9 49 74 01              -  call RAGE2.exe+1CE12BC
+"RAGE2.exe"+59C8F3: 83 3D 32 CB AC 02 FF        -  cmp dword ptr [RAGE2.exe+306942C],-01
+"RAGE2.exe"+59C8FA: 75 1E                       -  jne RAGE2.exe+59C91A
+"RAGE2.exe"+59C8FC: 48 8D 0D 55 E4 FF 01        -  lea rcx,[RAGE2.exe+259AD58]
+"RAGE2.exe"+59C903: E8 C8 17 AE 00              -  call RAGE2.exe+107E0D0
+"RAGE2.exe"+59C908: 89 05 0A CB AC 02           -  mov [RAGE2.exe+3069418],eax
+"RAGE2.exe"+59C90E: 48 8D 0D 17 CB AC 02        -  lea rcx,[RAGE2.exe+306942C]
+"RAGE2.exe"+59C915: E8 42 49 74 01              -  call RAGE2.exe+1CE125C
+"RAGE2.exe"+59C91A: F3 41 0F 10 4D 04           -  movss xmm1,[r13+04]
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+59C920: F3 41 0F 5C 8F E8 02 00 00  -  subss xmm1,[r15+000002E8]
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+59C929: F3 41 0F 10 55 00           -  movss xmm2,[r13+00]
+"RAGE2.exe"+59C92F: F3 41 0F 5C 97 E4 02 00 00  -  subss xmm2,[r15+000002E4]
+"RAGE2.exe"+59C938: F3 41 0F 10 45 08           -  movss xmm0,[r13+08]
+"RAGE2.exe"+59C93E: F3 41 0F 5C 87 EC 02 00 00  -  subss xmm0,[r15+000002EC]
+"RAGE2.exe"+59C947: F3 0F 59 D2                 -  mulss xmm2,xmm2
+"RAGE2.exe"+59C94B: F3 0F 59 C9                 -  mulss xmm1,xmm1
+"RAGE2.exe"+59C94F: F3 0F 58 D1                 -  addss xmm2,xmm1
+"RAGE2.exe"+59C953: F3 0F 59 C0                 -  mulss xmm0,xmm0
+"RAGE2.exe"+59C957: F3 0F 58 D0                 -  addss xmm2,xmm0
+"RAGE2.exe"+59C95B: F3 41 0F 11 97 1C 03 00 00  -  movss [r15+0000031C],xmm2
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>90822</ID>
+              <Description>"Custom_FOV (num7,4 + Ctrl)"</Description>
+              <LastState/>
+              <Color>000000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>globalalloc(cheatFOV,4)
+cheatFOV:
+dd 0
+
+[ENABLE]
+
+aobscanmodule(FOV_change,RAGE2.exe,F3 0F 2A 90 A0 04 00 00) // should be unique
+alloc(newmem,$1000,"RAGE2.exe"+A011B4)
+
+label(code)
+label(return)
+
+label(fov)
+registersymbol(fov)
+
+newmem:
+  cvtsi2ss xmm2,[rax+000004A0]
+  mulss xmm2,[fov]
+  jmp return
+
+code:
+  cvtsi2ss xmm2,[rax+000004A0]
+  jmp return
+
+fov:
+dd (float)1
+
+FOV_change:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(FOV_change)
+
+{$lua}
+
+local changeFOV = 0
+
+createThread(function(timerFOV)
+  sleep(200) -- delay for giving script time to write for "cheaton" proper value
+  while readFloat("cheatFOV") == 0 do -- while "cheaton" value equal "0" this cheat work
+    sleep(5) -- like timer interval
+
+    if readBytes("RAGE2.exe+3067348") == 0 then -- Check for Alt-Tab
+
+      local addFOV = isKeyPressed(VK_NUMPAD4)
+      local subFOV = isKeyPressed(VK_NUMPAD7)
+      local FasterChange = isKeyPressed(VK_CONTROL)
+--      local defFOV = isKeyPressed(VK_NUMPAD7) and isKeyPressed(VK_NUMPAD4)
+
+-- Time Switch
+      if addFOV then
+        writeFloat("fov", readFloat("fov") + changeFOV)
+      end
+      if subFOV then
+        writeFloat("fov", readFloat("fov") - changeFOV)
+      end
+
+      if FasterChange then
+        changeFOV = 0.002  -- speed of FOV change
+      else
+        changeFOV = 0.001 -- speed of FOV change
+      end
+
+    end
+  end
+end)
+
+{$asm}
+
+[DISABLE]
+
+FOV_change:
+  db F3 0F 2A 90 A0 04 00 00
+unregistersymbol(fov)
+unregistersymbol(FOV_change)
+dealloc(newmem)
+
+cheatFOV:
+dd 1
+
+{
+// ORIGINAL CODE - INJECTION POINT: "RAGE2.exe"+A011B4
+
+"RAGE2.exe"+A0118D: CC                          -  int 3
+"RAGE2.exe"+A0118E: CC                          -  int 3
+"RAGE2.exe"+A0118F: CC                          -  int 3
+"RAGE2.exe"+A01190: 48 83 EC 48                 -  sub rsp,48
+"RAGE2.exe"+A01194: 48 8B 05 3D 5B 66 02        -  mov rax,[RAGE2.exe+3066CD8]
+"RAGE2.exe"+A0119B: 0F 57 D2                    -  xorps xmm2,xmm2
+"RAGE2.exe"+A0119E: F3 0F 10 1D DE 68 D2 01     -  movss xmm3,[RAGE2.exe+2727A84]
+"RAGE2.exe"+A011A6: 0F 57 C9                    -  xorps xmm1,xmm1
+"RAGE2.exe"+A011A9: 0F 29 7C 24 30              -  movaps [rsp+30],xmm7
+"RAGE2.exe"+A011AE: 44 0F 29 44 24 20           -  movaps [rsp+20],xmm8
+// ---------- INJECTING HERE ----------
+"RAGE2.exe"+A011B4: F3 0F 2A 90 A0 04 00 00     -  cvtsi2ss xmm2,[rax+000004A0]
+// ---------- DONE INJECTING  ----------
+"RAGE2.exe"+A011BC: F3 0F 59 15 80 62 D2 01     -  mulss xmm2,[RAGE2.exe+2727444]
+"RAGE2.exe"+A011C4: 0F 28 C2                    -  movaps xmm0,xmm2
+"RAGE2.exe"+A011C7: F3 0F 59 05 49 64 D2 01     -  mulss xmm0,[RAGE2.exe+2727618]
+"RAGE2.exe"+A011CF: F3 0F 2C C0                 -  cvttss2si eax,xmm0
+"RAGE2.exe"+A011D3: F3 0F 2A C8                 -  cvtsi2ss xmm1,eax
+"RAGE2.exe"+A011D7: F3 0F 59 CB                 -  mulss xmm1,xmm3
+"RAGE2.exe"+A011DB: F3 0F 5C D1                 -  subss xmm2,xmm1
+"RAGE2.exe"+A011DF: 0F 2F 15 1A 68 D2 01        -  comiss xmm2,[RAGE2.exe+2727A00]
+"RAGE2.exe"+A011E6: 76 08                       -  jna RAGE2.exe+A011F0
+"RAGE2.exe"+A011E8: F3 0F 58 15 64 6D D2 01     -  addss xmm2,dword ptr [RAGE2.exe+2727F54]
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>90823</ID>
+                  <Description>"fov"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>fov</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>cheatoncam</Name>
+      <Address>13B9DED0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatTimeOn</Name>
+      <Address>13B9E5F0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cheatFOV</Name>
+      <Address>13B9DED0020</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Time:
+On/Off - Ctrl + Num*
+Day - Ctrl + Num2
+Night - Ctrl + Num0
+Morning - Ctrl + Num1
+Evening - Ctrl + Num3
+Forward - Ctrl + Num8
+Backward - Ctrl + Num5
+Fast Forward - Ctrl + Alt + Num8
+Fast Backward - Ctrl + Alt + Num5
+//
+//
+Free Camera:
+On/Off - Alt + R
+Move - WASD Space C (original in-game hotkeys)
+Move Faster - hold Shift
+Move Slower - hold Ctrl
+Jump to Waypoint - Shift + R
+//
+//
+FOV:
+Normal Change - Num4 or Num7
+Fast Change - Ctrl + Num4 or  Ctrl + Num4
+Virtual-Key codes for chaing hotkeys inside LUA scripts:
+http://nehe.gamedev.net/article/msdn_virtualkey_codes/15009/
+</Comments>
+</CheatTable>

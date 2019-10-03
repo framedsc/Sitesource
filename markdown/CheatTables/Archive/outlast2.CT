@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"FreeCam coordinates"</Description>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Outlast2.exe
+  Version: 1.0
+  Date   : 2017-05-02
+  Author : IPG XaPek
+  Many thanks to DobrotaAlive!!!
+}
+
+[ENABLE]
+
+ 
+ 
+aobscanmodule(corz,Outlast2.exe,F3 44 0F 11 8B CC 10 00 00)
+alloc(newmem,$1000,"Outlast2.exe"+F4C71B)
+
+label(code)
+label(return)
+
+globalalloc(_cor,4)
+
+newmem:
+
+code:
+  mov [_cor],rbx
+  movss [rbx+000010CC],xmm9
+  jmp return
+
+corz:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(corz)
+
+[DISABLE]
+
+corz:
+  db F3 44 0F 11 8B CC 10 00 00
+
+unregistersymbol(corz)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Outlast2.exe"+F4C71B
+
+"Outlast2.exe"+F4C6CC: F3 45 0F 59 E0                 -  mulss xmm12,xmm8
+"Outlast2.exe"+F4C6D1: F3 0F 58 B3 C4 10 00 00        -  addss xmm6,[rbx+000010C4]
+"Outlast2.exe"+F4C6D9: F3 44 0F 58 A3 C8 10 00 00     -  addss xmm12,[rbx+000010C8]
+"Outlast2.exe"+F4C6E2: F3 45 0F 59 C8                 -  mulss xmm9,xmm8
+"Outlast2.exe"+F4C6E7: 44 0F 28 84 24 00 01 00 00     -  movaps xmm8,[rsp+00000100]
+"Outlast2.exe"+F4C6F0: F3 44 0F 58 8B CC 10 00 00     -  addss xmm9,[rbx+000010CC]
+"Outlast2.exe"+F4C6F9: F3 0F 11 B3 C4 10 00 00        -  movss [rbx+000010C4],xmm6
+"Outlast2.exe"+F4C701: F3 44 0F 11 A3 C8 10 00 00     -  movss [rbx+000010C8],xmm12
+"Outlast2.exe"+F4C70A: 44 0F 28 A4 24 C0 00 00 00     -  movaps xmm12,[rsp+000000C0]
+"Outlast2.exe"+F4C713: 0F 28 B4 24 20 01 00 00        -  movaps xmm6,[rsp+00000120]
+// ---------- INJECTING HERE ----------
+"Outlast2.exe"+F4C71B: F3 44 0F 11 8B CC 10 00 00     -  movss [rbx+000010CC],xmm9
+// ---------- DONE INJECTING  ----------
+"Outlast2.exe"+F4C724: 48 8B 83 80 05 00 00           -  mov rax,[rbx+00000580]
+"Outlast2.exe"+F4C72B: 44 0F 28 8C 24 F0 00 00 00     -  movaps xmm9,[rsp+000000F0]
+"Outlast2.exe"+F4C734: F3 0F 2C 88 E4 01 00 00        -  cvttss2si ecx,[rax+000001E4]
+"Outlast2.exe"+F4C73C: F3 0F 2C 90 D8 01 00 00        -  cvttss2si edx,[rax+000001D8]
+"Outlast2.exe"+F4C744: 01 0F                          -  add [rdi],ecx
+"Outlast2.exe"+F4C746: 01 57 04                       -  add [rdi+04],edx
+"Outlast2.exe"+F4C749: 0F B7 0F                       -  movzx ecx,word ptr [rdi]
+"Outlast2.exe"+F4C74C: 81 F9 FF 7F 00 00              -  cmp ecx,00007FFF
+"Outlast2.exe"+F4C752: 7E 06                          -  jle Outlast2.exe+F4C75A
+"Outlast2.exe"+F4C754: 81 E9 00 00 01 00              -  sub ecx,00010000
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"X  ← [Num 4] / [Num6] →"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_cor</Address>
+          <Offsets>
+            <Offset>10C8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Y  ↑ [Num8] / [Num5] ↓"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_cor</Address>
+          <Offsets>
+            <Offset>10C4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Z  ↕ [Num7] / [Num8] ↕"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_cor</Address>
+          <Offsets>
+            <Offset>10CC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"Use Ctrl+ to speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>23</ID>
+      <Description>"Fov for FreeCam [Wait some seconds]"</Description>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"Outlast2.exe"+ECE507) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+nop
+
+exit:
+jmp returnhere
+
+"Outlast2.exe"+ECE507:
+jmp newmem
+returnhere:
+
+aobscan(camfov, ?? ?? ?? ?? ?? ?? ?? 42 00 00 ?? 42 ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ?? ?? ?? ?? 00 00 00 00 00 00 00 00 00 00 00 00 ?0 ?? ?? 0? 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 CD CC CC BD)
+label(_camfov)
+registersymbol(_camfov)
+
+
+camfov:
+_camfov:
+
+
+[DISABLE]
+dealloc(newmem)
+"Outlast2.exe"+ECE507:
+movss [r9],xmm1
+
+//Alt: db E9 F4 1A 12 FF
+unregistersymbol(_camfov)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"Fov  + [PgUp] / [PgDn] - "</Description>
+          <VariableType>Float</VariableType>
+          <Address>_camfov</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>33</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>33</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>34</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>33</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>34</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <Value>90</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Use Shift+ or Ctrl+ to speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"Home - set FOV 90"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"Fov for player camera (Work only with Pause)"</Description>
+      <LastState/>
+      <Color>FFFFFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Outlast2.exe
+  Version: 
+  Date   : 2017-05-01
+  Author : IPG WP
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(Fov,Outlast2.exe,F3 0F 11 8B 8C 7E 00 00) // should be unique
+alloc(newmem,$1000,"Outlast2.exe"+ECE5A8)
+
+label(code)
+label(return)
+
+globalalloc(_fov,4)
+
+newmem:
+
+code:
+  mov [_fov],rbx
+  movss [rbx+00007E8C],xmm1
+  jmp return
+
+Fov:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(Fov)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+Fov:
+  db F3 0F 11 8B 8C 7E 00 00
+
+unregistersymbol(Fov)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Outlast2.exe"+ECE5A8
+
+"Outlast2.exe"+ECE576: EB 08                       -  jmp Outlast2.exe+ECE580
+"Outlast2.exe"+ECE578: F3 0F 10 93 90 B4 00 00     -  movss xmm2,[rbx+0000B490]
+"Outlast2.exe"+ECE580: F3 0F 10 8B 6C 82 00 00     -  movss xmm1,[rbx+0000826C]
+"Outlast2.exe"+ECE588: 0F 57 C0                    -  xorps xmm0,xmm0
+"Outlast2.exe"+ECE58B: 0F 2F C8                    -  comiss xmm1,xmm0
+"Outlast2.exe"+ECE58E: 77 08                       -  ja Outlast2.exe+ECE598
+"Outlast2.exe"+ECE590: F3 0F 10 8B 8C B4 00 00     -  movss xmm1,[rbx+0000B48C]
+"Outlast2.exe"+ECE598: F3 0F 5C CA                 -  subss xmm1,xmm2
+"Outlast2.exe"+ECE59C: F3 0F 59 8B 4C 82 00 00     -  mulss xmm1,[rbx+0000824C]
+"Outlast2.exe"+ECE5A4: F3 0F 58 CA                 -  addss xmm1,xmm2
+// ---------- INJECTING HERE ----------
+"Outlast2.exe"+ECE5A8: F3 0F 11 8B 8C 7E 00 00     -  movss [rbx+00007E8C],xmm1
+// ---------- DONE INJECTING  ----------
+"Outlast2.exe"+ECE5B0: 44 0F 28 5C 24 20           -  movaps xmm11,[rsp+20]
+"Outlast2.exe"+ECE5B6: 48 81 C4 80 00 00 00        -  add rsp,00000080
+"Outlast2.exe"+ECE5BD: 5B                          -  pop rbx
+"Outlast2.exe"+ECE5BE: C3                          -  ret 
+"Outlast2.exe"+ECE5BF: 48 8B 03                    -  mov rax,[rbx]
+"Outlast2.exe"+ECE5C2: 0F 29 74 24 70              -  movaps [rsp+70],xmm6
+"Outlast2.exe"+ECE5C7: 0F 29 7C 24 60              -  movaps [rsp+60],xmm7
+"Outlast2.exe"+ECE5CC: 48 8B CB                    -  mov rcx,rbx
+"Outlast2.exe"+ECE5CF: 44 0F 29 44 24 50           -  movaps [rsp+50],xmm8
+"Outlast2.exe"+ECE5D5: 44 0F 29 4C 24 40           -  movaps [rsp+40],xmm9
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"FOV  + [PgUp] / [PgDn] -"</Description>
+          <Color>FFFFFF</Color>
+          <VariableType>Float</VariableType>
+          <Address>_fov</Address>
+          <Offsets>
+            <Offset>7E8C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>33</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>33</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>34</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [r10],eax</Description>
+      <Address>13F2E5C91</Address>
+      <ModuleName>Outlast2.exe</ModuleName>
+      <ModuleNameOffset>E5C91</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>07</Byte>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>74</Byte>
+        <Byte>49</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [r9],xmm1</Description>
+      <Address>13FF7E507</Address>
+      <ModuleName>Outlast2.exe</ModuleName>
+      <ModuleNameOffset>ECE507</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>90</Byte>
+        <Byte>7E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>09</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>15</Byte>
+        <Byte>6C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [r9],xmm1</Description>
+      <Address>140E8E507</Address>
+      <ModuleName>Outlast2.exe</ModuleName>
+      <ModuleNameOffset>ECE507</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>90</Byte>
+        <Byte>7E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>09</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>15</Byte>
+        <Byte>6C</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_fova</Name>
+      <Address>07360000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cor</Name>
+      <Address>08A50000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_cafov</Name>
+      <Address>07630000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_fovik</Name>
+      <Address>06230010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_fov</Name>
+      <Address>06230000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_fovk</Name>
+      <Address>064D0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_op</Name>
+      <Address>07350020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>gof</Name>
+      <Address>13F755C8E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_player</Name>
+      <Address>5AE21950</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>corz</Name>
+      <Address>14082C71B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_camfov</Name>
+      <Address>40B504B0</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Many thanks to DobrotaAlive!
+</Comments>
+</CheatTable>

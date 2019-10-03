@@ -1,0 +1,1558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>195</ID>
+      <Description>"FIREWATCH :: deadendthrills.com"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>196</ID>
+      <Description>""</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Camera (F1)"</Description>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(fovAOB,firewatch.exe,F3 0F 10 89 84 02 00 00 49 8B C9 F3 0F 11 6C 24 20)
+aobscanmodule(fovNOP,firewatch.exe,F3 0F 11 89 84 02 00 00 66 C7 81 25 03 00 00 01 01)
+alloc(newmem,2048,"firewatch.exe"+ACA02) 
+label(returnhere)
+label(originalcode)
+label(exit)
+label(fov)
+registersymbol(fov)
+registersymbol(fovAOB)
+registersymbol(fovNOP)
+
+newmem:
+mov [fov],rcx
+movss xmm1,[rcx+00000284]
+jmp exit
+
+originalcode:
+movss xmm1,[rcx+00000284]
+
+exit:
+jmp returnhere
+
+//
+fov:
+dd 0
+//
+
+fovAOB:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+fovNOP:
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+fovAOB:
+movss xmm1,[rcx+00000284]
+
+fovNOP:
+movss [rcx+00000284],xmm1
+//Alt: db F3 0F 10 81 84 02 00 00
+unregistersymbol(fov)
+unregistersymbol(fovAOB)
+unregistersymbol(fovNOP)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"FOV (num + / -)"</Description>
+          <LastState Value="39" Activated="0" RealAddress="648F71B4"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>fov</Address>
+          <Offsets>
+            <Offset>284</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>155</ID>
+      <Description>"Player (F2)"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(posAOB,firewatch.exe,48 89 86 C8 01 00 00 49 8B 46 10 48 89 86 D0 01 00 00 49 8B 46 18 48 89 86 D8 01 00 00)
+alloc(newmem,2048,"firewatch.exe"+AE24B7) 
+label(returnhere)
+label(originalcode)
+label(exit)
+registersymbol(posAOB)
+label(pos)
+registersymbol(pos)
+
+newmem:
+mov [pos],rsi
+//mov [rsi+000001C8],rax
+mov rax,[r14+10]
+//mov [rsi+000001D0],rax
+mov rax,[r14+18]
+//mov [rsi+000001D8],rax
+jmp exit
+
+originalcode:
+mov [rsi+000001C8],rax
+
+exit:
+jmp returnhere
+
+//
+pos:
+dd 0
+//
+
+posAOB:
+jmp newmem
+db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+posAOB:
+mov [rsi+000001C8],rax
+mov rax,[r14+10]
+mov [rsi+000001D0],rax
+mov rax,[r14+18]
+mov [rsi+000001D8],rax
+//Alt: db 48 89 86 C8 01 00 00
+unregistersymbol(posAOB)
+unregistersymbol(pos)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>156</ID>
+          <Description>"X (num 4/6 - Ctrl &amp; Alt modifiers)"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Double</VariableType>
+          <Address>pos</Address>
+          <Offsets>
+            <Offset>1C8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>157</ID>
+          <Description>"Y (num 8/2 - Ctrl &amp; Alt modifiers)"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Double</VariableType>
+          <Address>pos</Address>
+          <Offsets>
+            <Offset>1D8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>158</ID>
+          <Description>"Z (num 7/9 - Ctrl modifier)"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Double</VariableType>
+          <Address>pos</Address>
+          <Offsets>
+            <Offset>1D0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>161</ID>
+      <Description>"Uncap Shadow Draw (F3)"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(shadowAOB,firewatch.exe,0F 2F C6 F3 0F 11 44 24 48)
+registersymbol(shadowAOB)
+
+shadowAOB:
+db 90 90 90
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+shadowAOB:
+comiss xmm0,xmm6
+//Alt: db 0F 2F C6 F3 0F 11 44 24 48
+unregistersymbol(shadowAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>194</ID>
+      <Description>"^^ this is an ugly hack - results may vary"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>163</ID>
+      <Description>"Environment (F4)"</Description>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(envAOB,firewatch.exe,8B 80 B4 01 00 00 48 83 C4 28 C3)
+alloc(newmem,2048,"firewatch.exe"+32CBF9) 
+label(returnhere)
+label(originalcode)
+label(exit)
+registersymbol(envAOB)
+label(env)
+registersymbol(env)
+
+newmem:
+mov [env],rax
+mov eax,[rax+000001B4]
+jmp exit
+
+originalcode:
+mov eax,[rax+000001B4]
+
+exit:
+jmp returnhere
+
+//
+env:
+dd 0
+//
+
+envAOB:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+envAOB:
+mov eax,[rax+000001B4]
+//Alt: db 8B 80 B4 01 00 00
+unregistersymbol(envAOB)
+unregistersymbol(env)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>164</ID>
+          <Description>"Fog Mode (1 = Linear, 3 = Default)"</Description>
+          <LastState Value="3" Activated="0" RealAddress="649292C4"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>env</Address>
+          <Offsets>
+            <Offset>1B4</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>165</ID>
+          <Description>"Fog Density (only applies to default)"</Description>
+          <LastState Value="0.00400000019" Activated="0" RealAddress="649292E0"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>env</Address>
+          <Offsets>
+            <Offset>1D0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>166</ID>
+          <Description>"Linear Fog Start"</Description>
+          <LastState Value="0" Activated="0" RealAddress="649292D8"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>env</Address>
+          <Offsets>
+            <Offset>1C8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>167</ID>
+          <Description>"Linear Fog End"</Description>
+          <LastState Value="250" Activated="0" RealAddress="649292DC"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>env</Address>
+          <Offsets>
+            <Offset>1CC</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>176</ID>
+      <Description>"Walk Speed (F5)"</Description>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscan(walkAOB,F3 0F 11 AE 80 01 00 00 F3 0F 10 45 E8)
+alloc(newmem,2048,21D15667)
+label(returnhere)
+label(originalcode)
+label(exit)
+registersymbol(walkAOB)
+label(walk)
+registersymbol(walk)
+
+newmem:
+mov [walk],rsi
+//movss [rsi+00000180],xmm5
+jmp exit
+
+originalcode:
+movss [rsi+0000018C],xmm5
+
+exit:
+jmp returnhere
+
+//
+walk:
+dd 0
+//
+
+walkAOB:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+walkAOB+15:
+db 90 90 90 90 90 90 90 90
+
+walkAOB+2A:
+db 90 90 90 90 90 90 90 90
+
+walkAOB+3F:
+db 90 90 90 90 90 90 90 90
+
+walkAOB+54:
+db 90 90 90 90 90 90 90 90
+
+walkAOB+69:
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+walkAOB:
+movss [rsi+00000180],xmm5
+
+walkAOB+15:
+movss [rsi+00000184],xmm5
+
+walkAOB+2A:
+movss [rsi+0000018C],xmm5
+
+walkAOB+3F:
+movss [rsi+0000018C],xmm5
+
+walkAOB+54:
+movss [rsi+00000190],xmm5
+
+walkAOB+69:
+movss [rsi+00000194],xmm5
+
+//Alt: db F3 0F 11 AE 8C 01 00 00
+unregistersymbol(walkAOB)
+unregistersymbol(walk)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>178</ID>
+          <Description>"Hotkeys:"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>181</ID>
+          <Description>"8: The Dash"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>179</ID>
+          <Description>"9: The Flash"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>180</ID>
+          <Description>"0: The Smash Your Face Into First Available Tree"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>177</ID>
+          <Description>"forwards"</Description>
+          <LastState Value="50" Activated="0" RealAddress="29D59C2C"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>walk</Address>
+          <Offsets>
+            <Offset>18C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>57</Key>
+              </Keys>
+              <Value>30</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>56</Key>
+              </Keys>
+              <Value>15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>48</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>55</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>193</ID>
+      <Description>"HUD Hide (raise radio to Engage Magic) (F6)"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"firewatch.exe"+5E33BF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+label(hud)
+registersymbol(hud)
+
+newmem:
+movss xmm0,[hud]
+movss [rcx+00000200],xmm0
+jmp exit
+
+originalcode:
+movss [rcx+00000200],xmm0
+
+exit:
+jmp returnhere
+
+//
+hud:
+dd (float)0.0
+//
+
+"firewatch.exe"+5E33BF:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"firewatch.exe"+5E33BF:
+movss [rcx+00000200],xmm0
+//Alt: db F3 0F 11 81 00 02 00 00
+unregistersymbol(hud)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of cvtsd2ss xmm1,[rbx+000001C8]</Description>
+      <Address>7FF62359E8A9</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>ADE8A9</ModuleNameOffset>
+      <Before>
+        <Byte>3D</Byte>
+        <Byte>C7</Byte>
+        <Byte>2A</Byte>
+        <Byte>2F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>F0</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+000001C8],rax</Description>
+      <Address>7FF6235A24B7</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>AE24B7</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>C8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of comiss xmm0,xmm6</Description>
+      <Address>7FF622B2C2D1</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6C2D1</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C6</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp byte ptr [rbx+00000328],00</Description>
+      <Address>7FF622B33580</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>73580</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>50</Byte>
+        <Byte>3D</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>BB</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>0F</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of ucomiss xmm0,xmm1</Description>
+      <Address>7FF622B2C22D</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6C22D</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>7A</Byte>
+        <Byte>0F</Byte>
+        <Byte>75</Byte>
+        <Byte>0D</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of ucomiss xmm0,xmm1</Description>
+      <Address>7FF622B2C208</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6C208</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>FC</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>7A</Byte>
+        <Byte>0F</Byte>
+        <Byte>75</Byte>
+        <Byte>0D</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of ucomiss xmm0,xmm1</Description>
+      <Address>7FF622B2C253</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6C253</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>7A</Byte>
+        <Byte>0F</Byte>
+        <Byte>75</Byte>
+        <Byte>0D</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of ucomiss xmm0,xmm1</Description>
+      <Address>7FF622B2C279</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6C279</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>7A</Byte>
+        <Byte>0F</Byte>
+        <Byte>75</Byte>
+        <Byte>0D</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of lea rdx,[firewatch.SpriteIntermediateRenderer::`vftable'+14F0]</Description>
+      <Address>7FF622B6898E</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>A898E</ModuleNameOffset>
+      <Before>
+        <Byte>8F</Byte>
+        <Byte>CC</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>15</Byte>
+        <Byte>5B</Byte>
+        <Byte>C6</Byte>
+        <Byte>D2</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>C7</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of lea rdx,[firewatch.MeshFilter::`vftable'+5CB0]</Description>
+      <Address>7FF622DC2D69</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>302D69</ModuleNameOffset>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>15</Byte>
+        <Byte>60</Byte>
+        <Byte>CF</Byte>
+        <Byte>AD</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsp+08],rbx</Description>
+      <Address>7FF622B67AE0</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>A7AE0</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp [rsp+58],r15</Description>
+      <Address>7FF622B2E95F</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6E95F</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>70</Byte>
+        <Byte>78</Byte>
+      </Before>
+      <Actual>
+        <Byte>4C</Byte>
+        <Byte>39</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>58</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>86</Byte>
+        <Byte>BE</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp byte ptr [rax+30],00</Description>
+      <Address>7FF622B2D787</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6D787</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>0E</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>78</Byte>
+        <Byte>30</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je firewatch.Camera::DoRenderGUILayer+25</Description>
+      <Address>7FF622B2D785</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6D785</ModuleNameOffset>
+      <Before>
+        <Byte>FA</Byte>
+        <Byte>FF</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>0E</Byte>
+      </Actual>
+      <After>
+        <Byte>80</Byte>
+        <Byte>78</Byte>
+        <Byte>30</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of test rax,rax</Description>
+      <Address>7FF622B2D782</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6D782</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>AE</Byte>
+        <Byte>3D</Byte>
+        <Byte>FA</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>0E</Byte>
+        <Byte>80</Byte>
+        <Byte>78</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rsi+00000180],xmm5</Description>
+      <Address>21D15628</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>AE</Byte>
+        <Byte>80</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rsi+00000184],xmm5</Description>
+      <Address>21D1563D</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>AE</Byte>
+        <Byte>84</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>E0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rsi+00000188],xmm5</Description>
+      <Address>21D15652</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>AE</Byte>
+        <Byte>88</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rsi+0000018C],xmm5</Description>
+      <Address>21D15667</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>AE</Byte>
+        <Byte>8C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>38</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je firewatch.Mesh::GetRootBonePathHash+E2FAF</Description>
+      <Address>7FF6235A2525</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>AE2525</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>DE</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>78</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je firewatch.Mesh::GetRootBonePathHash+E2FAF</Description>
+      <Address>7FF6235A24D7</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>AE24D7</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>C2</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of test rcx,rcx</Description>
+      <Address>7FF6235A24D4</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>AE24D4</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>D8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>C2</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of lea rdx,[rsp+68]</Description>
+      <Address>7FF6235A253C</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>AE253C</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>C0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>68</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>86</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cvtsd2ss xmm5,[rsi+000001C8]</Description>
+      <Address>7FF6235A2551</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>AE2551</ModuleNameOffset>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>D8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>AE</Byte>
+        <Byte>C8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [rax],00</Description>
+      <Address>21D1699C</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>D0</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>38</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>BB</Byte>
+        <Byte>E0</Byte>
+        <Byte>11</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je 2A7141B1</Description>
+      <Address>2A71403D</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>6E</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>C5</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp byte ptr [rcx+00000326],00</Description>
+      <Address>7FF622B2DCF6</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6DCF6</ModuleNameOffset>
+      <Before>
+        <Byte>56</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>B9</Byte>
+        <Byte>26</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+        <Byte>74</Byte>
+        <Byte>4A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je firewatch.Camera::GetWorldToClipMatrix+5C</Description>
+      <Address>7FF622B2DD00</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>6DD00</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>4A</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je firewatch.BaseRenderer::GetSubsetIndex+110AE</Description>
+      <Address>7FF6230A3395</Address>
+      <ModuleName>firewatch.exe</ModuleName>
+      <ModuleNameOffset>5E3395</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>40</Byte>
+        <Byte>F6</Byte>
+        <Byte>C6</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>37</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>F8</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>envAOB</Name>
+      <Address> 7FF622DECBF9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>env</Name>
+      <Address>7FF622AB002F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fov</Name>
+      <Address>7FF622AA0033</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fovAOB</Name>
+      <Address> 7FF622B2C973</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fovNOP</Name>
+      <Address> 7FF622B2CAE0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>walkAOB</Name>
+      <Address> 21D15628</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>walk</Name>
+      <Address>21E3002C</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

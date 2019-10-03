@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Enable ansel everywhere"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Disable Ansel check
+// By Otis_Inf
+// Enjoy!
+// https://fransbouma.com
+////////////////////////////////////////////////////////////////
+[ENABLE]
+
+aobscanmodule(AnselCheck1,MetroExodus.exe,74 14 85 C0 74 10 B8 01 00 00 00) // should be unique
+alloc(newmem,$1000,"MetroExodus.exe"+A55925A)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //je MetroExodus.exe+A559270
+  test eax,eax
+  //je MetroExodus.exe+A559270
+  jmp return
+
+AnselCheck1:
+  jmp newmem
+  nop
+return:
+registersymbol(AnselCheck1)
+
+[DISABLE]
+
+AnselCheck1:
+  db 74 14 85 C0 74 10
+
+unregistersymbol(AnselCheck1)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MetroExodus.exe"+A55925A
+
+"MetroExodus.exe"+A559239: 74 10                    -  je MetroExodus.exe+A55924B
+"MetroExodus.exe"+A55923B: 48 8B 10                 -  mov rdx,[rax]
+"MetroExodus.exe"+A55923E: 48 89 C1                 -  mov rcx,rax
+"MetroExodus.exe"+A559241: FF 92 08 19 00 00        -  call qword ptr [rdx+00001908]
+"MetroExodus.exe"+A559247: 89 C3                    -  mov ebx,eax
+"MetroExodus.exe"+A559249: EB 05                    -  jmp MetroExodus.exe+A559250
+"MetroExodus.exe"+A55924B: BB 01 00 00 00           -  mov ebx,00000001
+"MetroExodus.exe"+A559250: 48 89 F9                 -  mov rcx,rdi
+"MetroExodus.exe"+A559253: E8 68 46 4F F6           -  call MetroExodus.exe+A4D8C0
+"MetroExodus.exe"+A559258: 85 DB                    -  test ebx,ebx
+// ---------- INJECTING HERE ----------
+"MetroExodus.exe"+A55925A: 74 14                    -  je MetroExodus.exe+A559270
+"MetroExodus.exe"+A55925C: 85 C0                    -  test eax,eax
+"MetroExodus.exe"+A55925E: 74 10                    -  je MetroExodus.exe+A559270
+// ---------- DONE INJECTING  ----------
+"MetroExodus.exe"+A559260: B8 01 00 00 00           -  mov eax,00000001
+"MetroExodus.exe"+A559265: 48 8B 5C 24 30           -  mov rbx,[rsp+30]
+"MetroExodus.exe"+A55926A: 48 83 C4 20              -  add rsp,20
+"MetroExodus.exe"+A55926E: 5F                       -  pop rdi
+"MetroExodus.exe"+A55926F: C3                       -  ret 
+"MetroExodus.exe"+A559270: 48 8B 5C 24 30           -  mov rbx,[rsp+30]
+"MetroExodus.exe"+A559275: 31 C0                    -  xor eax,eax
+"MetroExodus.exe"+A559277: 48 83 C4 20              -  add rsp,20
+"MetroExodus.exe"+A55927B: 5F                       -  pop rdi
+"MetroExodus.exe"+A55927C: C3                       -  ret 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Disable photomode range check (F4)"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Disable Photomode range check
+// By Otis_Inf
+// Enjoy!
+// https://fransbouma.com
+////////////////////////////////////////////////////////////////
+[ENABLE]
+
+aobscanmodule(PMRangeCheck,MetroExodus.exe,F3 0F 5D 1D x x x x F3 0F 5C C8 F3 0F 5F 5D) // should be unique
+alloc(newmem,$1000,"MetroExodus.exe"+9A64524)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  // minss xmm3,[MetroExodus.exe+149AF98]   // nopped so no range check is performed!
+  jmp return
+
+PMRangeCheck:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(PMRangeCheck)
+
+[DISABLE]
+
+PMRangeCheck:
+  db 90 90 90 90 90 90 90 90   // as the overwritten instruction has a RIP relative operand, we can't store the original bytes here.
+                               // but what animal wants to 'enable' the range check again anyway?
+
+unregistersymbol(PMRangeCheck)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MetroExodus.exe"+9A64524
+
+"MetroExodus.exe"+9A644FF: 41 0F 28 C9                 -  movaps xmm1,xmm9
+"MetroExodus.exe"+9A64503: F3 0F 51 E4                 -  sqrtss xmm4,xmm4
+"MetroExodus.exe"+9A64507: F3 0F 58 D8                 -  addss xmm3,xmm0
+"MetroExodus.exe"+9A6450B: 0F 28 D3                    -  movaps xmm2,xmm3
+"MetroExodus.exe"+9A6450E: F3 0F 52 D3                 -  rsqrtss xmm2,xmm3
+"MetroExodus.exe"+9A64512: F3 0F 59 DA                 -  mulss xmm3,xmm2
+"MetroExodus.exe"+9A64516: 0F 28 C2                    -  movaps xmm0,xmm2
+"MetroExodus.exe"+9A64519: F3 0F 59 C3                 -  mulss xmm0,xmm3
+"MetroExodus.exe"+9A6451D: 0F 57 DB                    -  xorps xmm3,xmm3
+"MetroExodus.exe"+9A64520: F3 0F 10 DC                 -  movss xmm3,xmm4
+// ---------- INJECTING HERE ----------
+"MetroExodus.exe"+9A64524: F3 0F 5D 1D 6C 6A A3 F7     -  minss xmm3,[MetroExodus.exe+149AF98]
+// ---------- DONE INJECTING  ----------
+"MetroExodus.exe"+9A6452C: F3 0F 5C C8                 -  subss xmm1,xmm0
+"MetroExodus.exe"+9A64530: F3 0F 5F 5D 6F              -  maxss xmm3,[rbp+6F]
+"MetroExodus.exe"+9A64535: F3 0F 59 CA                 -  mulss xmm1,xmm2
+"MetroExodus.exe"+9A64539: F3 41 0F 59 CA              -  mulss xmm1,xmm10
+"MetroExodus.exe"+9A6453E: F3 0F 11 5D 67              -  movss [rbp+67],xmm3
+"MetroExodus.exe"+9A64543: 0F C6 C9 00                 -  shufps xmm1,xmm1,00
+"MetroExodus.exe"+9A64547: 44 0F 59 C1                 -  mulps xmm8,xmm1
+"MetroExodus.exe"+9A6454B: 48 85 C9                    -  test rcx,rcx
+"MetroExodus.exe"+9A6454E: 75 04                       -  jne MetroExodus.exe+9A64554
+"MetroExodus.exe"+9A64550: 31 F6                       -  xor esi,esi
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Override FOV (F7)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Override FOV
+// By Otis_Inf
+// Enjoy!
+// https://fransbouma.com
+////////////////////////////////////////////////////////////////
+[ENABLE]
+
+aobscanmodule(FoVWrite,MetroExodus.exe,F3 41 0F 11 65 48) // should be unique
+alloc(newmem,$1000,"MetroExodus.exe"+FE001D1)
+
+label(code)
+label(return)
+label(FoVAddress)
+registersymbol(FoVAddress)
+registersymbol(FoVWrite)
+
+newmem:
+
+code:
+  mov [FoVAddress], r13
+//  movss [r13+48],xmm4
+  jmp exit
+
+FoVAddress:
+dq 0
+
+exit:
+  jmp return
+
+FoVWrite:
+  jmp newmem
+  nop
+return:
+
+
+
+
+[DISABLE]
+FoVWrite:
+  db F3 41 0F 11 65 48
+
+unregistersymbol(FoVWrite)
+unregistersymbol(FoVAddress)
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MetroExodus.exe"+FE001D1
+
+"MetroExodus.exe"+FE00195: 8B 44 24 50              -  mov eax,[rsp+50]
+"MetroExodus.exe"+FE00199: F3 0F 10 1D 5B DE 58 F1  -  movss xmm3,[MetroExodus.exe+138DFFC]
+"MetroExodus.exe"+FE001A1: F3 0F 11 85 10 02 00 00  -  movss [rbp+00000210],xmm0
+"MetroExodus.exe"+FE001A9: F3 0F 11 A5 10 02 00 00  -  movss [rbp+00000210],xmm4
+"MetroExodus.exe"+FE001B1: 0F 28 D4                 -  movaps xmm2,xmm4
+"MetroExodus.exe"+FE001B4: F3 0F 11 9D 10 02 00 00  -  movss [rbp+00000210],xmm3
+"MetroExodus.exe"+FE001BC: F3 0F 5D D0              -  minss xmm2,xmm0
+"MetroExodus.exe"+FE001C0: F3 0F 10 45 54           -  movss xmm0,[rbp+54]
+"MetroExodus.exe"+FE001C5: F3 0F 5F D3              -  maxss xmm2,xmm3
+"MetroExodus.exe"+FE001C9: F3 0F 11 15 43 FB 7A F1  -  movss [MetroExodus.exe+15AFD14],xmm2
+// ---------- INJECTING HERE ----------
+"MetroExodus.exe"+FE001D1: F3 41 0F 11 65 48        -  movss [r13+48],xmm4
+// ---------- DONE INJECTING  ----------
+"MetroExodus.exe"+FE001D7: F3 0F 11 05 41 5E 8B F1  -  movss [MetroExodus.exe+16B6020],xmm0
+"MetroExodus.exe"+FE001DF: 85 C0                    -  test eax,eax
+"MetroExodus.exe"+FE001E1: 74 13                    -  je MetroExodus.exe+FE001F6
+"MetroExodus.exe"+FE001E3: F3 0F 10 4C 24 54        -  movss xmm1,[rsp+54]
+"MetroExodus.exe"+FE001E9: 66 0F 6E C0              -  movd xmm0,eax
+"MetroExodus.exe"+FE001ED: 0F 5B C0                 -  cvtdq2ps xmm0,xmm0
+"MetroExodus.exe"+FE001F0: F3 0F 5E C8              -  divss xmm1,xmm0
+"MetroExodus.exe"+FE001F4: EB 04                    -  jmp MetroExodus.exe+FE001FA
+"MetroExodus.exe"+FE001F6: 41 0F 28 CE              -  movaps xmm1,xmm14
+"MetroExodus.exe"+FE001FA: F3 0F 11 0D 1A FB 7A F1  -  movss [MetroExodus.exe+15AFD1C],xmm1
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>118</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"FOV (Numpad + / -)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>FoVAddress</Address>
+          <Offsets>
+            <Offset>48</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"By Otis_Inf. https://fransbouma.com/in-game"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movups [rbx+30],xmm0</Description>
+      <AddressString>MetroExodus.exe+65C9436</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>DA</Byte>
+        <Byte>EB</Byte>
+        <Byte>CF</Byte>
+        <Byte>FA</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>45</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>5B</Byte>
+        <Byte>A0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+48],xmm0</Description>
+      <AddressString>MetroExodus.exe+1075AA2B</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>47</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>48</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of maxss xmm3,[rbp+6F]</Description>
+      <AddressString>MetroExodus.exe+9A64530</AddressString>
+      <Before>
+        <Byte>F7</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5F</Byte>
+        <Byte>5D</Byte>
+        <Byte>6F</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>CA</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of minss xmm3,[MetroExodus.exe+149AF98]</Description>
+      <AddressString>MetroExodus.exe+9A64524</AddressString>
+      <Before>
+        <Byte>DB</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>DC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5D</Byte>
+        <Byte>1D</Byte>
+        <Byte>6C</Byte>
+        <Byte>6A</Byte>
+        <Byte>A3</Byte>
+        <Byte>F7</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C8</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je MetroExodus.exe+A559270</Description>
+      <AddressString>MetroExodus.exe+A55925A</AddressString>
+      <Before>
+        <Byte>46</Byte>
+        <Byte>4F</Byte>
+        <Byte>F6</Byte>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>10</Byte>
+        <Byte>B8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je MetroExodus.exe+A559270</Description>
+      <AddressString>MetroExodus.exe+A55925E</AddressString>
+      <Before>
+        <Byte>DB</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>coords</Name>
+      <Address>13FFF00DA</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fovAOB</Name>
+      <Address>1444AEA47</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>coords2</Name>
+      <Address>0D3B0042</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>ammo</Name>
+      <Address>006F5C80</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>invis1</Name>
+      <Address>00A0A926</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>coords3</Name>
+      <Address>0D3F0029</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>toggleLock</Name>
+      <Address>13FFE00E6</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>currentMode</Name>
+      <Address>13FFE00E2</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>gameSpeed</Name>
+      <Address>13FF80028</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>timeAOB</Name>
+      <Address>144193171</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Countdown</Name>
+      <Address>04C70000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>AmmoAddress</Name>
+      <Address>01081D31</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pistolsfiredcheckAOB</Name>
+      <Address>012E4BE9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pistolammoclipmaxreadAOB</Name>
+      <Address>012D0557</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pPistols</Name>
+      <Address>07CF00C5</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>InstantCooldowns</Name>
+      <Address>0143CDEF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cameraManip</Name>
+      <Address>287A0000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_timeOfDay</Name>
+      <Address>005A697E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pSunPosition</Name>
+      <Address>3AA20015</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_sunPosition</Name>
+      <Address>0089DE46</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>CurrentCameraPreset</Name>
+      <Address>006A2D84</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cameraPresetPtr</Name>
+      <Address>287A0115</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>disableThread</Name>
+      <Address>287A0119</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>KeyHandlerOff</Name>
+      <Address>287B0500</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bHUD</Name>
+      <Address>287B0504</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>timeofdayread1AOB</Name>
+      <Address>005A5F36</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>timeofdayread2AOB</Name>
+      <Address>005A63E9</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>timeofdayspeedwriteAOB</Name>
+      <Address>005A638A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pTimeOfDay</Name>
+      <Address>0E66004C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pTimeOfDaySpeed</Name>
+      <Address>0E660050</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>fMySpeed</Name>
+      <Address>0E660054</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>bTimeOfDaySpeedControl</Name>
+      <Address>0E660058</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pTime</Name>
+      <Address>13FFF002E</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

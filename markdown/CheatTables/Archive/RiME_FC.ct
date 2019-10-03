@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2539</ID>
+      <Description>"CAMERA [PGDN]"</Description>
+      <Options moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"RiME.exe"+13BF441
+[ENABLE]
+
+aobscanmodule(writesXY,RiME.exe,F2 0F 11 87 10 04 00 00 F2)
+alloc(newmem,$1000,writesXY)
+
+label(code)
+label(return)
+
+globalalloc(_cam,8)
+
+newmem:
+
+code:
+  mov [_cam],rdi
+  //movsd [rdi+00000410],xmm0
+  jmp return
+
+writesXY:
+  jmp newmem
+  nop
+  nop
+  nop
+
+return:
+registersymbol(writesXY)
+
+writesXY+1B: //writes Z
+  //mov [rdi+00000418],eax
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+
+writesXY+25:
+  //mov [rdi+00000424],eax
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+
+writesXY+2F: //writes FOV
+  //movups [rdi+00000428],xmm0
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+
+[DISABLE]
+
+writesXY:
+  db F2 0F 11 87 10 04 00 00
+
+writesXY+1B:
+  db 89 87 18 04 00 00
+
+writesXY+25:
+  db 89 87 24 04 00 00
+
+writesXY+2F:
+  db 0F 11 87 28 04 00 00
+
+unregistersymbol(writesXY)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2551</ID>
+          <Description>"Resize window with SRWE"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2550</ID>
+          <Description>"Slow: [key]+C, Fast: [key]+F"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2541</ID>
+          <Description>"FOV [+, -]"</Description>
+          <LastState Value="90.11897278" RealAddress="42360428"/>
+          <VariableType>Float</VariableType>
+          <Address>_cam</Address>
+          <Offsets>
+            <Offset>428</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>67</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>67</Key>
+                <Key>189</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>70</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>70</Key>
+                <Key>189</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2548</ID>
+          <Description>"COORDS"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2540</ID>
+              <Description>"X [Num 4, 6]"</Description>
+              <LastState Value="-10579.21777" RealAddress="42360410"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>410</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2546</ID>
+              <Description>"Y [Num 5, 8]"</Description>
+              <LastState Value="58603.24609" RealAddress="42360414"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>414</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2545</ID>
+              <Description>"Z [Num 7, 9]"</Description>
+              <LastState Value="307.3323975" RealAddress="42360418"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>418</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2549</ID>
+          <Description>"ROT"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2547</ID>
+              <Description>"Lock pitch/yaw [PGUP]"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+writesXY+E: //writes pitch/yaw
+  //movsd [rdi+0000041C],xmm0
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+
+[DISABLE]
+
+writesXY+E:
+  db F2 0F 11 87 1C 04 00 00
+
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>33</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2544</ID>
+              <Description>"Pitch [Use mouse]"</Description>
+              <LastState Value="-11.33223438" RealAddress="4236041C"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>41C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2543</ID>
+              <Description>"Yaw [Use mouse]"</Description>
+              <LastState Value="25.53574371" RealAddress="42360420"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>420</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2542</ID>
+              <Description>"Roll [Num 1, 2, 3]"</Description>
+              <LastState Value="0" RealAddress="42360424"/>
+              <VariableType>Float</VariableType>
+              <Address>_cam</Address>
+              <Offsets>
+                <Offset>424</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>.2</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>67</Key>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>.2</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>6</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
