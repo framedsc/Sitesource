@@ -1,6 +1,11 @@
 Universal Unreal Engine 4 Console Unlocker
 =============
 
+@alert Important
+It's forbidden to host the Universal Unreal Engine 4 Console Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
+unlocker binary is distributed is this site. 
+@end
+
 For Unreal Engine 4 powered games, it's possible to re-create the in-game console that's usually stripped out when the game is build for shipping. To do so, 
 you can use the Universal UE4 Console Unlocker / Dumper dll (comes with injector exe and readme). After adjusting the .ini file for the right exe to inject the 
 dll in, it should show a console window that it has found all offsets and the console object has been created as well as that cheats have been enabled. 
