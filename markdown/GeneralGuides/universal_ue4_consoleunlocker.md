@@ -76,9 +76,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Alice VR
 * Ancestors Legacy
 * Ancestors - The Humankind Odyssey
+* Ancient Knowledge
 * Another Sight Definitive Edition
 * Apsulov: End of Gods
-* Asemblance: Oversight
+* Assemblance: Oversight
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
@@ -119,6 +120,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Hollow
 * Hunting Simulator
 * Insomnia the Ark
+* Intruders: Hide and Seek"
 * Jump Force (limited)
 * Killsquad
 * Koral
