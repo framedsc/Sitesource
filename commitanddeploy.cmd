@@ -7,7 +7,7 @@ git push
 docnet -c markdown
 
 del /q ..\framedsc.github.io\*.*
-for /d %i in (..\framedsc.github.io\*.*) do @rd /s /q "%i"
+for /d %%i in (..\framedsc.github.io\*.*) do @rd /s /q "%%i"
 
 robocopy .\site ..\framedsc.github.io /s /e
 cd ..\framedsc.github.io
