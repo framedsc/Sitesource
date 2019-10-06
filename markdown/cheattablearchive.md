@@ -425,9 +425,6 @@ camera tools for the game instead of using these old cheat tables.
 ###Outlast 2
 - [outlast2.CT](CheatTables/Archive/outlast2.CT)
 
-###Outlast 2
-- [outlast2.CT](CheatTables/Archive/outlast2.CT)
-
 ###Planet Alpha
 - [PlanetAlpha_fc_1.0.ct](CheatTables/Archive/PlanetAlpha_fc_1.0.ct)
 
