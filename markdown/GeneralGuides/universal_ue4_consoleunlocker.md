@@ -139,6 +139,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Observer
 * Operencia: The Stolen Sun
 * Overkill's The Walking Dead
+* Pagui打鬼
 * Paranormal Activity The Lost Soul
 * Past Cure
 * Planet Alpha
