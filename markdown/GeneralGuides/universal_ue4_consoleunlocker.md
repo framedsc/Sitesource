@@ -72,6 +72,7 @@ after you've loaded a new level, you have to dump the files again. The Objects f
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code
 and the unlocker can't re-activate the console as essential functions aren't there anymore. The list below are games which are known to work with the unlocker. 
 
+* A Knight`s Quest
 * Agony
 * Alice VR
 * Ancestors Legacy
