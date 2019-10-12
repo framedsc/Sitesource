@@ -150,6 +150,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Omen of Sorrow
 * Omensight
 * Quantum Replica
+* Qube 2
 * RAD
 * Redeemer
 * Remnant: From the Ashes
