@@ -12,7 +12,7 @@ LUTs (Look-up Tables) are a cheap way of changing the colours of your game witho
 
 You'll need one of these:
 
-![This is a Neutral LUT](Images\lutguide\lut_neutral.png)
+![This is a Neutral LUT](Images\lutguide\lut_neutral.png){.shadowed .autosize}
 
 This is a LUT. More specifically, this is a **neutral** LUT. It does absolutely nothing, but is the starting point for *everything* you can do with LUTs.
 
@@ -40,13 +40,13 @@ While not necessary, creating a collage of various screenshots will ensure that 
 #### Step 1: Adjustment Layers
 With your screenshots loaded into Photoshop, it's time to get to work. I'll be focusing on colour grading the screenshot I have loaded. Start by adding an Adjustment Layer from the Adjustments tab.
 
-![Photoshop Import](Images\lutguide\lutg_ps-adj1.png)
+![Photoshop Import](Images\lutguide\lutg_ps-adj1.png){.shadowed .autosize}
 
 **Use as many adjustment layers as you want!** Don't hesitate to abuse them, as they all get baked down into a texture at the end. If you're going for style, go ahead and play with the weirder adjustments like Posterize and Threshold. 
 
 Once you've had your fun, you should have a few extra layers on your right. 
 
-![Photoshop Adjusted](Images\lutguide\lutg_ps-adj2.png)
+![Photoshop Adjusted](Images\lutguide\lutg_ps-adj2.png){.shadowed .autosize}
 *Curves for contrast, Vibrance for saturation, Color Balance for split-tones, H/S for selective colours (desaturated greens)*
 
 @alert important
@@ -55,7 +55,7 @@ This is **not** a guide on editing images. If you'd like to learn how to use the
 
 You may have noticed the chain & white canvas next to your adjustment layer icons.  
 
-![Masks!](Images\lutguide\mask.png) 
+![Masks!](Images\lutguide\mask.png){.shadowed .autosize}
 
 **Ignore these.** These are masks for the adjustment layers. **Adjustment masking** (for obvious reasons) **will not transfer to your LUTs.**
 
@@ -64,7 +64,7 @@ Next, you want to load in the neutral LUT texture from earlier as a separate doc
 
 All you need to to here is copy the adjustment layers from your screenshot document to the new LUT document. This can be done by the traditional Ctrl+C / Ctrl-V, or you can select all adjustment layers, right-click, `Duplicate Layers...` and choose the LUT document.
 
-![Photoshop LUT](Images\lutguide\lutg_ps-lut.png) 
+![Photoshop LUT](Images\lutguide\lutg_ps-lut.png){.shadowed .autosize}
 
 Depending on the extent of your adjustments, the LUT may look weird. My LUT shown above starts to look really off towards the left of the image, but that's because I desaturated the greens completely. If you've done everything right, there should be no worry here.
 
@@ -91,7 +91,7 @@ While not necessary, creating a collage of various screenshots will ensure that 
 #### Step 1: Making the Preset
 Import your screenshot(s) into Lightroom. If you've never used Lightroom before, don't worry, it's pretty straightforward. You have all your tools on the right (they'll be under Develop in Lightroom Classic), just play around with them and see what results you get!
 
-![Lightroom Import](Images\lutguide\lutg_lr-adj1.png)
+![Lightroom Import](Images\lutguide\lutg_lr-adj1.png){.shadowed .autosize}
 
 @alert important
 This is **not** a guide on editing images. *N.B.: I couldn't find any decent guides to wrangling Lightroom. Ghost, make one!*
@@ -99,7 +99,7 @@ This is **not** a guide on editing images. *N.B.: I couldn't find any decent gui
 
 After a few minutes of messing around, this is my result.
 
-![Lightroom Adjusted](Images\lutguide\lutg_lr-adj2.png)
+![Lightroom Adjusted](Images\lutguide\lutg_lr-adj2.png){.shadowed .autosize}
 
 Once you're happy with yours, save it as a preset.   
 **Do NOT include Texture, Clarity, Dehaze, Vignette, Grain, Sharpening, Noise Reduction and any lens correction in your preset.** This will completely ruin your LUT.
@@ -109,7 +109,7 @@ Import the neutral LUT texture from earlier. **Make sure that it's the neutral o
 
 Apply your saved preset to the neutral LUT.
 
-![Lightroom LUT](Images\lutguide\lutg_lr-lut.png)
+![Lightroom LUT](Images\lutguide\lutg_lr-lut.png){.shadowed .autosize}
 
 Depending on how much you modified your image, the LUT may look weird. My LUT shown above is quite washed out and overexposed, due to the extent of the changes I made to it. I'm not concerned though, as these changes were intended.
 
@@ -129,7 +129,7 @@ If you're an avid Lightroom user, chances are you already have presets made/down
 ## MultiLUT
 `MultiLUT.fx` is a shader that allows you to load in multiple LUTs and switch between them, as the name would imply. It does this by collecting the LUTs in an atlas.
 
-![MultiLUT Atlas](Images\lutguide\multilut.png)
+![MultiLUT Atlas](Images\lutguide\multilut.png){.shadowed .autosize}
 
 This is the default MultiLUT atlas. You're this far down in the guide, you should know what a LUT looks like. So you should be able to tell that each row of this mess of boxes is a separate LUT. 
 
