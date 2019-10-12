@@ -1,4 +1,4 @@
-![LUT Generation!](Images\lutguide\lutg_header.png){.shadowed .autosize}
+![LUT Generation!](Images\lutg_header.png){.shadowed .autosize}
 
 LUTs are a powerful tool that can completely change the look of any picture. This guide is geared towards generating LUTs for usage in ReShade.
 
