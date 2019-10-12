@@ -500,6 +500,7 @@ camera tools for the game instead of using these old cheat tables.
 - [ShadowOfMordor_aob.CT](CheatTables/Archive/ShadowOfMordor_aob.CT)
 
 ###Spec Ops: The Line
+- [SpecOpsTheLinePPDoF.CT](CheatTables/Archive/SpecOpsTheLinePPDoF.CT)
 - [SpecOpsTheLine.CT](CheatTables/Archive/SpecOpsTheLine.CT)
 - [SpecOpsTheLinePPDoF2.CT](CheatTables/Archive/SpecOpsTheLinePPDoF2.CT)
 - [SpecOpsTheLine_v10.CT](CheatTables/Archive/SpecOpsTheLine_v10.CT)
