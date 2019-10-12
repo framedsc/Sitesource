@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1683</ID>
+      <Description>"FOV  [Key +] / [Key -]  "</Description>
+      <Color>0000FF</Color>
+      <VariableType>Float</VariableType>
+      <Address>iw4sp.exe+1578C90</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>107</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>109</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>107</Key>
+          </Keys>
+          <Value>5</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>109</Key>
+          </Keys>
+          <Value>5</Value>
+          <ID>3</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>107</Key>
+          </Keys>
+          <Value>10</Value>
+          <ID>4</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>109</Key>
+          </Keys>
+          <Value>10</Value>
+          <ID>5</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>35</Key>
+          </Keys>
+          <Value>65</Value>
+          <ID>6</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1685</ID>
+          <Description>"End - set FOV 65"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1684</ID>
+          <Description>"Use Alt+ or Ctrl+ to speed up"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1691</ID>
+          <Description>"No description"</Description>
+          <VariableType>Float</VariableType>
+          <Address>iw4sp.exe+1578C90</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1690</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>iw4sp.exe+1578C40</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

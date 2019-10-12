@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>400</ID>
+      <Description>"Sunglasses hack"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(ShowMeSomeLoot,ELEX.exe,41 8B 84 08 00 5C 00 00)
+alloc(MemoryPlz,$1000,"ELEX.exe"+27D220)
+
+label(SomeCode)
+label(GoHome)
+
+MemoryPlz:
+  cmp [r8+rcx+00005C00],#139
+  je SomeCode
+  cmp [r8+rcx+00005C00],#2299
+  je SomeCode
+  mov eax,[r8+rcx+00005C00]
+  jmp GoHome
+SomeCode:
+  mov [r8+rcx+00005C00],#196747
+  mov eax,[r8+rcx+00005C00]
+  jmp GoHome
+
+ShowMeSomeLoot:
+  jmp MemoryPlz
+  nop
+  nop
+  nop
+GoHome:
+registersymbol(ShowMeSomeLoot)
+
+[DISABLE]
+ShowMeSomeLoot:
+  db 41 8B 84 08 00 5C 00 00
+
+unregistersymbol(ShowMeSomeLoot)
+dealloc(MemoryPlz)
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>393</ID>
+      <Description>"DebugMode"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+140DC9888:
+db 01
+[DISABLE]
+140DC9888:
+db 00
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

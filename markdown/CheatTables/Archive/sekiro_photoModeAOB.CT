@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16329</ID>
+      <Description>"--- Sekiro Photo Mode -- framedsc.github.io ---"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>804000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16323</ID>
+      <Description>"Enable Screenshotting (required)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"sekiro.exe"+114AE32
+//F3 0F 10 88 x x x x F3 0F 59 88 x x x x 48 8D 3D
+//"sekiro.exe"+E0189E
+//0F B6 40 09 84 C0 0F 94 C0 48 83 C4 28
+
+[ENABLE]
+/////// GET SOME AOBS OUT OF THE WAY
+aobscanmodule(timescaleAOB,sekiro.exe,F3 0F 10 88 x x x x F3 0F 59 88 x x x x 48 8D 3D)
+aobscanmodule(hudAOB,sekiro.exe,0F B6 40 09 84 C0 0F 94 C0 48 83 C4 28)
+aobscanmodule(playerBaseAOB,sekiro.exe,89 83 x x x x E8 x x x x 48 8B CE)
+aobscanmodule(NOPAOB1,sekiro.exe,0F 29 03 80 BE x x x x 00 0F 84)
+aobscanmodule(NOPAOB2,sekiro.exe,0F 29 A6 x x x x EB 1C F3 0F 10 8E)
+aobscanmodule(NOPAOB3,sekiro.exe,F3 0F 11 8E x x x x 44 0F 2F D9 76 06)
+aobscanmodule(NOPAOB4,sekiro.exe,F3 0F 11 86 x x x x F3 0F 10 85)
+aobscanmodule(NOPAOB5,sekiro.exe,F3 0F 11 86 x x x x E9 x x x x F3 0F)
+aobscanmodule(NOPAOB6,sekiro.exe,44 0F 29 00 4D 85 E4 0F 84)
+aobscanmodule(NOPAOB7,sekiro.exe,0F 29 18 48 8B C8 E8 x x x x 41 8B)
+
+/////// LABELS AND SYMBOLS
+
+alloc(getTimescale,2048,"sekiro.exe")
+label(returnhereTime)
+label(exitTime)
+
+label(getHUD)
+label(returnhereHUD)
+label(exitHUD)
+
+label(timescaleBase)
+registersymbol(timescaleBase)
+label(hudPointer)
+registersymbol(hudPointer)
+
+registersymbol(timescaleAOB)
+registersymbol(hudAOB)
+registersymbol(playerBaseAOB)
+registersymbol(NOPAOB1)
+registersymbol(NOPAOB2)
+registersymbol(NOPAOB3)
+registersymbol(NOPAOB4)
+registersymbol(NOPAOB5)
+registersymbol(NOPAOB6)
+registersymbol(NOPAOB7)
+
+label(playerBaseCode)
+label(returnherePlayer)
+label(exitPlayer)
+
+label(playerPointer)
+registersymbol(playerPointer)
+label(playerBase)
+registersymbol(playerBase)
+
+/////// CUSTOM SCRIPTS
+
+getTimescale:
+mov [timescaleBase],rax
+movss xmm1,[rax+00000360]
+jmp exitTime
+
+exitTime:
+jmp returnhereTime
+
+///////////////
+
+getHUD:
+mov [hudPointer], rax
+movzx eax,byte ptr [rax+09]
+test al,al
+jmp exitHUD
+
+exitHUD:
+jmp returnhereHUD
+
+///////////////////
+
+playerBaseCode:
+mov [rbx+00000130],eax
+cmp dword [rbx+0000018],00000000
+jne exitPlayer
+push rcx
+lea rcx,[rbx+FD0]
+mov [playerPointer],rcx
+pop rcx
+mov [playerBase],rbx
+jmp exitPlayer
+
+exitPlayer:
+jmp returnherePlayer
+
+/////// SYMBOL DEFAULTS
+
+timescaleBase:
+dq 0
+hudPointer:
+dq 0
+playerBase:
+dq 0
+playerPointer:
+dq 0
+
+/////// HOOKS
+
+timescaleAOB:
+jmp getTimescale
+nop
+nop
+nop
+returnhereTime:
+
+hudAOB:
+jmp getHUD
+nop
+returnhereHUD:
+
+playerBaseAOB:
+jmp playerBaseCode
+nop
+returnherePlayer:
+
+[DISABLE]
+dealloc(getTimescale)
+timescaleAOB:
+movss xmm1,[rax+00000360]
+hudAOB:
+movzx eax,byte ptr [rax+09]
+test al,al
+playerBaseAOB:
+mov [rbx+00000130],eax
+unregistersymbol(timescaleBase)
+unregistersymbol(hudPointer)
+unregistersymbol(playerPointer)
+unregistersymbol(playerBase)
+unregistersymbol(hudAOB)
+unregistersymbol(timescaleAOB)
+unregistersymbol(playerBaseAOB)
+unregistersymbol(NOPAOB1)
+unregistersymbol(NOPAOB2)
+unregistersymbol(NOPAOB3)
+unregistersymbol(NOPAOB4)
+unregistersymbol(NOPAOB5)
+unregistersymbol(NOPAOB6)
+unregistersymbol(NOPAOB7)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16326</ID>
+          <Description>"--- F1 = Toggle Camera"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16327</ID>
+          <Description>"--- F2 = Hide HUD, F3 = Show HUD"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16328</ID>
+          <Description>"--- F4 = Enemy Freeze"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10355</ID>
+          <Description>"--- Num0 = Freeze Game, Num . = resume"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF00FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10344</ID>
+          <Description>"Camera"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>000000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(camCoordsAOB,sekiro.exe,66 0F 7F 86 x x x x 0F 28 0B 66 0F 7F 8E)
+aobscanmodule(fovWriteAOB,sekiro.exe,F3 0F 11 4E 50 F3 0F 10 33 F3 45 0F 10 86)
+
+alloc(camX,2048,"sekiro.exe")
+label(returnhereX)
+label(exitX)
+
+label(cameraPointer)
+registersymbol(cameraPointer)
+
+registersymbol(camCoordsAOB)
+registersymbol(fovWriteAOB)
+
+camX:
+mov [cameraPointer],rsi
+movdqa [rsi+000000C0],xmm0
+jmp exitX
+
+exitX:
+jmp returnhereX
+
+///////////////
+
+cameraPointer:
+dq 0
+///
+
+camCoordsAOB:
+jmp camX
+nop
+nop
+nop
+returnhereX:
+
+//FOV Write
+fovWriteAOB:
+db 90 90 90 90 90
+
+NOPAOB1:
+db 90 90 90
+
+NOPAOB2:
+db 90 90 90 90 90 90 90
+
+NOPAOB3:
+db 90 90 90 90 90 90 90 90
+
+NOPAOB4:
+db 90 90 90 90 90 90 90 90
+
+NOPAOB5:
+db 90 90 90 90 90 90 90 90
+
+//Disable Orbit Cam
+NOPAOB6:
+db 90 90 90 90
+
+//camera clipping
+NOPAOB7:
+db 90 90 90
+
+[DISABLE]
+dealloc(camX)
+camCoordsAOB:
+movdqa [rsi+000000C0],xmm0
+//
+NOPAOB1:
+movaps [rbx],xmm0
+//
+fovWriteAOB:
+movss [rsi+50],xmm1
+//
+NOPAOB2:
+movaps [rsi+00000170],xmm4
+//
+NOPAOB3:
+movss [rsi+00000150],xmm1
+//
+NOPAOB4:
+movss [rsi+00000170],xmm0
+//
+NOPAOB5:
+movss [rsi+00000174],xmm0
+//Disable Orbit Cam:
+NOPAOB6:
+movaps [rax],xmm8
+test r12,r12
+//
+//camera clipping
+NOPAOB7:
+movaps [rax],xmm3
+mov rcx,rax
+//
+unregistersymbol(cameraPointer)
+unregistersymbol(camCoordsAOB)
+unregistersymbol(fovWriteAOB)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>112</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10283</ID>
+              <Description>"Z = Numpad 7/9"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF00FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10284</ID>
+              <Description>"Y = Numpad 2/8"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF00FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10285</ID>
+              <Description>"X = Numpad 4/6"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF00FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10293</ID>
+              <Description>"FOV = Numpad -\+"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF00FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10279</ID>
+              <Description>"X"</Description>
+              <VariableType>Float</VariableType>
+              <Address>cameraPointer</Address>
+              <Offsets>
+                <Offset>B0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.2</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10278</ID>
+              <Description>"Z"</Description>
+              <VariableType>Float</VariableType>
+              <Address>cameraPointer</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>0.2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.2</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>6</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>7</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10280</ID>
+              <Description>"Y"</Description>
+              <VariableType>Float</VariableType>
+              <Address>cameraPointer</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>0.2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0.2</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10292</ID>
+              <Description>"FOV"</Description>
+              <VariableType>Float</VariableType>
+              <Address>cameraPointer</Address>
+              <Offsets>
+                <Offset>50</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16325</ID>
+          <Description>"Hud Enabled"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>hudPointer</Address>
+          <Offsets>
+            <Offset>09</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16324</ID>
+          <Description>"TimeScale"</Description>
+          <VariableType>Float</VariableType>
+          <Address>timescaleBase</Address>
+          <Offsets>
+            <Offset>360</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <Value>0.00001</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>110</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10272</ID>
+          <Description>"PlayersOnly"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>000000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//"sekiro.exe"+B2EC67
+//F3 0F 10 83 x x x x F3 0F 59 83 x x x x F3 0F 59 D0
+
+//"sekiro.exe"+BBEE24
+//89 83 x x x x E8 x x x x 48 8B CE
+
+[ENABLE]
+aobscanmodule(entitySpeedAOB,sekiro.exe,F3 0F 10 83 x x x x F3 0F 59 83 x x x x F3 0F 59 D0)
+
+alloc(entitySpeedCode,2048,"sekiro.exe")
+label(returnhere)
+label(exit)
+
+label(freezeAll)
+label(otherSpeed)
+registersymbol(otherSpeed)
+
+label(originalCode)
+registersymbol(entitySpeedAOB)
+
+entitySpeedCode:
+// if player not loaded, use custom speed (default is freeze)
+cmp [playerPointer], 0
+je freezeAll
+push rcx
+lea rcx, [rbx+d00]
+cmp rcx,[playerPointer]
+pop rcx
+je originalCode
+// not the player, use custom speed (default is freeze)
+jmp freezeAll
+
+freezeAll:
+// writes a custom speed to all entities not the player
+mulss xmm0,[otherSpeed]
+jmp exit
+
+originalCode:
+// is the player - proceed as usual
+movss xmm0,[rbx+00000D00]
+jmp exit
+
+exit:
+jmp returnhere
+
+//////////////
+
+otherSpeed:
+dd (float)0.0
+
+//////////////
+
+// Write Entity Speeds
+entitySpeedAOB:
+jmp entitySpeedCode
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+entitySpeedAOB:
+movss xmm0,[rbx+00000D00]
+unregistersymbol(otherSpeed)
+unregistersymbol(entitySpeedAOB)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>115</Key>
+              </Keys>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10897</ID>
+              <Description>"Player Speed"</Description>
+              <VariableType>Float</VariableType>
+              <Address>playerBase</Address>
+              <Offsets>
+                <Offset>FD0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10078</ID>
+              <Description>"NPC Speed [F7 \ F8]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>otherSpeed</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>119</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>118</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10898</ID>
+          <Description>"Health - Freeze for God Mode"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>playerBase</Address>
+          <Offsets>
+            <Offset>130</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9222</ID>
+      <Description>"Invisibility (by ColonelRVH)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>808000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>/*===============================
+Cheat Script by ColonelRVH
+
+Please Support my work at:
+  https://www.patreon.com/ColonelRVH
+
+Visit my website at:
+  https://www.thecheatscript.com
+- For latest content, better index &amp; easy to find game cheat that you need.
+
+● You can alter it as your own discretion, but you must keep my credits.
+● Any distributions of my tables &amp; codes are unadvised.
+
+===============================*/
+[ENABLE]
+
+aobscanmodule(Check_Stealth_AOB,sekiro.exe,74 0B 48 8B 01 F3) // should be unique
+Check_Stealth_AOB:
+  db EB 0B
+registersymbol(Check_Stealth_AOB)
+
+[DISABLE]
+
+Check_Stealth_AOB:
+  db 74 0B
+unregistersymbol(Check_Stealth_AOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "sekiro.exe"+605CCB
+
+"sekiro.exe"+605C9A: 48 3B C2              -  cmp rax,rdx
+"sekiro.exe"+605C9D: 75 D1                 -  jne sekiro.exe+605C70
+"sekiro.exe"+605C9F: 48 8D 8F 60 90 00 00  -  lea rcx,[rdi+00009060]
+"sekiro.exe"+605CA6: F3 0F 10 4E 08        -  movss xmm1,[rsi+08]
+"sekiro.exe"+605CAB: E8 40 73 FA FF        -  call sekiro.exe+5ACFF0
+"sekiro.exe"+605CB0: 48 8D 8F 40 91 00 00  -  lea rcx,[rdi+00009140]
+"sekiro.exe"+605CB7: F3 0F 10 4E 08        -  movss xmm1,[rsi+08]
+"sekiro.exe"+605CBC: E8 FF 8F FA FF        -  call sekiro.exe+5AECC0
+"sekiro.exe"+605CC1: 48 8B 8F 30 7B 00 00  -  mov rcx,[rdi+00007B30]
+"sekiro.exe"+605CC8: 48 85 C9              -  test rcx,rcx
+// ---------- INJECTING HERE ----------
+"sekiro.exe"+605CCB: 74 0B                 -  je sekiro.exe+605CD8
+"sekiro.exe"+605CCD: 48 8B 01              -  mov rax,[rcx]
+// ---------- DONE INJECTING  ----------
+"sekiro.exe"+605CD0: F3 0F 10 4E 08        -  movss xmm1,[rsi+08]
+"sekiro.exe"+605CD5: FF 50 10              -  call qword ptr [rax+10]
+"sekiro.exe"+605CD8: 48 8D 8F 50 7B 00 00  -  lea rcx,[rdi+00007B50]
+"sekiro.exe"+605CDF: F3 0F 10 4E 08        -  movss xmm1,[rsi+08]
+"sekiro.exe"+605CE4: E8 17 C6 FA FF        -  call sekiro.exe+5B2300
+"sekiro.exe"+605CE9: 48 8D 8F 60 7D 00 00  -  lea rcx,[rdi+00007D60]
+"sekiro.exe"+605CF0: F3 0F 10 4E 08        -  movss xmm1,[rsi+08]
+"sekiro.exe"+605CF5: E8 06 C1 FA FF        -  call sekiro.exe+5B1E00
+"sekiro.exe"+605CFA: 48 8B 05 EF 20 56 03  -  mov rax,[sekiro.exe+3B67DF0]
+"sekiro.exe"+605D01: 48 85 C0              -  test rax,rax
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>33</Key>
+          </Keys>
+          <ID>0</ID>
+          <ActivateSound>Activate</ActivateSound>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>1</ID>
+          <DeactivateSound>Deactivate</DeactivateSound>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9851</ID>
+      <Description>"Unlock Aspect Ratio"</Description>
+      <LastState/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(aspectRatio,sekiro.exe,74 47 47 8B 94 C7 1C 02 00 00)
+registersymbol(aspectRatio)
+
+aspectRatio:
+db EB 47 47 8B 94 C7 1C 02 00 00
+
+ 
+[DISABLE]
+aspectRatio:
+db 74 47 47 8B 94 C7 1C 02 00 00
+unregistersymbol(aspectRatio)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>120</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Entities</Description>
+      <AddressString>sekiro.exe+B2EC67</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>00</Byte>
+        <Byte>0D</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>83</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+00000130],eax</Description>
+      <AddressString>sekiro.exe+BBEE24</AddressString>
+      <Before>
+        <Byte>B2</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>41</Byte>
+        <Byte>B3</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rax+00000360]</Description>
+      <AddressString>sekiro.exe+114AE32</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>96</Byte>
+        <Byte>14</Byte>
+        <Byte>B4</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>88</Byte>
+        <Byte>60</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>88</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+00000360]</Description>
+      <AddressString>sekiro.exe+A5BD2B</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>9D</Byte>
+        <Byte>05</Byte>
+        <Byte>23</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>60</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>80</Byte>
+        <Byte>6C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rsi+50],xmm1</Description>
+      <AddressString>sekiro.exe+739567</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>4E</Byte>
+        <Byte>50</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4E</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>33</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [rsi+00000170],xmm4</Description>
+      <AddressString>sekiro.exe+73AF34</AddressString>
+      <Before>
+        <Byte>A5</Byte>
+        <Byte>80</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>A6</Byte>
+        <Byte>70</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>1C</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

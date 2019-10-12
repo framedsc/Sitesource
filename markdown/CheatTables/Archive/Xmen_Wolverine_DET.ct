@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"--- X-Men Origins: Wolverine - deadendthrills.com ---"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Camera Control"</Description>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+
+label(coords)
+registersymbol(coords)
+
+newmem:
+mov [coords],ebp
+mov [ebp+14],ecx
+mov edx,[eax+04]
+
+exit:
+jmp returnhere
+
+///
+coords:
+dd 0
+///
+
+"Wolverine.exe"+1F1950:
+jmp newmem
+nop
+returnhere:
+
+"Wolverine.GImage::GImage"+19C145:
+//db 90 90 90 90
+
+"Wolverine.GImage::GImage"+1B731A:
+db 90 90 90 90 90
+
+"Wolverine.GImage::GImage"+1B731F:
+db 90 90 90 90 90
+
+"Wolverine.GImage::GImage"+1B7324:
+db 90 90 90 90 90
+
+"Wolverine.GImage::GImage"+1B732F:
+db 90 90 90
+
+"Wolverine.GImage::GImage"+19C15D:
+db 90 90 90 90 90
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Wolverine.exe"+1F1950:
+mov [ebp+14],ecx
+mov edx,[eax+04]
+
+"Wolverine.GImage::GImage"+19C145:
+movss [esi],xmm0
+
+"Wolverine.GImage::GImage"+1B731A:
+movss [ebp+08],xmm3
+
+"Wolverine.GImage::GImage"+1B731F:
+movss [ebp+0C],xmm2
+
+"Wolverine.GImage::GImage"+1B7324:
+movss [ebp+10],xmm1
+
+"Wolverine.GImage::GImage"+19C15D:
+movss [esi+08],xmm0
+
+
+"Wolverine.GImage::GImage"+1B732F:
+fstp dword ptr [ebp+20]
+
+
+unregistersymbol(coords)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Cam X"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>coords</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Cam Y"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>coords</Address>
+          <Offsets>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"Cam Z"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>coords</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"FOV"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>coords</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [esi],xmm0</Description>
+      <Address>005D67A5</Address>
+      <ModuleName>Wolverine.exe</ModuleName>
+      <ModuleNameOffset>1D67A5</ModuleNameOffset>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [ebp+08],xmm3</Description>
+      <Address>005F197A</Address>
+      <ModuleName>Wolverine.exe</ModuleName>
+      <ModuleNameOffset>1F197A</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>5D</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>55</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of fstp dword ptr [ebp+20]</Description>
+      <Address>005F198F</Address>
+      <ModuleName>Wolverine.exe</ModuleName>
+      <ModuleNameOffset>1F198F</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>70</Byte>
+        <Byte>0B</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5D</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+18],xmm0</Description>
+      <Address>005D67CF</Address>
+      <ModuleName>Wolverine.exe</ModuleName>
+      <ModuleNameOffset>1D67CF</ModuleNameOffset>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>5F</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [ebp+0C],xmm2</Description>
+      <Address>005F197F</Address>
+      <ModuleName>Wolverine.exe</ModuleName>
+      <ModuleNameOffset>1F197F</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>55</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4D</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+08],xmm0</Description>
+      <Address>005D67BD</Address>
+      <ModuleName>Wolverine.exe</ModuleName>
+      <ModuleNameOffset>1D67BD</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>18</Byte>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

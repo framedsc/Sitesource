@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1258</ID>
+      <Description>"==================================="</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13503</ID>
+      <Description>"This table was made by One3rd for the Steam version of MARVEL VS. CAPCOM: INFINITE"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13500</ID>
+      <Description>"Attach script to process "MVCI.exe" - the second one"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13506</ID>
+      <Description>"Enable camera script with [Page Dn]. Read *Table Extras* (bottom right button) for further details."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13525</ID>
+      <Description>"When in the game with level loaded the statix addresses below should show a value instead of ??. If not, try the other MVCI.exe in the process list."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1401</ID>
+          <Description>"static z"</Description>
+          <LastState Value="91.47498322" RealAddress="14342427C"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>MVCI.exe+342427C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1400</ID>
+          <Description>"static z"</Description>
+          <LastState Value="91.47498322" RealAddress="1434241BC"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>MVCI.exe+34241BC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1399</ID>
+          <Description>"static z"</Description>
+          <LastState Value="91.47498322" RealAddress="143424170"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>MVCI.exe+3424170</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1259</ID>
+          <Description>"No description"</Description>
+          <LastState Value="91.47498322" RealAddress="004FB4B8"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>004FB4B8</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13502</ID>
+      <Description>"***"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13296</ID>
+      <Description>"FLY - No modifier"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13290</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13298</ID>
+          <Description>"MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13297</ID>
+          <Description>"FLY: Up, down - 9, 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13292</ID>
+      <Description>"AIM - Hold down PLUS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13339</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13244</ID>
+          <Description>"PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13246</ID>
+          <Description>"ZOOM: In, out - 9, 7 (reset to 60: NUMPAD *)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13242</ID>
+          <Description>"TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12211</ID>
+      <Description>"Camera [Page Down]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//alloc(newmem,256)
+alloc(newmem,2048,"MVCI.exe"+19598F0)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],rcx
+movss xmm0,[rcx+000003A4]
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+//FOV
+"MVCI.exe"+19598F0:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+//x and y
+"MVCI.exe"+1955957:
+db 90 90 90 90 90 90 90 90
+//z
+"MVCI.exe"+1955972:
+db 90 90 90 90 90 90
+//y-rot
+"MVCI.exe"+1955965:
+db 90 90 90 90 90 90 90 90
+//tilt
+"MVCI.exe"+195597C:
+db 90 90 90 90 90 90
+
+[DISABLE]
+dealloc(newmem)
+//FOV
+"MVCI.exe"+19598F0:
+movss xmm0,[rcx+000003A4]
+//x
+"MVCI.exe"+1955957:
+movsd [rdi+00000410],xmm0
+//z
+"MVCI.exe"+1955972:
+mov [rdi+00000418],eax
+//y-rot
+"MVCI.exe"+1955965:
+movsd [rdi+0000041C],xmm0
+//tilt
+"MVCI.exe"+195597C:
+mov [rdi+00000424],eax
+
+unregistersymbol(pCamera)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MVCI.exe"+19598F0
+
+"MVCI.exe"+19598E0: 48 8B 81 08 04 00 00     -  mov rax,[rcx+00000408]
+"MVCI.exe"+19598E7: C3                       -  ret
+"MVCI.exe"+19598E8: CC                       -  int 3
+"MVCI.exe"+19598E9: CC                       -  int 3
+"MVCI.exe"+19598EA: CC                       -  int 3
+"MVCI.exe"+19598EB: CC                       -  int 3
+"MVCI.exe"+19598EC: CC                       -  int 3
+"MVCI.exe"+19598ED: CC                       -  int 3
+"MVCI.exe"+19598EE: CC                       -  int 3
+"MVCI.exe"+19598EF: CC                       -  int 3
+// ---------- INJECTING HERE ----------
+"MVCI.exe"+19598F0: F3 0F 10 81 A4 03 00 00  -  movss xmm0,[rcx+000003A4]
+// ---------- DONE INJECTING  ----------
+"MVCI.exe"+19598F8: 0F 57 C9                 -  xorps xmm1,xmm1
+"MVCI.exe"+19598FB: 0F 2F C1                 -  comiss xmm0,xmm1
+"MVCI.exe"+19598FE: 77 08                    -  ja MVCI.exe+1959908
+"MVCI.exe"+1959900: F3 0F 10 81 28 04 00 00  -  movss xmm0,[rcx+00000428]
+"MVCI.exe"+1959908: C3                       -  ret
+"MVCI.exe"+1959909: CC                       -  int 3
+"MVCI.exe"+195990A: CC                       -  int 3
+"MVCI.exe"+195990B: CC                       -  int 3
+"MVCI.exe"+195990C: CC                       -  int 3
+"MVCI.exe"+195990D: CC                       -  int 3
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13231</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>410</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13232</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>414</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13233</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>418</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13234</ID>
+          <Description>"Y Rotation"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>41c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.4</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.4</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13235</ID>
+          <Description>"X Rotation"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>420</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.4</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.4</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13236</ID>
+          <Description>"Tilt"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>424</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>90</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13237</ID>
+          <Description>"FOV (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>3a4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>65</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13522</ID>
+      <Description>"Pause - No modifier"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13524</ID>
+          <Description>"Pause: P, Shift+P"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13520</ID>
+      <Description>"Pause Enable Script [Page Up]"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//alloc(newmem,256)
+alloc(newmem,2048,"MVCI.exe"+2ADB9A)
+label(returnhere)
+label(exit)
+label(pPause)
+registersymbol(pPause)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pPause],rax
+movzx ecx,byte ptr [rax+000000E8]
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pPause:
+dd 0
+//
+
+"MVCI.exe"+2ADB9A:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"MVCI.exe"+2ADB9A:
+movzx ecx,byte ptr [rax+000000E8]
+unregistersymbol(pPause)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "MVCI.exe"+2ADB9A
+
+"MVCI.exe"+2ADB7D: CC                    -  int 3
+"MVCI.exe"+2ADB7E: CC                    -  int 3
+"MVCI.exe"+2ADB7F: CC                    -  int 3
+"MVCI.exe"+2ADB80: 40 53                 -  push rbx
+"MVCI.exe"+2ADB82: 48 83 EC 20           -  sub rsp,20
+"MVCI.exe"+2ADB86: 48 8B D9              -  mov rbx,rcx
+"MVCI.exe"+2ADB89: 48 8B 0D B0 74 20 03  -  mov rcx,[MVCI.exe+34B5040]
+"MVCI.exe"+2ADB90: E8 AB BF 4C 01        -  call MVCI.exe+1779B40
+"MVCI.exe"+2ADB95: 48 85 C0              -  test rax,rax
+"MVCI.exe"+2ADB98: 74 09                 -  je MVCI.exe+2ADBA3
+// ---------- INJECTING HERE ----------
+"MVCI.exe"+2ADB9A: 0F B6 88 E8 00 00 00  -  movzx ecx,byte ptr [rax+000000E8]
+// ---------- DONE INJECTING  ----------
+"MVCI.exe"+2ADBA1: EB 02                 -  jmp MVCI.exe+2ADBA5
+"MVCI.exe"+2ADBA3: 32 C9                 -  xor cl,cl
+"MVCI.exe"+2ADBA5: 48 8B 05 74 74 20 03  -  mov rax,[MVCI.exe+34B5020]
+"MVCI.exe"+2ADBAC: 88 88 88 03 00 00     -  mov [rax+00000388],cl
+"MVCI.exe"+2ADBB2: 84 C9                 -  test cl,cl
+"MVCI.exe"+2ADBB4: 75 68                 -  jne MVCI.exe+2ADC1E
+"MVCI.exe"+2ADBB6: 0F B6 4B 08           -  movzx ecx,byte ptr [rbx+08]
+"MVCI.exe"+2ADBBA: 85 C9                 -  test ecx,ecx
+"MVCI.exe"+2ADBBC: 74 53                 -  je MVCI.exe+2ADC11
+"MVCI.exe"+2ADBBE: 83 E9 01              -  sub ecx,01
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>33</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13521</ID>
+          <Description>"Pause"</Description>
+          <LastState Value="0" RealAddress="1D0DB4E8"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pPause</Address>
+          <Offsets>
+            <Offset>0E8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov [rbx+6C],eax - access static address Z?</Description>
+      <Address>1402FE609</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>2FE609</ModuleNameOffset>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>64</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>6C</Byte>
+      </Actual>
+      <After>
+        <Byte>C7</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rdx+0C]</Description>
+      <Address>1402F89DD</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>2F89DD</ModuleNameOffset>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>24</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>2C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rcx+00000418] - access z</Description>
+      <Address>14195C915</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>195C915</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>81</Byte>
+        <Byte>18</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rdx+08]</Description>
+      <Address>141809B08</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1809B08</ModuleNameOffset>
+      <Before>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>DA</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+00000418],eax - writes z</Description>
+      <Address>141955972</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1955972</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>18</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rcx+0000041C] - rot</Description>
+      <Address>14195C91E</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>195C91E</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>1C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>06</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rdx+0C]</Description>
+      <Address>141809B0E</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1809B0E</ModuleNameOffset>
+      <Before>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rdi+0000041C],xmm0</Description>
+      <Address>141955965</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1955965</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>3C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>1C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rdx+28] - 1.33</Description>
+      <Address>141809B36</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1809B36</ModuleNameOffset>
+      <Before>
+        <Byte>42</Byte>
+        <Byte>24</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rdi+00000438],xmm0</Description>
+      <Address>1419559A1</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>19559A1</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>38</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rcx+000003A4] - FOV</Description>
+      <Address>1419598F0</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>19598F0</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>A4</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C9</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movzx ecx,byte ptr [rax+000000E8] - access pause</Description>
+      <Address>1402ADB9A</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>2ADB9A</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>09</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>88</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>32</Byte>
+        <Byte>C9</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movzx eax,byte ptr [rcx+000000E8]</Description>
+      <Address>1405329D5</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>5329D5</ModuleNameOffset>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>4A</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>81</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>C3</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp [rcx+000000E8],dl</Description>
+      <Address>1403B8A80</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>3B8A80</ModuleNameOffset>
+      <Before>
+        <Byte>B6</Byte>
+        <Byte>FA</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>38</Byte>
+        <Byte>91</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>62</Byte>
+        <Byte>88</Byte>
+        <Byte>91</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rcx+000000E8],dl</Description>
+      <Address>1403B8A88</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>3B8A88</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>62</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>91</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>81</Byte>
+        <Byte>C1</Byte>
+        <Byte>08</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+00000418],eax - writes z</Description>
+      <Address>141955972</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1955972</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>18</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rcx+000003A4] - access fov</Description>
+      <Address>1419598F0</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>19598F0</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>A4</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C9</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+000003A4],xmm1</Description>
+      <Address>141969BE0</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1969BE0</ModuleNameOffset>
+      <Before>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>A4</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rdi+00000410],xmm0 - writes x</Description>
+      <Address>141955957</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1955957</ModuleNameOffset>
+      <Before>
+        <Byte>3C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>10</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rdi+0000041C],xmm0 - writes y-rot</Description>
+      <Address>141955965</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>1955965</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>3C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>1C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+00000424],eax - writes tilt</Description>
+      <Address>14195597C</Address>
+      <ModuleName>MVCI.exe</ModuleName>
+      <ModuleNameOffset>195597C</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>44</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>87</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>5C</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pPause</Name>
+      <Address>13FFF002D</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>1. The anti cheat shuts down the game when Cheat Engine is opened. To get around this you can use a hex editor (such as [HxD](https://mh-nexus.de/en/hxd/)) to change any references to "Cheat Engine" in the application. Open "cheatengine-x86_64.exe" in HxD, search and replace for "Cheat Engine" replacing it with "i like cats!". There should be around 128 occurrences replaced. Save to a new filename such as "ilikecats.exe" and use this instead of the normal Cheat Engine application.
+    2. When using this to attach the table to the game there may be two choices for MVCI.exe in the process list. Select one and if the "static z" addresses in the table show a value instead of ?? then that is the correct process, if not try the other one.
+    3. Camera can be enable and disabled at any time with [Page Down]. Controlled with the keypad keys as shown in the table.
+    4. You can use the main pause menu as timestop and then remove the HUD with the HUD toggle key [NUMPAD DECIMAL] or enable the Pause script with [Page Up] and use [P] / [Shift]+[P] to pause/unpause.</Comments>
+</CheatTable>

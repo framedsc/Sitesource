@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <Forms>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">RZziB,dvRq,rf64RJ6x)veaV^0]/nRrcsd,8DWzgk(P$zNSm2xcS00=0I6TnPw3yZYlk4%%g*T3nfKoO@OP!XCg*L,^,zH]4eqWc7lSD+CHU:!zW_$7g1.(#cpW??M,;Z[4L+6JA8cwc+AGl}G[Ek.S%K9IX!D]M84_AW3DiqhE._j.xUvPaULe*HjnZ.0$P@B*Y02YMBapnZjrRG0EXpX:Y#_zU3i}j:VT.^?:/{MhErIDFHv}p=US[c3X#ef*]0;HbpWclhzL-)o$0-unvs=@PW4-W8Dn??x6DS_rgqMl5kW];}dl^/mSaWkf2UB$dcFFhfq$=}83KTp,4R5ip?0znmFa}R_Z?QBUxAVLwoF[./S9er*kZ:N2RxWaD8mFzREZxwVn}BmEz{V9.$Ty[oTPW+^@llgzWtDYT[tj]olH7u94B0r(LFZB$?zv0UQ:mp#U%B?m</UDF1>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>98</ID>
+      <Description>"Enable Console"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+
+if not syntaxcheck then
+  local addr = getAddress( "IConsole" ) + 0x230
+  local addr = readInteger( addr ) + 0x48
+  -- set sys_DeactivateConsole to 0
+  writeBytes( addr, 0x0 )
+  writeBytes( getAddress( "IConsole" ) + 0x1DE, 0x1 )
+  writeBytes( getAddress( "FilterConsoleCommands" ), 0xB0,0x01,0xC3 )
+  writeBytes( getAddress( "EnableVF_CHEATS_AOB" ) + 0x7, 0xEB )
+  writeBytes( getAddress( "DisableConsolePaste_AOB" ) + 0x9, 0xEB )
+end
+
+[DISABLE]
+
+{$lua}
+
+if not syntaxcheck then
+  local addr = getAddress( "IConsole" ) + 0x230
+  local addr = readInteger( addr ) + 0x48
+  -- set sys_DeactivateConsole to 0
+  writeBytes( addr, 0x1 )
+  writeBytes( getAddress( "IConsole" ) + 0x1DE, 0x0 )
+  writeBytes( getAddress( "FilterConsoleCommands" ), 0x55,0x56,0x41 )
+  writeBytes( getAddress( "EnableVF_CHEATS_AOB" ) + 0x7, 0x75 )
+  writeBytes( getAddress( "DisableConsolePaste_AOB" ) + 0x9, 0x74 )
+end
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>102</ID>
+      <Description>"Hook Resources"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule( PBYTE_ResourcesReader, SGW3.exe, F30F10580C41B80A000000488D15????????488B4C2460E8 )
+registersymbol( PBYTE_ResourcesReader )
+alloc( pHook, 0x1000, SGW3.exe )
+label( pResources )
+registersymbol( pResources )
+
+pHook:
+mov [pResources],rax
+@@:
+movss xmm3,[rax+0C]
+jmp PBYTE_ResourcesReader+5
+
+pResources:
+dq 0
+
+PBYTE_ResourcesReader:
+jmp pHook
+
+[DISABLE]
+
+PBYTE_ResourcesReader:
+db F3 0F 10 58 0C
+
+dealloc( pHook )
+unregistersymbol( PBYTE_ResourcesReader )
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>103</ID>
+          <Description>"Trading Goods (Money)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pResources</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>108</ID>
+          <Description>"Food"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pResources</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>106</ID>
+          <Description>"Explosives Parts"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pResources</Address>
+          <Offsets>
+            <Offset>C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>104</ID>
+          <Description>"Bullet Parts"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pResources</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>105</ID>
+          <Description>"Mechanical Parts"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pResources</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>107</ID>
+          <Description>"Electronic Parts"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pResources</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>109</ID>
+      <Description>"Unlimited Clip Ammo"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule( PBYTE_UnlimitedClipAmmo, SGW3.exe, 897808B001488B5C24404883C4305FC3 )
+registersymbol( PBYTE_UnlimitedClipAmmo )
+alloc( Hook, 0x1000, SGW3.exe )
+
+Hook:
+push rax
+push rcx
+mov rcx,r14
+mov rax,[rcx]
+call [rax+E8]
+pop rcx
+cmp eax,7777
+pop rax
+jne short @f
+  add edi,[rsp+134]
+@@:
+mov [rax+8],edi
+mov al,1
+jmp PBYTE_UnlimitedClipAmmo+5
+
+PBYTE_UnlimitedClipAmmo:
+jmp Hook
+
+[DISABLE]
+
+PBYTE_UnlimitedClipAmmo:
+db 89 78 08 B0 01
+
+unregistersymbol( PBYTE_UnlimitedClipAmmo )
+dealloc( Hook )
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SGW3.exe"+1377E02
+
+"SGW3.exe"+1377DE4: 48 83 43 08 10  -  add qword ptr [rbx+08],10
+"SGW3.exe"+1377DE9: 32 C0           -  xor al,al
+"SGW3.exe"+1377DEB: 48 8B 5C 24 40  -  mov rbx,[rsp+40]
+"SGW3.exe"+1377DF0: 48 83 C4 30     -  add rsp,30
+"SGW3.exe"+1377DF4: 5F              -  pop rdi
+"SGW3.exe"+1377DF5: C3              -  ret
+"SGW3.exe"+1377DF6: 49 63 C1        -  movsxd  rax,r9d
+"SGW3.exe"+1377DF9: 48 C1 E0 04     -  shl rax,04
+"SGW3.exe"+1377DFD: 49 03 C2        -  add rax,r10
+"SGW3.exe"+1377E00: 74 93           -  je SGW3.exe+1377D95
+// ---------- INJECTING HERE ----------
+"SGW3.exe"+1377E02: 89 78 08        -  mov [rax+08],edi
+"SGW3.exe"+1377E05: B0 01           -  mov al,01
+// ---------- DONE INJECTING  ----------
+"SGW3.exe"+1377E07: 48 8B 5C 24 40  -  mov rbx,[rsp+40]
+"SGW3.exe"+1377E0C: 48 83 C4 30     -  add rsp,30
+"SGW3.exe"+1377E10: 5F              -  pop rdi
+"SGW3.exe"+1377E11: C3              -  ret
+"SGW3.exe"+1377E12: 4C 3B 5B 10     -  cmp r11,[rbx+10]
+"SGW3.exe"+1377E16: 75 0D           -  jne SGW3.exe+1377E25
+"SGW3.exe"+1377E18: BA 01 00 00 00  -  mov edx,00000001
+"SGW3.exe"+1377E1D: 48 8B CB        -  mov rcx,rbx
+"SGW3.exe"+1377E20: E8 3B A2 D7 FF  -  call SGW3.exe+10F2060
+"SGW3.exe"+1377E25: 48 8B 43 08     -  mov rax,[rbx+08]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>114</ID>
+      <Description>"Unlimited Inventory Ammo"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule( PBYTE_UnlimitedInventoryAmmo, SGW3.exe, 8B8B9C00000001F979 )
+registersymbol( PBYTE_UnlimitedInventoryAmmo )
+alloc( Hook, 0x1000, SGW3.exe )
+
+Hook:
+cmp r15d,7777
+jne short @f
+  xor edi,edi
+@@:
+mov ecx,[rbx+9C]
+jmp PBYTE_UnlimitedInventoryAmmo+6
+
+PBYTE_UnlimitedInventoryAmmo:
+jmp Hook
+db 90
+
+[DISABLE]
+
+PBYTE_UnlimitedInventoryAmmo:
+db 8B 8B 9C 00 00 00
+
+unregistersymbol( PBYTE_UnlimitedInventoryAmmo )
+dealloc( Hook )
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SGW3.exe"+6AE7F3C
+
+"SGW3.exe"+6AE7F12: 66 66 66 66 66 2E 0F 1F 84 00 00 00 00 00  -  nop cs:[rax+rax+00000000]
+"SGW3.exe"+6AE7F20: 85 D2                                      -  test edx,edx
+"SGW3.exe"+6AE7F22: 74 4A                                      -  je SGW3.exe+6AE7F6E
+"SGW3.exe"+6AE7F24: 48 89 5C 24 08                             -  mov [rsp+08],rbx
+"SGW3.exe"+6AE7F29: 57                                         -  push rdi
+"SGW3.exe"+6AE7F2A: 48 83 EC 20                                -  sub rsp,20
+"SGW3.exe"+6AE7F2E: 48 8B 01                                   -  mov rax,[rcx]
+"SGW3.exe"+6AE7F31: 89 D7                                      -  mov edi,edx
+"SGW3.exe"+6AE7F33: 48 89 CB                                   -  mov rbx,rcx
+"SGW3.exe"+6AE7F36: FF 90 D0 01 00 00                          -  call qword ptr [rax+000001D0]
+// ---------- INJECTING HERE ----------
+"SGW3.exe"+6AE7F3C: 8B 8B 9C 00 00 00                          -  mov ecx,[rbx+0000009C]
+// ---------- DONE INJECTING  ----------
+"SGW3.exe"+6AE7F42: 01 F9                                      -  add ecx,edi
+"SGW3.exe"+6AE7F44: 79 13                                      -  jns SGW3.exe+6AE7F59
+"SGW3.exe"+6AE7F46: 31 C0                                      -  xor eax,eax
+"SGW3.exe"+6AE7F48: 89 83 9C 00 00 00                          -  mov [rbx+0000009C],eax
+"SGW3.exe"+6AE7F4E: 48 8B 5C 24 30                             -  mov rbx,[rsp+30]
+"SGW3.exe"+6AE7F53: 48 83 C4 20                                -  add rsp,20
+"SGW3.exe"+6AE7F57: 5F                                         -  pop rdi
+"SGW3.exe"+6AE7F58: C3                                         -  ret
+"SGW3.exe"+6AE7F59: 39 C1                                      -  cmp ecx,eax
+"SGW3.exe"+6AE7F5B: 0F 4C C1                                   -  cmovl eax,ecx
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>111</ID>
+      <Description>"Unlimited Silencer"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule( PBYTE_UnlimitedSilencer, SGW3.exe, F30F5C49??4889D9FF92 )
+registersymbol( PBYTE_UnlimitedSilencer )
+alloc( Hook, 0x1000, SGW3.exe )
+
+Hook:
+push rax
+push rcx
+mov rcx,[rsp+50]
+mov rax,[rcx]
+call [rax+E8]
+pop rcx
+cmp eax,7777
+pop rax
+jne short @f
+  movss xmm1,[rax+4C]           // update xmm1 to max; current gets updated out of this ;)
+  jmp PBYTE_UnlimitedSilencer+5 // exit
+@@:
+subss xmm1,[rcx+7C]
+jmp PBYTE_UnlimitedSilencer+5
+
+PBYTE_UnlimitedSilencer:
+jmp Hook
+
+[DISABLE]
+
+PBYTE_UnlimitedSilencer:
+db F3 0F 5C 49 7C
+
+unregistersymbol( PBYTE_UnlimitedSilencer )
+dealloc( Hook )
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SGW3.exe"+9EF3E90
+
+"SGW3.exe"+9EF3E6B: 74 5E                 -  je SGW3.exe+9EF3ECB
+"SGW3.exe"+9EF3E6D: 48 8B 10              -  mov rdx,[rax]
+"SGW3.exe"+9EF3E70: 48 89 C1              -  mov rcx,rax
+"SGW3.exe"+9EF3E73: 0F 29 74 24 30        -  movaps [rsp+30],xmm6
+"SGW3.exe"+9EF3E78: 0F 29 7C 24 20        -  movaps [rsp+20],xmm7
+"SGW3.exe"+9EF3E7D: FF 92 B0 00 00 00     -  call qword ptr [rdx+000000B0]
+"SGW3.exe"+9EF3E83: 48 8B 4E 48           -  mov rcx,[rsi+48]
+"SGW3.exe"+9EF3E87: 0F 28 C8              -  movaps xmm1,xmm0
+"SGW3.exe"+9EF3E8A: 48 8B 13              -  mov rdx,[rbx]
+"SGW3.exe"+9EF3E8D: 0F 28 F0              -  movaps xmm6,xmm0
+// ---------- INJECTING HERE ----------
+"SGW3.exe"+9EF3E90: F3 0F 5C 49 7C        -  subss xmm1,[rcx+7C]
+// ---------- DONE INJECTING  ----------
+"SGW3.exe"+9EF3E95: 48 89 D9              -  mov rcx,rbx
+"SGW3.exe"+9EF3E98: FF 92 A8 00 00 00     -  call qword ptr [rdx+000000A8]
+"SGW3.exe"+9EF3E9E: 0F 57 FF              -  xorps xmm7,xmm7
+"SGW3.exe"+9EF3EA1: 0F 2F F7              -  comiss xmm6,xmm7
+"SGW3.exe"+9EF3EA4: 0F 28 74 24 30        -  movaps xmm6,[rsp+30]
+"SGW3.exe"+9EF3EA9: 77 1B                 -  ja SGW3.exe+9EF3EC6
+"SGW3.exe"+9EF3EAB: 48 8B 06              -  mov rax,[rsi]
+"SGW3.exe"+9EF3EAE: 48 89 F1              -  mov rcx,rsi
+"SGW3.exe"+9EF3EB1: FF 90 30 07 00 00     -  call qword ptr [rax+00000730]
+"SGW3.exe"+9EF3EB7: 48 8B 03              -  mov rax,[rbx]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>118</ID>
+      <Description>"Hook Map Icon Reader"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule( PBYTE_MapIconReader, SGW3.exe, 48898424380100004883BC2438010000000F )
+registersymbol( PBYTE_MapIconReader )
+alloc( Hook, 0x1000, SGW3.exe )
+label( pMapIcon )
+registersymbol( pMapIcon )
+
+Hook:
+mov [pMapIcon],rax
+mov [rsp+138],rax
+jmp PBYTE_MapIconReader+8
+
+pMapIcon:
+dq 0
+
+PBYTE_MapIconReader:
+jmp Hook
+db 90 90 90
+
+[DISABLE]
+
+PBYTE_MapIconReader:
+db 48 89 84 24 38 01 00 00
+
+unregistersymbol( pMapIcon )
+dealloc( Hook )
+unregistersymbol( PBYTE_MapIconReader )
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SGW3.exe"+19A196D
+
+"SGW3.exe"+19A192C: FF 90 70 01 00 00           -  call qword ptr [rax+00000170]
+"SGW3.exe"+19A1932: 48 89 84 24 78 02 00 00     -  mov [rsp+00000278],rax
+"SGW3.exe"+19A193A: 48 83 BC 24 78 02 00 00 00  -  cmp qword ptr [rsp+00000278],00
+"SGW3.exe"+19A1943: 0F 84 E5 01 00 00           -  je SGW3.exe+19A1B2E
+"SGW3.exe"+19A1949: 48 8B 84 24 78 02 00 00     -  mov rax,[rsp+00000278]
+"SGW3.exe"+19A1951: 48 8B 00                    -  mov rax,[rax]
+"SGW3.exe"+19A1954: 44 8B 05 0D 3A 06 03        -  mov r8d,[SGW3.exe+4A05368]
+"SGW3.exe"+19A195B: 48 8D 15 B6 5B 5F 00        -  lea rdx,[SGW3.exe+1F97518]
+"SGW3.exe"+19A1962: 48 8B 8C 24 78 02 00 00     -  mov rcx,[rsp+00000278]
+"SGW3.exe"+19A196A: FF 50 40                    -  call qword ptr [rax+40]
+// ---------- INJECTING HERE ----------
+"SGW3.exe"+19A196D: 48 89 84 24 38 01 00 00     -  mov [rsp+00000138],rax
+// ---------- DONE INJECTING  ----------
+"SGW3.exe"+19A1975: 48 83 BC 24 38 01 00 00 00  -  cmp qword ptr [rsp+00000138],00
+"SGW3.exe"+19A197E: 0F 84 AA 01 00 00           -  je SGW3.exe+19A1B2E
+"SGW3.exe"+19A1984: 48 83 BC 24 68 01 00 00 00  -  cmp qword ptr [rsp+00000168],00
+"SGW3.exe"+19A198D: 74 67                       -  je SGW3.exe+19A19F6
+"SGW3.exe"+19A198F: 48 8B 84 24 68 01 00 00     -  mov rax,[rsp+00000168]
+"SGW3.exe"+19A1997: 48 83 C0 30                 -  add rax,30
+"SGW3.exe"+19A199B: 48 89 84 24 80 02 00 00     -  mov [rsp+00000280],rax
+"SGW3.exe"+19A19A3: 48 8B 84 24 80 02 00 00     -  mov rax,[rsp+00000280]
+"SGW3.exe"+19A19AB: F3 0F 10 00                 -  movss xmm0,[rax]
+"SGW3.exe"+19A19AF: F3 0F 11 84 24 B8 03 00 00  -  movss [rsp+000003B8],xmm0
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>113</ID>
+      <Description>"[Debug]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>101</ID>
+          <Description>"Enable Logging to File"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+
+if not syntaxcheck then
+  UDF1.Show()
+end
+
+[DISABLE]
+
+{$lua}
+
+if not syntaxcheck then
+  UDF1.Hide()
+end
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>72</ID>
+          <Description>"szConsoleTypingCommand"</Description>
+          <VariableType>String</VariableType>
+          <Length>100</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>IConsole+80</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>112</ID>
+          <Description>"Unlimited Clip Ammo"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule( PBYTE_UnlimitedClipAmmo_A, SGW3.exe, 2B7584458BC6 ) // Sniper, Pistol
+registersymbol( PBYTE_UnlimitedClipAmmo_A )
+aobscanmodule( PBYTE_UnlimitedClipAmmo_B, SGW3.exe, 442B7DC04533C0498B ) // Shotgun
+registersymbol( PBYTE_UnlimitedClipAmmo_B )
+
+alloc( Hook, 0x1000, SGW3.exe )
+
+label( UnlimitedClipAmmo_A )
+label( UnlimitedClipAmmo_B )
+
+Hook:
+
+UnlimitedClipAmmo_A:
+push rax
+push rcx
+mov rcx,[r15+8]
+mov rax,[rcx]
+call [rax+E8]
+pop rcx
+cmp eax,7777
+pop rax
+je short @f
+  sub esi,[rbp-7C]
+@@:
+mov r8d,r14d
+jmp PBYTE_UnlimitedClipAmmo_A+6
+
+UnlimitedClipAmmo_B:
+push rax
+push rcx
+mov rcx,[r13+8]
+mov rax,[rcx]
+call [rax+E8]
+pop rcx
+cmp eax,7777
+pop rax
+je short @f
+  sub esi,[rbp-7C]
+@@:
+mov r8d,r14d
+jmp PBYTE_UnlimitedClipAmmo_B+7
+
+PBYTE_UnlimitedClipAmmo_A:
+jmp UnlimitedClipAmmo_A
+db 90
+
+PBYTE_UnlimitedClipAmmo_B:
+jmp UnlimitedClipAmmo_B
+db 90 90
+
+[DISABLE]
+
+PBYTE_UnlimitedClipAmmo_A:
+db 2B 75 84 45 8B C6
+
+PBYTE_UnlimitedClipAmmo_B:
+db 44 2B 7D C0 45 33 C0
+
+unregistersymbol( PBYTE_UnlimitedClipAmmo_B )
+unregistersymbol( PBYTE_UnlimitedClipAmmo_A )
+dealloc( Hook )
+
+{
+SGW3.exe+173FD60 - 44 88 4C 24 20        - mov [rsp+20],r9l
+SGW3.exe+173FD65 - 44 88 44 24 18        - mov [rsp+18],r8l
+SGW3.exe+173FD6A - 55                    - push rbp
+SGW3.exe+173FD6B - 53                    - push rbx
+SGW3.exe+173FD6C - 57                    - push rdi
+SGW3.exe+173FD6D - 41 54                 - push r12
+SGW3.exe+173FD6F - 41 56                 - push r14
+SGW3.exe+173FD71 - 41 57                 - push r15
+SGW3.exe+173FD73 - 48 8D AC 24 68EBFFFF  - lea rbp,[rsp-00001498]
+SGW3.exe+173FD7B - B8 98150000           - mov eax,00001598
+SGW3.exe+173FD80 - E8 2B9B3E00           - call SGW3.exe+1B298B0
+SGW3.exe+173FD85 - 48 2B E0              - sub rsp,rax
+SGW3.exe+173FD88 - 48 8B 41 10           - mov rax,[rcx+10]
+SGW3.exe+173FD8C - 4C 8B F9              - mov r15,rcx
+SGW3.exe+173FD8F - 48 8B 49 08           - mov rcx,[rcx+08]
+SGW3.exe+173FD93 - 48 8B 50 08           - mov rdx,[rax+08]
+SGW3.exe+173FD97 - 48 8B 01              - mov rax,[rcx]
+SGW3.exe+173FD9A - 48 8B BA 98000000     - mov rdi,[rdx+00000098]
+SGW3.exe+173FDA1 - 48 89 7D 90           - mov [rbp-70],rdi
+SGW3.exe+173FDA5 - FF 90 E8000000        - call qword ptr [rax+000000E8] &lt;-- gets player_id from player_weapon
+
+// ORIGINAL CODE - INJECTION POINT: "SGW3.exe"+1740635
+
+"SGW3.exe"+17405FB: 49 8B 07                    -  mov rax,[r15]
+"SGW3.exe"+17405FE: 41 C6 87 F8 00 00 00 01     -  mov byte ptr [r15+000000F8],01
+"SGW3.exe"+1740606: FF 90 B0 01 00 00           -  call qword ptr [rax+000001B0]
+"SGW3.exe"+174060C: 66 41 FF 87 78 01 00 00     -  inc word ptr [r15+00000178]
+"SGW3.exe"+1740614: 49 8B 57 10                 -  mov rdx,[r15+10]
+"SGW3.exe"+1740618: 41 0F B7 8F 78 01 00 00     -  movzx ecx,word ptr [r15+00000178]
+"SGW3.exe"+1740620: 48 8B 42 08                 -  mov rax,[rdx+08]
+"SGW3.exe"+1740624: 66 3B 88 B2 00 00 00        -  cmp cx,[rax+000000B2]
+"SGW3.exe"+174062B: 75 08                       -  jne SGW3.exe+1740635
+"SGW3.exe"+174062D: 66 45 89 B7 78 01 00 00     -  mov [r15+00000178],r14w
+// ---------- INJECTING HERE ----------
+"SGW3.exe"+1740635: 2B 75 84                    -  sub esi,[rbp-7C]
+"SGW3.exe"+1740638: 45 8B C6                    -  mov r8d,r14d
+// ---------- DONE INJECTING  ----------
+"SGW3.exe"+174063B: 48 8B 42 08                 -  mov rax,[rdx+08]
+"SGW3.exe"+174063F: 48 8B 7D 90                 -  mov rdi,[rbp-70]
+"SGW3.exe"+1740643: 0F BF 88 AC 00 00 00        -  movsx ecx,word ptr [rax+000000AC]
+"SGW3.exe"+174064A: 8B 44 24 64                 -  mov eax,[rsp+64]
+"SGW3.exe"+174064E: 3B F1                       -  cmp esi,ecx
+"SGW3.exe"+1740650: 44 0F 4F C6                 -  cmovg r8d,esi
+"SGW3.exe"+1740654: 83 F8 FF                    -  cmp eax,-01
+"SGW3.exe"+1740657: 74 23                       -  je SGW3.exe+174067C
+"SGW3.exe"+1740659: 49 8B 4F 08                 -  mov rcx,[r15+08]
+"SGW3.exe"+174065D: 48 8B D7                    -  mov rdx,rdi
+}
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SGW3.exe"+173FA11
+
+"SGW3.exe"+173F9D3: F3 0F 11 7D E4              -  movss [rbp-1C],xmm7
+"SGW3.exe"+173F9D8: 49 8D 8D 80 02 00 00        -  lea rcx,[r13+00000280]
+"SGW3.exe"+173F9DF: F3 44 0F 11 45 E8           -  movss [rbp-18],xmm8
+"SGW3.exe"+173F9E5: E8 86 D6 FF FF              -  call SGW3.exe+173D070
+"SGW3.exe"+173F9EA: F3 41 0F 10 8D 68 01 00 00  -  movss xmm1,[r13+00000168]
+"SGW3.exe"+173F9F3: 49 8B CD                    -  mov rcx,r13
+"SGW3.exe"+173F9F6: F3 41 0F 58 8D 6C 01 00 00  -  addss xmm1,[r13+0000016C]
+"SGW3.exe"+173F9FF: 49 8B 45 00                 -  mov rax,[r13+00]
+"SGW3.exe"+173FA03: 41 C6 85 F8 00 00 00 01     -  mov byte ptr [r13+000000F8],01
+"SGW3.exe"+173FA0B: FF 90 B0 01 00 00           -  call qword ptr [rax+000001B0]
+// ---------- INJECTING HERE ----------
+"SGW3.exe"+173FA11: 44 2B 7D C0                 -  sub r15d,[rbp-40]
+"SGW3.exe"+173FA15: 45 33 C0                    -  xor r8d,r8d
+// ---------- DONE INJECTING  ----------
+"SGW3.exe"+173FA18: 49 8B 45 10                 -  mov rax,[r13+10]
+"SGW3.exe"+173FA1C: 48 8B 48 08                 -  mov rcx,[rax+08]
+"SGW3.exe"+173FA20: 0F BF 81 AC 00 00 00        -  movsx eax,word ptr [rcx+000000AC]
+"SGW3.exe"+173FA27: 44 3B F8                    -  cmp r15d,eax
+"SGW3.exe"+173FA2A: 8B 45 C4                    -  mov eax,[rbp-3C]
+"SGW3.exe"+173FA2D: 45 0F 4D C7                 -  cmovge r8d,r15d
+"SGW3.exe"+173FA31: 83 F8 FF                    -  cmp eax,-01
+"SGW3.exe"+173FA34: 74 23                       -  je SGW3.exe+173FA59
+"SGW3.exe"+173FA36: 49 8B 4D 08                 -  mov rcx,[r13+08]
+"SGW3.exe"+173FA3A: 49 8B D6                    -  mov rdx,r14
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <LuaScript>function FormClose(sender)
+  ScriptEntry = addresslist_getMemoryRecordByID( getAddressList(), 101 ) -- kill script showing the UDF
+  if memoryrecord_isActive( ScriptEntry ) then
+    memoryrecord_unfreeze( ScriptEntry )
+  end
+  return caHide --Possible options: caHide, caFree, caMinimize, caNone
+end
+
+function _readInteger( Input )
+  -- thanks, Pox!
+  local Value = readInteger( Input )
+  if Value &lt; 0x80000000 then return Value
+  else return Value - 0x100000000 end
+end
+
+function Init()
+  -- just in case
+  unregisterSymbol( "SSystemGlobalEnvironment_AOB" )
+  unregisterSymbol( "EnableVF_CHEATS_AOB" )
+
+autoAssemble([[
+  aobscanmodule( SSystemGlobalEnvironment_AOB, SGW3.exe, 488B0D????????4885C974??488B0133D2FF5018488B0D )
+  registersymbol( SSystemGlobalEnvironment_AOB )
+  aobscanmodule( FilterConsoleCommands, SGW3.exe, 55564154415641574883EC204889D1 )
+  registersymbol( FilterConsoleCommands )
+  aobscanmodule( EnableVF_CHEATS_AOB, SGW3.exe, 803D??????????75??488B0D????????488D15????????4D8B07488B01FF5028 )
+  registersymbol( EnableVF_CHEATS_AOB )
+  aobscanmodule( DisableConsolePaste_AOB, SGW3.exe, 83F82E7516F64314117410488D4EF8E8 )
+  registersymbol( DisableConsolePaste_AOB )
+]])
+
+  local addr = getAddress( "SSystemGlobalEnvironment_AOB" )
+  -- we have no use for it anymore
+  unregisterSymbol( "SSystemGlobalEnvironment_AOB" )
+  addr = addr + _readInteger( addr + 0x3 ) + 0x7
+  unregisterSymbol( "SSystemGlobalEnvironment" )
+  registerSymbol( "SSystemGlobalEnvironment", addr, true )
+
+  local addr = readInteger( getAddress( "SSystemGlobalEnvironment" ) + 0xA8 )
+  unregisterSymbol( "IConsole" )
+  registerSymbol( "IConsole", addr, true )
+
+end
+
+function onOpenProcess( pid )
+  t = createTimer()
+  t.Interval = 1000
+  t.OnTimer = function( t )
+  t.Enabled = true
+    object_destroy( t )
+    Init()
+    control_setCaption( getMainForm(), "Table for Sniper: Ghost Warrior v1.04" )
+    end
+end
+
+strings_add( getAutoAttachList(), "SGW3.exe" )
+</LuaScript>
+  <Signature>
+    <SignedHash HashSize="132">09^ow*@RK[(:/PPVPF@8ahk,dtq_(370WHOM^ws:q:B1/CIfN.wki@7)]f6hYmiDwY2?,L@x_B]7*?Z+tI]0}:E1jIoQFWLxg4%7/pdu[hG)XKK6Hp4J)L-I]=ff7(n3^Pk2PfRv1Q[-j%Kc3@3@rbPH(^aOz1QblMW8v</SignedHash>
+    <PublicKey Size="3019">5dZ*HQ*y;zWn;@=c[34DZbD@YZHxc]07XMnH9]OY004,YdAcuzstQ.NhpCaQg6AIpKI?^QXluZR?y1@F5,b8P_8TaZPM}UYAu^tzILzkaeRya)Q_$+F-OiKgDNRcNHE^..L2(s2e#y#x)It_%SOsCw-_,ww=o.JqtVdFTsjG#Rp;qE#U{+d2.i5@Lc/Fbs[q5_W1MTu/vLRr=.^{-t004/lPDc$28VUda01Zh/L^b0%03ZMW03Zkk0001UdV2H#000JJOGiWi^^a60_De66lK:n!32.bRa^vGf6951U69E94oEQKA00)qQO,@Rc1R4/[FZfxb0000ACP[p:R9M5UmwR.8*s?FT:l9ON$t93WAYiZrfnY+NpcsS(7Ing-5+RJ(xFod-K1NnsA213!OtGTXL07HdgX!;S3)i:qhL:Ev89^KSMKlsh7C^9Z0)sw=]}3ax?0_JL?)[j9S,hKA^nl@oz0ZEEy{xVkv+E8CZ[DkMm8s9]ZT}.,4PC@GeR*B5$Gv/j$KP;BAArPfYVbc/d7huzG[NH3^NVBDXm_UAL_,.s0NnZ=6!UGJ[-kWIBQI25e}wPCpC_x2o}fAKx?5!xfb^B0aZcX-^HVI+s;%WX7u)u5Qoi+L/nj0LKl/f*UhuvHN8HZX#=-${=E^dBrECDzqyCPx]VoLNZmI#0+zo/Z,Z_t#Gw/V5@Uvz^RDienHsP*+$J.UYB7fo:;E80ULjV3BRPwh_F!CJCnePD5?mS@djEdLT^R$?NW,u/:N!GY0^D)0VW=!+Nw}Z#Ne_Tg3P_H!xG8?Co4pjnp?758mUndGyqS9}QZrZcn?V?HL[$rZHT]iOy(P{Ylu^]I[=fU[uFO4!oKmNp1PO8xTvkg_.2QsaJp}!TY3QY)=-aIen/Ho-HXSX2-dt71_Kx,MsdFIr0J%Ea;sJh;t@}S62TQh{q@E;LY835;hwse^o:b]XjQ{3YU#h$jsLqC+*%H.btRzQ)IM(Y+?#2S21kXvD)5Af+xFAb?IH8za}o(A/I7sOUyJ34W,eXCPkTpoI0SNqp{eItO[s*@+z,e6!.tN$Ro/SYtYq-$X22+fUv^ikEBYU$:@I*!6tC=M%dN@OUE^qwoDC;J?:$MZ92rb3.v)2M:meSg,.cYNIpf[0lN4j{X1-)%dc5@v3L%*6S-3+0RehP1!c-t0E)/P24]9{wJf[!y-DhbM^)8D]mhmUIz7Nx/UMWQwOwx6(L;vuSJz]NJX6pb[_/huz/p*[cL;cLCD%b:bA+vOYFWxpWDXnqYS/=b[wJ;G7Gp4h[c;%sF_I1LZ@cv?@x;o){kKg3?6,08LFk*/.1Wgu*E!Wl.6$QQjPMC6#3Xv^7kv-H7ykYGYp@%Dk,7rF)DQ5VCIF*g:Jb-Uq_6gL}]TE,y$5[+[P!H,hltTua*V^Ltsd^l^qe=g)ldPBL[Uif13w2$%v.:PMca6bqh}biEd2ZTSES^(bkV*mJfaqJ{3t=6CHNo);*JGSON*-;DBh*UXmjcw6USPX7%6=LQy6RJLTE%ybGej#PQ4OmX#(BQ%a4#+Bs(^NpyCnz0b,1_hzlHRzQOn=IDSn(t3H:;RGY9[5Q$OX/]z%1jwT8:S@0aB2z]H_(f(*koyb,phGde%Fu%-/s*K^+OP^wQzR7h@hRkkw0qUg@xR@3Ojt;nW1E9jJj!pXcQbf]=,q]c[:R%Kq3JZg9XhYkLXSd#{w?QI7OAp5uu45/myj]pJ-g8l*]V]jy-A7g-(R=hh,TKv39ticjJ,,G)W5UjPY-Fk]7DO1l#$Cxf./Pur2t^^TeU-3s[b+kbim)8k.ms10p?J[/oJo(32sOlJReLv1H[D968_/aLl0Ea*TXPA[)5IJL?;{?v9f7?_B8TOdp:7R619wNI.D)%TbU1#8D}_P;}Y;rMd(@v4/QreTt=0j){2.fErnDsujxvD$^:UP9(h[KVYkyCI@*4%uy/ut8N_/QtDTuR)(1thEaJxN,}V2qPi-1re}ga)z]F@D}VDXKzqXH]iUm#R2Fd2C[FOXptDO6iz_eHH-2qV*DPl];;W1,+H6%S=tl.IfFhj]DswzDw^:ljsc@LQP9O8nfl:2TG34(M?=+a(zai1=U#q#s6xj*Qh.sm!67qZL[]XLdU!y0Yur0{e^#lt*aOD+WDYL-L%?ZW!iu[(zDZheLsZgFk7{5dhYfdn)6/[BW,T:Cez^a!RqiWUYrN(.KL;HhGx(h6fWf)U]qjG{J-fcRb2fD5/3?^%u84#MFYEp*SdkmVt0NqgM];h@Cm=h$@zCSs9%Y}?,TmWHubp/NE*j}SX-xLLTeZ9-cF3DiWq/+VUcNAvNGI*F]@ezO.Qs+-e;IIIYG3P#b.BJ#h7i][.F}Bf6+)F*;vd5eeAqWOHq(L)ABUP7{hUrW^-40H7Tc5eQ/GxY7]Te5-mS,,=-9N.]J5HlJlEn^8^]-K(w3(+VXIKm#BuTr1J@K]gj!0H67Yyw06G.o=]$2wM*Q1/x[An]w$Bnn?v[,Fz.oJ{7)G{x$9@B]jZA5osPXBFo:0831Isc4Y.B]y%JgKZUQ=woOIFs;NSbUuQJ8im-]{8i/XgUmS=FvJOD,dXR20^BNNqC6P[^nKjoc/0$O]}9lNvgnCT1E)=K%*26pD%c#aUp;Fc5QYRsC@F:#2fbCoNS48h[Lq.k#eqb,Y/Gf*QRp87$}.1#?ICB4DYVC?LfeuEDJ(aP0KbTVF.$)/x%(iBC7KpL]WkvUf[u_W-n*?mTPa6QHpZH!pbQf^jPrfs,LO,qdj$lTDR?rgr],;y*D2^IHur0B+h{Hg$Ezk[}GpuK]RTgSQ:Juko?Z{1kYPV3:dhPQi[}n9ebRMhVf/Ll#+-2q@(Jq@@/:63N-(/[U-5IdouefS}FgViR)?XOMT%UHp#7q^OfdlQ:;f3W;4V_w50^i8EA7.xz3DogS*TDA-JqByZe/eIM;7%8lh?_j0.q_j#c11E,%blNv/4)Z2buN#rACXt?-uk#[?_r;%+@k!comiNK1MQ)hNalvxZa)*7LO]g^BEm.7diuhm0YydKu)SmPl73%nYi^M)ZOF6,YWEGP1lv@m=R0UGi1zH=AeI:6f1I:g)i=V3p*uQ{_5N)7=d[dv#meg[f.xaF_ZsOo:hfASo0nLt$4L/lO^Lk%0iD?*5c@7Agsk;$hZ79{ID^bJ;Xby(h;$N}udf$@6E):w(}_edh.dX6?_12yvTiUp7jF7k#1tPA_MlWsW$=tV^{-6bM]3H5m#C:5S9aPoUWn=?$11Si(oO=wIA*+P2#sy$29qJ$Z}73bt6cY)90[y($vm9%0S:eWMV!Nr3R8PgKWG(t25otTL{HZ)wo%.E;]PU1PUVB!$si2[rY;wVXnGZeGdA?0exj6C$H20IRm%%WS)7?BJkNf3+96X=3)+e+J1)n[W!*c;g8kt(2+!lu^flK}KK7*COo/JbYu?g0kZP^?b/o%Ci_gvuNny%:(Q!:f{YR=8)}RSo8l_%}ETti,g?mb:@6-^ZzJ(Jug;Zb7t{IR^-1%lLf%DfcjvD6MOaAS;M]j:*YIz03=4]gZy(mMY8Biqwl$tj?(Xe?U1xaHqX8!KXWj/CCmK[i?u?r=}{6sx2F76]}M3VK!Mw9)+!^P0000/MNUMnLSTY}00001XZi^(F#=O7]eM)7uRBu%n]bT=vOZV1$D.[G6uNS!4t$sN=:117^ai4HQvZM(kYLB]Ys8SuD.VIgPmfTD1pvGokqOhgjAgO*Y#0E1?:$y5^EJx7Gxdyyt[}hApw9;jcA{^5=3e{GlwM!%@D:iDnVkgGP7rDABB?5$ww(b</PublicKey>
+  </Signature>
+</CheatTable>

@@ -1,0 +1,1802 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12259</ID>
+      <Description>"Camera [Page Dn]"</Description>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],eax
+mov edx,[eax+04]
+mov [ecx+000008B0],edx
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"BrutalLegend.exe"+6CF3:
+jmp newmem
+nop
+nop
+nop
+nop
+returnhere:
+
+// x-axis
+"BrutalLegend.exe"+87C17:
+db 90 90 90
+
+// y-axis
+"BrutalLegend.exe"+87C23:
+db 90 90 90
+
+// z-axis
+"BrutalLegend.exe"+87C1D:
+db 90 90 90
+
+[DISABLE]
+dealloc(newmem)
+"BrutalLegend.exe"+6CF3:
+mov edx,[eax+04]
+mov [ecx+000008B0],edx
+
+// x-axis
+"BrutalLegend.exe"+87C17:
+mov [ebx+40],eax
+//mov ecx,[edi+04]
+
+// Y-axis
+"BrutalLegend.exe"+87C23:
+mov [ebx+48],edx
+//fld dword ptr [edi+10]
+
+// z-axis
+"BrutalLegend.exe"+87C1D:
+mov [ebx+44],ecx
+//mov edx,[edi+08]
+
+unregistersymbol(pCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12260</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12261</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12262</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10303</ID>
+          <Description>"Xrot [O , .]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10301</ID>
+          <Description>"Yrot [I,K]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10302</ID>
+          <Description>"Zrot [J,L]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12267</ID>
+          <Description>"Zrot [P,/]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>191</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>191</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>191</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12388</ID>
+          <Description>"Camera Type"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamType)
+registersymbol(pCamType)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamType],esi
+mov ecx,[esi+000062EC]
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamType:
+dd 0
+//
+
+"BrutalLegend.exe"+4F2255:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"BrutalLegend.exe"+4F2255:
+mov ecx,[esi+000062EC]
+unregistersymbol(pCamType)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12389</ID>
+              <Description>"Camera Type [KP_Decimal = free]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamType</Address>
+              <Offsets>
+                <Offset>62EC</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>110</Key>
+                  </Keys>
+                  <Value>7</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12368</ID>
+          <Description>"FOV"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <Color>80000008</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pFOV)
+registersymbol(pFOV)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pFOV],eax
+fld dword ptr [eax+00000090]
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pFOV:
+dd 0
+//
+
+"BrutalLegend.exe"+4F286D:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"BrutalLegend.exe"+4F286D:
+fld dword ptr [eax+00000090]
+unregistersymbol(pFOV)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12266</ID>
+              <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>pFOV</Address>
+              <Offsets>
+                <Offset>90</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12385</ID>
+      <Description>"Pause Script [ ; ]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pPause)
+registersymbol(pPause)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pPause],edi
+cmp byte ptr [edi],00
+mov [ebp-04],edi
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pPause:
+dd 0
+//
+
+"BrutalLegend.exe"+DB3B9:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"BrutalLegend.exe"+DB3B9:
+cmp byte ptr [edi],00
+mov [ebp-04],edi
+unregistersymbol(pPause)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>186</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12386</ID>
+          <Description>"Pause [ ' ]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Byte</VariableType>
+          <Address>pPause</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>222</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>222</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12268</ID>
+      <Description>"No description"</Description>
+      <LastState Value="??" Activated="0" RealAddress="00F623D4"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>BrutalLegend.exe+C123D4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12271</ID>
+      <Description>"No description"</Description>
+      <LastState Value="??" Activated="0" RealAddress="0796F2F4"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0796F2F4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12272</ID>
+      <Description>"-----------------------------------------------------------"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov edx,[eax+04] - z-axis</Description>
+      <Address>013B6CF3</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>6CF3</ModuleNameOffset>
+      <Before>
+        <Byte>91</Byte>
+        <Byte>AC</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>91</Byte>
+        <Byte>B0</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+04]</Description>
+      <Address>0127E726</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>2EE726</ModuleNameOffset>
+      <Before>
+        <Byte>07</Byte>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>64</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [esi+04]</Description>
+      <Address>0127EA9A</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>2EEA9A</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>D0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CA</Byte>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [esi+04]</Description>
+      <Address>0127EB08</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>2EEB08</ModuleNameOffset>
+      <Before>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>50</Byte>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [esi+04]</Description>
+      <Address>01069BA9</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>D9BA9</ModuleNameOffset>
+      <Before>
+        <Byte>60</Byte>
+        <Byte>D9</Byte>
+        <Byte>06</Byte>
+        <Byte>D9</Byte>
+        <Byte>1B</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>EE</Byte>
+        <Byte>DC</Byte>
+        <Byte>E9</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[eax+04]</Description>
+      <Address>015CDD4C</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>63DD4C</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+30],eax - PAUSE menu. disable opcode removes mouse control</Description>
+      <Address>01209584</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>279584</ModuleNameOffset>
+      <Before>
+        <Byte>4A</Byte>
+        <Byte>23</Byte>
+        <Byte>C2</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>9F</Byte>
+        <Byte>C0</Byte>
+        <Byte>3A</Byte>
+        <Byte>D8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+00000090] - fov</Description>
+      <Address>0085286D</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F286D</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>88</Byte>
+        <Byte>67</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>80</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>DA</Byte>
+        <Byte>E9</Byte>
+        <Byte>DF</Byte>
+        <Byte>E0</Byte>
+        <Byte>F6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax+00000090]</Description>
+      <Address>0042F068</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>CF068</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>DE</Byte>
+        <Byte>CA</Byte>
+        <Byte>DE</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>98</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>5D</Byte>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+00000090]</Description>
+      <Address>09AF0006</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>16</Byte>
+        <Byte>00</Byte>
+        <Byte>AF</Byte>
+        <Byte>09</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>80</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+00000090]</Description>
+      <Address>00852970</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F2970</ModuleNameOffset>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>80</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+        <Byte>D8</Byte>
+        <Byte>4D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+00000090]</Description>
+      <Address>008528A3</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F28A3</ModuleNameOffset>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>87</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>9E</Byte>
+        <Byte>88</Byte>
+        <Byte>67</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+40],ebx -pause ESC</Description>
+      <Address>664FA19C</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A19C</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>F4</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>66</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>5E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>1D</Byte>
+        <Byte>39</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+40],edi - pasue P</Description>
+      <Address>664FA1AD</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A1AD</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>F4</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>66</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>0C</Byte>
+        <Byte>FF</Byte>
+        <Byte>75</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [DINPUT8.dll+2C1D4],eax - writes gamestate?</Description>
+      <Address>664F95D6</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>95D6</ModuleNameOffset>
+      <Before>
+        <Byte>5D</Byte>
+        <Byte>0C</Byte>
+        <Byte>0F</Byte>
+        <Byte>95</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>A3</Byte>
+        <Byte>D4</Byte>
+        <Byte>C1</Byte>
+        <Byte>51</Byte>
+        <Byte>66</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>15</Byte>
+        <Byte>A4</Byte>
+        <Byte>10</Byte>
+        <Byte>4F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp byte ptr [edx+eax],01 - pause</Description>
+      <Address>0112B380</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>DB380</ModuleNameOffset>
+      <Before>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>8D</Byte>
+        <Byte>49</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>3C</Byte>
+        <Byte>02</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+        <Byte>40</Byte>
+        <Byte>3B</Byte>
+        <Byte>C1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp byte ptr [edi],00  - into pause</Description>
+      <Address>0112B3B9</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>DB3B9</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>78</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>FE</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>7D</Byte>
+        <Byte>FC</Byte>
+        <Byte>74</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [edi],01</Description>
+      <Address>0025B3FD</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>DB3FD</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>7D</Byte>
+        <Byte>FC</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>07</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>88</Byte>
+        <Byte>1C</Byte>
+        <Byte>31</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [edi],00 - out of pause</Description>
+      <Address>00BCB3C1</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>DB3C1</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>7D</Byte>
+        <Byte>FC</Byte>
+        <Byte>74</Byte>
+        <Byte>05</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>40</Byte>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ebx+40],eax - x</Description>
+      <Address>01437C17</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C17</ModuleNameOffset>
+      <Before>
+        <Byte>F6</Byte>
+        <Byte>75</Byte>
+        <Byte>5E</Byte>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>4B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ebx+48],edx - y</Description>
+      <Address>000C7C23</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C23</ModuleNameOffset>
+      <Before>
+        <Byte>4B</Byte>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>53</Byte>
+        <Byte>48</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>10</Byte>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ebx+58] - writes mousemov</Description>
+      <Address>00A07C35</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C35</ModuleNameOffset>
+      <Before>
+        <Byte>5B</Byte>
+        <Byte>54</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+        <Byte>58</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>1C</Byte>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ebx+54]</Description>
+      <Address>010D7C2F</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C2F</ModuleNameOffset>
+      <Before>
+        <Byte>5B</Byte>
+        <Byte>50</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+        <Byte>54</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ebx+50]</Description>
+      <Address>00A07C29</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C29</ModuleNameOffset>
+      <Before>
+        <Byte>53</Byte>
+        <Byte>48</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>14</Byte>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ebx+5C]</Description>
+      <Address>00A07C3B</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C3B</ModuleNameOffset>
+      <Before>
+        <Byte>5B</Byte>
+        <Byte>58</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5B</Byte>
+        <Byte>5C</Byte>
+      </Actual>
+      <After>
+        <Byte>80</Byte>
+        <Byte>BB</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ebx+44],ecx - z</Description>
+      <Address>009E7C1D</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C1D</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4B</Byte>
+        <Byte>44</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>53</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[edi]</Description>
+      <Address>009E7C15</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C15</ModuleNameOffset>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+        <Byte>75</Byte>
+        <Byte>5E</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov ecx,[edi+04]</Description>
+      <Address>009E7C1A</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C1A</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov edx,[edi+08]</Description>
+      <Address>009E7C20</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>87C20</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [ecx+34] - char z</Description>
+      <Address>00AA46DB</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>1246DB</ModuleNameOffset>
+      <Before>
+        <Byte>D9</Byte>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+        <Byte>D8</Byte>
+        <Byte>09</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>41</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>D8</Byte>
+        <Byte>49</Byte>
+        <Byte>04</Byte>
+        <Byte>DE</Byte>
+        <Byte>C1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+34] - char z weop</Description>
+      <Address>00AFF24F</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>17F24F</ModuleNameOffset>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>9C</Byte>
+        <Byte>24</Byte>
+        <Byte>8C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[eax+34]</Description>
+      <Address>012D09A8</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>9509A8</ModuleNameOffset>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>89</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>34</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[esi+000062EC] - cam freeze</Description>
+      <Address>00842255</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F2255</ModuleNameOffset>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>DD</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>8E</Byte>
+        <Byte>EC</Byte>
+        <Byte>62</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>69</Byte>
+        <Byte>C9</Byte>
+        <Byte>7C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[eax+000062EC]</Description>
+      <Address>008411D2</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F11D2</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>88</Byte>
+        <Byte>EC</Byte>
+        <Byte>62</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>69</Byte>
+        <Byte>C9</Byte>
+        <Byte>7C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+000062EC]</Description>
+      <Address>00841E27</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F1E27</ModuleNameOffset>
+      <Before>
+        <Byte>64</Byte>
+        <Byte>2B</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>EC</Byte>
+        <Byte>62</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>69</Byte>
+        <Byte>C0</Byte>
+        <Byte>7C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp esi,[edi+000062EC]</Description>
+      <Address>008414A6</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F14A6</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>7D</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>3B</Byte>
+        <Byte>B7</Byte>
+        <Byte>EC</Byte>
+        <Byte>62</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7E</Byte>
+        <Byte>0B</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[eax+000062EC]</Description>
+      <Address>008439D7</Address>
+      <ModuleName>BrutalLegend.exe</ModuleName>
+      <ModuleNameOffset>4F39D7</ModuleNameOffset>
+      <Before>
+        <Byte>80</Byte>
+        <Byte>DC</Byte>
+        <Byte>15</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>88</Byte>
+        <Byte>EC</Byte>
+        <Byte>62</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pPlayer2</Name>
+      <Address>24FA001A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DOFAOB</Name>
+      <Address>2E3DFDD4</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_aobCamera</Name>
+      <Address>23492DA0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DOFEnable1</Name>
+      <Address>273C0010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>0AC40019</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pFOV</Name>
+      <Address>0AC50016</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamType</Name>
+      <Address>0AC60016</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pPause</Name>
+      <Address>0ADF0016</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>fov 1.35 radians (77deg) - 0.675 (37deg)
+</Comments>
+</CheatTable>

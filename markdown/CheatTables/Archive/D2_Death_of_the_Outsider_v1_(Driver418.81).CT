@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>30</ID>
+      <Description>"Ansel Camera Coordinates Read (F6 To Activate - Can leave activated)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NvCamera64.dll"+2244E) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+label(xval)
+registersymbol(xval)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [xval],rbx
+movups xmm0,[rsp+2C]
+
+exit:
+jmp returnhere
+
+xval:
+dd 0
+
+"NvCamera64.dll"+2244E:
+jmp newmem
+nop
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NvCamera64.dll"+2244E:
+movsd [rbx],xmm0
+movups xmm0,[rsp+2C]
+unregistersymbol(xval)
+//Alt: db F2 0F 11 03 0F 10 44 24 2C
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <ID>0</ID>
+          <ActivateSound>Activate</ActivateSound>
+          <DeactivateSound>Deactivate</DeactivateSound>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"x"</Description>
+          <VariableType>Float</VariableType>
+          <Address>xval</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>xval</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>xval</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"Ansel Anywhere (F7 to Activate - Can leave activated)"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>118</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"Ansel NOP1"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Dishonored_DO.exe
+  Version: 
+  Date   : 2019-01-23
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(NOP01,Dishonored_DO.exe,0F 84 EB 00 00 00 48 8B 01) // should be unique
+alloc(newmem,$1000,"Dishonored_DO.exe"+ABBD7E)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+NOP01:
+  jmp newmem
+  nop
+return:
+registersymbol(NOP01)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+NOP01:
+  db 0F 84 EB 00 00 00
+
+unregistersymbol(NOP01)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Dishonored_DO.exe"+ABBD7E
+
+"Dishonored_DO.exe"+ABBD5D: 48 83 C4 28           -  add rsp,28
+"Dishonored_DO.exe"+ABBD61: 48 FF A0 80 00 00 00  -  jmp qword ptr [rax+00000080]
+"Dishonored_DO.exe"+ABBD68: 48 83 C4 28           -  add rsp,28
+"Dishonored_DO.exe"+ABBD6C: C3                    -  ret 
+"Dishonored_DO.exe"+ABBD6D: CC                    -  int 3 
+"Dishonored_DO.exe"+ABBD6E: CC                    -  int 3 
+"Dishonored_DO.exe"+ABBD6F: CC                    -  int 3 
+"Dishonored_DO.exe"+ABBD70: 48 83 EC 28           -  sub rsp,28
+"Dishonored_DO.exe"+ABBD74: 48 8B 0D 9D FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBD7B: 48 85 C9              -  test rcx,rcx
+// ---------- INJECTING HERE ----------
+"Dishonored_DO.exe"+ABBD7E: 0F 84 EB 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+// ---------- DONE INJECTING  ----------
+"Dishonored_DO.exe"+ABBD84: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD87: FF 90 E8 00 00 00     -  call qword ptr [rax+000000E8]
+"Dishonored_DO.exe"+ABBD8D: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBD8F: 0F 85 DA 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBD95: 48 8B 0D 7C FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBD9C: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD9F: FF 90 F8 00 00 00     -  call qword ptr [rax+000000F8]
+"Dishonored_DO.exe"+ABBDA5: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDA7: 0F 85 C2 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDAD: 48 8B 0D 64 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"Ansel NOP2"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Dishonored_DO.exe
+  Version: 
+  Date   : 2019-01-23
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(NOP2,Dishonored_DO.exe,84 C0 0F 85 DA 00 00 00) // should be unique
+alloc(newmem,$1000,"Dishonored_DO.exe"+ABBD8F)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+NOP2+02:
+  jmp newmem
+  nop
+return:
+registersymbol(NOP2)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+NOP2+02:
+  db 0F 85 DA 00 00 00
+
+unregistersymbol(NOP2)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Dishonored_DO.exe"+ABBD8F
+
+"Dishonored_DO.exe"+ABBD6D: CC                    -  int 3 
+"Dishonored_DO.exe"+ABBD6E: CC                    -  int 3 
+"Dishonored_DO.exe"+ABBD6F: CC                    -  int 3 
+"Dishonored_DO.exe"+ABBD70: 48 83 EC 28           -  sub rsp,28
+"Dishonored_DO.exe"+ABBD74: 48 8B 0D 9D FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBD7B: 48 85 C9              -  test rcx,rcx
+"Dishonored_DO.exe"+ABBD7E: 0F 84 EB 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBD84: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD87: FF 90 E8 00 00 00     -  call qword ptr [rax+000000E8]
+"Dishonored_DO.exe"+ABBD8D: 84 C0                 -  test al,al
+// ---------- INJECTING HERE ----------
+"Dishonored_DO.exe"+ABBD8F: 0F 85 DA 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+// ---------- DONE INJECTING  ----------
+"Dishonored_DO.exe"+ABBD95: 48 8B 0D 7C FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBD9C: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD9F: FF 90 F8 00 00 00     -  call qword ptr [rax+000000F8]
+"Dishonored_DO.exe"+ABBDA5: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDA7: 0F 85 C2 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDAD: 48 8B 0D 64 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDB4: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBDB7: FF 50 38              -  call qword ptr [rax+38]
+"Dishonored_DO.exe"+ABBDBA: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDBC: 0F 84 AD 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"Ansel NOP3"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Dishonored_DO.exe
+  Version: 
+  Date   : 2019-01-23
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(NOP03,Dishonored_DO.exe,0F 85 C2 00 00 00 48 8B 0D) // should be unique
+alloc(newmem,$1000,"Dishonored_DO.exe"+ABBDA7)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+NOP03:
+  jmp newmem
+  nop
+return:
+registersymbol(NOP03)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+NOP03:
+  db 0F 85 C2 00 00 00
+
+unregistersymbol(NOP03)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Dishonored_DO.exe"+ABBDA7
+
+"Dishonored_DO.exe"+ABBD7B: 48 85 C9              -  test rcx,rcx
+"Dishonored_DO.exe"+ABBD7E: 0F 84 EB 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBD84: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD87: FF 90 E8 00 00 00     -  call qword ptr [rax+000000E8]
+"Dishonored_DO.exe"+ABBD8D: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBD8F: 0F 85 DA 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBD95: 48 8B 0D 7C FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBD9C: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD9F: FF 90 F8 00 00 00     -  call qword ptr [rax+000000F8]
+"Dishonored_DO.exe"+ABBDA5: 84 C0                 -  test al,al
+// ---------- INJECTING HERE ----------
+"Dishonored_DO.exe"+ABBDA7: 0F 85 C2 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+// ---------- DONE INJECTING  ----------
+"Dishonored_DO.exe"+ABBDAD: 48 8B 0D 64 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDB4: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBDB7: FF 50 38              -  call qword ptr [rax+38]
+"Dishonored_DO.exe"+ABBDBA: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDBC: 0F 84 AD 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDC2: 48 8B 05 07 FA BC 02  -  mov rax,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDC9: 48 8D 0D 00 FA BC 02  -  lea rcx,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDD0: FF 90 18 01 00 00     -  call qword ptr [rax+00000118]
+"Dishonored_DO.exe"+ABBDD6: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDD8: 0F 85 91 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"Ansel NOP4"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Dishonored_DO.exe
+  Version: 
+  Date   : 2019-01-23
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(NOP04,Dishonored_DO.exe,38 84 C0 0F 84 AD 00 00 00) // should be unique
+alloc(newmem,$1000,"Dishonored_DO.exe"+ABBDBC)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+NOP04+03:
+  jmp newmem
+  nop
+return:
+registersymbol(NOP04)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+NOP04+03:
+  db 0F 84 AD 00 00 00
+
+unregistersymbol(NOP04)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Dishonored_DO.exe"+ABBDBC
+
+"Dishonored_DO.exe"+ABBD8F: 0F 85 DA 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBD95: 48 8B 0D 7C FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBD9C: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBD9F: FF 90 F8 00 00 00     -  call qword ptr [rax+000000F8]
+"Dishonored_DO.exe"+ABBDA5: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDA7: 0F 85 C2 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDAD: 48 8B 0D 64 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDB4: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBDB7: FF 50 38              -  call qword ptr [rax+38]
+"Dishonored_DO.exe"+ABBDBA: 84 C0                 -  test al,al
+// ---------- INJECTING HERE ----------
+"Dishonored_DO.exe"+ABBDBC: 0F 84 AD 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+// ---------- DONE INJECTING  ----------
+"Dishonored_DO.exe"+ABBDC2: 48 8B 05 07 FA BC 02  -  mov rax,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDC9: 48 8D 0D 00 FA BC 02  -  lea rcx,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDD0: FF 90 18 01 00 00     -  call qword ptr [rax+00000118]
+"Dishonored_DO.exe"+ABBDD6: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDD8: 0F 85 91 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDDE: 48 8B 0D 33 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDE5: 48 81 C1 F8 75 1F 00  -  add rcx,001F75F8
+"Dishonored_DO.exe"+ABBDEC: E8 9F 85 E9 FF        -  call Dishonored_DO.exe+954390
+"Dishonored_DO.exe"+ABBDF1: 83 F8 05              -  cmp eax,05
+"Dishonored_DO.exe"+ABBDF4: 74 79                 -  je Dishonored_DO.exe+ABBE6F
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"Ansel NOP5"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Dishonored_DO.exe
+  Version: 
+  Date   : 2019-01-23
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(NOP05,Dishonored_DO.exe,0F 85 91 00 00 00 48 8B 0D) // should be unique
+alloc(newmem,$1000,"Dishonored_DO.exe"+ABBDD8)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+NOP05:
+  jmp newmem
+  nop
+return:
+registersymbol(NOP05)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+NOP05:
+  db 0F 85 91 00 00 00
+
+unregistersymbol(NOP05)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Dishonored_DO.exe"+ABBDD8
+
+"Dishonored_DO.exe"+ABBDA7: 0F 85 C2 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDAD: 48 8B 0D 64 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDB4: 48 8B 01              -  mov rax,[rcx]
+"Dishonored_DO.exe"+ABBDB7: FF 50 38              -  call qword ptr [rax+38]
+"Dishonored_DO.exe"+ABBDBA: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDBC: 0F 84 AD 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDC2: 48 8B 05 07 FA BC 02  -  mov rax,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDC9: 48 8D 0D 00 FA BC 02  -  lea rcx,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDD0: FF 90 18 01 00 00     -  call qword ptr [rax+00000118]
+"Dishonored_DO.exe"+ABBDD6: 84 C0                 -  test al,al
+// ---------- INJECTING HERE ----------
+"Dishonored_DO.exe"+ABBDD8: 0F 85 91 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+// ---------- DONE INJECTING  ----------
+"Dishonored_DO.exe"+ABBDDE: 48 8B 0D 33 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDE5: 48 81 C1 F8 75 1F 00  -  add rcx,001F75F8
+"Dishonored_DO.exe"+ABBDEC: E8 9F 85 E9 FF        -  call Dishonored_DO.exe+954390
+"Dishonored_DO.exe"+ABBDF1: 83 F8 05              -  cmp eax,05
+"Dishonored_DO.exe"+ABBDF4: 74 79                 -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDF6: E8 85 69 65 FF        -  call Dishonored_DO.exe+112780
+"Dishonored_DO.exe"+ABBDFB: 8B 05 F7 DB 20 03     -  mov eax,[Dishonored_DO.exe+3CC99F8]
+"Dishonored_DO.exe"+ABBE01: 48 8D 0D C8 DB 20 03  -  lea rcx,[Dishonored_DO.exe+3CC99D0]
+"Dishonored_DO.exe"+ABBE08: 33 D2                 -  xor edx,edx
+"Dishonored_DO.exe"+ABBE0A: 89 05 10 FA D3 01     -  mov [Dishonored_DO.exe+27FB820],eax
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"Ansel NOP6"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Dishonored_DO.exe
+  Version: 
+  Date   : 2019-01-23
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(NOP06,Dishonored_DO.exe,74 79 E8 85 69 65 FF) // should be unique
+alloc(newmem,$1000,"Dishonored_DO.exe"+ABBDF4)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  call Dishonored_DO.exe+112780
+  jmp return
+
+NOP06:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(NOP06)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+NOP06:
+  db 74 79 E8 85 69 65 FF
+
+unregistersymbol(NOP06)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Dishonored_DO.exe"+ABBDF4
+
+"Dishonored_DO.exe"+ABBDBC: 0F 84 AD 00 00 00     -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDC2: 48 8B 05 07 FA BC 02  -  mov rax,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDC9: 48 8D 0D 00 FA BC 02  -  lea rcx,[Dishonored_DO.exe+368B7D0]
+"Dishonored_DO.exe"+ABBDD0: FF 90 18 01 00 00     -  call qword ptr [rax+00000118]
+"Dishonored_DO.exe"+ABBDD6: 84 C0                 -  test al,al
+"Dishonored_DO.exe"+ABBDD8: 0F 85 91 00 00 00     -  jne Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDDE: 48 8B 0D 33 FA D3 01  -  mov rcx,[Dishonored_DO.exe+27FB818]
+"Dishonored_DO.exe"+ABBDE5: 48 81 C1 F8 75 1F 00  -  add rcx,001F75F8
+"Dishonored_DO.exe"+ABBDEC: E8 9F 85 E9 FF        -  call Dishonored_DO.exe+954390
+"Dishonored_DO.exe"+ABBDF1: 83 F8 05              -  cmp eax,05
+// ---------- INJECTING HERE ----------
+"Dishonored_DO.exe"+ABBDF4: 74 79                 -  je Dishonored_DO.exe+ABBE6F
+"Dishonored_DO.exe"+ABBDF6: E8 85 69 65 FF        -  call Dishonored_DO.exe+112780
+// ---------- DONE INJECTING  ----------
+"Dishonored_DO.exe"+ABBDFB: 8B 05 F7 DB 20 03     -  mov eax,[Dishonored_DO.exe+3CC99F8]
+"Dishonored_DO.exe"+ABBE01: 48 8D 0D C8 DB 20 03  -  lea rcx,[Dishonored_DO.exe+3CC99D0]
+"Dishonored_DO.exe"+ABBE08: 33 D2                 -  xor edx,edx
+"Dishonored_DO.exe"+ABBE0A: 89 05 10 FA D3 01     -  mov [Dishonored_DO.exe+27FB820],eax
+"Dishonored_DO.exe"+ABBE10: E8 DB F8 68 FF        -  call Dishonored_DO.exe+14B6F0
+"Dishonored_DO.exe"+ABBE15: 48 8D 0D 84 8C BC 02  -  lea rcx,[Dishonored_DO.exe+3684AA0]
+"Dishonored_DO.exe"+ABBE1C: B2 01                 -  mov dl,01
+"Dishonored_DO.exe"+ABBE1E: E8 4D F8 68 FF        -  call Dishonored_DO.exe+14B670
+"Dishonored_DO.exe"+ABBE23: 83 3D 1E 8D BC 02 00  -  cmp dword ptr [Dishonored_DO.exe+3684B48],00
+"Dishonored_DO.exe"+ABBE2A: 48 8D 0D EF 8C BC 02  -  lea rcx,[Dishonored_DO.exe+3684B20]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"------------------------------------------------------------"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"Test"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>23</ID>
+              <Description>"No description"</Description>
+              <VariableType>Float</VariableType>
+              <Address>2838C464098</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"No description"</Description>
+              <VariableType>Float</VariableType>
+              <Address>2839078BBD4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"No description"</Description>
+              <VariableType>Float</VariableType>
+              <Address>28390791064</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26</ID>
+              <Description>"No description"</Description>
+              <LastState Value="35.48130035" RealAddress="7FF7E492B0C0"/>
+              <VariableType>Float</VariableType>
+              <Address>Dishonored_DO.exe+2F8B0C0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"No description"</Description>
+              <LastState Value="35.48130035" RealAddress="7FF7E492B0D8"/>
+              <VariableType>Float</VariableType>
+              <Address>Dishonored_DO.exe+2F8B0D8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>28</ID>
+              <Description>"No description"</Description>
+              <LastState Value="35.48130035" RealAddress="7FF7E4944BA0"/>
+              <VariableType>Float</VariableType>
+              <Address>Dishonored_DO.exe+2FA4BA0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>29</ID>
+              <Description>"No description"</Description>
+              <LastState Value="35.48130035" RealAddress="7FF7E4944BB8"/>
+              <VariableType>Float</VariableType>
+              <Address>Dishonored_DO.exe+2FA4BB8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"OLD"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>7</ID>
+              <Description>"x coord F6"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"NvCamera64.dll"+224DE) 
+label(returnhere)
+label(exit)
+
+label(xval)
+registersymbol(xval)
+
+
+newmem:
+mov [xval],rbx
+movups xmm0,[rsp+2C]
+jmp exit
+
+exit:
+jmp returnhere
+
+xval:
+dd 0
+
+"NvCamera64.dll"+224DE:
+jmp newmem
+nop
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"NvCamera64.dll"+224DE:
+movsd [rbx],xmm0
+movups xmm0,[rsp+2C]
+unregistersymbol(xval)
+//Alt: db F2 0F 11 03 0F 10 44 24 2C
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of je Dishonored_DO.exe+ABBE6F</Description>
+      <AddressString>Dishonored_DO.exe+ABBD7E</AddressString>
+      <Before>
+        <Byte>D3</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>EB</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jne Dishonored_DO.exe+ABBE6F</Description>
+      <AddressString>Dishonored_DO.exe+ABBD8F</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>DA</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>7C</Byte>
+        <Byte>FA</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jne Dishonored_DO.exe+ABBE6F</Description>
+      <AddressString>Dishonored_DO.exe+ABBDA7</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>C2</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>64</Byte>
+        <Byte>FA</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je Dishonored_DO.exe+ABBE6F</Description>
+      <AddressString>Dishonored_DO.exe+ABBDBC</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>38</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>AD</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>05</Byte>
+        <Byte>07</Byte>
+        <Byte>FA</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jne Dishonored_DO.exe+ABBE6F</Description>
+      <AddressString>Dishonored_DO.exe+ABBDD8</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+        <Byte>91</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>33</Byte>
+        <Byte>FA</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je Dishonored_DO.exe+ABBE6F</Description>
+      <AddressString>Dishonored_DO.exe+ABBDF4</AddressString>
+      <Before>
+        <Byte>E9</Byte>
+        <Byte>FF</Byte>
+        <Byte>83</Byte>
+        <Byte>F8</Byte>
+        <Byte>05</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>79</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>85</Byte>
+        <Byte>69</Byte>
+        <Byte>65</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rbx],xmm0</Description>
+      <AddressString>NvCamera64.dll+224DE</AddressString>
+      <Before>
+        <Byte>3C</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [r8+08],eax</Description>
+      <AddressString>Dishonored_DO.exe+4C4E65</AddressString>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>D0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>camz coords write Change of mov [rcx+000000A0],eax</Description>
+      <AddressString>Dishonored_DO.exe+660F4</AddressString>
+      <Before>
+        <Byte>82</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>82</Byte>
+        <Byte>A4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>camyxcoords</Description>
+      <AddressString>Dishonored_DO.exe+660DC</AddressString>
+      <Before>
+        <Byte>82</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>82</Byte>
+        <Byte>9C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

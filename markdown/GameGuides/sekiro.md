@@ -31,3 +31,8 @@ Start out by clicking the box next to "Enable Screenshotting." This fetches AOBS
 * **F4** will toggle the "PlayersOnly" script. This is similar to the Unreal Engine 3 cheat which freezes all non-player characters. You can toggle this to try and freeze an enemy in the middle of an animation in order to try and set up an action shot. You can try and position yourself while your enemies are frozen, then use the proper timestop to freeze your character and effects.
 * **Numpad 0** will freeze the game. **Numpad .** (period) will resume. Numpad 5 is super slow motion.
 
+## Fix the ReShade depth buffer
+
+Reshade has problems to get the right depth buffer, so make sure to select the right one in the DX11 tab.
+
+![screenshot](https://i.imgur.com/uuX20Vp.png)

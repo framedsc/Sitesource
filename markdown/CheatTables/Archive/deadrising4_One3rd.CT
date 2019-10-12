@@ -1,0 +1,2430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13503</ID>
+      <Description>"This table was made by One3rd for the Steam version of Dead Rising 4."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13500</ID>
+      <Description>"Enable camera script with [Page Dn]. Read *Table Extras* (bottom right button) for further details."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13502</ID>
+      <Description>"***"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13296</ID>
+      <Description>"FLY - No modifier"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13290</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13298</ID>
+          <Description>"MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13297</ID>
+          <Description>"FLY: Up, down - 9, 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13292</ID>
+      <Description>"AIM - Use the Mouse to Look Around"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13341</ID>
+          <Description>"ZOOM: In, out - NUMPAD Minus, NUMPAD PLUS (reset to 52: NUMPAD *)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13242</ID>
+          <Description>"TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12211</ID>
+      <Description>"Camera [Page down]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//alloc(newmem,256)
+alloc(newmem,2048,"deadrising4.exe"+15E3F51)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],rdi
+//movsd [rdi+30],xmm0
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"deadrising4.exe"+15E3F51:
+jmp newmem
+returnhere:
+
+"deadrising4.exe"+15E3F59:
+db 90 90 90
+
+"deadrising4.exe"+15E3F7F:
+db 90 90 90
+
+[DISABLE]
+dealloc(newmem)
+//xz
+"deadrising4.exe"+15E3F51:
+movsd [rdi+30],xmm0
+//y
+"deadrising4.exe"+15E3F59:
+mov [rdi+38],ecx
+//fov
+"deadrising4.exe"+15E3F7F:
+mov [rdi+54],eax
+
+unregistersymbol(pCamera)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "deadrising4.exe"+15E3F51
+
+"deadrising4.exe"+15E3F16: 0F 85 FB 00 00 00              -  jne deadrising4.exe+15E4017
+"deadrising4.exe"+15E3F1C: 80 3D 84 AB 27 01 00           -  cmp byte ptr [deadrising4.exe+285EAA7],00
+"deadrising4.exe"+15E3F23: 0F 85 EE 00 00 00              -  jne deadrising4.exe+15E4017
+"deadrising4.exe"+15E3F29: 48 8B 05 50 02 2C 01           -  mov rax,[deadrising4.exe+28A4180]
+"deadrising4.exe"+15E3F30: 80 B8 88 00 00 00 00           -  cmp byte ptr [rax+00000088],00
+"deadrising4.exe"+15E3F37: 0F 84 DA 00 00 00              -  je deadrising4.exe+15E4017
+"deadrising4.exe"+15E3F3D: E8 BE ED 2E FF                 -  call deadrising4.exe+8D2D00
+"deadrising4.exe"+15E3F42: 48 8B 15 37 02 2C 01           -  mov rdx,[deadrising4.exe+28A4180]
+"deadrising4.exe"+15E3F49: 48 8B D8                       -  mov rbx,rax
+"deadrising4.exe"+15E3F4C: F2 0F 10 42 10                 -  movsd xmm0,[rdx+10]
+// ---------- INJECTING HERE ----------
+"deadrising4.exe"+15E3F51: F2 0F 11 47 30                 -  movsd [rdi+30],xmm0
+// ---------- DONE INJECTING  ----------
+"deadrising4.exe"+15E3F56: 8B 4A 18                       -  mov ecx,[rdx+18]
+"deadrising4.exe"+15E3F59: 89 4F 38                       -  mov [rdi+38],ecx
+"deadrising4.exe"+15E3F5C: F2 0F 10 42 1C                 -  movsd xmm0,[rdx+1C]
+"deadrising4.exe"+15E3F61: F2 0F 11 47 3C                 -  movsd [rdi+3C],xmm0
+"deadrising4.exe"+15E3F66: 8B 4A 24                       -  mov ecx,[rdx+24]
+"deadrising4.exe"+15E3F69: 89 4F 44                       -  mov [rdi+44],ecx
+"deadrising4.exe"+15E3F6C: F2 0F 10 42 28                 -  movsd xmm0,[rdx+28]
+"deadrising4.exe"+15E3F71: F2 0F 11 47 48                 -  movsd [rdi+48],xmm0
+"deadrising4.exe"+15E3F76: 8B 42 30                       -  mov eax,[rdx+30]
+"deadrising4.exe"+15E3F79: 89 47 50                       -  mov [rdi+50],eax
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13262</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>0,1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>0,1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys/>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13264</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>0,1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>0,1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13263</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>0,1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>0,1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13268</ID>
+          <Description>"FOV (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>54</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>0,5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>0,5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>52</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13217</ID>
+      <Description>"Game Speed [Page Up]"</Description>
+      <LastState Activated="1"/>
+      <Color>000000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"deadrising4.exe"+982A8B)
+label(returnhere)
+label(exit)
+
+label(gameSpeed)
+registersymbol(gameSpeed)
+
+newmem:
+mov [gameSpeed],rcx
+mov eax,[rcx+00000200]
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+gameSpeed:
+dd 0
+///
+
+"deadrising4.exe"+982A8B:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"deadrising4.exe"+982A8B:
+mov eax,[rcx+00000200]
+
+unregistersymbol(gameSpeed)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "deadrising4.exe"+982A8B
+
+"deadrising4.exe"+982A5E: 0F 28 C8                       -  movaps xmm1,xmm0
+"deadrising4.exe"+982A61: E8 9A 31 73 00                 -  call deadrising4.exe+10B5C00
+"deadrising4.exe"+982A66: EB 15                          -  jmp deadrising4.exe+982A7D
+"deadrising4.exe"+982A68: E8 13 C6 CA FF                 -  call deadrising4.exe+62F080
+"deadrising4.exe"+982A6D: 48 8B C8                       -  mov rcx,rax
+"deadrising4.exe"+982A70: 48 8D 94 24 F0 00 00 00        -  lea rdx,[rsp+000000F0]
+"deadrising4.exe"+982A78: E8 83 6C CA FF                 -  call deadrising4.exe+629700
+"deadrising4.exe"+982A7D: 48 8B 0D 0C D3 B0 02           -  mov rcx,[deadrising4.exe+348FD90]
+"deadrising4.exe"+982A84: 48 8B 00                       -  mov rax,[rax]
+"deadrising4.exe"+982A87: 48 89 46 20                    -  mov [rsi+20],rax
+// ---------- INJECTING HERE ----------
+"deadrising4.exe"+982A8B: 8B 81 00 02 00 00              -  mov eax,[rcx+00000200]
+// ---------- DONE INJECTING  ----------
+"deadrising4.exe"+982A91: 89 46 18                       -  mov [rsi+18],eax
+"deadrising4.exe"+982A94: 40 38 A9 38 02 00 00           -  cmp [rcx+00000238],bpl
+"deadrising4.exe"+982A9B: 75 0A                          -  jne deadrising4.exe+982AA7
+"deadrising4.exe"+982A9D: 44 0F 2F 81 40 02 00 00        -  comiss xmm8,[rcx+00000240]
+"deadrising4.exe"+982AA5: 77 05                          -  ja deadrising4.exe+982AAC
+"deadrising4.exe"+982AA7: BD 01 00 00 00                 -  mov ebp,00000001
+"deadrising4.exe"+982AAC: 48 8B 3D 0D 6F 9F 02           -  mov rdi,[deadrising4.exe+33799C0]
+"deadrising4.exe"+982AB3: E8 C8 C5 CA FF                 -  call deadrising4.exe+62F080
+"deadrising4.exe"+982AB8: 48 8B C8                       -  mov rcx,rax
+"deadrising4.exe"+982ABB: E8 60 69 CA FF                 -  call deadrising4.exe+629420
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>33</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13218</ID>
+          <Description>"P = Pause \ Shift+P = Unpause  \ [ = 0.3 \ ] = 1 \ ALT+X = 0.3 \ Ctrl+F6 = 2"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13219</ID>
+          <Description>"Game Speed"</Description>
+          <LastState Value="1" RealAddress="0014FC10"/>
+          <VariableType>Float</VariableType>
+          <Address>gameSpeed</Address>
+          <Offsets>
+            <Offset>200</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>0.00005</Value>
+              <Description>Pause</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.3</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>117</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>0.3</Value>
+              <Description>slomo</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>Unpause</Description>
+              <ID>6</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>Unpause</Description>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13518</ID>
+      <Description>"&lt;==== Testing, click to expand section  ===="</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13504</ID>
+          <Description>"junk1"</Description>
+          <LastState Value="0" RealAddress="8008EC2C"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>8008EC2C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13505</ID>
+          <Description>"No description"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>8 Bytes</VariableType>
+          <Address>378F38E0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13506</ID>
+          <Description>"No description"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>378F38E0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11488</ID>
+          <Description>"Change Resolution AOB Scanned"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//alloc(newmem,2048,"engine_x64_rwdi.dll"+7196C3)
+aobscanmodule(pResAOB,engine_x64_rwdi.dll,8B 4D 00 8B 03 2B C1) // should be unique
+//alloc(newmem,$1000,"engine_x64_rwdi.dll"+7196C3)
+alloc(newmem,2048,"engine_x64_rwdi.dll")
+
+label(returnhere)
+label(exit)
+label(pRes)
+registersymbol(pRes)
+registersymbol(pResAOB)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pRes],rbp
+mov ecx,[rbp+00]
+mov eax,[rbx]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pRes:
+dd 0
+//
+
+pResAOB:
+jmp newmem
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+pResAOB:
+mov ecx,[rbp+00]
+mov eax,[rbx]
+unregistersymbol(pRes)
+unregistersymbol(pResAOB)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "engine_x64_rwdi.dll"+7196C3
+
+"engine_x64_rwdi.dll"+719697: 44 39 89 90 04 00 00  -  cmp [rcx+00000490],r9d
+"engine_x64_rwdi.dll"+71969E: 0F 8E 9F 00 00 00     -  jng engine_x64_rwdi.dll+719743
+"engine_x64_rwdi.dll"+7196A4: 48 89 5C 24 10        -  mov [rsp+10],rbx
+"engine_x64_rwdi.dll"+7196A9: 45 8B D1              -  mov r10d,r9d
+"engine_x64_rwdi.dll"+7196AC: 0F 1F 40 00           -  nop [rax+00]
+"engine_x64_rwdi.dll"+7196B0: 48 8B 87 88 04 00 00  -  mov rax,[rdi+00000488]
+"engine_x64_rwdi.dll"+7196B7: 48 8B 1E              -  mov rbx,[rsi]
+"engine_x64_rwdi.dll"+7196BA: 4D 8D 1C 02           -  lea r11,[r10+rax]
+"engine_x64_rwdi.dll"+7196BE: 48 85 DB              -  test rbx,rbx
+"engine_x64_rwdi.dll"+7196C1: 74 64                 -  je engine_x64_rwdi.dll+719727
+// ---------- INJECTING HERE ----------
+"engine_x64_rwdi.dll"+7196C3: 8B 4D 00              -  mov ecx,[rbp+00]
+"engine_x64_rwdi.dll"+7196C6: 8B 03                 -  mov eax,[rbx]
+// ---------- DONE INJECTING  ----------
+"engine_x64_rwdi.dll"+7196C8: 2B C1                 -  sub eax,ecx
+"engine_x64_rwdi.dll"+7196CA: 99                    -  cdq
+"engine_x64_rwdi.dll"+7196CB: 44 8B C0              -  mov r8d,eax
+"engine_x64_rwdi.dll"+7196CE: 41 8B 03              -  mov eax,[r11]
+"engine_x64_rwdi.dll"+7196D1: 2B C1                 -  sub eax,ecx
+"engine_x64_rwdi.dll"+7196D3: 44 33 C2              -  xor r8d,edx
+"engine_x64_rwdi.dll"+7196D6: 44 2B C2              -  sub r8d,edx
+"engine_x64_rwdi.dll"+7196D9: 99                    -  cdq
+"engine_x64_rwdi.dll"+7196DA: 33 C2                 -  xor eax,edx
+"engine_x64_rwdi.dll"+7196DC: 2B C2                 -  sub eax,edx
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>11489</ID>
+              <Description>"Fullscreen Resolution Selector"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0000043800000780:1920x1080
+0000087000000F00:3840x2160
+00000B4000001400:5120x2880
+00000C8000000960:2400x3200
+0000115800000D02:3330x4440
+00000F0000000F00:3840x3840
+000007620000113A:4410x1890
+0000087000001400:5120x2160
+000006A4000013EC:5100x1700
+000007D000001770:6000x2000
+
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pRes</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11490</ID>
+              <Description>"Resolution X"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pRes</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11491</ID>
+              <Description>"Resolution Y"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pRes</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13511</ID>
+          <Description>"Health Value"</Description>
+          <LastState/>
+          <Color>000000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"deadrising4.exe"+81CF57)
+label(returnhere)
+label(exit)
+
+label(Health)
+registersymbol(Health)
+
+newmem:
+mov [Health],rax
+mov ecx,[rax+18]
+jmp deadrising4.frank_correctiveStorageSize+37218E
+jmp exit
+
+exit:
+jmp returnhere
+
+////
+
+///
+Health:
+dd 0
+///
+
+"deadrising4.exe"+81CF57:
+jmp newmem
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"deadrising4.exe"+81CF57:
+mov ecx,[rax+18]
+jmp deadrising4.frank_correctiveStorageSize+37218E
+
+unregistersymbol(Health)
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13512</ID>
+              <Description>"toggle the value to freeze it"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>8000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13513</ID>
+              <Description>"Health"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Health</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>0.00005</Value>
+                  <Description>Pause</Description>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>88</Key>
+                  </Keys>
+                  <Value>.3</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>117</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>0.3</Value>
+                  <Description>slomo</Description>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <Description>Unpause</Description>
+                  <ID>6</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <Description>Unpause</Description>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13514</ID>
+          <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="9AC6F018"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>9AC6F018</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13515</ID>
+          <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="EC481D7C"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>EC481D7C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13516</ID>
+          <Description>"No description"</Description>
+          <LastState Value="4294967295" RealAddress="EC8C70D0"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>EC8C70D0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13517</ID>
+          <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="EC8C70D8"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>EC8C70D8</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rbx+14] - z-axis</Description>
+      <AddressString>deadrising4.exe+9860EA</AddressString>
+      <Before>
+        <Byte>F1</Byte>
+        <Byte>01</Byte>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rdx+10]</Description>
+      <AddressString>deadrising4.exe+15E3F4C</AddressString>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rsi+10]</Description>
+      <AddressString>deadrising4.exe+8F9842</AddressString>
+      <Before>
+        <Byte>FA</Byte>
+        <Byte>01</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+        <Byte>49</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rbx+10]</Description>
+      <AddressString>deadrising4.exe+FDC5A3</AddressString>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>7C</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>53</Byte>
+        <Byte>08</Byte>
+        <Byte>F2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbp+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FDEA81</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FACB2E</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm6,[rcx+0C]</Description>
+      <AddressString>deadrising4.exe+10E8CF6</AddressString>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>71</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>79</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rcx+0C]</Description>
+      <AddressString>deadrising4.exe+10E8D35</AddressString>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>28</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>54</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>51</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>51</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rcx+0C]</Description>
+      <AddressString>deadrising4.exe+10E8D81</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>51</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>41</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :subss xmm0,[rcx+0C]</Description>
+      <AddressString>deadrising4.exe+10E9511</AddressString>
+      <Before>
+        <Byte>42</Byte>
+        <Byte>04</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rbx+08]</Description>
+      <AddressString>deadrising4.exe+FAD060</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>7C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FAD47A</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rbp+08]</Description>
+      <AddressString>deadrising4.exe+FDEAFD</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>D3</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rbp+08]</Description>
+      <AddressString>deadrising4.exe+FDEDB4</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>7C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>8C</Byte>
+        <Byte>24</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rbx+14]</Description>
+      <AddressString>deadrising4.exe+FDC79E</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>DF</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>83</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+10],xmm1</Description>
+      <AddressString>deadrising4.exe+FDC7E5</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D0</Byte>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbp+08],xmm0 - write x</Description>
+      <AddressString>deadrising4.exe+FDEA81</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FACB2E</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FAD47A</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+10],xmm1</Description>
+      <AddressString>deadrising4.exe+FDC7E5</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D0</Byte>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd xmm0,[rbx+08]</Description>
+      <AddressString>deadrising4.exe+FDEA7C</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>74</Byte>
+        <Byte>8C</Byte>
+        <Byte>68</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rbx+10] - after write</Description>
+      <AddressString>deadrising4.exe+FDEA86</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>10</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [deadrising4.eyes_look_atStorageSize+7B3520],xmm0 - static time value?</Description>
+      <AddressString>deadrising4.exe+971691</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>05</Byte>
+        <Byte>E7</Byte>
+        <Byte>8F</Byte>
+        <Byte>80</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>E2</Byte>
+        <Byte>D9</Byte>
+        <Byte>CB</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rcx+00000200] - time control</Description>
+      <AddressString>deadrising4.exe+982A8B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>81</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>18</Byte>
+        <Byte>40</Byte>
+        <Byte>38</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm0,[rsi+00000200]</Description>
+      <AddressString>deadrising4.exe+98DDD4</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>7C</Byte>
+        <Byte>7E</Byte>
+        <Byte>72</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>86</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+00000200],xmm1</Description>
+      <AddressString>deadrising4.exe+985790</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rax+00000200]</Description>
+      <AddressString>deadrising4.exe+658E2A4</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbp+10],eax - write y</Description>
+      <AddressString>deadrising4.exe+FDEA89</AddressString>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+10],eax</Description>
+      <AddressString>deadrising4.exe+FACB3D</AddressString>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>70</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+10],eax</Description>
+      <AddressString>deadrising4.exe+FAD47F</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+        <Byte>38</Byte>
+        <Byte>00</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+18],eax</Description>
+      <AddressString>deadrising4.exe+FDC7F3</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>D0</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>D4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbp+08],xmm0 - xz</Description>
+      <AddressString>deadrising4.exe+FDEA81</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FACB2E</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+08],xmm0</Description>
+      <AddressString>deadrising4.exe+FAD47A</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+10],xmm1</Description>
+      <AddressString>deadrising4.exe+FDC7E5</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D0</Byte>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbp+14],xmm0 - rot matrix</Description>
+      <AddressString>deadrising4.exe+FDEA91</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>1C</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+14],xmm0</Description>
+      <AddressString>deadrising4.exe+10E95D6</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C4</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+14],xmm1</Description>
+      <AddressString>deadrising4.exe+FAD48B</AddressString>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>84</Byte>
+        <Byte>D2</Byte>
+        <Byte>74</Byte>
+        <Byte>15</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>53</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+1C],xmm1</Description>
+      <AddressString>deadrising4.exe+FDC7FE</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D4</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>DC</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbp+1C],eax - rot matrix2</Description>
+      <AddressString>deadrising4.exe+FDEA99</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+1C],eax</Description>
+      <AddressString>deadrising4.exe+10E9601</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+        <Byte>F2</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+1C],edx</Description>
+      <AddressString>deadrising4.exe+FAD495</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>53</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>53</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>4B</Byte>
+        <Byte>28</Byte>
+        <Byte>C6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbp+2C],eax - write fov</Description>
+      <AddressString>deadrising4.exe+FDEAAF</AddressString>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>28</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>30</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+2C],xmm1</Description>
+      <AddressString>deadrising4.exe+10E8C00</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>49</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+34],eax</Description>
+      <AddressString>deadrising4.exe+FDC828</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>F0</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbp+20],xmm0 - rot matrix3</Description>
+      <AddressString>deadrising4.exe+FDEAA1</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>43</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>45</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+20],xmm0</Description>
+      <AddressString>deadrising4.exe+10E9608</AddressString>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+20],xmm0</Description>
+      <AddressString>deadrising4.exe+FACD9A</AddressString>
+      <Before>
+        <Byte>5B</Byte>
+        <Byte>A0</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>54</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+20],xmm2</Description>
+      <AddressString>deadrising4.exe+FAD490</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>53</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>53</Byte>
+        <Byte>1C</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+28],xmm0</Description>
+      <AddressString>deadrising4.exe+FDC814</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>E8</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbp+28],eax - rot matrix4</Description>
+      <AddressString>deadrising4.exe+FDEAA9</AddressString>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>2C</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+28],eax</Description>
+      <AddressString>deadrising4.exe+10E960D</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>81</Byte>
+        <Byte>C4</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+28],eax</Description>
+      <AddressString>deadrising4.exe+FACDAF</AddressString>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>53</Byte>
+        <Byte>B0</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>E3</Byte>
+        <Byte>5B</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+28],r9d</Description>
+      <AddressString>deadrising4.exe+FAD498</AddressString>
+      <Before>
+        <Byte>53</Byte>
+        <Byte>20</Byte>
+        <Byte>89</Byte>
+        <Byte>53</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>4B</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>C6</Byte>
+        <Byte>43</Byte>
+        <Byte>38</Byte>
+        <Byte>00</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rbx+30],eax</Description>
+      <AddressString>deadrising4.exe+FDC81F</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>E8</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd xmm0,[rdx+10] reads xz</Description>
+      <AddressString>deadrising4.exe+15E3F4C</AddressString>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rdi+30],xmm0 - writes xz</Description>
+      <AddressString>deadrising4.exe+15E3F51</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4A</Byte>
+        <Byte>18</Byte>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+38],ecx - writes y</Description>
+      <AddressString>deadrising4.exe+15E3F59</AddressString>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>8B</Byte>
+        <Byte>4A</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rdi+54],eax - writes fov</Description>
+      <AddressString>deadrising4.exe+15E3F7F</AddressString>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>50</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>34</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>54</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>38</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rdi+3C],xmm0 - writes r1</Description>
+      <AddressString>deadrising4.exe+15E3F61</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>42</Byte>
+        <Byte>1C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4A</Byte>
+        <Byte>24</Byte>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rcx+rax] - junk 4bytes</Description>
+      <AddressString>deadrising4.exe+11B9B00</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>0B</Byte>
+        <Byte>B1</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[rax+18] - health</Description>
+      <AddressString>deadrising4.exe+81CF57</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>05</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C9</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rax+18]</Description>
+      <AddressString>deadrising4.exe+81CF12</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>28</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edi,[rax+18]</Description>
+      <AddressString>deadrising4.exe+81F4CA</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>05</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>78</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>FB</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>This table is for DeadRising 4. It adds a camera with FOV 
+Screenshooting Notes
+=====================
+1. HUD can be disabled in game. Go to Options &gt; Heads Up Display and turn Cinematic Mode Off.
+2. Game does hotsample with SRWE minus some realestate for the window borders. Not sure if this works with the hud toggle.
+==============================
+</Comments>
+</CheatTable>

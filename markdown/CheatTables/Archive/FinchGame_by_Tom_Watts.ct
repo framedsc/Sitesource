@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>438</ID>
+      <Description>"              --- What Remains of Edith Finch (Giant Sparrow, 2017) PC Steam ---"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>435</ID>
+      <Description>"          Free Camera, a Cheat Table for Screenshot only //By Smithfield and IDK"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>449</ID>
+      <Description>"Camera Structure (by strict pointer)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>460</ID>
+          <Description>"Cam. Position Control [DELETE]"</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>808000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>462</ID>
+              <Description>"X,Y Control"</Description>
+              <LastState/>
+              <Color>808000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : FinchGame.exe
+  Version: 
+  Date   : 2017-05-03
+  Author : Smithfield
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+    aobscanmodule(xyAxisControl,FinchGame.exe,F2 0F 11 87 C0 03 00 00) // should be unique
+    alloc(newmem,$1000,"FinchGame.exe"+1106376)
+    label(code)
+    label(return)
+
+    newmem:
+        code:
+            //movsd [rdi+000003C0],xmm0
+            jmp return
+        xyAxisControl:
+          jmp newmem
+          nop
+          nop
+          nop
+        return:
+            registersymbol(xyAxisControl)
+
+[DISABLE]
+    xyAxisControl:
+        db F2 0F 11 87 C0 03 00 00
+
+    unregistersymbol(xyAxisControl)
+    dealloc(newmem)
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>46</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>461</ID>
+              <Description>"Z Control"</Description>
+              <LastState/>
+              <Color>808000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : FinchGame.exe
+  Version: 
+  Date   : 2017-05-03
+  Author : Smithfield
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(zaxisControl,FinchGame.exe,89 87 C8 03 00 00 8B 44) // should be unique
+alloc(newmem,$1000,"FinchGame.exe"+1106391)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rdi+000003C8],eax
+  jmp return
+
+zaxisControl:
+  jmp newmem
+  nop
+return:
+registersymbol(zaxisControl)
+
+[DISABLE]
+
+zaxisControl:
+  db 89 87 C8 03 00 00
+
+unregistersymbol(zaxisControl)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FinchGame.exe"+1106391
+
+"FinchGame.exe"+1106352: F3 0F 10 4C 24 5C        -  movss xmm1,[rsp+5C]
+"FinchGame.exe"+1106358: 8B 88 E8 06 00 00        -  mov ecx,[rax+000006E8]
+"FinchGame.exe"+110635E: 8B 44 24 38              -  mov eax,[rsp+38]
+"FinchGame.exe"+1106362: 89 8F B8 03 00 00        -  mov [rdi+000003B8],ecx
+"FinchGame.exe"+1106368: 48 8D 8F 00 04 00 00     -  lea rcx,[rdi+00000400]
+"FinchGame.exe"+110636F: 83 A7 F0 03 00 00 FC     -  and dword ptr [rdi+000003F0],-04
+"FinchGame.exe"+1106376: F2 0F 11 87 C0 03 00 00  -  movsd [rdi+000003C0],xmm0
+"FinchGame.exe"+110637E: F2 0F 10 44 24 3C        -  movsd xmm0,[rsp+3C]
+"FinchGame.exe"+1106384: F2 0F 11 87 CC 03 00 00  -  movsd [rdi+000003CC],xmm0
+"FinchGame.exe"+110638C: 0F 10 44 24 48           -  movups xmm0,[rsp+48]
+// ---------- INJECTING HERE ----------
+"FinchGame.exe"+1106391: 89 87 C8 03 00 00        -  mov [rdi+000003C8],eax
+// ---------- DONE INJECTING  ----------
+"FinchGame.exe"+1106397: 8B 44 24 44              -  mov eax,[rsp+44]
+"FinchGame.exe"+110639B: 89 87 D4 03 00 00        -  mov [rdi+000003D4],eax
+"FinchGame.exe"+11063A1: 8B 44 24 60              -  mov eax,[rsp+60]
+"FinchGame.exe"+11063A5: 0F 11 87 D8 03 00 00     -  movups [rdi+000003D8],xmm0
+"FinchGame.exe"+11063AC: 83 E0 03                 -  and eax,03
+"FinchGame.exe"+11063AF: F3 0F 10 44 24 58        -  movss xmm0,[rsp+58]
+"FinchGame.exe"+11063B5: 09 87 F0 03 00 00        -  or [rdi+000003F0],eax
+"FinchGame.exe"+11063BB: 0F B6 44 24 64           -  movzx eax,byte ptr [rsp+64]
+"FinchGame.exe"+11063C0: F3 0F 11 87 E8 03 00 00  -  movss [rdi+000003E8],xmm0
+"FinchGame.exe"+11063C8: F3 0F 10 44 24 68        -  movss xmm0,[rsp+68]
+}
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>46</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>464</ID>
+          <Description>""</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>439</ID>
+              <Description>"X Axis (4,6)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"FinchGame.exe"+02AFEE08</Address>
+              <Offsets>
+                <Offset>3C0</Offset>
+                <Offset>368</Offset>
+                <Offset>A0</Offset>
+                <Offset>168</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>4.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>4.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>13.5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>13.5</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>440</ID>
+              <Description>"Y Axis (5,8)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"FinchGame.exe"+02AFEE08</Address>
+              <Offsets>
+                <Offset>3C4</Offset>
+                <Offset>368</Offset>
+                <Offset>A0</Offset>
+                <Offset>168</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>4.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>4.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>13.5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>13.5</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>441</ID>
+              <Description>"Z Axis (7,9)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"FinchGame.exe"+02AFEE08</Address>
+              <Offsets>
+                <Offset>3C8</Offset>
+                <Offset>368</Offset>
+                <Offset>A0</Offset>
+                <Offset>168</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>3</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>3</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>9</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>9</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>454</ID>
+          <Description>"Tilt Control [HOME]"</Description>
+          <LastState/>
+          <Color>808000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : FinchGame.exe
+  Version: 
+  Date   : 2017-05-03
+  Author : Smithfield
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(tiltControl,FinchGame.exe,89 87 D4 03 00 00) // should be unique
+alloc(newmem,$1000,"FinchGame.exe"+110639B)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rdi+000003D4],eax
+  jmp return
+
+tiltControl:
+  jmp newmem
+  nop
+return:
+registersymbol(tiltControl)
+
+[DISABLE]
+
+tiltControl:
+  db 89 87 D4 03 00 00
+
+unregistersymbol(tiltControl)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FinchGame.exe"+110639B
+
+"FinchGame.exe"+110635E: 8B 44 24 38              -  mov eax,[rsp+38]
+"FinchGame.exe"+1106362: 89 8F B8 03 00 00        -  mov [rdi+000003B8],ecx
+"FinchGame.exe"+1106368: 48 8D 8F 00 04 00 00     -  lea rcx,[rdi+00000400]
+"FinchGame.exe"+110636F: 83 A7 F0 03 00 00 FC     -  and dword ptr [rdi+000003F0],-04
+"FinchGame.exe"+1106376: F2 0F 11 87 C0 03 00 00  -  movsd [rdi+000003C0],xmm0
+"FinchGame.exe"+110637E: F2 0F 10 44 24 3C        -  movsd xmm0,[rsp+3C]
+"FinchGame.exe"+1106384: F2 0F 11 87 CC 03 00 00  -  movsd [rdi+000003CC],xmm0
+"FinchGame.exe"+110638C: 0F 10 44 24 48           -  movups xmm0,[rsp+48]
+"FinchGame.exe"+1106391: 89 87 C8 03 00 00        -  mov [rdi+000003C8],eax
+"FinchGame.exe"+1106397: 8B 44 24 44              -  mov eax,[rsp+44]
+// ---------- INJECTING HERE ----------
+"FinchGame.exe"+110639B: 89 87 D4 03 00 00        -  mov [rdi+000003D4],eax
+// ---------- DONE INJECTING  ----------
+"FinchGame.exe"+11063A1: 8B 44 24 60              -  mov eax,[rsp+60]
+"FinchGame.exe"+11063A5: 0F 11 87 D8 03 00 00     -  movups [rdi+000003D8],xmm0
+"FinchGame.exe"+11063AC: 83 E0 03                 -  and eax,03
+"FinchGame.exe"+11063AF: F3 0F 10 44 24 58        -  movss xmm0,[rsp+58]
+"FinchGame.exe"+11063B5: 09 87 F0 03 00 00        -  or [rdi+000003F0],eax
+"FinchGame.exe"+11063BB: 0F B6 44 24 64           -  movzx eax,byte ptr [rsp+64]
+"FinchGame.exe"+11063C0: F3 0F 11 87 E8 03 00 00  -  movss [rdi+000003E8],xmm0
+"FinchGame.exe"+11063C8: F3 0F 10 44 24 68        -  movss xmm0,[rsp+68]
+"FinchGame.exe"+11063CE: F3 0F 11 8F EC 03 00 00  -  movss [rdi+000003EC],xmm1
+"FinchGame.exe"+11063D6: 88 87 F4 03 00 00        -  mov [rdi+000003F4],al
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>36</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>444</ID>
+              <Description>"Tilt (1,3) (reset 2)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"FinchGame.exe"+02AFEE08</Address>
+              <Offsets>
+                <Offset>3D4</Offset>
+                <Offset>368</Offset>
+                <Offset>A0</Offset>
+                <Offset>168</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>1.25</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>70</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>1.25</Value>
+                  <ID>4</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>453</ID>
+          <Description>"Cam. Rotation Control [F3]"</Description>
+          <LastState/>
+          <Color>808000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : FinchGame.exe
+  Version: 
+  Date   : 2017-05-03
+  Author : Smithfield
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(rotationControl,FinchGame.exe,F2 0F 11 87 CC 03 00 00) // should be unique
+alloc(newmem,$1000,"FinchGame.exe"+1106384)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rdi+000003CC],xmm0
+  jmp return
+
+rotationControl:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(rotationControl)
+
+[DISABLE]
+
+rotationControl:
+  db F2 0F 11 87 CC 03 00 00
+
+unregistersymbol(rotationControl)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FinchGame.exe"+1106384
+
+"FinchGame.exe"+1106347: F2 0F 10 44 24 30        -  movsd xmm0,[rsp+30]
+"FinchGame.exe"+110634D: 48 8D 54 24 70           -  lea rdx,[rsp+70]
+"FinchGame.exe"+1106352: F3 0F 10 4C 24 5C        -  movss xmm1,[rsp+5C]
+"FinchGame.exe"+1106358: 8B 88 E8 06 00 00        -  mov ecx,[rax+000006E8]
+"FinchGame.exe"+110635E: 8B 44 24 38              -  mov eax,[rsp+38]
+"FinchGame.exe"+1106362: 89 8F B8 03 00 00        -  mov [rdi+000003B8],ecx
+"FinchGame.exe"+1106368: 48 8D 8F 00 04 00 00     -  lea rcx,[rdi+00000400]
+"FinchGame.exe"+110636F: 83 A7 F0 03 00 00 FC     -  and dword ptr [rdi+000003F0],-04
+"FinchGame.exe"+1106376: F2 0F 11 87 C0 03 00 00  -  movsd [rdi+000003C0],xmm0
+"FinchGame.exe"+110637E: F2 0F 10 44 24 3C        -  movsd xmm0,[rsp+3C]
+// ---------- INJECTING HERE ----------
+"FinchGame.exe"+1106384: F2 0F 11 87 CC 03 00 00  -  movsd [rdi+000003CC],xmm0
+// ---------- DONE INJECTING  ----------
+"FinchGame.exe"+110638C: 0F 10 44 24 48           -  movups xmm0,[rsp+48]
+"FinchGame.exe"+1106391: 89 87 C8 03 00 00        -  mov [rdi+000003C8],eax
+"FinchGame.exe"+1106397: 8B 44 24 44              -  mov eax,[rsp+44]
+"FinchGame.exe"+110639B: 90                       -  nop 
+"FinchGame.exe"+110639C: 90                       -  nop 
+"FinchGame.exe"+110639D: 90                       -  nop 
+"FinchGame.exe"+110639E: 90                       -  nop 
+"FinchGame.exe"+110639F: 90                       -  nop 
+"FinchGame.exe"+11063A0: 90                       -  nop 
+"FinchGame.exe"+11063A1: 8B 44 24 60              -  mov eax,[rsp+60]
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>443</ID>
+              <Description>"Rotation horz. (g+8, g+5)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"FinchGame.exe"+02AFEE08</Address>
+              <Offsets>
+                <Offset>3CC</Offset>
+                <Offset>368</Offset>
+                <Offset>A0</Offset>
+                <Offset>168</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>71</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>1.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>71</Key>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>1.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>442</ID>
+              <Description>"Rotation vert. (g+6, g+4)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"FinchGame.exe"+02AFEE08</Address>
+              <Offsets>
+                <Offset>3D0</Offset>
+                <Offset>368</Offset>
+                <Offset>A0</Offset>
+                <Offset>168</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>71</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>1.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>71</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>1.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>465</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>451</ID>
+      <Description>"FOV Control [INSERT]"</Description>
+      <LastState/>
+      <Color>808000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : FinchGame.exe
+  Version: 
+  Date   : 2017-05-03
+  Author : Smithfield
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(fovControl,FinchGame.exe,0F 11 87 D8 03 00 00) // should be unique
+alloc(newmem,$1000,"FinchGame.exe"+11063A5)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movups [rdi+000003D8],xmm0
+  jmp return
+
+fovControl:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(fovControl)
+
+[DISABLE]
+
+fovControl:
+  db 0F 11 87 D8 03 00 00
+
+unregistersymbol(fovControl)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FinchGame.exe"+11063A5
+
+"FinchGame.exe"+110638C: 0F 10 44 24 48              -  movups xmm0,[rsp+48]
+"FinchGame.exe"+1106391: 89 87 C8 03 00 00           -  mov [rdi+000003C8],eax
+"FinchGame.exe"+1106397: 8B 44 24 44                 -  mov eax,[rsp+44]
+"FinchGame.exe"+110639B: 90                          -  nop 
+"FinchGame.exe"+110639C: 90                          -  nop 
+"FinchGame.exe"+110639D: 90                          -  nop 
+"FinchGame.exe"+110639E: 90                          -  nop 
+"FinchGame.exe"+110639F: 90                          -  nop 
+"FinchGame.exe"+11063A0: 90                          -  nop 
+"FinchGame.exe"+11063A1: 8B 44 24 60                 -  mov eax,[rsp+60]
+// ---------- INJECTING HERE ----------
+"FinchGame.exe"+11063A5: 0F 11 87 D8 03 00 00        -  movups [rdi+000003D8],xmm0
+// ---------- DONE INJECTING  ----------
+"FinchGame.exe"+11063AC: 83 E0 03                    -  and eax,03
+"FinchGame.exe"+11063AF: F3 0F 10 44 24 58           -  movss xmm0,[rsp+58]
+"FinchGame.exe"+11063B5: 09 87 F0 03 00 00           -  or [rdi+000003F0],eax
+"FinchGame.exe"+11063BB: 0F B6 44 24 64              -  movzx eax,byte ptr [rsp+64]
+"FinchGame.exe"+11063C0: F3 0F 11 87 E8 03 00 00     -  movss [rdi+000003E8],xmm0
+"FinchGame.exe"+11063C8: F3 0F 10 44 24 68           -  movss xmm0,[rsp+68]
+"FinchGame.exe"+11063CE: F3 0F 11 8F EC 03 00 00     -  movss [rdi+000003EC],xmm1
+"FinchGame.exe"+11063D6: 88 87 F4 03 00 00           -  mov [rdi+000003F4],al
+"FinchGame.exe"+11063DC: F3 0F 11 87 F8 03 00 00     -  movss [rdi+000003F8],xmm0
+"FinchGame.exe"+11063E4: E8 77 9C 07 FF              -  call FinchGame.exe+180060
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>45</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Fov (+,-) (reset *)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"FinchGame.exe"+02AFEE08</Address>
+          <Offsets>
+            <Offset>3D8</Offset>
+            <Offset>368</Offset>
+            <Offset>A0</Offset>
+            <Offset>168</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>80</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>70</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>70</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>466</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>452</ID>
+      <Description>"AR Control"</Description>
+      <LastState/>
+      <Color>808000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : FinchGame.exe
+  Version: 
+  Date   : 2017-05-03
+  Author : Smithfield
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(ARControl,FinchGame.exe,F3 0F 11 87 E8 03 00 00 F3) // should be unique
+alloc(newmem,$1000,"FinchGame.exe"+11063C0)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rdi+000003E8],xmm0
+  jmp return
+
+ARControl:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(ARControl)
+
+[DISABLE]
+
+ARControl:
+  db F3 0F 11 87 E8 03 00 00
+
+unregistersymbol(ARControl)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "FinchGame.exe"+11063C0
+
+"FinchGame.exe"+110639D: 90                       -  nop 
+"FinchGame.exe"+110639E: 90                       -  nop 
+"FinchGame.exe"+110639F: 90                       -  nop 
+"FinchGame.exe"+11063A0: 90                       -  nop 
+"FinchGame.exe"+11063A1: 8B 44 24 60              -  mov eax,[rsp+60]
+"FinchGame.exe"+11063A5: 0F 11 87 D8 03 00 00     -  movups [rdi+000003D8],xmm0
+"FinchGame.exe"+11063AC: 83 E0 03                 -  and eax,03
+"FinchGame.exe"+11063AF: F3 0F 10 44 24 58        -  movss xmm0,[rsp+58]
+"FinchGame.exe"+11063B5: 09 87 F0 03 00 00        -  or [rdi+000003F0],eax
+"FinchGame.exe"+11063BB: 0F B6 44 24 64           -  movzx eax,byte ptr [rsp+64]
+// ---------- INJECTING HERE ----------
+"FinchGame.exe"+11063C0: F3 0F 11 87 E8 03 00 00  -  movss [rdi+000003E8],xmm0
+// ---------- DONE INJECTING  ----------
+"FinchGame.exe"+11063C8: F3 0F 10 44 24 68        -  movss xmm0,[rsp+68]
+"FinchGame.exe"+11063CE: F3 0F 11 8F EC 03 00 00  -  movss [rdi+000003EC],xmm1
+"FinchGame.exe"+11063D6: 88 87 F4 03 00 00        -  mov [rdi+000003F4],al
+"FinchGame.exe"+11063DC: F3 0F 11 87 F8 03 00 00  -  movss [rdi+000003F8],xmm0
+"FinchGame.exe"+11063E4: E8 77 9C 07 FF           -  call FinchGame.exe+180060
+"FinchGame.exe"+11063E9: 8B 87 50 14 00 00        -  mov eax,[rdi+00001450]
+"FinchGame.exe"+11063EF: A8 02                    -  test al,02
+"FinchGame.exe"+11063F1: 0F 84 8A 00 00 00        -  je FinchGame.exe+1106481
+"FinchGame.exe"+11063F7: 0F BA E0 0B              -  bt eax,0B
+"FinchGame.exe"+11063FB: 73 6F                    -  jae FinchGame.exe+110646C
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>446</ID>
+          <Description>"Aspect Ratio (Input target resolution quotient)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"FinchGame.exe"+02AFEE08</Address>
+          <Offsets>
+            <Offset>3E8</Offset>
+            <Offset>368</Offset>
+            <Offset>A0</Offset>
+            <Offset>168</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>467</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>450</ID>
+      <Description>"RGB Color Channel?"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>448</ID>
+          <Description>"Red Channel"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"FinchGame.exe"+02AFEE08</Address>
+          <Offsets>
+            <Offset>388</Offset>
+            <Offset>368</Offset>
+            <Offset>A0</Offset>
+            <Offset>168</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>447</ID>
+          <Description>"Green Channel"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"FinchGame.exe"+02AFEE08</Address>
+          <Offsets>
+            <Offset>38C</Offset>
+            <Offset>368</Offset>
+            <Offset>A0</Offset>
+            <Offset>168</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>445</ID>
+          <Description>"Blue Channel"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"FinchGame.exe"+02AFEE08</Address>
+          <Offsets>
+            <Offset>390</Offset>
+            <Offset>368</Offset>
+            <Offset>A0</Offset>
+            <Offset>168</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>463</ID>
+      <Description>""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>459</ID>
+      <Description>"Back-up reading: First Spawn (Forest Path) X=-14749, Y=10845, Z=767, fov=80, fov on zoom=60"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>468</ID>
+      <Description>"All numbers are from the Numeric Pad, Faster moves using modification key 'F'"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>469</ID>
+      <Description>"Custom Resolution &gt;&gt; C:\Users\Username\AppData\Local\FinchGame\Saved\Config\WindowsNoEditor\GameUserSettings.ini"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

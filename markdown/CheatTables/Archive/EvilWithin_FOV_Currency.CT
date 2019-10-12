@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12594</ID>
+      <Description>"FOV Script [Pg Dn]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"evilwithin.exe"+92AA18)
+label(returnhere)
+label(exit)
+label(pFOV)
+registersymbol(pFOV)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pFOV],rsi
+movss xmm1,[rsi+000004B8]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pFOV:
+dd 0
+//
+
+"evilwithin.exe"+92AA18:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"evilwithin.exe"+92AA18:
+movss xmm1,[rsi+000004B8]
+unregistersymbol(pFOV)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12361</ID>
+          <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pFOV</Address>
+          <Offsets>
+            <Offset>4b8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12601</ID>
+      <Description>"Currency script"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"evilwithin.exe"+7BC3CD)
+label(returnhere)
+label(exit)
+label(pCurrency)
+registersymbol(pCurrency)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCurrency],rax
+mov eax,[rax+10]
+add rsp,20
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pCurrency:
+dd 0
+//
+
+"evilwithin.exe"+7BC3CD:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"evilwithin.exe"+7BC3CD:
+mov eax,[rax+10]
+add rsp,20
+unregistersymbol(pCurrency)
+
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12602</ID>
+          <Description>"Enable script, bring up purchase screen to populate the pointer, change to value of your choice."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12600</ID>
+          <Description>"Currency"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCurrency</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12603</ID>
+      <Description>"No description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>A75764E4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12604</ID>
+      <Description>"No description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>ADEDA37C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12605</ID>
+      <Description>"No description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>DDA81858</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12606</ID>
+      <Description>"Executioner Coins script"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"evilwithin.exe"+C6064D)
+label(returnhere)
+label(exit)
+label(pCoins)
+registersymbol(pCoins)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCoins],rax
+mov ebx,[rax+10]
+mov edx,ebx
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pCoins:
+dd 0
+//
+
+"evilwithin.exe"+C6064D:
+jmp newmem
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"evilwithin.exe"+C6064D:
+mov ebx,[rax+10]
+mov edx,ebx
+unregistersymbol(pCoins)
+
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12607</ID>
+          <Description>"Enable script, bring up purchase screen to populate the pointer, change to value of your choice."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12608</ID>
+          <Description>"Currency"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCoins</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rdi+00005164] - fov</Description>
+      <Address>140370CC1</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>860CC1</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>DF</Byte>
+        <Byte>9C</Byte>
+        <Byte>FC</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8F</Byte>
+        <Byte>64</Byte>
+        <Byte>51</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>B7</Byte>
+        <Byte>40</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rsi+00005164],eax</Description>
+      <Address>140370158</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>860158</ModuleNameOffset>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>74</Byte>
+        <Byte>56</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>64</Byte>
+        <Byte>51</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>BC</Byte>
+        <Byte>24</Byte>
+        <Byte>A0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rsi+000004B8] - debug fov</Description>
+      <Address>1403EAA18</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>92AA18</ModuleNameOffset>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>0C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8E</Byte>
+        <Byte>B8</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>9B</Byte>
+        <Byte>E2</Byte>
+        <Byte>EF</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rsi+000004B8],xmm6</Description>
+      <Address>1404ABC4E</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>92BC4E</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B6</Byte>
+        <Byte>B8</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rax+10] - accesses plasma</Description>
+      <Address>14063C3CD</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>7BC3CD</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>09</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :add ebx,[r9+10] - executioner coins</Description>
+      <Address>140676C99</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>956C99</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>75</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>03</Byte>
+        <Byte>59</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>C6</Byte>
+        <Byte>41</Byte>
+        <Byte>3B</Byte>
+        <Byte>F6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ebx,[rax+10]</Description>
+      <Address>14098064D</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>C6064D</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>58</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>D3</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>0D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov esi,[rax+10]</Description>
+      <Address>14097E4F3</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>C5E4F3</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>70</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>3B</Byte>
+        <Byte>B6</Byte>
+        <Byte>18</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[rax+10]</Description>
+      <Address>14097E6E3</Address>
+      <ModuleName>evilwithin.exe</ModuleName>
+      <ModuleNameOffset>C5E6E3</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>05</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>FOV</Name>
+      <Address>13FA60029</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pFOV</Name>
+      <Address>13FD1002B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCoins</Name>
+      <Address>13FD0002B</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>FOV is float. 65 to 48 with pistol zoom. debug FOV is  grabbed from game FOV when debugcmaera enabled.
+</Comments>
+</CheatTable>

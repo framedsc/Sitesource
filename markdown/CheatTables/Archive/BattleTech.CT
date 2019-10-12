@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"[ Enable ]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+
+if not syntaxcheck then
+  LaunchMonoDataCollector()
+end
+
+[DISABLE]
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Cheat Handler"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define( GodMode, "BattleTech.UI:CombatDebugHUD:DEBUG_PlayerOneGodMode" )
+define( CombatDebugHUD_Update, "BattleTech.UI:CombatDebugHUD:Update" )
+
+[ENABLE]
+
+alloc( KeyHandlerThread, 0x1000, BattleTech.exe )
+registersymbol( KeyHandlerThread )
+CreateThread( KeyHandlerThread )
+label( KeyHandlerOff )
+registersymbol( KeyHandlerOff )
+label( KeyHandlerThread_loop )
+
+// variables/labels
+label( self )
+registersymbol( self )
+label( pCombatDebugHUD )
+registersymbol( pCombatDebugHUD )
+label( CombatDebugHUD_Update_h )
+label( CombatDebugHUD_Update_o )
+label( CombatDebugHUD_Update_b )
+
+// functions
+label( Test_do )
+
+KeyHandlerThread:
+sub rsp,28
+
+KeyHandlerThread_loop:
+mov rcx,A
+call Sleep
+
+cmp [KeyHandlerOff],1
+jne short @f
+  add rsp,28
+  mov [KeyHandlerOff],2
+  ret
+@@:
+
+  // VK_NUMPAD0
+  mov rcx,60
+  call GetAsyncKeyState
+  test ax,ax
+  je @f
+
+    call Test_do
+
+    mov rcx,C8
+    call kernel32.Sleep
+
+  @@:
+  jmp KeyHandlerThread_loop
+
+//*******************************
+//*          Functions          *
+//*******************************
+
+Test_do:
+sub rsp,28
+
+// attach thread to mono domain
+call mono.mono_get_root_domain
+mov rcx,rax
+call mono.mono_thread_attach
+mov [self],rax
+
+mov rcx,[pCombatDebugHUD]
+// pointer is initialized right before BEGIN MISSION
+// if GodMode is toggled anytime before that event, bail
+test rcx,rcx
+je short @f
+
+  call GodMode
+
+@@:
+// detach thread from mono domain
+mov rcx,[self]
+call mono.mono_thread_detach
+
+add rsp,28
+ret
+
+CombatDebugHUD_Update_h:
+mov [pCombatDebugHUD],rcx
+CombatDebugHUD_Update_o:
+readmem( CombatDebugHUD_Update, 15 )
+jmp CombatDebugHUD_Update_b
+
+//***************************
+//*          Inits          *
+//***************************
+
+KeyHandlerOff:
+dd 0
+
+self:
+dq 0
+
+pCombatHUD:
+dq 0
+
+pCombatDebugHUD:
+dq 0
+
+//***************************
+//*          Hooks          *
+//***************************
+
+//get .this Instance pointer ;)
+
+CombatDebugHUD_Update:
+jmp CombatDebugHUD_Update_h
+CombatDebugHUD_Update_b:
+
+[DISABLE]
+
+CombatDebugHUD_Update:
+readmem( CombatDebugHUD_Update_o, 15 )
+
+{$lua}
+
+if not syntaxcheck then
+  local starttime = getTickCount()
+
+  if readInteger( "KeyHandlerOff" ) == 0 then --could be 2 already
+    writeInteger( "KeyHandlerOff", 1 ) --tell the thread to kill itself
+  end
+
+  while( getTickCount() &lt; starttime + 1000 ) and ( readInteger( "KeyHandlerOff" ) ~= 2 ) do --wait till it has finished
+    sleep( 20 )
+  end
+
+  if( getTickCount() &gt; starttime + 1000 ) then --could happen when the window is shown
+    showMessage( 'Disabling the thread failed!' )
+    error( 'Thread disabling failed!' )
+  end
+    sleep( 1 )
+  end
+
+{$asm}
+
+unregistersymbol( pCombatDebugHUD )
+unregistersymbol( self )
+unregistersymbol( KeyHandlerOff )
+unregistersymbol( KeyHandlerThread )
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"[ Debug ]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"pCombatDebugHUD"</Description>
+          <LastState Value="000000014887FA80" RealAddress="7FF63F370129"/>
+          <ShowAsHex>1</ShowAsHex>
+          <Color>0080FF</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>pCombatDebugHUD</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

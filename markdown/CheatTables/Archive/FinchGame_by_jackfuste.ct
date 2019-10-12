@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Black_Bars"</Description>
+      <LastState Value="00" RealAddress="7FF6AEF44C92"/>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Byte</VariableType>
+      <Address>FinchGame.exe+12E4C92</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"FOV"</Description>
+      <LastState Value="0.01172664668" RealAddress="7FF6AFBB9974"/>
+      <VariableType>Float</VariableType>
+      <Address>FinchGame.exe+1F59974</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

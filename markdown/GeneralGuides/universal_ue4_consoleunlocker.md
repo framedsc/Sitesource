@@ -1,6 +1,11 @@
 Universal Unreal Engine 4 Console Unlocker
 =============
 
+@alert Important
+It's forbidden to host the Universal Unreal Engine 4 Console Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
+unlocker binary is distributed is this site. 
+@end
+
 For Unreal Engine 4 powered games, it's possible to re-create the in-game console that's usually stripped out when the game is build for shipping. To do so, 
 you can use the Universal UE4 Console Unlocker / Dumper dll (comes with injector exe and readme). After adjusting the .ini file for the right exe to inject the 
 dll in, it should show a console window that it has found all offsets and the console object has been created as well as that cheats have been enabled. 
@@ -47,8 +52,9 @@ and therefore it's not possible to open the console. However it's easy to correc
 
 * In explorer go to: `c:\users\<your username>\AppData\Local\<game name>\Saved\Config\WindowsNoEditor`
 * open Input.ini
-* Add:
+* Add (pay attention to the empty line, that has to be there):
 ```
+
 [/Script/Engine.InputSettings]
 ConsoleKey=Tilde
 ```
@@ -66,32 +72,45 @@ after you've loaded a new level, you have to dump the files again. The Objects f
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code
 and the unlocker can't re-activate the console as essential functions aren't there anymore. The list below are games which are known to work with the unlocker. 
 
+* A Knight`s Quest
 * Agony
 * Alice VR
 * Ancestors Legacy
+* Ancestors - The Humankind Odyssey
+* Ancient Knowledge
 * Another Sight Definitive Edition
-* Asemblance: Oversight
+* Apsulov: End of Gods
+* Assemblance: Oversight
+* Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
+* Blair Witch
+* Borderlands 3
 * Bright Memory
 * Burning Daylight
 * Call of Cthulhu
 * Captain Starshot
 * Close to the Sun
+* Code Vein
 * Conarium
+* Creature in the Well
 * Dark Future: Blood Red States
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Daymare: 1998
+* Deep Rock Galactic
 * Deliver Us The Moon
 * Desolate
-* Deep Rock Galactic
+* Devil's Hunt
 * Donensbourgh
+* Draugen
 * Dreamscaper
 * Driftland
 * Earthfall
 * Echo
 * Elea
+* Everspace
 * Extinction
 * Fade to silence
 * The Fidelio Incident
@@ -102,19 +121,26 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Hollow
 * Hunting Simulator
 * Insomnia the Ark
+* Intruders: Hide and Seek"
 * Jump Force (limited)
 * Killsquad
+* Koral
 * Laser League
 * Layers of Fear 2
+* Ling: a Road Alone 
+* Little Brother Jim
+* Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
-* MotoGP 19
+* Monster Jam Steel Titans
 * Morphies Law Remorphed
+* MotoGP 19
 * Mutant Year Zero: Road to Eden
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
 * Operencia: The Stolen Sun
 * Overkill's The Walking Dead
+* Pagui打鬼
 * Paranormal Activity The Lost Soul
 * Past Cure
 * Planet Alpha
@@ -124,24 +150,33 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Omen of Sorrow
 * Omensight
 * Quantum Replica
+* Qube 2
+* RAD
 * Redeemer
+* Remnant: From the Ashes
 * Remothered: Tormented Fathers
 * Ruiner
 * The Sinking City
-* Sinner: Sacrifice for Redemption
+* Session: Skateboarding Sim Game
 * Shape of the World
+* Silver Chains
+* Sinner: Sacrifice for Redemption
 * Skylar and Plux
+* The Sojourn
 * SolSeraph
 * Sophont
 * Soul Valley
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
+* Spyro Reignited Trilogy
 * Stardrop
 * Steel rats
 * Stories: the Path of Destinies
 * Styx 2
+* Subdivision Infinity DX
 * Supraland
 * Tartarus
+* Tower of Fate
 * Train Sim World
 * Tropico 6
 * Urban Trial Playground
@@ -153,7 +188,21 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.6](https://mega.nz/#!4AJBmajK!eeSzCmZKZnBjQRuR_3nEc7Z1vRbAmWT9P2paN8VxXUg)
+* [Universal UE4 Unlocker v1.0.13](https://mega.nz/#!xExGzIpJ!BAEOjKWiC4VkK1JR2rtXqylgbjwfDpo_xSzEa4BtdF8)
+
+## Console tricks
+The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
+Additionally, it supports multiple commands on the same line, where you separate the commands with the `|` character. Combined with copy/paste you can
+create long strings of commands in a text file and copy/paste them over to execute all the commands in one go. 
+
+Examples:
+```
+showhud 0|fov 60|pause|toggledebugcamera|r.postprocessaaquality 2
+```
+This hides the hud, sets fov to 60, pauses the game, enables the debug camera and sets the AA to a lower quality so you don't have jitter blur. 
+
+The console also remembers a history of commands, and keeps the line with multiple concatenated commands as one line. To show the history, press the arrow-up key
+in the console. 
 
 ## Troubleshooting
 You might get an error with older games that it can't find the EngineVersion key and it will fall back to the default version. 

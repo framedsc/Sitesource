@@ -3,8 +3,9 @@ How to use Cheat Engine Tables
 
 ## 1. Download and install Cheat Engine
 [This is the Cheat Engine website](https://www.cheatengine.org/). The download link is at the very top of the page. It's hard to miss.
-
 When installing, make sure NOT to install any additional software (uncheck the boxes [when you see things like this](https://i.imgur.com/IuI8wc4.png)).
+You can also pick a non-automated installer and skip the malware cruft, by going to [this page](https://www.cheatengine.org/downloads.php) and pick the 
+installer from there (read the texts, then pick the right link). 
 
 When you're done installing, you'll now be able to open cheat engine tables. 
 

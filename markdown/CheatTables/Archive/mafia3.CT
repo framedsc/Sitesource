@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>240</ID>
+      <Description>"I Use"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Undetectable (F6)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(aobStealth,mafia3.exe,F3 44 0F 11 47 18 * * * * 05)
+alloc(newmem,$100,aobStealth)
+
+label(code)
+label(return)
+
+
+
+newmem:
+
+code:
+  mov [rdi+18],(float)0
+  jmp return
+
+aobStealth:
+  jmp code
+  nop
+return:
+registersymbol(aobStealth)
+
+[DISABLE]
+
+aobStealth:
+  db F3 44 0F 11 47 18
+
+unregistersymbol(aobStealth)
+dealloc(newmem)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>117</Key>
+              </Keys>
+              <Description>Undetectable</Description>
+              <ID>0</ID>
+              <ActivateSound TTS="EN">{Description} Activated</ActivateSound>
+              <DeactivateSound TTS="EN">{Description} Deactivated</DeactivateSound>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>38</ID>
+          <Description>"Unlimited Ammo (Remaining)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(max_ammo,mafia3.exe,76 0B 41 2B C2)
+max_ammo:
+  db 90 90 90 90 90
+registersymbol(max_ammo)
+
+[DISABLE]
+max_ammo:
+  db 76 0B 41 2B C2
+unregistersymbol(max_ammo)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+2F11FBA
+
+"mafia3.exe"+2F11F9E: 74 23                    -  je mafia3.exe+2F11FC3
+"mafia3.exe"+2F11FA0: 41 39 10                 -  cmp [r8],edx
+"mafia3.exe"+2F11FA3: 74 09                    -  je mafia3.exe+2F11FAE
+"mafia3.exe"+2F11FA5: 49 83 C0 08              -  add r8,08
+"mafia3.exe"+2F11FA9: 4D 3B C1                 -  cmp r8,r9
+"mafia3.exe"+2F11FAC: 75 F2                    -  jne mafia3.exe+2F11FA0
+"mafia3.exe"+2F11FAE: 4D 3B C1                 -  cmp r8,r9
+"mafia3.exe"+2F11FB1: 74 10                    -  je mafia3.exe+2F11FC3
+"mafia3.exe"+2F11FB3: 41 8B 40 04              -  mov eax,[r8+04]
+"mafia3.exe"+2F11FB7: 41 3B C2                 -  cmp eax,r10d
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+2F11FBA: 76 0B                    -  jna mafia3.exe+2F11FC7
+"mafia3.exe"+2F11FBC: 41 2B C2                 -  sub eax,r10d
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+2F11FBF: 41 89 40 04              -  mov [r8+04],eax
+"mafia3.exe"+2F11FC3: 41 8B C2                 -  mov eax,r10d
+"mafia3.exe"+2F11FC6: C3                       -  ret 
+"mafia3.exe"+2F11FC7: 41 C7 40 04 00 00 00 00  -  mov [r8+04],00000000
+"mafia3.exe"+2F11FCF: C3                       -  ret 
+"mafia3.exe"+2F11FD0: 40 53                    -  push rbx
+"mafia3.exe"+2F11FD2: 48 83 EC 20              -  sub rsp,20
+"mafia3.exe"+2F11FD6: 48 8B D9                 -  mov rbx,rcx
+"mafia3.exe"+2F11FD9: 48 8B 49 28              -  mov rcx,[rcx+28]
+"mafia3.exe"+2F11FDD: 4C 8B 43 30              -  mov r8,[rbx+30]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>157</ID>
+          <Description>"Unlimited Adrenaline Shots"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(shots,mafia3.exe,FF C9 89 4A 18)
+shots:
+  db 90 90
+registersymbol(shots)
+
+[DISABLE]
+shots:
+  db FF C9
+unregistersymbol(shots)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+2F0F227
+
+"mafia3.exe"+2F0F20D: C5 CE                    -  lds ecx,esi
+"mafia3.exe"+2F0F20F: 47 48                    -  dec r8d
+"mafia3.exe"+2F0F211: 83 EC 28                 -  sub esp,28
+"mafia3.exe"+2F0F214: 48 8B C2                 -  mov rax,rdx
+"mafia3.exe"+2F0F217: 48 8B D1                 -  mov rdx,rcx
+"mafia3.exe"+2F0F21A: 80 78 18 09              -  cmp byte ptr [rax+18],09
+"mafia3.exe"+2F0F21E: 75 1F                    -  jne mafia3.exe+2F0F23F
+"mafia3.exe"+2F0F220: 8B 49 18                 -  mov ecx,[rcx+18]
+"mafia3.exe"+2F0F223: 85 C9                    -  test ecx,ecx
+"mafia3.exe"+2F0F225: 7E 18                    -  jle mafia3.exe+2F0F23F
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+2F0F227: FF C9                    -  dec ecx
+"mafia3.exe"+2F0F229: 89 4A 18                 -  mov [rdx+18],ecx
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+2F0F22C: 48 8B C8                 -  mov rcx,rax
+"mafia3.exe"+2F0F22F: 48 8B 10                 -  mov rdx,[rax]
+"mafia3.exe"+2F0F232: FF 92 40 03 00 00        -  call qword ptr [rdx+00000340]
+"mafia3.exe"+2F0F238: B0 01                    -  mov al,01
+"mafia3.exe"+2F0F23A: 48 83 C4 28              -  add rsp,28
+"mafia3.exe"+2F0F23E: C3                       -  ret 
+"mafia3.exe"+2F0F23F: 32 C0                    -  xor al,al
+"mafia3.exe"+2F0F241: 48 83 C4 28              -  add rsp,28
+"mafia3.exe"+2F0F245: C3                       -  ret 
+"mafia3.exe"+2F0F246: 90                       -  nop 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>165</ID>
+          <Description>"Cash Pointer (Open Map)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(cash,mafia3.exe,41 8B 40 04 C3 41)
+alloc(newmem,$100,cash)
+
+label(code)
+label(return)
+label(cash_ptr)
+
+newmem:
+  mov rax,cash_ptr
+  mov [rax],r8
+  xor rax,rax
+code:
+  mov eax,[r8+04]
+  ret 
+  jmp return
+
+cash_ptr:
+  dq 0
+
+cash:
+  jmp newmem
+return:
+registersymbol(cash)
+registersymbol(cash_ptr)
+
+[DISABLE]
+cash:
+  db 41 8B 40 04 C3
+unregistersymbol(cash)
+unregistersymbol(cash_ptr)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+21A0B5C
+
+"mafia3.exe"+21A0B3E: CC                             -  int 3 
+"mafia3.exe"+21A0B3F: E8 4C 8B 01 85                 -  call 7FF752829690
+"mafia3.exe"+21A0B44: D2 74 1A 83                    -  shl byte ptr [rdx+rbx-7D],cl
+"mafia3.exe"+21A0B48: EA 01 74 10 83 FA 01           -  jmp 01FA:83107401
+"mafia3.exe"+21A0B4F: 74 03                          -  je mafia3.exe+21A0B54
+"mafia3.exe"+21A0B51: 33 C0                          -  xor eax,eax
+"mafia3.exe"+21A0B53: C3                             -  ret 
+"mafia3.exe"+21A0B54: 41 8B 40 04                    -  mov eax,[r8+04]
+"mafia3.exe"+21A0B58: 41 03 00                       -  add eax,[r8]
+"mafia3.exe"+21A0B5B: C3                             -  ret 
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+21A0B5C: 41 8B 40 04                    -  mov eax,[r8+04]
+"mafia3.exe"+21A0B60: C3                             -  ret 
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+21A0B61: 41 8B 00                       -  mov eax,[r8]
+"mafia3.exe"+21A0B64: C3                             -  ret 
+"mafia3.exe"+21A0B65: 90                             -  nop 
+"mafia3.exe"+21A0B66: E4 B5                          -  in al,-4B
+"mafia3.exe"+21A0B68: EA BA 82 E9 85 B2 E6           -  jmp E6B2:85E982BA
+"mafia3.exe"+21A0B6F: 73 80                          -  jae mafia3.exe+21A0AF1
+"mafia3.exe"+21A0B71: 79 20                          -  jns mafia3.exe+21A0B93
+"mafia3.exe"+21A0B73: 00 48 8D                       -  add [rax-73],cl
+"mafia3.exe"+21A0B76: 15 E5 2D A1 02                 -  adc eax,02A12DE5
+"mafia3.exe"+21A0B7B: 48 8D 05 F6 2D A1 02           -  lea rax,[mafia3.exe+4BB3978]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>180</ID>
+              <Description>"Cash in Wallet"</Description>
+              <Color>000000</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>cash_ptr</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>167</ID>
+              <Description>"Cash in Vault"</Description>
+              <Color>000000</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>cash_ptr</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>217</ID>
+          <Description>"Wiretap Fuse Pointer (Open Map)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(electronics,mafia3.exe,38 48 8B 43 48 F3 0F 11 40 08)
+alloc(newmem,$100,electronics)
+
+label(code)
+label(return)
+label(electronics_ptr)
+
+newmem:
+  mov rax,electronics_ptr
+  mov [rax],rcx
+code:
+  mov rax,[rbx+48]
+  movss [rax+08],xmm0
+  jmp return
+
+electronics_ptr:
+dq 0
+
+electronics+01:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(electronics)
+registersymbol(electronics_ptr)
+
+[DISABLE]
+electronics+01:
+  db 48 8B 43 48 F3 0F 11 40 08
+unregistersymbol(electronics)
+unregistersymbol(electronics_ptr)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+1134A3F
+
+"mafia3.exe"+1134A22: 5B                          -  pop rbx
+"mafia3.exe"+1134A23: C3                          -  ret 
+"mafia3.exe"+1134A24: 90                          -  nop 
+"mafia3.exe"+1134A25: C5 83 7E E9 56 BA           -  lds eax,[rbx-45A91682]
+"mafia3.exe"+1134A2B: A1 15 03 2F B3 40 53 48 83  -  mov eax,[83485340B32F0315]
+"mafia3.exe"+1134A34: EC                          -  in al,dx
+"mafia3.exe"+1134A35: 20 48 8B                    -  and [rax-75],cl
+"mafia3.exe"+1134A38: 01 48 8B                    -  add [rax-75],ecx
+"mafia3.exe"+1134A3B: DA                          -   
+"mafia3.exe"+1134A3C: FF 50 38                    -  call qword ptr [rax+38]
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+1134A3F: 48 8B 43 48                 -  mov rax,[rbx+48]
+"mafia3.exe"+1134A43: F3 0F 11 40 08              -  movss [rax+08],xmm0
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+1134A48: C7 00 03 00 00 00           -  mov [rax],00000003
+"mafia3.exe"+1134A4E: 48 83 C0 10                 -  add rax,10
+"mafia3.exe"+1134A52: 48 89 43 48                 -  mov [rbx+48],rax
+"mafia3.exe"+1134A56: B8 01 00 00 00              -  mov eax,00000001
+"mafia3.exe"+1134A5B: 48 83 C4 20                 -  add rsp,20
+"mafia3.exe"+1134A5F: 5B                          -  pop rbx
+"mafia3.exe"+1134A60: C3                          -  ret 
+"mafia3.exe"+1134A61: 90                          -  nop 
+"mafia3.exe"+1134A62: 51                          -  push rcx
+"mafia3.exe"+1134A63: 4B 6C                       -  insb 
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>218</ID>
+              <Description>"Electronics"</Description>
+              <VariableType>Float</VariableType>
+              <Address>electronics_ptr</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>291</ID>
+      <Description>"Ray2160 Table"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>306</ID>
+          <Description>"Unlimited Grenades"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : mafia3.exe
+  Version: Steam 6/25/2017
+  Date   : 2017-06-25
+  Author : ray2160
+
+  Unlimited Grenades
+}
+
+[ENABLE]
+
+aobscanmodule(Grenades,mafia3.exe,C7 40 04 00 00 00 00 8B C1 C3)
+alloc(newmem,$100,"mafia3.exe"+2FDD905)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+04],00000000
+  mov [rax+04],1
+  jmp return
+
+Grenades:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(Grenades)
+
+[DISABLE]
+
+Grenades:
+  db C7 40 04 00 00 00 00
+
+unregistersymbol(Grenades)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+2FDD905
+
+"mafia3.exe"+2FDD8EB: 74 22                 -  je mafia3.exe+2FDD90F
+"mafia3.exe"+2FDD8ED: 0F 1F 00              -  nop [rax]
+"mafia3.exe"+2FDD8F0: 39 10                 -  cmp [rax],edx
+"mafia3.exe"+2FDD8F2: 74 09                 -  je mafia3.exe+2FDD8FD
+"mafia3.exe"+2FDD8F4: 48 83 C0 08           -  add rax,08
+"mafia3.exe"+2FDD8F8: 49 3B C0              -  cmp rax,r8
+"mafia3.exe"+2FDD8FB: 75 F3                 -  jne mafia3.exe+2FDD8F0
+"mafia3.exe"+2FDD8FD: 49 3B C0              -  cmp rax,r8
+"mafia3.exe"+2FDD900: 74 0D                 -  je mafia3.exe+2FDD90F
+"mafia3.exe"+2FDD902: 8B 48 04              -  mov ecx,[rax+04]
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+2FDD905: C7 40 04 00 00 00 00  -  mov [rax+04],00000000
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+2FDD90C: 8B C1                 -  mov eax,ecx
+"mafia3.exe"+2FDD90E: C3                    -  ret 
+"mafia3.exe"+2FDD90F: 33 C0                 -  xor eax,eax
+"mafia3.exe"+2FDD911: C3                    -  ret 
+"mafia3.exe"+2FDD912: 90                    -  nop 
+"mafia3.exe"+2FDD913: EA 48 8D 0D 17 DE 1C  -  jmp 1CDE:170D8D48
+"mafia3.exe"+2FDD91A: 03 48 89              -  add ecx,[rax-77]
+"mafia3.exe"+2FDD91D: 08 8B 0F 40 53 48     -  or [rbx+4853400F],cl
+"mafia3.exe"+2FDD923: 83 EC 20              -  sub esp,20
+"mafia3.exe"+2FDD926: 48 8B D9              -  mov rbx,rcx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>299</ID>
+          <Description>"Purchase Supplies for Free"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : mafia3.exe
+  Version: Steam 6/25/2017
+  Date   : 2017-06-25
+  Author : ray2160
+
+  Purchase Supplies for Free
+}
+
+[ENABLE]
+
+aobscanmodule(PurchaseSuppliesforFree,mafia3.exe,29 11 B0 01 C3 32)
+registersymbol(PurchaseSuppliesforFree)
+
+PurchaseSuppliesforFree:
+  db 90 90
+
+[DISABLE]
+
+PurchaseSuppliesforFree:
+  db 29 11 B0 01 C3
+
+unregistersymbol(PurchaseSuppliesforFree)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+2264176
+
+"mafia3.exe"+2264164: 89 01           -  mov [rcx],eax
+"mafia3.exe"+2264166: B0 01           -  mov al,01
+"mafia3.exe"+2264168: C3              -  ret 
+"mafia3.exe"+2264169: 2B C2           -  sub eax,edx
+"mafia3.exe"+226416B: 89 01           -  mov [rcx],eax
+"mafia3.exe"+226416D: B0 01           -  mov al,01
+"mafia3.exe"+226416F: C3              -  ret 
+"mafia3.exe"+2264170: 29 51 04        -  sub [rcx+04],edx
+"mafia3.exe"+2264173: B0 01           -  mov al,01
+"mafia3.exe"+2264175: C3              -  ret 
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+2264176: 29 11           -  sub [rcx],edx
+"mafia3.exe"+2264178: B0 01           -  mov al,01
+"mafia3.exe"+226417A: C3              -  ret 
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+226417B: 32 C0           -  xor al,al
+"mafia3.exe"+226417D: C3              -  ret 
+"mafia3.exe"+226417E: CC              -  int 3 
+"mafia3.exe"+226417F: 44 48           -  dec eax
+"mafia3.exe"+2264181: 89 5C 24 08     -  mov [rsp+08],ebx
+"mafia3.exe"+2264185: 48 89 74 24 10  -  mov [rsp+10],rsi
+"mafia3.exe"+226418A: 57              -  push rdi
+"mafia3.exe"+226418B: 48 83 EC 20     -  sub rsp,20
+"mafia3.exe"+226418F: 48 8B F1        -  mov rsi,rcx
+"mafia3.exe"+2264192: 41 8B D8        -  mov ebx,r8d
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>249</ID>
+          <Description>"Unlimited Slow Motion (Car / Gun)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : mafia3.exe
+  Version: Steam 7/25/2017
+  Date   : 2017-07-25
+  Author : ray2160
+
+  Unlimited Slow Motion (Car / Gun)
+}
+
+[ENABLE]
+
+aobscanmodule(SlowMotionCar,mafia3.exe,F3 0F 11 83 48 02 00 00 40)
+alloc(newmem,$100,"mafia3.exe"+3600909)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movss [rbx+00000248],xmm0
+  mov [rbx+00000248],(float)100
+  jmp return
+
+SlowMotionCar:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(SlowMotionCar)
+
+[DISABLE]
+
+SlowMotionCar:
+  db F3 0F 11 83 48 02 00 00
+
+unregistersymbol(SlowMotionCar)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+3600909
+
+"mafia3.exe"+36008D8: 40 0F B6 C7                    -  movzx eax,dil
+"mafia3.exe"+36008DC: 66 0F 6E C8                    -  movd xmm1,eax
+"mafia3.exe"+36008E0: 0F 5B C9                       -  cvtdq2ps xmm1,xmm1
+"mafia3.exe"+36008E3: E8 B8 A3 FF FF                 -  call mafia3.exe+35FACA0
+"mafia3.exe"+36008E8: 40 84 FF                       -  test dil,dil
+"mafia3.exe"+36008EB: 75 08                          -  jne mafia3.exe+36008F5
+"mafia3.exe"+36008ED: F3 0F 59 05 F3 EA 4E 01        -  mulss xmm0,[mafia3.exe+4AEF3E8]
+"mafia3.exe"+36008F5: F3 0F 10 8B 4C 02 00 00        -  movss xmm1,[rbx+0000024C]
+"mafia3.exe"+36008FD: F3 0F 59 C6                    -  mulss xmm0,xmm6
+"mafia3.exe"+3600901: F3 0F 58 83 48 02 00 00        -  addss xmm0,[rbx+00000248]
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+3600909: F3 0F 11 83 48 02 00 00        -  movss [rbx+00000248],xmm0
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+3600911: 40 84 FF                       -  test dil,dil
+"mafia3.exe"+3600914: 74 05                          -  je mafia3.exe+360091B
+"mafia3.exe"+3600916: 0F 2F C1                       -  comiss xmm0,xmm1
+"mafia3.exe"+3600919: EB 03                          -  jmp mafia3.exe+360091E
+"mafia3.exe"+360091B: 0F 2F C8                       -  comiss xmm1,xmm0
+"mafia3.exe"+360091E: 0F 93 C0                       -  setae al
+"mafia3.exe"+3600921: 0F 57 F6                       -  xorps xmm6,xmm6
+"mafia3.exe"+3600924: 84 C0                          -  test al,al
+"mafia3.exe"+3600926: 74 38                          -  je mafia3.exe+3600960
+"mafia3.exe"+3600928: 48 8B CB                       -  mov rcx,rbx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>290</ID>
+          <Description>"Health"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : mafia3.exe
+  Version: Steam 6/9/2017
+  Date   : 2017-06-09
+  Author : ray2160
+
+  Health
+}
+
+[ENABLE]
+
+aobscanmodule(Health,mafia3.exe,5B C3 40 53 57 41 54)
+alloc(newmem,$100,"mafia3.exe"+35C7200)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  ret
+  nop
+  push r12
+  jmp return
+
+Health+02:
+  jmp newmem
+return:
+registersymbol(Health)
+
+[DISABLE]
+
+Health+02:
+  db 40 53 57 41 54
+
+unregistersymbol(Health)
+dealloc(newmem)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>216</ID>
+          <Description>"Unlimited Ammo (Clip)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : mafia3.exe
+  Version: Steam 7/25/2017
+  Date   : 2017-07-25
+  Author : ray2160
+
+  Unlimited Ammo (Clip)
+}
+
+[ENABLE]
+
+aobscanmodule(AmmoClip,mafia3.exe,44 89 40 18 48 8B 01)
+registersymbol(AmmoClip)
+
+AmmoClip:
+  db 90 90 90 90
+
+
+[DISABLE]
+
+AmmoClip:
+  db 44 89 40 18 48 8B 01
+
+unregistersymbol(AmmoClip)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "mafia3.exe"+3026E1D
+
+"mafia3.exe"+3026DFB: 81 52 90 4E EE 32 C0  -  adc [rdx-70],C032EE4E
+"mafia3.exe"+3026E02: C3                    -  ret
+"mafia3.exe"+3026E03: 90                    -  nop
+"mafia3.exe"+3026E04: 48 83 EC 78           -  sub rsp,78
+"mafia3.exe"+3026E08: 33 C9                 -  xor ecx,ecx
+"mafia3.exe"+3026E0A: 48 8D 05 23 EE B6 48  -  lea rax,[7FF71B2D5C34]
+"mafia3.exe"+3026E11: 8B 41 08              -  mov eax,[rcx+08]
+"mafia3.exe"+3026E14: 45 33 C0              -  xor r8d,r8d
+"mafia3.exe"+3026E17: 85 D2                 -  test edx,edx
+"mafia3.exe"+3026E19: 44 0F 4F C2           -  cmovg r8d,edx
+// ---------- INJECTING HERE ----------
+"mafia3.exe"+3026E1D: 44 89 40 18           -  mov [rax+18],r8d
+"mafia3.exe"+3026E21: 48 8B 01              -  mov rax,[rcx]
+// ---------- DONE INJECTING  ----------
+"mafia3.exe"+3026E24: 48 FF 60 18           -  jmp qword ptr [rax+18]
+"mafia3.exe"+3026E28: 90                    -  nop
+"mafia3.exe"+3026E29: 48 83 EC 78           -  sub rsp,78
+"mafia3.exe"+3026E2D: 33 C9                 -  xor ecx,ecx
+"mafia3.exe"+3026E2F: 48 48                 -  dec rax
+"mafia3.exe"+3026E31: 63 C2                 -  movsxd  rax,edx
+"mafia3.exe"+3026E33: 44 89 44 81 58        -  mov [rcx+rax*4+58],r8d
+"mafia3.exe"+3026E38: C3                    -  ret
+"mafia3.exe"+3026E39: 90                    -  nop
+"mafia3.exe"+3026E3A: FF CF                 -  dec edi
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>324</ID>
+      <Description>"FUSES"</Description>
+      <LastState Value="101" RealAddress="61A30B78"/>
+      <VariableType>Float</VariableType>
+      <Address>61A30B78</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>325</ID>
+      <Description>"One3rd Table (sun position, wiretap fuses)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>322</ID>
+          <Description>"Wiretap Fuses script"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"mafia3.exe"+115CF21)
+label(returnhere)
+label(exit)
+label(pFuses)
+registersymbol(pFuses)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pFuses],rcx
+movups xmm0,[rcx+18]
+ret
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pFuses:
+dd 0
+//
+
+"mafia3.exe"+115CF21:
+jmp newmem
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"mafia3.exe"+115CF21:
+movups xmm0,[rcx+18]
+ret
+unregistersymbol(pFuses)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>323</ID>
+              <Description>"Fuses pointer (must be in map for correct address)"</Description>
+              <LastState Value="3" RealAddress="8863E388"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>pFuses</Address>
+              <Offsets>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>315</ID>
+          <Description>"Sun Position / Time script [Page Dn]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048,"mafia3.exe"+202A792)
+label(returnhere)
+label(exit)
+label(pTimeFlow)
+registersymbol(pTimeFlow)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pTimeFlow],rcx
+mulss xmm9,[rcx+000000F4]
+jmp exit
+
+exit:
+jmp returnhere
+
+//Define variable
+pTimeFlow:
+dd 0
+//
+
+"mafia3.exe"+202A792:
+jmp newmem
+nop
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"mafia3.exe"+202A792:
+mulss xmm9,[rcx+000000F4]
+unregistersymbol(pTimeFlow)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>34</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>316</ID>
+              <Description>"Time Of Day [ [ / ] to add/subtract an hour ]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pTimeFlow</Address>
+              <Offsets>
+                <Offset>ec</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>3600</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>3600</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>317</ID>
+              <Description>"TimeFlow [ 0, 1, 50 : ;, shift+;, ' ]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pTimeFlow</Address>
+              <Offsets>
+                <Offset>f4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of cmp al,-18</Description>
+      <Address>7FF756308254</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>48C8254</ModuleNameOffset>
+      <Before>
+        <Byte>60</Byte>
+        <Byte>EF</Byte>
+        <Byte>68</Byte>
+        <Byte>02</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>3C</Byte>
+        <Byte>E8</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mulss xmm9,[rcx+000000F4] - timeflow</Description>
+      <Address>14158A792</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>202A792</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>32</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>89</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>F6</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rbx+000000F4]</Description>
+      <Address>1414E08C9</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>22808C9</ModuleNameOffset>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>A8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>83</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>83</Byte>
+        <Byte>F0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+000000F4],xmm1 - writes timeflow</Description>
+      <Address>142CA871B</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>374871B</ModuleNameOffset>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>90</Byte>
+        <Byte>E8</Byte>
+        <Byte>FD</Byte>
+        <Byte>9E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rcx+000000EC] - time in  seconds</Description>
+      <Address>141576CE0</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>2016CE0</ModuleNameOffset>
+      <Before>
+        <Byte>3C</Byte>
+        <Byte>2E</Byte>
+        <Byte>1E</Byte>
+        <Byte>EB</Byte>
+        <Byte>11</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>05</Byte>
+        <Byte>FC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :addss xmm1,[rcx+000000EC]</Description>
+      <Address>1418FA84D</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>202A84D</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>89</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>EC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [rcx+000000EC],xmm1</Description>
+      <Address>1418FA855</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>202A855</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>0D</Byte>
+        <Byte>AF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[rcx+000000EC]</Description>
+      <Address>1418FA2A0</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>202A2A0</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>81</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>05</Byte>
+        <Byte>3C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[r12+000000EC]</Description>
+      <Address>1418FADA9</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>202ADA9</ModuleNameOffset>
+      <Before>
+        <Byte>60</Byte>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>7B</Byte>
+        <Byte>50</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm2,[rbx+000000EC]</Description>
+      <Address>1418FA0BF</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>202A0BF</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D3</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>93</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D6</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[r12+000000EC]</Description>
+      <Address>1418C88D2</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>1FF88D2</ModuleNameOffset>
+      <Before>
+        <Byte>B8</Byte>
+        <Byte>AB</Byte>
+        <Byte>AA</Byte>
+        <Byte>AA</Byte>
+        <Byte>AA</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[r12+000000EC]</Description>
+      <Address>1418C892A</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>1FF892A</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>89</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>84</Byte>
+        <Byte>24</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>BA</Byte>
+        <Byte>67</Byte>
+        <Byte>66</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm1,[rax+000000EC]</Description>
+      <Address>1418C95B8</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>1FF95B8</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>78</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>88</Byte>
+        <Byte>EC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>0D</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups xmm0,[rcx+18] - Wiretap Fuses</Description>
+      <Address>140F8CF21</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>115CF21</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>5D</Byte>
+        <Byte>6E</Byte>
+        <Byte>76</Byte>
+        <Byte>F3</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>41</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>62</Byte>
+        <Byte>B4</Byte>
+        <Byte>7A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movups xmm0,[rcx+18]</Description>
+      <Address>140F8CF21</Address>
+      <ModuleName>mafia3.exe</ModuleName>
+      <ModuleNameOffset>115CF21</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>5D</Byte>
+        <Byte>6E</Byte>
+        <Byte>76</Byte>
+        <Byte>F3</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>41</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>62</Byte>
+        <Byte>B4</Byte>
+        <Byte>7A</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>last_item</Name>
+      <Address>7FF671C78A3A</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>last_item_ptr</Name>
+      <Address>7FF66E3E0023</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>health_kits</Name>
+      <Address>7FF7CE56EA10</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>health_kits_ptr</Name>
+      <Address>7FF7CB660023</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>read_vars2</Name>
+      <Address>7FF7CD810B61</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>change_vars</Name>
+      <Address>7FF7CD7E8C7F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Focus</Name>
+      <Address>7FF755F71FFF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>HP</Name>
+      <Address>7FF75500AA3B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>HPAll</Name>
+      <Address>7FF6610F7200</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>HealthF</Name>
+      <Address>7FF6610F728B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pTimeFlow</Name>
+      <Address>13EFE002C</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>SlowMotionCar</Name>
+      <Address> 142BE0909</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>Health</Name>
+      <Address> 142BD186E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pFuses</Name>
+      <Address>13F7C0028</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <LuaScript>controlMainForm = getMainForm()
+--Rename Main Form
+control_setCaption(controlMainForm,"Mafia III Steam version 7/25/2017")
+</LuaScript>
+</CheatTable>

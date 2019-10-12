@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"Cam coord (write disabler) - F1"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Disables all cam coord instruction, more precise, the first ones that write
+// to them, there is another in the debugger window that is still active.
+
+[ENABLE]
+
+// Cam Y
+aobscanmodule(camy,GrowHome.exe,F3 0F 11 66 64)
+alloc(newmem1,$1000,camy)
+
+label(code1)
+label(return1)
+label(CamPtrY)
+
+// Cam Z
+aobscanmodule(camz,GrowHome.exe,F3 0F 11 6E 68 F3 0F 11 76)
+alloc(newmem2,$1000)
+
+label(code2)
+label(return2)
+
+// Cam X
+aobscanmodule(camx,GrowHome.exe,F3 0F 11 76 6C F3 0F 11 46)
+alloc(newmem3,$1000)
+
+label(code3)
+label(return3)
+
+// CODE
+
+// Cam Y
+newmem1:
+
+code1:
+mov [CamPtrY],esi
+  //movss [esi+64],xmm4
+  jmp return1
+
+CamPtrY:
+  dd 0
+
+camy:
+  jmp code1
+return1:
+registersymbol(camy)
+registersymbol(CamPtrY)
+
+// Cam Z
+newmem2:
+
+code2:
+ // movss [esi+68],xmm5
+  jmp return2
+
+camz:
+  jmp code2
+return2:
+registersymbol(camz)
+
+//Cam X
+newmem3:
+
+code3:
+ // movss [esi+6C],xmm6
+  jmp return3
+
+camx:
+  jmp code3
+return3:
+registersymbol(camx)
+
+[DISABLE]
+
+// Cam Y
+camy:
+  db F3 0F 11 66 64
+
+unregistersymbol(camy)
+unregistersymbol(CamPtrY)
+dealloc(newmem1)
+
+// Cam Z
+camz:
+  db F3 0F 11 6E 68
+
+unregistersymbol(camz)
+dealloc(newmem2)
+
+
+// Cam X
+camx:
+  db F3 0F 11 76 6C
+
+unregistersymbol(camx)
+dealloc(newmem3)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Cam Y Value - 4 to 6 and Alt"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>CamPtrY</Address>
+          <Offsets>
+            <Offset>64</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"Cam Z Value - 3 to 9 and Alt"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>CamPtrY</Address>
+          <Offsets>
+            <Offset>68</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Cam X Value - 2 to 8 and Alt"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>CamPtrY</Address>
+          <Offsets>
+            <Offset>6C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>52</ID>
+      <Description>"Day and Night Cycle Stop ( 0 )"</Description>
+      <LastState Activated="0"/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Writes the value for day and night
+
+[ENABLE]
+
+aobscan(daynight,D9 58 68 D9 40 68)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+ // fstp dword ptr [eax+68]
+  fld dword ptr [eax+68]
+  jmp return
+
+daynight:
+  jmp code
+  nop
+return:
+registersymbol(daynight)
+
+[DISABLE]
+
+daynight:
+  db D9 58 68 D9 40 68
+
+unregistersymbol(daynight)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 07B9FAD1
+
+07B9FAAB: 76 13              -  jna 07B9FAC0
+07B9FAAD: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAB0: DD 80 B8 00 00 00  -  fld qword ptr [eax+000000B8]
+07B9FAB6: D9 E8              -  fld1 
+07B9FAB8: DE C1              -  faddp 
+07B9FABA: DD 98 B8 00 00 00  -  fstp qword ptr [eax+000000B8]
+07B9FAC0: D9 85 04 FD FF FF  -  fld dword ptr [ebp-000002FC]
+07B9FAC6: D9 05 58 8E 18 26  -  fld dword ptr [26188E58]
+07B9FACC: DE C9              -  fmulp st(1),st(0)
+07B9FACE: 8B 45 08           -  mov eax,[ebp+08]
+// ---------- INJECTING HERE ----------
+07B9FAD1: D9 58 68           -  fstp dword ptr [eax+68]
+07B9FAD4: D9 40 68           -  fld dword ptr [eax+68]
+// ---------- DONE INJECTING  ----------
+07B9FAD7: B9 04 69 F9 25     -  mov ecx,25F96904
+07B9FADC: D9 19              -  fstp dword ptr [ecx]
+07B9FADE: D9 80 D8 00 00 00  -  fld dword ptr [eax+000000D8]
+07B9FAE4: DD 9D D8 FC FF FF  -  fstp qword ptr [ebp-00000328]
+07B9FAEA: E8 51 46 FF FF     -  call 07B94140
+07B9FAEF: DD 85 D8 FC FF FF  -  fld qword ptr [ebp-00000328]
+07B9FAF5: D9 C9              -  fxch st(1)
+07B9FAF7: DE C1              -  faddp 
+07B9FAF9: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAFC: D9 98 D8 00 00 00  -  fstp dword ptr [eax+000000D8]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>48</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>53</ID>
+      <Description>"Night ( 1 )"</Description>
+      <LastState Activated="0"/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Writes the value for day and night
+
+
+[ENABLE]
+
+aobscan(daynight,D9 58 68 D9 40 68)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  fstp dword ptr [eax+68]
+  mov [eax+68],(float)0.0
+  fld dword ptr [eax+68]
+  jmp return
+
+daynight:
+  jmp code
+  nop
+return:
+registersymbol(daynight)
+
+[DISABLE]
+
+daynight:
+  db D9 58 68 D9 40 68
+
+unregistersymbol(daynight)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 07B9FAD1
+
+07B9FAAB: 76 13              -  jna 07B9FAC0
+07B9FAAD: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAB0: DD 80 B8 00 00 00  -  fld qword ptr [eax+000000B8]
+07B9FAB6: D9 E8              -  fld1 
+07B9FAB8: DE C1              -  faddp 
+07B9FABA: DD 98 B8 00 00 00  -  fstp qword ptr [eax+000000B8]
+07B9FAC0: D9 85 04 FD FF FF  -  fld dword ptr [ebp-000002FC]
+07B9FAC6: D9 05 58 8E 18 26  -  fld dword ptr [26188E58]
+07B9FACC: DE C9              -  fmulp st(1),st(0)
+07B9FACE: 8B 45 08           -  mov eax,[ebp+08]
+// ---------- INJECTING HERE ----------
+07B9FAD1: D9 58 68           -  fstp dword ptr [eax+68]
+07B9FAD4: D9 40 68           -  fld dword ptr [eax+68]
+// ---------- DONE INJECTING  ----------
+07B9FAD7: B9 04 69 F9 25     -  mov ecx,25F96904
+07B9FADC: D9 19              -  fstp dword ptr [ecx]
+07B9FADE: D9 80 D8 00 00 00  -  fld dword ptr [eax+000000D8]
+07B9FAE4: DD 9D D8 FC FF FF  -  fstp qword ptr [ebp-00000328]
+07B9FAEA: E8 51 46 FF FF     -  call 07B94140
+07B9FAEF: DD 85 D8 FC FF FF  -  fld qword ptr [ebp-00000328]
+07B9FAF5: D9 C9              -  fxch st(1)
+07B9FAF7: DE C1              -  faddp 
+07B9FAF9: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAFC: D9 98 D8 00 00 00  -  fstp dword ptr [eax+000000D8]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>49</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>58</ID>
+      <Description>"Dawn ( 2 )"</Description>
+      <LastState Activated="0"/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Writes the value for day and night
+
+
+[ENABLE]
+
+aobscan(daynight,D9 58 68 D9 40 68)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  fstp dword ptr [eax+68]
+  mov [eax+68],(float)25.0
+  fld dword ptr [eax+68]
+  jmp return
+
+daynight:
+  jmp code
+  nop
+return:
+registersymbol(daynight)
+
+[DISABLE]
+
+daynight:
+  db D9 58 68 D9 40 68
+
+unregistersymbol(daynight)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 07B9FAD1
+
+07B9FAAB: 76 13              -  jna 07B9FAC0
+07B9FAAD: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAB0: DD 80 B8 00 00 00  -  fld qword ptr [eax+000000B8]
+07B9FAB6: D9 E8              -  fld1 
+07B9FAB8: DE C1              -  faddp 
+07B9FABA: DD 98 B8 00 00 00  -  fstp qword ptr [eax+000000B8]
+07B9FAC0: D9 85 04 FD FF FF  -  fld dword ptr [ebp-000002FC]
+07B9FAC6: D9 05 58 8E 18 26  -  fld dword ptr [26188E58]
+07B9FACC: DE C9              -  fmulp st(1),st(0)
+07B9FACE: 8B 45 08           -  mov eax,[ebp+08]
+// ---------- INJECTING HERE ----------
+07B9FAD1: D9 58 68           -  fstp dword ptr [eax+68]
+07B9FAD4: D9 40 68           -  fld dword ptr [eax+68]
+// ---------- DONE INJECTING  ----------
+07B9FAD7: B9 04 69 F9 25     -  mov ecx,25F96904
+07B9FADC: D9 19              -  fstp dword ptr [ecx]
+07B9FADE: D9 80 D8 00 00 00  -  fld dword ptr [eax+000000D8]
+07B9FAE4: DD 9D D8 FC FF FF  -  fstp qword ptr [ebp-00000328]
+07B9FAEA: E8 51 46 FF FF     -  call 07B94140
+07B9FAEF: DD 85 D8 FC FF FF  -  fld qword ptr [ebp-00000328]
+07B9FAF5: D9 C9              -  fxch st(1)
+07B9FAF7: DE C1              -  faddp 
+07B9FAF9: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAFC: D9 98 D8 00 00 00  -  fstp dword ptr [eax+000000D8]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>50</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"Midday ( 3 )"</Description>
+      <LastState Activated="0"/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Writes the value for day and night
+
+
+[ENABLE]
+
+aobscan(daynight,D9 58 68 D9 40 68)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  fstp dword ptr [eax+68]
+  mov [eax+68],(float)50.0
+  fld dword ptr [eax+68]
+  jmp return
+
+daynight:
+  jmp code
+  nop
+return:
+registersymbol(daynight)
+
+[DISABLE]
+
+daynight:
+  db D9 58 68 D9 40 68
+
+unregistersymbol(daynight)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 07B9FAD1
+
+07B9FAAB: 76 13              -  jna 07B9FAC0
+07B9FAAD: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAB0: DD 80 B8 00 00 00  -  fld qword ptr [eax+000000B8]
+07B9FAB6: D9 E8              -  fld1 
+07B9FAB8: DE C1              -  faddp 
+07B9FABA: DD 98 B8 00 00 00  -  fstp qword ptr [eax+000000B8]
+07B9FAC0: D9 85 04 FD FF FF  -  fld dword ptr [ebp-000002FC]
+07B9FAC6: D9 05 58 8E 18 26  -  fld dword ptr [26188E58]
+07B9FACC: DE C9              -  fmulp st(1),st(0)
+07B9FACE: 8B 45 08           -  mov eax,[ebp+08]
+// ---------- INJECTING HERE ----------
+07B9FAD1: D9 58 68           -  fstp dword ptr [eax+68]
+07B9FAD4: D9 40 68           -  fld dword ptr [eax+68]
+// ---------- DONE INJECTING  ----------
+07B9FAD7: B9 04 69 F9 25     -  mov ecx,25F96904
+07B9FADC: D9 19              -  fstp dword ptr [ecx]
+07B9FADE: D9 80 D8 00 00 00  -  fld dword ptr [eax+000000D8]
+07B9FAE4: DD 9D D8 FC FF FF  -  fstp qword ptr [ebp-00000328]
+07B9FAEA: E8 51 46 FF FF     -  call 07B94140
+07B9FAEF: DD 85 D8 FC FF FF  -  fld qword ptr [ebp-00000328]
+07B9FAF5: D9 C9              -  fxch st(1)
+07B9FAF7: DE C1              -  faddp 
+07B9FAF9: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAFC: D9 98 D8 00 00 00  -  fstp dword ptr [eax+000000D8]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>51</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>60</ID>
+      <Description>"Sunset (4 )"</Description>
+      <LastState Activated="0"/>
+      <Color>804000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Writes the value for day and night
+
+
+[ENABLE]
+
+aobscan(daynight,D9 58 68 D9 40 68)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  fstp dword ptr [eax+68]
+  mov [eax+68],(float)75.0
+  fld dword ptr [eax+68]
+  jmp return
+
+daynight:
+  jmp code
+  nop
+return:
+registersymbol(daynight)
+
+[DISABLE]
+
+daynight:
+  db D9 58 68 D9 40 68
+
+unregistersymbol(daynight)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 07B9FAD1
+
+07B9FAAB: 76 13              -  jna 07B9FAC0
+07B9FAAD: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAB0: DD 80 B8 00 00 00  -  fld qword ptr [eax+000000B8]
+07B9FAB6: D9 E8              -  fld1 
+07B9FAB8: DE C1              -  faddp 
+07B9FABA: DD 98 B8 00 00 00  -  fstp qword ptr [eax+000000B8]
+07B9FAC0: D9 85 04 FD FF FF  -  fld dword ptr [ebp-000002FC]
+07B9FAC6: D9 05 58 8E 18 26  -  fld dword ptr [26188E58]
+07B9FACC: DE C9              -  fmulp st(1),st(0)
+07B9FACE: 8B 45 08           -  mov eax,[ebp+08]
+// ---------- INJECTING HERE ----------
+07B9FAD1: D9 58 68           -  fstp dword ptr [eax+68]
+07B9FAD4: D9 40 68           -  fld dword ptr [eax+68]
+// ---------- DONE INJECTING  ----------
+07B9FAD7: B9 04 69 F9 25     -  mov ecx,25F96904
+07B9FADC: D9 19              -  fstp dword ptr [ecx]
+07B9FADE: D9 80 D8 00 00 00  -  fld dword ptr [eax+000000D8]
+07B9FAE4: DD 9D D8 FC FF FF  -  fstp qword ptr [ebp-00000328]
+07B9FAEA: E8 51 46 FF FF     -  call 07B94140
+07B9FAEF: DD 85 D8 FC FF FF  -  fld qword ptr [ebp-00000328]
+07B9FAF5: D9 C9              -  fxch st(1)
+07B9FAF7: DE C1              -  faddp 
+07B9FAF9: 8B 45 08           -  mov eax,[ebp+08]
+07B9FAFC: D9 98 D8 00 00 00  -  fstp dword ptr [eax+000000D8]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>52</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of call GrowHome.exe+BB42F5</Description>
+      <Address>01E042F0</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>BB42F0</ModuleNameOffset>
+      <Before>
+        <Byte>40</Byte>
+        <Byte>3B</Byte>
+        <Byte>39</Byte>
+        <Byte>0B</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>50</Byte>
+        <Byte>53</Byte>
+        <Byte>51</Byte>
+        <Byte>52</Byte>
+        <Byte>56</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+68],xmm5</Description>
+      <Address>01A58D86</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>808D86</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>66</Byte>
+        <Byte>64</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>6E</Byte>
+        <Byte>68</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>76</Byte>
+        <Byte>6C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+6C],xmm6</Description>
+      <Address>01A58D8B</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>808D8B</ModuleNameOffset>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>76</Byte>
+        <Byte>6C</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+64],xmm4</Description>
+      <Address>01A58D81</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>808D81</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>70</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>66</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movq xmm0,[eax]</Description>
+      <Address>00A926D5</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>7F26D5</ModuleNameOffset>
+      <Before>
+        <Byte>57</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>FF</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>7E</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+64],xmm0</Description>
+      <Address>00A98C47</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>7F8C47</ModuleNameOffset>
+      <Before>
+        <Byte>64</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[esi+64]</Description>
+      <Address>00A98C3E</Address>
+      <ModuleName>GrowHome.exe</ModuleName>
+      <ModuleNameOffset>7F8C3E</ModuleNameOffset>
+      <Before>
+        <Byte>D8</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>C1</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

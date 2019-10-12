@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"AR Fix [ALT+P]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+//"MassEffect3.exe"+3967CF - AR at +3F0
+aobscanmodule(arAOB,MassEffect3.exe,D9 82 F0 03 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_ar,4)
+
+newmem:
+
+code:
+  mov [_ar],edx
+  add [_ar],3F0
+  fld dword ptr [edx+000003F0]
+  jmp return
+
+arAOB:
+  jmp newmem
+  nop
+return:
+registersymbol(arAOB)
+
+//"MassEffect3.exe"+2468D0 - screen
+aobscanmodule(screenAOB,MassEffect3.exe,8B 41 50 C3 CC)
+alloc(newmem2,$1000)
+
+label(code2)
+label(return2)
+
+globalalloc(_screen,4)
+
+newmem2:
+
+code2:
+  mov [_screen],ecx
+  mov eax,[ecx+50]
+  ret
+  int 3
+  jmp return2
+
+screenAOB:
+  jmp newmem2
+return2:
+registersymbol(screenAOB)
+
+//"MassEffect3.exe"+8A9C3
+aobscanmodule(writesAR,MassEffect3.exe,D9 19 5D C2 14 00 8B)
+alloc(newmem3,$1000)
+
+label(code3)
+label(return3)
+label(cond)
+
+newmem3:
+
+code3:
+  cmp [_ar],ecx
+  je cond
+  fstp dword ptr [ecx]
+  jmp cond
+
+cond:
+  pop ebp
+  ret 0014
+  jmp return3
+
+writesAR:
+  jmp newmem3
+  nop
+return3:
+registersymbol(writesAR)
+
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 1000
+symbolCheckT.OnTimer = function(sender)
+
+
+local function screenBase() return readInteger("_screen") end
+local function screenX() return readInteger(screenBase()+0x50) end
+local function screenY() return readInteger(screenBase()+0x54) end
+local function trueAR() return screenX()/screenY() end
+
+local cineAR = readInteger("_ar")
+
+local function writeAR()
+  writeFloat(cineAR, trueAR())
+end
+
+hotkeysAR = {
+  createHotkey(writeAR, VK_MENU, VK_P)
+}
+for i,v in ipairs(hotkeysAR) do
+  v.DelayBetweenActivate = 1000
+end
+
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+arAOB:
+  db D9 82 F0 03 00 00
+
+unregistersymbol(arAOB)
+dealloc(newmem)
+
+screenAOB:
+  db 8B 41 50 C3 CC
+
+unregistersymbol(screenAOB)
+dealloc(newmem2)
+
+writesAR:
+  db D9 19 5D C2 14 00
+
+unregistersymbol(writesAR)
+dealloc(newmem3)
+
+{$lua}
+if hotkeysAR ~= nil then
+  for i,v in ipairs(hotkeysAR) do v.destroy() end
+  hotkeysAR = nil
+end
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>80</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"Cinematic AR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_ar</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>125</ID>
+          <Description>"Screen X"</Description>
+          <LastState Value="293222273" RealAddress="124A0568"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_screen</Address>
+          <Offsets>
+            <Offset>50</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>126</ID>
+          <Description>"Screen Y"</Description>
+          <LastState Value="294255232" RealAddress="124A056C"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_screen</Address>
+          <Offsets>
+            <Offset>54</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>137</ID>
+      <Description>"Render Flags"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"MassEffect3.exe"+38FDB8
+[ENABLE]
+
+aobscanmodule(vignAOB,MassEffect3.exe,8B 52 08 89 94 24 FC 00 00 00)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_vign,4)
+
+newmem:
+
+code:
+  mov [_vign],edx
+  mov edx,[edx+08]
+  mov [esp+000000FC],edx
+  jmp return
+
+vignAOB:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(vignAOB)
+
+[DISABLE]
+
+vignAOB:
+  db 8B 52 08 89 94 24 FC 00 00 00
+
+unregistersymbol(vignAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>139</ID>
+          <Description>"HUD/overlays"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>0</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>138</ID>
+          <Description>"Vignette"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>2</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>152</ID>
+          <Description>"Fog"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>3</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>5</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>149</ID>
+          <Description>"Smoke/hair/reflections"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>6</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>146</ID>
+          <Description>"Decals"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>153</ID>
+          <Description>"Particles"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>2</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>7</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>148</ID>
+          <Description>"Skeletal meshes"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>1</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>5</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>141</ID>
+          <Description>"Lightshafts"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>6</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>144</ID>
+          <Description>"Post processing"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>6</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>147</ID>
+          <Description>"Shading"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>4</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>1</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>145</ID>
+          <Description>"Dynamic shadows"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>5</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_vign</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>_screen</Name>
+      <Address>06760000</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_ar</Name>
+      <Address>06760010</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_vignette</Name>
+      <Address>06760020</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_flags</Name>
+      <Address>06760030</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

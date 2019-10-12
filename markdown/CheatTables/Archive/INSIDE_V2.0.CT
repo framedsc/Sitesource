@@ -1,0 +1,2205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13503</ID>
+      <Description>"This table was made by One3rd for the Steam and EGS versions of Inside."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13500</ID>
+      <Description>"Attach script to process "Inside.exe""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13506</ID>
+      <Description>"Enable camera script with [Page Dn]. Read *Table Extras* (bottom right button) for further details."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14118</ID>
+      <Description>"Inside Camera AOB to opcode [Page Down]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+aobscan(aobCamera,48 89 08 48 63 4D B0 89 48 08 48 8D 86 78)
+label(_Camera)
+registersymbol(_Camera)
+label(Camera)
+registersymbol(Camera)
+
+
+
+newmem:
+mov [_Camera],rax
+mov [rax],rcx
+movsxd  rcx,dword ptr [rbp-50]
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+_Camera:
+dd 0
+//
+
+aobCamera:
+Camera:    //store aobCamera on Camera label
+jmp newmem
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+Camera:
+db 48 89 08 48 63 4D B0
+//mov [rax],rcx
+//movsxd  rcx,dword ptr [rbp-50]
+
+unregistersymbol(Camera)
+unregistersymbol(_Camera)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 6D091DCB
+
+""+6D091D9B: 48 8B 45 88                    -  mov rax,[rbp-78]
+""+6D091D9F: 48 89 04 24                    -  mov [rsp],rax
+""+6D091DA3: 48 63 45 90                    -  movsxd  rax,dword ptr [rbp-70]
+""+6D091DA7: 89 44 24 08                    -  mov [rsp+08],eax
+""+6D091DAB: 48 83 EC 20                    -  sub rsp,20
+""+6D091DAF: 49 BB C0 1E 09 6D 00 00 00 00  -  mov r11,000000006D091EC0
+""+6D091DB9: 41 FF D3                       -  call r11
+""+6D091DBC: 48 83 C4 40                    -  add rsp,40
+""+6D091DC0: 48 8D 86 6C 01 00 00           -  lea rax,[rsi+0000016C]
+""+6D091DC7: 48 8B 4D A8                    -  mov rcx,[rbp-58]
+// ---------- INJECTING HERE ----------
+""+6D091DCB: 48 89 08                       -  mov [rax],rcx
+""+6D091DCE: 48 63 4D B0                    -  movsxd  rcx,dword ptr [rbp-50]
+// ---------- DONE INJECTING  ----------
+""+6D091DD2: 89 48 08                       -  mov [rax+08],ecx
+""+6D091DD5: 48 8D 86 78 01 00 00           -  lea rax,[rsi+00000178]
+""+6D091DDC: 48 8B 08                       -  mov rcx,[rax]
+""+6D091DDF: 48 89 4D B8                    -  mov [rbp-48],rcx
+""+6D091DE3: 48 63 40 08                    -  movsxd  rax,dword ptr [rax+08]
+""+6D091DE7: 89 45 C0                       -  mov [rbp-40],eax
+""+6D091DEA: 48 8D 86 C0 00 00 00           -  lea rax,[rsi+000000C0]
+""+6D091DF1: 48 8B 08                       -  mov rcx,[rax]
+""+6D091DF4: 48 89 4D C8                    -  mov [rbp-38],rcx
+""+6D091DF8: 48 63 40 08                    -  movsxd  rax,dword ptr [rax+08]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13350</ID>
+          <Description>"base camera structure"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_Camera</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13351</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_Camera</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13352</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_Camera</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13353</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_Camera</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13354</ID>
+          <Description>"Y Rotation [arrow keys]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_Camera</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13355</ID>
+          <Description>"X Rotation  [arrow keys]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_Camera</Address>
+          <Offsets>
+            <Offset>c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14101</ID>
+      <Description>"Main Menu HUD Toggle script [Caps Lock] (AOB to opcode)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : INSIDE.exe
+  Version: 
+  Date   : 2017-04-14
+  Author : adams
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,C6 47 30 01 48 8B 4F 20) // should be unique
+alloc(newmem,$1000,78924E27)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov byte ptr [rdi+30],01
+  //mov rcx,[rdi+20]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db C6 47 30 01 48 8B 4F 20
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 78924E27
+
+""+78924DFE: 85 C0                          -  test eax,eax
+""+78924E00: 0F 85 E1 00 00 00              -  jne 78924EE7
+""+78924E06: 48 8B CE                       -  mov rcx,rsi
+""+78924E09: 48 8B D7                       -  mov rdx,rdi
+""+78924E0C: 48 83 EC 20                    -  sub rsp,20
+""+78924E10: 83 3E 00                       -  cmp dword ptr [rsi],00
+""+78924E13: 49 BB 40 94 53 05 00 00 00 00  -  mov r11,0000000005539440
+""+78924E1D: 41 FF D3                       -  call r11
+""+78924E20: 48 83 C4 20                    -  add rsp,20
+""+78924E24: 83 3F 00                       -  cmp dword ptr [rdi],00
+// ---------- INJECTING HERE ----------
+""+78924E27: C6 47 30 01                    -  mov byte ptr [rdi+30],01
+""+78924E2B: 48 8B 4F 20                    -  mov rcx,[rdi+20]
+// ---------- DONE INJECTING  ----------
+""+78924E2F: 33 D2                          -  xor edx,edx
+""+78924E31: 48 83 EC 20                    -  sub rsp,20
+""+78924E35: 49 BB 40 E5 53 05 00 00 00 00  -  mov r11,000000000553E540
+""+78924E3F: 41 FF D3                       -  call r11
+""+78924E42: 48 83 C4 20                    -  add rsp,20
+""+78924E46: 85 C0                          -  test eax,eax
+""+78924E48: 74 1C                          -  je 78924E66
+""+78924E4A: 48 8B 4F 20                    -  mov rcx,[rdi+20]
+""+78924E4E: 48 8B D6                       -  mov rdx,rsi
+""+78924E51: 48 83 EC 20                    -  sub rsp,20
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>20</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14102</ID>
+          <Description>"Press Caps Lock to enable script and then Esc to enter Main Menu without HUD showing. Caps Lock to disable."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax] - z1</Description>
+      <AddressString>6327F047</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>78</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>A0</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327F140</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>78</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>E0</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax] - z2</Description>
+      <AddressString>6327F011</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>90</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327F062</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>B0</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327F15B</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>F0</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>542D90D3</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>D8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax] - z1</Description>
+      <AddressString>5B2317AC</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>78</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>B8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>5B231821</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>E0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327ED7B</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>78</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>E0</Byte>
+        <Byte>FD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327EE90</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>78</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>30</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax] - z2</Description>
+      <AddressString>6327ECDE</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>C0</Byte>
+        <Byte>FD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327ED96</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>F0</Byte>
+        <Byte>FD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6327EEAB</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>40</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>5B231726</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>88</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>5B23179B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>5B232345</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>5B232409</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :nop [rax+rax+00000000] - menu?</Description>
+      <AddressString>INSIDE.exe+6BF3C6</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>1F</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>10</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :push rsi</Description>
+      <AddressString>INSIDE.exe+5AAA30</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>10</Byte>
+        <Byte>55</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>A8</Byte>
+        <Byte>18</Byte>
+        <Byte>FD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps [rax-68],xmm7</Description>
+      <AddressString>INSIDE.exe+5AAA7F</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>70</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>29</Byte>
+        <Byte>78</Byte>
+        <Byte>98</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>40</Byte>
+        <Byte>88</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :int 3 </Description>
+      <AddressString>INSIDE.exe+56FF</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax] - z</Description>
+      <AddressString>642A8EE1</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>90</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>642A8F32</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>B0</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>642A902B</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>F0</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6509A0F6</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>88</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>6509A16B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6509AD15</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>6509ADD9</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>642A8BAE</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>C0</Byte>
+        <Byte>FD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>642A8C66</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>F0</Byte>
+        <Byte>FD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax]</Description>
+      <AddressString>642A8D7B</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>8D</Byte>
+        <Byte>40</Byte>
+        <Byte>FE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movzx eax,byte ptr [rsi+6C] - hud toggle</Description>
+      <AddressString>658AFDAC</AddressString>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>B6</Byte>
+        <Byte>46</Byte>
+        <Byte>6C</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [rsi+6C],01</Description>
+      <AddressString>6588FCBC</AddressString>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>18</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>46</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>25</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movzx eax,byte ptr [rsi+6C]</Description>
+      <AddressString>658BDAEC</AddressString>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>B6</Byte>
+        <Byte>46</Byte>
+        <Byte>6C</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>1C</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rsi+6C],al</Description>
+      <AddressString>658BDB0C</AddressString>
+      <Before>
+        <Byte>D3</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>88</Byte>
+        <Byte>46</Byte>
+        <Byte>6C</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>75</Byte>
+        <Byte>F8</Byte>
+        <Byte>C9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [rsi+6C],01</Description>
+      <AddressString>7B618ABC</AddressString>
+      <Before>
+        <Byte>EC</Byte>
+        <Byte>18</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>46</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>04</Byte>
+        <Byte>25</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18] - overlay</Description>
+      <AddressString>056127DF</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>E0</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18]</Description>
+      <AddressString>05599453</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>F0</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rdx,dword ptr [rax+18]</Description>
+      <AddressString>05599491</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>89</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax+18],r8d</Description>
+      <AddressString>0559949E</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>FC</Byte>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>89</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18]</Description>
+      <AddressString>7B619123</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+        <Byte>83</Byte>
+        <Byte>39</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>8E</Byte>
+        <Byte>E4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rdx,dword ptr [rcx+18]</Description>
+      <AddressString>7B61913C</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D1</Byte>
+        <Byte>83</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>51</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>CA</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18]</Description>
+      <AddressString>0559A313</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>F2</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>3B</Byte>
+        <Byte>F0</Byte>
+        <Byte>73</Byte>
+        <Byte>22</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18]</Description>
+      <AddressString>0564E27F</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>E0</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18]</Description>
+      <AddressString>0564E32C</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>3B</Byte>
+        <Byte>F0</Byte>
+        <Byte>0F</Byte>
+        <Byte>83</Byte>
+        <Byte>64</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rax,dword ptr [rax+18]</Description>
+      <AddressString>0564E433</AddressString>
+      <Before>
+        <Byte>F8</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>3B</Byte>
+        <Byte>F8</Byte>
+        <Byte>0F</Byte>
+        <Byte>8D</Byte>
+        <Byte>3D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rcx,dword ptr [rax+18]</Description>
+      <AddressString>0564E480</AddressString>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>03</Byte>
+        <Byte>CE</Byte>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax+18],ecx</Description>
+      <AddressString>0564E486</AddressString>
+      <Before>
+        <Byte>63</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+        <Byte>03</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+        <Byte>7D</Byte>
+        <Byte>2B</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rdx,dword ptr [rax+18]</Description>
+      <AddressString>0564E499</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>41</Byte>
+        <Byte>F7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsxd  rdx,dword ptr [rax+18]</Description>
+      <AddressString>0564E36A</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>63</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax+18],r8d - write overlay</Description>
+      <AddressString>0559949E</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>FC</Byte>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>89</Byte>
+        <Byte>40</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax+18],ecx</Description>
+      <AddressString>0564E486</AddressString>
+      <Before>
+        <Byte>63</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+        <Byte>03</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+        <Byte>7D</Byte>
+        <Byte>2B</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of add ecx,esi</Description>
+      <AddressString>0564E484</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>03</Byte>
+        <Byte>CE</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of test esi,esi</Description>
+      <AddressString>0564E489</AddressString>
+      <Before>
+        <Byte>03</Byte>
+        <Byte>CE</Byte>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+      </Actual>
+      <After>
+        <Byte>7D</Byte>
+        <Byte>2B</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov rax,[rbp-18]</Description>
+      <AddressString>0564E47C</AddressString>
+      <Before>
+        <Byte>D3</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+        <Byte>03</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of add rsp,30</Description>
+      <AddressString>0564E478</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>D3</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [rax+30],00 - write overlay?</Description>
+      <AddressString>658AFA0E</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+        <Byte>83</Byte>
+        <Byte>39</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>C7</Byte>
+        <Byte>45</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [rdi+30],01</Description>
+      <AddressString>7B618D97</AddressString>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>83</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>20</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [rdi+30],01</Description>
+      <AddressString>74517187</AddressString>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>83</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>20</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [rdi+30],01</Description>
+      <AddressString>65A839B9</AddressString>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>75</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>18</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [rdi+30],01</Description>
+      <AddressString>659E0195</AddressString>
+      <Before>
+        <Byte>A0</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>63</Byte>
+        <Byte>47</Byte>
+        <Byte>6C</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [rdi+30],01</Description>
+      <AddressString>659E673A</AddressString>
+      <Before>
+        <Byte>A0</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>63</Byte>
+        <Byte>47</Byte>
+        <Byte>70</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [rdi+30],01</Description>
+      <AddressString>6B5E0A22</AddressString>
+      <Before>
+        <Byte>A0</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>63</Byte>
+        <Byte>47</Byte>
+        <Byte>70</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [rdi+30],01</Description>
+      <AddressString>7A6D6E87</AddressString>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+        <Byte>83</Byte>
+        <Byte>3F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>47</Byte>
+        <Byte>30</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>20</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx - write z</Description>
+      <AddressString>692F452B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>6D091DCB</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>6C95169B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov rcx,[rax] - read z</Description>
+      <AddressString>6C951626</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>6C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>4D</Byte>
+        <Byte>88</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>76E61DCB</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>761F431B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [rax],rcx</Description>
+      <AddressString>761F431B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>coords</Name>
+      <Address>6955001E</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>1. Attach to Inside.exe
+2. Enable camera script with [Page Down]
+3. Camera only works while the game is paused with main menu. Enable the Main menu HUD toggle script with [Caps Lock]
+4. Press ESC to go into the main menu which pauses the game, now with the HUD disabled.
+5. Move camera around with janky keypad keys.
+
+
+* Special thanks to IDK31 and pino44io for confirming the correct camera AOBs for both version of the game.</Comments>
+</CheatTable>

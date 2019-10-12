@@ -1,0 +1,2746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13503</ID>
+      <Description>"This table was made by One3rd for the Steam version of TRON: Evolution."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13500</ID>
+      <Description>"Attach script to process "GridGame.exe""</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13506</ID>
+      <Description>"Enable camera script with [Page Dn]. Read *Table Extras* (bottom right button) for further details."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13502</ID>
+      <Description>"***"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13296</ID>
+      <Description>"FLY - No modifier"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13290</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13298</ID>
+          <Description>"MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13297</ID>
+          <Description>"FLY: Up, down - 9, 7"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13292</ID>
+      <Description>"AIM - Hold down PLUS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13339</ID>
+          <Description>"(Below, NUMPAD keys...)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13244</ID>
+          <Description>"PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13246</ID>
+          <Description>"ZOOM: In, out - 9, 7 (reset to 60: NUMPAD *)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13242</ID>
+          <Description>"TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12251</ID>
+      <Description>"Camera [Page Dn] (AOB to camera)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aobCamera, 60 2B F4 01 ?? ?? 01 00 04 00 10 00 01 00 00 02)
+
+label(_aobCamera)
+registersymbol(_aobCamera)
+// _aobCamera-7c - 01 00 00 00 00 00 ?? ?? ?? ?? ?? ?? 01 00 00 00 11 00 00 00 00 00 80 43 00
+// x at _aobCamera-7c - 01 00 00 00 00 00 00 40 ?? ?? ?? ?? 01 00 00 00 11 00 00 00 00 00 80 43 00
+// AOB works 80% time. x at _aobCamera+310 - 60 2B F4 01 ?? ?? 01 00 04 00 10 00 01 00 00 02
+// alternate. base+1f0. 00 00 B4 42 11 00 00 00 00 00 ?? 42 8F AA AA 3F 8F AA AA 3F 00 00
+aobCamera+310:
+_aobCamera:
+
+[DISABLE]
+unregistersymbol(_aobCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13231</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13232</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13233</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>500</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13234</ID>
+          <Description>"Y Rotation"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+c</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13235</ID>
+          <Description>"X Rotation"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+10</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13236</ID>
+          <Description>"Tilt"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_aobCamera+14</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>16400</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13237</ID>
+          <Description>"FOV (Deg)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_aobCamera+18</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <Value>65</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12298</ID>
+      <Description>"Post Processing [Page Up] AOB"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(DOFEnable, 50 44 C3 01 A? 2B 01 00 18 00 10 00 00 00 07)
+label(_DOFEnable)
+registersymbol(_DOFEnable)
+
+DOFEnable+3c:
+_DOFEnable:
+
+[DISABLE]
+unregistersymbol(_DOFEnable)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>33</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12299</ID>
+          <Description>"[---  DOF Effect Enable [P]  ---]"</Description>
+          <Color>0000FF</Color>
+          <VariableType>Byte</VariableType>
+          <Address>_DOFEnable</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>7</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12300</ID>
+              <Description>"DOF Focus Distance [ [ ] (default=800)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+44</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12301</ID>
+              <Description>"DOF Focus Inner Radius [ ] ] (default=400)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+40</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12302</ID>
+              <Description>"DOF MaxNearBlurAmount [;] (default=1)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+30</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12303</ID>
+              <Description>"DOF MaxFarBlurAmount ['] (default=1)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+34</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12304</ID>
+              <Description>"DOF FallOffExponent [/] (default=2)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+28</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>191</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>191</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12305</ID>
+              <Description>"DOF BlurKernelSize - [\] (default=16, 0 - 64)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+2c</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>220</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>220</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12306</ID>
+          <Description>"[---  Bloom Settings  ---]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12307</ID>
+              <Description>"BlurBloomKernelSize (default=1)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+58</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12308</ID>
+              <Description>"BloomScale (default=1)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+54</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12309</ID>
+          <Description>"[---  ToneMap Settings  ---]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12310</ID>
+              <Description>"SceneShadows BLU (default=0)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+88</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12311</ID>
+              <Description>"SceneShadows RED (default=0)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+8c</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12312</ID>
+              <Description>"SceneShadows GRN (default=-0.003)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+90</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12313</ID>
+              <Description>"HighLights RED (default=0.8)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+94</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12314</ID>
+              <Description>"HighLights GRN (default=0.8)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+98</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12315</ID>
+              <Description>"HighLights BLU (default=0.8)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+9c</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12316</ID>
+              <Description>"MidTones BLU (default=1.3)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+a0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12317</ID>
+              <Description>"MidTones RED (default=1.3)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+a4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12318</ID>
+              <Description>"MidTones GRN (default=1.3)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+a8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12319</ID>
+              <Description>"SceneDesaturation (default=0.0)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_DOFEnable+ac</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12342</ID>
+      <Description>" BACKUP SCRIPTS"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12259</ID>
+          <Description>"Camera BACKUP (opcode - doesn't work in cutscenes)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],eax
+mov ecx,[eax+00000310]
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"GridGame.exe"+79FD93:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"GridGame.exe"+79FD93:
+mov ecx,[eax+00000310]
+unregistersymbol(pCamera)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12260</ID>
+              <Description>"X [Numpad 4,6]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>310</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12261</ID>
+              <Description>"Y [Numpad 2,8]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFFF8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>50</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12262</ID>
+              <Description>"Z [Numpad 3,9]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFFFC</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>40</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>40</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12263</ID>
+              <Description>"Y Rotation [arrow keys]"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12264</ID>
+              <Description>"X Rotation  [arrow keys]"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>1000</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>5000</Value>
+                  <ID>5</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12265</ID>
+              <Description>"Tilt [-,=]"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>189</Key>
+                  </Keys>
+                  <Value>250</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>187</Key>
+                  </Keys>
+                  <Value>250</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>187</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12266</ID>
+              <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pCamera</Address>
+              <Offsets>
+                <Offset>FFFFFEE8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12294</ID>
+          <Description>"Post Processing [Del] (only tonemap working so far)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem1,2048)
+label(returnhere)
+label(exit)
+label(DOFEnable1)
+registersymbol(DOFEnable1)
+
+newmem1: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [DOFEnable1],ecx
+mov eax,[ecx+3C]
+jne GridGame.AK::Monitor::SetLocalOutput+AF0AA
+
+exit:
+jmp returnhere
+
+//  Define variable
+DOFEnable1:
+dd 0
+//
+
+"GridGame.exe"+450C23:
+jmp newmem1
+returnhere:
+
+[DISABLE]
+dealloc(newmem1)
+"GridGame.exe"+450C23:
+mov eax,[ecx+3C]
+jne GridGame.AK::Monitor::SetLocalOutput+AF0AA
+unregistersymbol(DOFEnable1)
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12099</ID>
+              <Description>"[---  DOF Effect Enable [P]  ---]"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>3</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>7</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>11869</ID>
+                  <Description>"DOF Focus Distance [ [ ] (default=800)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>80</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>16</Key>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11871</ID>
+                  <Description>"DOF Focus Inner Radius [ ] ] (default=400)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>7C</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>16</Key>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11921</ID>
+                  <Description>"DOF MaxNearBlurAmount [;] (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>6C</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11922</ID>
+                  <Description>"DOF MaxFarBlurAmount ['] (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>70</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11876</ID>
+                  <Description>"DOF FallOffExponent [/] (default=2)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>64</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>191</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>191</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11872</ID>
+                  <Description>"DOF BlurKernelSize - [\] (default=16, 0 - 64)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>68</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>220</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>220</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12205</ID>
+              <Description>"[---  Bloom Settings  ---]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12203</ID>
+                  <Description>"BlurBloomKernelSize (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>94</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12202</ID>
+                  <Description>"BloomScale (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>90</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12115</ID>
+              <Description>"[---  ToneMap Settings  ---]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12123</ID>
+                  <Description>"SceneShadows BLU (default=0)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>C4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12124</ID>
+                  <Description>"SceneShadows RED (default=0)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>C8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12125</ID>
+                  <Description>"SceneShadows GRN (default=-0.003)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>CC</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12120</ID>
+                  <Description>"HighLights RED (default=0.8)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>D0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12121</ID>
+                  <Description>"HighLights GRN (default=0.8)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>D4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12122</ID>
+                  <Description>"HighLights BLU (default=0.8)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>D8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12117</ID>
+                  <Description>"MidTones BLU (default=1.1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>DC</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12118</ID>
+                  <Description>"MidTones RED (default=1.1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>E0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12119</ID>
+                  <Description>"MidTones GRN (default=1.1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>E4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12116</ID>
+                  <Description>"SceneDesaturation (default=0.0)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>E8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12320</ID>
+          <Description>"Post Processing [Del] (alternate opcode)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem1,2048)
+label(returnhere)
+label(exit)
+label(DOFEnable1)
+registersymbol(DOFEnable1)
+
+newmem1: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [DOFEnable1],ecx
+mov ecx,[ecx+3C]
+add ecx,ecx
+
+exit:
+jmp returnhere
+
+//  Define variable
+DOFEnable1:
+dd 0
+//
+
+"GridGame.exe"+450C4F:
+jmp newmem1
+returnhere:
+
+[DISABLE]
+dealloc(newmem1)
+"GridGame.exe"+450C4F:
+mov ecx,[ecx+3C]
+add ecx,ecx
+unregistersymbol(DOFEnable1)
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12321</ID>
+              <Description>"[---  DOF Effect Enable [P]  ---]"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>3</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>7</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12322</ID>
+                  <Description>"DOF Focus Distance [ [ ] (default=800)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>80</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>16</Key>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>219</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12323</ID>
+                  <Description>"DOF Focus Inner Radius [ ] ] (default=400)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>7C</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>20</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>16</Key>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>221</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12324</ID>
+                  <Description>"DOF MaxNearBlurAmount [;] (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>6C</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>186</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12325</ID>
+                  <Description>"DOF MaxFarBlurAmount ['] (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>70</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>222</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12326</ID>
+                  <Description>"DOF FallOffExponent [/] (default=2)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>64</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>191</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>191</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12327</ID>
+                  <Description>"DOF BlurKernelSize - [\] (default=16, 0 - 64)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>68</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>220</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>16</Key>
+                        <Key>220</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12328</ID>
+              <Description>"[---  Bloom Settings  ---]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12329</ID>
+                  <Description>"BlurBloomKernelSize (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>94</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12330</ID>
+                  <Description>"BloomScale (default=1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>90</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12331</ID>
+              <Description>"[---  ToneMap Settings  ---]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>12332</ID>
+                  <Description>"SceneShadows BLU (default=0)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>C4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12333</ID>
+                  <Description>"SceneShadows RED (default=0)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>C8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12334</ID>
+                  <Description>"SceneShadows GRN (default=-0.003)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>CC</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12335</ID>
+                  <Description>"HighLights RED (default=0.8)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>D0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12336</ID>
+                  <Description>"HighLights GRN (default=0.8)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>D4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12337</ID>
+                  <Description>"HighLights BLU (default=0.8)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>D8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12338</ID>
+                  <Description>"MidTones BLU (default=1.1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>DC</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12339</ID>
+                  <Description>"MidTones RED (default=1.1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>E0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12340</ID>
+                  <Description>"MidTones GRN (default=1.1)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>E4</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>12341</ID>
+                  <Description>"SceneDesaturation (default=0.0)"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>DOFEnable1</Address>
+                  <Offsets>
+                    <Offset>E8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-0C] - x</Description>
+      <AddressString>MSVCR90.dll+3AF68</AddressString>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[esp+40]</Description>
+      <AddressString>GridGame.exe+FA5342</AddressString>
+      <Before>
+        <Byte>9B</Byte>
+        <Byte>0C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[eax+00000310]</Description>
+      <AddressString>GridGame.exe+79FD93</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>88</Byte>
+        <Byte>10</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>90</Byte>
+        <Byte>14</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax] - fov</Description>
+      <AddressString>GridGame.exe+A4B9C</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx]</Description>
+      <AddressString>GridGame.exe+A4BA2</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>14</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>51</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[esi+ecx*4-0C] - rotx</Description>
+      <AddressString>MSVCR90.dll+3AF68</AddressString>
+      <Before>
+        <Byte>F0</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>F4</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>F4</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[esp+40]</Description>
+      <AddressString>GridGame.exe+FA5342</AddressString>
+      <Before>
+        <Byte>9B</Byte>
+        <Byte>0C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+3C] - worldsettings?</Description>
+      <AddressString>GridGame.exe+450C23</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>E2</Byte>
+        <Byte>01</Byte>
+        <Byte>0B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>D1</Byte>
+        <Byte>E8</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ebp+3C],04</Description>
+      <AddressString>GridGame.exe+74A77A</AddressString>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>3B</Byte>
+        <Byte>C7</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>45</Byte>
+        <Byte>3C</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ecx+3C]</Description>
+      <AddressString>GridGame.exe+450C4F</AddressString>
+      <Before>
+        <Byte>0B</Byte>
+        <Byte>D6</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>03</Byte>
+        <Byte>C9</Byte>
+        <Byte>33</Byte>
+        <Byte>CA</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[edi+64] - dof</Description>
+      <AddressString>GridGame.exe+109AD3</AddressString>
+      <Before>
+        <Byte>10</Byte>
+        <Byte>40</Byte>
+        <Byte>24</Byte>
+        <Byte>EB</Byte>
+        <Byte>05</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>47</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+3C] - worldsettings</Description>
+      <AddressString>GridGame.exe+450C23</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>E2</Byte>
+        <Byte>01</Byte>
+        <Byte>0B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>D1</Byte>
+        <Byte>E8</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ebp+3C],04</Description>
+      <AddressString>GridGame.exe+74A77A</AddressString>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>3B</Byte>
+        <Byte>C7</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>45</Byte>
+        <Byte>3C</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov ecx,[ecx+3C]</Description>
+      <AddressString>GridGame.exe+450C4F</AddressString>
+      <Before>
+        <Byte>0B</Byte>
+        <Byte>D6</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>03</Byte>
+        <Byte>C9</Byte>
+        <Byte>33</Byte>
+        <Byte>CA</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :and [eax],ecx</Description>
+      <AddressString>GridGame.exe+AB438</AddressString>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>F7</Byte>
+        <Byte>D1</Byte>
+      </Before>
+      <Actual>
+        <Byte>21</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>96</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :or [eax],edx</Description>
+      <AddressString>GridGame.exe+AB446</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>09</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+        <Byte>C7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :repe movsd - write fov</Description>
+      <AddressString>GridGame.exe+FA5346</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8D</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>81</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[esp+40] - write x</Description>
+      <AddressString>GridGame.exe+FA5342</AddressString>
+      <Before>
+        <Byte>9B</Byte>
+        <Byte>0C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[esp+40] - write y</Description>
+      <AddressString>GridGame.exe+FA5342</AddressString>
+      <Before>
+        <Byte>9B</Byte>
+        <Byte>0C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8D</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :lea esi,[esp+40] - write z</Description>
+      <AddressString>GridGame.exe+FA5342</AddressString>
+      <Before>
+        <Byte>9B</Byte>
+        <Byte>0C</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>[Camera Control] (Page Down)
+Enable the camera script at any time by pressing [Page Down]. The free camera will only work when the game is paused and you may need to toggle the FOV first with below keybind for the AOB script to work.
+Numpad 2/8 = Y coordinate
+Numpad 4/6 = X coordinate
+Numpad 3/9 = Z coordinate
+Arrow keys = Rotate camera
+Hold CTRL for larger movements
+Hold ALT for smaller movements
+Numpad +/- to adjust FOV
+[ - , = ] keys to tilt the camera (ALT =) to level out.
+[Post Processing] (Delete)
+Press "Delete" to enable the script. Press "P" to enable control of the UE3 DOF, tonemap and bloom settings. Use the "Shift" key to with the below keys to perform the opposite action. (ex. [Shift P] to disable user DOF and return to game settings. Bloom and tonemap values do not have keys bound at the moment, you will need to make manual changes to these by double-clicking the value in the table, multiple values can be selected at once.
+Note that on some levels that changing tonemap and bloom settings carries over if DOF is enabled or disabled, I've noted the default values next to each setting in the table.
+DOF Effect Enable [P] , DOF Effect Disable [Shift]+[P]
+DOF Focus Distance [ [ ]
+DOF Focus Inner Radius [ ] ]
+DOF MaxNearBlurAmount [;]
+DOF MaxFarBlurAmount [']
+DOF FallOffExponent [/]
+DOF BlurKernelSize [\]
+Bloom and Tonemap values will need to be manually changed as I was tweaking these in windowed mode and then switching to full screen to take a screenshot. You can add keybinds to these if you wish.
+UE3 Keybinds
+Locate the config files in ..E:\Documents\Disney Interactive Studios\Tron Evolution\UnrealEngine3\GridGame\Config.
+1. Open GridInput.ini.
+2. Under the [GridGame.PgPlayerInput] section add the bindings at the tail end of that same section.
+Bindings=(Name="F1",Command="FOV 90",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F1",Command="FOV 80",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F2",Command="Peace",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F2",Command="War",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F3",Command="Pause",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F3",Command="ToggleHUD",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F4",Command="PlayersOnly",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F5",Command="Ghost",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F5",Command="Walk",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F6",Command="setres 1920x1080",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F7",Command="setres 5120x2880",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F7",Command="setres 8888x5000",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F8",Command="setres 3000x4000",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F8",Command="setres 4500x6000",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F9",Command="setres 3200x3200",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F9",Command="setres 6400x6400",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F10",Command="setres 5120x2160",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F10",Command="setres 9600x4050",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F11",Command="setres 3840x1280",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="F11",Command="setres 12000x4000",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="N",Command="slomo 0.1",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="N",Command="slomo 0.3",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="M",Command="slomo 1.0",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+Bindings=(Name="M",Command="slomo 0.001",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
+F1 / Alt+F1 - FOV
+F3 - pause
+Alt+F3 - toggle HUD
+F7-F11 - change resolution (must use GeDoSaTo)
+N / M - slomo
+Rendering Resolution
+Use GeDoSaTo for higher rendering resolutions. use below profile to fix the mouse when using these resolutions.
+Create a new profile for GridGame and add the following:
+# Lines starting with "#" are ignored by GeDoSaTo and used to provide documentation
+# This is a profile file for TRON: Evolution
+modifyGetCursorPos true
+</Comments>
+</CheatTable>

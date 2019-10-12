@@ -1,0 +1,1851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>14380</ID>
+      <Description>"Set keypoll and delay to 10ms (EDIT &gt; SETTINGS &gt; HOTKEYS)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"AR FIX"</Description>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(_zero,4)
+
+aobscanmodule(ARFIX,Injustice2.exe,F3 0F 5C C3 0F 5A C0 0F 54 05 * * * * 66 0F 5A C0 0F 5A C8 66 0F 2F 0D 00)
+alloc(newmem,$1000,ARFIX)
+label(code)
+label(return)
+
+newmem:
+  movss xmm0,[_zero]// subss xmm0,xmm3
+code:
+  cvtps2pd xmm0,xmm0
+  jmp return
+
+ARFIX:
+  jmp newmem
+  db 90 90
+return:
+registersymbol(ARFIX)
+
+[DISABLE]
+
+ARFIX:
+  db F3 0F 5C C3 0F 5A C0
+unregistersymbol(ARFIX)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14629</ID>
+      <Description>"&gt;&gt; CAMERA [PGDN]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(_camera,8)
+alloc(_freecamON,4)
+alloc(_slow,4)
+alloc(_fast,4)
+alloc(_faster,4)
+registersymbol(_camera)
+registersymbol(_freecamON)
+registersymbol(_slow)
+registersymbol(_fast)
+registersymbol(_faster)
+
+_slow:
+  dd (float)0.1
+_fast:
+  dd (float)10
+_faster:
+  dd (float)100
+
+//"Injustice2.exe"+ACF1AB0
+aobscanmodule(cameraAOB,Injustice2.exe,F2 0F 10 81 84 05 00 00)
+alloc(newmem,$1000,cameraAOB)
+label(code)
+label(return)
+
+newmem:
+  mov [_camera],rcx
+code:
+  movsd xmm0,[rcx+00000584]
+  jmp return
+
+cameraAOB:
+  jmp newmem
+  db 90 90 90
+return:
+registersymbol(cameraAOB)
+
+//"Injustice2.exe"+AD1C597
+aobscanmodule(writecamAOB,Injustice2.exe,0F 11 87 84 05 00 00)
+alloc(newmem2,$1000,writecamAOB)
+label(code2)
+label(return2)
+
+newmem2:
+  cmp [_freecamON],0
+  je code2
+  mov [rdi+00000580],ecx
+  mov rcx,rdi
+  jmp return2
+code2:
+  movups [rdi+00000584],xmm0 // x, y, z, pitch
+  mov [rdi+00000580],ecx
+  mov rcx,rdi
+  movsd [rdi+00000594],xmm1 // yaw, roll
+  mov [rdi+0000059C],eax // FOV
+  jmp return2
+
+writecamAOB:
+  jmp newmem2
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+return2:
+registersymbol(writecamAOB)
+
+//"Injustice2.exe"+6C59AA8
+aobscanmodule(supermoveAOB,Injustice2.exe,0F 28 CE 48 89 D9 E8 1D)
+alloc(newmem3,$1000,supermoveAOB)
+label(code3)
+label(return3)
+
+newmem3:
+
+code3:
+  movaps xmm1,xmm6
+  mov rcx,rbx
+  cmp [_freecamON],0
+  je return3
+  cmp [_camera],0
+  je return3
+  jmp supermoveAOB+0B
+
+supermoveAOB:
+  jmp newmem3
+  db 90
+return3:
+registersymbol(supermoveAOB)
+
+{$lua}
+if syntaxcheck then return end
+local symbolCheckT = createTimer()
+symbolCheckT.Interval = 1000
+symbolCheckT.OnTimer = function(sender)
+
+  if readInteger("Injustice2.exe") == nil then
+    sender.destroy()
+    return
+  end
+
+  local function cameraBase() return readQword("_camera") end
+  local freecamONAD = getAddress("_freecamON")
+
+  -- CAMERA ADDRESSES
+  local function camXAD() return cameraBase()+0x584 end
+  local function camYAD() return cameraBase()+0x588 end
+  local function camZAD() return cameraBase()+0x58C end
+  local function pitchAD()return cameraBase()+0x590 end
+  local function yawAD()  return cameraBase()+0x594 end
+  local function rollAD() return cameraBase()+0x598 end
+  local function FOVAD()  return cameraBase()+0x59C end
+
+  -- VARIABLES
+  local flySpeed  = 2
+  local aimSpeed  = 0.004
+  local rollSpeed = 40
+  local FOVSpeed  = 0.2
+  local ultraFast = 100
+  local fastMult  = 10
+  local slowDiv   = 10
+  local defaultFOV = 60
+  local prevX
+  local prevY
+  local prevZ
+  local prevPitch
+  local prevYaw
+  local prevRoll
+  local prevFOV
+  local minDolly = 2
+  local defaultTarDist = 0.06
+  local function hellaFast() return readFloat("_faster") end
+  local function fastMult() return readFloat("_fast") end
+  local function slowMult() return readFloat("_slow") end
+  local useZ = true
+  local pitchMax = 0.48*math.pi
+  local separation3D = 6.6
+
+  local function freecamEnabled()
+   if readInteger(freecamONAD) == 1 then return true end
+   return false
+  end
+
+  local function gameHasFocus()
+    if getOpenedProcessID() == getForegroundProcess() then return true end
+    return false
+  end
+
+  local function requiredConditions()
+    if freecamEnabled() and gameHasFocus() then return true end
+    return false
+  end
+
+  local function toggleFreecam()
+    if not gameHasFocus() then return end
+    if freecamEnabled() then
+      for j=1,7,1 do camCheat[0].value[j] = readBytes(camCheat.addy[j],8,true) end
+      writeFloat(camXAD(),prevX)
+      writeFloat(camYAD(),prevY)
+      writeFloat(camZAD(),prevZ)
+      writeInteger(pitchAD(),prevPitch)
+      writeInteger(yawAD(),prevYaw)
+      writeInteger(rollAD(),prevRoll)
+      writeFloat(FOVAD(),prevFOV)
+      --sleep(100)
+      writeInteger(freecamONAD, 0)
+    else
+      prevX = readFloat(camXAD())
+      prevY = readFloat(camYAD())
+      prevZ = readFloat(camZAD())
+      prevPitch = readInteger(pitchAD())
+      prevYaw = readInteger(yawAD())
+      prevRoll = readInteger(rollAD())
+      prevFOV = readFloat(FOVAD())
+      --sleep(100)
+      local pitch = math.pi*readInteger(pitchAD())/32768
+      local yaw = math.pi*readInteger(yawAD())/32768
+      tarX = readFloat(camXAD())+32768*defaultTarDist*math.cos(yaw)*math.cos(pitch)/math.pi
+      tarY = readFloat(camYAD())+32768*defaultTarDist*math.sin(yaw)*math.cos(pitch)/math.pi
+      tarZ = readFloat(camZAD())+32768*defaultTarDist*math.sin(pitch)/math.pi
+      writeInteger(freecamONAD, 1)
+    end
+  end
+
+if camCheat == nil then camCheat = {}
+  camCheat.addy = {camXAD(); camYAD(); camZAD(); pitchAD(); yawAD(); rollAD(); FOVAD()}
+  for i=0,9,1 do
+    camCheat[i] = {value = {}}
+    local set = function(sender)
+      if not requiredConditions() then return end
+      camCheat.addy = {camXAD(); camYAD(); camZAD(); pitchAD(); yawAD(); rollAD(); FOVAD()}
+      for j=1,7,1 do camCheat[i].value[j] = readBytes(camCheat.addy[j],8,true) end
+    end
+    if i == 0 then set(nil) else
+      camCheat[i].setHotkey = createHotkey(set, _G["VK_" .. i], VK_MENU)
+      camCheat[i].setHotkey.DelayBetweenActivate = 1000
+    end
+    local get = function(sender)
+      if not gameHasFocus() or #camCheat[i].value ~= 7 then return end
+      if not freecamEnabled() then toggleFreecam() end
+      camCheat.addy = {camXAD(); camYAD(); camZAD(); pitchAD(); yawAD(); rollAD(); FOVAD()}
+      for j=1,7,1 do
+        if i ~= 0 then camCheat[0].value[j] = readBytes(camCheat.addy[j],8,true) end
+        writeBytes(camCheat.addy[j], camCheat[i].value[j])
+      end
+    end
+    camCheat[i].getHotkey = createHotkey(get, _G["VK_" .. i])
+    camCheat[i].getHotkey.DelayBetweenActivate = 1000
+  end
+else camCheat.addy = {camXAD(); camYAD(); camZAD(); pitchAD(); yawAD(); rollAD(); FOVAD()}
+end
+
+
+  -- MOVEMENT SPEED MODIFIERS
+
+  local flySpeedOrig  = flySpeed
+  local aimSpeedOrig  = aimSpeed
+  local rollSpeedOrig = rollSpeed
+  local FOVSpeedOrig  = FOVSpeed
+
+  local hellaFastModeEnabled = false
+  local fastModeEnabled = false
+  local slowModeEnabled = false
+
+  local didReset = true
+  local didSlow = false
+  local didFast = false
+  local didHellaFast = false
+
+  checkCamKeys = createTimer()
+  checkCamKeys.setInterval(100)
+  checkCamKeys.onTimer = function()
+    if not gameHasFocus() then return end
+    if isKeyPressed(VK_T) and not isKeyPressed(VK_MENU) then
+      if not didHellaFast then
+        flySpeed  = flySpeedOrig*hellaFast()
+        aimSpeed  = aimSpeedOrig*fastMult()
+        rollSpeed = rollSpeedOrig*fastMult()
+        FOVSpeed  = FOVSpeedOrig*fastMult()
+        didReset  = false
+        didHellaFast = true
+      end
+    elseif isKeyPressed(VK_F) and not isKeyPressed(VK_MENU) then
+      if not didFast then
+        flySpeed  = flySpeedOrig*fastMult()
+        aimSpeed  = aimSpeedOrig*fastMult()
+        rollSpeed = rollSpeedOrig*fastMult()
+        FOVSpeed  = FOVSpeedOrig*fastMult()
+        didReset  = false
+        didFast   = true
+      end
+    elseif isKeyPressed(VK_C) and not isKeyPressed(VK_MENU) then
+      if not didSlow then
+        flySpeed  = flySpeedOrig*slowMult()
+        aimSpeed  = aimSpeedOrig*slowMult()
+        rollSpeed = rollSpeedOrig*slowMult()
+        FOVSpeed  = FOVSpeedOrig*slowMult()
+        didReset  = false
+        didSlow   = true
+      end
+    elseif not didReset then
+      flySpeed  = flySpeedOrig
+      aimSpeed  = aimSpeedOrig
+      rollSpeed = rollSpeedOrig
+      FOVSpeed  = FOVSpeedOrig
+      didHellaFast = false
+      didFast   = false
+      didSlow   = false
+      didReset  = true
+      hellaFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  -- MOVEMENT SPEED TOGGLES
+
+  local function resetSpeed()
+    flySpeed  = flySpeedOrig
+    aimSpeed  = aimSpeedOrig
+    rollSpeed = rollSpeedOrig
+    FOVSpeed  = FOVSpeedOrig
+    hellaFastModeEnabled = false
+    fastModeEnabled = false
+    slowModeEnabled = false
+  end
+
+  local function goHellaFast()
+    if hellaFastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*hellaFast()
+      aimSpeed  = aimSpeedOrig*fastMult()
+      rollSpeed = rollSpeedOrig*fastMult()
+      FOVSpeed  = FOVSpeedOrig*fastMult()
+      hellaFastModeEnabled = true
+      fastModeEnabled = false
+      slowModeEnabled = false
+    end
+  end
+
+  local function goFast()
+    if fastModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*fastMult()
+      aimSpeed  = aimSpeedOrig*fastMult()
+      rollSpeed = rollSpeedOrig*fastMult()
+      FOVSpeed  = FOVSpeedOrig*fastMult()
+      hellaFastModeEnabled = false
+      fastModeEnabled = true
+      slowModeEnabled = false
+    end
+  end
+
+  local function goSlow()
+    if slowModeEnabled then resetSpeed()
+    else
+      flySpeed  = flySpeedOrig*slowMult()
+      aimSpeed  = aimSpeedOrig*slowMult()
+      rollSpeed = rollSpeedOrig*slowMult()
+      FOVSpeed  = FOVSpeedOrig*slowMult()
+      hellaFastModeEnabled = false
+      fastModeEnabled = false
+      slowModeEnabled = true
+    end
+  end
+
+  -- CAMERA FUNCTIONS
+
+  local function toggleUseZ()
+    if not requiredConditions() then return end
+    if useZ then useZ = false
+    else useZ = true
+    end
+  end
+
+  local function move(moveDir)
+    if not requiredConditions() then return end
+    local camX  = readFloat(camXAD())
+    local camY  = readFloat(camYAD())
+    local camZ = readFloat(camZAD())
+    local Xdiff = tarX-camX
+    local Ydiff = tarY-camY
+    local Zdiff
+    local hypXY = math.sqrt(Xdiff*Xdiff+Ydiff*Ydiff)
+    if moveDir == "up" then
+      camZ = camZ+flySpeed
+      writeFloat(camZAD(), camZ)
+      tarZ = tarZ+flySpeed
+    elseif moveDir == "upCamOnly" then
+      camZ = camZ+flySpeed
+      Zdiff = tarZ-camZ
+      writeFloat(camZAD(), camZ)
+      writeInteger(pitchAD(),32768*math.atan(Zdiff/hypXY)/math.pi)
+    elseif moveDir == "down" then
+      camZ = camZ-flySpeed
+      writeFloat(camZAD(), camZ)
+      tarZ = tarZ-flySpeed
+    elseif moveDir == "downCamOnly" then
+      camZ = camZ-flySpeed
+      Zdiff = tarZ-camZ
+      writeFloat(camZAD(), camZ)
+      writeInteger(pitchAD(),32768*math.atan(Zdiff/hypXY)/math.pi)
+    else
+      local Zdiff = tarZ-camZ
+      local dX; local dY; local dZ
+      if moveDir == "right" or moveDir == "right3D" then
+        if moveDir == "right3D" then
+          dX = separation3D*Ydiff/hypXY
+          dY = separation3D*Xdiff/hypXY
+        else
+          dX = flySpeed*Ydiff/hypXY
+          dY = flySpeed*Xdiff/hypXY
+        end
+        if moveDir == "right3D" or useZ then
+          local roll = math.pi*readInteger(rollAD())/32768
+          local cosRoll = math.cos(roll)
+          dX = dX*cosRoll
+          dY = dY*cosRoll
+          if moveDir == "right3D" then
+            dZ = separation3D*math.sin(roll)
+          else
+            dZ = flySpeed*math.sin(roll)
+          end
+          tarZ = tarZ-dZ
+          camZ = camZ-dZ
+          writeFloat(camZAD(), camZ)
+        end
+        tarX = tarX-dX
+        tarY = tarY+dY
+        camX = camX-dX
+        camY = camY+dY
+        writeFloat(camXAD(), camX)
+        writeFloat(camYAD(), camY)
+        return
+      elseif moveDir == "left" or moveDir == "left3D" then
+        if moveDir == "left3D" then
+          dX = separation3D*Ydiff/hypXY
+          dY = separation3D*Xdiff/hypXY
+        else
+          dX = flySpeed*Ydiff/hypXY
+          dY = flySpeed*Xdiff/hypXY
+        end
+        if moveDir == "left3D" or useZ then
+          local roll = math.pi*readInteger(rollAD())/32768
+          local cosRoll = math.cos(roll)
+          dX = dX*cosRoll
+          dY = dY*cosRoll
+          if moveDir == "left3D" then
+            dZ = separation3D*math.sin(roll)
+          else
+            dZ = flySpeed*math.sin(roll)
+          end
+          tarZ = tarZ+dZ
+          camZ = camZ+dZ
+          writeFloat(camZAD(), camZ)
+        end
+        tarX = tarX+dX
+        tarY = tarY-dY
+        camX = camX+dX
+        camY = camY-dY
+        writeFloat(camXAD(), camX)
+        writeFloat(camYAD(), camY)
+        return
+      end
+      local hypZ = math.sqrt(Zdiff*Zdiff+hypXY*hypXY)
+      if useZ then
+        dX = flySpeed*Xdiff/hypZ
+        dY = flySpeed*Ydiff/hypZ
+        dZ = flySpeed*Zdiff/hypZ
+        if moveDir == "backward" then dZ = -dZ end
+        tarZ = tarZ+dZ
+        camZ = camZ+dZ
+        writeFloat(camZAD(), camZ)
+      else
+        dX = flySpeed*Xdiff/hypXY
+        dY = flySpeed*Ydiff/hypXY
+        dZ = flySpeed*Zdiff/hypXY
+      end
+      if moveDir == "forward" then
+        tarX = tarX+dX
+        tarY = tarY+dY
+        camX = camX+dX
+        camY = camY+dY
+        writeFloat(camXAD(), camX)
+        writeFloat(camYAD(), camY)
+      elseif moveDir == "backward" then
+        tarX = tarX-dX
+        tarY = tarY-dY
+        camX = camX-dX
+        camY = camY-dY
+        writeFloat(camXAD(), camX)
+        writeFloat(camYAD(), camY)
+      else return
+      end
+    end
+  end
+
+  local function orbit(orbitDir)
+    if not requiredConditions() then return end
+    local exitFunction = false
+    local camX  = readFloat(camXAD())
+    local camY  = readFloat(camYAD())
+    local Xdiff = tarX-camX
+    local Ydiff = tarY-camY
+    local hypXY = math.sqrt(Xdiff*Xdiff+Ydiff*Ydiff)
+    local pitch2Byte = readInteger(pitchAD())
+    local pitch = math.pi*pitch2Byte/32768
+    local yaw = math.pi*readInteger(yawAD())/32768
+    if orbitDir == "left" or orbitDir == "panRight" then
+      yaw = yaw + aimSpeed
+    elseif orbitDir == "right" or orbitDir == "panLeft" then
+      yaw = yaw - aimSpeed
+    else
+      local camZ  = readFloat(camZAD())
+      local Zdiff = tarZ-camZ
+      local hypZ  = math.sqrt(Zdiff*Zdiff+hypXY*hypXY)
+      if orbitDir == "down" or orbitDir == "panUp" then
+        pitch = pitch + aimSpeed
+      elseif orbitDir == "up" or orbitDir == "panDown" then
+        pitch = pitch - aimSpeed
+      else return
+      end
+      --if pitch&gt;-pitchMax and pitch&lt;pitchMax then
+        local R  = hypZ*math.cos(pitch)/hypXY
+        local dX = Xdiff*R
+        local dY = Ydiff*R
+        local dZ = hypZ*math.sin(pitch)
+        if orbitDir == "panUp" or orbitDir == "panDown" then
+          tarX = camX+dX
+          tarY = camY+dY
+          tarZ = camZ+dZ
+          exitFunction = true
+        else
+          writeFloat(camXAD(), tarX-dX)
+          writeFloat(camYAD(), tarY-dY)
+          writeFloat(camZAD(), tarZ-dZ)
+          exitFunction = true
+        end
+      --end
+      exitFunction = true
+    end
+    if not exitFunction then
+      local dX = hypXY*math.cos(yaw)
+      local dY = hypXY*math.sin(yaw)
+      if orbitDir == "panLeft" or orbitDir == "panRight" then
+        tarX = camX+dX
+        tarY = camY+dY
+      elseif orbitDir == "left" or orbitDir == "right" then
+        writeFloat(camXAD(), tarX-dX)
+        writeFloat(camYAD(), tarY-dY)
+      else return
+      end
+    end
+    writeInteger(pitchAD(),32768*pitch/math.pi)
+    writeInteger(yawAD(),32768*yaw/math.pi)
+  end
+
+  local function dolly(dollyDir)
+    if not requiredConditions() then return end
+    local exitFunction = false
+    local camX  = readFloat(camXAD())
+    local camY  = readFloat(camYAD())
+    local camZ  = readFloat(camZAD())
+    local Xdiff = tarX-camX
+    local Ydiff = tarY-camY
+    local Zdiff = tarZ-camZ
+    local hypXY = math.sqrt(Xdiff*Xdiff+Ydiff*Ydiff)
+    local hypZ  = math.sqrt(Zdiff*Zdiff+hypXY*hypXY)
+    if dollyDir == "zoomReset" then
+      local FOV = readFloat(FOVAD()) -- stored in degrees
+      local FOVr = math.pi*FOV/180 -- convert to radians
+      local objWidth = hypZ*2*math.tan(FOVr/2)
+      local FOV2  = defaultFOV
+      local FOVr2 = math.pi*FOV2/180
+      local hypZ2 = objWidth/(2*math.tan(FOVr2/2))-hypZ
+      local dX = hypZ2*Xdiff/hypZ
+      local dY = hypZ2*Ydiff/hypZ
+      local dZ = hypZ2*Zdiff/hypZ
+      writeFloat(FOVAD(), FOV2)
+      writeFloat(camXAD(), camX-dX)
+      writeFloat(camYAD(), camY-dY)
+      writeFloat(camZAD(), camZ-dZ)
+      exitFunction = true
+    elseif dollyDir == "closer" then
+      if hypZ &gt;= minDolly then
+        local dX = flySpeed*Xdiff/hypZ
+        local dY = flySpeed*Ydiff/hypZ
+        local dZ = flySpeed*Zdiff/hypZ
+        writeFloat(camXAD(), camX+dX)
+        writeFloat(camYAD(), camY+dY)
+        writeFloat(camZAD(), camZ+dZ)
+      end
+      exitFunction = true
+    elseif dollyDir == "farther" then
+      local dX = flySpeed*Xdiff/hypZ
+      local dY = flySpeed*Ydiff/hypZ
+      local dZ = flySpeed*Zdiff/hypZ
+      writeFloat(camXAD(), camX-dX)
+      writeFloat(camYAD(), camY-dY)
+      writeFloat(camZAD(), camZ-dZ)
+      exitFunction = true
+    end
+    if not exitFunction then
+      local FOV  = readFloat(FOVAD()) -- stored in degrees
+      local FOVr = math.pi*FOV/180 -- convert to radians
+      local dollySpeed = flySpeed*(1-FOV/180)^2
+      local objWidth = hypZ*2*math.tan(FOVr/2)
+      if dollyDir == "zoomIn" then
+        FOVr = 2*math.atan(objWidth/(2*(hypZ+dollySpeed)))
+        FOV  = 180*FOVr/math.pi -- convert back to degrees
+        if FOV &gt;=1.2 then
+          local dX = dollySpeed*Xdiff/hypZ
+          local dY = dollySpeed*Ydiff/hypZ
+          local dZ = dollySpeed*Zdiff/hypZ
+          writeFloat(FOVAD(), FOV)
+          writeFloat(camXAD(), camX-dX)
+          writeFloat(camYAD(), camY-dY)
+          writeFloat(camZAD(), camZ-dZ)
+        end
+      elseif dollyDir == "zoomOut" then
+        FOVr = 2*math.atan(objWidth/(2*(hypZ-dollySpeed)))
+        FOV  = 180*FOVr/math.pi -- convert back to degrees
+        if FOV &lt;= 169 then
+          local dX = dollySpeed*Xdiff/hypZ
+          local dY = dollySpeed*Ydiff/hypZ
+          local dZ = dollySpeed*Zdiff/hypZ
+          writeFloat(FOVAD(), FOV)
+          writeFloat(camXAD(), camX+dX)
+          writeFloat(camYAD(), camY+dY)
+          writeFloat(camZAD(), camZ+dZ)
+        end
+      else return
+      end
+    end
+  end
+
+  local function zoomIn()
+    if not requiredConditions() then return end
+    local FOV = readFloat(FOVAD())
+    writeFloat(FOVAD(), FOV+FOVSpeed)
+  end
+
+  local function zoomOut()
+    if not requiredConditions() then return end
+    local FOV = readFloat(FOVAD())
+    writeFloat(FOVAD(), FOV-FOVSpeed)
+  end
+
+  local function rollLeft()
+    if not requiredConditions() then return end
+    local roll = readInteger(rollAD())
+    writeInteger(rollAD(), roll+rollSpeed)
+  end
+
+  local function rollRight()
+    if not requiredConditions() then return end
+    local roll = readInteger(rollAD())
+    writeInteger(rollAD(), roll-rollSpeed)
+  end
+
+  local function rollReset()
+    if not requiredConditions() then return end
+    writeInteger(rollAD(), 0)
+  end
+
+  local function moveForward() move("forward") end
+  local function moveBackward() move("backward") end
+  local function moveLeft() move("left") end
+  local function moveLeft3D() move("left3D") end
+  local function moveRight() move("right") end
+  local function moveRight3D() move("right3D") end
+  local function moveUp() move("up") end
+  local function moveDown() move("down") end
+  local function moveUpCamOnly() move("upCamOnly") end
+  local function moveDownCamOnly() move("downCamOnly") end
+  local function panUp() orbit("panUp") end
+  local function panDown() orbit("panDown") end
+  local function panLeft() orbit("panLeft") end
+  local function panRight() orbit("panRight") end
+  local function orbitUp() orbit("up") end
+  local function orbitDown() orbit("down") end
+  local function orbitLeft() orbit("left") end
+  local function orbitRight() orbit("right") end
+  local function dollyCloser() dolly("closer") end
+  local function dollyFarther() dolly("farther") end
+  local function dollyZoomIn() dolly("zoomIn") end
+  local function dollyZoomOut() dolly("zoomOut") end
+  local function dollyZoomReset() dolly("zoomReset") end
+
+  -- CAMERA HOTKEYS
+  camHotkeys = {
+    createHotkey(toggleFreecam, VK_NEXT),
+    createHotkey(toggleUseZ, VK_NUMPAD2),
+    createHotkey(goHellaFast, VK_MENU, VK_T),
+    createHotkey(goFast, VK_MENU, VK_F),
+    createHotkey(goSlow, VK_MENU, VK_C),
+    createHotkey(moveLeft3D, VK_MENU, VK_NUMPAD4),
+    createHotkey(moveRight3D, VK_MENU, VK_NUMPAD6),
+    createHotkey(moveForward, VK_NUMPAD8), -- pos 8
+    createHotkey(moveBackward, VK_NUMPAD5),
+    createHotkey(moveLeft, VK_NUMPAD4),
+    createHotkey(moveRight, VK_NUMPAD6),
+    createHotkey(moveUp, VK_NUMPAD9),
+    createHotkey(moveDown, VK_NUMPAD7),
+    createHotkey(moveUpCamOnly, VK_NUMPAD3),
+    createHotkey(moveDownCamOnly, VK_NUMPAD1),
+    createHotkey(panUp, VK_ADD, VK_NUMPAD8),
+    createHotkey(panDown, VK_ADD, VK_NUMPAD5),
+    createHotkey(panLeft, VK_ADD, VK_NUMPAD4),
+    createHotkey(panRight, VK_ADD, VK_NUMPAD6),
+    createHotkey(rollLeft, VK_ADD, VK_NUMPAD3),
+    createHotkey(rollRight, VK_ADD, VK_NUMPAD1),
+    createHotkey(rollReset, VK_ADD, VK_NUMPAD2),
+    createHotkey(zoomIn, VK_ADD, VK_NUMPAD7),
+    createHotkey(zoomOut, VK_ADD, VK_NUMPAD9),
+    createHotkey(orbitUp, VK_RETURN, VK_NUMPAD5),
+    createHotkey(orbitDown, VK_RETURN, VK_NUMPAD8),
+    createHotkey(orbitLeft, VK_RETURN, VK_NUMPAD6),
+    createHotkey(orbitRight, VK_RETURN, VK_NUMPAD4),
+    createHotkey(dollyCloser, VK_RETURN, VK_NUMPAD9),
+    createHotkey(dollyFarther, VK_RETURN, VK_NUMPAD7),
+    createHotkey(dollyZoomIn, VK_RETURN, VK_NUMPAD3),
+    createHotkey(dollyZoomOut, VK_RETURN, VK_NUMPAD1),
+    createHotkey(dollyZoomReset, VK_RETURN, VK_NUMPAD2),
+    createHotkey(orbitUp, VK_SUBTRACT, VK_NUMPAD5),
+    createHotkey(orbitDown, VK_SUBTRACT, VK_NUMPAD8),
+    createHotkey(orbitLeft, VK_SUBTRACT, VK_NUMPAD6),
+    createHotkey(orbitRight, VK_SUBTRACT, VK_NUMPAD4),
+    createHotkey(dollyCloser, VK_SUBTRACT, VK_NUMPAD9),
+    createHotkey(dollyFarther, VK_SUBTRACT, VK_NUMPAD7),
+    createHotkey(dollyZoomIn, VK_SUBTRACT, VK_NUMPAD3),
+    createHotkey(dollyZoomOut, VK_SUBTRACT, VK_NUMPAD1),
+    createHotkey(dollyZoomReset, VK_SUBTRACT, VK_NUMPAD2)
+
+  }
+  local smDelay = 8
+  for i=1,smDelay-1,1 do camHotkeys[i].DelayBetweenActivate = 1000 end
+  for i=smDelay,#camHotkeys,1 do camHotkeys[i].DelayBetweenActivate = 10 end
+
+
+  sender.destroy()
+end
+
+{$asm}
+[DISABLE]
+
+_freecamON:
+  dd 0
+
+cameraAOB:
+  db F2 0F 10 81 84 05 00 00
+unregistersymbol(cameraAOB)
+dealloc(newmem)
+
+writecamAOB:
+  db 0F 11 87 84 05 00 00 89 8F 80 05 00 00 48 89 F9 F2 0F 11 8F 94 05 00 00 89 87 9C 05 00 00
+unregistersymbol(writecamAOB)
+dealloc(newmem2)
+
+supermoveAOB:
+  db 0F 28 CE 48 89 D9
+unregistersymbol(supermoveAOB)
+dealloc(newmem3)
+
+{$lua}
+if checkCamKeys ~= nil then
+  checkCamKeys.destroy()
+  checkCamKeys = nil
+end
+
+if camHotkeys ~= nil then
+  for i,v in ipairs(camHotkeys) do v.destroy() end
+  camHotkeys = nil
+end
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14630</ID>
+          <Description>"&gt;&gt; values"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14631</ID>
+              <Description>"Camera X"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>584</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14632</ID>
+              <Description>"Camera Y"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>588</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14633</ID>
+              <Description>"Camera Z"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>58C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14634</ID>
+              <Description>"Pitch"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>590</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14635</ID>
+              <Description>"Yaw"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>594</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14636</ID>
+              <Description>"Roll"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>2 Bytes</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>598</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14637</ID>
+              <Description>"FOV"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Offsets>
+                <Offset>59C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13238</ID>
+          <Description>"&gt;&gt; hotkeys"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13295</ID>
+              <Description>"*** MOVEMENT ***"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0080FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13249</ID>
+                  <Description>"SPEED: Slow, fast, faster - C, F, T (+ALT to toggle)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13240</ID>
+                  <Description>"FREECAM: On/off - Pagedown"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13296</ID>
+                  <Description>"FLY - No modifier"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>0080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>13290</ID>
+                      <Description>"(Below, NUMPAD keys...)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13298</ID>
+                      <Description>"MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13297</ID>
+                      <Description>"FLY: Up, down - 9, 7 (cam only - 3, 1)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13303</ID>
+                      <Description>"Height lock: On/off - 2"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13499</ID>
+                      <Description>"3D Capture: Step left, right - ALT+4, ALT+6"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13292</ID>
+                  <Description>"AIM - Hold down PLUS"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>0080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>13339</ID>
+                      <Description>"(Below, NUMPAD keys...)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13244</ID>
+                      <Description>"PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13246</ID>
+                      <Description>"ZOOM: In, out - 9, 7"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13242</ID>
+                      <Description>"TILT: Left, right - 1, 3 (reset: 2)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13293</ID>
+                  <Description>"ROTATE - Hold down ENTER (OR MINUS)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>0080FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>13340</ID>
+                      <Description>"(Below, NUMPAD keys...)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13241</ID>
+                      <Description>"ROTATE: Up, down, left, right - 5, 8, 6, 4"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13248</ID>
+                      <Description>"MOVE: Forward, backward - 9, 7 (cam only)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>13247</ID>
+                      <Description>"DOLLY-ZOOM: In, out - 3, 1 (reset: 2)"</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>000000</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13294</ID>
+              <Description>"*** SETTINGS ***"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>0080FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13341</ID>
+                  <Description>"(Below, standard number keys...)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13250</ID>
+                  <Description>"SAVE: Save current settings - ALT+[number 1 to 9]"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13252</ID>
+                  <Description>"LOAD: Load saved settings - [number 1 to 9]"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13251</ID>
+                  <Description>"UNDO: Load previous settings - 0 (zero)"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>000000</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14638</ID>
+          <Description>"Freecam on/off [PGDN]"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:-
+</DropDownList>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_freecamON</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13500</ID>
+          <Description>"Speed - Slow [C]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_slow</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13502</ID>
+          <Description>"Speed - Fast [F]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_fast</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13501</ID>
+          <Description>"Speed - Faster [T]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_faster</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14335</ID>
+      <Description>"&gt;&gt; GAME SPEED [F5]"</Description>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(_timescale,8)
+registersymbol(_timescale)
+
+//"Injustice2.exe"+5EB6703
+aobscanmodule(timescaleAOB,Injustice2.exe,F3 0F 10 80 88 00 00 00 48 83 C4 28)
+alloc(newmem,$1000,timescaleAOB)
+label(code)
+label(return)
+
+newmem:
+  mov [_timescale],rax
+code:
+  movss xmm0,[rax+00000088]
+  jmp return
+
+timescaleAOB:
+  jmp newmem
+  db 90 90 90
+return:
+registersymbol(timescaleAOB)
+
+//"Injustice2.exe"+ABDAAFC
+aobscanmodule(timescale2AOB,Injustice2.exe,F3 0F 11 B1 88 00 00 00)
+registersymbol(timescale2AOB)
+
+timescale2AOB:
+  db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+
+timescaleAOB:
+  db F3 0F 10 80 88 00 00 00
+unregistersymbol(timescaleAOB)
+dealloc(newmem)
+
+timescale2AOB:
+  db F3 0F 11 B1 88 00 00 00
+unregistersymbol(timescale2AOB)
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14336</ID>
+          <Description>"Timescale [F5-F11] (def: F9)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_timescale</Address>
+          <Offsets>
+            <Offset>88</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>117</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>118</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>119</Key>
+              </Keys>
+              <Value>.5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>120</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>121</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>122</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14610</ID>
+      <Description>"&gt;&gt; COLOR/DOF [O]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(_pp,8)
+registersymbol(_pp)
+
+//"Injustice2.exe"+AB68D5B
+aobscanmodule(dofAOB,Injustice2.exe,88 43 68 41 8B 46 6C) // should be unique
+alloc(newmem,$1000,dofAOB)
+label(code)
+label(return)
+
+newmem:
+  mov [_pp],rbx
+code:
+  mov [rbx+68],al
+  mov eax,[r14+6C]
+  jmp return
+
+dofAOB:
+  jmp newmem
+  db 90 90
+return:
+registersymbol(dofAOB)
+
+[DISABLE]
+
+_pp:
+  dq 0
+
+dofAOB:
+  db 88 43 68 41 8B 46 6C
+unregistersymbol(dofAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>79</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14586</ID>
+          <Description>"Make editable"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//"Injustice2.exe"+AE56D9E
+aobscanmodule(overrideDOF,Injustice2.exe,4C 8D 44 24 30 48 89 CA E8)
+alloc(newmem2,$1000,overrideDOF)
+label(code2)
+label(return2)
+
+newmem2:
+
+code2:
+  lea r8,[rsp+30]
+  mov rdx,rcx
+  cmp [_pp],0
+  jne overrideDOF+0D
+  jmp return2
+
+overrideDOF:
+  jmp newmem2
+  db 90 90 90
+return2:
+registersymbol(overrideDOF)
+
+[DISABLE]
+
+overrideDOF:
+  db 4C 8D 44 24 30 48 89 CA
+unregistersymbol(overrideDOF)
+dealloc(newmem2)
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14639</ID>
+          <Description>"&gt;&gt; COLOR"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14611</ID>
+              <Description>"Bloom (0.3)"</Description>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14612</ID>
+              <Description>"Flares (1)"</Description>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14613</ID>
+              <Description>"Desaturation (0)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14614</ID>
+              <Description>"Exposure (1)"</Description>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14640</ID>
+          <Description>"&gt;&gt; DOF"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14615</ID>
+              <Description>"DOF on/off [O, alt+O]"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">2:ON
+0:-
+</DropDownList>
+              <VariableType>Byte</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>79</Key>
+                  </Keys>
+                  <Value>2</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>79</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14616</ID>
+              <Description>"Blur amount [left, right]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>6C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>37</Key>
+                  </Keys>
+                  <Value>.002</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>39</Key>
+                  </Keys>
+                  <Value>.002</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>.3</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14628</ID>
+              <Description>"Near transition"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>74</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>400</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14627</ID>
+              <Description>"Near distance [alt+up, down]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14626</ID>
+              <Description>"Focal distance [up, down]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>7C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>600</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14617</ID>
+              <Description>"Far transition"</Description>
+              <Color>000000</Color>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>80</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>400</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14618</ID>
+              <Description>"Far distance [alt+up, down]"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_pp</Address>
+              <Offsets>
+                <Offset>84</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>38</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>40</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>80</Key>
+                  </Keys>
+                  <Value>600</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>14646</ID>
+              <Description>"DOF preset: P"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14354</ID>
+      <Description>"HUD on/off [H, G]"</Description>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+alloc(_zero,16)
+
+//"Injustice2.exe"+9973E97
+aobscanmodule(hudAOB,Injustice2.exe,41 0F 28 48 10 0F 29 02)
+alloc(newmem,$1000,hudAOB)
+
+label(code)
+label(return)
+
+newmem:
+  movaps xmm1,[_zero]
+  movaps xmm0,[_zero]
+code:
+  //movaps xmm1,[r8+10]
+  jmp return
+
+hudAOB:
+  jmp newmem
+return:
+registersymbol(hudAOB)
+
+[DISABLE]
+
+hudAOB:
+  db 41 0F 28 48 10
+
+unregistersymbol(hudAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>72</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>71</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>2</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14355</ID>
+      <Description>"Motion blur [B, V]"</Description>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+//"Injustice2.exe"+A2A3160
+aobscanmodule(blurAOB,Injustice2.exe,0F B6 41 09 84 C0)
+registersymbol(blurAOB)
+
+blurAOB:
+  db B0 00 90 90
+
+[DISABLE]
+
+blurAOB:
+  db 0F B6 41 09
+unregistersymbol(blurAOB)
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>66</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>86</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>34</Key>
+          </Keys>
+          <ID>2</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14466</ID>
+      <Description>"&gt;&gt; OTHER"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14381</ID>
+          <Description>"Pause fight countdown"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//"Injustice2.exe"+5E9B55E
+aobscanmodule(countdown,Injustice2.exe,8D 8A FF FF FF FF 48 8B 05)
+registersymbol(countdown)
+
+countdown+02:
+  db 00 00 00 00
+
+[DISABLE]
+
+countdown+02:
+  db FF FF FF FF
+unregistersymbol(countdown)
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>34</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14512</ID>
+          <Description>"Godmode"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//"Injustice2.exe"+6D716AB
+aobscanmodule(godmodeAOB,Injustice2.exe,0F 11 B3 44 0A 00 00)
+registersymbol(godmodeAOB)
+
+godmodeAOB:
+  db 90 90 90 90 90 90 90
+
+[DISABLE]
+
+godmodeAOB:
+  db 0F 11 B3 44 0A 00 00
+unregistersymbol(godmodeAOB)
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Deactivate</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>34</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14641</ID>
+      <Description>"TIPS:"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14642</ID>
+      <Description>"Shoot ESC paused with HUD off (cursor will not be in your shot)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14643</ID>
+      <Description>"If shooting F5 paused, ESC twice will clean up blur"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14644</ID>
+      <Description>"Use MINUS to rotate instead of ENTER (since it cancels ESC pause)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14645</ID>
+      <Description>"You have the current fight to shoot. Turn off scripts and close CE"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14648</ID>
+      <Description>"Then, you may restart CE on next fight. CTRL+PGDN to disable all"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14647</ID>
+      <Description>"DISABLE ALL: CTRL + PGDN"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

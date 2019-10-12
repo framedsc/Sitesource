@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>36</ID>
+      <Description>"First-person Camera [F2]"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//FezGame.Services.PlayerManager::get_Position+C
+[ENABLE]
+
+aobscan(camAOB,B8 00 00 00 8B F1 F3 0F 7E 06 66 0F D6 07)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_cam,4)
+
+newmem:
+
+code:
+  mov [_cam],esi
+  movq xmm0,[esi]
+  movq [edi],xmm0
+  jmp return
+
+camAOB+06:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(camAOB)
+
+[DISABLE]
+
+camAOB+06:
+  db F3 0F 7E 06 66 0F D6 07
+
+unregistersymbol(camAOB)
+dealloc(newmem)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>113</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"Press X key to go faster"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"Cam X [T/G]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_cam</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>84</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>71</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>84</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>71</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Cam Y [Y/R] up/dn"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_cam</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>89</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>82</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>89</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>82</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>40</ID>
+          <Description>"Cam Z [H/F]"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_cam</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>72</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>70</Key>
+              </Keys>
+              <Value>.02</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>72</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>70</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"Fisheye effect (can crash)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//FezEngine.Services.TargetRenderingManager::OnRtPrepare+1E
+[ENABLE]
+
+aobscan(fisheyeAOB,83 7F 0C 00 74 32)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_fisheye,4)
+
+newmem:
+
+code:
+  mov [_fisheye],edi
+  cmp dword ptr [edi+0C],00
+  je FezEngine.Services.TargetRenderingManager::OnRtPrepare+56
+  jmp return
+
+fisheyeAOB:
+  jmp newmem
+  nop
+return:
+registersymbol(fisheyeAOB)
+
+[DISABLE]
+
+fisheyeAOB:
+  db 83 7F 0C 00 74 32
+
+unregistersymbol(fisheyeAOB)
+dealloc(newmem)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>""Phil" Fisheye"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:ON
+0:off
+</DropDownList>
+              <VariableType>Binary</VariableType>
+              <BitStart>0</BitStart>
+              <BitLength>1</BitLength>
+              <ShowAsBinary>0</ShowAsBinary>
+              <Address>_fisheye</Address>
+              <Offsets>
+                <Offset>c</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>42</ID>
+      <Description>"Level data"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//FezEngine.Services.LevelManager::get_Flat+3
+[ENABLE]
+
+aobscan(flatAOB,0F B6 40 70 C3)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+globalalloc(_isFlat,4)
+
+newmem:
+
+code:
+  mov [_isFlat],eax
+  movzx eax,byte ptr [eax+70]
+  ret 
+  jmp return
+
+flatAOB:
+  jmp newmem
+return:
+registersymbol(flatAOB)
+
+[DISABLE]
+
+flatAOB:
+  db 0F B6 40 70 C3
+
+unregistersymbol(flatAOB)
+dealloc(newmem)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"Shadows"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_isFlat</Address>
+          <Offsets>
+            <Offset>58</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>46</ID>
+          <Description>"Water type (can crash)"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:None
+1:Normal
+2:Blood
+3:Lava
+4:Sewer
+5:Purple
+</DropDownList>
+          <VariableType>Byte</VariableType>
+          <Address>_isFlat</Address>
+          <Offsets>
+            <Offset>5C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"Water height"</Description>
+          <VariableType>Float</VariableType>
+          <Address>_isFlat</Address>
+          <Offsets>
+            <Offset>60</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"Is flat"</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:TRUE
+0:false
+</DropDownList>
+          <VariableType>Binary</VariableType>
+          <BitStart>0</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>_isFlat</Address>
+          <Offsets>
+            <Offset>70</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

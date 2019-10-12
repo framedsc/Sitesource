@@ -1,0 +1,2633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>12490</ID>
+      <Description>"---------------------- Prince Of Persia (2008) ----------------------"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12219</ID>
+      <Description>"Pause Camera [Page Down]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],eax
+movaps xmm0,[eax+10]
+movaps [PrinceOfPersia_Launcher.exe+B45590],xmm0
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"PrinceOfPersia_Launcher.exe"+65EF91:
+jmp newmem
+nop
+nop
+nop
+nop
+nop
+nop
+returnhere:
+
+// Disable opcode writing to camera xyz
+//"PrinceOfPersia_Launcher.exe"+638D93:
+//db 90 90 90 90
+
+
+[DISABLE]
+dealloc(newmem)
+"PrinceOfPersia_Launcher.exe"+65EF91:
+movaps xmm0,[eax+10]
+movaps [PrinceOfPersia_Launcher.exe+B45590],xmm0
+
+//"PrinceOfPersia_Launcher.exe"+638D93:
+//movaps [esi+10],xmm0
+
+unregistersymbol(pCamera)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11819</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000010"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11818</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000014"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11817</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000018"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.15</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.15</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11829</ID>
+          <Description>"FOV [KP_Minus, KP_Plus] (default=0.77)"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000034"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.02</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.02</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.3</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.77</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10302</ID>
+          <Description>"Zrot [J,L]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000028"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>28</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10301</ID>
+          <Description>"Yrot [I,K]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000024"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10303</ID>
+          <Description>"Xrot [O , .]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000020"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>190</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>401</ID>
+      <Description>"Menu HUD [Del] (press Esc to go in then out of main menu when this is enabled)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pMenu)
+registersymbol(pMenu)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pMenu],ecx
+//mov [ecx+00000098],al
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pMenu:
+dd 0
+//
+
+"PrinceOfPersia_Launcher.exe"+2A0B45:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"PrinceOfPersia_Launcher.exe"+2A0B45:
+mov [ecx+00000098],al
+unregistersymbol(pMenu)
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>402</ID>
+          <Description>"pMenu"</Description>
+          <LastState Value="??" Activated="0" RealAddress="FCD9FD95"/>
+          <Color>80000008</Color>
+          <VariableType>Byte</VariableType>
+          <Address>pMenu</Address>
+          <Offsets>
+            <Offset>98</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>393</ID>
+          <Description>"hud! 0=on, 1=off"</Description>
+          <LastState Value="0" Activated="0" RealAddress="0A8B0CF8"/>
+          <Color>80000008</Color>
+          <VariableType>Byte</VariableType>
+          <Address>0A8B0CF8</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12477</ID>
+      <Description>"Time Control Script [B]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="0"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pTime)
+registersymbol(pTime)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pTime],eax
+fld dword ptr [eax+08]
+ret
+int 3
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pTime:
+dd 0
+//
+
+"PrinceOfPersia_Launcher.exe"+446775:
+jmp newmem
+returnhere:
+
+"PrinceOfPersia_Launcher.exe"+44675B:
+db 90 90 90 90 90
+
+[DISABLE]
+dealloc(newmem)
+"PrinceOfPersia_Launcher.exe"+446775:
+fld dword ptr [eax+08]
+ret
+int 3
+
+"PrinceOfPersia_Launcher.exe"+44675B:
+movss [eax+08],xmm0
+
+unregistersymbol(pTime)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>66</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12478</ID>
+          <Description>"Time [N, shift+N,alt+N] (0,1,0.3)"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000008"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pTime</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>78</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>78</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>78</Key>
+              </Keys>
+              <Value>0.3</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12496</ID>
+      <Description>"Light Seeds (cheat)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pSeeds)
+registersymbol(pSeeds)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pSeeds],eax
+mov eax,[eax+000000DC]
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pSeeds:
+dd 0
+//
+
+"PrinceOfPersia_Launcher.exe"+297359:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"PrinceOfPersia_Launcher.exe"+297359:
+mov eax,[eax+000000DC]
+unregistersymbol(pSeeds)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12497</ID>
+          <Description>"Current Number of Found Seeds [\]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="000000DC"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pSeeds</Address>
+          <Offsets>
+            <Offset>DC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>220</Key>
+              </Keys>
+              <Value>20</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12221</ID>
+      <Description>"---------------------- The Junk Line ----------------------"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11825</ID>
+          <Description>"Xrot [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address/>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.0001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.0001</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11826</ID>
+          <Description>"Yrot  [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address/>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11827</ID>
+          <Description>"Zrot [-,=]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address/>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12220</ID>
+          <Description>"Old Stuff"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12206</ID>
+              <Description>"Pause Camera [Page Down]"</Description>
+              <LastState Activated="0"/>
+              <Color>80000008</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+label(pCamera)
+registersymbol(pCamera)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+mov [pCamera],esi
+movaps [esi+10],xmm0
+movaps xmm0,[eax]
+
+jmp exit
+
+exit:
+jmp returnhere
+
+//  Define variable
+pCamera:
+dd 0
+//
+
+"PrinceOfPersia_Launcher.exe"+638D93:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+"PrinceOfPersia_Launcher.exe"+638D93:
+movaps [esi+10],xmm0
+movaps xmm0,[eax]
+unregistersymbol(pCamera)
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movaps [esi+10],xmm0 - write z</Description>
+      <Address>00A38D93</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638D93</ModuleNameOffset>
+      <Before>
+        <Byte>07</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[eax+10]</Description>
+      <Address>00A5EF91</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>65EF91</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>23</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>05</Byte>
+        <Byte>90</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[esi+10]</Description>
+      <Address>00A5E853</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>65E853</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>62</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>86</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[esi+10] - x?</Description>
+      <Address>009F6092</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>5F6092</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>DE</Byte>
+        <Byte>7A</Byte>
+        <Byte>0D</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi],edx - HUD/time?</Description>
+      <Address>00AC1649</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1649</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>17</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi],edx</Description>
+      <Address>00AC1649</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1649</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>17</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [ebp+00],xmm2</Description>
+      <Address>00AC1098</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1098</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>55</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>55</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>55</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+14],xmm2</Description>
+      <Address>00AC16A1</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C16A1</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>50</Byte>
+        <Byte>14</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+40],ebx - write time?</Description>
+      <Address>6770A19C</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A19C</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>F4</Byte>
+        <Byte>11</Byte>
+        <Byte>24</Byte>
+        <Byte>66</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>5E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>1D</Byte>
+        <Byte>39</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+40],edi</Description>
+      <Address>6624A1AD</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A1AD</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>F4</Byte>
+        <Byte>11</Byte>
+        <Byte>24</Byte>
+        <Byte>66</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>0C</Byte>
+        <Byte>FF</Byte>
+        <Byte>75</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp [esi+40],edi</Description>
+      <Address>6624A1A1</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A1A1</ModuleNameOffset>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>5E</Byte>
+        <Byte>40</Byte>
+        <Byte>EB</Byte>
+        <Byte>1D</Byte>
+      </Before>
+      <Actual>
+        <Byte>39</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>18</Byte>
+        <Byte>53</Byte>
+        <Byte>FF</Byte>
+        <Byte>15</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp [esi+40],edi</Description>
+      <Address>6624A190</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A190</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>84</Byte>
+        <Byte>1E</Byte>
+        <Byte>74</Byte>
+        <Byte>11</Byte>
+      </Before>
+      <Actual>
+        <Byte>39</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>29</Byte>
+        <Byte>57</Byte>
+        <Byte>FF</Byte>
+        <Byte>15</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+40],ebx</Description>
+      <Address>6624A19C</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A19C</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>F4</Byte>
+        <Byte>11</Byte>
+        <Byte>24</Byte>
+        <Byte>66</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>5E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>1D</Byte>
+        <Byte>39</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [esi+40],edi</Description>
+      <Address>6624A1AD</Address>
+      <ModuleName>DINPUT8.dll</ModuleName>
+      <ModuleNameOffset>A1AD</ModuleNameOffset>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>F4</Byte>
+        <Byte>11</Byte>
+        <Byte>24</Byte>
+        <Byte>66</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>7E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>0C</Byte>
+        <Byte>FF</Byte>
+        <Byte>75</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [eax],ecx - slowmo</Description>
+      <Address>00745387</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>345387</ModuleNameOffset>
+      <Before>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>8B</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+10],eax - slomo</Description>
+      <Address>00602194</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>202194</ModuleNameOffset>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>8B</Byte>
+        <Byte>C3</Byte>
+        <Byte>5B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov edx,[edx+ecx*4]</Description>
+      <Address>006CEE42</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>2CEE42</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>53</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>14</Byte>
+        <Byte>8A</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>1D</Byte>
+        <Byte>81</Byte>
+        <Byte>FA</Byte>
+        <Byte>35</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+24],00000000 - pause</Description>
+      <Address>00AAE496</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6AE496</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>2B</Byte>
+        <Byte>EA</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>47</Byte>
+        <Byte>24</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>88</Byte>
+        <Byte>2C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :add [edi+24],edx - pause</Description>
+      <Address>00AAE4D2</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6AE4D2</ModuleNameOffset>
+      <Before>
+        <Byte>39</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+        <Byte>74</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>01</Byte>
+        <Byte>57</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+        <Byte>85</Byte>
+        <Byte>70</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+28],eax</Description>
+      <Address>00AAE5FA</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6AE5FA</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>EE</Byte>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5D</Byte>
+        <Byte>59</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+28],eax</Description>
+      <Address>00AAE625</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6AE625</ModuleNameOffset>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>EE</Byte>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5D</Byte>
+        <Byte>59</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ebx+10],00000000</Description>
+      <Address>0099475F</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>59475F</ModuleNameOffset>
+      <Before>
+        <Byte>03</Byte>
+        <Byte>EC</Byte>
+        <Byte>77</Byte>
+        <Byte>D8</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>35</Byte>
+        <Byte>14</Byte>
+        <Byte>85</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :cmp [RTSSHooks.dll+4F7D8],edx - 1920</Description>
+      <Address>02DDAFF5</Address>
+      <ModuleName>RTSSHooks.dll</ModuleName>
+      <ModuleNameOffset>AFF5</ModuleNameOffset>
+      <Before>
+        <Byte>F7</Byte>
+        <Byte>E1</Byte>
+        <Byte>02</Byte>
+        <Byte>75</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>39</Byte>
+        <Byte>15</Byte>
+        <Byte>D8</Byte>
+        <Byte>F7</Byte>
+        <Byte>E1</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>08</Byte>
+        <Byte>39</Byte>
+        <Byte>0D</Byte>
+        <Byte>DC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [RTSSHooks.dll+4F7D8],edx</Description>
+      <Address>02DDB015</Address>
+      <ModuleName>RTSSHooks.dll</ModuleName>
+      <ModuleNameOffset>B015</ModuleNameOffset>
+      <Before>
+        <Byte>3D</Byte>
+        <Byte>D4</Byte>
+        <Byte>F7</Byte>
+        <Byte>E1</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>15</Byte>
+        <Byte>D8</Byte>
+        <Byte>F7</Byte>
+        <Byte>E1</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>0D</Byte>
+        <Byte>DC</Byte>
+        <Byte>F7</Byte>
+        <Byte>E1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :xor [eax+08],cl - pause menu?</Description>
+      <Address>006A094C</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>2A094C</ModuleNameOffset>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+        <Byte>80</Byte>
+        <Byte>E1</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>30</Byte>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>80</Byte>
+        <Byte>7E</Byte>
+        <Byte>65</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ebx+10],00000000 - pause - game</Description>
+      <Address>0099475F</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>59475F</ModuleNameOffset>
+      <Before>
+        <Byte>03</Byte>
+        <Byte>EC</Byte>
+        <Byte>77</Byte>
+        <Byte>D8</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>35</Byte>
+        <Byte>14</Byte>
+        <Byte>85</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [esi+0C],01 - pause - menu</Description>
+      <Address>008610DB</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>4610DB</ModuleNameOffset>
+      <Before>
+        <Byte>CB</Byte>
+        <Byte>FF</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>46</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>5E</Byte>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ecx+00000098],al - hud1</Description>
+      <Address>006A0B45</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>2A0B45</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>81</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>88</Byte>
+        <Byte>46</Byte>
+        <Byte>65</Byte>
+        <Byte>85</Byte>
+        <Byte>C9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov byte ptr [ecx+00000098],00 -hud2</Description>
+      <Address>006FB48C</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>2FB48C</ModuleNameOffset>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>51</Byte>
+        <Byte>D9</Byte>
+        <Byte>1C</Byte>
+        <Byte>24</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>81</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>38</Byte>
+        <Byte>22</Byte>
+        <Byte>3C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps [esi+10],xmm0 - writes xyz position</Description>
+      <Address>00A38D93</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638D93</ModuleNameOffset>
+      <Before>
+        <Byte>07</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [esi+20],xmm0</Description>
+      <Address>00A38D9A</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638D9A</ModuleNameOffset>
+      <Before>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>D9</Byte>
+        <Byte>03</Byte>
+        <Byte>B9</Byte>
+        <Byte>14</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm0,[eax]</Description>
+      <Address>00A38D97</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638D97</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>20</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[esp+0C]</Description>
+      <Address>00A38D8F</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638D8F</ModuleNameOffset>
+      <Before>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>07</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[eax+10] - reads x</Description>
+      <Address>00A5EF91</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>65EF91</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>23</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>05</Byte>
+        <Byte>90</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[esi+10]</Description>
+      <Address>00A5E853</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>65E853</ModuleNameOffset>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>62</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>86</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[ebx]</Description>
+      <Address>00A5E6E8</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>65E6E8</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+        <Byte>FF</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>C7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm0,[ebx]</Description>
+      <Address>00A5E79A</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>65E79A</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+        <Byte>FF</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps [esi+10],xmm0</Description>
+      <Address>00A38D93</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638D93</ModuleNameOffset>
+      <Before>
+        <Byte>07</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps xmm1,[eax]</Description>
+      <Address>009DF0D5</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>5DF0D5</ModuleNameOffset>
+      <Before>
+        <Byte>45</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>11</Byte>
+        <Byte>8B</Byte>
+        <Byte>7D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [ecx],xmm3 - time (float, 1, 0.5)</Description>
+      <Address>00A02200</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>602200</ModuleNameOffset>
+      <Before>
+        <Byte>5F</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>59</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss xmm0,[esi+40]</Description>
+      <Address>00901C5D</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>501C5D</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>C3</Byte>
+        <Byte>48</Byte>
+        <Byte>0E</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>46</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax]</Description>
+      <Address>00A0221E</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>60221E</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>14</Byte>
+        <Byte>5F</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>59</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+40]</Description>
+      <Address>008E77BD</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>4E77BD</ModuleNameOffset>
+      <Before>
+        <Byte>56</Byte>
+        <Byte>3C</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [ecx],xmm3 - time (writes?)</Description>
+      <Address>00A02200</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>602200</ModuleNameOffset>
+      <Before>
+        <Byte>5F</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>59</Byte>
+        <Byte>C2</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+40]</Description>
+      <Address>008ED22E</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>4ED22E</ModuleNameOffset>
+      <Before>
+        <Byte>56</Byte>
+        <Byte>3C</Byte>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5E</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+08],xmm0 - write time</Description>
+      <Address>0084675B</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>44675B</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [ebx+18],xmm1 write time2</Description>
+      <Address>00901CDF</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>501CDF</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C8</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>5B</Byte>
+        <Byte>76</Byte>
+        <Byte>05</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax+08] - read time</Description>
+      <Address>00846775</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>446775</ModuleNameOffset>
+      <Before>
+        <Byte>A1</Byte>
+        <Byte>94</Byte>
+        <Byte>86</Byte>
+        <Byte>F3</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [edi+18] read time2</Description>
+      <Address>0090358F</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>50358F</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>31</Byte>
+        <Byte>C6</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>08</Byte>
+        <Byte>D9</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+24],xmm0 - writes menu</Description>
+      <Address>00AC16C6</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C16C6</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax+24]</Description>
+      <Address>00AC0E76</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C0E76</ModuleNameOffset>
+      <Before>
+        <Byte>58</Byte>
+        <Byte>20</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+10],xmm0</Description>
+      <Address>00AC1682</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1682</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>B8</Byte>
+        <Byte>9F</Byte>
+        <Byte>D2</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax+10] - ingame hud?</Description>
+      <Address>00AC0E56</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C0E56</ModuleNameOffset>
+      <Before>
+        <Byte>58</Byte>
+        <Byte>0C</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>4C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+24],xmm0</Description>
+      <Address>00AC16C6</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C16C6</ModuleNameOffset>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax+24]</Description>
+      <Address>00AC0E76</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C0E76</ModuleNameOffset>
+      <Before>
+        <Byte>58</Byte>
+        <Byte>20</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movss [eax+10],xmm0</Description>
+      <Address>00AC1682</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1682</ModuleNameOffset>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>B8</Byte>
+        <Byte>9F</Byte>
+        <Byte>D2</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [eax+10]</Description>
+      <Address>00AC0E56</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C0E56</ModuleNameOffset>
+      <Before>
+        <Byte>58</Byte>
+        <Byte>0C</Byte>
+        <Byte>D9</Byte>
+        <Byte>40</Byte>
+        <Byte>4C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>58</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi],edx - controls hud?</Description>
+      <Address>00AC1649</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1649</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>17</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[esp+64]</Description>
+      <Address>00AC1664</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>6C1664</ModuleNameOffset>
+      <Before>
+        <Byte>70</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>64</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [esi+34] write fov</Description>
+      <Address>00A38DA5</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638DA5</ModuleNameOffset>
+      <Before>
+        <Byte>B9</Byte>
+        <Byte>14</Byte>
+        <Byte>55</Byte>
+        <Byte>F4</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5E</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>D3</Byte>
+        <Byte>4D</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of pop ebp</Description>
+      <Address>00A38DB2</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>638DB2</ModuleNameOffset>
+      <Before>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+        <Byte>8B</Byte>
+        <Byte>E5</Byte>
+      </Before>
+      <Actual>
+        <Byte>5D</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[eax+000000DC] - light seeds</Description>
+      <Address>00697359</Address>
+      <ModuleName>PrinceOfPersia_Launcher.exe</ModuleName>
+      <ModuleNameOffset>297359</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>11</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>80</Byte>
+        <Byte>DC</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>3B</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+        <Byte>1B</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pTime</Name>
+      <Address>10160015</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>1017001B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pSeeds</Name>
+      <Address>0B3A0016</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

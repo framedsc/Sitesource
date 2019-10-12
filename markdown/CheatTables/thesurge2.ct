@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"Time Factor"</Description>
+      <LastState/>
+      <Color>1C15FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TheSurge2.exe
+  Version: 
+  Date   : 2019-08-22
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(TIME,fledgecore_x64_vk.dll,F3 0F 59 43 3C EB) // should be unique
+alloc(newmem,$1000,"fledgecore_x64_vk.dll"+82F478)
+
+label(code)
+label(pTimestop)
+registersymbol(pTimestop)
+label(return)
+
+newmem:
+
+code:
+  mulss xmm0,[rbx+3C]
+  mov [pTimestop],rbx
+  jmp return
+
+pTimestop:
+dq 0
+
+TIME:
+  jmp newmem
+return:
+registersymbol(TIME)
+
+[DISABLE]
+
+TIME:
+  db F3 0F 59 43 3C
+
+unregistersymbol(TIME)
+unregistersymbol(pTimestop)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "fledgecore_x64_vk.dll"+82F478
+
+"fledgecore_x64_vk.dll"+82F455: E8 E6 FF FF FF        -  call fledgecore_x64_vk.dll+82F440
+"fledgecore_x64_vk.dll"+82F45A: 0F B6 43 38           -  movzx eax,byte ptr [rbx+38]
+"fledgecore_x64_vk.dll"+82F45E: 66 0F 6E C8           -  movd xmm1,eax
+"fledgecore_x64_vk.dll"+82F462: 33 C0                 -  xor eax,eax
+"fledgecore_x64_vk.dll"+82F464: 38 43 40              -  cmp [rbx+40],al
+"fledgecore_x64_vk.dll"+82F467: 0F 5B C9              -  cvtdq2ps xmm1,xmm1
+"fledgecore_x64_vk.dll"+82F46A: 0F 94 C0              -  sete al
+"fledgecore_x64_vk.dll"+82F46D: F3 0F 59 C1           -  mulss xmm0,xmm1
+"fledgecore_x64_vk.dll"+82F471: 66 0F 6E C8           -  movd xmm1,eax
+"fledgecore_x64_vk.dll"+82F475: 0F 5B C9              -  cvtdq2ps xmm1,xmm1
+// ---------- INJECTING HERE ----------
+"fledgecore_x64_vk.dll"+82F478: F3 0F 59 43 3C        -  mulss xmm0,[rbx+3C]
+// ---------- DONE INJECTING  ----------
+"fledgecore_x64_vk.dll"+82F47D: EB 23                 -  jmp fledgecore_x64_vk.dll+82F4A2
+"fledgecore_x64_vk.dll"+82F47F: 0F B6 43 38           -  movzx eax,byte ptr [rbx+38]
+"fledgecore_x64_vk.dll"+82F483: 66 0F 6E C8           -  movd xmm1,eax
+"fledgecore_x64_vk.dll"+82F487: 33 C0                 -  xor eax,eax
+"fledgecore_x64_vk.dll"+82F489: 38 43 40              -  cmp [rbx+40],al
+"fledgecore_x64_vk.dll"+82F48C: 0F 5B C9              -  cvtdq2ps xmm1,xmm1
+"fledgecore_x64_vk.dll"+82F48F: 0F 94 C0              -  sete al
+"fledgecore_x64_vk.dll"+82F492: F3 0F 59 C8           -  mulss xmm1,xmm0
+"fledgecore_x64_vk.dll"+82F496: 66 0F 6E C0           -  movd xmm0,eax
+"fledgecore_x64_vk.dll"+82F49A: 0F 5B C0              -  cvtdq2ps xmm0,xmm0
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"pTimestop"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pTimestop</Address>
+          <Offsets>
+            <Offset>3C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>191</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>190</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>223</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>26</ID>
+      <Description>"CAMERA SPEED"</Description>
+      <LastState/>
+      <Color>130DFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TheSurge2.exe
+  Version: 
+  Date   : 2019-08-22
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+
+aobscanmodule(CameraSpeed,fledgecore_x64_vk.dll,07 00 00 F3 0F 10 96 8C 01 00 00) // should be unique
+alloc(newmem,$1000,"fledgecore_x64_vk.dll"+9AC956)
+
+label(code)
+label(pCameraspeed)
+registersymbol(pCameraspeed)
+label(return)
+
+newmem:
+
+code:
+  movss xmm2,[rsi+0000018C]
+  mov [pCameraspeed],rsi
+  jmp return
+
+pCameraspeed:
+dq 0
+
+CameraSpeed+03:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(CameraSpeed)
+
+[DISABLE]
+
+CameraSpeed+03:
+  db F3 0F 10 96 8C 01 00 00
+
+unregistersymbol(CameraSpeed)
+unregistersymbol(pCameraspeed)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "fledgecore_x64_vk.dll"+9AC956
+
+"fledgecore_x64_vk.dll"+9AC921: F3 0F 11 8D B0 00 00 00  -  movss [rbp+000000B0],xmm1
+"fledgecore_x64_vk.dll"+9AC929: F3 41 0F 59 D2           -  mulss xmm2,xmm10
+"fledgecore_x64_vk.dll"+9AC92E: F3 0F 59 D7              -  mulss xmm2,xmm7
+"fledgecore_x64_vk.dll"+9AC932: F3 0F 11 95 B4 00 00 00  -  movss [rbp+000000B4],xmm2
+"fledgecore_x64_vk.dll"+9AC93A: E8 91 F2 AA FF           -  call fledgecore_x64_vk.dll+45BBD0
+"fledgecore_x64_vk.dll"+9AC93F: 48 8B C8                 -  mov rcx,rax
+"fledgecore_x64_vk.dll"+9AC942: 45 33 C0                 -  xor r8d,r8d
+"fledgecore_x64_vk.dll"+9AC945: 48 8D 95 AC 00 00 00     -  lea rdx,[rbp+000000AC]
+"fledgecore_x64_vk.dll"+9AC94C: E8 7F 97 E4 FF           -  call fledgecore_x64_vk.dll+7F60D0
+"fledgecore_x64_vk.dll"+9AC951: E9 CB 07 00 00           -  jmp fledgecore_x64_vk.dll+9AD121
+// ---------- INJECTING HERE ----------
+"fledgecore_x64_vk.dll"+9AC956: F3 0F 10 96 8C 01 00 00  -  movss xmm2,[rsi+0000018C]
+// ---------- DONE INJECTING  ----------
+"fledgecore_x64_vk.dll"+9AC95E: 0F 28 C2                 -  movaps xmm0,xmm2
+"fledgecore_x64_vk.dll"+9AC961: F3 41 0F 59 C0           -  mulss xmm0,xmm8
+"fledgecore_x64_vk.dll"+9AC966: F3 0F 59 C7              -  mulss xmm0,xmm7
+"fledgecore_x64_vk.dll"+9AC96A: F3 0F 11 45 64           -  movss [rbp+64],xmm0
+"fledgecore_x64_vk.dll"+9AC96F: 0F 28 CA                 -  movaps xmm1,xmm2
+"fledgecore_x64_vk.dll"+9AC972: F3 41 0F 59 C9           -  mulss xmm1,xmm9
+"fledgecore_x64_vk.dll"+9AC977: F3 0F 59 CF              -  mulss xmm1,xmm7
+"fledgecore_x64_vk.dll"+9AC97B: F3 0F 11 4D 68           -  movss [rbp+68],xmm1
+"fledgecore_x64_vk.dll"+9AC980: F3 41 0F 59 D2           -  mulss xmm2,xmm10
+"fledgecore_x64_vk.dll"+9AC985: F3 0F 59 D7              -  mulss xmm2,xmm7
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"pCameraspeed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pCameraspeed</Address>
+          <Offsets>
+            <Offset>18C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>29</ID>
+      <Description>"FOV"</Description>
+      <LastState/>
+      <Color>2520FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TheSurge2.exe
+  Version: 
+  Date   : 2019-08-22
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(FOV,fledgecore_x64_vk.dll,FB 48 8B 05 * * * * F3 42 0F 11 34 B8) // should be unique
+alloc(newmem,$1000,"fledgecore_x64_vk.dll"+E13501)
+
+label(code)
+label(pFOV)
+registersymbol(pFOV)
+label(return)
+
+newmem:
+
+code:
+  //movss [rax+r15*4],xmm6
+  mov [pFOV],rax
+  jmp return
+
+pFOV:
+dq 0
+
+FOV+08:
+  jmp newmem
+  nop
+return:
+registersymbol(FOV)
+
+[DISABLE]
+
+FOV+08:
+  db F3 42 0F 11 34 B8
+
+unregistersymbol(FOV)
+unregistersymbol(pFOV)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "fledgecore_x64_vk.dll"+E13501
+
+"fledgecore_x64_vk.dll"+E134C9: 66 41 83 FC 0C              -  cmp r12w,0C
+"fledgecore_x64_vk.dll"+E134CE: 74 27                       -  je fledgecore_x64_vk.dll+E134F7
+"fledgecore_x64_vk.dll"+E134D0: C7 44 24 20 40 00 00 00     -  mov [rsp+20],00000040
+"fledgecore_x64_vk.dll"+E134D8: 4C 8D 0D 41 AD 0E 01        -  lea r9,[fledgecore_x64_vk.dll+1EFE220]
+"fledgecore_x64_vk.dll"+E134DF: 4C 8D 05 4A B3 0E 01        -  lea r8,[fledgecore_x64_vk.dll+1EFE830]
+"fledgecore_x64_vk.dll"+E134E6: 48 8D 15 3B 74 03 01        -  lea rdx,[fledgecore_x64_vk.dll+1E4A928]
+"fledgecore_x64_vk.dll"+E134ED: B9 04 00 00 00              -  mov ecx,00000004
+"fledgecore_x64_vk.dll"+E134F2: E8 F9 D1 57 00              -  call fledgecore_x64_vk.dll+13906F0
+"fledgecore_x64_vk.dll"+E134F7: 44 8B FB                    -  mov r15d,ebx
+"fledgecore_x64_vk.dll"+E134FA: 48 8B 05 07 F9 DB 01        -  mov rax,[fledgecore_x64_vk.dll+2BD2E08]
+// ---------- INJECTING HERE ----------
+"fledgecore_x64_vk.dll"+E13501: F3 42 0F 11 34 B8           -  movss [rax+r15*4],xmm6
+// ---------- DONE INJECTING  ----------
+"fledgecore_x64_vk.dll"+E13507: 49 8B 46 08                 -  mov rax,[r14+08]
+"fledgecore_x64_vk.dll"+E1350B: 48 8B 40 08                 -  mov rax,[rax+08]
+"fledgecore_x64_vk.dll"+E1350F: 48 85 C0                    -  test rax,rax
+"fledgecore_x64_vk.dll"+E13512: 74 06                       -  je fledgecore_x64_vk.dll+E1351A
+"fledgecore_x64_vk.dll"+E13514: 49 83 3E 00                 -  cmp qword ptr [r14],00
+"fledgecore_x64_vk.dll"+E13518: 75 01                       -  jne fledgecore_x64_vk.dll+E1351B
+"fledgecore_x64_vk.dll"+E1351A: CC                          -  int 3 
+"fledgecore_x64_vk.dll"+E1351B: 49 8B 46 08                 -  mov rax,[r14+08]
+"fledgecore_x64_vk.dll"+E1351F: 48 85 C0                    -  test rax,rax
+"fledgecore_x64_vk.dll"+E13522: 74 0E                       -  je fledgecore_x64_vk.dll+E13532
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"pFOV"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pFOV</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>183</ID>
+      <Description>"--------------------------------------------------------------------------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>184</ID>
+      <Description>"--------------------------------------------------------------------------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>188</ID>
+      <Description>"CREATED BY SKALL (@skalledit   on twitter)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>3632DA</Color>
+      <GroupHeader>1</GroupHeader>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys/>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [rcx+00000144],dl</Description>
+      <AddressString>fledgecore_x64_vk.dll+9ABB80</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>88</Byte>
+        <Byte>91</Byte>
+        <Byte>44</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rax+r15*4],xmm6</Description>
+      <AddressString>fledgecore_x64_vk.dll+E13501</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>07</Byte>
+        <Byte>F9</Byte>
+        <Byte>DB</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>34</Byte>
+        <Byte>B8</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rax+r15*4],xmm6</Description>
+      <AddressString>7FFF63BF0000</AddressString>
+      <Before/>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>42</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>34</Byte>
+        <Byte>B8</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>A3</Byte>
+        <Byte>1E</Byte>
+        <Byte>00</Byte>
+        <Byte>BF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [r14+rax*4+05715A60],xmm6</Description>
+      <AddressString>fledgecore_x64_vk.dll+10A9E90</AddressString>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B4</Byte>
+        <Byte>86</Byte>
+        <Byte>60</Byte>
+        <Byte>5A</Byte>
+        <Byte>71</Byte>
+        <Byte>05</Byte>
+      </Actual>
+      <After>
+        <Byte>42</Byte>
+        <Byte>80</Byte>
+        <Byte>8C</Byte>
+        <Byte>30</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mulss xmm0,[rdi+rbx*4+00151800]</Description>
+      <AddressString>fledgecore_x64_vk.dll+10AC5E6</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>CA</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>84</Byte>
+        <Byte>9F</Byte>
+        <Byte>00</Byte>
+        <Byte>18</Byte>
+        <Byte>15</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>84</Byte>
+        <Byte>9F</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[rax+rcx*4]</Description>
+      <AddressString>fledgecore_x64_vk.dll+10A37E7</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>79</Byte>
+        <Byte>22</Byte>
+        <Byte>67</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>04</Byte>
+        <Byte>88</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>28</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of ucomiss xmm6,[r14+rax*4+05715A60]</Description>
+      <AddressString>fledgecore_x64_vk.dll+10A9E81</AddressString>
+      <Before>
+        <Byte>35</Byte>
+        <Byte>7F</Byte>
+        <Byte>61</Byte>
+        <Byte>F5</Byte>
+        <Byte>FE</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>B4</Byte>
+        <Byte>86</Byte>
+        <Byte>60</Byte>
+        <Byte>5A</Byte>
+        <Byte>71</Byte>
+        <Byte>05</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>C8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mulss xmm0,[r14+rbx*4+05715A60]</Description>
+      <AddressString>fledgecore_x64_vk.dll+10A9F12</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>9E</Byte>
+        <Byte>26</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>84</Byte>
+        <Byte>9E</Byte>
+        <Byte>60</Byte>
+        <Byte>5A</Byte>
+        <Byte>71</Byte>
+        <Byte>05</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>84</Byte>
+        <Byte>9E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsp+10],rbp</Description>
+      <AddressString>fledgecore_x64_vk.dll+10A3510</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"fledgecore_x64_vk.dll"+82F478</Address>
+      <Comment>Time Factor
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"fledgecore_x64_vk.dll"+82F5C5</Address>
+      <Comment>---------&gt; Time Factor
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"fledgecore_x64_vk.dll"+E13501</Address>
+      <Comment>IF NOP CHANGE VALUE WORK ON FOV
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>"fledgecore_x64_vk.dll"+10A9E90</Address>
+      <Comment>IF NOP, HIDE HUD
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>
