@@ -64,7 +64,7 @@ Time of Day and Weather control
 In order to efectivly control time of day and Weather the game must be unpaused and the camera must be enabled, otherwise the game's values are overwriting your changes. This is done to avoid you configuring things which have a negative effect on gameplay. 
 
 @alert important
-The game doesnt support the new versions of ReShade, it runs with the version 0.10.0.602 and SweetFx 2.0. However it isn't compatible with the camera tools. The only way to use both is to start the game and just when the game window comeout start the tools as admin (it's likly it will crash, just keep trying until you get it).
+The game doesnt support the new versions of ReShade, it runs with the version 0.10.0.602 and SweetFx 2.0. However it isn't compatible with the camera tools. The only way to use both is to start the game and just when the game window comeout start the tools as admin (it's likely it will crash, just keep trying until you get it).
 @end
 
 

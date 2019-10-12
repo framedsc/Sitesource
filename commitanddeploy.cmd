@@ -11,6 +11,8 @@ docnet -c markdown
 del /q ..\framedsc.github.io\*.*
 for /d %%i in (..\framedsc.github.io\*.*) do @rd /s /q "%%i"
 
+copy /y theme\destination\favicon.ico .\site
+
 robocopy .\site ..\framedsc.github.io /s /e
 pushd.
 cd ..\framedsc.github.io
