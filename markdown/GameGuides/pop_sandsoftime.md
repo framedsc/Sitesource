@@ -1,3 +1,4 @@
+![Prince of Persia - The Sands of Time](\Images\pop_header.png "Shot by Random Ork")
 
 Feature | Supported
 --|--
@@ -11,7 +12,7 @@ DirectX versions | DirectX 9
  
 ## Tools
 
-* [Cheat Table by Konstantin Remizov](https://framedsc.github.io/CheatTables/POP_TSoT.ct)  
+* [Cheat Table by Konstantin Remizov](..\CheatTables\POP_TSoT.ct)  
 **Features**: Camera control, FOV Control, Timestop, HUD Removal
 * [Widescreen Fix by nemesis2000](http://ps2wide.net/pc.html#popst)  
 
