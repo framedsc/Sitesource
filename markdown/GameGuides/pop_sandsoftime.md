@@ -1,4 +1,4 @@
-![Prince of Persia - The Sands of Time](\Images\pop_header.png "Shot by Random Ork")
+![Prince of Persia - The Sands of Time](\Images\pop_header.png "Shot by random ork")
 
 Feature | Supported
 --|--

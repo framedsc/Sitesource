@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>11</ID>
       <Description>"Enable Hotsampling support (Windowed mode). Leave enabled"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf and Hattiwatti
 // See for info about locations/data:
@@ -13,7 +13,7 @@
 // FRAMED Screenshot Community. https://framedsc.github.io
 //////////////////////////////////////////////////////////
 [ENABLE]
-aobscanmodule(writeRenderResolution,coregame_rmdwin7_f.dll,89 84 24 80 00 00 00 E8) // should be unique
+aobscanmodule(writeRenderResolution,coregame_rmdwin7_f.dll,89 84 24 84 00 00 00 E8) // should be unique
 alloc(newmem,$1000,coregame_rmdwin7_f.dll+A9D5C)
 
 label(codeRenderRes)
@@ -25,11 +25,13 @@ registersymbol(writeRenderResolution)
 newmem:
 
 codeRenderRes:
-  mov [rsp+00000080],eax
+  // hard-write the resolution back instead of the original code which writes the results of calculations to the addresses
+  // in the stackframe. Do this at width+8 and height+8, so
+  mov [rsp+00000084],eax   // screen height. (screenwidth is at 80)
   cvttss2si eax, [rdi+04]
-  mov [rsp+84], eax
+  mov [rsp+88], eax        // rendering width,
   cvttss2si eax, [rdi+08]
-  mov [rsp+88], eax
+  mov [rsp+8C], eax        // rendering height
   jmp returnRenderRes
 
 codeKeepFocus:
@@ -44,38 +46,39 @@ writeRenderResolution:
 returnRenderRes:
 
 // Will break in a patch
-coregame_rmdwin7_f.dll+A9A9E:
+coregame_rmdwin7_f.dll+A737E:
   jmp codeKeepFocus
   nop
   nop
 returnKeepFocus:
 
-coregame_rmdwin7_f.dll+A9CDF:
+coregame_rmdwin7_f.dll+A7611:
   mov r8d, 00000000
 
 coregame_rmdwin7_f.coregame::GameWindow::updateScreenSize+32:
   db e9 C7 00 00 00 90
 
 // will break in a patch
-coregame_rmdwin7_f.coregame::GameWindow::setUserRendererSettings+181:
+coregame_rmdwin7_f.coregame::GameWindow::setUserRendererSettings+189:
   db 90 90 90 90 90 90
 
 [DISABLE]
 
 writeRenderResolution:
-  db 89 84 24 80 00 00 00
+  db 89 84 24 84 00 00 00
 
-coregame_rmdwin7_f.dll+A9A9E:
+coregame_rmdwin7_f.dll+A737E:
   mov [rcx+0000009B],r8l
 
-coregame_rmdwin7_f.dll+A9CDF:
+coregame_rmdwin7_f.dll+A7611:
   mov r8d, 00000001
 
 coregame_rmdwin7_f.coregame::GameWindow::updateScreenSize+32:
   db 0F 85 C6 00 00 00
 
 // will break in a patch
-coregame_rmdwin7_f.coregame::GameWindow::setUserRendererSettings+181:
+coregame_rmdwin7_f.coregame::GameWindow::setUserRendererSettings+189:
+  db FF 15 79 77 4F 00
   db FF 15 A9 20 4E 00
 
 unregistersymbol(writeRenderResolution)
@@ -97,9 +100,9 @@ dealloc(newmem)
 [ENABLE]
 // global r::Timer instance, offset 39
 // See notes for location
-[Control_DX11.exe+1166F88]+39:
+[Control_DX11.exe+1198598]+39:
 db 1
-[Control_DX11.exe+1166F88]+69:
+[Control_DX11.exe+1198598]+69:
 db 1
 
 timerAddress:
@@ -108,9 +111,9 @@ dq 0
  
 [DISABLE]
 // global r::Timer instance, offset 38
-[Control_DX11.exe+1166F88]+38:
+[Control_DX11.exe+1198598]+38:
 dd 0
-[Control_DX11.exe+1166F88]+68:
+[Control_DX11.exe+1198598]+68:
 dd 0
 
 
@@ -191,7 +194,7 @@ createthread(enableFreeCamThread)
 enableFreeCamThread:
   // first pull the current camera state from the cache. Using code from coregame_rmdwin10_f.coregame::CameraComponentState::getPosition
   mov rsi, Control_DX11.exe
-  mov rcx, [rsi+01166F28]                // hardcoded static address. See notes.
+  mov rcx, [rsi+01198520]                // hardcoded static address. See notes.
   mov rbx,[rcx+28]
   mov rdi,rdx
   call coregame_rmdwin7_f.coregame::TransformComponentState::getTypeIDStatic
@@ -210,7 +213,7 @@ enableFreeCamThread:
 
   // enable freecam
   mov eax, 1
-  mov [Control_DX11.exe+1166F18], eax
+  mov [Control_DX11.exe+119851C], eax
   call input_rmdwin7_f.input::InputManager::getInstance
   mov rcx, rax
   mov dl, 1
@@ -265,7 +268,7 @@ interceptFreeCamFoV:
 return:
 
 // Outline removal. Contributed by Pigeon
-Control_DX11.exe+ABABF:
+Control_DX11.exe+AD1BF:
   db E9 74 02 00 00 90         // jmp instead of je
 
 [DISABLE]
@@ -274,7 +277,7 @@ createthread(disableFreeCamThread)
 
 disableFreeCamThread:
   xor eax, eax
-  mov [Control_DX11.exe+1166F18], eax
+  mov [Control_DX11.exe+119851C], eax
   call input_rmdwin7_f.input::InputManager::getInstance
   mov rcx, rax
   mov dl, 0
@@ -286,7 +289,7 @@ interceptFreeCamFoV:
   addps xmm0,xmm3
   movups [rbx+70],xmm0
 
-Control_DX11.exe+ABABF:
+Control_DX11.exe+AD1BF:
   db 0F 84 73 02 00 00
 
 
@@ -307,6 +310,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>24</ID>
           <Description>"Freecam FoV (NUMPAD-/+ Speed: +CTRL. Reset: CRTL-ALT-NUMPAD)"</Description>
+          <LastState Value="0,9644641876" RealAddress="195EAE9F750"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -362,6 +366,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>41</ID>
           <Description>"Rotation speed (F9: 0.04, for mouse. CTRL-F9: 0.7, for controller)"</Description>
+          <LastState Value="0,03999999911" RealAddress="195EAE9F7FC"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -511,6 +516,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>36</ID>
           <Description>"Depth of Field (F3: Off, CTRL-F3: On)"</Description>
+          <LastState Value="1" RealAddress="7FFD4941313D"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderDepthOfField</Address>
           <Hotkeys>
@@ -536,6 +542,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>37</ID>
           <Description>"Motion Blur (F4: Off, CTRL-F4: On)"</Description>
+          <LastState Value="1" RealAddress="7FFD4941313E"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderVectorBlur</Address>
           <Hotkeys>
@@ -561,6 +568,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>35</ID>
           <Description>"Bloom (F5: Off, CTRL-F5: On)"</Description>
+          <LastState Value="1" RealAddress="7FFD4941317C"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderBloom</Address>
           <Hotkeys>
@@ -586,6 +594,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>38</ID>
           <Description>"Screenspace AA (F6: Off, CTRL-F6: On)"</Description>
+          <LastState Value="1" RealAddress="7FFD4941314F"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::ScreenSpaceAntialiasing</Address>
           <Hotkeys>
@@ -611,6 +620,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>42</ID>
           <Description>"Wireframe (F7: Off, CTRL-F7: On)"</Description>
+          <LastState Value="0" RealAddress="7FFD49428604"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::Wireframe</Address>
           <Hotkeys>
@@ -664,7 +674,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>26</ID>
-      <Description>"Screenshot CT for Control DirectX 11. By Otis_Inf and Hattiwatti. v1.2 (02-sep-2019) Thanks to Pigeon"</Description>
+      <Description>"Screenshot CT for Control DirectX 11. By Otis_Inf and Hattiwatti. v1.3 (17-oct-2019) Thanks to Pigeon"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>

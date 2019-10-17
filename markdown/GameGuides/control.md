@@ -12,8 +12,10 @@ Reshade | Yes (DirectX 11)
 Ansel | No
 DirectX versions | DirectX 11, DirectX 12
 
-\* To use a DSR resolution, set your desktop resolution to it first, then you should be able to select it in-game. You will not see all DSR resolutions though.
- 
+@alert info
+To use a DSR resolution, set your desktop resolution to it first, then you should be able to select it in-game. You will not see all DSR resolutions though.
+@end
+
 ## Tools
 
 * **Cheat Engine Table by Otis_Inf & HattiWatti**  
@@ -38,4 +40,8 @@ The render effect section contains some more useful toggles. Hotkeys for these a
 
 ## SRWE
 
-To enable hotsampling (via SRWE)... enable the hotsampling script. You mayalso need to check the `Force EXITSIZEMOVE` option in SRWE. Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
+To enable hotsampling (via SRWE) enable the hotsampling script. You may also need to check the `Force EXITSIZEMOVE` option in SRWE. 
+Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
+
+## Useful links
+[PC Gaming wiki](https://pcgamingwiki.com/wiki/Control)
