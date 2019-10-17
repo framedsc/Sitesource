@@ -132,9 +132,11 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
 * Monster Jam Steel Titans
+* Morels: The Hunt
 * Morphies Law Remorphed
 * MotoGP 19
 * Mutant Year Zero: Road to Eden
+* My Hero One's Justice
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
