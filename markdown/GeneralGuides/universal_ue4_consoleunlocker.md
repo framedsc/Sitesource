@@ -84,6 +84,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
+* The Beast Inside
 * Blair Witch
 * Borderlands 3
 * Bright Memory
