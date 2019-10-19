@@ -19,13 +19,13 @@ To use a DSR resolution, set your desktop resolution to it first, then you shoul
 ## Tools
 
 * **Cheat Engine Table by Otis_Inf & HattiWatti**  
-[DX11 Cheat Table](https://framedsc.github.io/CheatTables/Control_DX11_Otis.CT)  
-[DX12 Cheat Table](https://framedsc.github.io/CheatTables/Control_DX12_Otis.CT)  
+[DX11 Cheat Table](..\CheatTables\Control_DX11_Otis.CT)  
+[DX12 Cheat Table](..\CheatTables\Control_DX12_Otis.CT)  
 **Features**: Debug Camera, FOV, Time stop, Hotsampling, Hud Toggle, Render Toggles
 
 ## Using The CE Table 
 
-First, [read the general Cheat Engine guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
+First, [read the general Cheat Engine guide](..\GeneralGuides\cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
 
 All hotkeys are mentioned in the table, but here's some general info.
 
