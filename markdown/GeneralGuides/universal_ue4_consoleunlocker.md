@@ -133,6 +133,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Little Brother Jim
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
+* Monkey King: Hero Is Back
 * Monster Jam Steel Titans
 * Morels: The Hunt
 * Morphies Law Remorphed
@@ -160,6 +161,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remnant: From the Ashes
 * Remothered: Tormented Fathers
 * Ruiner
+* ShockRods
 * The Sinking City
 * Session: Skateboarding Sim Game
 * Shape of the World
