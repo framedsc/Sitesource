@@ -91,6 +91,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Burning Daylight
 * Call of Cthulhu
 * Captain Starshot
+* Chernobylite
 * Close to the Sun
 * Code Vein
 * Conarium
