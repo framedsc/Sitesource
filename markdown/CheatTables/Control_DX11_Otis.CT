@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>11</ID>
       <Description>"Enable Hotsampling support (Windowed mode). Leave enabled"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf and Hattiwatti
 // See for info about locations/data:
@@ -100,9 +100,9 @@ dealloc(newmem)
 [ENABLE]
 // global r::Timer instance, offset 39
 // See notes for location
-[Control_DX11.exe+1198598]+39:
+[Control_DX11.exe+1198558]+39:
 db 1
-[Control_DX11.exe+1198598]+69:
+[Control_DX11.exe+1198558]+69:
 db 1
 
 timerAddress:
@@ -111,9 +111,9 @@ dq 0
  
 [DISABLE]
 // global r::Timer instance, offset 38
-[Control_DX11.exe+1198598]+38:
+[Control_DX11.exe+1198558]+38:
 dd 0
-[Control_DX11.exe+1198598]+68:
+[Control_DX11.exe+1198558]+68:
 dd 0
 
 
@@ -194,7 +194,7 @@ createthread(enableFreeCamThread)
 enableFreeCamThread:
   // first pull the current camera state from the cache. Using code from coregame_rmdwin10_f.coregame::CameraComponentState::getPosition
   mov rsi, Control_DX11.exe
-  mov rcx, [rsi+01198520]                // hardcoded static address. See notes.
+  mov rcx, [rsi+011984E0]                // hardcoded static address. See notes.
   mov rbx,[rcx+28]
   mov rdi,rdx
   call coregame_rmdwin7_f.coregame::TransformComponentState::getTypeIDStatic
@@ -213,7 +213,7 @@ enableFreeCamThread:
 
   // enable freecam
   mov eax, 1
-  mov [Control_DX11.exe+119851C], eax
+  mov [Control_DX11.exe+11984DC], eax
   call input_rmdwin7_f.input::InputManager::getInstance
   mov rcx, rax
   mov dl, 1
@@ -277,7 +277,7 @@ createthread(disableFreeCamThread)
 
 disableFreeCamThread:
   xor eax, eax
-  mov [Control_DX11.exe+119851C], eax
+  mov [Control_DX11.exe+11984DC], eax
   call input_rmdwin7_f.input::InputManager::getInstance
   mov rcx, rax
   mov dl, 0
@@ -310,7 +310,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>24</ID>
           <Description>"Freecam FoV (NUMPAD-/+ Speed: +CTRL. Reset: CRTL-ALT-NUMPAD)"</Description>
-          <LastState Value="0,9644641876" RealAddress="195EAE9F750"/>
+          <LastState Value="1.134464025" RealAddress="1F7F86C8750"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -366,7 +366,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>41</ID>
           <Description>"Rotation speed (F9: 0.04, for mouse. CTRL-F9: 0.7, for controller)"</Description>
-          <LastState Value="0,03999999911" RealAddress="195EAE9F7FC"/>
+          <LastState Value="0.03999999911" RealAddress="1F7F86C87FC"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -516,7 +516,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>36</ID>
           <Description>"Depth of Field (F3: Off, CTRL-F3: On)"</Description>
-          <LastState Value="1" RealAddress="7FFD4941313D"/>
+          <LastState Value="1" RealAddress="7FFD5E83313D"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderDepthOfField</Address>
           <Hotkeys>
@@ -542,7 +542,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>37</ID>
           <Description>"Motion Blur (F4: Off, CTRL-F4: On)"</Description>
-          <LastState Value="1" RealAddress="7FFD4941313E"/>
+          <LastState Value="1" RealAddress="7FFD5E83313E"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderVectorBlur</Address>
           <Hotkeys>
@@ -568,7 +568,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>35</ID>
           <Description>"Bloom (F5: Off, CTRL-F5: On)"</Description>
-          <LastState Value="1" RealAddress="7FFD4941317C"/>
+          <LastState Value="1" RealAddress="7FFD5E83317C"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderBloom</Address>
           <Hotkeys>
@@ -594,7 +594,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>38</ID>
           <Description>"Screenspace AA (F6: Off, CTRL-F6: On)"</Description>
-          <LastState Value="1" RealAddress="7FFD4941314F"/>
+          <LastState Value="1" RealAddress="7FFD5E83314F"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::ScreenSpaceAntialiasing</Address>
           <Hotkeys>
@@ -620,7 +620,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>42</ID>
           <Description>"Wireframe (F7: Off, CTRL-F7: On)"</Description>
-          <LastState Value="0" RealAddress="7FFD49428604"/>
+          <LastState Value="0" RealAddress="7FFD5E848604"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::Wireframe</Address>
           <Hotkeys>
@@ -674,7 +674,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>26</ID>
-      <Description>"Screenshot CT for Control DirectX 11. By Otis_Inf and Hattiwatti. v1.3 (17-oct-2019) Thanks to Pigeon"</Description>
+      <Description>"Screenshot CT for Control DirectX 11. By Otis_Inf and Hattiwatti. v1.4 (21-oct-2019) Thanks to Pigeon"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
