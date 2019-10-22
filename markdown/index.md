@@ -1,4 +1,4 @@
-![FRAMED. Screenshot Community](Images/framed_intro_pino.png "By Pino44io"){.autosize}
+![FRAMED. Screenshot Community](Images/framed_intro_pino.jpg "By Pino44io"){.autosize}
 <h1 class="text-center">FRAMED. Screenshot Community</h1>
 <br/>
 <p class="text-center">
