@@ -1,4 +1,7 @@
-![FRAMED. Screenshot Community](Images/framed_intro_pino.jpg "By Pino44io"){.autosize}
+<div class="figure">
+<img src="Images/framed_intro_pino.jpg" alt="FRAMED. Screenshot Community" title="By Pino44io" class="autosize" width="2800" height="1400" />
+<p>By <a href="https://www.deviantart.com/pino44io/" target="_blank">Pino44io</a></p>
+</div>
 <h1 class="text-center">FRAMED. Screenshot Community</h1>
 <br/>
 <p class="text-center">
