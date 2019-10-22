@@ -1,5 +1,6 @@
-![FRAMED. Screenshot Community](Images/FRAMED_LogoBigDarkTransparent800px.png){.autosize}
-
+![FRAMED. Screenshot Community](Images/framed_intro_pino.png "By Pino44io"){.autosize}
+<h1 class="text-center">FRAMED. Screenshot Community</h1>
+<br/>
 <p class="text-center">
 Contact:<br>
 <i class="fa fa-twitter"></i> <a href="https://twitter.com/jim2point0/" target="_blank">Jim2Point0</a> | 
