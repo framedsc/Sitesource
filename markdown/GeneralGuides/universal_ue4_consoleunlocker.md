@@ -126,6 +126,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Intruders: Hide and Seek"
 * Jump Force (limited)
 * Killsquad
+* Kine
 * Koral
 * Laser League
 * Layers of Fear 2
@@ -189,6 +190,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Uventa
 * Visage
 * Wartile
+* We Happy Few
 * XING The Land Beyond
 * ZED
 
