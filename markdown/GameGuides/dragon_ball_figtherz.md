@@ -21,7 +21,7 @@ DirectX versions | DirectX 11
 **Features**: In-game pause menu HUD Toggle, just drop all the files in the game .exe folder.
 **Hotkey**: Caps Lock.
 
-* [DBFZ Mod Manager](https://gamebanana.com/tools/6357)
+* [DBFZ Mod Manager](https://gamebanana.com/tools/6357)  
 **Features**: Disables the Easy Anti Cheat.
 
 ## Tips and Tricks

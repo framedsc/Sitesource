@@ -1,0 +1,1963 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <Forms>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">b7Ej%2nldAU:MM2b.}cxWeIh0Gi32eO*Ft$Wn{Y6%{mcIVgA6t9Fkwal+AgInNpI$=7,zGoLEqjnV-i7R=ffx00</UDF1>
+    <UDF2 Class="TCEForm" Encoding="Ascii85">b7Ej%2nldAU:MM2b.}cxWeIh0Gh+;cO*Ft$Wn{Y6%{mcIVgA6t9Fkwal+AgInNpI$=7,zGoLEqjnV-i7R=ffx00</UDF2>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1916</ID>
+      <Description>"no hud (~)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : POP.EXE
+  Version: 
+  Date   : 2019-08-01
+  Author : ophir
+
+  This script does blah blah blah
+}
+
+define(address,"POP.exe"+36427)
+define(bytes,66 09 50 02 C3)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  ret 
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // or [eax+02],dx
+  // ret 
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "POP.exe"+36427
+
+"POP.exe"+3640A: 85 C0           -  test eax,eax
+"POP.exe"+3640C: A3 44 EC A6 00  -  mov [POP.exe+66EC44],eax
+"POP.exe"+36411: 75 EE           -  jne POP.exe+36401
+"POP.exe"+36413: C3              -  ret 
+"POP.exe"+36414: 8B 4C 24 0C     -  mov ecx,[esp+0C]
+"POP.exe"+36418: BA 01 00 00 00  -  mov edx,00000001
+"POP.exe"+3641D: D3 E2           -  shl edx,cl
+"POP.exe"+3641F: 8B 4C 24 10     -  mov ecx,[esp+10]
+"POP.exe"+36423: 85 C9           -  test ecx,ecx
+"POP.exe"+36425: 74 05           -  je POP.exe+3642C
+// ---------- INJECTING HERE ----------
+"POP.exe"+36427: 66 09 50 02     -  or [eax+02],dx
+"POP.exe"+3642B: C3              -  ret 
+// ---------- DONE INJECTING  ----------
+"POP.exe"+3642C: F7 D2           -  not edx
+"POP.exe"+3642E: 66 21 50 02     -  and [eax+02],dx
+"POP.exe"+36432: C3              -  ret 
+"POP.exe"+36433: CC              -  int 3 
+"POP.exe"+36434: CC              -  int 3 
+"POP.exe"+36435: CC              -  int 3 
+"POP.exe"+36436: CC              -  int 3 
+"POP.exe"+36437: CC              -  int 3 
+"POP.exe"+36438: CC              -  int 3 
+"POP.exe"+36439: CC              -  int 3 
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>192</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2019</ID>
+      <Description>"timestop (Numpad 0)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>
+[ENABLE]
+
+POP.exe+6F4498:
+ db 01
+
+[DISABLE]
+
+POP.exe+6F4498:
+  db 00
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1861</ID>
+      <Description>"fov"</Description>
+      <LastState Value="1.399999976" RealAddress="02F3E584"/>
+      <VariableType>Float</VariableType>
+      <Address>"POP.exe"+006BC97C</Address>
+      <Offsets>
+        <Offset>94</Offset>
+        <Offset>24</Offset>
+        <Offset>48</Offset>
+        <Offset>34C</Offset>
+        <Offset>32C</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>107</Key>
+          </Keys>
+          <Value>0.01</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>109</Key>
+          </Keys>
+          <Value>0.01</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>107</Key>
+          </Keys>
+          <Value>0.0001</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>109</Key>
+          </Keys>
+          <Value>0.0001</Value>
+          <ID>3</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>107</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>4</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>109</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>5</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1900</ID>
+      <Description>"fov (first person)"</Description>
+      <LastState Value="0" RealAddress="12E7C6D8"/>
+      <VariableType>Float</VariableType>
+      <Address>"POP.exe"+006DC474</Address>
+      <Offsets>
+        <Offset>214</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>107</Key>
+          </Keys>
+          <Value>0.01</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>109</Key>
+          </Keys>
+          <Value>0.01</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>107</Key>
+          </Keys>
+          <Value>0.0001</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>109</Key>
+          </Keys>
+          <Value>0.0001</Value>
+          <ID>3</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>107</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>4</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>109</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>5</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys/>
+          <ID>6</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys/>
+          <ID>7</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2006</ID>
+      <Description>"basic camera"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1874</ID>
+          <Description>"y (first person)"</Description>
+          <LastState Value="0" RealAddress="12E7C738"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DCF24</Address>
+          <Offsets>
+            <Offset>274</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1865</ID>
+          <Description>"x (first person)"</Description>
+          <LastState Value="0" RealAddress="12E7C730"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DBBB8</Address>
+          <Offsets>
+            <Offset>C0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1871</ID>
+          <Description>"z (first person)"</Description>
+          <LastState Value="0" RealAddress="12E7C734"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DB218</Address>
+          <Offsets>
+            <Offset>3C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>106</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1893</ID>
+          <Description>"x (main)"</Description>
+          <LastState Value="255.2687531" RealAddress="1AF51D40"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DA1B0</Address>
+          <Offsets>
+            <Offset>30</Offset>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1899</ID>
+          <Description>"z (main)"</Description>
+          <LastState Value="135.5571289" RealAddress="1AF51D44"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DA1B0</Address>
+          <Offsets>
+            <Offset>34</Offset>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1898</ID>
+          <Description>"y (main)"</Description>
+          <LastState Value="24.50534439" RealAddress="1AF51D48"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F7C</Address>
+          <Offsets>
+            <Offset>38</Offset>
+            <Offset>C</Offset>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2014</ID>
+          <Description>"tilt (pause)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DA540</Address>
+          <Offsets>
+            <Offset>8</Offset>
+            <Offset>3C</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2017</ID>
+          <Description>"dir z (pause)"</Description>
+          <LastState Value="0.9672536254" RealAddress="1AF51D10"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F7C</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>C</Offset>
+            <Offset>8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1924</ID>
+          <Description>"dir x"</Description>
+          <LastState Value="-0.2489104569" RealAddress="1AF51D20"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DA1B0</Address>
+          <Offsets>
+            <Offset>10</Offset>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1923</ID>
+          <Description>"dir z"</Description>
+          <LastState Value="0.9485740066" RealAddress="1AF51D24"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DA1B0</Address>
+          <Offsets>
+            <Offset>14</Offset>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1922</ID>
+          <Description>"dir y"</Description>
+          <LastState Value="0.1955784559" RealAddress="1AF51D28"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DA1B0</Address>
+          <Offsets>
+            <Offset>18</Offset>
+            <Offset>C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2015</ID>
+          <Description>"dir x (pause)"</Description>
+          <LastState Value="0.2538120747" RealAddress="1AF51D14"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006DD0C0</Address>
+          <Offsets>
+            <Offset>4</Offset>
+            <Offset>3C</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1988</ID>
+      <Description>"alternative camera (CAPS LOCK)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : POP.EXE
+  Version: 
+  Date   : 2019-08-05
+  Author : ophir
+
+  This script does blah blah blah
+}
+
+define(address,"POP.exe"+293673)
+define(bytes,74 09 B9 11 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  jne POP.exe+29367E
+  mov ecx,00000011
+  jmp return
+
+address:
+  jmp newmem
+  nop
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // je POP.exe+29367E
+  // mov ecx,00000011
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "POP.exe"+293673
+
+"POP.exe"+29365B: 89 48 40              -  mov [eax+40],ecx
+"POP.exe"+29365E: 5E                    -  pop esi
+"POP.exe"+29365F: C3                    -  ret 
+"POP.exe"+293660: 3B F8                 -  cmp edi,eax
+"POP.exe"+293662: 74 09                 -  je POP.exe+29366D
+"POP.exe"+293664: B9 11 00 00 00        -  mov ecx,00000011
+"POP.exe"+293669: 8B F0                 -  mov esi,eax
+"POP.exe"+29366B: F3 A5                 - repe  movsd 
+"POP.exe"+29366D: 8B 74 24 10           -  mov esi,[esp+10]
+"POP.exe"+293671: 3B C6                 -  cmp eax,esi
+// ---------- INJECTING HERE ----------
+"POP.exe"+293673: 74 09                 -  je POP.exe+29367E
+"POP.exe"+293675: B9 11 00 00 00        -  mov ecx,00000011
+// ---------- DONE INJECTING  ----------
+"POP.exe"+29367A: 8B F8                 -  mov edi,eax
+"POP.exe"+29367C: F3 A5                 - repe  movsd 
+"POP.exe"+29367E: 5F                    -  pop edi
+"POP.exe"+29367F: 5E                    -  pop esi
+"POP.exe"+293680: C3                    -  ret 
+"POP.exe"+293681: CC                    -  int 3 
+"POP.exe"+293682: CC                    -  int 3 
+"POP.exe"+293683: CC                    -  int 3 
+"POP.exe"+293684: CC                    -  int 3 
+"POP.exe"+293685: CC                    -  int 3 
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>20</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2004</ID>
+          <Description>"unlock fov"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : POP.EXE
+  Version: 
+  Date   : 2019-08-05
+  Author : ophir
+
+  This script does blah blah blah
+}
+
+define(address,"POP.exe"+83D1E)
+define(bytes,89 9C 30 94 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+address:
+  jmp newmem
+  nop
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [eax+esi+00000094],ebx
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "POP.exe"+83D1E
+
+"POP.exe"+83CFD: 8B 74 24 0C                 -  mov esi,[esp+0C]
+"POP.exe"+83D01: 69 F6 AC 00 00 00           -  imul esi,esi000000AC
+"POP.exe"+83D07: D9 84 32 94 00 00 00        -  fld dword ptr [edx+esi+00000094]
+"POP.exe"+83D0E: DA E9                       -  fucompp 
+"POP.exe"+83D10: DF E0                       -  fnstsw ax
+"POP.exe"+83D12: F6 C4 44                    -  test ah,44
+"POP.exe"+83D15: 7B 61                       -  jnp POP.exe+83D78
+"POP.exe"+83D17: 53                          -  push ebx
+"POP.exe"+83D18: 8B 5C 24 14                 -  mov ebx,[esp+14]
+"POP.exe"+83D1C: 8B C2                       -  mov eax,edx
+// ---------- INJECTING HERE ----------
+"POP.exe"+83D1E: 89 9C 30 94 00 00 00        -  mov [eax+esi+00000094],ebx
+// ---------- DONE INJECTING  ----------
+"POP.exe"+83D25: 8B 4F 30                    -  mov ecx,[edi+30]
+"POP.exe"+83D28: 8D 04 31                    -  lea eax,[ecx+esi]
+"POP.exe"+83D2B: 50                          -  push eax
+"POP.exe"+83D2C: FF 90 A8 00 00 00           -  call dword ptr [eax+000000A8]
+"POP.exe"+83D32: 8B 57 30                    -  mov edx,[edi+30]
+"POP.exe"+83D35: 8B B4 32 90 00 00 00        -  mov esi,[edx+esi+00000090]
+"POP.exe"+83D3C: 83 C4 04                    -  add esp,04
+"POP.exe"+83D3F: 85 F6                       -  test esi,esi
+"POP.exe"+83D41: 74 34                       -  je POP.exe+83D77
+"POP.exe"+83D43: 8B 86 A8 00 00 00           -  mov eax,[esi+000000A8]
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>20</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2001</ID>
+          <Description>"x"</Description>
+          <LastState Value="255.2687531" RealAddress="02F3E520"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>710</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2003</ID>
+          <Description>"z"</Description>
+          <LastState Value="135.5571289" RealAddress="02F3E524"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>714</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2002</ID>
+          <Description>"y"</Description>
+          <LastState Value="24.50534439" RealAddress="02F3E528"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>718</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1987</ID>
+          <Description>"tilt "</Description>
+          <LastState Value="0" RealAddress="02F3E4F8"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>6E8</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1978</ID>
+          <Description>"dir x alt"</Description>
+          <LastState Value="0.2538120747" RealAddress="02F3E4F4"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>6E4</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1991</ID>
+          <Description>"dir z alt"</Description>
+          <LastState Value="0.9672536254" RealAddress="02F3E4F0"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>6E0</Offset>
+            <Offset>15C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1989</ID>
+          <Description>"dir y alt"</Description>
+          <LastState Value="0.1955784559" RealAddress="02F3E508"/>
+          <VariableType>Float</VariableType>
+          <Address>"POP.exe"+006F5F78</Address>
+          <Offsets>
+            <Offset>5B8</Offset>
+            <Offset>13C</Offset>
+            <Offset>16C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1925</ID>
+      <Description>"weird tilting mode (Ctrl+4)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : POP.EXE
+  Version: 
+  Date   : 2019-08-03
+  Author : ophir
+
+  This script does blah blah blah
+}
+
+define(address,"POP.exe"+3997EC)
+define(bytes,0F 84 00 01 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  jmp POP.exe+3998F2
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // je POP.exe+3998F2
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "POP.exe"+3997EC
+
+"POP.exe"+3997D1: 8B 56 14           -  mov edx,[esi+14]
+"POP.exe"+3997D4: 8B 4E 18           -  mov ecx,[esi+18]
+"POP.exe"+3997D7: 03 EB              -  add ebp,ebx
+"POP.exe"+3997D9: 89 6E 10           -  mov [esi+10],ebp
+"POP.exe"+3997DC: 8B 6C 24 28        -  mov ebp,[esp+28]
+"POP.exe"+3997E0: 03 D3              -  add edx,ebx
+"POP.exe"+3997E2: 03 CB              -  add ecx,ebx
+"POP.exe"+3997E4: 85 ED              -  test ebp,ebp
+"POP.exe"+3997E6: 89 56 14           -  mov [esi+14],edx
+"POP.exe"+3997E9: 89 4E 18           -  mov [esi+18],ecx
+// ---------- INJECTING HERE ----------
+"POP.exe"+3997EC: 0F 84 00 01 00 00  -  je POP.exe+3998F2
+// ---------- DONE INJECTING  ----------
+"POP.exe"+3997F2: 55                 -  push ebp
+"POP.exe"+3997F3: E8 88 E5 C9 FF     -  call POP.exe+37D80
+"POP.exe"+3997F8: D9 5C 24 24        -  fstp dword ptr [esp+24]
+"POP.exe"+3997FC: D9 44 24 24        -  fld dword ptr [esp+24]
+"POP.exe"+399800: B8 5F 70 89 30     -  mov eax,3089705F
+"POP.exe"+399805: D8 4D 00           -  fmul dword ptr [ebp+00]
+"POP.exe"+399808: 83 C4 04           -  add esp,04
+"POP.exe"+39980B: D9 5C 24 10        -  fstp dword ptr [esp+10]
+"POP.exe"+39980F: D9 44 24 20        -  fld dword ptr [esp+20]
+"POP.exe"+399813: D8 4D 04           -  fmul dword ptr [ebp+04]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>52</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2005</ID>
+      <Description>"cheats"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1918</ID>
+          <Description>"infinite slow motion (Ctrl+2)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : POP.EXE
+  Version: 
+  Date   : 2019-08-02
+  Author : ophir
+
+  This script does blah blah blah
+}
+
+define(address,"POP.exe"+1816D8)
+define(bytes,89 86 CC 0C 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+00000CCC],1
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [esi+00000CCC],eax
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "POP.exe"+1816D8
+
+"POP.exe"+1816A9: D9 9E F8 0C 00 00              -  fstp dword ptr [esi+00000CF8]
+"POP.exe"+1816AF: E8 FC 11 EE FF                 -  call POP.exe+628B0
+"POP.exe"+1816B4: D9 5C 24 10                    -  fstp dword ptr [esp+10]
+"POP.exe"+1816B8: D9 44 24 10                    -  fld dword ptr [esp+10]
+"POP.exe"+1816BC: D8 4C 24 14                    -  fmul dword ptr [esp+14]
+"POP.exe"+1816C0: D8 86 CC 0C 00 00              -  fadd dword ptr [esi+00000CCC]
+"POP.exe"+1816C6: D9 5C 24 14                    -  fstp dword ptr [esp+14]
+"POP.exe"+1816CA: D9 44 24 14                    -  fld dword ptr [esp+14]
+"POP.exe"+1816CE: 8B 44 24 14                    -  mov eax,[esp+14]
+"POP.exe"+1816D2: D8 1D B8 90 7A 00              -  fcomp dword ptr [POP.exe+3A90B8]
+// ---------- INJECTING HERE ----------
+"POP.exe"+1816D8: 89 86 CC 0C 00 00              -  mov [esi+00000CCC],eax
+// ---------- DONE INJECTING  ----------
+"POP.exe"+1816DE: DF E0                          -  fnstsw ax
+"POP.exe"+1816E0: F6 C4 41                       -  test ah,41
+"POP.exe"+1816E3: 75 0A                          -  jne POP.exe+1816EF
+"POP.exe"+1816E5: C7 86 CC 0C 00 00 00 00 20 41  -  mov [esi+00000CCC],41200000
+"POP.exe"+1816EF: 8B 8E F8 0C 00 00              -  mov ecx,[esi+00000CF8]
+"POP.exe"+1816F5: 89 4C 24 14                    -  mov [esp+14],ecx
+"POP.exe"+1816F9: D9 44 24 14                    -  fld dword ptr [esp+14]
+"POP.exe"+1816FD: D8 1D 34 59 7A 00              -  fcomp dword ptr [POP.exe+3A5934]
+"POP.exe"+181703: DF E0                          -  fnstsw ax
+"POP.exe"+181705: F6 C4 41                       -  test ah,41
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>50</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1917</ID>
+          <Description>"infinite health (Ctrl+1)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : POP.EXE
+  Version: 
+  Date   : 2019-08-02
+  Author : ophir
+
+  This script does blah blah blah
+}
+
+define(address,"POP.exe"+243DC0)
+define(bytes,89 8F 9C 01 00 00)
+
+[ENABLE]
+
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [edi+0000019C],ecx
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "POP.exe"+243DC0
+
+"POP.exe"+243D9B: F6 C4 01                       -  test ah,01
+"POP.exe"+243D9E: 75 06                          -  jne POP.exe+243DA6
+"POP.exe"+243DA0: 89 6C 24 10                    -  mov [esp+10],ebp
+"POP.exe"+243DA4: EB 08                          -  jmp POP.exe+243DAE
+"POP.exe"+243DA6: 8B 44 24 10                    -  mov eax,[esp+10]
+"POP.exe"+243DAA: 89 44 24 10                    -  mov [esp+10],eax
+"POP.exe"+243DAE: D9 44 24 10                    -  fld dword ptr [esp+10]
+"POP.exe"+243DB2: DC 05 60 AB B1 00              -  fadd qword ptr [POP.exe+71AB60]
+"POP.exe"+243DB8: DD 5C 24 10                    -  fstp qword ptr [esp+10]
+"POP.exe"+243DBC: 8B 4C 24 10                    -  mov ecx,[esp+10]
+// ---------- INJECTING HERE ----------
+"POP.exe"+243DC0: 89 8F 9C 01 00 00              -  mov [edi+0000019C],ecx
+// ---------- DONE INJECTING  ----------
+"POP.exe"+243DC6: 8B 15 68 D1 AD 00              -  mov edx,[POP.exe+6DD168]
+"POP.exe"+243DCC: 68 00 00 20 42                 -  push 42200000
+"POP.exe"+243DD1: 68 00 00 70 42                 -  push 42700000
+"POP.exe"+243DD6: 68 CD CC 4C 3E                 -  push 3E4CCCCD
+"POP.exe"+243DDB: 6A 02                          -  push 02
+"POP.exe"+243DDD: 52                             -  push edx
+"POP.exe"+243DDE: E8 7D B7 EE FF                 -  call POP.exe+12F560
+"POP.exe"+243DE3: 8D 84 24 B8 00 00 00           -  lea eax,[esp+000000B8]
+"POP.exe"+243DEA: 50                             -  push eax
+"POP.exe"+243DEB: 56                             -  push esi
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>49</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pTime</Name>
+      <Address>10160015</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>1017001B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>pSeeds</Name>
+      <Address>0B3A0016</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

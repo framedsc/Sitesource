@@ -84,12 +84,14 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
 * The Blackout Club
+* The Beast Inside
 * Blair Witch
 * Borderlands 3
 * Bright Memory
 * Burning Daylight
 * Call of Cthulhu
 * Captain Starshot
+* Chernobylite
 * Close to the Sun
 * Code Vein
 * Conarium
@@ -124,6 +126,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Intruders: Hide and Seek"
 * Jump Force (limited)
 * Killsquad
+* Kine
 * Koral
 * Laser League
 * Layers of Fear 2
@@ -131,10 +134,13 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Little Brother Jim
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
+* Monkey King: Hero Is Back
 * Monster Jam Steel Titans
+* Morels: The Hunt
 * Morphies Law Remorphed
 * MotoGP 19
 * Mutant Year Zero: Road to Eden
+* My Hero One's Justice
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
@@ -156,6 +162,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remnant: From the Ashes
 * Remothered: Tormented Fathers
 * Ruiner
+* ShockRods
 * The Sinking City
 * Session: Skateboarding Sim Game
 * Shape of the World
@@ -183,6 +190,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Uventa
 * Visage
 * Wartile
+* We Happy Few
 * XING The Land Beyond
 * ZED
 

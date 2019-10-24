@@ -1,5 +1,9 @@
-![FRAMED. Screenshot Community](Images/FRAMED_LogoBigDarkTransparent800px.png){.autosize}
-
+<div class="figure">
+<img src="Images/framed_intro_pino.jpg" alt="FRAMED. Screenshot Community" title="By Pino44io" class="autosize" width="2800" height="1400" />
+<p>By <a href="https://www.deviantart.com/pino44io/" target="_blank">Pino44io</a></p>
+</div>
+<h1 class="text-center">FRAMED. Screenshot Community</h1>
+<br/>
 <p class="text-center">
 Contact:<br>
 <i class="fa fa-twitter"></i> <a href="https://twitter.com/jim2point0/" target="_blank">Jim2Point0</a> | 
