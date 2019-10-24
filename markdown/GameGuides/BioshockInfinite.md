@@ -19,7 +19,7 @@ DirectX versions | DirectX 11
 
 ## Using The CE Table
 
-[Read the general Cheat Engine guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
+[Read the general Cheat Engine guide](../GeneralGuides/cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
 
 * **Players only** - **`Numpad 1`**
 
