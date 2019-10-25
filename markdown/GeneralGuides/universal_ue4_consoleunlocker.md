@@ -145,6 +145,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Nephise: Ascension
 * Observer
 * Operencia: The Stolen Sun
+* The Outer Worlds
 * Overkill's The Walking Dead
 * Pagui打鬼
 * Paranormal Activity The Lost Soul
