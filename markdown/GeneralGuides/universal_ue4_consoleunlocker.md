@@ -11,25 +11,15 @@ you can use the Universal UE4 Console Unlocker / Dumper dll (comes with injector
 dll in, it should show a console window that it has found all offsets and the console object has been created as well as that cheats have been enabled. 
 
 @alert important
-The game's exe as well as the IGCSInjector.exe have to be run as *administrator*. Right-click the exe's to run and select 'Run as Administrator' or create a shortcut to the 
+The game's exe as well as the IGCSInjectorUI.exe have to be run as *administrator*. Right-click the exe's to run and select 'Run as Administrator' or create a shortcut to the 
 exe on your desktop, right-click it, select *Properties* and on the *Shortcut* tab, select *Advanced...*, then check the 'Run as Administrator' checkbox and click OK. 
 @end
 
 ## Setting up the injector
-After downloading the zip linked below, unpack it in an empty folder and copy the contents of the folder to the folder of the game you want to use it with. Open the included
-IGCSInjector.ini in notepad and change `YOURGAME-Win64-Shipping.exe` on the line with `Process=YOURGAME-Win64-Shipping.exe` to the .exe of the game you're running. 
-To determine which exe to specify, please run the game, then open Windows Task Explorer (ctrl-shift-esc) and on the 'details' tab look for the exe of your game. 
-
-### Example: Darksiders 3
-So as an example we'll use Darksiders 3. The executable you're starting of Darksiders 3 is called 'darksiders3.exe', but the exe of the game is called 
-`Darksiders3-Win64-Shipping.exe`. You can see that in Windows Task Explorer as that's the exe which has a high CPU / GPU usage. So in my ini file I'll then fill in the name
-of the second process and it all becomes:
-
-```ini
-[InjectionData]
-Process=Darksiders3-Win64-Shipping.exe
-Dll=UniversalUE4UnlockerDumper.dll
-```
+After downloading the zip linked below, unpack it in an empty folder. Now you first start the game and when the game has opened its main menu, 
+you start the IGCSInjectorUI.exe application to inject the dll into the game's process. To do so, you click the `Select...` button and select the game's process. 
+You then click the `Inject` button, as the dll has already been pre-configured, and the injector should successfully inject the dll into the game's process you
+selected. 
 
 ### If the injector doesn't work
 Some people on Windows 7 have reported issues with the IGCSInjector. If that happens, please try another dll injector, e.g. Extreme Injector. 
@@ -72,6 +62,7 @@ after you've loaded a new level, you have to dump the files again. The Objects f
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code
 and the unlocker can't re-activate the console as essential functions aren't there anymore. The list below are games which are known to work with the unlocker. 
 
+* 103
 * A Knight`s Quest
 * Agony
 * Alice VR
@@ -136,6 +127,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Marvel vs. Capcom: Infinite
 * Monkey King: Hero Is Back
 * Monster Jam Steel Titans
+* Moons of Madness
 * Morels: The Hunt
 * Morphies Law Remorphed
 * MotoGP 19
@@ -145,6 +137,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Nephise: Ascension
 * Observer
 * Operencia: The Stolen Sun
+* The Outer Worlds
 * Overkill's The Walking Dead
 * Pagui打鬼
 * Paranormal Activity The Lost Soul
@@ -196,7 +189,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.13](https://mega.nz/#!xExGzIpJ!BAEOjKWiC4VkK1JR2rtXqylgbjwfDpo_xSzEa4BtdF8)
+* [Universal UE4 Unlocker v1.0.14](https://mega.nz/#!EUxX2AJC!4H_4z1xMGVwVBXsB237ANrM6dR3_qYUxd6e5N8FjpxI)
 
 ## Console tricks
 The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
