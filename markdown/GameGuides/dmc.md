@@ -1,4 +1,4 @@
-![DmC: Devil May Cry](#\Images\dmc.png "Shot by White Harpy")
+![DmC: Devil May Cry](Images\dmc.png "Shot by White Harpy")
 
 ## Summary
 
@@ -110,7 +110,7 @@ Keep in mind that you can use the combination of keys that fits you best.
 
 In addition you can also change the default anisotropic filtering (4) up to 16 & Default smoothing (HD AA) in the config file `devilengine.ini` or use the antialising from the nvidia panel.
 
-Hotslamping
+Hotsampling
 =========================================================
 
 For hotslamping with the bindings above you will have to use them alongside GeDoSaTo.
