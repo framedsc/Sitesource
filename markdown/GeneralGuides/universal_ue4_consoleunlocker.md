@@ -189,7 +189,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.14](https://mega.nz/#!EUxX2AJC!4H_4z1xMGVwVBXsB237ANrM6dR3_qYUxd6e5N8FjpxI)
+* [Universal UE4 Unlocker v1.0.14](https://mega.nz/#!NEoDHaJZ!8YNX63bhMHyj4sDFGooXU32hxcNQlZGsTvQXLcVZqeM)
 
 ## Console tricks
 The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
