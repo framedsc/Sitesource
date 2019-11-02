@@ -1,4 +1,7 @@
-![DmC: Devil May Cry](Images\dmc.png "Shot by White Harpy")
+![DmC: Devil May Cry](\\dmc.png "Shot by White Harpy")
+
+[//]: #\Images\dmc.png
+
 
 ## Summary
 
@@ -36,7 +39,7 @@ DirectX versions | DirectX 9
     - '+' + Num 7: Decrease
 - Camera tilt:
     - '+' + Num 1: Tilt the camera left
-    - '+' + Num 3: Tilt the camera left
+    - '+' + Num 3: Tilt the camera right
     - '+' + Num 2: Reset camera tilt
 - Speed modifiers (maintain one of the followings pressed while you move the camera position or direction to do it faster or slower):
     - C: Slow
@@ -110,7 +113,7 @@ Keep in mind that you can use the combination of keys that fits you best.
 
 In addition you can also change the default anisotropic filtering (4) up to 16 & Default smoothing (HD AA) in the config file `devilengine.ini` or use the antialising from the nvidia panel.
 
-Hotsampling
+Hotslamping
 =========================================================
 
 For hotslamping with the bindings above you will have to use them alongside GeDoSaTo.
