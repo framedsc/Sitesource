@@ -1,7 +1,4 @@
-![DmC: Devil May Cry](\\dmc.png "Shot by White Harpy")
-
-[//]: #\Images\dmc.png
-
+![DmC: Devil May Cry](Images\dmc.png "Shot by White Harpy")
 
 ## Summary
 
@@ -105,7 +102,7 @@ In the code above the keys are setted to do the following:
 - F12 = PlayersOnly (pauses the game - stays frozen while alt-tabbing)
 - Control + Numpad 1-8 = Force FOV
 
-The setres commands to change resolution need to be used with GeDoSato, more of that explained in the hotslamping section.
+The setres commands to change resolution need to be used with GeDoSato, more of that explained in the Hotsampling section.
 
 The last two lines are required if you use the [alternative CE table made by one3rd](..\CheatTables\DMC-DevilMayCry-Merged-DOF--Tonemap-v0.2.CT) altough is recommended to use a DOF shader with reshade for shooting.
 
@@ -113,10 +110,10 @@ Keep in mind that you can use the combination of keys that fits you best.
 
 In addition you can also change the default anisotropic filtering (4) up to 16 & Default smoothing (HD AA) in the config file `devilengine.ini` or use the antialising from the nvidia panel.
 
-Hotslamping
+Hotsampling
 =========================================================
 
-For hotslamping with the bindings above you will have to use them alongside GeDoSaTo.
+For Hotsampling with the bindings above you will have to use them alongside GeDoSaTo.
 
 You need to have matching resolutions in your GeDoSaTo config file (and have the program open while running the game); For example:
 
