@@ -164,6 +164,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Skylar and Plux
 * The Sojourn
 * SolSeraph
+* Song of Horror
 * Sophont
 * Soul Valley
 * Space Hulk: Deadwing Enhanced Edition
