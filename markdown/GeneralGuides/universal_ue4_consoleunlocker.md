@@ -167,6 +167,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Song of Horror
 * Sophont
 * Soul Valley
+* SOULCALIBUR VI
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
 * Spyro Reignited Trilogy
