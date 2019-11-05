@@ -19,7 +19,7 @@ See notes | Yes
 
 * [Camera tools by Otis_Inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/DOOM)  
 **Features**: Camera control, FoV control, Timestop
-* [CE Table by DET](..\CheatTables\DOOMx64_DET.CT)
+* [CE Table by DET](..\CheatTables\DOOMx64_DET.CT)  
 **Features**: AR fix, FoV control
 
 ## Compatibility
@@ -34,26 +34,24 @@ Camera tools only work with **OpenGL API**. To change API go to `Settings > Adva
 
 First, run the camera tools as administrator. **IF everything's fine, then you don't need to apply the steps below.** 
 
-1. Running as administrator
- 1. Right click on `DOOMx64.exe` go to `Properties > Compatibility`
- 2. Click the `Change settings for all users` option
- 3. Check `Run this program as an administrator` and press OK
- 4. Right click to `IGCSInjector.exe` and click `Run as administrator`
+1. **Running the tools as administrator**
+	* Right click on `DOOMx64.exe` go to `Properties > Compatibility`
+	* Click the `Change settings for all users` option
+	* Check `Run this program as an administrator` and press OK
+	* Right click to `IGCSInjector.exe` and click `Run as administrator`
+2. **Disable Windows UAC**  
+You may need to disable Windows UAC. To do this use [this guide on winaero.com](https://winaero.com/blog/how-to-turn-off-and-disable-uac-in-windows-10/). You don't need to download the app, just apply **Option one**, and **Option two**.
+3. **Be patient**  
+Camera tools may not work as the game started. Kill some monsters, open the map, kill more monsters, spent some time, then try to start camera.  
 
-2. Disable Windows UAC
- You may need to disable Windows UAC. To do this use [this guide on winaero.com](https://winaero.com/blog/how-to-turn-off-and-disable-uac-in-windows-10/). You don't need to download the app, just apply **Option one**, and **Option two**.
-
-3. Be patient
- Camera tools may not work as the game started. Kill some monsters, open the map, kill more monsters, spent some time, then try to start camera. 
- 
 ## Hotsampling & Custom AR
 
 By default changing AR via SRWE will likely cause a stretched output. There are two ways to avoid it:
 
-1. **Custom AR With CE Table**
- Simply download the provided [CE Table by DET](..\CheatTables\DOOMx64_DET.CT) and check 'nuke portrait check / control FOV'. Now you can use any aspect ratio through SRWE. It's highly recommended to change CE Table's hotkeys for controlling FOV, otherwise it'll conflict with Camera Tools' FOV Control. 
+1. **Custom AR With CE Table**  
+Simply download the provided [CE Table by DET](..\CheatTables\DOOMx64_DET.CT) and check 'nuke portrait check / control FOV'. Now you can use any aspect ratio through SRWE. It's highly recommended to change CE Table's hotkeys for controlling FOV, otherwise it'll conflict with Camera Tools' FOV Control. 
 
-2. **Custom AR Without CE Table**
+2. **Custom AR Without CE Table**  
 There shouldn't be any stretched output if you stick to your default AR. Simply multiply the current windowed resolution on SRWE by 3, 4 or higher depending on your PC specs to avoid stretching. For example if your windowed resolution is `1616x939` then `1616 x 4 = 6464` `939 x 4 = 3756` so `6464x3756` is your hotsampled resolution. Use [AspectRatioComposition.fx made by Daodan317081](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/AspectRatioComposition.fx) to preview in-game custom AR. Placing this shader at the bottom of the shader list and binding a key to toggle it, is highly recommended. After taking shot, you can crop it with your favorite image editor. (Photoshop and GIMP allows you to crop image by entering aspect ratios) 
 
 @alert info
