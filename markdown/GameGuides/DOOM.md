@@ -24,21 +24,21 @@ See notes | Yes
 
 ## Compatibility
 
-To use the camera tools, you'll need to downgrade game binaries. Please use the guide on FRAMED to learn how to [Revert Game Update using Steam Console](https://framedsc.github.io/GeneralGuides/steam_update_guide.htm). After the first step you can download the necessary binaries with using this code: `download_depot 379720 379721 907965064786099828`. Then you need to copy these files to your game folder. (explained at step 6) 
+To use the camera tools, you'll need to downgrade the game's binaries. Please use the guide on FRAMED to learn how to [Revert Game Update using Steam Console](https://framedsc.github.io/GeneralGuides/steam_update_guide.htm). After the first step you can download the necessary binaries using this code: `download_depot 379720 379721 907965064786099828`. Then you need to copy these files to your game folder. (explained at step 6) 
 
 @alert important
-Camera tools only works with **OpenGL API**. To change API go to `Settings > Advanced > Graphics API`.
+Camera tools only work with **OpenGL API**. To change API go to `Settings > Advanced > Graphics API`.
 @end
 
 ## Troubleshooting
 
-First, try to start camera with only starting it as administrator. **IF everything's fine, then you don't need to apply these steps below.** 
+First, run the camera tools as administrator. **IF everything's fine, then you don't need to apply the steps below.** 
 
-1. Start camera tools as administrator (For real)
-	1. Right click to `DOOMx64.exe` go to `Properties > Compatibility`
-	2. Click the `Change settings for all users` button
-	3. Check `Run this program as an administrator` and press OK
-	4. Right click to `IGCSInjector.exe` and click `Run as administrator` (Yes still, you know Windows)
+1. Running as administrator
+ 1. Right click on `DOOMx64.exe` go to `Properties > Compatibility`
+ 2. Click the `Change settings for all users` option
+ 3. Check `Run this program as an administrator` and press OK
+ 4. Right click to `IGCSInjector.exe` and click `Run as administrator`
 
 2. Disable Windows UAC
  You may need to disable Windows UAC. To do this use [this guide on winaero.com](https://winaero.com/blog/how-to-turn-off-and-disable-uac-in-windows-10/). You don't need to download the app, just apply **Option one**, and **Option two**.
@@ -48,43 +48,43 @@ First, try to start camera with only starting it as administrator. **IF everythi
  
 ## Hotsampling & Custom AR
 
-By default changing AR via SRWE will likely give you a bad result like stretching. You have two options to avoid this.
+By default changing AR via SRWE will likely cause a stretched output. There are two ways to avoid it:
 
 1. **Custom AR With CE Table**
- Simply download the provided [CE Table by DET](..\CheatTables\DOOMx64_DET.CT) and check 'nuke portrait check / control FOV'. Now you can use any aspect ratio through SRWE. It's highly suggested to change CE Table's hotkeys for controlling FOV, otherwise it'll conflict with Camera Tools' FOV Control. 
+ Simply download the provided [CE Table by DET](..\CheatTables\DOOMx64_DET.CT) and check 'nuke portrait check / control FOV'. Now you can use any aspect ratio through SRWE. It's highly recommended to change CE Table's hotkeys for controlling FOV, otherwise it'll conflict with Camera Tools' FOV Control. 
 
 2. **Custom AR Without CE Table**
- As you stick with default AR there won't be a problem about stretching. Simply multiply the current windowed resolution on SRWE with 3, 4 or higher depending on your PC specs to avoid stretching. For example if your windowed resolution is `1616x939` then `1616 x 4 = 6464` `939 x 4 = 3756` so `6464x3756` is your hotsampled resolution. Use [AspectRatioComposition.fx made by Daodan317081](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/AspectRatioComposition.fx) to preview in-game custom AR. Placing this shader at the bottom of shader list and binding a key to toggle it is highly recommended. After taking shot, you can crop it with your favorite image editor. (Photoshop and GIMP allows you to crop image by entering aspect ratios) 
+There shouldn't be any stretched output if you stick to your default AR. Simply multiply the current windowed resolution on SRWE by 3, 4 or higher depending on your PC specs to avoid stretching. For example if your windowed resolution is `1616x939` then `1616 x 4 = 6464` `939 x 4 = 3756` so `6464x3756` is your hotsampled resolution. Use [AspectRatioComposition.fx made by Daodan317081](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/AspectRatioComposition.fx) to preview in-game custom AR. Placing this shader at the bottom of the shader list and binding a key to toggle it, is highly recommended. After taking shot, you can crop it with your favorite image editor. (Photoshop and GIMP allows you to crop image by entering aspect ratios) 
 
 @alert info
-Custom Aspect Ratios with DSR not tested.
+Custom aspect ratios with DSR not tested.
 @end
 
 ## Reshade & DoF
 
-Reshade DoF tested on current latest version of Reshade (4.4.1). Since the current version of Reshade for OpenGL has no option for selecting specific depth buffer (choosing automatically), it may not work as expected every time. Resizing window affects depth buffer in both way good and bad. So if you experiencing issues with depth buffer try resizing resolution via SRWE. 
+Reshade DoF was tested on the latest version of Reshade (4.4.1). Since there is no option to select a specific depth buffer on Reshade 4.4.1 for OpenGL, it may not work as expected every time. Resizing the window affects the depth buffer in both good and bad ways. If you are experiencing issues with the depth buffer, try resizing the resolution via SRWE.
 
-## Using Camera
+## Using the Camera
 
-1. Enable camera by pressing `Insert`
-2. Press `Numpad .` to block input to game
-3. Place camera for a cool shot then press `Home` (here you can make changes with Reshade)
-4. Switch SRWE to hotsample by pressing `Alt+Tab`. Game will automatically open the menu don't worry
-5. Set your new resolution then switch back to game
-6. Press `Numpad .` to enable input to game then press `ESC` to close menu
-7. After menu is closed press `Numpad .` to block input again
+1. Enable the camera by pressing `Insert`
+2. Press `Numpad .` to block input to the game
+3. Place camera for a cool shot then press `Home` to lock camera
+4. Switch to SRWE to hotsample by pressing `Alt+Tab`. The game will automatically open up the menu don't worry
+5. Set your new resolution then switch back to the game
+6. Press `Numpad .` to enable input to the game then press `ESC` to close the menu
+7. After the menu is closed press `Numpad .` to block input again
 8. Take your shot
 
 @alert info
-Step 4, 5, 6, 7 is not necessary if you go with DSR.
+Steps 4, 5, 6, 7 are not necessary if you go with DSR.
 @end
 
 ## Photo Mode
 
-To use photo mode, it has to be on a level that has already been completed once. Then you can enable it via `Settings > Game > DOOM Photo Mode`. Photo mode only works on the three basic difficulty modes: I'm too young to die, Hurt me plenty and Ultra-violence. Once you enabled the Photo Mode, press `\` key to open it. 
+To use the photo mode, you need to have already beat the game at least once. You can then enable it via `Settings > Game > DOOM Photo Mode`. The photo mode only works on the three basic difficulty modes: I'm too young to die, Hurt me plenty and Ultra-violence. Once you enable the Photo Mode, press `\` key to open it. 
 
 @alert info
-Using camera tools with photo mode not tested.
+Using the camera tools along with the photo mode has not been tested.
 @end
 
 ## Useful links
