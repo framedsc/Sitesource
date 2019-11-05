@@ -100,6 +100,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Draugen
 * Dreamscaper
 * Driftland
+* Earth Defence Force: Iron Rain 
 * Earthfall
 * Echo
 * Elea
@@ -136,6 +137,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
+* Only After
 * Operencia: The Stolen Sun
 * The Outer Worlds
 * Overkill's The Walking Dead
