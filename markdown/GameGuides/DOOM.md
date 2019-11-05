@@ -84,7 +84,7 @@ Steps 4, 5, 6, 7 are not necessary if you go with DSR.
 To use the photo mode, you need to have already beat the game at least once. You can then enable it via `Settings > Game > DOOM Photo Mode`. The photo mode only works on the three basic difficulty modes: I'm too young to die, Hurt me plenty and Ultra-violence. Once you enable the Photo Mode, press `\` key to open it. 
 
 @alert info
-Using the camera tools along with the photo mode has not been tested.
+Using the camera tools along with the photo mode, has not been tested.
 @end
 
 ## Useful links
