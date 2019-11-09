@@ -116,6 +116,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Hunting Simulator
 * Insomnia the Ark
 * Intruders: Hide and Seek"
+* Jumanji The Video Game
 * Jump Force (limited)
 * Killsquad
 * Kine
