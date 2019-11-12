@@ -5,7 +5,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes (with tools)
+Hotsampling | Yes (with tools, dx12 only)
 DSR | Yes
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes (v4.4+)
@@ -16,7 +16,7 @@ Vulkan | Yes
 ##Tools
 
 * [Photomode enhancements by Otis_Inf](..\CheatTables\RDR2_PhotomodeEnhancements_Otis.CT)  
-**Features**: Range/limit removal of photomode, removal of black bars in cutscenes and photomode, FoV control, Hotsampling support,
+**Features**: Range/limit removal of photomode, removal of black bars in cutscenes and photomode, FoV control, Hotsampling support (dx12 only),
 Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hour) support
 
 ### Vulkan or DX12?
