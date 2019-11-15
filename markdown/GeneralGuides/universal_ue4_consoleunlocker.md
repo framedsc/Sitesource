@@ -174,6 +174,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
 * Spyro Reignited Trilogy
+* Star Wars Jedi: Fallen Order
 * Stardrop
 * Steel rats
 * Stories: the Path of Destinies
@@ -194,7 +195,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.14](https://mega.nz/#!NEoDHaJZ!8YNX63bhMHyj4sDFGooXU32hxcNQlZGsTvQXLcVZqeM)
+* [Universal UE4 Unlocker v1.0.15](https://mega.nz/#!8dImASIY!go8fVu2HVSu4ddfLRq2EyaPx0c5XJBeAdL9AbRgcbc4)
 
 ## Console tricks
 The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
