@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Console Unlocker
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Console Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
-unlocker binary is distributed is this site. 
+unlocker binary is distributed on is this site. 
 @end
 
 For Unreal Engine 4 powered games, it's possible to re-create the in-game console that's usually stripped out when the game is build for shipping. To do so, 
@@ -195,7 +195,21 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.15](https://mega.nz/#!8dImASIY!go8fVu2HVSu4ddfLRq2EyaPx0c5XJBeAdL9AbRgcbc4)
+* [Universal UE4 Unlocker v1.0.16](https://mega.nz/#!QVxCmIwQ!40fnUHK5Ai_rgXylzQZQ8yASpTOpGY3uCO2AVGhR3hg)
+
+## Built-in functionality
+
+The following features are build-in (and enabled if the code can be found in the game)
+
+Feature | Key 
+--|--
+Re-scan AOBs and re-try to create the console | `Ctrl`-`End`
+Display help | `Ctrl`-`H`
+Dump actual object addresses and names to text files | `Ctrl`-`Numpad /` 
+Toggle additional HUD / Menu elements | `Del`
+Toggle game pause (Using UWorld::IsPaused) | `Numpad 0`
+Toggle game pause (Using slomo 0) | `Page Down`
+(In-game) Open the console | `~`
 
 ## Console tricks
 The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
