@@ -275,6 +275,9 @@ return:
 WeatherIntercept:
   db 8B 83 5C 41 00 00
 
+WeatherFromIntercept:
+  db 8B 81 18 3F 00 00
+
 unregistersymbol(WeatherIntercept)
 dealloc(newmem)
 
@@ -310,7 +313,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>23</ID>
           <Description>"Weather type (0-21: various weather types. -1 (FFFFFFFF): 0ff)"</Description>
-          <LastState Value="FFFFFFFF" RealAddress="7FF6487856BC"/>
+          <LastState Value="FFFFFFFF" RealAddress="7FF6FC97A8EC"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>4 Bytes</VariableType>
           <Address>weatherAddress</Address>
@@ -378,7 +381,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>52</ID>
               <Description>"From weather"</Description>
-              <LastState Value="6" RealAddress="7FF648785478"/>
+              <LastState Value="0" RealAddress="7FF6FC97A6A8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -388,7 +391,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>53</ID>
               <Description>"To weather"</Description>
-              <LastState Value="2" RealAddress="7FF64878547C"/>
+              <LastState Value="0" RealAddress="7FF6FC97A6AC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -398,7 +401,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>54</ID>
               <Description>"Interpolation factor (0: from weather, 1: to weather)"</Description>
-              <LastState Value="0.7226333618" RealAddress="7FF648785480"/>
+              <LastState Value="1" RealAddress="7FF6FC97A6B0"/>
               <VariableType>Float</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -425,7 +428,7 @@ dealloc(newmem)
 [ENABLE]
 
 aobscanmodule(EnableHotsampling,RDR2.exe,FF 90 10 01 00 00 84 C0 74 05) // should be unique
-aobscanmodule(AlwaysResize,RDR2.exe,75 0F 8B 45 E4) // should be unique
+aobscanmodule(AlwaysResize,RDR2.exe,75 0? 8B 45 ?? 39 05) // should be unique
 aobscanmodule(InterceptPreferredRes, RDR2.exe, 8B 41 20 89 02 8B 41 24 41 89 00 C3)
 alloc(newmem,$1000,"RDR2.exe"+263167B)
 
@@ -440,7 +443,7 @@ registersymbol(InterceptPreferredRes)
 newmem:
 
 code:
-  // call qword ptr [rax+00000100]
+  // call qword ptr [rax+00000110]
   // always succeed
   mov al, 01
   // RBX contains resolution as forced by SRWE. low 2 bytes is width, high 2 bytes of low dword is height.
@@ -539,7 +542,7 @@ RDR2.exe+25CC1FB - C3                    - ret
     <CheatEntry>
       <ID>16</ID>
       <Description>"Remove black bars in cinematic parts"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -584,16 +587,16 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
     <CheatEntry>
       <ID>13</ID>
       <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="12" RealAddress="7FF648792C10"/>
+      <LastState Value="17" RealAddress="7FF6FC987E40"/>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4412C10</Address>
+      <Address>RDR2.exe+4417E40</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>17</ID>
       <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
-      <LastState Value="0" RealAddress="7FF649B4B7B3"/>
+      <LastState Value="1" RealAddress="7FF6FDD40912"/>
       <VariableType>Byte</VariableType>
-      <Address>RDR2.exe+57CB7B3</Address>
+      <Address>RDR2.exe+57D0912</Address>
       <Hotkeys>
         <Hotkey>
           <Action>Set Value</Action>
@@ -688,9 +691,9 @@ dealloc(newmem)
     <CheatEntry>
       <ID>50</ID>
       <Description>"Active aspect ratio"</Description>
-      <LastState Value="1.600000024" RealAddress="7FF647EA261C"/>
+      <LastState Value="1.600000024" RealAddress="7FF6FC09764C"/>
       <VariableType>Float</VariableType>
-      <Address>RDR2.exe+3B2261C</Address>
+      <Address>RDR2.exe+3B2764C</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>10</ID>
@@ -701,7 +704,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.6. 14-nov-2019. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
+      <Description>"By Otis_Inf. v0.7. 20-nov-2019. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
