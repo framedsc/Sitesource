@@ -62,6 +62,7 @@ after you've loaded a new level, you have to dump the files again. The Objects f
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code
 and the unlocker can't re-activate the console as essential functions aren't there anymore. The list below are games which are known to work with the unlocker. 
 
+* 10 Miles to Safety
 * 103
 * A Knight`s Quest
 * Agony
@@ -74,8 +75,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Assemblance: Oversight
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
-* The Blackout Club
 * The Beast Inside
+* Bee Simulator
+* The Blackout Club
 * Blair Witch
 * Borderlands 3
 * Bright Memory
@@ -127,6 +129,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Little Brother Jim
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
+* Mind: Path to Thalamus
 * Monkey King: Hero Is Back
 * Monster Jam Steel Titans
 * Moons of Madness
@@ -135,6 +138,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * MotoGP 19
 * Mutant Year Zero: Road to Eden
 * My Hero One's Justice
+* Narcos: Rise of the Cartels
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
@@ -157,6 +161,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Redeemer
 * Remnant: From the Ashes
 * Remothered: Tormented Fathers
+* Ruin 2
 * Ruiner
 * ShockRods
 * The Sinking City
@@ -182,6 +187,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Subdivision Infinity DX
 * Supraland
 * Tartarus
+* Tetris Effect
 * Tower of Fate
 * Train Sim World
 * Tropico 6
