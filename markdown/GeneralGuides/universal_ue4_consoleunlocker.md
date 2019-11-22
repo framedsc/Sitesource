@@ -127,6 +127,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Layers of Fear 2
 * Ling: a Road Alone 
 * Little Brother Jim
+* Lost Ember
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
 * Mind: Path to Thalamus
