@@ -28,7 +28,7 @@ Useful console commands:
 TogglePhotoMode
 :	Enables the official photo mode for Fallen Order by Respawn.
 
-`r.DepthOfQuality 0` 
+`r.DepthOfFieldQuality 0` 
 :	Disables the vanilla DOF
 
 `r.motionblurquality 0`
