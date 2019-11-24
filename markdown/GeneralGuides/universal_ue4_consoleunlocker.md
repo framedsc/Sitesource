@@ -164,6 +164,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Remothered: Tormented Fathers
 * Ruin 2
 * Ruiner
+* Shenmue 3
 * ShockRods
 * The Sinking City
 * Session: Skateboarding Sim Game
