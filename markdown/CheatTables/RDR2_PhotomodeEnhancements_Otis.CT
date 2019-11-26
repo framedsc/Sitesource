@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>7</ID>
       <Description>"Remove photomode freecam range / rotation limits / black bars (leave enabled!)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -217,7 +217,7 @@ dealloc(newmem)
     <CheatEntry>
       <ID>22</ID>
       <Description>"Weather control (leave enabled)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -313,6 +313,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>23</ID>
           <Description>"Weather type (0-21: various weather types. -1 (FFFFFFFF): 0ff)"</Description>
+          <LastState Value="FFFFFFFF" RealAddress="7FF72047A8EC"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>4 Bytes</VariableType>
           <Address>weatherAddress</Address>
@@ -380,6 +381,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>52</ID>
               <Description>"From weather"</Description>
+              <LastState Value="6" RealAddress="7FF72047A6A8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -389,6 +391,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>53</ID>
               <Description>"To weather"</Description>
+              <LastState Value="6" RealAddress="7FF72047A6AC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -398,6 +401,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>54</ID>
               <Description>"Interpolation factor (0: from weather, 1: to weather)"</Description>
+              <LastState Value="1" RealAddress="7FF72047A6B0"/>
               <VariableType>Float</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -583,14 +587,16 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
     <CheatEntry>
       <ID>13</ID>
       <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
+      <LastState Value="18" RealAddress="7FF720487E40"/>
       <VariableType>2 Bytes</VariableType>
       <Address>RDR2.exe+4417E40</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>17</ID>
       <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
+      <LastState Value="0" RealAddress="7FF721840A43"/>
       <VariableType>Byte</VariableType>
-      <Address>RDR2.exe+57D0913</Address>
+      <Address>RDR2.exe+57D0A43</Address>
       <Hotkeys>
         <Hotkey>
           <Action>Set Value</Action>
@@ -685,8 +691,9 @@ dealloc(newmem)
     <CheatEntry>
       <ID>50</ID>
       <Description>"Active aspect ratio"</Description>
+      <LastState Value="1.600000024" RealAddress="7FF71FB9765C"/>
       <VariableType>Float</VariableType>
-      <Address>RDR2.exe+3B2764C</Address>
+      <Address>RDR2.exe+3B2765C</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>10</ID>
@@ -697,7 +704,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.8. 22-nov-2019. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
+      <Description>"By Otis_Inf. v0.9. 26-nov-2019. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
