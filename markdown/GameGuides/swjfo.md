@@ -15,10 +15,11 @@ DirectX versions | DirectX 11
 ## Tools
 
 * [Injectable camera for Star Wars Jedi: Fallen Order by Frans Bouma & Skall](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/SWFO)  
-**Features**: Freecam (Movement & Rotation), FOV Control, Hide HUD, Custom Aspect Ratios and Time Pause in Cutscenes (read the Readme File for Hotkeys) 
+**Features**: Freecam (Movement & Rotation), FOV Control, Panorama / lightfield shots, black bar removal from cutscenes.
 
 * [UE4 Console Unlocker by Frans Bouma & Sunbeam](../GeneralGuides/universal_ue4_consoleunlocker.htm)  
-**Features**: Enable Official Photo Mode, FOV Control, Hide HUD (read the Readme File for Hotkeys) 
+**Features**: Enable Official Photo Mode, FOV Control, Hide HUD, timestop/pause (multiple options), debug console for tweaks. Read the UE4 console unlocker guide for details
+and the [UE4 tweak guide](../GeneralGuides/ue4guide.htm) for hints.
 
 
 ## Tips and Tricks
@@ -34,10 +35,9 @@ TogglePhotoMode
 `r.motionblurquality 0`
 :	Disables the motion blur
 
-
 The console has a history. Simply press arrow-up to get the list of last entered commands. This allows you to quickly switch between 
-previously entered commands like ToggleDebugCamera, r.PostProcessAAQuality 2 etc. It's advisable to switch off the HUD before enabling the 
-debug camera, as sometimes some HUD elements aren't hidden when the debug camera is enabled.
+previously entered commands like r.PostProcessAAQuality 2 etc. It's advisable to use the `PageDown` based timestop provided by the console unlocker as that one works
+in cutscenes too.
 
 ## Useful links
 
