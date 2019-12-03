@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9818</ID>
+      <Description>"Photomode enhancements (leave enabled)"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(nop1AOB,Borderlands3.exe,89 43 64 31 C0 49 89 46 50 41 89 46 58)
+aobscanmodule(nop2AOB,Borderlands3.exe,F2 0F 11 43 5C 8B 40 08 89 43 64 31 C0)
+aobscanmodule(nop1AOB,Borderlands3.exe,89 43 64 31 C0 49 89 46 50 41 89 46 58)
+aobscanmodule(nop2AOB,Borderlands3.exe,F2 0F 11 43 5C 8B 40 08 89 43 64 31 C0)
+aobscanmodule(rotationFactorAOB,Borderlands3.exe,F3 41 0F 59 CB 0F 28 C1 F3 0F 59 40)
+alloc(newmem,$1000,"Borderlands3.exe"+22721972)
+
+label(code)
+label(return)
+label(pPhotomodeCamera)
+label(fRotationSpeedFactor)
+registersymbol(nop1AOB)
+registersymbol(nop2AOB)
+registersymbol(rotationFactorAOB)
+registersymbol(pPhotomodeCamera)
+registersymbol(fRotationSpeedFactor)
+
+//------------------ own allocated memory
+newmem:
+
+code:
+  //movsd [rbx+5C],xmm0
+  mov [pPhotomodeCamera], rbx
+  jmp return
+
+rotationFactorIntercept:
+  // multiply the rotation factor with the factor read from memory.
+  mulss xmm11, [fRotationSpeedFactor]
+  // then proceed as normal
+  mulss xmm1,xmm11
+  jmp returnRotationIntercept
+
+pPhotomodeCamera:
+dq 0
+
+fRotationSpeedFactor:
+dd (float)1
+
+//------------------ game memory
+
+nop1AOB:
+db 90 90 90
+
+nop2AOB:
+  jmp newmem
+return:
+
+rotationFactorAOB:
+  jmp rotationFactorIntercept
+returnRotationIntercept:
+
+
+[DISABLE]
+nop1AOB:
+mov [rbx+64],eax
+xor eax,eax
+
+nop2AOB:
+movsd [rbx+5C],xmm0
+
+rotationFactorAOB:
+mulss xmm1,xmm11
+
+unregistersymbol(pPhotomodeCamera)
+unregistersymbol(nop1AOB)
+unregistersymbol(nop2AOB)
+unregistersymbol(rotationFactorAOB)
+unregistersymbol(fRotationSpeedFactor)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Borderlands3.exe"+22721972
+
+"Borderlands3.exe"+22721943: 49 89 C0                    -  mov r8,rax
+"Borderlands3.exe"+22721946: 48 8D 54 24 50              -  lea rdx,[rsp+50]
+"Borderlands3.exe"+2272194B: 48 8D 44 24 30              -  lea rax,[rsp+30]
+"Borderlands3.exe"+22721950: 48 89 44 24 28              -  mov [rsp+28],rax
+"Borderlands3.exe"+22721955: 48 8D 44 24 40              -  lea rax,[rsp+40]
+"Borderlands3.exe"+2272195A: 48 89 44 24 20              -  mov [rsp+20],rax
+"Borderlands3.exe"+2272195F: E8 9C 89 5A E0              -  call Borderlands3.exe+2CCA300
+"Borderlands3.exe"+22721964: 48 8D 54 24 50              -  lea rdx,[rsp+50]
+"Borderlands3.exe"+22721969: 48 8D 4C 24 60              -  lea rcx,[rsp+60]
+"Borderlands3.exe"+2272196E: F2 0F 10 00                 -  movsd xmm0,[rax]
+// ---------- INJECTING HERE ----------
+"Borderlands3.exe"+22721972: F2 0F 11 43 5C              -  movsd [rbx+5C],xmm0
+// ---------- DONE INJECTING  ----------
+"Borderlands3.exe"+22721977: 8B 40 08                    -  mov eax,[rax+08]
+"Borderlands3.exe"+2272197A: 89 43 64                    -  mov [rbx+64],eax
+"Borderlands3.exe"+2272197D: 31 C0                       -  xor eax,eax
+"Borderlands3.exe"+2272197F: 49 89 46 50                 -  mov [r14+50],rax
+"Borderlands3.exe"+22721983: 41 89 46 58                 -  mov [r14+58],eax
+"Borderlands3.exe"+22721987: F3 41 0F 10 46 30           -  movss xmm0,[r14+30]
+"Borderlands3.exe"+2272198D: F3 0F 58 43 5C              -  addss xmm0,dword ptr [rbx+5C]
+"Borderlands3.exe"+22721992: F3 41 0F 11 46 30           -  movss [r14+30],xmm0
+"Borderlands3.exe"+22721998: F3 0F 10 4B 60              -  movss xmm1,[rbx+60]
+"Borderlands3.exe"+2272199D: F3 41 0F 58 4E 34           -  addss xmm1,dword ptr [r14+34]
+
+
+// ORIGINAL CODE - INJECTION POINT: "Borderlands3.exe"+2272112B
+
+"Borderlands3.exe"+227210F4: F3 0F 58 F2                 -  addss xmm6,xmm2
+"Borderlands3.exe"+227210F8: F3 41 0F 58 5E 34           -  addss xmm3,dword ptr [r14+34]
+"Borderlands3.exe"+227210FE: F3 41 0F 11 66 38           -  movss [r14+38],xmm4
+"Borderlands3.exe"+22721104: F3 41 0F 11 76 30           -  movss [r14+30],xmm6
+"Borderlands3.exe"+2272110A: F3 41 0F 11 5E 34           -  movss [r14+34],xmm3
+"Borderlands3.exe"+22721110: 49 8B 46 28                 -  mov rax,[r14+28]
+"Borderlands3.exe"+22721114: 41 0F 28 CB                 -  movaps xmm1,xmm11
+"Borderlands3.exe"+22721118: F3 0F 10 53 6C              -  movss xmm2,[rbx+6C]
+"Borderlands3.exe"+2272111D: F3 0F 10 5B 68              -  movss xmm3,[rbx+68]
+"Borderlands3.exe"+22721122: F3 44 0F 10 1D 41 D2 69 E1  -  movss xmm11,[Borderlands3.exe+3DBE36C]
+// ---------- INJECTING HERE ----------
+"Borderlands3.exe"+2272112B: F3 41 0F 59 CB              -  mulss xmm1,xmm11
+// ---------- DONE INJECTING  ----------
+"Borderlands3.exe"+22721130: 0F 28 C1                    -  movaps xmm0,xmm1
+"Borderlands3.exe"+22721133: F3 0F 59 40 2C              -  mulss xmm0,[rax+2C]
+"Borderlands3.exe"+22721138: F3 0F 5C D0                 -  subss xmm2,xmm0
+"Borderlands3.exe"+2272113C: F3 0F 10 43 34              -  movss xmm0,[rbx+34]
+"Borderlands3.exe"+22721141: F3 0F 59 05 0B D2 69 E1     -  mulss xmm0,[Borderlands3.exe+3DBE354]
+"Borderlands3.exe"+22721149: F3 0F 11 53 6C              -  movss [rbx+6C],xmm2
+"Borderlands3.exe"+2272114E: 0F 28 E8                    -  movaps xmm5,xmm0
+"Borderlands3.exe"+22721151: 49 8B 46 28                 -  mov rax,[r14+28]
+"Borderlands3.exe"+22721155: 0F 57 2D 04 D4 69 E1        -  xorps xmm5,[Borderlands3.exe+3DBE560]
+"Borderlands3.exe"+2272115C: 0F 2F D5                    -  comiss xmm2,xmm5
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9819</ID>
+          <Description>"Movement speed (F6: normal. Ctrl-F6: slow. Alt-F6: fast)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>pPhotomodeCamera</Address>
+          <Offsets>
+            <Offset>3C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>117</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>117</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>117</Key>
+              </Keys>
+              <Value>200</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9822</ID>
+          <Description>"Rotation speed factor (F7: normal. Ctrl-F7: slow)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>fRotationSpeedFactor</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>118</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>118</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>118</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9824</ID>
+      <Description>"--------------------------------------------------------------------------------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9823</ID>
+      <Description>"Borderlands 3 Photomode Enhancements. By Jim2Point0 and Otis_Inf."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9825</ID>
+      <Description>"https://framedsc.github.io"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"Borderlands3.exe"+2272198D</Address>
+      <Comment>Add new local photomode x to world x (r14 is camera)
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>

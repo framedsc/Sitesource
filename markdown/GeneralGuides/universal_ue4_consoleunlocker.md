@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Console Unlocker
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Console Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
-unlocker binary is distributed is this site. 
+unlocker binary is distributed on is this site. 
 @end
 
 For Unreal Engine 4 powered games, it's possible to re-create the in-game console that's usually stripped out when the game is build for shipping. To do so, 
@@ -62,6 +62,7 @@ after you've loaded a new level, you have to dump the files again. The Objects f
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code
 and the unlocker can't re-activate the console as essential functions aren't there anymore. The list below are games which are known to work with the unlocker. 
 
+* 10 Miles to Safety
 * 103
 * A Knight`s Quest
 * Agony
@@ -74,8 +75,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Assemblance: Oversight
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
-* The Blackout Club
 * The Beast Inside
+* Bee Simulator
+* The Blackout Club
 * Blair Witch
 * Borderlands 3
 * Bright Memory
@@ -100,6 +102,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Draugen
 * Dreamscaper
 * Driftland
+* Earth Defence Force: Iron Rain 
 * Earthfall
 * Echo
 * Elea
@@ -115,6 +118,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Hunting Simulator
 * Insomnia the Ark
 * Intruders: Hide and Seek"
+* Jumanji The Video Game
 * Jump Force (limited)
 * Killsquad
 * Kine
@@ -123,8 +127,10 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Layers of Fear 2
 * Ling: a Road Alone 
 * Little Brother Jim
+* Lost Ember
 * Man of Medan (The Dark Pictures Anthology)
 * Marvel vs. Capcom: Infinite
+* Mind: Path to Thalamus
 * Monkey King: Hero Is Back
 * Monster Jam Steel Titans
 * Moons of Madness
@@ -133,9 +139,11 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * MotoGP 19
 * Mutant Year Zero: Road to Eden
 * My Hero One's Justice
+* Narcos: Rise of the Cartels
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
+* Only After
 * Operencia: The Stolen Sun
 * The Outer Worlds
 * Overkill's The Walking Dead
@@ -154,7 +162,9 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Redeemer
 * Remnant: From the Ashes
 * Remothered: Tormented Fathers
+* Ruin 2
 * Ruiner
+* Shenmue 3
 * ShockRods
 * The Sinking City
 * Session: Skateboarding Sim Game
@@ -164,11 +174,14 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Skylar and Plux
 * The Sojourn
 * SolSeraph
+* Song of Horror
 * Sophont
 * Soul Valley
+* SOULCALIBUR VI
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
 * Spyro Reignited Trilogy
+* Star Wars Jedi: Fallen Order
 * Stardrop
 * Steel rats
 * Stories: the Path of Destinies
@@ -176,6 +189,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Subdivision Infinity DX
 * Supraland
 * Tartarus
+* Tetris Effect
 * Tower of Fate
 * Train Sim World
 * Tropico 6
@@ -189,7 +203,21 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.14](https://mega.nz/#!EUxX2AJC!4H_4z1xMGVwVBXsB237ANrM6dR3_qYUxd6e5N8FjpxI)
+* [Universal UE4 Unlocker v1.0.16](https://mega.nz/#!QVxCmIwQ!40fnUHK5Ai_rgXylzQZQ8yASpTOpGY3uCO2AVGhR3hg)
+
+## Built-in functionality
+
+The following features are build-in (and enabled if the code can be found in the game)
+
+Feature | Key 
+--|--
+Re-scan AOBs and re-try to create the console | `Ctrl`-`End`
+Display help | `Ctrl`-`H`
+Dump actual object addresses and names to text files | `Ctrl`-`Numpad /` 
+Toggle additional HUD / Menu elements | `Del`
+Toggle game pause (Using UWorld::IsPaused) | `Numpad 0`
+Toggle game pause (Using slomo 0) | `Page Down`
+(In-game) Open the console | `~`
 
 ## Console tricks
 The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 

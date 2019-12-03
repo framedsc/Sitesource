@@ -1,13 +1,11 @@
-![What Remains of Edith Finch](\Images\edithfinch.png "Shot by Originalnicodr")
-
-[//]: #\Images\edithfinch.png
+![What Remains of Edith Finch](Images\edithfinch.png "Shot by Originalnicodr")
 
 ## Summary
 
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes (read hotslamping section)
+Hotsampling | Yes (read Hotsampling section)
 DSR | No
 Custom Aspect Ratios | Yes
 Reshade | Yes
@@ -49,9 +47,9 @@ Go to the configuration file(s) location (that is `%LOCALAPPDATA%\FinchGame\Save
 r.SceneColorFringe.Max=0
 ```
 
-## Hotslamping
+## Hotsampling
 
-Hotslamping works with the game, the only problem comes after rezising the window altabing to the game which it rezise again to the previous resolution. For taking shoots i suggest using MSI Afterburner (and install RivaTurner that comes with the installation) wich will allow you to take photos without being in the window of the game (be sure to config the desire hotkey in the configs of MSI Afterburner).
+Hotsampling works with the game, the only problem comes after rezising the window altabing to the game which it rezise again to the previous resolution. For taking shoots i suggest using MSI Afterburner (and install RivaTurner that comes with the installation) wich will allow you to take photos without being in the window of the game (be sure to config the desire hotkey in the configs of MSI Afterburner).
 
 ## Custom Resolution
 
