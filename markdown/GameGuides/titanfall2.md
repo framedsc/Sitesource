@@ -22,7 +22,7 @@ Follow the instructions on the text file to install.
 
 ## Usage
 
-1. Extract files where ever you want
+1. Extract files wherever you want
 2. Start the game as admin
 3. Inject the camera AFTER you've loaded a level. It relies on the engine object which isn't known at startup
 4. A console window should appear with some text confirming everything's OK
