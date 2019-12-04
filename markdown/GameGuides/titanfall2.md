@@ -1,7 +1,5 @@
 ![Titanfall 2](\Images\titanfall2.png "Shot by Phoenix")
 
-[//]: #\Images\titanfall2.png
-
 ## Summary
 
 Feature | Supported
@@ -16,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera tools by Otis](https://github.com/FransBouma/InjectableGenericCameraSystem/releases/tag/TF2_103)  
+* [Camera tools by Otis](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/Titanfall2)  
 **Features**: Free camera, FOV, Timestop and DOF control.
 
 * [Hud toggle by The Janitor](http://www.moddb.com/games/titanfall-2/downloads/toggle-hud5)
@@ -55,7 +53,8 @@ Follow the instructions on the text file to install.
 
 
 ## Depth buffer in ReShade
-For some reason the game needs to have in-game dynamic resolution enabled for depth buffer to work properly. Alternatively you can use the engine DoF which can be controlled from the camera tools.
+For some reason the game needs to have in-game dynamic resolution enabled for depth buffer to work properly. Alternatively you can use the engine DoF 
+which can be controlled from the camera tools.
 
 ## Useful Links
 
