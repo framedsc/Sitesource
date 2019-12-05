@@ -72,6 +72,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ancient Knowledge
 * Another Sight Definitive Edition
 * Apsulov: End of Gods
+* Arise a Simple Story
 * Assemblance: Oversight
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
@@ -126,6 +127,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Koral
 * Laser League
 * Layers of Fear 2
+* Life is Strange 2
 * Ling: a Road Alone 
 * Little Brother Jim
 * Lost Ember
