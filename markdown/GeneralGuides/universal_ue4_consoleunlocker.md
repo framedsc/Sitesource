@@ -7,8 +7,8 @@ unlocker binary is distributed on is this site.
 @end
 
 For Unreal Engine 4 powered games, it's possible to re-create the in-game console that's usually stripped out when the game is build for shipping. To do so, 
-you can use the Universal UE4 Console Unlocker / Dumper dll (comes with injector exe and readme). After adjusting the .ini file for the right exe to inject the 
-dll in, it should show a console window that it has found all offsets and the console object has been created as well as that cheats have been enabled. 
+you can use the Universal UE4 Console Unlocker / Dumper dll, in short **UUU**. It comes with its own injector, IGCSInjectorUI.exe, and is ready to use. See below what
+you have to do to get started.
 
 @alert important
 The game's exe as well as the IGCSInjectorUI.exe have to be run as *administrator*. Right-click the exe's to run and select 'Run as Administrator' or create a shortcut to the 
@@ -25,12 +25,21 @@ selected.
 Some people on Windows 7 have reported issues with the IGCSInjector. If that happens, please try another dll injector, e.g. Extreme Injector. 
 
 ## After injecting the DLL
-When you've successfully injected the dll, you'll get a console window which says, if everything went OK, that the cheats have been enabled and the console object
-has been created. Go back to the game and press the `~` key (it's the key above the `TAB` key on your keyboard). This should give a small line at the bottom of the 
+When you've successfully injected the dll, you'll get a notification in the top left corner of your game window which some info regarding who made the unlocker and
+which version it is, as well as some notifications what it's doing. If everything went OK, you should see some notifications that the console has been created and 
+the built-in camera has been found. 
+
+### In-game menu
+The UUU comes with its own menu. To open this menu, press `Ctrl-Ins`. It contains various tab pages, among them one where you can configure key bindings. The main 
+tab is the first tab, the Settings tab. This tab allows you to configure camera specific values, which device you want to use for the camera etc. 
+
+### Opening the in-game console
+In-game, press the `~` key (it's the key above the `TAB` key on your keyboard). This should give a small line at the bottom of the 
 game screen in which you can type commands. If you type the `~` again you'll get a larger console window which also shows the response of the game on your commands. 
 
-To do useful things like toggle the debug camera, you first have to enable the cheats in the game. To do this, type `EnableCheats 1` in the console and hit <enter>. After 
-that, type `toggledebugcamera` after you've loaded a level. This should give you the ability to move the camera around using your controller and WASD + mouse.
+To do useful things like toggle the debug camera, in a lot of games you first have to enable the cheats in the game. To do this, type `EnableCheats 1` in the console 
+and hit <enter>. After that, type `toggledebugcamera` after you've loaded a level. This should give you the ability to move the camera around using your controller 
+and WASD + mouse.
 
 To go back to the game, type again `toggledebugcamera` in the console or simply press cursor UP to go to a previous command. There are many commands to choose from. Not all
 of them work. E.g. `god` or `fly` might say they're activated but chances are they're not doing anything. Commands like `fov 50` (to set the FoV to 50 degrees, default is 
@@ -38,7 +47,17 @@ likely 80), `pause` (to toggle the pause of the game) and a lot of console varia
 
 ## What to do when the console doesn't open
 It might be the `~` key doesn't do anything, even though the console was created successfully by the dll. This might be caused because the game unbound the `~` key
-and therefore it's not possible to open the console. However it's easy to correct this. Follow these steps
+and therefore it's not possible to open the console. Additionally, you might be using a non-US keyboard, like an Azerty keyboard, and on those keyboards, the `~` key isn't
+above the TAB key and the engine won't recognize it. 
+
+To correct this, please open the UUU overlay menu by pressing `Ctrl-Ins` and on the settings tab you'll see a setting
+"Key to open in-game console", which allows you to select from a small set of keys what to use to open the console. By default this is 'Tilde' (`~`). Please select
+a key that's on your keyboard and which doesn't need Shift to be selected. E.g. on a French (Azerty) keyboard, the '$' key is a good choice, so choose in the 
+overlay menu `Dollar ($)` as console key. 
+
+#### Setting the console key in the game's ini files
+Alternatively, you can add a custom console key to the game's ini file. This doesn't always work, but it's worth a try if you want to use another key than is available in
+the menu. Follow these steps
 
 * In explorer go to: `c:\users\<your username>\AppData\Local\<game name>\Saved\Config\WindowsNoEditor`
 * open Input.ini
@@ -50,8 +69,49 @@ ConsoleKey=Tilde
 ```
 * Save and set the file to readonly. You can also set it to another key, e.g. K. 
 
+## The Built-in free camera
+The UUU has a built-in free camera, which you can enable at any time by pressing `Ins`. The camera is controlled by the device that you have selected in the overlay menu. 
+See below for the default controls. You can configure the keyboard shortcuts in the overlay menu in the keybindings tab. 
+
+### Controls
+
+Key/button | Description 
+--|--
+Ctrl-Ins                              | Show / Hide Camera tools main window
+Ctrl + Mouse wheel                    | Resize font
+Ins                                   | Enable/Disable camera
+HOME                                  | Lock/unlock camera movement
+ALT + rotate/move                     | Faster rotate / move
+Right-CTRL + rotate/move              | Slower rotate / move
+Controller Y-button + l/r-stick       | Faster rotate / move
+Controller X-button + l/r-stick       | Slower rotate / move
+Arrow up/down or mouse or r-stick     | Rotate camera up/down
+Arrow left/right or mouse or r-stick  | Rotate camera left/right
+Numpad 8/Numpad 5 or l-stick          | Move camera forward/backward
+Numpad 4/Numpad 6 or l-stick          | Move camera left / right
+Numpad 7/Numpad 9 or l/r-trigger      | Move camera up / down
+Numpad 1/Numpad 3 or d-pad left/right | Tilt camera left / right
+Numpad +/- or d-pad up/down           | Increase / decrease FoV
+Numpad * or controller B-button       | Reset FoV
+Numpad .                              | Toggle block input to game for camera control device.
+
+By default, when the free camera is enabled, the input to the game is blocked for the device that's controlling the camera. 
+
+### Taking screenshots
+The UUU comes with its own screenshot key, by default the Pause key. It writes the frame (including effects you might have applied with reshade) to a file with a name generated
+from the date+time, to the folder you've specified in the overlay menu. 
+
+It also offers two other screenshot types: Panorama shots and Lightfield shots. Each of these takes a multitude of shots; the panorama feature takes as much shots as needed
+to satisfy the requirements set for panorama shots in the overlay menu and rotates the camera from left to right. You can stitch the shots together to a
+single panorama with e.g. Microsoft Image Composition Editor or Photoshop.
+
+The lightfield feature takes shots by stepping the camera
+from left to right, moving it over a rail to to speak. You can then create a lightfield 'quilt' for e.g. Looking Glass 3D displays. 
+
+To test the setup you have, press `Page Up`. To take all shots, press `Ctrl-PageUp`.
+
 ## Dumping names / object addresses
-The unlocker has another feature up its sleeve: it can dump two text files in the game folder called UE4Tools_Names.txt and UE4Tools_Objects.txt. To do that, press **Numpad /**.
+The unlocker has another feature up its sleeve: it can dump two text files in the game folder called UE4Tools_Names.txt and UE4Tools_Objects.txt. To do that, press `Ctrl-Numpad /`.
 The Names file contains all names of all objects in the game. Most of them aren't really useful, but some are, e.g. if you open the file in a text editor and search for " sg." 
 you find all settings variables for things you can also set in the game menu, only these accept higher values. Another one is " r." to find all render variables. 
 
@@ -94,6 +154,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Dark Deception
 * Dark Occult
 * Darksiders 3
+* Darksiders Genesis
 * Daymare: 1998
 * Deep Rock Galactic
 * Deliver Us The Moon
@@ -206,21 +267,25 @@ and the unlocker can't re-activate the console as essential functions aren't the
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v1.0.16](https://mega.nz/#!QVxCmIwQ!40fnUHK5Ai_rgXylzQZQ8yASpTOpGY3uCO2AVGhR3hg)
+* [Universal UE4 Unlocker v2.0.1](https://mega.nz/#!oNYVVSBS!QZaKBGihbCs3Egys43pJLgr_Vrg25pEYc9mXVUwSwIk)
 
 ## Built-in functionality
 
-The following features are build-in (and enabled if the code can be found in the game)
+The following features are build-in (and enabled if the code can be found in the game). You can configure most shortcut keys in the overlay menu's keybindings section.
+See the camera section above for the controls for the camera itself
 
 Feature | Key 
 --|--
-Re-scan AOBs and re-try to create the console | `Ctrl`-`End`
+Open in-game overlay menu | `Ctrl-Ins`
+Toggle camera | `Ins`
+Re-scan AOBs and re-try to create the console | `Ctrl-End`
 Display help | `Ctrl`-`H`
 Dump actual object addresses and names to text files | `Ctrl`-`Numpad /` 
-Toggle additional HUD / Menu elements | `Del`
+Toggle widget based HUD / Menu elements | `Del`
 Toggle game pause (Using UWorld::IsPaused) | `Numpad 0`
 Toggle game pause (Using slomo 0) | `Page Down`
 (In-game) Open the console | `~`
+Controlling game speed | Overlay menu
 
 ## Console tricks
 The Unreal Engine console supports copy / paste of text. This is a great help if you want to execute multiple commands and have to type them in every time. 
@@ -241,12 +306,13 @@ You might get an error with older games that it can't find the EngineVersion key
 When that happens, the unlocker will try to auto-detect which engine version is being used. If that fails, it's likely not going to work out however. 
 If it succeeds, the console can be created most likely. 
 
-If you get AOB errors when injecting the dll, it might be the engine's code hasn't been fully initialized yet and AOB scanning can't
-find it. Simply load a level and try again by pressing `CTRL+END`. 
-
 If the game crashes when injecting the unlocker, try to inject it when a level is loaded. 
 
 ## Credits
 
-The Universal Unreal Engine 4 Unlocker / dumper was created by Otis_Inf and SunBeam. Dumper code is based on the SDK generator by Kn4ck3r. 
+Development: Otis_Inf  
+Research: Otis_Inf and SunBeam  
+Dumper code is based on the SDK generator by Kn4ck3r.  
 Special thanks to Pino44io for testing.
+
+&copy;2019 All rights reserved.
