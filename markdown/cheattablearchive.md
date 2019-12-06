@@ -432,9 +432,6 @@ camera tools for the game instead of using these old cheat tables.
 ###Ni no Kuni Wrath of the White Witch Remastered
 - [NinoKuni_WotWW_Remastered.CT](CheatTables/Archive/NinoKuni_WotWW_Remastered.CT)
 
-###Ni no Kuni II: Revenant Kingdom
-- [Nino2.CT](CheatTables/Archive/Nino2.CT)
-
 ###No Man's Sky
 - [NMS.CT](CheatTables/Archive/NMS.CT)
 
