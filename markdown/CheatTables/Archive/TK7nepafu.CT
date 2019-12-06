@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>852</ID>
+      <Description>"-contact @ twitter.com/somberness"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7843</ID>
+      <Description>"Ansel enable"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(ansel,TekkenGame-Win64-Shipping.exe,39 5C 8D 00 74 76)
+registersymbol(ansel)
+ansel:
+db 39 5C 8D 00 90 90
+[DISABLE]
+ansel:
+db 39 5C 8D 00 74 76
+unregistersymbol(ansel)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "TekkenGame-Win64-Shipping.exe"+86875A2
+
+"TekkenGame-Win64-Shipping.exe"+868757A: FF 15 50 90 62 04           -  call qword ptr [TekkenGame-Win64-Shipping.exe+CCB05D0]
+"TekkenGame-Win64-Shipping.exe"+8687580: 3B 05 86 B2 E3 FA           -  cmp eax,[TekkenGame-Win64-Shipping.exe+34C280C]
+"TekkenGame-Win64-Shipping.exe"+8687586: 74 0B                       -  je TekkenGame-Win64-Shipping.exe+8687593
+"TekkenGame-Win64-Shipping.exe"+8687588: 3B 05 96 B2 E3 FA           -  cmp eax,[TekkenGame-Win64-Shipping.exe+34C2824]
+"TekkenGame-Win64-Shipping.exe"+868758E: 8D 4B 01                    -  lea ecx,[rbx+01]
+"TekkenGame-Win64-Shipping.exe"+8687591: 75 03                       -  jne TekkenGame-Win64-Shipping.exe+8687596
+"TekkenGame-Win64-Shipping.exe"+8687593: 48 89 D9                    -  mov rcx,rbx
+"TekkenGame-Win64-Shipping.exe"+8687596: 0F B6 05 6E B2 E3 FA        -  movzx eax,byte ptr [TekkenGame-Win64-Shipping.exe+34C280B]
+"TekkenGame-Win64-Shipping.exe"+868759D: EB 03                       -  jmp TekkenGame-Win64-Shipping.exe+86875A2
+"TekkenGame-Win64-Shipping.exe"+868759F: 48 89 D9                    -  mov rcx,rbx
+// ---------- INJECTING HERE ----------
+"TekkenGame-Win64-Shipping.exe"+86875A2: 39 5C 8D 00                 -  cmp [rbp+rcx*4+00],ebx
+"TekkenGame-Win64-Shipping.exe"+86875A6: 74 76                       -  je TekkenGame-Win64-Shipping.exe+868761E
+// ---------- DONE INJECTING  ----------
+"TekkenGame-Win64-Shipping.exe"+86875A8: 48 8B 2D 39 DF 02 FB        -  mov rbp,[TekkenGame-Win64-Shipping.exe+36B54E8]
+"TekkenGame-Win64-Shipping.exe"+86875AF: 84 C0                       -  test al,al
+"TekkenGame-Win64-Shipping.exe"+86875B1: 74 1B                       -  je TekkenGame-Win64-Shipping.exe+86875CE
+"TekkenGame-Win64-Shipping.exe"+86875B3: FF 15 17 90 62 04           -  call qword ptr [TekkenGame-Win64-Shipping.exe+CCB05D0]
+"TekkenGame-Win64-Shipping.exe"+86875B9: 3B 05 4D B2 E3 FA           -  cmp eax,[TekkenGame-Win64-Shipping.exe+34C280C]
+"TekkenGame-Win64-Shipping.exe"+86875BF: 74 0D                       -  je TekkenGame-Win64-Shipping.exe+86875CE
+"TekkenGame-Win64-Shipping.exe"+86875C1: 3B 05 5D B2 E3 FA           -  cmp eax,[TekkenGame-Win64-Shipping.exe+34C2824]
+"TekkenGame-Win64-Shipping.exe"+86875C7: 74 05                       -  je TekkenGame-Win64-Shipping.exe+86875CE
+"TekkenGame-Win64-Shipping.exe"+86875C9: BB 01 00 00 00              -  mov ebx,00000001
+"TekkenGame-Win64-Shipping.exe"+86875CE: 83 7C 9D 00 00              -  cmp dword ptr [rbp+rbx*4+00],00
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7844</ID>
+      <Description>"Ansel movement speed"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(anselmovement,50 00 68 00 6F 00 74 00 6F 00 67 00 72 00 61 00 70 00 68 00 79 00 2E 00 53 00 65 00 74 00 74 00 6C 00 65 00 46 00 72 00 61 00 6D 00 65 00 73)
+registersymbol(anselmovement)
+aobscanmodule(anselproperties,TekkenGame-Win64-Shipping.exe,F3 0F 11 4F 68 E8)
+registersymbol(anselproperties)
+anselproperties:
+db 90 90 90 90 90
+[DISABLE]
+unregistersymbol(anselmovement)
+anselproperties:
+db F3 0F 11 4F 68
+unregistersymbol(anselproperties)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7845</ID>
+          <Description>"move speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>anselmovement-c</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7846</ID>
+          <Description>"look speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>anselmovement-7c</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7623</ID>
+      <Description>"Camera (F1)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(camAOB,TekkenGame-Win64-Shipping.exe,F2 0F 11 87 F8 03 00 00 F2 0F 10 44 24 3C F2 0F 11 87 04 04 00 00 0F 10 44 24 48)
+aobscanmodule(fovAOB,TekkenGame-Win64-Shipping.exe,F3 0F 11 89 9C 03 00 00)
+aobscanmodule(camAOB2,TekkenGame-Win64-Shipping.exe,F3 0F 11 87 20 04 00 00 F3 0F 10 44 24 64 88 87 28 04 00 00)
+alloc(newmem,2048,"TekkenGame-Win64-Shipping.exe"+15634D0) 
+label(returnhere)
+label(originalcode)
+label(exit)
+label(cam)
+registersymbol(cam)
+registersymbol(camAOB)
+registersymbol(camAOB2)
+registersymbol(fovAOB)
+
+newmem:
+mov [cam],rdi
+//movsd [rdi+000003F8],xmm0
+movsd xmm0,[rsp+3C]
+//movsd [rdi+00000404],xmm0
+movups xmm0,[rsp+48]
+//mov [rdi+00000400],eax
+mov eax,[rsp+44]
+//mov [rdi+0000040C],eax
+jmp exit
+
+originalcode:
+movsd [rdi+000003F8],xmm0
+
+exit:
+jmp returnhere
+
+//
+cam:
+dd 0
+//
+
+camAOB:
+jmp newmem
+db 90 90 90
+db 90 90 90 90 90 90
+db 90 90 90 90 90 90 90 90
+db 90 90 90 90 90
+db 90 90 90 90 90 90
+db 90 90 90 90
+db 90 90 90 90 90 90
+returnhere:
+
+fovAOB:
+db 90 90 90 90 90 90 90 90
+
+camAOB2:
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+camAOB:
+movsd [rdi+000003F8],xmm0
+movsd xmm0,[rsp+3C]
+movsd [rdi+00000404],xmm0
+movups xmm0,[rsp+48]
+mov [rdi+00000400],eax
+mov eax,[rsp+44]
+mov [rdi+0000040C],eax
+
+fovAOB:
+movss [rcx+0000039C],xmm1
+
+camAOB2:
+movss [rdi+00000420],xmm0
+
+
+//Alt: db F2 0F 11 87 F8 03 00 00
+
+unregistersymbol(cam)
+unregistersymbol(camAOB)
+unregistersymbol(fovAOB)
+unregistersymbol(camAOB2)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7633</ID>
+          <Description>"aspect ratio"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>420</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7630</ID>
+          <Description>"fov"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>39C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7628</ID>
+          <Description>"rotx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>408</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7627</ID>
+          <Description>"roty"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>404</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7629</ID>
+          <Description>"tilt"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>40C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>97</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7624</ID>
+          <Description>"x"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>3F8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7625</ID>
+          <Description>"y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>3FC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7626</ID>
+          <Description>"z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>cam</Address>
+          <Offsets>
+            <Offset>400</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Character Codes Info"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//0 Paul 0
+//1 Law 1
+//2 King 2
+//3 Yoshimitsu 3
+//4 Hwoarang 4
+//5 Xiaoyu 5
+//6 Jin 6
+//7 Bryan 7
+//8 Heihachi 8
+//9 Kazuya 9
+//10 Steve A
+//11 Jack-7 B
+//12 Asuka C
+//13 Devil Jin D
+//14 Feng E
+//15 Lili F
+//16 Dragunov 10
+//17 Leo 11
+//18 Lars 12
+//19 Alisa 13
+//20 Claudio 14
+//21 Katarina 15
+//22 Lucky Chloe 16
+//23 Shaheen 17
+//24 Josie 18
+//25 Gigas 19
+//26 Kazumi 1A
+//27 Devil Kazumi 1B
+//28 Nina 1C
+//29 Master Raven 1D
+//30 Lee 1E
+//31 Bob 1F
+//32 Akuma 20
+//33 Kuma 21
+//34 Panda 22
+//35 Eddy 23
+//36 Eliza 24
+//37 Miguel 25
+//38 Soldier 26
+//39 Kid Kazuya 27
+//40 Jack-# 28
+//41 Young Heihachi 29
+//42 Dummy 2A
+//43 Geese 2B
+//44 Noctis 2C
+
+[DISABLE]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7840</ID>
+      <Description>"Character Pause"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(charapause,TekkenGame-Win64-Shipping.exe,80 B9 B8 04 00 00 00)
+aobscanmodule(pausecancel,TekkenGame-Win64-Shipping.exe,88 91 B8 04 00 00)
+registersymbol(charapause)
+registersymbol(pausecancel)
+charapause:
+db 80 B9 B8 04 00 00 01
+pausecancel:
+db 90 90 90 90 90 90
+
+[DISABLE]
+charapause:
+db 80 B9 B8 04 00 00 00
+unregistersymbol(charapause)
+pausecancel:
+db 88 91 B8 04 00 00
+unregistersymbol(pausecancel)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>49</Key>
+            <Key>50</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7841</ID>
+      <Description>"Character Pause (fast)"</Description>
+      <DropDownList>0:Normal
+1: Pause
+</DropDownList>
+      <VariableType>Byte</VariableType>
+      <Address>1402610E2</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>189</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>187</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"Character Swap"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(characterswap,TekkenGame-Win64-Shipping.exe,89 51 10 89 91 9C C0 00 00)
+alloc(newmem,$100,characterswap)
+registersymbol(characterswap)
+label(code)
+label(return)
+newmem:
+{  cmp edx,33 //replaced character
+  jne code}
+  mov [rcx+10],33 //replacing character
+  mov [rcx+0000C09C],33 //replacing character
+  jmp return
+code:
+  {mov [rcx+10],edx
+  mov [rcx+0000C09C],edx}
+  jmp return
+characterswap:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+[DISABLE]
+characterswap:
+db 89 51 10 89 91 9C C0 00 00
+unregistersymbol(characterswap)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7834</ID>
+      <Description>"Disable Rage"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(disablerage,TekkenGame-Win64-Shipping.exe,39 47 18 48 8B 5C 24 30)
+registersymbol(disablerage)
+disablerage:
+db 90 90 90
+return:
+[DISABLE]
+disablerage:
+  db 39 47 18 48 8B 5C 24 30
+unregistersymbol(disablerage)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7795</ID>
+      <Description>"Invisible Shower Accessory"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(showererase,TekkenGame-Win64-Shipping.exe,44 0F 29 BB 50 01 00 00)
+alloc(newmem,$100,showererase)
+registersymbol(showererase)
+label(code)
+label(return)
+newmem:
+cmp [rbp-58],412dd280
+je code
+cmp [rbp-48],3fc00000 //may delete certain things
+je code
+movaps [rbx+00000150],xmm15
+jmp return
+code:
+  movaps [rbx+00000150],xmm12
+  jmp return
+showererase:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+[DISABLE]
+showererase:
+  db 44 0F 29 BB 50 01 00 00
+unregistersymbol(showererase)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7678</ID>
+      <Description>"P1 CPU Value (0 or 1)"</Description>
+      <DropDownList>0:Player Controlled
+1:CPU
+</DropDownList>
+      <VariableType>4 Bytes</VariableType>
+      <Address>143485620</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>16</Key>
+            <Key>49</Key>
+          </Keys>
+          <Value>0</Value>
+          <Description>Set P1 to player</Description>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>16</Key>
+            <Key>50</Key>
+          </Keys>
+          <Value>1</Value>
+          <Description>Set P1 to CPU</Description>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"P2 CPU Value"</Description>
+      <DropDownList>0:Player Controlled
+1:CPU
+</DropDownList>
+      <VariableType>4 Bytes</VariableType>
+      <Address>143488810</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>16</Key>
+            <Key>51</Key>
+          </Keys>
+          <Value>0</Value>
+          <Description>Set P2 to player</Description>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>16</Key>
+            <Key>52</Key>
+          </Keys>
+          <Value>1</Value>
+          <Description>Set P2 to CPU</Description>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>50</ID>
+      <Description>"Speed (100 default)"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>speedval</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>114</Key>
+            <Key>49</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>114</Key>
+            <Key>50</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>114</Key>
+            <Key>51</Key>
+          </Keys>
+          <Value>10</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>114</Key>
+            <Key>52</Key>
+          </Keys>
+          <Value>100</Value>
+          <ID>3</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>114</Key>
+            <Key>192</Key>
+          </Keys>
+          <Value>-1</Value>
+          <ID>4</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7842</ID>
+      <Description>"Speed Disable"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//aobscanmodule(speeddisable,TekkenGame-Win64-Shipping.exe,8B 05 6E 45 71 FD)
+//alloc(newmem,$1000,speeddisable)
+aobscanmodule(speeddisable2,TekkenGame-Win64-Shipping.exe,74 07 8B 05 * * * FD C3)
+alloc(newmem2,$1000,speeddisable2)
+define(bytes1,speeddisable2)
+//aobscanmodule(speeddisable3,TekkenGame-Win64-Shipping.exe,8B 05 C5 AB AE FD 66)
+//alloc(newmem3,$1000,speeddisable3)
+alloc(speedval,32)
+//label(code)
+//label(return)
+label(code2)
+label(return2)
+//label(code3)
+//label(return3)
+registersymbol(speedval)
+//registersymbol(speeddisable)
+registersymbol(speeddisable2)
+//registersymbol(speeddisable3)
+speedval:
+dd 64
+speedval+10:
+readmem(bytes1+2,6)
+{newmem3:
+code3:
+  mov eax,[speedval]
+  jmp return3
+
+speeddisable3:
+  jmp newmem3
+  nop}
+newmem2:
+code2:
+  mov eax,[speedval]
+  jmp return2
+
+speeddisable2+2:
+  jmp newmem2
+  nop
+{
+newmem:
+code:
+  mov eax,[speedval]
+  jmp return
+
+speeddisable:
+  jmp newmem
+  nop
+return:}
+return2:
+//return3:
+
+[DISABLE]
+{speeddisable:
+  db 8B 05 6E 45 71 FD
+unregistersymbol(speeddisable)
+dealloc(newmem)}
+speeddisable2+2:
+readmem(speedval+10,06)
+unregistersymbol(speeddisable2)
+dealloc(newmem2)
+{speeddisable3:
+  db 8B 05 C5 AB AE FD
+unregistersymbol(speeddisable3)
+dealloc(newmem3)}
+dealloc(speedval)
+unregistersymbol(speedval)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "TekkenGame-Win64-Shipping.exe"+57D9840
+
+"TekkenGame-Win64-Shipping.exe"+57D9807: 4D 8D 94 24 A2 CA 1F 41                          -  lea r10,[r12+411FCAA2]
+"TekkenGame-Win64-Shipping.exe"+57D980F: 49 81 C2 F3 0C DA 76                             -  add r10,76DA0CF3
+"TekkenGame-Win64-Shipping.exe"+57D9816: FC                                               -  cld 
+"TekkenGame-Win64-Shipping.exe"+57D9817: 4D 8B 82 0D F3 25 89                             -  mov r8,[r10-76DA0CF3]
+"TekkenGame-Win64-Shipping.exe"+57D981E: 4C 8B 14 24                                      -  mov r10,[rsp]
+"TekkenGame-Win64-Shipping.exe"+57D9822: 48 83 EC F8                                      -  sub rsp,-08
+"TekkenGame-Win64-Shipping.exe"+57D9826: 4C 8B 24 24                                      -  mov r12,[rsp]
+"TekkenGame-Win64-Shipping.exe"+57D982A: 48 8D 64 24 08                                   -  lea rsp,[rsp+08]
+"TekkenGame-Win64-Shipping.exe"+57D982F: C3                                               -  ret 
+"TekkenGame-Win64-Shipping.exe"+57D9830: 67 66 66 66 66 66 66 2E 0F 1F 84 00 00 00 00 00  -  nop cs:[rax+rax+00000000]
+// ---------- INJECTING HERE ----------
+"TekkenGame-Win64-Shipping.exe"+57D9840: 8B 05 DE 3C C3 FD                                -  mov eax,[TekkenGame-Win64-Shipping.exe+340D524]
+// ---------- DONE INJECTING  ----------
+"TekkenGame-Win64-Shipping.exe"+57D9846: C3                                               -  ret 
+"TekkenGame-Win64-Shipping.exe"+57D9847: 41 54                                            -  push r12
+"TekkenGame-Win64-Shipping.exe"+57D9849: 49 F7 D4                                         -  not r12
+"TekkenGame-Win64-Shipping.exe"+57D984C: 4C 21 24 24                                      -  and [rsp],r12
+"TekkenGame-Win64-Shipping.exe"+57D9850: 41 5C                                            -  pop r12
+"TekkenGame-Win64-Shipping.exe"+57D9852: 4C 03 24 24                                      -  add r12,[rsp]
+"TekkenGame-Win64-Shipping.exe"+57D9856: 48 83 C4 08                                      -  add rsp,08
+"TekkenGame-Win64-Shipping.exe"+57D985A: E9 61 97 6C 02                                   -  jmp TekkenGame-Win64-Shipping.exe+7EA2FC0
+"TekkenGame-Win64-Shipping.exe"+57D985F: 41 C1 DE 11                                      -  rcr r14d,11
+"TekkenGame-Win64-Shipping.exe"+57D9863: 41 C1 D6 10                                      -  rcl r14d,10
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7806</ID>
+      <Description>"Stage Info"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{
+Abandoned Temple - 09
+Aisle - 26
+Arctic Snowfall - 03
+Arena - 1F
+Brimstone &amp; Fire - 23
+Customize Stage - 17
+Devil's Pit - 07
+Dragon's Nest - 05
+Duomo Di Sirio - 1E
+Forgotten Realm - 01
+G. Corp Helipad - 20, 30
+G. Corp Helipad (night) - 21
+Geometric Plane - 29
+Hammerhead - 34
+Hon-Maru - 22
+Hon-Maru (night) - 2D
+Hon-Maru (story) - 2C
+Howard Estate - 33
+Infinite Azure - 28
+Infinite Azure (night) - 31 (crash)
+Jungle Outpost - 02
+Kinder Gym - 27
+Mishima Building - 08
+Mishima Building (rooftop) - 2F
+Mishima Dojo - 00
+Practice Endless - 2A
+Precipice of Fate - 24
+Souq - 06
+Souq (episode) - 2B
+Twilight Conflict - 04
+Viewer Stage - 18
+Violet Systems - 25, 32
+Wall Stage - 0A
+}
+
+[DISABLE]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7813</ID>
+      <Description>"Stage Swap (Arcade, Treasure Battle)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(stageswap1,TekkenGame-Win64-Shipping.exe,89 51 14 89 D3)//89 51 14 8B DA)
+alloc(newmem,$100,stageswap1)
+registersymbol(stageswap1)
+label(code)
+label(return)
+newmem:
+code:
+  mov [rcx+14],0A //replace both
+  mov ebx,0A //replace both
+  jmp return
+stageswap1:
+  jmp newmem
+return:
+[DISABLE]
+stageswap1:
+  db 89 51 14 89 D3
+unregistersymbol(stageswap1)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7803</ID>
+      <Description>"Stage Swap (Practice, Versus)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(stageswap2,TekkenGame-Win64-Shipping.exe,48 89 CB 89 51 18)
+alloc(newmem,$100,stageswap2)
+registersymbol(stageswap2)
+label(code)
+label(return)
+newmem:
+code:
+  mov rbx,rcx
+  mov [rcx+18],0A //stage value
+  jmp return
+stageswap2:
+  jmp newmem
+  nop
+return:
+[DISABLE]
+stageswap2:
+  db 48 89 CB 89 51 18
+unregistersymbol(stageswap2)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7835</ID>
+      <Description>"Stop next round timer"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(nextroundtimer,TekkenGame-Win64-Shipping.exe,44 89 40 0C 83 FE 26)
+registersymbol(nextroundtimer)
+nextroundtimer:
+db 44 89 48
+[DISABLE]
+nextroundtimer:
+  db 44 89 40 0C 83 FE 26
+unregistersymbol(nextroundtimer)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7817</ID>
+      <Description>"Treasure Battle Mode/Chest Quality?"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(treasurebattle1,TekkenGame-Win64-Shipping.exe,89 72 04 89 4A 10)
+alloc(newmem,$1000,treasurebattle1)
+registersymbol(treasurebattle1)
+label(code)
+label(return)
+newmem:
+code:
+  mov [rdx+04],esi //0=normal,1-3=special battles,4=2xdamage,5=turbo,6=aerial,7=heist
+  mov [rdx+10],ecx //0-4 higher seems to boost chest quality
+  jmp return
+treasurebattle1:
+  jmp newmem
+  nop
+return:
+[DISABLE]
+treasurebattle1:
+  db 89 72 04 89 4A 10
+unregistersymbol(treasurebattle1)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7816</ID>
+      <Description>"Treasure Battle Number of Chests"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(treasurebattle2,TekkenGame-Win64-Shipping.exe,89 0A 8B 4C 24 24)
+alloc(newmem,$100,treasurebattle2)
+registersymbol(treasurebattle2)
+label(code)
+label(return)
+newmem:
+code:
+  mov [rdx],3 // 0-3
+  mov ecx,[rsp+24]
+  jmp return
+treasurebattle2:
+  jmp newmem
+  nop
+return:
+[DISABLE]
+treasurebattle2:
+  db 89 0A 8B 4C 24 24
+unregistersymbol(treasurebattle2)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7814</ID>
+      <Description>"Treasure Battle Number of Rounds"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(treasurebattle3,TekkenGame-Win64-Shipping.exe,89 51 40 C3 CC)
+alloc(newmem,$100,treasurebattle3)
+registersymbol(treasurebattle3)
+label(code)
+label(return)
+newmem:
+code:
+  mov [rcx+40],1 // 0 = match never ends
+  ret
+  int 3
+  jmp return
+treasurebattle3:
+  jmp newmem
+return:
+[DISABLE]
+treasurebattle3:
+  db 89 51 40 C3 CC
+unregistersymbol(treasurebattle3)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7664</ID>
+      <Description>"VS in character customization (enable then disable)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(vsstart,TekkenGame-Win64-Shipping.exe,74 3F 83 F9 07)
+alloc(newmem,$100,vsstart)
+registersymbol(vsstart)
+label(code)
+label(return)
+newmem:
+code:
+  jne TekkenGame-Win64-Shipping.opus_repacketizer_get_nb_frames+638A84
+  cmp ecx,07
+  jmp return
+vsstart:
+  jmp newmem
+return:
+[DISABLE]
+vsstart:
+  db 74 3F 83 F9 07
+unregistersymbol(vsstart)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
