@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"CompactMode"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"WEATHER"</Description>
+      <Color>FF8000</Color>
+      <VariableType>Float</VariableType>
+      <Address>"Submerged-Win64-Shipping.exe"+185C614</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>33</Key>
+          </Keys>
+          <Value>200</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <Value>200</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>39</ID>
+      <Description>"RESOLUTION SCALE"</Description>
+      <Color>FF8000</Color>
+      <VariableType>Float</VariableType>
+      <Address>29C900FF4F0</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>111</Key>
+          </Keys>
+          <Value>20</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>106</Key>
+          </Keys>
+          <Value>20</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"No Range (tick to enable)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : TekkenGame-Win64-Shipping.exe
+  Version: 
+  Date   : 2019-10-24
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(NoRange,TekkenGame-Win64-Shipping.exe,F3 0F 11 47 08 0F 28 C2) // should be unique
+alloc(newmem,$1000,"TekkenGame-Win64-Shipping.exe"+1334DD7)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rdi+08],xmm0
+  //movaps xmm0,xmm2
+  //movss [rdi],xmm2
+  //movss [rdi+04],xmm1
+  jmp return
+
+NoRange:
+  jmp newmem
+  nop C
+return:
+registersymbol(NoRange)
+
+[DISABLE]
+
+NoRange:
+  db F3 0F 11 47 08
+  movaps xmm0,xmm2
+  movss [rdi],xmm2
+  movss [rdi+04],xmm1
+
+unregistersymbol(NoRange)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "TekkenGame-Win64-Shipping.exe"+1334DD7
+
+"TekkenGame-Win64-Shipping.exe"+1334DA0: 89 44 24 58              -  mov [rsp+58],eax
+"TekkenGame-Win64-Shipping.exe"+1334DA4: 48 8D 44 24 70           -  lea rax,[rsp+70]
+"TekkenGame-Win64-Shipping.exe"+1334DA9: F2 0F 11 44 24 50        -  movsd [rsp+50],xmm0
+"TekkenGame-Win64-Shipping.exe"+1334DAF: F3 0F 11 8D 5C 03 00 00  -  movss [rbp+0000035C],xmm1
+"TekkenGame-Win64-Shipping.exe"+1334DB7: 48 89 44 24 20           -  mov [rsp+20],rax
+"TekkenGame-Win64-Shipping.exe"+1334DBC: E8 AF 83 4E 00           -  call TekkenGame-Win64-Shipping.exe+181D170
+"TekkenGame-Win64-Shipping.exe"+1334DC1: F3 0F 10 54 24 70        -  movss xmm2,[rsp+70]
+"TekkenGame-Win64-Shipping.exe"+1334DC7: F3 0F 10 4C 24 74        -  movss xmm1,[rsp+74]
+"TekkenGame-Win64-Shipping.exe"+1334DCD: F3 0F 10 44 24 78        -  movss xmm0,[rsp+78]
+"TekkenGame-Win64-Shipping.exe"+1334DD3: 8B 44 24 78              -  mov eax,[rsp+78]
+// ---------- INJECTING HERE ----------
+"TekkenGame-Win64-Shipping.exe"+1334DD7: F3 0F 11 47 08           -  movss [rdi+08],xmm0
+// ---------- DONE INJECTING  ----------
+"TekkenGame-Win64-Shipping.exe"+1334DDC: 0F 28 C2                 -  movaps xmm0,xmm2
+"TekkenGame-Win64-Shipping.exe"+1334DDF: F3 0F 11 17              -  movss [rdi],xmm2
+"TekkenGame-Win64-Shipping.exe"+1334DE3: F3 0F 11 4F 04           -  movss [rdi+04],xmm1
+"TekkenGame-Win64-Shipping.exe"+1334DE8: 0F 14 C1                 -  unpcklps xmm0,xmm1
+"TekkenGame-Win64-Shipping.exe"+1334DEB: F2 0F 11 86 80 04 00 00  -  movsd [rsi+00000480],xmm0
+"TekkenGame-Win64-Shipping.exe"+1334DF3: F2 0F 11 44 24 70        -  movsd [rsp+70],xmm0
+"TekkenGame-Win64-Shipping.exe"+1334DF9: F2 0F 10 44 24 7C        -  movsd xmm0,[rsp+7C]
+"TekkenGame-Win64-Shipping.exe"+1334DFF: F2 0F 11 86 8C 04 00 00  -  movsd [rsi+0000048C],xmm0
+"TekkenGame-Win64-Shipping.exe"+1334E07: 0F 10 45 88              -  movups xmm0,[rbp-78]
+"TekkenGame-Win64-Shipping.exe"+1334E0B: 89 86 88 04 00 00        -  mov [rsi+00000488],eax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Created by Skall (@skalledit on twitter), If you need help, contact me on Twitter"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of out -60,al</Description>
+      <AddressString>36613FF8</AddressString>
+      <Before>
+        <Byte>21</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E6</Byte>
+        <Byte>A0</Byte>
+      </Actual>
+      <After>
+        <Byte>B6</Byte>
+        <Byte>C3</Byte>
+        <Byte>FB</Byte>
+        <Byte>B5</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rdx],xmm0</Description>
+      <AddressString>TekkenGame-Win64-Shipping.exe+83ECDC1</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>42</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi],xmm2</Description>
+      <AddressString>TekkenGame-Win64-Shipping.exe+1334DDF</AddressString>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>17</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rbx],xmm0</Description>
+      <AddressString>NvCamera64.dll+27BAE</AddressString>
+      <Before>
+        <Byte>3C</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[r8]</Description>
+      <AddressString>TekkenGame-Win64-Shipping.exe+83D0DB9</AddressString>
+      <Before>
+        <Byte>42</Byte>
+        <Byte>18</Byte>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>D7</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>C3</Byte>
+        <Byte>89</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movups [rbx+68],xmm0</Description>
+      <AddressString>TekkenGame-Win64-Shipping.exe+840B59A</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4D</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>68</Byte>
+      </Actual>
+      <After>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+08],eax</Description>
+      <AddressString>NvCamera64.dll+27BB7</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>2C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4B</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+08],xmm0</Description>
+      <AddressString>TekkenGame-Win64-Shipping.exe+1334DD7</AddressString>
+      <Before>
+        <Byte>78</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>78</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C2</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+04],xmm1</Description>
+      <AddressString>TekkenGame-Win64-Shipping.exe+1334DE3</AddressString>
+      <Before>
+        <Byte>C2</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>17</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C1</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

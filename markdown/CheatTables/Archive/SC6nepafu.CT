@@ -1,0 +1,5947 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>852</ID>
+      <Description>"-contact @ twitter.com/somberness"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1391</ID>
+      <Description>"Ansel enable &amp; remove limit"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(ansel,SoulcaliburVI.exe,18 EB 04 8B 07 89 06 48 8B 6C 24 38)
+aobscanmodule(anselcamlimit,SoulcaliburVI.exe,F3 0F 11 47 08 0F 28 C2)
+alloc(newmem,$1000,ansel)
+label(code)
+label(return)
+registersymbol(anselcamlimit)
+anselcamlimit:
+db 90 90 90 90 90 0F 28 C2 90 90 90 90 90 90 90 90 90
+newmem:
+
+code:
+  mov [rsi],1
+  mov rbp,[rsp+38]
+  jmp return
+
+ansel+05:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(ansel)
+
+[DISABLE]
+
+ansel+05:
+db 89 06 48 8B 6C 24 38
+anselcamlimit:
+db F3 0F 11 47 08 0F 28 C2 F3 0F 11 17 F3 0F 11 4F 04
+unregistersymbol(ansel)
+unregistersymbol(anselcamlimit)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+B2D02E3
+
+"SoulcaliburVI.exe"+B2D02C5: 74 1A                                   -  je SoulcaliburVI.exe+B2D02E1
+"SoulcaliburVI.exe"+B2D02C7: 48 8B 8B 80 00 00 00                    -  mov rcx,[rbx+00000080]
+"SoulcaliburVI.exe"+B2D02CE: 48 85 C9                                -  test rcx,rcx
+"SoulcaliburVI.exe"+B2D02D1: 74 0E                                   -  je SoulcaliburVI.exe+B2D02E1
+"SoulcaliburVI.exe"+B2D02D3: 48 8B 01                                -  mov rax,[rcx]
+"SoulcaliburVI.exe"+B2D02D6: 48 89 F2                                -  mov rdx,rsi
+"SoulcaliburVI.exe"+B2D02D9: 44 8B 07                                -  mov r8d,[rdi]
+"SoulcaliburVI.exe"+B2D02DC: FF 50 18                                -  call qword ptr [rax+18]
+"SoulcaliburVI.exe"+B2D02DF: EB 04                                   -  jmp SoulcaliburVI.exe+B2D02E5
+"SoulcaliburVI.exe"+B2D02E1: 8B 07                                   -  mov eax,[rdi]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+B2D02E3: 89 06                                   -  mov [rsi],eax
+"SoulcaliburVI.exe"+B2D02E5: 48 8B 6C 24 38                          -  mov rbp,[rsp+38]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+B2D02EA: 48 8B 74 24 40                          -  mov rsi,[rsp+40]
+"SoulcaliburVI.exe"+B2D02EF: C6 83 8C 00 00 00 01                    -  mov byte ptr [rbx+0000008C],01
+"SoulcaliburVI.exe"+B2D02F6: 48 8B 5C 24 30                          -  mov rbx,[rsp+30]
+"SoulcaliburVI.exe"+B2D02FB: 48 83 C4 20                             -  add rsp,20
+"SoulcaliburVI.exe"+B2D02FF: 5F                                      -  pop rdi
+"SoulcaliburVI.exe"+B2D0300: C3                                      -  ret 
+"SoulcaliburVI.exe"+B2D0301: CC                                      -  int 3 
+"SoulcaliburVI.exe"+B2D0302: 4D 0F AC F2 20                          -  shrd r10,r14,20
+"SoulcaliburVI.exe"+B2D0307: 41 53                                   -  push r11
+"SoulcaliburVI.exe"+B2D0309: 49 BB FF FF FF FF 00 00 00 00           -  mov r11,00000000FFFFFFFF
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7844</ID>
+      <Description>"Ansel movement speed"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(anselmovement,50 00 68 00 6F 00 74 00 6F 00 67 00 72 00 61 00 70 00 68 00 79 00 2E 00 53 00 65 00 74 00 74 00 6C 00 65 00 46 00 72 00 61 00 6D 00 65 00 73)
+registersymbol(anselmovement)
+aobscanmodule(anselproperties,SoulcaliburVI.exe,F3 0F 11 4F 68 E8)
+registersymbol(anselproperties)
+anselproperties:
+db 90 90 90 90 90
+[DISABLE]
+unregistersymbol(anselmovement)
+anselproperties:
+db F3 0F 11 4F 68
+unregistersymbol(anselproperties)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7845</ID>
+          <Description>"move speed"</Description>
+          <VariableType>Float</VariableType>
+          <Address>anselmovement+D4</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"Cam"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cam,SoulcaliburVI.exe,F2 0F 11 87 10 04 00 00 F2)
+aobscanmodule(camdisable1,SoulcaliburVI.exe,F2 0F 11 83 10 04 00 00 F2)
+alloc(newmem,$1000,cam)
+alloc(camaob,8)
+label(code)
+label(return)
+registersymbol(camaob)
+registersymbol(camdisable1)
+camdisable1:
+db 90 90 90 90 90 90 90 90 F2 0F 10 44 24 2C 90 90 90 90 90 90 90 90 0F 10 44 24 38 90 90 90 90 90 90 8B 44 24 34 90 90 90 90 90 90 8B 44 24 4C 90 90 90 90 90 90 90
+cam+e:
+db 90 90 90 90 90 90 90 90
+cam+1b:
+db 90 90 90 90 90 90
+cam+25:
+db 90 90 90 90 90 90
+cam+2f:
+db 90 90 90 90 90 90 90
+newmem:
+mov [camaob],rcx
+cmp rax,0
+je code
+jmp return
+code:
+ // movsd [rdi+00000410],xmm0
+  jmp return
+
+cam:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(cam)
+
+[DISABLE]
+camdisable1:
+db F2 0F 11 83 10 04 00 00 F2 0F 10 44 24 2C F2 0F 11 83 1C 04 00 00 0F 10 44 24 38 89 83 18 04 00 00 8B 44 24 34 89 83 24 04 00 00 8B 44 24 4C 0F 11 83 28 04 00 00
+cam:
+db F2 0F 11 87 10 04 00 00
+cam+e:
+db F2 0F 11 87 1C 04 00 00
+cam+1b:
+db 89 87 18 04 00 00
+cam+25:
+db 89 87 24 04 00 00
+cam+2f:
+db 0F 11 87 28 04 00 00
+
+unregistersymbol(cam)
+dealloc(newmem)
+dealloc(camaob)
+unregistersymbol(camaob)
+unregistersymbol(camdisable1)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+11EAB225
+
+"SoulcaliburVI.exe"+11EAB1F0: 48 8B 07                 -  mov rax,[rdi]
+"SoulcaliburVI.exe"+11EAB1F3: 48 89 F9                 -  mov rcx,rdi
+"SoulcaliburVI.exe"+11EAB1F6: FF 90 38 01 00 00        -  call qword ptr [rax+00000138]
+"SoulcaliburVI.exe"+11EAB1FC: F2 0F 10 44 24 30        -  movsd xmm0,[rsp+30]
+"SoulcaliburVI.exe"+11EAB202: 48 8D 54 24 70           -  lea rdx,[rsp+70]
+"SoulcaliburVI.exe"+11EAB207: 8B 88 00 09 00 00        -  mov ecx,[rax+00000900]
+"SoulcaliburVI.exe"+11EAB20D: 8B 44 24 38              -  mov eax,[rsp+38]
+"SoulcaliburVI.exe"+11EAB211: 89 8F 00 04 00 00        -  mov [rdi+00000400],ecx
+"SoulcaliburVI.exe"+11EAB217: 48 8D 8F 50 04 00 00     -  lea rcx,[rdi+00000450]
+"SoulcaliburVI.exe"+11EAB21E: 83 A7 3C 04 00 00 FC     -  and dword ptr [rdi+0000043C],-04
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+11EAB225: F2 0F 11 87 10 04 00 00  -  movsd [rdi+00000410],xmm0
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+11EAB22D: F2 0F 10 44 24 3C        -  movsd xmm0,[rsp+3C]
+"SoulcaliburVI.exe"+11EAB233: F2 0F 11 87 1C 04 00 00  -  movsd [rdi+0000041C],xmm0
+"SoulcaliburVI.exe"+11EAB23B: 0F 10 44 24 48           -  movups xmm0,[rsp+48]
+"SoulcaliburVI.exe"+11EAB240: 89 87 18 04 00 00        -  mov [rdi+00000418],eax
+"SoulcaliburVI.exe"+11EAB246: 8B 44 24 44              -  mov eax,[rsp+44]
+"SoulcaliburVI.exe"+11EAB24A: 89 87 24 04 00 00        -  mov [rdi+00000424],eax
+"SoulcaliburVI.exe"+11EAB250: 8B 44 24 5C              -  mov eax,[rsp+5C]
+"SoulcaliburVI.exe"+11EAB254: 0F 11 87 28 04 00 00     -  movups [rdi+00000428],xmm0
+"SoulcaliburVI.exe"+11EAB25B: 83 E0 03                 -  and eax,03
+"SoulcaliburVI.exe"+11EAB25E: F3 0F 10 44 24 58        -  movss xmm0,[rsp+58]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>67</Key>
+            <Key>49</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>67</Key>
+            <Key>50</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"camx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-40</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"camy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"camz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-3c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>96</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"fov"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-28</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"pitch"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"roll"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-2c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>97</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"yaw"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>-30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>751</ID>
+      <Description>"Character move"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(charamove1,SoulcaliburVI.exe,0F 28 83 A0 00 00 00 0F 57)
+aobscanmodule(charamove2,SoulcaliburVI.exe,CF F3 0F 11 8F A0 00 00 00)
+aobscanmodule(charamove6,SoulcaliburVI.exe,F3 0F 11 89 94 00 00 00)
+aobscanmodule(charamove3,SoulcaliburVI.exe,F3 0F 11 87 A4 00 00 00 EB)
+aobscanmodule(charamove4,SoulcaliburVI.exe,F3 0F 11 8E A8 00 00 00)
+aobscanmodule(charamove5,SoulcaliburVI.exe,F3 0F 11 86 A4 00 00 00 74)
+alloc(newmem,$1000,charamove1)
+alloc(c1pos,16)
+alloc(c2pos,16)
+registersymbol(c1pos)
+registersymbol(c2pos)
+registersymbol(charamove1)
+registersymbol(charamove2)
+registersymbol(charamove3)
+registersymbol(charamove4)
+registersymbol(charamove5)
+registersymbol(charamove6)
+label(code)
+label(return)
+label(chara1)
+label(chara2)
+charamove2+1:
+db 90 90 90 90 90 90 90 90
+charamove2+87:
+db 90 90 90 90 90 90 90 90
+charamove2+9C:
+db 90 90 90 90 90 90 90 90
+charamove3:
+db 90 90 90 90 90 90 90 90
+charamove4:
+db 90 90 90 90 90 90 90 90
+charamove5:
+db 90 90 90 90 90 90 90 90
+charamove6:
+db 90 90 90 90 90 90 90 90
+c1pos:
+dd 0
+c2pos:
+dd 0
+newmem:
+cmp [rbx-2c0],1
+je chara1
+jmp chara2
+jmp code
+chara1:
+mov [c1pos],rbx
+jmp code
+chara2:
+mov [c2pos],rbx
+jmp code
+code:
+  movaps xmm0,[rbx+000000A0]
+  jmp return
+
+charamove1:
+  jmp newmem
+  nop
+  nop
+return:
+[DISABLE]
+charamove1:
+  db 0F 28 83 A0 00 00 00
+charamove2+1:
+  db F3 0F 11 8F A0 00 00 00
+charamove2+87:
+  db F3 0F 11 8F A0 00 00 00
+charamove2+9C:
+  db F3 0F 11 97 A8 00 00 00
+charamove3:
+  db F3 0F 11 87 A4 00 00 00
+charamove4:
+  db F3 0F 11 8E A8 00 00 00
+charamove5:
+  db F3 0F 11 86 A4 00 00 00
+charamove6:
+  db F3 0F 11 89 94 00 00 00
+unregistersymbol(charamove1)
+unregistersymbol(charamove2)
+unregistersymbol(charamove3)
+unregistersymbol(charamove4)
+unregistersymbol(charamove5)
+unregistersymbol(charamove6)
+dealloc(newmem)
+dealloc(c1pos)
+dealloc(c2pos)
+unregistersymbol(c1pos)
+unregistersymbol(c2pos)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+582E3D1
+
+"SoulcaliburVI.exe"+582E393: 48 89 F2                 -  mov rdx,rsi
+"SoulcaliburVI.exe"+582E396: 44 89 BB 54 49 04 00     -  mov [rbx+00044954],r15d
+"SoulcaliburVI.exe"+582E39D: 0F 28 83 90 00 00 00     -  movaps xmm0,[rbx+00000090]
+"SoulcaliburVI.exe"+582E3A4: 0F 11 86 D0 04 00 00     -  movups [rsi+000004D0],xmm0
+"SoulcaliburVI.exe"+582E3AB: 0F BF 83 A4 4D 04 00     -  movsx eax,word ptr [rbx+00044DA4]
+"SoulcaliburVI.exe"+582E3B2: 89 86 80 0C 00 00        -  mov [rsi+00000C80],eax
+"SoulcaliburVI.exe"+582E3B8: 48 8B 83 24 B3 02 00     -  mov rax,[rbx+0002B324]
+"SoulcaliburVI.exe"+582E3BF: 44 0F B6 83 C4 16 00 00  -  movzx r8d,byte ptr [rbx+000016C4]
+"SoulcaliburVI.exe"+582E3C7: 48 89 44 24 60           -  mov [rsp+60],rax
+"SoulcaliburVI.exe"+582E3CC: E8 4F CB A7 FA           -  call SoulcaliburVI.exe+2AAF20
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+582E3D1: 0F 28 83 A0 00 00 00     -  movaps xmm0,[rbx+000000A0]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+582E3D8: 0F 57 FF                 -  xorps xmm7,xmm7
+"SoulcaliburVI.exe"+582E3DB: 0F 11 86 E0 04 00 00     -  movups [rsi+000004E0],xmm0
+"SoulcaliburVI.exe"+582E3E2: 44 39 BB 00 02 00 00     -  cmp [rbx+00000200],r15d
+"SoulcaliburVI.exe"+582E3E9: 74 6B                    -  je SoulcaliburVI.exe+582E456
+"SoulcaliburVI.exe"+582E3EB: 44 39 BB 04 02 00 00     -  cmp [rbx+00000204],r15d
+"SoulcaliburVI.exe"+582E3F2: 74 62                    -  je SoulcaliburVI.exe+582E456
+"SoulcaliburVI.exe"+582E3F4: 44 84 A6 B8 0F 00 00     -  test [rsi+00000FB8],r12l
+"SoulcaliburVI.exe"+582E3FB: 74 0A                    -  je SoulcaliburVI.exe+582E407
+"SoulcaliburVI.exe"+582E3FD: F3 0F 10 9E 38 0F 00 00  -  movss xmm3,[rsi+00000F38]
+"SoulcaliburVI.exe"+582E405: EB 03                    -  jmp SoulcaliburVI.exe+582E40A
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>752</ID>
+          <Description>"Character 1 Pitch"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c1pos</Address>
+          <Offsets>
+            <Offset>90</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>69</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>69</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>755</ID>
+          <Description>"Character 1 X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c1pos</Address>
+          <Offsets>
+            <Offset>a0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>(X)</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>754</ID>
+          <Description>"Character 1 Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c1pos</Address>
+          <Offsets>
+            <Offset>a4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>89</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>(Y)</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>768</ID>
+          <Description>"Character 1 Yaw"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c1pos</Address>
+          <Offsets>
+            <Offset>94</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>82</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>82</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>753</ID>
+          <Description>"Character 1 Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c1pos</Address>
+          <Offsets>
+            <Offset>a8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>90</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>(Z)</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>790</ID>
+          <Description>"Character 2 Pitch"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c2pos</Address>
+          <Offsets>
+            <Offset>90</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>69</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>69</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>759</ID>
+          <Description>"Character 2 X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c2pos</Address>
+          <Offsets>
+            <Offset>a0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>758</ID>
+          <Description>"Character 2 Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c2pos</Address>
+          <Offsets>
+            <Offset>a4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>756</ID>
+          <Description>"Character 2 Yaw"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c2pos</Address>
+          <Offsets>
+            <Offset>94</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>82</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>82</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>757</ID>
+          <Description>"Character 2 Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>c2pos</Address>
+          <Offsets>
+            <Offset>a8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.2</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>648</ID>
+      <Description>"DOF (battle)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(dofrange,SoulcaliburVI.exe,89 87 44 04 00 00 41)
+alloc(newmem,$1000,dofrange)
+alloc(dofrangevalue,32)
+label(code)
+label(return)
+registersymbol(dofrangevalue)
+dofrangevalue:
+dd 0
+newmem:
+
+code:
+  mov eax,[dofrangevalue]
+  mov [r14+458],eax
+  mov eax,[dofrangevalue+4]
+  mov [r14+45c],eax
+  mov eax,[dofrangevalue+8]
+  mov [r14+438],eax
+  mov [rdi+00000458],eax
+  jmp return
+
+dofrange:
+  jmp newmem
+  nop
+return:
+registersymbol(dofrange)
+
+[DISABLE]
+dofrange:
+  db 89 87 44 04 00 00
+
+unregistersymbol(dofrange)
+dealloc(newmem)
+dealloc(dofrangevalue)
+unregistersymbol(dofrangevalue)
+
+{
+
+"SoulcaliburVI.exe"+E806FDF: 89 87 30 04 00 00        -  mov [rdi+00000430],eax
+"SoulcaliburVI.exe"+E806FE5: 41 8B 86 34 04 00 00     -  mov eax,[r14+00000434]
+"SoulcaliburVI.exe"+E806FEC: 89 87 34 04 00 00        -  mov [rdi+00000434],eax
+"SoulcaliburVI.exe"+E806FF2: 41 8B 86 38 04 00 00     -  mov eax,[r14+00000438]
+"SoulcaliburVI.exe"+E806FF9: 89 87 38 04 00 00        -  mov [rdi+00000438],eax
+"SoulcaliburVI.exe"+E806FFF: 41 8B 86 3C 04 00 00     -  mov eax,[r14+0000043C]
+"SoulcaliburVI.exe"+E807006: 89 87 3C 04 00 00        -  mov [rdi+0000043C],eax
+"SoulcaliburVI.exe"+E80700C: 41 8B 86 40 04 00 00     -  mov eax,[r14+00000440]
+"SoulcaliburVI.exe"+E807013: 89 87 40 04 00 00        -  mov [rdi+00000440],eax
+"SoulcaliburVI.exe"+E807019: 41 8B 86 44 04 00 00     -  mov eax,[r14+00000444]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+E807020: 89 87 44 04 00 00        -  mov [rdi+00000444],eax
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+E807026: 41 8B 86 48 04 00 00     -  mov eax,[r14+00000448]
+"SoulcaliburVI.exe"+E80702D: 90                       -  nop
+"SoulcaliburVI.exe"+E80702E: 90                       -  nop
+"SoulcaliburVI.exe"+E80702F: 90                       -  nop
+"SoulcaliburVI.exe"+E807030: 90                       -  nop
+"SoulcaliburVI.exe"+E807031: 90                       -  nop
+"SoulcaliburVI.exe"+E807032: 90                       -  nop
+"SoulcaliburVI.exe"+E807033: 41 8B 86 4C 04 00 00     -  mov eax,[r14+0000044C]
+"SoulcaliburVI.exe"+E80703A: 89 87 4C 04 00 00        -  mov [rdi+0000044C],eax
+"SoulcaliburVI.exe"+E807040: 41 8B 86 50 04 00 00     -  mov eax,[r14+00000450]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>649</ID>
+          <Description>"Glow (0-4)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dofrangevalue</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>68</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>68</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>651</ID>
+          <Description>"Range"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dofrangevalue+8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>65</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>65</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>650</ID>
+          <Description>"Strength (0-4)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dofrangevalue+4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>83</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>83</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>833</ID>
+      <Description>"Disable HUD"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(disablehud,SoulcaliburVI.exe,20 0F 10 02 0F 11 01 0F 10 4A 10)
+registersymbol(disablehud)
+disablehud+04:
+movups [rcx],xmm1
+
+[DISABLE]
+
+disablehud+04:
+movups [rcx],xmm0
+unregistersymbol(disablehud)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+9B38C1B
+
+"SoulcaliburVI.exe"+9B38BF3: 51                                -  push rcx
+"SoulcaliburVI.exe"+9B38BF4: 48 8D 0D 60 7A 92 FE              -  lea rcx,[SoulcaliburVI.exe+846065B]
+"SoulcaliburVI.exe"+9B38BFB: 48 87 0C 24                       -  xchg [rsp],rcx
+"SoulcaliburVI.exe"+9B38BFF: C3                                -  ret 
+"SoulcaliburVI.exe"+9B38C00: 68 66 66 66 66                    -  push 66666666
+"SoulcaliburVI.exe"+9B38C05: 66 66 2E 0F 1F 84 00 00 00 00 00  -  nop cs:[rax+rax+00000000]
+"SoulcaliburVI.exe"+9B38C10: 48 89 C8                          -  mov rax,rcx
+"SoulcaliburVI.exe"+9B38C13: 48 39 D1                          -  cmp rcx,rdx
+"SoulcaliburVI.exe"+9B38C16: 74 20                             -  je SoulcaliburVI.exe+9B38C38
+"SoulcaliburVI.exe"+9B38C18: 0F 10 02                          -  movups xmm0,[rdx]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+9B38C1B: 0F 11 01                          -  movups [rcx],xmm0
+"SoulcaliburVI.exe"+9B38C1E: 0F 10 4A 10                       -  movups xmm1,[rdx+10]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+9B38C22: 0F 11 49 10                       -  movups [rcx+10],xmm1
+"SoulcaliburVI.exe"+9B38C26: 0F 10 42 20                       -  movups xmm0,[rdx+20]
+"SoulcaliburVI.exe"+9B38C2A: 0F 11 41 20                       -  movups [rcx+20],xmm0
+"SoulcaliburVI.exe"+9B38C2E: F2 0F 10 4A 30                    -  movsd xmm1,[rdx+30]
+"SoulcaliburVI.exe"+9B38C33: F2 0F 11 49 30                    -  movsd [rcx+30],xmm1
+"SoulcaliburVI.exe"+9B38C38: C3                                -  ret 
+"SoulcaliburVI.exe"+9B38C39: 4C 21 04 24                       -  and [rsp],r8
+"SoulcaliburVI.exe"+9B38C3D: 4C 8B 04 24                       -  mov r8,[rsp]
+"SoulcaliburVI.exe"+9B38C41: 48 89 34 24                       -  mov [rsp],rsi
+"SoulcaliburVI.exe"+9B38C45: 56                                -  push rsi
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>72</Key>
+            <Key>49</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>72</Key>
+            <Key>50</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>904</ID>
+      <Description>"Facial expression disable/change"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(facechange1,SoulcaliburVI.exe,41 89 50 10 45 89 50 14)
+alloc(facechange,$1000)
+registersymbol(facechange)
+registersymbol(facechange1)
+define(p1face,facechange+500)
+registersymbol(p1face)
+define(p2face,facechange+510)
+registersymbol(p2face)
+label(code)
+label(return)
+p1face:
+dq 0
+p2face:
+dq 0
+facechange:
+cmp [p2face],0
+jne code
+cmp [p1face],r8
+je code
+cmp [p2face],r8
+je code
+cmp [p1face],0
+jne @f
+mov [p1face],r8
+jmp code
+@@:
+cmp [p2face],0
+jne @f
+mov [p2face],r8
+code:
+//mov [r8+10],edx
+mov [r8+14],r10d
+jmp return
+facechange1:
+jmp facechange
+nop
+nop
+nop
+return:
+[DISABLE]
+facechange1:
+db 41 89 50 10 45 89 50 14
+dealloc(facechange)
+unregistersymbol(facechange)
+unregistersymbol(facechange1)
+unregistersymbol(p1face)
+unregistersymbol(p2face)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+59EE761
+
+"SoulcaliburVI.exe"+59EE745: EB 03                    -  jmp SoulcaliburVI.exe+59EE74A
+"SoulcaliburVI.exe"+59EE747: 44 89 D2                 -  mov edx,r10d
+"SoulcaliburVI.exe"+59EE74A: 49 8B 40 08              -  mov rax,[r8+08]
+"SoulcaliburVI.exe"+59EE74E: 48 85 C0                 -  test rax,rax
+"SoulcaliburVI.exe"+59EE751: 74 0A                    -  je SoulcaliburVI.exe+59EE75D
+"SoulcaliburVI.exe"+59EE753: 3B 10                    -  cmp edx,[rax]
+"SoulcaliburVI.exe"+59EE755: 7C 0A                    -  jl SoulcaliburVI.exe+59EE761
+"SoulcaliburVI.exe"+59EE757: 4D 89 50 10              -  mov [r8+10],r10
+"SoulcaliburVI.exe"+59EE75B: EB 08                    -  jmp SoulcaliburVI.exe+59EE765
+"SoulcaliburVI.exe"+59EE75D: 45 89 50 14              -  mov [r8+14],r10d
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+59EE761: 41 89 50 10              -  mov [r8+10],edx
+"SoulcaliburVI.exe"+59EE765: 45 89 50 14              -  mov [r8+14],r10d
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+59EE769: 41 83 F9 1A              -  cmp r9d,1A
+"SoulcaliburVI.exe"+59EE76D: 74 16                    -  je SoulcaliburVI.exe+59EE785
+"SoulcaliburVI.exe"+59EE76F: 8B 41 1C                 -  mov eax,[rcx+1C]
+"SoulcaliburVI.exe"+59EE772: 85 C0                    -  test eax,eax
+"SoulcaliburVI.exe"+59EE774: 74 05                    -  je SoulcaliburVI.exe+59EE77B
+"SoulcaliburVI.exe"+59EE776: 83 F8 04                 -  cmp eax,04
+"SoulcaliburVI.exe"+59EE779: 7C 11                    -  jl SoulcaliburVI.exe+59EE78C
+"SoulcaliburVI.exe"+59EE77B: BA 01 00 00 00           -  mov edx,00000001
+"SoulcaliburVI.exe"+59EE780: E9 0B 39 8B FA           -  jmp SoulcaliburVI.exe+2A2090
+"SoulcaliburVI.exe"+59EE785: 31 D2                    -  xor edx,edx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>903</ID>
+          <Description>"Character 1 face"</Description>
+          <DropDownList>0:Regular
+1:Left Eyebrow Raised
+2:Right Eyebrow Raised
+3:Eyes Closed
+4:Right Eye Closed
+5:Left Eye Closed
+6:Talking
+7:Talking 2
+8:Talking 3
+9:Talking 4
+10:Talking 5
+11:Happy
+12:Regular 2
+13:Smiling
+14:Angry
+15:Sad
+16:In Pain
+17:Anguished
+18:Smirking
+19:Surprised
+20:Scared
+21:Frustrated
+22:Eyes Closed 2
+23:Other
+24:Other 2
+25:Other 3
+</DropDownList>
+          <VariableType>4 Bytes</VariableType>
+          <Address>p1face</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>907</ID>
+          <Description>"Character 2 face"</Description>
+          <DropDownList>00:Regular
+01:Left Eyebrow Raised
+02:Right Eyebrow Raised
+03:Eyes Closed
+04:Right Eye Closed
+05:Left Eye Closed
+06:Talking
+07:Talking 2
+08:Talking 3
+09:Talking 4
+10:Talking 5
+11:Happy
+12:Regular 2
+13:Smiling
+14:Angry
+15:Sad
+16:In Pain
+17:Anguished
+18:Smirking
+19:Surprised
+20:Scared
+21:Frustrated
+22:Eyes Closed 2
+23:Other
+24:Other 2
+25:Other 3
+</DropDownList>
+          <VariableType>4 Bytes</VariableType>
+          <Address>p2face</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1393</ID>
+      <Description>"Game Pause"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(gamepause,SoulcaliburVI.exe,8B 93 94 03 00 00 89)
+aobscanmodule(gpause2,SoulcaliburVI.exe,09 BB 94 03 00 00)
+alloc(gpause,$1000,gamepause)
+registersymbol(gamepause)
+registersymbol(gpause)
+registersymbol(gpause2)
+label(code)
+label(return)
+gpause2:
+db 90 90 90 90 90 90
+gpause2+11:
+db 90 90 90 90 90 90
+gpause:
+mov [gpause+500],rbx
+code:
+  mov edx,[rbx+00000394]
+  jmp return
+
+gamepause:
+  jmp gpause
+  nop
+return:
+
+[DISABLE]
+gamepause:
+db 8B 93 94 03 00 00
+gpause2:
+db 09 BB 94 03 00 00
+gpause2+11:
+db 21 BB 94 03 00 00
+dealloc(gpause)
+unregistersymbol(gamepause)
+unregistersymbol(gpause)
+unregistersymbol(gpause2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5BECD81
+
+"SoulcaliburVI.exe"+5BECD5B: 48 83 EC 60                          -  sub rsp,60
+"SoulcaliburVI.exe"+5BECD5F: 40 30 FF                             -  xor dil,dil
+"SoulcaliburVI.exe"+5BECD62: BE 01 00 00 00                       -  mov esi,00000001
+"SoulcaliburVI.exe"+5BECD67: 48 89 CB                             -  mov rbx,rcx
+"SoulcaliburVI.exe"+5BECD6A: 40 84 B1 94 03 00 00                 -  test [rcx+00000394],sil
+"SoulcaliburVI.exe"+5BECD71: 74 0E                                -  je SoulcaliburVI.exe+5BECD81
+"SoulcaliburVI.exe"+5BECD73: E8 98 81 7C FA                       -  call SoulcaliburVI.exe+3B4F10
+"SoulcaliburVI.exe"+5BECD78: 84 C0                                -  test al,al
+"SoulcaliburVI.exe"+5BECD7A: 40 0F B6 FF                          -  movzx edi,dil
+"SoulcaliburVI.exe"+5BECD7E: 0F 45 FE                             -  cmovne edi,esi
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5BECD81: 8B 93 94 03 00 00                    -  mov edx,[rbx+00000394]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5BECD87: 89 F1                                -  mov ecx,esi
+"SoulcaliburVI.exe"+5BECD89: F6 C2 02                             -  test dl,02
+"SoulcaliburVI.exe"+5BECD8C: 40 0F B6 C7                          -  movzx eax,dil
+"SoulcaliburVI.exe"+5BECD90: 0F 45 C6                             -  cmovne eax,esi
+"SoulcaliburVI.exe"+5BECD93: F6 C2 04                             -  test dl,04
+"SoulcaliburVI.exe"+5BECD96: 0F 44 C8                             -  cmove ecx,eax
+"SoulcaliburVI.exe"+5BECD99: 48 8B 03                             -  mov rax,[rbx]
+"SoulcaliburVI.exe"+5BECD9C: 0F B6 F9                             -  movzx edi,cl
+"SoulcaliburVI.exe"+5BECD9F: F6 C2 08                             -  test dl,08
+"SoulcaliburVI.exe"+5BECDA2: 48 89 D9                             -  mov rcx,rbx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1394</ID>
+          <Description>"pause value"</Description>
+          <DropDownList>0:off
+1:on
+</DropDownList>
+          <VariableType>Byte</VariableType>
+          <Address>gpause+500</Address>
+          <Offsets>
+            <Offset>394</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>192</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>853</ID>
+      <Description>"Invisible"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>879</ID>
+          <Description>"Character 1 invisible"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(invis1,SoulcaliburVI.exe,80 B9 03 05 00 00 00 49) // should be unique
+alloc(newmem,$1000,invis1)
+
+label(code)
+label(return)
+
+newmem:
+cmp [rcx+1c],1
+jne code
+cmp byte ptr [rcx+00000503],01
+mov r14,rcx
+jmp return
+code:
+  cmp byte ptr [rcx+00000503],00
+  mov r14,rcx
+  jmp return
+
+invis1:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(invis1)
+
+[DISABLE]
+
+invis1:
+  db 80 B9 03 05 00 00 00 49 89 CE
+
+unregistersymbol(invis1)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5FA7331
+
+"SoulcaliburVI.exe"+5FA730F: 4C 01 D2                 -  add rdx,r10
+"SoulcaliburVI.exe"+5FA7312: 48 8D 92 71 6C 77 28     -  lea rdx,[rdx+28776C71]
+"SoulcaliburVI.exe"+5FA7319: FF E1                    -  jmp rcx
+"SoulcaliburVI.exe"+5FA731B: 8D 0F                    -  lea ecx,[rdi]
+"SoulcaliburVI.exe"+5FA731D: 1F                       -  pop ds
+"SoulcaliburVI.exe"+5FA731E: 40 00 48 89              -  add [rax-77],cl
+"SoulcaliburVI.exe"+5FA7322: E0 55                    -  loopne SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA7324: 41 56                    -  push r14
+"SoulcaliburVI.exe"+5FA7326: 48 8D 68 A1              -  lea rbp,[rax-5F]
+"SoulcaliburVI.exe"+5FA732A: 48 81 EC D8 00 00 00     -  sub rsp,000000D8
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5FA7331: 80 B9 03 05 00 00 00     -  cmp byte ptr [rcx+00000503],00
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5FA7338: 49 89 CE                 -  mov r14,rcx
+"SoulcaliburVI.exe"+5FA733B: 48 89 58 18              -  mov [rax+18],rbx
+"SoulcaliburVI.exe"+5FA733F: 48 89 70 E8              -  mov [rax-18],rsi
+"SoulcaliburVI.exe"+5FA7343: 48 89 78 E0              -  mov [rax-20],rdi
+"SoulcaliburVI.exe"+5FA7347: 4C 89 60 D8              -  mov [rax-28],r12
+"SoulcaliburVI.exe"+5FA734B: 4C 89 68 D0              -  mov [rax-30],r13
+"SoulcaliburVI.exe"+5FA734F: 74 0D                    -  je SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA7351: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7358: 75 04                    -  jne SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA735A: B0 01                    -  mov al,01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>882</ID>
+          <Description>"Character 1 weapon invisible"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(invis3,SoulcaliburVI.exe,80 B9 04 05 00 00 00) // should be unique
+alloc(newmem,$1000,invis3)
+
+label(code)
+label(return)
+
+newmem:
+cmp [rcx+1C],1
+jne code
+cmp byte ptr [rcx+00000504],01
+mov [rbp+67],al
+jmp return
+
+code:
+  cmp byte ptr [rcx+00000504],00
+  mov [rbp+67],al
+  jmp return
+
+invis3:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(invis3)
+
+[DISABLE]
+
+invis3:
+  db 80 B9 04 05 00 00 00 88 45 67
+
+unregistersymbol(invis3)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5FA7360
+
+"SoulcaliburVI.exe"+5FA733F: 48 89 70 E8              -  mov [rax-18],rsi
+"SoulcaliburVI.exe"+5FA7343: 48 89 78 E0              -  mov [rax-20],rdi
+"SoulcaliburVI.exe"+5FA7347: 4C 89 60 D8              -  mov [rax-28],r12
+"SoulcaliburVI.exe"+5FA734B: 4C 89 68 D0              -  mov [rax-30],r13
+"SoulcaliburVI.exe"+5FA734F: 74 0D                    -  je SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA7351: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7358: 75 04                    -  jne SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA735A: B0 01                    -  mov al,01
+"SoulcaliburVI.exe"+5FA735C: EB 02                    -  jmp SoulcaliburVI.exe+5FA7360
+"SoulcaliburVI.exe"+5FA735E: 30 C0                    -  xor al,al
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5FA7360: 80 B9 04 05 00 00 00     -  cmp byte ptr [rcx+00000504],00
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5FA7367: 88 45 67                 -  mov [rbp+67],al
+"SoulcaliburVI.exe"+5FA736A: 74 0D                    -  je SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA736C: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7373: 75 04                    -  jne SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA7375: B1 01                    -  mov cl,01
+"SoulcaliburVI.exe"+5FA7377: EB 02                    -  jmp SoulcaliburVI.exe+5FA737B
+"SoulcaliburVI.exe"+5FA7379: 30 C9                    -  xor cl,cl
+"SoulcaliburVI.exe"+5FA737B: 88 4D 6F                 -  mov [rbp+6F],cl
+"SoulcaliburVI.exe"+5FA737E: 4C 89 BC 24 B0 00 00 00  -  mov [rsp+000000B0],r15
+"SoulcaliburVI.exe"+5FA7386: 84 C0                    -  test al,al
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>880</ID>
+          <Description>"Character 2 invisible"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(invis2,SoulcaliburVI.exe,80 B9 03 05 00 00 00 49) // should be unique
+alloc(newmem,$1000,invis2)
+
+label(code)
+label(return)
+
+newmem:
+cmp [rcx+1c],1
+je code
+cmp byte ptr [rcx+00000503],01
+mov r14,rcx
+jmp return
+code:
+  cmp byte ptr [rcx+00000503],00
+  mov r14,rcx
+  jmp return
+
+invis2:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(invis2)
+
+[DISABLE]
+
+invis2:
+  db 80 B9 03 05 00 00 00 49 89 CE
+
+unregistersymbol(invis2)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5FA7331
+
+"SoulcaliburVI.exe"+5FA730F: 4C 01 D2                 -  add rdx,r10
+"SoulcaliburVI.exe"+5FA7312: 48 8D 92 71 6C 77 28     -  lea rdx,[rdx+28776C71]
+"SoulcaliburVI.exe"+5FA7319: FF E1                    -  jmp rcx
+"SoulcaliburVI.exe"+5FA731B: 8D 0F                    -  lea ecx,[rdi]
+"SoulcaliburVI.exe"+5FA731D: 1F                       -  pop ds
+"SoulcaliburVI.exe"+5FA731E: 40 00 48 89              -  add [rax-77],cl
+"SoulcaliburVI.exe"+5FA7322: E0 55                    -  loopne SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA7324: 41 56                    -  push r14
+"SoulcaliburVI.exe"+5FA7326: 48 8D 68 A1              -  lea rbp,[rax-5F]
+"SoulcaliburVI.exe"+5FA732A: 48 81 EC D8 00 00 00     -  sub rsp,000000D8
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5FA7331: 80 B9 03 05 00 00 00     -  cmp byte ptr [rcx+00000503],00
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5FA7338: 49 89 CE                 -  mov r14,rcx
+"SoulcaliburVI.exe"+5FA733B: 48 89 58 18              -  mov [rax+18],rbx
+"SoulcaliburVI.exe"+5FA733F: 48 89 70 E8              -  mov [rax-18],rsi
+"SoulcaliburVI.exe"+5FA7343: 48 89 78 E0              -  mov [rax-20],rdi
+"SoulcaliburVI.exe"+5FA7347: 4C 89 60 D8              -  mov [rax-28],r12
+"SoulcaliburVI.exe"+5FA734B: 4C 89 68 D0              -  mov [rax-30],r13
+"SoulcaliburVI.exe"+5FA734F: 74 0D                    -  je SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA7351: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7358: 75 04                    -  jne SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA735A: B0 01                    -  mov al,01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>883</ID>
+          <Description>"Character 2 weapon invisible"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(invis4,SoulcaliburVI.exe,80 B9 04 05 00 00 00) // should be unique
+alloc(newmem,$1000,invis4)
+label(code)
+label(return)
+
+newmem:
+cmp [rcx+1C],1
+je code
+cmp byte ptr [rcx+00000504],01
+mov [rbp+67],al
+jmp return
+
+code:
+  cmp byte ptr [rcx+00000504],00
+  mov [rbp+67],al
+  jmp return
+
+invis4:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(invis4)
+
+[DISABLE]
+
+invis4:
+  db 80 B9 04 05 00 00 00 88 45 67
+
+unregistersymbol(invis4)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5FA7360
+
+"SoulcaliburVI.exe"+5FA733F: 48 89 70 E8              -  mov [rax-18],rsi
+"SoulcaliburVI.exe"+5FA7343: 48 89 78 E0              -  mov [rax-20],rdi
+"SoulcaliburVI.exe"+5FA7347: 4C 89 60 D8              -  mov [rax-28],r12
+"SoulcaliburVI.exe"+5FA734B: 4C 89 68 D0              -  mov [rax-30],r13
+"SoulcaliburVI.exe"+5FA734F: 74 0D                    -  je SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA7351: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7358: 75 04                    -  jne SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA735A: B0 01                    -  mov al,01
+"SoulcaliburVI.exe"+5FA735C: EB 02                    -  jmp SoulcaliburVI.exe+5FA7360
+"SoulcaliburVI.exe"+5FA735E: 30 C0                    -  xor al,al
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5FA7360: 80 B9 04 05 00 00 00     -  cmp byte ptr [rcx+00000504],00
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5FA7367: 88 45 67                 -  mov [rbp+67],al
+"SoulcaliburVI.exe"+5FA736A: 74 0D                    -  je SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA736C: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7373: 75 04                    -  jne SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA7375: B1 01                    -  mov cl,01
+"SoulcaliburVI.exe"+5FA7377: EB 02                    -  jmp SoulcaliburVI.exe+5FA737B
+"SoulcaliburVI.exe"+5FA7379: 30 C9                    -  xor cl,cl
+"SoulcaliburVI.exe"+5FA737B: 88 4D 6F                 -  mov [rbp+6F],cl
+"SoulcaliburVI.exe"+5FA737E: 4C 89 BC 24 B0 00 00 00  -  mov [rsp+000000B0],r15
+"SoulcaliburVI.exe"+5FA7386: 84 C0                    -  test al,al
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>884</ID>
+          <Description>"Character weapons invisible"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(invis5,SoulcaliburVI.exe,80 B9 04 05 00 00 00) // should be unique
+alloc(newmem,$1000,invis5)
+
+label(code)
+label(return)
+
+newmem:
+cmp byte ptr [rcx+00000504],01
+mov [rbp+67],al
+jmp return
+
+code:
+  cmp byte ptr [rcx+00000504],00
+  mov [rbp+67],al
+  jmp return
+
+invis5:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(invis5)
+
+[DISABLE]
+
+invis5:
+  db 80 B9 04 05 00 00 00 88 45 67
+
+unregistersymbol(invis5)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5FA7360
+
+"SoulcaliburVI.exe"+5FA733F: 48 89 70 E8              -  mov [rax-18],rsi
+"SoulcaliburVI.exe"+5FA7343: 48 89 78 E0              -  mov [rax-20],rdi
+"SoulcaliburVI.exe"+5FA7347: 4C 89 60 D8              -  mov [rax-28],r12
+"SoulcaliburVI.exe"+5FA734B: 4C 89 68 D0              -  mov [rax-30],r13
+"SoulcaliburVI.exe"+5FA734F: 74 0D                    -  je SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA7351: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7358: 75 04                    -  jne SoulcaliburVI.exe+5FA735E
+"SoulcaliburVI.exe"+5FA735A: B0 01                    -  mov al,01
+"SoulcaliburVI.exe"+5FA735C: EB 02                    -  jmp SoulcaliburVI.exe+5FA7360
+"SoulcaliburVI.exe"+5FA735E: 30 C0                    -  xor al,al
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5FA7360: 80 B9 04 05 00 00 00     -  cmp byte ptr [rcx+00000504],00
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5FA7367: 88 45 67                 -  mov [rbp+67],al
+"SoulcaliburVI.exe"+5FA736A: 74 0D                    -  je SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA736C: 80 B9 02 05 00 00 00     -  cmp byte ptr [rcx+00000502],00
+"SoulcaliburVI.exe"+5FA7373: 75 04                    -  jne SoulcaliburVI.exe+5FA7379
+"SoulcaliburVI.exe"+5FA7375: B1 01                    -  mov cl,01
+"SoulcaliburVI.exe"+5FA7377: EB 02                    -  jmp SoulcaliburVI.exe+5FA737B
+"SoulcaliburVI.exe"+5FA7379: 30 C9                    -  xor cl,cl
+"SoulcaliburVI.exe"+5FA737B: 88 4D 6F                 -  mov [rbp+6F],cl
+"SoulcaliburVI.exe"+5FA737E: 4C 89 BC 24 B0 00 00 00  -  mov [rsp+000000B0],r15
+"SoulcaliburVI.exe"+5FA7386: 84 C0                    -  test al,al
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>771</ID>
+      <Description>"Muscle set to max"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(musclechange,SoulcaliburVI.exe,88 87 E0 00 00 00 E8)
+alloc(newmem,$1000,musclechange)
+
+label(code)
+label(return)
+
+newmem:
+//mov rax,5
+code:
+  mov [rdi+000000E0],5
+  jmp return
+
+musclechange:
+  jmp newmem
+  nop
+return:
+registersymbol(musclechange)
+
+[DISABLE]
+
+musclechange:
+  db 88 87 E0 00 00 00
+
+unregistersymbol(musclechange)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+60F088F
+
+"SoulcaliburVI.exe"+60F0869: 41 0F B7 CC           -  movzx ecx,r12w
+"SoulcaliburVI.exe"+60F086D: 29 C1                 -  sub ecx,eax
+"SoulcaliburVI.exe"+60F086F: 0F 85 16 01 00 00     -  jne SoulcaliburVI.exe+60F098B
+"SoulcaliburVI.exe"+60F0875: 0F B6 43 58           -  movzx eax,byte ptr [rbx+58]
+"SoulcaliburVI.exe"+60F0879: 48 8D 53 60           -  lea rdx,[rbx+60]
+"SoulcaliburVI.exe"+60F087D: 88 47 2A              -  mov [rdi+2A],al
+"SoulcaliburVI.exe"+60F0880: 48 8D 4F 30           -  lea rcx,[rdi+30]
+"SoulcaliburVI.exe"+60F0884: 0F B6 43 59           -  movzx eax,byte ptr [rbx+59]
+"SoulcaliburVI.exe"+60F0888: 88 47 2B              -  mov [rdi+2B],al
+"SoulcaliburVI.exe"+60F088B: 0F B6 43 5A           -  movzx eax,byte ptr [rbx+5A]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+60F088F: 88 87 E0 00 00 00     -  mov [rdi+000000E0],al
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+60F0895: E8 06 43 26 FA        -  call SoulcaliburVI.exe+354BA0
+"SoulcaliburVI.exe"+60F089A: 48 8B 07              -  mov rax,[rdi]
+"SoulcaliburVI.exe"+60F089D: 48 89 F9              -  mov rcx,rdi
+"SoulcaliburVI.exe"+60F08A0: FF 90 88 02 00 00     -  call qword ptr [rax+00000288]
+"SoulcaliburVI.exe"+60F08A6: 4C 8D 83 B8 00 00 00  -  lea r8,[rbx+000000B8]
+"SoulcaliburVI.exe"+60F08AD: B2 02                 -  mov dl,02
+"SoulcaliburVI.exe"+60F08AF: 48 8D 8D A7 FF FF FF  -  lea rcx,[rbp-00000059]
+"SoulcaliburVI.exe"+60F08B6: E8 F5 A5 31 FA        -  call SoulcaliburVI.exe+40AEB0
+"SoulcaliburVI.exe"+60F08BB: 4C 8D 83 E0 00 00 00  -  lea r8,[rbx+000000E0]
+"SoulcaliburVI.exe"+60F08C2: B2 01                 -  mov dl,01
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>837</ID>
+      <Description>"OPPAI SLIDER"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(boobslider,SoulcaliburVI.exe,F3 0F 10 93 F0 02 00 00)
+alloc(newmem,$1000,boobslider)
+alloc(chestvalue,32)
+label(code)
+label(return)
+registersymbol(chestvalue)
+chestvalue:
+dd 3f800000
+chestvalue+4:
+dd 3f800000
+chestvalue+8:
+dd 3f800000
+
+newmem:
+code:
+  movss xmm2,[chestvalue]
+  movss xmm4,[chestvalue+4]
+  movss xmm3,[chestvalue+8]
+  jmp return
+
+boobslider:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(boobslider)
+boobslider+8:
+db 90 90 90 90 90 90 90 90
+boobslider+13:
+db 90 90 90 90 90 90 90 90
+[DISABLE]
+
+boobslider:
+  db F3 0F 10 93 F0 02 00 00
+boobslider+8:
+  db F3 0F 10 A3 F8 02 00 00
+boobslider+13:
+  db F3 0F 10 9B F4 02 00 00
+unregistersymbol(boobslider)
+dealloc(newmem)
+dealloc(chestvalue)
+unregistersymbol(chestvalue)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+587E1A5
+
+"SoulcaliburVI.exe"+587E185: 3D 66 2E 0F 1F           -  cmp eax,1F0F2E66
+"SoulcaliburVI.exe"+587E18A: 84 00                    -  test [rax],al
+"SoulcaliburVI.exe"+587E18C: 00 00                    -  add [rax],al
+"SoulcaliburVI.exe"+587E18E: 00 00                    -  add [rax],al
+"SoulcaliburVI.exe"+587E190: 48 89 5C 24 08           -  mov [rsp+08],rbx
+"SoulcaliburVI.exe"+587E195: 57                       -  push rdi
+"SoulcaliburVI.exe"+587E196: 48 83 EC 20              -  sub rsp,20
+"SoulcaliburVI.exe"+587E19A: 48 89 D7                 -  mov rdi,rdx
+"SoulcaliburVI.exe"+587E19D: 48 89 CB                 -  mov rbx,rcx
+"SoulcaliburVI.exe"+587E1A0: E8 6B D6 A5 FA           -  call SoulcaliburVI.exe+2DB810
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+587E1A5: F3 0F 10 93 F0 02 00 00  -  movss xmm2,[rbx+000002F0]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+587E1AD: F3 0F 10 A3 F8 02 00 00  -  movss xmm4,[rbx+000002F8]
+"SoulcaliburVI.exe"+587E1B5: 0F 28 C2                 -  movaps xmm0,xmm2
+"SoulcaliburVI.exe"+587E1B8: F3 0F 10 9B F4 02 00 00  -  movss xmm3,[rbx+000002F4]
+"SoulcaliburVI.exe"+587E1C0: 0F 28 CA                 -  movaps xmm1,xmm2
+"SoulcaliburVI.exe"+587E1C3: 48 0F BF 43 20           -  movsx rax,word ptr [rbx+20]
+"SoulcaliburVI.exe"+587E1C8: 48 8B 5C 24 30           -  mov rbx,[rsp+30]
+"SoulcaliburVI.exe"+587E1CD: 48 C1 E0 06              -  shl rax,06
+"SoulcaliburVI.exe"+587E1D1: 48 01 F8                 -  add rax,rdi
+"SoulcaliburVI.exe"+587E1D4: F3 0F 59 00              -  mulss xmm0,[rax]
+"SoulcaliburVI.exe"+587E1D8: F3 0F 59 48 04           -  mulss xmm1,[rax+04]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>79</Key>
+            <Key>49</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>79</Key>
+            <Key>50</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>839</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>84</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>84</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>843</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>89</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>89</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>838</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>85</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>85</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1339</ID>
+      <Description>"TNA SLIDER (battle, detailed, 2 player)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(boobslider,SoulcaliburVI.exe,* * F3 0F 10 93 F0 02 00 00)
+alloc(newmem,$1000,boobslider)
+alloc(chestvalue,128)
+label(code)
+label(return)
+label(val1)
+//label(val2)
+registersymbol(chestvalue)
+chestvalue:
+dd 3f800000
+chestvalue+4:
+dd 3f800000
+chestvalue+8:
+dd 3f800000
+val1:
+mov [chestvalue+30],rbx
+jmp return
+{val2:
+mov [chestvalue+30],rbx
+jmp return}
+newmem:
+movss xmm2,[rbx+000002F0]
+ // movss xmm2,[chestvalue]
+//  movss xmm4,[chestvalue+4]
+  //movss xmm3,[chestvalue+8]
+//cmp [rbx+6a4],0
+cmp [rdx+2e4],0
+je code
+cmp [rbx+2b2],6B
+je val1
+//mov [chestvalue+10],rbx
+jmp return
+code:
+  cmp byte ptr [rbx-c56],74
+  jne val1
+  mov [chestvalue+20],rbx
+  jmp return
+
+boobslider+02:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(boobslider)
+{boobslider+a:
+db 90 90 90 90 90 90 90 90
+boobslider+15:
+db 90 90 90 90 90 90 90 90}
+[DISABLE]
+
+boobslider+02:
+  db F3 0F 10 93 F0 02 00 00
+{boobslider+a:
+  db F3 0F 10 A3 F8 02 00 00
+boobslider+15:
+  db F3 0F 10 9B F4 02 00 00}
+unregistersymbol(boobslider)
+dealloc(newmem)
+dealloc(chestvalue)
+unregistersymbol(chestvalue)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+587E1A5
+
+"SoulcaliburVI.exe"+587E185: 3D 66 2E 0F 1F           -  cmp eax,1F0F2E66
+"SoulcaliburVI.exe"+587E18A: 84 00                    -  test [rax],al
+"SoulcaliburVI.exe"+587E18C: 00 00                    -  add [rax],al
+"SoulcaliburVI.exe"+587E18E: 00 00                    -  add [rax],al
+"SoulcaliburVI.exe"+587E190: 48 89 5C 24 08           -  mov [rsp+08],rbx
+"SoulcaliburVI.exe"+587E195: 57                       -  push rdi
+"SoulcaliburVI.exe"+587E196: 48 83 EC 20              -  sub rsp,20
+"SoulcaliburVI.exe"+587E19A: 48 89 D7                 -  mov rdi,rdx
+"SoulcaliburVI.exe"+587E19D: 48 89 CB                 -  mov rbx,rcx
+"SoulcaliburVI.exe"+587E1A0: E8 6B D6 A5 FA           -  call SoulcaliburVI.exe+2DB810
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+587E1A5: F3 0F 10 93 F0 02 00 00  -  movss xmm2,[rbx+000002F0]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+587E1AD: F3 0F 10 A3 F8 02 00 00  -  movss xmm4,[rbx+000002F8]
+"SoulcaliburVI.exe"+587E1B5: 0F 28 C2                 -  movaps xmm0,xmm2
+"SoulcaliburVI.exe"+587E1B8: F3 0F 10 9B F4 02 00 00  -  movss xmm3,[rbx+000002F4]
+"SoulcaliburVI.exe"+587E1C0: 0F 28 CA                 -  movaps xmm1,xmm2
+"SoulcaliburVI.exe"+587E1C3: 48 0F BF 43 20           -  movsx rax,word ptr [rbx+20]
+"SoulcaliburVI.exe"+587E1C8: 48 8B 5C 24 30           -  mov rbx,[rsp+30]
+"SoulcaliburVI.exe"+587E1CD: 48 C1 E0 06              -  shl rax,06
+"SoulcaliburVI.exe"+587E1D1: 48 01 F8                 -  add rax,rdi
+"SoulcaliburVI.exe"+587E1D4: F3 0F 59 00              -  mulss xmm0,[rax]
+"SoulcaliburVI.exe"+587E1D8: F3 0F 59 48 04           -  mulss xmm1,[rax+04]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>79</Key>
+            <Key>49</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>79</Key>
+            <Key>50</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1340</ID>
+          <Description>"1XR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+5F8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1341</ID>
+          <Description>"1XL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-298</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(1XR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(1XR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1342</ID>
+          <Description>"1YR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+5F4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1343</ID>
+          <Description>"1YL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-29C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(1YR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(1YR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1344</ID>
+          <Description>"1ZR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+2F0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1345</ID>
+          <Description>"1ZL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-5A0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(1ZR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(1ZR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1346</ID>
+          <Description>"1XpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+10</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1347</ID>
+          <Description>"1XpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-880</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(1XpR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(1XpR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1348</ID>
+          <Description>"1YpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+14</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1349</ID>
+          <Description>"1YpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-87C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1350</ID>
+          <Description>"1ZpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+18</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1351</ID>
+          <Description>"1ZpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-878</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(1ZpR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(1ZpR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1352</ID>
+          <Description>"1ZoR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]+5F0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1353</ID>
+          <Description>"1ZoL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+20]-2A0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>57</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(1ZoR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>57</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(1ZoR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1354</ID>
+          <Description>"2XR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+5F8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1355</ID>
+          <Description>"2XL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-298</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1356</ID>
+          <Description>"2YR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+5F4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1357</ID>
+          <Description>"2YL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-29C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1358</ID>
+          <Description>"2ZR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+2F0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1359</ID>
+          <Description>"2ZR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-5A0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1360</ID>
+          <Description>"2XpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+10</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1361</ID>
+          <Description>"2XpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-880</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(2XpR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(2XpR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1362</ID>
+          <Description>"2YpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+14</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1363</ID>
+          <Description>"2YpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-87C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1364</ID>
+          <Description>"2ZpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+18</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1365</ID>
+          <Description>"2ZpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-878</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(2ZpR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(2ZpR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1366</ID>
+          <Description>"2ZoR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+5F0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1367</ID>
+          <Description>"2ZoL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-2A0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(2ZoR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(2ZoR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1368</ID>
+          <Description>"1ButtLy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1830</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>49</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>49</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1369</ID>
+          <Description>"1ButtLz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1834</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>50</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>50</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1370</ID>
+          <Description>"1ButtLx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1838</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>51</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>51</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1371</ID>
+          <Description>"1ButtRy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1760</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>49</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(1ButtLy)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>49</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(1ButtLy)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1372</ID>
+          <Description>"1ButtRz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1764</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>50</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(1ButtLz)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>50</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(1ButtLz)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1373</ID>
+          <Description>"1ButtRx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1768</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>51</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(1ButtLx)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>51</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(1ButtLx)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1374</ID>
+          <Description>"1HipY"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1A30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>52</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>52</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1375</ID>
+          <Description>"1HipZ"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1A34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>53</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>53</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1376</ID>
+          <Description>"1HipX"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+20</Address>
+          <Offsets>
+            <Offset>1A38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>54</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>54</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1377</ID>
+          <Description>"2ButtLy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1830</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1378</ID>
+          <Description>"2ButtLz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1834</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1379</ID>
+          <Description>"2ButtLx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1838</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1380</ID>
+          <Description>"2ButtRy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1760</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(2ButtLy)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(2ButtLy)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1381</ID>
+          <Description>"2ButtRz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1764</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(2ButtLz)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(2ButtLz)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1382</ID>
+          <Description>"2ButtRx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1768</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(2ButtLx)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(2ButtLx)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1383</ID>
+          <Description>"2HipY"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1A30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>52</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>52</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1384</ID>
+          <Description>"2HipZ"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1A34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>53</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>53</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1385</ID>
+          <Description>"2HipX"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1A38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>54</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>54</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>908</ID>
+      <Description>"TNA SLIDER (creation)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(boobslider,SoulcaliburVI.exe,* * F3 0F 10 93 F0 02 00 00)
+alloc(newmem,$1000,boobslider)
+alloc(chestvalue,128)
+label(code)
+label(return)
+label(val1)
+//label(val2)
+registersymbol(chestvalue)
+chestvalue:
+dd 3f800000
+chestvalue+4:
+dd 3f800000
+chestvalue+8:
+dd 3f800000
+val1:
+mov [chestvalue+30],rbx
+jmp return
+{val2:
+mov [chestvalue+30],rbx
+jmp return}
+newmem:
+movss xmm2,[rbx+000002F0]
+ // movss xmm2,[chestvalue]
+//  movss xmm4,[chestvalue+4]
+  //movss xmm3,[chestvalue+8]
+//cmp [rbx+6a4],0
+cmp [rdx+2e4],0
+je code
+cmp [rbx+2b2],6B
+je val1
+//mov [chestvalue+10],rbx
+jmp return
+code:
+  cmp byte ptr [rbx-c56],74
+  jne val1
+  mov [chestvalue+20],rbx
+  jmp return
+
+boobslider+02:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(boobslider)
+{boobslider+a:
+db 90 90 90 90 90 90 90 90
+boobslider+15:
+db 90 90 90 90 90 90 90 90}
+[DISABLE]
+
+boobslider+02:
+  db F3 0F 10 93 F0 02 00 00
+{boobslider+a:
+  db F3 0F 10 A3 F8 02 00 00
+boobslider+15:
+  db F3 0F 10 9B F4 02 00 00}
+unregistersymbol(boobslider)
+dealloc(newmem)
+dealloc(chestvalue)
+unregistersymbol(chestvalue)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+587E1A5
+
+"SoulcaliburVI.exe"+587E185: 3D 66 2E 0F 1F           -  cmp eax,1F0F2E66
+"SoulcaliburVI.exe"+587E18A: 84 00                    -  test [rax],al
+"SoulcaliburVI.exe"+587E18C: 00 00                    -  add [rax],al
+"SoulcaliburVI.exe"+587E18E: 00 00                    -  add [rax],al
+"SoulcaliburVI.exe"+587E190: 48 89 5C 24 08           -  mov [rsp+08],rbx
+"SoulcaliburVI.exe"+587E195: 57                       -  push rdi
+"SoulcaliburVI.exe"+587E196: 48 83 EC 20              -  sub rsp,20
+"SoulcaliburVI.exe"+587E19A: 48 89 D7                 -  mov rdi,rdx
+"SoulcaliburVI.exe"+587E19D: 48 89 CB                 -  mov rbx,rcx
+"SoulcaliburVI.exe"+587E1A0: E8 6B D6 A5 FA           -  call SoulcaliburVI.exe+2DB810
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+587E1A5: F3 0F 10 93 F0 02 00 00  -  movss xmm2,[rbx+000002F0]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+587E1AD: F3 0F 10 A3 F8 02 00 00  -  movss xmm4,[rbx+000002F8]
+"SoulcaliburVI.exe"+587E1B5: 0F 28 C2                 -  movaps xmm0,xmm2
+"SoulcaliburVI.exe"+587E1B8: F3 0F 10 9B F4 02 00 00  -  movss xmm3,[rbx+000002F4]
+"SoulcaliburVI.exe"+587E1C0: 0F 28 CA                 -  movaps xmm1,xmm2
+"SoulcaliburVI.exe"+587E1C3: 48 0F BF 43 20           -  movsx rax,word ptr [rbx+20]
+"SoulcaliburVI.exe"+587E1C8: 48 8B 5C 24 30           -  mov rbx,[rsp+30]
+"SoulcaliburVI.exe"+587E1CD: 48 C1 E0 06              -  shl rax,06
+"SoulcaliburVI.exe"+587E1D1: 48 01 F8                 -  add rax,rdi
+"SoulcaliburVI.exe"+587E1D4: F3 0F 59 00              -  mulss xmm0,[rax]
+"SoulcaliburVI.exe"+587E1D8: F3 0F 59 48 04           -  mulss xmm1,[rax+04]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>79</Key>
+            <Key>49</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>79</Key>
+            <Key>50</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1264</ID>
+          <Description>"2XR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+5F8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1278</ID>
+          <Description>"2XL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-298</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1265</ID>
+          <Description>"2YR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+5F4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1279</ID>
+          <Description>"2YL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-29C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>13</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1280</ID>
+          <Description>"2ZR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+2F0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1281</ID>
+          <Description>"2ZR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-5A0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1256</ID>
+          <Description>"2XpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+10</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1261</ID>
+          <Description>"2XpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-880</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(2XpR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>111</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(2XpR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1273</ID>
+          <Description>"2YpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+14</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1276</ID>
+          <Description>"2YpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-87C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>109</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1274</ID>
+          <Description>"2ZpR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+18</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1275</ID>
+          <Description>"2ZpL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-878</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(2ZpR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>107</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(2ZpR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1258</ID>
+          <Description>"2ZoR"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]+5F0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1262</ID>
+          <Description>"2ZoL"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[chestvalue+30]-2A0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>(2ZoR)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+                <Key>48</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>(2ZoR)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1330</ID>
+          <Description>"2ButtLy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1830</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1331</ID>
+          <Description>"2ButtLz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1834</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1332</ID>
+          <Description>"2ButtLx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1838</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1333</ID>
+          <Description>"2ButtRy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1760</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(2ButtLy)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(2ButtLy)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1334</ID>
+          <Description>"2ButtRz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1764</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(2ButtLz)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(2ButtLz)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1335</ID>
+          <Description>"2ButtRx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1768</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>(2ButtLx)</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>(2ButtLx)</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1336</ID>
+          <Description>"2HipY"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1A30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>52</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>52</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337</ID>
+          <Description>"2HipZ"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1A34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>53</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>53</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1338</ID>
+          <Description>"2HipX"</Description>
+          <VariableType>Float</VariableType>
+          <Address>chestvalue+30</Address>
+          <Offsets>
+            <Offset>1A38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>54</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>54</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1282</ID>
+      <Description>"Speed control"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(speedcontrol1,SoulcaliburVI.exe,F3 44 0F 10 35 57 90 54 FE)
+define(bytes1,speedcontrol1)
+aobscanmodule(speedcontrol2,SoulcaliburVI.exe,F3 0F 10 2D !7 * * F! 48 89 E9 F3)
+define(bytes2,speedcontrol2)
+aobscanmodule(speedcontrol3,SoulcaliburVI.exe,F3 0F 10 05 !6 * * F! F3 0F 59 81)
+define(bytes3,speedcontrol3)
+aobscanmodule(speedcontrol4,SoulcaliburVI.exe,F3 0F 10 81 50 20 00 00)
+aobscanmodule(speedcontrol5,SoulcaliburVI.exe,F3 0F 11 86 50 20 00 00)
+//aobscanmodule(speedcontrol6,SoulcaliburVI.exe,F3 0F 2C CC F3 41 0F 11 62 08)
+alloc(bytestore,32,13FC00000)
+alloc(newmem,$1000,speedcontrol1)
+alloc(newmem2,$1000,speedcontrol2)
+alloc(newmem3,$1000,speedcontrol3)
+alloc(newmem4,$1000,speedcontrol4)
+alloc(newmem5,$1000,speedcontrol5)
+alloc(speedval,8)
+label(code)
+label(return)
+label(code2)
+label(return2)
+label(code3)
+label(return3)
+label(code4)
+label(return4)
+label(code5)
+label(return5)
+registersymbol(speedval)
+registersymbol(speedcontrol1)
+registersymbol(speedcontrol2)
+registersymbol(speedcontrol3)
+registersymbol(speedcontrol4)
+registersymbol(speedcontrol5)
+//registersymbol(speedcontrol6)
+registersymbol(bytestore)
+//speedcontrol6:
+//db 90 90 90 90
+speedval:
+dd 0
+bytestore:
+readmem(bytes1,9)
+bytestore+10:
+readmem(bytes2,8)
+bytestore+20:
+readmem(bytes3,8)
+newmem5:
+
+code5:
+  movss xmm0,[speedval]
+  jmp return5
+newmem4:
+
+code4:
+  movss xmm0,[speedval]
+  jmp return4
+newmem3:
+
+code3:
+  movss xmm0,[speedval]
+  jmp return3
+
+newmem2:
+
+code2:
+  movss xmm5,[speedval]
+  jmp return2
+
+newmem:
+
+code:
+  movss xmm14,[speedval]
+  jmp return
+
+speedcontrol1:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+
+speedcontrol2:
+  jmp newmem2
+  nop
+  nop
+  nop
+return2:
+speedcontrol3:
+  jmp newmem3
+  nop
+  nop
+  nop
+return3:
+speedcontrol4:
+  jmp newmem4
+  nop
+  nop
+  nop
+return4:
+speedcontrol5:
+  jmp newmem5
+  nop
+  nop
+  nop
+return5:
+[DISABLE]
+//speedcontrol6:
+//db F3 0F 2C CC
+dealloc(newmem)
+dealloc(newmem2)
+dealloc(newmem3)
+dealloc(newmem4)
+dealloc(newmem5)
+speedcontrol1:
+readmem(bytestore,09)
+speedcontrol2:
+readmem(bytestore+10,08)
+speedcontrol3:
+readmem(bytestore+20,08)
+speedcontrol4:
+db F3 0F 10 81 50 20 00 00
+speedcontrol5:
+db F3 0F 11 86 50 20 00 00
+unregistersymbol(speedcontrol1)
+unregistersymbol(speedcontrol2)
+unregistersymbol(speedcontrol3)
+unregistersymbol(speedcontrol4)
+unregistersymbol(speedcontrol5)
+//unregistersymbol(speedcontrol6)
+dealloc(speedval)
+dealloc(bytestore)
+unregistersymbol(speedval)
+unregistersymbol(bytestore)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5A17FEC
+
+"SoulcaliburVI.exe"+5A17FAF: 0F 29 70 D8                       -  movaps [rax-28],xmm6
+"SoulcaliburVI.exe"+5A17FB3: 0F 29 78 C8                       -  movaps [rax-38],xmm7
+"SoulcaliburVI.exe"+5A17FB7: 44 0F 29 40 B8                    -  movaps [rax-48],xmm8
+"SoulcaliburVI.exe"+5A17FBC: 44 0F 29 48 A8                    -  movaps [rax-58],xmm9
+"SoulcaliburVI.exe"+5A17FC1: F3 44 0F 10 0D 06 BA 2E FE        -  movss xmm9,[SoulcaliburVI.exe+3D039D0]
+"SoulcaliburVI.exe"+5A17FCA: 44 0F 29 50 98                    -  movaps [rax-68],xmm10
+"SoulcaliburVI.exe"+5A17FCF: 44 0F 29 58 88                    -  movaps [rax-78],xmm11
+"SoulcaliburVI.exe"+5A17FD4: 44 0F 29 A0 78 FF FF FF           -  movaps [rax-00000088],xmm12
+"SoulcaliburVI.exe"+5A17FDC: 44 0F 29 A8 68 FF FF FF           -  movaps [rax-00000098],xmm13
+"SoulcaliburVI.exe"+5A17FE4: 44 0F 29 B0 58 FF FF FF           -  movaps [rax-000000A8],xmm14
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5A17FEC: F3 44 0F 10 35 6F FD 54 FE        -  movss xmm14,[SoulcaliburVI.exe+3F67D64]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5A17FF5: 45 0F 28 EE                       -  movaps xmm13,xmm14
+"SoulcaliburVI.exe"+5A17FF9: 44 0F 29 B8 48 FF FF FF           -  movaps [rax-000000B8],xmm15
+"SoulcaliburVI.exe"+5A18001: F3 44 0F 59 69 68                 -  mulss xmm13,[rcx+68]
+"SoulcaliburVI.exe"+5A18007: 45 0F 28 D5                       -  movaps xmm10,xmm13
+"SoulcaliburVI.exe"+5A1800B: 45 0F 28 DD                       -  movaps xmm11,xmm13
+"SoulcaliburVI.exe"+5A1800F: F3 44 0F 59 91 A4 00 00 00        -  mulss xmm10,[rcx+000000A4]
+"SoulcaliburVI.exe"+5A18018: 45 0F 28 FD                       -  movaps xmm15,xmm13
+"SoulcaliburVI.exe"+5A1801C: F3 44 0F 59 99 A8 00 00 00        -  mulss xmm11,[rcx+000000A8]
+"SoulcaliburVI.exe"+5A18025: F3 44 0F 58 91 B4 00 00 00        -  addss xmm10,dword ptr [rcx+000000B4]
+"SoulcaliburVI.exe"+5A1802E: F3 44 0F 59 B9 A0 00 00 00        -  mulss xmm15,[rcx+000000A0]
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+58617B5
+
+"SoulcaliburVI.exe"+586177D: 4C 89 70 F0                    -  mov [rax-10],r14
+"SoulcaliburVI.exe"+5861781: 4C 89 78 E8                    -  mov [rax-18],r15
+"SoulcaliburVI.exe"+5861785: 48 8B 6B 28                    -  mov rbp,[rbx+28]
+"SoulcaliburVI.exe"+5861789: 44 39 A5 20 01 00 00           -  cmp [rbp+00000120],r12d
+"SoulcaliburVI.exe"+5861790: 0F 84 1F 02 00 00              -  je SoulcaliburVI.exe+58619B5
+"SoulcaliburVI.exe"+5861796: C7 85 04 02 00 00 01 00 00 00  -  mov [rbp+00000204],00000001
+"SoulcaliburVI.exe"+58617A0: 44 39 A5 38 5B 09 00           -  cmp [rbp+00095B38],r12d
+"SoulcaliburVI.exe"+58617A7: 74 0C                          -  je SoulcaliburVI.exe+58617B5
+"SoulcaliburVI.exe"+58617A9: 48 8D 8D 10 5B 09 00           -  lea rcx,[rbp+00095B10]
+"SoulcaliburVI.exe"+58617B0: E8 1B 4B AC FA                 -  call SoulcaliburVI.exe+3262D0
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+58617B5: F3 0F 10 2D 67 31 E5 FE        -  movss xmm5,[SoulcaliburVI.exe+46B4924]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+58617BD: 48 89 E9                       -  mov rcx,rbp
+"SoulcaliburVI.exe"+58617C0: F3 0F 11 AD 20 20 00 00        -  movss [rbp+00002020],xmm5
+"SoulcaliburVI.exe"+58617C8: F3 0F 10 05 54 31 E5 FE        -  movss xmm0,[SoulcaliburVI.exe+46B4924]
+"SoulcaliburVI.exe"+58617D0: F3 0F 11 85 0C 92 02 00        -  movss [rbp+0002920C],xmm0
+"SoulcaliburVI.exe"+58617D8: E8 13 10 A5 FA                 -  call SoulcaliburVI.exe+2B27F0
+"SoulcaliburVI.exe"+58617DD: 66 83 BD 72 4E 04 00 FF        -  cmp word ptr [rbp+00044E72],-01
+"SoulcaliburVI.exe"+58617E5: 74 1F                          -  je SoulcaliburVI.exe+5861806
+"SoulcaliburVI.exe"+58617E7: 4C 8D 85 70 4E 04 00           -  lea r8,[rbp+00044E70]
+"SoulcaliburVI.exe"+58617EE: 48 8D 95 38 41 04 00           -  lea rdx,[rbp+00044138]
+"SoulcaliburVI.exe"+58617F5: E8 86 A7 A4 FA                 -  call SoulcaliburVI.exe+2ABF80
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+58D1BC6
+
+"SoulcaliburVI.exe"+58D1B9F: 0F 2F D1                 -  comiss xmm2,xmm1
+"SoulcaliburVI.exe"+58D1BA2: 73 03                    -  jae SoulcaliburVI.exe+58D1BA7
+"SoulcaliburVI.exe"+58D1BA4: 0F 28 CA                 -  movaps xmm1,xmm2
+"SoulcaliburVI.exe"+58D1BA7: 80 3D 52 2D DE FE 00     -  cmp byte ptr [SoulcaliburVI.exe+46B4900],00
+"SoulcaliburVI.exe"+58D1BAE: 75 08                    -  jne SoulcaliburVI.exe+58D1BB8
+"SoulcaliburVI.exe"+58D1BB0: F3 0F 10 05 4C 2D DE FE  -  movss xmm0,[SoulcaliburVI.exe+46B4904]
+"SoulcaliburVI.exe"+58D1BB8: F3 0F 59 C1              -  mulss xmm0,xmm1
+"SoulcaliburVI.exe"+58D1BBC: C3                       -  ret
+"SoulcaliburVI.exe"+58D1BBD: F3 0F 10 05 0B 1E 43 FE  -  movss xmm0,[SoulcaliburVI.exe+3D039D0]
+"SoulcaliburVI.exe"+58D1BC5: C3                       -  ret
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+58D1BC6: F3 0F 10 05 56 2D DE FE  -  movss xmm0,[SoulcaliburVI.exe+46B4924]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+58D1BCE: F3 0F 59 81 60 34 00 00  -  mulss xmm0,[rcx+00003460]
+"SoulcaliburVI.exe"+58D1BD6: C3                       -  ret
+"SoulcaliburVI.exe"+58D1BD7: 4D 29 C0                 -  sub r8,r8
+"SoulcaliburVI.exe"+58D1BDA: 4C 8B 1C 24              -  mov r11,[rsp]
+"SoulcaliburVI.exe"+58D1BDE: 48 8D 64 24 08           -  lea rsp,[rsp+08]
+"SoulcaliburVI.exe"+58D1BE3: 48 8D 04 24              -  lea rax,[rsp]
+"SoulcaliburVI.exe"+58D1BE7: 48 2D 76 F2 79 70        -  sub rax,7079F276
+"SoulcaliburVI.exe"+58D1BED: 4C 03 80 76 F2 79 70     -  add r8,[rax+7079F276]
+"SoulcaliburVI.exe"+58D1BF4: 48 8D 64 24 08           -  lea rsp,[rsp+08]
+"SoulcaliburVI.exe"+58D1BF9: E9 A9 7D EE FF           -  jmp SoulcaliburVI.exe+57B99A7
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5A99B61
+
+"SoulcaliburVI.exe"+5A99B34: EB 27                    -  jmp SoulcaliburVI.exe+5A99B5D
+"SoulcaliburVI.exe"+5A99B36: F3 41 0F 10 50 4C        -  movss xmm2,[r8+4C]
+"SoulcaliburVI.exe"+5A99B3C: 0F 2F D4                 -  comiss xmm2,xmm4
+"SoulcaliburVI.exe"+5A99B3F: 76 1C                    -  jna SoulcaliburVI.exe+5A99B5D
+"SoulcaliburVI.exe"+5A99B41: F3 41 0F 10 48 44        -  movss xmm1,[r8+44]
+"SoulcaliburVI.exe"+5A99B47: F3 41 0F 5C 48 40        -  subss xmm1,[r8+40]
+"SoulcaliburVI.exe"+5A99B4D: F3 0F 59 CA              -  mulss xmm1,xmm2
+"SoulcaliburVI.exe"+5A99B51: F3 41 0F 58 48 40        -  addss xmm1,dword ptr [r8+40]
+"SoulcaliburVI.exe"+5A99B57: F3 41 0F 11 48 40        -  movss [r8+40],xmm1
+"SoulcaliburVI.exe"+5A99B5D: 41 FF 42 04              -  inc [r10+04]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5A99B61: F3 0F 10 81 28 20 00 00  -  movss xmm0,[rcx+00002028]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5A99B69: F3 41 0F 59 42 40        -  mulss xmm0,[r10+40]
+"SoulcaliburVI.exe"+5A99B6F: F3 41 0F 10 4A 2C        -  movss xmm1,[r10+2C]
+"SoulcaliburVI.exe"+5A99B75: F3 41 0F 59 43 30        -  mulss xmm0,[r11+30]
+"SoulcaliburVI.exe"+5A99B7B: F3 41 0F 58 42 20        -  addss xmm0,dword ptr [r10+20]
+"SoulcaliburVI.exe"+5A99B81: 0F 2F C1                 -  comiss xmm0,xmm1
+"SoulcaliburVI.exe"+5A99B84: F3 41 0F 11 42 20        -  movss [r10+20],xmm0
+"SoulcaliburVI.exe"+5A99B8A: 72 29                    -  jb SoulcaliburVI.exe+5A99BB5
+"SoulcaliburVI.exe"+5A99B8C: 66 41 83 7A 08 00        -  cmp word ptr [r10+08],00
+"SoulcaliburVI.exe"+5A99B92: B8 01 00 00 00           -  mov eax,00000001
+"SoulcaliburVI.exe"+5A99B97: 66 41 89 42 0A           -  mov [r10+0A],ax
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5A9713C
+
+"SoulcaliburVI.exe"+5A97119: 44 39 67 2C              -  cmp [rdi+2C],r12d
+"SoulcaliburVI.exe"+5A9711D: 74 12                    -  je SoulcaliburVI.exe+5A97131
+"SoulcaliburVI.exe"+5A9711F: 66 44 39 67 50           -  cmp [rdi+50],r12w
+"SoulcaliburVI.exe"+5A97124: 75 0B                    -  jne SoulcaliburVI.exe+5A97131
+"SoulcaliburVI.exe"+5A97126: 44 89 F2                 -  mov edx,r14d
+"SoulcaliburVI.exe"+5A97129: 48 89 F1                 -  mov rcx,rsi
+"SoulcaliburVI.exe"+5A9712C: E8 4F 5C 81 FA           -  call SoulcaliburVI.exe+2ACD80
+"SoulcaliburVI.exe"+5A97131: 48 89 F1                 -  mov rcx,rsi
+"SoulcaliburVI.exe"+5A97134: E8 C7 22 82 FA           -  call SoulcaliburVI.exe+2B9400
+"SoulcaliburVI.exe"+5A97139: 44 89 F2                 -  mov edx,r14d
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5A9713C: F3 0F 11 86 28 20 00 00  -  movss [rsi+00002028],xmm0
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5A97144: E8 27 79 81 FA           -  call SoulcaliburVI.exe+2AEA70
+"SoulcaliburVI.exe"+5A97149: 85 C0                    -  test eax,eax
+"SoulcaliburVI.exe"+5A9714B: 74 50                    -  je SoulcaliburVI.exe+5A9719D
+"SoulcaliburVI.exe"+5A9714D: 0F B7 47 54              -  movzx eax,word ptr [rdi+54]
+"SoulcaliburVI.exe"+5A97151: 66 FF C0                 -  inc ax
+"SoulcaliburVI.exe"+5A97154: 66 89 47 54              -  mov [rdi+54],ax
+"SoulcaliburVI.exe"+5A97158: 66 83 F8 10              -  cmp ax,10
+"SoulcaliburVI.exe"+5A9715C: 0F 8E 6E FE FF FF        -  jng SoulcaliburVI.exe+5A96FD0
+"SoulcaliburVI.exe"+5A97162: 48 89 F1                 -  mov rcx,rsi
+"SoulcaliburVI.exe"+5A97165: 45 85 F6                 -  test r14d,r14d
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>55</ID>
+          <Description>"speed value"</Description>
+          <VariableType>Float</VariableType>
+          <Address>speedval</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1388</ID>
+      <Description>"Speed control v2"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(speedcontrol1,SoulcaliburVI.exe,F3 44 0F 10 35 57 90 54 FE)
+define(bytes1,speedcontrol1)
+aobscanmodule(speedcontrol2,SoulcaliburVI.exe,F3 0F 10 2D !7 * * F! 48 89 E9 F3)
+define(bytes2,speedcontrol2)
+aobscanmodule(speedcontrol3,SoulcaliburVI.exe,F3 0F 10 05 !6 * * F! F3 0F 59 81)
+define(bytes3,speedcontrol3)
+aobscanmodule(speedcontrol4,SoulcaliburVI.exe,F3 0F 10 81 50 20 00 00)
+aobscanmodule(speedcontrol5,SoulcaliburVI.exe,F3 0F 11 86 50 20 00 00)
+aobscanmodule(speedcontrol6,SoulcaliburVI.exe,F3 0F 2C CC F3 41 0F 11 62 08)
+alloc(bytestore,32,13FC00000)
+alloc(newmem,$1000,speedcontrol1)
+alloc(newmem2,$1000,speedcontrol2)
+alloc(newmem3,$1000,speedcontrol3)
+alloc(newmem4,$1000,speedcontrol4)
+alloc(newmem5,$1000,speedcontrol5)
+alloc(speedval,8)
+label(code)
+label(return)
+label(code2)
+label(return2)
+label(code3)
+label(return3)
+label(code4)
+label(return4)
+label(code5)
+label(return5)
+registersymbol(speedval)
+registersymbol(speedcontrol1)
+registersymbol(speedcontrol2)
+registersymbol(speedcontrol3)
+registersymbol(speedcontrol4)
+registersymbol(speedcontrol5)
+registersymbol(speedcontrol6)
+registersymbol(bytestore)
+speedcontrol6:
+db F3 0F 2C CB
+speedval:
+dd 0
+bytestore:
+readmem(bytes1,9)
+bytestore+10:
+readmem(bytes2,8)
+bytestore+20:
+readmem(bytes3,8)
+newmem5:
+
+code5:
+  movss xmm0,[speedval]
+  jmp return5
+newmem4:
+
+code4:
+  movss xmm0,[speedval]
+  jmp return4
+newmem3:
+
+code3:
+  movss xmm0,[speedval]
+  jmp return3
+
+newmem2:
+
+code2:
+  movss xmm5,[speedval]
+  jmp return2
+
+newmem:
+
+code:
+  movss xmm14,[speedval]
+  jmp return
+
+speedcontrol1:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+
+speedcontrol2:
+  jmp newmem2
+  nop
+  nop
+  nop
+return2:
+speedcontrol3:
+  jmp newmem3
+  nop
+  nop
+  nop
+return3:
+speedcontrol4:
+  jmp newmem4
+  nop
+  nop
+  nop
+return4:
+speedcontrol5:
+  jmp newmem5
+  nop
+  nop
+  nop
+return5:
+[DISABLE]
+speedcontrol6:
+db F3 0F 2C CC
+dealloc(newmem)
+dealloc(newmem2)
+dealloc(newmem3)
+dealloc(newmem4)
+dealloc(newmem5)
+speedcontrol1:
+readmem(bytestore,09)
+speedcontrol2:
+readmem(bytestore+10,08)
+speedcontrol3:
+readmem(bytestore+20,08)
+speedcontrol4:
+db F3 0F 10 81 50 20 00 00
+speedcontrol5:
+db F3 0F 11 86 50 20 00 00
+unregistersymbol(speedcontrol1)
+unregistersymbol(speedcontrol2)
+unregistersymbol(speedcontrol3)
+unregistersymbol(speedcontrol4)
+unregistersymbol(speedcontrol5)
+unregistersymbol(speedcontrol6)
+dealloc(speedval)
+dealloc(bytestore)
+unregistersymbol(speedval)
+unregistersymbol(bytestore)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5A17FEC
+
+"SoulcaliburVI.exe"+5A17FAF: 0F 29 70 D8                       -  movaps [rax-28],xmm6
+"SoulcaliburVI.exe"+5A17FB3: 0F 29 78 C8                       -  movaps [rax-38],xmm7
+"SoulcaliburVI.exe"+5A17FB7: 44 0F 29 40 B8                    -  movaps [rax-48],xmm8
+"SoulcaliburVI.exe"+5A17FBC: 44 0F 29 48 A8                    -  movaps [rax-58],xmm9
+"SoulcaliburVI.exe"+5A17FC1: F3 44 0F 10 0D 06 BA 2E FE        -  movss xmm9,[SoulcaliburVI.exe+3D039D0]
+"SoulcaliburVI.exe"+5A17FCA: 44 0F 29 50 98                    -  movaps [rax-68],xmm10
+"SoulcaliburVI.exe"+5A17FCF: 44 0F 29 58 88                    -  movaps [rax-78],xmm11
+"SoulcaliburVI.exe"+5A17FD4: 44 0F 29 A0 78 FF FF FF           -  movaps [rax-00000088],xmm12
+"SoulcaliburVI.exe"+5A17FDC: 44 0F 29 A8 68 FF FF FF           -  movaps [rax-00000098],xmm13
+"SoulcaliburVI.exe"+5A17FE4: 44 0F 29 B0 58 FF FF FF           -  movaps [rax-000000A8],xmm14
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5A17FEC: F3 44 0F 10 35 6F FD 54 FE        -  movss xmm14,[SoulcaliburVI.exe+3F67D64]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5A17FF5: 45 0F 28 EE                       -  movaps xmm13,xmm14
+"SoulcaliburVI.exe"+5A17FF9: 44 0F 29 B8 48 FF FF FF           -  movaps [rax-000000B8],xmm15
+"SoulcaliburVI.exe"+5A18001: F3 44 0F 59 69 68                 -  mulss xmm13,[rcx+68]
+"SoulcaliburVI.exe"+5A18007: 45 0F 28 D5                       -  movaps xmm10,xmm13
+"SoulcaliburVI.exe"+5A1800B: 45 0F 28 DD                       -  movaps xmm11,xmm13
+"SoulcaliburVI.exe"+5A1800F: F3 44 0F 59 91 A4 00 00 00        -  mulss xmm10,[rcx+000000A4]
+"SoulcaliburVI.exe"+5A18018: 45 0F 28 FD                       -  movaps xmm15,xmm13
+"SoulcaliburVI.exe"+5A1801C: F3 44 0F 59 99 A8 00 00 00        -  mulss xmm11,[rcx+000000A8]
+"SoulcaliburVI.exe"+5A18025: F3 44 0F 58 91 B4 00 00 00        -  addss xmm10,dword ptr [rcx+000000B4]
+"SoulcaliburVI.exe"+5A1802E: F3 44 0F 59 B9 A0 00 00 00        -  mulss xmm15,[rcx+000000A0]
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+58617B5
+
+"SoulcaliburVI.exe"+586177D: 4C 89 70 F0                    -  mov [rax-10],r14
+"SoulcaliburVI.exe"+5861781: 4C 89 78 E8                    -  mov [rax-18],r15
+"SoulcaliburVI.exe"+5861785: 48 8B 6B 28                    -  mov rbp,[rbx+28]
+"SoulcaliburVI.exe"+5861789: 44 39 A5 20 01 00 00           -  cmp [rbp+00000120],r12d
+"SoulcaliburVI.exe"+5861790: 0F 84 1F 02 00 00              -  je SoulcaliburVI.exe+58619B5
+"SoulcaliburVI.exe"+5861796: C7 85 04 02 00 00 01 00 00 00  -  mov [rbp+00000204],00000001
+"SoulcaliburVI.exe"+58617A0: 44 39 A5 38 5B 09 00           -  cmp [rbp+00095B38],r12d
+"SoulcaliburVI.exe"+58617A7: 74 0C                          -  je SoulcaliburVI.exe+58617B5
+"SoulcaliburVI.exe"+58617A9: 48 8D 8D 10 5B 09 00           -  lea rcx,[rbp+00095B10]
+"SoulcaliburVI.exe"+58617B0: E8 1B 4B AC FA                 -  call SoulcaliburVI.exe+3262D0
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+58617B5: F3 0F 10 2D 67 31 E5 FE        -  movss xmm5,[SoulcaliburVI.exe+46B4924]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+58617BD: 48 89 E9                       -  mov rcx,rbp
+"SoulcaliburVI.exe"+58617C0: F3 0F 11 AD 20 20 00 00        -  movss [rbp+00002020],xmm5
+"SoulcaliburVI.exe"+58617C8: F3 0F 10 05 54 31 E5 FE        -  movss xmm0,[SoulcaliburVI.exe+46B4924]
+"SoulcaliburVI.exe"+58617D0: F3 0F 11 85 0C 92 02 00        -  movss [rbp+0002920C],xmm0
+"SoulcaliburVI.exe"+58617D8: E8 13 10 A5 FA                 -  call SoulcaliburVI.exe+2B27F0
+"SoulcaliburVI.exe"+58617DD: 66 83 BD 72 4E 04 00 FF        -  cmp word ptr [rbp+00044E72],-01
+"SoulcaliburVI.exe"+58617E5: 74 1F                          -  je SoulcaliburVI.exe+5861806
+"SoulcaliburVI.exe"+58617E7: 4C 8D 85 70 4E 04 00           -  lea r8,[rbp+00044E70]
+"SoulcaliburVI.exe"+58617EE: 48 8D 95 38 41 04 00           -  lea rdx,[rbp+00044138]
+"SoulcaliburVI.exe"+58617F5: E8 86 A7 A4 FA                 -  call SoulcaliburVI.exe+2ABF80
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+58D1BC6
+
+"SoulcaliburVI.exe"+58D1B9F: 0F 2F D1                 -  comiss xmm2,xmm1
+"SoulcaliburVI.exe"+58D1BA2: 73 03                    -  jae SoulcaliburVI.exe+58D1BA7
+"SoulcaliburVI.exe"+58D1BA4: 0F 28 CA                 -  movaps xmm1,xmm2
+"SoulcaliburVI.exe"+58D1BA7: 80 3D 52 2D DE FE 00     -  cmp byte ptr [SoulcaliburVI.exe+46B4900],00
+"SoulcaliburVI.exe"+58D1BAE: 75 08                    -  jne SoulcaliburVI.exe+58D1BB8
+"SoulcaliburVI.exe"+58D1BB0: F3 0F 10 05 4C 2D DE FE  -  movss xmm0,[SoulcaliburVI.exe+46B4904]
+"SoulcaliburVI.exe"+58D1BB8: F3 0F 59 C1              -  mulss xmm0,xmm1
+"SoulcaliburVI.exe"+58D1BBC: C3                       -  ret
+"SoulcaliburVI.exe"+58D1BBD: F3 0F 10 05 0B 1E 43 FE  -  movss xmm0,[SoulcaliburVI.exe+3D039D0]
+"SoulcaliburVI.exe"+58D1BC5: C3                       -  ret
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+58D1BC6: F3 0F 10 05 56 2D DE FE  -  movss xmm0,[SoulcaliburVI.exe+46B4924]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+58D1BCE: F3 0F 59 81 60 34 00 00  -  mulss xmm0,[rcx+00003460]
+"SoulcaliburVI.exe"+58D1BD6: C3                       -  ret
+"SoulcaliburVI.exe"+58D1BD7: 4D 29 C0                 -  sub r8,r8
+"SoulcaliburVI.exe"+58D1BDA: 4C 8B 1C 24              -  mov r11,[rsp]
+"SoulcaliburVI.exe"+58D1BDE: 48 8D 64 24 08           -  lea rsp,[rsp+08]
+"SoulcaliburVI.exe"+58D1BE3: 48 8D 04 24              -  lea rax,[rsp]
+"SoulcaliburVI.exe"+58D1BE7: 48 2D 76 F2 79 70        -  sub rax,7079F276
+"SoulcaliburVI.exe"+58D1BED: 4C 03 80 76 F2 79 70     -  add r8,[rax+7079F276]
+"SoulcaliburVI.exe"+58D1BF4: 48 8D 64 24 08           -  lea rsp,[rsp+08]
+"SoulcaliburVI.exe"+58D1BF9: E9 A9 7D EE FF           -  jmp SoulcaliburVI.exe+57B99A7
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5A99B61
+
+"SoulcaliburVI.exe"+5A99B34: EB 27                    -  jmp SoulcaliburVI.exe+5A99B5D
+"SoulcaliburVI.exe"+5A99B36: F3 41 0F 10 50 4C        -  movss xmm2,[r8+4C]
+"SoulcaliburVI.exe"+5A99B3C: 0F 2F D4                 -  comiss xmm2,xmm4
+"SoulcaliburVI.exe"+5A99B3F: 76 1C                    -  jna SoulcaliburVI.exe+5A99B5D
+"SoulcaliburVI.exe"+5A99B41: F3 41 0F 10 48 44        -  movss xmm1,[r8+44]
+"SoulcaliburVI.exe"+5A99B47: F3 41 0F 5C 48 40        -  subss xmm1,[r8+40]
+"SoulcaliburVI.exe"+5A99B4D: F3 0F 59 CA              -  mulss xmm1,xmm2
+"SoulcaliburVI.exe"+5A99B51: F3 41 0F 58 48 40        -  addss xmm1,dword ptr [r8+40]
+"SoulcaliburVI.exe"+5A99B57: F3 41 0F 11 48 40        -  movss [r8+40],xmm1
+"SoulcaliburVI.exe"+5A99B5D: 41 FF 42 04              -  inc [r10+04]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5A99B61: F3 0F 10 81 28 20 00 00  -  movss xmm0,[rcx+00002028]
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5A99B69: F3 41 0F 59 42 40        -  mulss xmm0,[r10+40]
+"SoulcaliburVI.exe"+5A99B6F: F3 41 0F 10 4A 2C        -  movss xmm1,[r10+2C]
+"SoulcaliburVI.exe"+5A99B75: F3 41 0F 59 43 30        -  mulss xmm0,[r11+30]
+"SoulcaliburVI.exe"+5A99B7B: F3 41 0F 58 42 20        -  addss xmm0,dword ptr [r10+20]
+"SoulcaliburVI.exe"+5A99B81: 0F 2F C1                 -  comiss xmm0,xmm1
+"SoulcaliburVI.exe"+5A99B84: F3 41 0F 11 42 20        -  movss [r10+20],xmm0
+"SoulcaliburVI.exe"+5A99B8A: 72 29                    -  jb SoulcaliburVI.exe+5A99BB5
+"SoulcaliburVI.exe"+5A99B8C: 66 41 83 7A 08 00        -  cmp word ptr [r10+08],00
+"SoulcaliburVI.exe"+5A99B92: B8 01 00 00 00           -  mov eax,00000001
+"SoulcaliburVI.exe"+5A99B97: 66 41 89 42 0A           -  mov [r10+0A],ax
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5A9713C
+
+"SoulcaliburVI.exe"+5A97119: 44 39 67 2C              -  cmp [rdi+2C],r12d
+"SoulcaliburVI.exe"+5A9711D: 74 12                    -  je SoulcaliburVI.exe+5A97131
+"SoulcaliburVI.exe"+5A9711F: 66 44 39 67 50           -  cmp [rdi+50],r12w
+"SoulcaliburVI.exe"+5A97124: 75 0B                    -  jne SoulcaliburVI.exe+5A97131
+"SoulcaliburVI.exe"+5A97126: 44 89 F2                 -  mov edx,r14d
+"SoulcaliburVI.exe"+5A97129: 48 89 F1                 -  mov rcx,rsi
+"SoulcaliburVI.exe"+5A9712C: E8 4F 5C 81 FA           -  call SoulcaliburVI.exe+2ACD80
+"SoulcaliburVI.exe"+5A97131: 48 89 F1                 -  mov rcx,rsi
+"SoulcaliburVI.exe"+5A97134: E8 C7 22 82 FA           -  call SoulcaliburVI.exe+2B9400
+"SoulcaliburVI.exe"+5A97139: 44 89 F2                 -  mov edx,r14d
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5A9713C: F3 0F 11 86 28 20 00 00  -  movss [rsi+00002028],xmm0
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5A97144: E8 27 79 81 FA           -  call SoulcaliburVI.exe+2AEA70
+"SoulcaliburVI.exe"+5A97149: 85 C0                    -  test eax,eax
+"SoulcaliburVI.exe"+5A9714B: 74 50                    -  je SoulcaliburVI.exe+5A9719D
+"SoulcaliburVI.exe"+5A9714D: 0F B7 47 54              -  movzx eax,word ptr [rdi+54]
+"SoulcaliburVI.exe"+5A97151: 66 FF C0                 -  inc ax
+"SoulcaliburVI.exe"+5A97154: 66 89 47 54              -  mov [rdi+54],ax
+"SoulcaliburVI.exe"+5A97158: 66 83 F8 10              -  cmp ax,10
+"SoulcaliburVI.exe"+5A9715C: 0F 8E 6E FE FF FF        -  jng SoulcaliburVI.exe+5A96FD0
+"SoulcaliburVI.exe"+5A97162: 48 89 F1                 -  mov rcx,rsi
+"SoulcaliburVI.exe"+5A97165: 45 85 F6                 -  test r14d,r14d
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1389</ID>
+          <Description>"speed value"</Description>
+          <VariableType>Float</VariableType>
+          <Address>speedval</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>56</ID>
+      <Description>"VFX off"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(hiteffect,SoulcaliburVI.exe,F3 0F 11 34 B8 48 8B)
+alloc(newmem,$1000,hiteffect)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movss [rax+rdi*4],xmm6
+  mov [rax+rdi*4],468FAF9C
+  jmp return
+
+hiteffect:
+  jmp newmem
+return:
+registersymbol(hiteffect)
+
+[DISABLE]
+
+hiteffect:
+  db F3 0F 11 34 B8
+
+unregistersymbol(hiteffect)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "SoulcaliburVI.exe"+5FE2EF9
+
+"SoulcaliburVI.exe"+5FE2ECB: 48 89 7C 24 40        -  mov [rsp+40],rdi
+"SoulcaliburVI.exe"+5FE2ED0: 89 C7                 -  mov edi,eax
+"SoulcaliburVI.exe"+5FE2ED2: 48 8B 81 00 04 00 00  -  mov rax,[rcx+00000400]
+"SoulcaliburVI.exe"+5FE2ED9: F3 0F 10 14 B8        -  movss xmm2,[rax+rdi*4]
+"SoulcaliburVI.exe"+5FE2EDE: 0F 2E D6              -  ucomiss xmm2,xmm6
+"SoulcaliburVI.exe"+5FE2EE1: 74 0F                 -  je SoulcaliburVI.exe+5FE2EF2
+"SoulcaliburVI.exe"+5FE2EE3: 48 81 C1 90 03 00 00  -  add rcx,00000390
+"SoulcaliburVI.exe"+5FE2EEA: 0F 28 DE              -  movaps xmm3,xmm6
+"SoulcaliburVI.exe"+5FE2EED: E8 6E 33 3B FA        -  call SoulcaliburVI.exe+396260
+"SoulcaliburVI.exe"+5FE2EF2: 48 8B 83 00 04 00 00  -  mov rax,[rbx+00000400]
+// ---------- INJECTING HERE ----------
+"SoulcaliburVI.exe"+5FE2EF9: F3 0F 11 34 B8        -  movss [rax+rdi*4],xmm6
+// ---------- DONE INJECTING  ----------
+"SoulcaliburVI.exe"+5FE2EFE: 48 8B 7C 24 40        -  mov rdi,[rsp+40]
+"SoulcaliburVI.exe"+5FE2F03: 0F 28 74 24 20        -  movaps xmm6,[rsp+20]
+"SoulcaliburVI.exe"+5FE2F08: 48 83 C4 30           -  add rsp,30
+"SoulcaliburVI.exe"+5FE2F0C: 5B                    -  pop rbx
+"SoulcaliburVI.exe"+5FE2F0D: C3                    -  ret 
+"SoulcaliburVI.exe"+5FE2F0E: CC                    -  int 3 
+"SoulcaliburVI.exe"+5FE2F0F: 48 8B 3C 24           -  mov rdi,[rsp]
+"SoulcaliburVI.exe"+5FE2F13: 48 83 C4 08           -  add rsp,08
+"SoulcaliburVI.exe"+5FE2F17: 48 29 DB              -  sub rbx,rbx
+"SoulcaliburVI.exe"+5FE2F1A: 48 03 1C 24           -  add rbx,[rsp]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>136</ID>
+      <Description>"control joints (test20190220a)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{
+ -nakayoc5c5.blog.shinobi.jp
+ --oct.19/2018:created
+ ---feb.20/2019:modified
+}
+
+
+//
+[ENABLE]
+
+//
+alloc(NewEntry,20480,"SoulcaliburVI.exe")
+//
+define(injAddJointRot,SoulcaliburVI.exe+2D807A)
+define(retAdrAJR,SoulcaliburVI.exe+2D808B)
+//
+define(injOvrMdlCoo,SoulcaliburVI.exe+2D88B3)
+define(retAdrOMC,SoulcaliburVI.exe+2D88C1)
+//
+define(injRubMdl,SoulcaliburVI.exe+1051FEC)
+define(retAdrRub,SoulcaliburVI.exe+1051FFC)
+//
+registersymbol(injAddJointRot)
+registersymbol(injOvrMdlCoo)
+registersymbol(injRubMdl)
+//
+label(AddJointRot)
+label(OvrMdlCoo)
+label(RubMdl)
+//
+label(joNum)
+label(jointsOv)
+
+//
+NewEntry:
+
+//
+AddJointRot:
+  lea rdx,[jointsOv]
+  lea r8,[joNum]
+
+  movzx eax,word ptr [r8]
+  and eax,1F
+  mov [r8],ax
+
+  inc eax
+  shl rax,4
+  lea rax,[rax+rdx]
+  movzx ecx,word ptr [r8+04]
+  and ecx,01
+  shl rcx,0C
+  lea rax,[rcx+rax]
+
+  xorps xmm1,xmm1
+
+  movss xmm0,[r8+30]
+  addss xmm0,[rax+00]
+  movss [r8+30],xmm1
+  movss [rax+00],xmm0
+
+  movss xmm0,[r8+34]
+  addss xmm0,[rax+04]
+  movss [r8+34],xmm1
+  movss [rax+04],xmm0
+
+  movss xmm0,[r8+38]
+  addss xmm0,[rax+08]
+  movss [r8+38],xmm1
+  movss [rax+08],xmm0
+
+  test byte ptr [r8+06],03
+  je ChkJntTst
+
+  btr [rax+0F],07
+  btr [r8+06],01
+  btr [r8+06],00
+  jae ChkJntTst
+
+  bts [rax+0F],07
+
+ChkJntTst:
+  bt [r8+06],07
+  jae RstJointRot
+
+  bts [rax+0C],01
+
+RstJointRot:
+  btr [r8+07],07
+  jae AddMdlCoo
+
+  movss [rax+00],xmm1
+  movss [rax+04],xmm1
+  movss [rax+08],xmm1
+
+AddMdlCoo:
+  lea rax,[rcx+rdx+0FF0]
+
+  movss xmm0,[r8+40]
+  addss xmm0,[rax+00]
+  movss [r8+40],xmm1
+  movss [rax+00],xmm0
+
+  movss xmm0,[r8+44]
+  addss xmm0,[rax+08]
+  movss [r8+44],xmm1
+  movss [rax+08],xmm0
+
+  movss xmm0,[r8+48]
+  addss xmm0,[rax+04]
+  movss [r8+48],xmm1
+  movss [rax+04],xmm0
+
+//RstJointRot
+  btr [r8+07],03
+  jae ChkJntGrp
+
+  movss [rax+00],xmm1
+  movss [rax+04],xmm1
+  movss [rax+08],xmm1
+
+ChkJntGrp:
+  mov ecx,edi
+
+  cmp ecx,20
+  ja SkpRotOvr
+
+PrpJntOvr:
+  mov rax,rcx
+  shl rax,4
+  lea rax,[rax+rdx]
+
+  mov rdx,02
+  cmp [rsp+3B10],rdx
+  ja OvrJointRot
+
+  sub rdx,[rsp+3B10]
+  shl rdx,0C
+  lea rax,[rdx+rax]
+
+OvrJointRot:
+  lea rdx,[rax+2000]
+
+  bt [rax+0F],07
+  jb SkpRotSto
+
+  lea rdx,[rsi-18]
+
+  movss xmm0,[rdx+00]
+  movss xmm1,[rdx+04]
+  movss xmm2,[rdx+08]
+
+  movss [rax+2000],xmm0
+  movss [rax+2004],xmm1
+  movss [rax+2008],xmm2
+
+SkpRotSto:
+  movss xmm0,[rax+04]
+  movss xmm1,[rax+08]
+  movss xmm2,[rax+00]
+
+  cmp rcx,01
+  jne SkpRootSet
+
+  movss xmm0,[rax+00]
+  movss xmm1,[rax+04]
+  movss xmm2,[rax+08]
+
+SkpRootSet:
+  addss xmm0,[rdx+00]
+
+  btr [rax+0C],01
+  jae SkpJntTst
+
+  addss xmm0,[r8+18]
+
+SkpJntTst:
+  addss xmm1,[rdx+04]
+  addss xmm2,[rdx+08]
+  movss [rsi-18],xmm0
+  movss [rsi-14],xmm1
+  movss [rsi-10],xmm2
+
+SkpRotOvr:
+  db 48 8D 8E 48 F4 FF FF 0F 28 DE 48 8B D1 4C 8D 46 E8
+  jmp retAdrAJR
+
+//
+OvrMdlCoo:
+  lea rcx,[jointsOv+0FF0]
+
+  mov rax,02
+  cmp [rsp+3B10],rax
+  ja SkpSidSet
+
+  sub rax,[rsp+3B10]
+  shl rax,0C
+  lea rcx,[rax+rcx]
+
+SkpSidSet:
+  movss xmm0,[rbp+0290]
+  movss xmm1,[rbp+0294]
+  movss xmm2,[rbp+0298]
+
+  addss xmm0,[rcx+00]
+  addss xmm1,[rcx+04]
+  addss xmm2,[rcx+08]
+
+  lea rax,[joNum+60]
+
+  test byte ptr [rax+00],02
+  jne GrdZ
+
+  test byte ptr [rax+00],08
+  jne GrdYp
+
+  subss xmm1,[rax+0C]
+  jmp SetMdlCoo
+
+GrdYp:
+  addss xmm1,[rax+0C]
+  jmp SetMdlCoo
+
+GrdZ:
+  test byte ptr [rax+00],08
+  jne GrdZp
+
+  addss xmm2,[rax+0C]
+  jmp SetMdlCoo
+
+GrdZp:
+  subss xmm2,[rax+0C]
+
+SetMdlCoo:
+  movss [rbp+0290],xmm0
+  movss [rbp+0294],xmm1
+  movss [rbp+0298],xmm2
+
+  db 4C 8B B5 D0 00 00 00 4C 8D 8D 98 02 00 00
+  jmp retAdrOMC
+
+//
+RubMdl:
+  db F2 0F 10 82 18 05 00 00 F2 0F 5C 82 20 05 00 00
+
+  lea rcx,[joNum+60]
+
+  cmp byte ptr [rcx+00],00
+  je RstMdlRub
+
+  test byte ptr [rcx+00],04
+  jne RubAtm
+
+  mov rax,[SoulcaliburVI.exe+4123018]
+  mov rax,[rax+01D8]
+  test rax,rax
+  jne ActRub
+
+RstMdlRub:
+  mov dword ptr [rcx+0C],00000000
+  jmp EndMdlRub
+
+ActRub:
+  test byte ptr [rax+20],01
+  jne DtcKeyRub
+
+  mov word ptr [rcx+04],0000
+  jmp LftMdl
+
+DtcKeyRub:
+  mov [rcx+08],3F800000
+
+  cmp word ptr [rcx+04],04
+  jae LwrMdl
+
+  inc word ptr [rcx+04]
+  mov eax,[rcx+10]
+  mov [rcx+08],eax
+  jmp LwrMdl
+
+RubAtm:
+  mov [rcx+08],3F800000
+  test byte ptr [rcx+02],01
+  jne LftMdl
+
+LwrMdl:
+  fld dword ptr [rcx+18]
+  fld dword ptr [rcx+0C]
+  fcomp dword ptr [rcx+1C]
+  fnstsw ax
+  test ah,1
+  jne RubMdlY
+
+  fld dword ptr [rcx+1C]
+  fstp dword ptr [rcx+0C]
+  fsub st(0),st(0)
+  or byte ptr [rcx+02],01
+  jmp RubMdlY
+
+LftMdl:
+  fld dword ptr [rcx+14]
+  fchs
+  fldz
+  fcomp dword ptr [rcx+0C]
+  fnstsw ax
+  test ah,1
+  jne RubMdlY
+
+  fsub st(0),st(0)
+  fst dword ptr [rcx+0C]
+  and byte ptr [rcx+02],FE
+
+RubMdlY:
+  fmul dword ptr [rcx+08]
+  fadd dword ptr [rcx+0C]
+  fstp dword ptr [rcx+0C]
+
+EndMdlRub:
+  jmp retAdrRub
+
+//
+joNum:
+  dw 0000
+  dw 0000
+  dw 0000
+  db 00 00
+  //+8
+  dq 0000000000000000
+  //+10
+  dd 3F800000
+  dd BF800000
+  dd 40000000
+  dd C0000000
+  //+20
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //+30
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //+40
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //+50
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //+60
+  dd 00000000
+  dd 00000000
+  dd 3F800000
+  dd 00000000
+  //+70
+  dd 3FA80000
+  dd 3B500000
+  dd 3BD00000
+  dd 3F400000
+//
+registersymbol(joNum)
+
+//
+jointsOv:
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  dd 00000000
+  //
+registersymbol(jointsOv)
+
+//
+injAddJointRot:
+  jmp AddJointRot
+
+//
+injOvrMdlCoo:
+  jmp OvrMdlCoo
+
+//
+injRubMdl:
+  jmp RubMdl
+
+
+//
+[DISABLE]
+
+//
+injAddJointRot:
+  db 48 8D 8E 48 F4 FF FF 0F 28 DE 48 8B D1 4C 8D 46 E8
+
+//
+injOvrMdlCoo:
+  db 4C 8B B5 D0 00 00 00 4C 8D 8D 98 02 00 00
+
+//
+injRubMdl:
+  db F2 0F 10 82 18 05 00 00 F2 0F 5C 82 20 05 00 00
+
+//
+dealloc(NewEntry)
+unregistersymbol(joNum)
+unregistersymbol(jointsOv)
+unregistersymbol(injAddJointRot)
+unregistersymbol(injOvrMdlCoo)
+unregistersymbol(injRubMdl)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"joint number"</Description>
+          <VariableType>2 Bytes</VariableType>
+          <Address>joNum</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+              <ActivateSound>Deactivate</ActivateSound>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+              <ActivateSound>Activate</ActivateSound>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>121</ID>
+          <Description>"side"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>joNum+04</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>61</ID>
+          <Description>"test joint on/off hotkeys"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>7</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>joNum+06</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>84</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>71</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"pause/play joint rot animation"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>0</BitStart>
+          <BitLength>2</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>joNum+06</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>66</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"reset rot hotkey"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>7</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>joNum+07</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>67</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87</ID>
+          <Description>"reset pos hotkey"</Description>
+          <VariableType>Binary</VariableType>
+          <BitStart>3</BitStart>
+          <BitLength>1</BitLength>
+          <ShowAsBinary>0</ShowAsBinary>
+          <Address>joNum+07</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>67</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>51</ID>
+          <Description>"rot joint x hotkeys"</Description>
+          <VariableType>Float</VariableType>
+          <Address>joNum+30</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>72</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>72</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"rot joint y hotkeys"</Description>
+          <VariableType>Float</VariableType>
+          <Address>joNum+34</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>72</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>72</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"rot joint z hotkeys"</Description>
+          <VariableType>Float</VariableType>
+          <Address>joNum+38</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>72</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>77</Key>
+                <Key>72</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84</ID>
+          <Description>"mov model x hotkeys"</Description>
+          <VariableType>Float</VariableType>
+          <Address>joNum+40</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>74</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>76</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>113</ID>
+          <Description>"mov model y hotkeys"</Description>
+          <VariableType>Float</VariableType>
+          <Address>joNum+48</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>86</ID>
+          <Description>"mov model z hotkeys"</Description>
+          <VariableType>Float</VariableType>
+          <Address>joNum+44</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>85</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>78</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>107</ID>
+          <Description>"grind mode"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>joNum+60</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>81</ID>
+              <Description>"move ratio"</Description>
+              <VariableType>Float</VariableType>
+              <Address>joNum+78</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82</ID>
+              <Description>"return ratio"</Description>
+              <VariableType>Float</VariableType>
+              <Address>joNum+74</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>83</ID>
+              <Description>"move limit"</Description>
+              <VariableType>Float</VariableType>
+              <Address>joNum+7C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>106</ID>
+              <Description>"initial acceleration"</Description>
+              <VariableType>Float</VariableType>
+              <Address>joNum+70</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

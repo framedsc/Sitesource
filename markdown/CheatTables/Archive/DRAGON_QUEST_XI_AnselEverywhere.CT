@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <Forms>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">b7Ej%2nldAU:MM2b.}cxWeIh0Gi32eO*Ft$Wn{Y6%{mcIVgA6t9Fkwal+AgInNpI$=7,zGoLEqjnV-i7R=ffx00</UDF1>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Enable Ansel Everywhere [HOME to activate]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : DRAGON QUEST XI.exe
+  Version: 
+  Date   : 2019-06-21
+  Author : Sankara
+
+  This script enables Ansel everywhere - cutscenes and dialogue
+}
+
+[ENABLE]
+
+aobscanmodule(AnselAlways,DRAGON QUEST XI.exe,74 51 48 8B 0D E2 A9 47 01) // should be unique
+alloc(newmem,$1000,"DRAGON QUEST XI.exe"+2E74EB5)
+
+label(code)
+label(return)
+
+newmem:
+  nop
+  nop
+  mov rcx,["DRAGON QUEST XI.exe"+42EF8A0]
+  jmp return
+
+code:
+  je "DRAGON QUEST XI.exe"+2E74F08
+  mov rcx,["DRAGON QUEST XI.exe"+42EF8A0]
+  jmp return
+
+AnselAlways:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(AnselAlways)
+
+[DISABLE]
+
+AnselAlways:
+  db 74 51 48 8B 0D E2 A9 47 01
+
+unregistersymbol(AnselAlways)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "DRAGON QUEST XI.exe"+2E74EB5
+
+"DRAGON QUEST XI.exe"+2E74E89: 0F 8F 8B 00 00 00           -  jg "DRAGON QUEST XI.exe"+2E74F1A
+"DRAGON QUEST XI.exe"+2E74E8F: 8B 06                       -  mov eax,[rsi]
+"DRAGON QUEST XI.exe"+2E74E91: 39 05 11 AA 47 01           -  cmp ["DRAGON QUEST XI.exe"+42EF8A8],eax
+"DRAGON QUEST XI.exe"+2E74E97: 0F 8F D6 00 00 00           -  jg "DRAGON QUEST XI.exe"+2E74F73
+"DRAGON QUEST XI.exe"+2E74E9D: 80 BF 4E 08 00 00 00        -  cmp byte ptr [rdi+0000084E],00
+"DRAGON QUEST XI.exe"+2E74EA4: 75 62                       -  jne "DRAGON QUEST XI.exe"+2E74F08
+"DRAGON QUEST XI.exe"+2E74EA6: 48 8B 0D E3 A9 47 01        -  mov rcx,["DRAGON QUEST XI.exe"+42EF890]
+"DRAGON QUEST XI.exe"+2E74EAD: 48 8B 01                    -  mov rax,[rcx]
+"DRAGON QUEST XI.exe"+2E74EB0: FF 50 60                    -  call qword ptr [rax+60]
+"DRAGON QUEST XI.exe"+2E74EB3: 85 C0                       -  test eax,eax
+// ---------- INJECTING HERE ----------
+"DRAGON QUEST XI.exe"+2E74EB5: 74 51                       -  je "DRAGON QUEST XI.exe"+2E74F08
+"DRAGON QUEST XI.exe"+2E74EB7: 48 8B 0D E2 A9 47 01        -  mov rcx,["DRAGON QUEST XI.exe"+42EF8A0]
+// ---------- DONE INJECTING  ----------
+"DRAGON QUEST XI.exe"+2E74EBE: 48 8B 01                    -  mov rax,[rcx]
+"DRAGON QUEST XI.exe"+2E74EC1: FF 50 60                    -  call qword ptr [rax+60]
+"DRAGON QUEST XI.exe"+2E74EC4: 85 C0                       -  test eax,eax
+"DRAGON QUEST XI.exe"+2E74EC6: C6 03 01                    -  mov byte ptr [rbx],01
+"DRAGON QUEST XI.exe"+2E74EC9: 0F 95 C1                    -  setne cl
+"DRAGON QUEST XI.exe"+2E74ECC: 80 BF 4F 08 00 00 00        -  cmp byte ptr [rdi+0000084F],00
+"DRAGON QUEST XI.exe"+2E74ED3: C6 43 01 01                 -  mov byte ptr [rbx+01],01
+"DRAGON QUEST XI.exe"+2E74ED7: 0F 94 C0                    -  sete al
+"DRAGON QUEST XI.exe"+2E74EDA: C6 43 03 01                 -  mov byte ptr [rbx+03],01
+"DRAGON QUEST XI.exe"+2E74EDE: 88 43 02                    -  mov [rbx+02],al
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>36</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of je "DRAGON QUEST XI.exe"+2E74F08</Description>
+      <AddressString>DRAGON QUEST XI.exe+2E74EB5</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>60</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>51</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>E2</Byte>
+        <Byte>A9</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
