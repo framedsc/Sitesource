@@ -17,7 +17,7 @@ exe on your desktop, right-click it, select *Properties* and on the *Shortcut* t
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v2.0.2](https://mega.nz/#!cEhkEYTT!Cj9k2Lnkpw4frVThHEUMB5-GvEZaoIk5Z1ZH1fjK4SM). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v2.0.3](https://mega.nz/#!lNRFVAwJ!eMjHWnj9Hd0J4LHBrhYyalmcnfkK_Oq9TPR614NozYg). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Setting up the injector
 After downloading the zip linked below, unpack it in an empty folder. Now you first start the game and when the game has opened its main menu, 
@@ -324,6 +324,12 @@ Special thanks to Pino44io for testing.
 &copy;2019 All rights reserved.
 
 ## Changelog
+
+###v2.0.3:
+- **FIXED**: Corrects fix for UWorld::IsPaused on older engines as the offset used wasn't correct. 
+- **FIXED**: Corrects a small issue with ctrl not working for slow movement with camera after introduction of fov-driven movement corrections. 
+- **FIXED**: Fixes issue with numpad 0 not pausing the first time it was pressed.
+- **ADDED**: Some new AOBs for constructs seen in newer engines (v4.22+)
 
 ###v2.0.2:
 - **FIXED**: Camera intercept struct 2 wasn't marked as non-critical
