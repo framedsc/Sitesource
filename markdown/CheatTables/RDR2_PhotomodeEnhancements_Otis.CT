@@ -16,7 +16,7 @@
 [ENABLE]
 aobscanmodule(RemovePMCoordRange,RDR2.exe,E8 ?? ?? ?? ?? 45 33 C0 48 8D 55 B0 48 8D 4B 20) // should be unique
 aobscanmodule(RemovePMRotationRange,RDR2.exe,E8 ?? ?? ?? ?? F3 0F 10 4D 30 48 8D 55 F0) // should be unique
-aobscanmodule(RemovePMBlackBars,RDR2.exe, 0F 86 83 04 00 00)
+aobscanmodule(RemovePMBlackBars,RDR2.exe, 0F 86 6E 03 00 00)
 
 RemovePMCoordRange:
   nop
@@ -33,7 +33,7 @@ RemovePMRotationRange:
   nop
 
 RemovePMBlackBars:
-  db E9 84 04 00 00 90                         // jmp RDR2.exe+51D290 and a NOP
+  db E9 6F 03 00 00 90                         // jmp RDR2.exe+51D290 and a NOP
 
 registersymbol(RemovePMCoordRange)
 registersymbol(RemovePMRotationRange)
@@ -41,13 +41,13 @@ registersymbol(RemovePMBlackBars)
 
 [DISABLE]
 RemovePMCoordRange:
-  db E8 53 F9 FF FF
+  db E8 FF F8 FF FF
 
 RemovePMRotationRange:
-  db E8 8C A0 00 00
+  db E8 FC A6 00 00
 
 RemovePMBlackBars:
-  db 0F 86 83 04 00 00
+  db 0F 86 6E 03 00 00
 
 
 unregistersymbol(RemovePMCoordRange)
@@ -423,7 +423,7 @@ dealloc(newmem)
 
 [ENABLE]
 
-aobscanmodule(EnableHotsampling,RDR2.exe,FF 90 10 01 00 00 84 C0 74 05) // should be unique
+aobscanmodule(EnableHotsampling,RDR2.exe,FF 90 10 01 00 00 84 C0 74 05 4D 85 E4) // can match with another block, check if it's the right one!
 aobscanmodule(AlwaysResize,RDR2.exe,75 0? 8B 45 ?? 39 05) // should be unique
 aobscanmodule(InterceptPreferredRes, RDR2.exe, 8B 41 20 89 02 8B 41 24 41 89 00 C3)
 alloc(newmem,$1000,"RDR2.exe"+263167B)
@@ -583,23 +583,23 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
     <CheatEntry>
       <ID>57</ID>
       <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="17" RealAddress="7FF7A5EC8DC0"/>
+      <LastState Value="12" RealAddress="7FF62F768A40"/>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4418DC0</Address>
+      <Address>RDR2.exe+4468A40</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>60</ID>
       <Description>"Time of day: Minutes. 0-59. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="8" RealAddress="7FF7A5EC8DC4"/>
+      <LastState Value="5" RealAddress="7FF62F768A44"/>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4418DC4</Address>
+      <Address>RDR2.exe+4468A44</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>17</ID>
       <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
-      <LastState Value="0" RealAddress="7FF7A7281C03"/>
+      <LastState Value="0" RealAddress="7FF630B1DA63"/>
       <VariableType>Byte</VariableType>
-      <Address>RDR2.exe+57D1C03</Address>
+      <Address>RDR2.exe+581DA63</Address>
       <Hotkeys>
         <Hotkey>
           <Action>Set Value</Action>
@@ -692,13 +692,6 @@ dealloc(newmem)
       </Hotkeys>
     </CheatEntry>
     <CheatEntry>
-      <ID>50</ID>
-      <Description>"Active aspect ratio"</Description>
-      <LastState Value="1,600000024" RealAddress="7FF7A55D859C"/>
-      <VariableType>Float</VariableType>
-      <Address>RDR2.exe+3B2859C</Address>
-    </CheatEntry>
-    <CheatEntry>
       <ID>10</ID>
       <Description>"--------------------------------------------------------------------------------------"</Description>
       <LastState Value="" RealAddress="00000000"/>
@@ -707,7 +700,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.10. 05-dec-2019. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
+      <Description>"By Otis_Inf. v0.11. 14-dec-2019. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
@@ -872,12 +865,6 @@ dealloc(newmem)
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
       </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>61</ID>
-      <Description>"No description"</Description>
-      <VariableType>Float</VariableType>
-      <Address>1E2B8238460</Address>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
