@@ -197,6 +197,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Koral
 * Laser League
 * Layers of Fear 2
+* Liberty Prime
 * Life is Strange 2
 * Ling: a Road Alone 
 * Little Brother Jim

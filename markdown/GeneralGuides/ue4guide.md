@@ -1,4 +1,4 @@
-![ue4guide](Images\ue4_header.png)
+![ue4guide](Images\ue4_header.png){.shadowed}
 
 Games using Unreal Engine 4 can be tweaked in many ways to better your experience in-game or while shooting. This guide covers the basics of what you can do, with or without UUU and the console.
 
@@ -171,6 +171,16 @@ r.Shadow.MaxResolution | 4096 | Sharper shadows, lower performance. Can still sh
 r.Shadow.MaxResolution | 8192 | High quality shadows, no banding on near-camera objects
 r.Shadow.MaxResolution | 16384 | Your game will crash
 
----
-*last updated 23rd of November 2019*  
-*written by moyevka*
+## Fixing issues
+
+### Shadow striping with low fov
+Sometimes you can run into shadow striping with low fov. To fix this you have to set the Depth Bias for the light that causes this. This can be a pointlight, directional light or spotlight. The commands to try are:
+
+* `r.Shadow.PointLightDepthBias`
+* `r.Shadow.CSMDepthBias`
+* `r.Shadow.PerObjectDirectionalDepthBias`
+* `r.Shadow.SpotLightDepthBias`
+
+Usually a value around 0.15 should fix it. Below is an example. Left the default value right the fixed value
+
+![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed}

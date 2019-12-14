@@ -1,4 +1,4 @@
-![Game Title](Images\abzu_header.png "Shot by xXSamirXx")Shot by xXSamirXx
+![Game Title](Images\abzu_header.png "Shot by xXSamirXx"){.shadowed} 
 
 ## Summary
 
