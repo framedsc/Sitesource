@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>7</ID>
       <Description>"Remove photomode freecam range / rotation limits / black bars (leave enabled!)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -101,7 +101,7 @@ RDR2.exe+11D821 - F3 0F10 55 48         - movss xmm2,[rbp+48]
     <CheatEntry>
       <ID>14</ID>
       <Description>"Override photomode freecam FOV (Toggle: F7. Zoom in: Numpad+ Zoom out: Numpad-)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -112,7 +112,7 @@ RDR2.exe+11D821 - F3 0F10 55 48         - movss xmm2,[rbp+48]
 /////////////////////////
 
 [ENABLE]
-aobscanmodule(FoVIntercept,RDR2.exe,F3 0F 11 83 80 00 00 00 48 83 C4 20 5B C3 90) // should be unique
+aobscanmodule(FoVIntercept,RDR2.exe,F3 0F 11 83 80 00 00 00 48 83 C4 20 5B C3 CC) // should be unique
 alloc(newmem,$1000,"RDR2.exe"+128440)
 
 label(code)
@@ -188,6 +188,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>9</ID>
           <Description>"FoV value"</Description>
+          <LastState Value="46.28200531" RealAddress="257BD3D6E60"/>
           <VariableType>Float</VariableType>
           <Address>fovAddress</Address>
           <Offsets>
@@ -217,7 +218,7 @@ dealloc(newmem)
     <CheatEntry>
       <ID>22</ID>
       <Description>"Weather control (leave enabled)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -313,6 +314,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>23</ID>
           <Description>"Weather type (0-21: various weather types. -1 (FFFFFFFF): 0ff)"</Description>
+          <LastState Value="FFFFFFFF" RealAddress="7FF61066AE4C"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>4 Bytes</VariableType>
           <Address>weatherAddress</Address>
@@ -380,6 +382,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>52</ID>
               <Description>"From weather"</Description>
+              <LastState Value="4" RealAddress="7FF61066AC08"/>
               <VariableType>4 Bytes</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -389,6 +392,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>53</ID>
               <Description>"To weather"</Description>
+              <LastState Value="4" RealAddress="7FF61066AC0C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -398,6 +402,7 @@ dealloc(newmem)
             <CheatEntry>
               <ID>54</ID>
               <Description>"Interpolation factor (0: from weather, 1: to weather)"</Description>
+              <LastState Value="1" RealAddress="7FF61066AC10"/>
               <VariableType>Float</VariableType>
               <Address>weatherFromAddress</Address>
               <Offsets>
@@ -411,7 +416,7 @@ dealloc(newmem)
     <CheatEntry>
       <ID>8</ID>
       <Description>"Enable hotsampling. Leave enabled. Use Borderless Windowed in settings"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -538,7 +543,7 @@ RDR2.exe+25CC1FB - C3                    - ret
     <CheatEntry>
       <ID>16</ID>
       <Description>"Remove black bars in cinematic parts"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -583,21 +588,21 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
     <CheatEntry>
       <ID>57</ID>
       <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="12" RealAddress="7FF62F768A40"/>
+      <LastState Value="6" RealAddress="7FF610678A40"/>
       <VariableType>2 Bytes</VariableType>
       <Address>RDR2.exe+4468A40</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>60</ID>
       <Description>"Time of day: Minutes. 0-59. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="5" RealAddress="7FF62F768A44"/>
+      <LastState Value="23" RealAddress="7FF610678A44"/>
       <VariableType>2 Bytes</VariableType>
       <Address>RDR2.exe+4468A44</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>17</ID>
       <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
-      <LastState Value="0" RealAddress="7FF630B1DA63"/>
+      <LastState Value="1" RealAddress="7FF611A2DA63"/>
       <VariableType>Byte</VariableType>
       <Address>RDR2.exe+581DA63</Address>
       <Hotkeys>
