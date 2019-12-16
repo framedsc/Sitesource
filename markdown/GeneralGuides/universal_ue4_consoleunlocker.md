@@ -233,6 +233,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Omensight
 * Quantum Replica
 * Qube 2
+* Race With Ryan
 * RAD
 * Redeemer
 * Remnant: From the Ashes
@@ -255,6 +256,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * SOULCALIBUR VI
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
+* Spacebourne
 * Spyro Reignited Trilogy
 * Star Wars Jedi: Fallen Order
 * Stardrop
