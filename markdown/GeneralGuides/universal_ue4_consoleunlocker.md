@@ -15,6 +15,10 @@ The game's exe as well as the IGCSInjectorUI.exe have to be run as *administrato
 exe on your desktop, right-click it, select *Properties* and on the *Shortcut* tab, select *Advanced...*, then check the 'Run as Administrator' checkbox and click OK. 
 @end
 
+## Downloading the unlocker
+
+* [Universal UE4 Unlocker v2.0.3](https://mega.nz/#!lNRFVAwJ!eMjHWnj9Hd0J4LHBrhYyalmcnfkK_Oq9TPR614NozYg). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+
 ## Setting up the injector
 After downloading the zip linked below, unpack it in an empty folder. Now you first start the game and when the game has opened its main menu, 
 you start the IGCSInjectorUI.exe application to inject the dll into the game's process. To do so, you click the `Select...` button and select the game's process. 
@@ -54,6 +58,11 @@ To correct this, please open the UUU overlay menu by pressing `Ctrl-Ins` and on 
 "Key to open in-game console", which allows you to select from a small set of keys what to use to open the console. By default this is 'Tilde' (`~`). Please select
 a key that's on your keyboard and which doesn't need Shift to be selected. E.g. on a French (Azerty) keyboard, the '$' key is a good choice, so choose in the 
 overlay menu `Dollar ($)` as console key. 
+
+@alert info
+It might be you're running an EA Origin game and have the Origin overlay enabled. This too can block the console from appearing. To fix it, please disable
+the Origin overlay in the EA Origin client. 
+@end
 
 #### Setting the console key in the game's ini files
 Alternatively, you can add a custom console key to the game's ini file. This doesn't always work, but it's worth a try if you want to use another key than is available in
@@ -169,6 +178,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Echo
 * Elea
 * Everspace
+* Explore Fushimi Inari
 * Extinction
 * Fade to silence
 * Fear the Dark Unknown
@@ -188,6 +198,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Koral
 * Laser League
 * Layers of Fear 2
+* Liberty Prime
 * Life is Strange 2
 * Ling: a Road Alone 
 * Little Brother Jim
@@ -222,6 +233,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Omensight
 * Quantum Replica
 * Qube 2
+* Race With Ryan
 * RAD
 * Redeemer
 * Remnant: From the Ashes
@@ -244,6 +256,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * SOULCALIBUR VI
 * Space Hulk: Deadwing Enhanced Edition
 * Space Hulk Tactics
+* Spacebourne
 * Spyro Reignited Trilogy
 * Star Wars Jedi: Fallen Order
 * Stardrop
@@ -259,15 +272,12 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Tropico 6
 * Urban Trial Playground
 * Uventa
+* Vampyr
 * Visage
 * Wartile
 * We Happy Few
 * XING The Land Beyond
 * ZED
-
-## Downloading the unlocker
-
-* [Universal UE4 Unlocker v2.0.1](https://mega.nz/#!oNYVVSBS!QZaKBGihbCs3Egys43pJLgr_Vrg25pEYc9mXVUwSwIk)
 
 ## Built-in functionality
 
@@ -316,3 +326,22 @@ Dumper code is based on the SDK generator by Kn4ck3r.
 Special thanks to Pino44io for testing.
 
 &copy;2019 All rights reserved.
+
+## Changelog
+
+###v2.0.3:
+- **FIXED**: Corrects fix for UWorld::IsPaused on older engines as the offset used wasn't correct. 
+- **FIXED**: Corrects a small issue with ctrl not working for slow movement with camera after introduction of fov-driven movement corrections. 
+- **FIXED**: Fixes issue with numpad 0 not pausing the first time it was pressed.
+- **ADDED**: Some new AOBs for constructs seen in newer engines (v4.22+)
+
+###v2.0.2:
+- **FIXED**: Camera intercept struct 2 wasn't marked as non-critical
+- **FIXED**: Using UWorld::IsPaused pause + camera in a v4.15 game enables the in-game menu camera to activate, causing the built-in free camera to be locked in-place
+- **FIXED**: The rotation slider in the overlay has a range that's way too wide for the values that are practical
+- **IMPLEMENTED**: Make rotation/movement speed adjust themselves based on fov. 
+- **IMPLEMENTED**: Switch default screenshot type to 'HorizontalPanorama' instead of 'Lightfield'
+- **IMPLEMENTED**: Use the executable filename for screenshot filename prefix in single shot screenshots.
+
+###v2.0.1: 
+- First v2.0 release with IGCS camera system built-in.
