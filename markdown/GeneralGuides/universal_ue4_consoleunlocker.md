@@ -17,7 +17,7 @@ exe on your desktop, right-click it, select *Properties* and on the *Shortcut* t
 
 ## Downloading the unlocker
 
-* [Universal UE4 Unlocker v2.0.3](https://mega.nz/#!lNRFVAwJ!eMjHWnj9Hd0J4LHBrhYyalmcnfkK_Oq9TPR614NozYg). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v2.0.4](https://mega.nz/#!4B4gFAhb!J2_L4LgWBv_Y625E2AWJNl8PnOtDPSV3qQ8_TmM0qGE). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Setting up the injector
 After downloading the zip linked below, unpack it in an empty folder. Now you first start the game and when the game has opened its main menu, 
@@ -326,6 +326,9 @@ Special thanks to Pino44io for testing.
 &copy;2019 All rights reserved.
 
 ## Changelog
+
+###v2.0.4:
+- **ADDED**: Better compatibility with v4.20 based engines for the camera system.
 
 ###v2.0.3:
 - **FIXED**: Corrects fix for UWorld::IsPaused on older engines as the offset used wasn't correct. 
