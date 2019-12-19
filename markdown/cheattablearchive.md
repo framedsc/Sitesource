@@ -569,9 +569,6 @@ camera tools for the game instead of using these old cheat tables.
 ###The Chronicles of Riddick: Assault on Dark Athena
 - [Riddick_DarkAthena-rel.ct](CheatTables/Archive/Riddick_DarkAthena-rel.ct)
 
-###The Dark Pictures: Man of Medan
-- [ManOfMedan-Win64-Shipping2.CT](CheatTables/Archive/ManOfMedan-Win64-Shipping2.CT)
-
 ###The Deadly Tower of Monsters
 - [Deadly_Tower_Of_Monsters.CT](CheatTables/Archive/Deadly_Tower_Of_Monsters.CT)
 - [TS.CT](CheatTables/Archive/TS.CT)
