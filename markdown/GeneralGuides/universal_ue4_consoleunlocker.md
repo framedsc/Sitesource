@@ -172,7 +172,6 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Darksiders Genesis
 * Daymare: 1998
 * Deep Rock Galactic
-* Deliver Us The Moon
 * Desolate
 * Devil's Hunt
 * Donensbourgh
