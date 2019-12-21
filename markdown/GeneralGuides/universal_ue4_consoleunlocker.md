@@ -17,7 +17,13 @@ exe on your desktop, right-click it, select *Properties* and on the *Shortcut* t
 
 ## Downloading the unlocker
 
+There are two versions at the moment: v1.0.16, which is a version with just the console enabler/dumper and which doesn't contain its own camera system, and v2.0.x which 
+does contain its own camera system. v2.0.x requires Direct3D 11 at the moment, so if you're using a game that uses Direct3D 12, or fails to work with the camera system,
+you could try v1.0.16 and the debug camera of Unreal Engine. 
+
 * [Universal UE4 Unlocker v2.0.4](https://mega.nz/#!4B4gFAhb!J2_L4LgWBv_Y625E2AWJNl8PnOtDPSV3qQ8_TmM0qGE). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+
+* [Universal UE4 Unlocker v1.0.16](https://mega.nz/#!QVxCmIwQ!40fnUHK5Ai_rgXylzQZQ8yASpTOpGY3uCO2AVGhR3hg). (No built-in camera, only for console enabling)
 
 ## Setting up the injector
 After downloading the zip linked below, unpack it in an empty folder. Now you first start the game and when the game has opened its main menu, 
