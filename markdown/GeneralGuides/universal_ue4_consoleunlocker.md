@@ -149,6 +149,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Apsulov: End of Gods
 * Arise a Simple Story
 * Assemblance: Oversight
+* Ashen
 * Ashes Of Oahu
 * Bard's Tale IV: Barrows Deep
 * The Beast Inside
