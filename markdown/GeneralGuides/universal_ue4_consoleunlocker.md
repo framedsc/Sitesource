@@ -224,6 +224,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * NBA 2K Playgrounds 2
 * Nephise: Ascension
 * Observer
+* Offroad Racing Buggy X ATV X Moto
 * Only After
 * Operencia: The Stolen Sun
 * The Outer Worlds
