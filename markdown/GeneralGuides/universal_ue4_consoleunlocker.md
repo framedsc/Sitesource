@@ -273,6 +273,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Styx 2
 * Subdivision Infinity DX
 * Supraland
+* Sword Art Online: Fatal Bullet
 * Tartarus
 * Tetris Effect
 * Tower of Fate
