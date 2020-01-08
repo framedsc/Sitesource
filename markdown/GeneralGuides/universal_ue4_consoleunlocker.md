@@ -192,6 +192,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Fighting Ex Layer
 * Genesis Alpha One
 * Gray Dawn
+* GRIP: Combat Racing
 * Hellblade: Senua's Sacrifice
 * Hollow
 * Hunting Simulator
