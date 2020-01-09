@@ -286,6 +286,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Visage
 * Wartile
 * We Happy Few
+* The Works of Mercy
 * XING The Land Beyond
 * ZED
 
