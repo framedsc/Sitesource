@@ -233,6 +233,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Overkill's The Walking Dead
 * Pagui打鬼
 * Paranormal Activity The Lost Soul
+* 港詭實錄ParanormalHK
 * Past Cure
 * Planet Alpha
 * Project Remedium
