@@ -147,6 +147,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Ancient Knowledge
 * Another Sight Definitive Edition
 * Apsulov: End of Gods
+* Areia: Pathway to Dawn
 * Arise a Simple Story
 * Assemblance: Oversight
 * Ashen
@@ -176,6 +177,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Desolate
 * Devil's Hunt
 * Donensbourgh
+* DRAGON BALL Z: KAKAROT
 * Draugen
 * Dreamscaper
 * Driftland
