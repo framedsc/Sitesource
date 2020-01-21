@@ -1,6 +1,8 @@
 Universal Unreal Engine 4 Console Unlocker
 =============
 
+**Engine versions supported**: Unreal Engine 4.15 - 4.24
+
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Console Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
 unlocker binary is distributed on is this site. 
@@ -21,7 +23,7 @@ There are two versions at the moment: v1.0.16, which is a version with just the 
 does contain its own camera system. v2.0.x requires Direct3D 11 at the moment, so if you're using a game that uses Direct3D 12, or fails to work with the camera system,
 you could try v1.0.16 and the debug camera of Unreal Engine. 
 
-* [Universal UE4 Unlocker v2.0.5](https://mega.nz/#!NVJSlYRD!By_w2J6MjTcXTuOswZDnCrl_1y9Wxa8JxDNzVYDmzgY). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v2.0.6](https://mega.nz/#!FRA0lALS!UhEGKIeuxKbyV8qtQC1tq2lclOkAhsgQkjBH3BPQS7Q). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 * [Universal UE4 Unlocker v1.0.16](https://mega.nz/#!QVxCmIwQ!40fnUHK5Ai_rgXylzQZQ8yASpTOpGY3uCO2AVGhR3hg). (No built-in camera, only for console enabling)
 
@@ -342,6 +344,11 @@ Special thanks to Pino44io for testing.
 &copy;2019 All rights reserved.
 
 ## Changelog
+
+###v2.0.6: 
+- **ADDED**: Added support for UE4.23's new NamePool structure for object names. This adds support for UE4 4.23 and higher
+- **FIXED**: Fixed an issue that could occur with some games where one of the camera write blocks in the engine uses a different register, causing the game to crash as
+the UUU uses a single interception block for all camera write blocks. 
 
 ###v2.0.5:
 - **FIXED**: Fixes issue with slomo interception where a slow motion action set by the game was resulting in a high game speed instead of a slow game speed. 
