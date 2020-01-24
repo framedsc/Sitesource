@@ -4,7 +4,7 @@ Universal Unreal Engine 4 Unlocker
 **Engine versions supported**: Unreal Engine 4.15 - 4.24
 
 @alert Important
-It's forbidden to host the Universal Unreal Engine 4 Console Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
+It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. The only site the
 unlocker binary is distributed on is this site. 
 @end
 
