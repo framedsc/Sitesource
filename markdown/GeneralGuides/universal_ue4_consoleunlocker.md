@@ -1,4 +1,4 @@
-Universal Unreal Engine 4 Console Unlocker
+Universal Unreal Engine 4 Unlocker
 =============
 
 **Engine versions supported**: Unreal Engine 4.15 - 4.24
@@ -9,7 +9,7 @@ unlocker binary is distributed on is this site.
 @end
 
 For Unreal Engine 4 powered games, it's possible to re-create the in-game console that's usually stripped out when the game is build for shipping. To do so, 
-you can use the Universal UE4 Console Unlocker / Dumper dll, in short **UUU**. It comes with its own injector, IGCSInjectorUI.exe, and is ready to use. See below what
+you can use the Universal UE4 Unlocker, in short **UUU**. It comes with its own injector, IGCSInjectorUI.exe, and is ready to use. See below what
 you have to do to get started.
 
 @alert important
@@ -127,13 +127,10 @@ from left to right, moving it over a rail to to speak. You can then create a lig
 
 To test the setup you have, press `Page Up`. To take all shots, press `Ctrl-PageUp`.
 
-## Dumping names / object addresses
-The unlocker has another feature up its sleeve: it can dump two text files in the game folder called UE4Tools_Names.txt and UE4Tools_Objects.txt. To do that, press `Ctrl-Numpad /`.
-The Names file contains all names of all objects in the game. Most of them aren't really useful, but some are, e.g. if you open the file in a text editor and search for " sg." 
-you find all settings variables for things you can also set in the game menu, only these accept higher values. Another one is " r." to find all render variables. 
-
+## Dumping object addresses
+The unlocker has another feature up its sleeve: it can dump a text file in the game folder called UE4Tools_Objects.txt. To do that, press `Ctrl-Numpad /`.
 The Objects text file shows all objects in the engine, and their addresses in memory. These memory addresses differ per level, so if you want to look up objects in-memory
-after you've loaded a new level, you have to dump the files again. The Objects file is useful for people who create cheat tables. 
+after you've loaded a new level, you have to dump the file again. The Objects file is useful for people who create cheat tables. 
 
 ## Games that work with the unlocker
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code
