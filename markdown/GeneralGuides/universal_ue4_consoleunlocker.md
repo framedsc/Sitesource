@@ -151,6 +151,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Assemblance: Oversight
 * Ashen
 * Ashes Of Oahu
+* Assetto Corsa Competizione
 * Bard's Tale IV: Barrows Deep
 * The Beast Inside
 * Bee Simulator
@@ -177,6 +178,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * Devil's Hunt
 * Donensbourgh
 * DRAGON BALL Z: KAKAROT
+* Dragon Quest XI: Echoes of an Elusive Age
 * Draugen
 * Dreamscaper
 * Driftland
@@ -237,6 +239,7 @@ and the unlocker can't re-activate the console as essential functions aren't the
 * 港詭實錄ParanormalHK
 * Past Cure
 * Planet Alpha
+* Praetorians HD Remaster
 * Project Remedium
 * Protocol
 * Occupation
