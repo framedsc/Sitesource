@@ -177,6 +177,7 @@ Although the name suggests it's a universal unlocker that always works with any 
 * Darksiders Genesis
 * Daymare: 1998
 * Deep Rock Galactic
+* Deliver us the moon
 * Desolate
 * Devil's Hunt
 * Donensbourgh
