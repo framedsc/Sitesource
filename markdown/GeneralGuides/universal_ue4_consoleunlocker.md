@@ -343,9 +343,9 @@ in the console.
 
 Development: Otis_Inf  
 Research: Otis_Inf and SunBeam  
-Logo: Ichisake
+Logo: Ichisake  
 Dumper code is based on the SDK generator by Kn4ck3r.  
-Special thanks to Pino44io for testing.
+Special thanks to Pino44io for testing.  
 
 &copy;2019-2020 All rights reserved.
 
