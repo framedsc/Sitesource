@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.0](https://mega.nz/#!MBw1wAiB!E6B_O5xamAi-XanX6cgf9m2zQo42jvTygtG8sgGCOnc). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.1](https://mega.nz/#!JBxmAK7R!K6mKHMMtn1sRc34I866wdnUJIJS-y4J8QfKWu_JjyAk). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -132,6 +132,8 @@ Windowed). If you run your game as full screen, hotsampling might just stretch t
 
 After you've select the resolution and aspect ratio you want to use, click the **Set** button to activate it. By default the UUU will switch focus back to the game window so you can immediately take the shot. To get back to your native play resolution, you can either select it from the tree or click the **Fake fullscreen** window. 
 
+If you want to check portions of the window that's outside your monitor, you can use the *Alignment controls* buttons, which allow you to move the window around so you can check whether all parts of the window you're about to take a shot of are properly rendered. 
+
 ## Dumping object addresses
 The UUU has another feature up its sleeve: it can dump the memory locations and names of all currently active engine objects a text file in the game folder, called `UUU_Objects.txt`. To do that, on the *Available features* tab, click the **Dump object info** button. The memory addresses listed in the file differ per level and every time you run the game, so if you want to look up objects in-memory after you've loaded a new level, you have to 
 dump the file again. The Objects file is useful for people who create cheat tables. 
@@ -183,7 +185,7 @@ Deliver us the moon |
 Desolate | 
 Devil's Hunt | 
 Donensbourgh | 
-DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide the entire HUD.
+DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
 Draugen | 
 Dreamscaper | 
@@ -209,7 +211,7 @@ Hunting Simulator |
 Infliction | 
 Insomnia the Ark | 
 Intruders: Hide and Seek" | 
-Journey to the Savage Planet | Console isn't available.
+Journey to the Savage Planet | 
 Jumanji The Video Game | 
 Jump Force (limited) | 
 Killsquad | 
@@ -358,6 +360,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.1:
+- **ADDED**: Added alignment buttons for the window to the Hotsampling tab, so you can examine the window contents if it's larger than your monitor
+- **FIXED**: Some games matched their Objectsstore AOB with the wrong location so an alternative, better one was added.
 
 ###v3.0.0: 
 - **ADDED**: Added new user interface which offers hotsampling and doesn't rely on DirectX hooking for menu display.
