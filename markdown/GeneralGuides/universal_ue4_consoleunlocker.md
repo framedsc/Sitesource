@@ -139,165 +139,172 @@ dump the file again. The Objects file is useful for people who create cheat tabl
 ## Games that work with the unlocker
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code and the unlocker can't re-activate the console as essential functions aren't there anymore, or activate other features offered by the UUU. The list below are games which are known to work with the unlocker. 
 
-* 10 Miles to Safety
-* 103
-* A Knight`s Quest
-* Agony
-* Alice VR
-* Ancestors Legacy
-* Ancestors - The Humankind Odyssey
-* Ancient Knowledge
-* Another Sight Definitive Edition
-* Apsulov: End of Gods
-* Areia: Pathway to Dawn
-* Arise a Simple Story
-* Assemblance: Oversight
-* Ashen
-* Ashes Of Oahu
-* Assetto Corsa Competizione
-* Bard's Tale IV: Barrows Deep
-* The Beast Inside
-* Bee Simulator
-* The Blackout Club
-* Blair Witch
-* Borderlands 3
-* Bright Memory
-* Burning Daylight
-* Call of Cthulhu
-* Captain Starshot
-* Chernobylite
-* Close to the Sun
-* Code Vein
-* Conarium
-* Creature in the Well
-* Dark Future: Blood Red States
-* Dark Deception
-* Dark Occult
-* Darksiders 3
-* Darksiders Genesis
-* Daymare: 1998
-* Deep Rock Galactic
-* Deliver us the moon
-* Desolate
-* Devil's Hunt
-* Donensbourgh
-* DRAGON BALL Z: KAKAROT
-* Dragon Quest XI: Echoes of an Elusive Age
-* Draugen
-* Dreamscaper
-* Driftland
-* Earth Defence Force: Iron Rain 
-* Earthfall
-* Echo
-* Elea
-* Everspace
-* Explore Fushimi Inari
-* Extinction
-* Fade to silence
-* Fear the Dark Unknown
-* The Fidelio Incident
-* Fighting Ex Layer
-* Genesis Alpha One
-* Gray Dawn
-* GRIP: Combat Racing
-* Hellblade: Senua's Sacrifice
-* Hollow
-* Hunting Simulator
-* Infliction
-* Insomnia the Ark
-* Intruders: Hide and Seek"
-* Jumanji The Video Game
-* Jump Force (limited)
-* Killsquad
-* Kine
-* Koral
-* Laser League
-* Layers of Fear 2
-* Liberty Prime
-* Life is Strange 2
-* Ling: a Road Alone 
-* Little Brother Jim
-* Lost Ember
-* Man of Medan (The Dark Pictures Anthology)
-* Marvel vs. Capcom: Infinite
-* Mind: Path to Thalamus
-* Monkey King: Hero Is Back
-* Monster Jam Steel Titans
-* Moons of Madness
-* Morels: The Hunt
-* Morphies Law Remorphed
-* MotoGP 19
-* Mutant Year Zero: Road to Eden
-* My Hero One's Justice
-* Narcos: Rise of the Cartels
-* NBA 2K Playgrounds 2
-* Nephise: Ascension
-* Observer
-* Offroad Racing Buggy X ATV X Moto
-* Only After
-* Operencia: The Stolen Sun
-* The Outer Worlds
-* Overkill's The Walking Dead
-* Pagui打鬼
-* Paranormal Activity The Lost Soul
-* 港詭實錄ParanormalHK
-* Past Cure
-* Planet Alpha
-* Praetorians HD Remaster
-* Project Remedium
-* Protocol
-* Occupation
-* Omen of Sorrow
-* Omensight
-* Quantum Replica
-* Qube 2
-* Race With Ryan
-* RAD
-* Redeemer
-* Remnant: From the Ashes
-* Remothered: Tormented Fathers
-* Ruin 2
-* Ruiner
-* Shenmue 3
-* ShockRods
-* The Sinking City
-* Session: Skateboarding Sim Game
-* Shape of the World
-* Silver Chains
-* Sinner: Sacrifice for Redemption
-* Skylar and Plux
-* The Sojourn
-* SolSeraph
-* Song of Horror
-* Sophont
-* Soul Valley
-* SOULCALIBUR VI
-* Space Hulk: Deadwing Enhanced Edition
-* Space Hulk Tactics
-* Spacebourne
-* Spyro Reignited Trilogy
-* Star Wars Jedi: Fallen Order
-* Stardrop
-* Steel rats
-* Stories: the Path of Destinies
-* Styx 2
-* Subdivision Infinity DX
-* Supraland
-* Sword Art Online: Fatal Bullet
-* Tartarus
-* Tetris Effect
-* Tower of Fate
-* Train Sim World
-* Tropico 6
-* Urban Trial Playground
-* Uventa
-* Vampyr
-* Visage
-* Wartile
-* We Happy Few
-* The Works of Mercy
-* XING The Land Beyond
-* ZED
+Title|Notes
+--|--
+10 Miles to Safety | 
+103 | 
+A Knight`s Quest | 
+Agony | 
+Alice VR | 
+Ancestors Legacy | 
+Ancestors - The Humankind Odyssey | 
+Ancient Knowledge | 
+Another Sight Definitive Edition | 
+Apsulov: End of Gods | 
+Areia: Pathway to Dawn | 
+Arise a Simple Story | 
+Assemblance: Oversight | 
+Ashen | 
+Ashes Of Oahu | 
+Assetto Corsa Competizione | 
+Bard's Tale IV: Barrows Deep | 
+The Beast Inside | 
+Bee Simulator | 
+The Blackout Club | 
+Blair Witch | 
+Borderlands 3 | 
+Bright Memory | 
+Burning Daylight | 
+Call of Cthulhu | 
+Captain Starshot | 
+Chernobylite | 
+Close to the Sun | 
+Code Vein | 
+Conarium | 
+Creature in the Well | 
+Dark Future: Blood Red States | 
+Dark Deception | 
+Dark Occult | 
+Darksiders 3 | 
+Darksiders Genesis | 
+Daymare: 1998 | 
+Deep Rock Galactic | 
+Deliver us the moon | 
+Desolate | 
+Devil's Hunt | 
+Donensbourgh | 
+DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide the entire HUD.
+Dragon Quest XI: Echoes of an Elusive Age | 
+Draugen | 
+Dreamscaper | 
+Driftland | 
+Earth Defence Force: Iron Rain  | 
+Earthfall | 
+Echo | 
+Effie | 
+Elea | 
+Everspace | 
+Explore Fushimi Inari | 
+Extinction | 
+Fade to silence | 
+Fear the Dark Unknown | 
+The Fidelio Incident | 
+Fighting Ex Layer | 
+Genesis Alpha One | 
+Gray Dawn | 
+GRIP: Combat Racing | 
+Hellblade: Senua's Sacrifice | 
+Hollow | 
+Hunting Simulator | 
+Infliction | 
+Insomnia the Ark | 
+Intruders: Hide and Seek" | 
+Journey to the Savage Planet | Console isn't available.
+Jumanji The Video Game | 
+Jump Force (limited) | 
+Killsquad | 
+Kine | 
+Koral | 
+Laser League | 
+Layers of Fear 2 | 
+Liberty Prime | 
+Life is Strange 2 | 
+Ling: a Road Alone  | 
+Little Brother Jim | 
+Lost Ember | 
+Man of Medan (The Dark Pictures Anthology) | 
+Marvel vs. Capcom: Infinite | 
+Mind: Path to Thalamus | 
+Monkey King: Hero Is Back | 
+Monster Jam Steel Titans | 
+Moons of Madness | 
+Morels: The Hunt | 
+Morphies Law Remorphed | 
+MotoGP 19 | 
+Mutant Year Zero: Road to Eden | 
+My Hero One's Justice | 
+Narcos: Rise of the Cartels | 
+NBA 2K Playgrounds 2 | 
+Nephise: Ascension | 
+Observer | Built-in camera isn't available.
+Offroad Racing Buggy X ATV X Moto | 
+Only After | 
+Operencia: The Stolen Sun | 
+The Outer Worlds | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
+Overkill's The Walking Dead | 
+Pagui打鬼 | 
+Paranormal Activity The Lost Soul | 
+港詭實錄ParanormalHK | 
+Past Cure | 
+Planet Alpha | 
+Praetorians HD Remaster | 
+Project Remedium | 
+Protocol | 
+Occupation | 
+Omen of Sorrow | 
+Omensight | 
+Quantum Replica | 
+Qube 2 | 
+Race With Ryan | 
+RAD | 
+Redeemer | 
+Remnant: From the Ashes | 
+Remothered: Tormented Fathers | 
+Ruin 2 | 
+Ruiner | 
+Shenmue 3 | 
+ShockRods | 
+The Sinking City | 
+Session: Skateboarding Sim Game | 
+Shape of the World | 
+Silver Chains | 
+Sinner: Sacrifice for Redemption | 
+Skylar and Plux | 
+The Sojourn | 
+SolSeraph | 
+Song of Horror | 
+Sophont | 
+Soul Valley | 
+SOULCALIBUR VI | 
+Space Hulk: Deadwing Enhanced Edition | 
+Space Hulk Tactics | 
+Spacebourne | 
+Spyro Reignited Trilogy | 
+Star Wars Jedi: Fallen Order | 
+Stardrop | 
+Steel rats | 
+Stories: the Path of Destinies | 
+Styx 2 | 
+Subdivision Infinity DX | 
+Supraland | 
+Sword Art Online: Fatal Bullet | 
+Tartarus | 
+Tetris Effect | 
+Tower of Fate | 
+Train Sim World | 
+Tropico 6 | 
+Urban Trial Playground | 
+Uventa | 
+Vampyr | 
+Visage | 
+Wartile | 
+We Happy Few | 
+The Works of Mercy | 
+XING The Land Beyond | 
+ZED | 
+
+[^1]: Console isn't available.
+[^2]: 
 
 ## Built-in functionality
 
