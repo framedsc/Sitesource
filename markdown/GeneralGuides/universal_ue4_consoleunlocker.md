@@ -291,6 +291,7 @@ Subdivision Infinity DX |
 Supraland | 
 Sword Art Online: Fatal Bullet | 
 Tartarus | 
+Terminator Resistance | 
 Tetris Effect | 
 Tower of Fate | 
 Train Sim World | 
