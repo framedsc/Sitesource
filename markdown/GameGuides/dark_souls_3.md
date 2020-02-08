@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [CineTools by Hattiwatti](http://cinetools.xyz/games/)  
+* [CineTools by Hattiwatti](https://mega.nz/#!8Jg2TSjA!agNohvMiOD8xhv_IHiI21Af9J39FA8bAOIUOsQYzb-M)  
 **Features**: Camera control, FoV
 * [Challenge Mods](https://www.nexusmods.com/darksouls3/mods/136)  
 **Features**: Timestop/Game Speed (among other things)  
