@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera tools by Hattiwatti](http://cinetools.xyz/download/CT_ROTTR_20181019.zip)  
+* [Camera tools by Hattiwatti](http://s000.tinyupload.com/index.php?file_id=29974862871895437644)  
 **Features**: Camera control, FoV. It also has timestop but it can be a little buggy. For timestop, see below. It helps to reconfigure the
 speed for movement / rotation in the console menu opened by the tools. 
 @alert warning
