@@ -649,11 +649,7 @@ camera tools for the game instead of using these old cheat tables.
 Below are tools made by Hattiwatti which aren't available elsewhere anymore and which are for games which don't (yet) have a guide. 
 It's unknown whether these tools still work. 
 
-### Mass Effect: Andromeda
-
-- [ Cinematic Tools](https://mega.nz/#!1coCXawS!Fjns9cFxSkc7iIeJr6hRc6_ciEqUDIcxVgi8zt5l3CA)
-
-### The Hunter: Call of the Wild
-
-- [Cinematic Tools](https://mega.nz/#!5UpAiSAD!CeAgMilyzaoSqlz9-5qTiStWeede9Q0tGGUs1kFAKqA)
-
+- [Assassin's Creed: Unity & Syndicate](https://mega.nz/#!VIpSEIrK!V1BnX1Mk0g8BrN_ou4tPUfkuMdYutJp7pp1f5XpnzCc)  
+- [Battlefield 1](https://mega.nz/#!Ucx0maIY!qJIQo8r9DSRmVqyST5dCB593JUDL9a2uXRpAr7Ap8j8)  
+- [The Hunter: Call of the Wild](https://mega.nz/#!5UpAiSAD!CeAgMilyzaoSqlz9-5qTiStWeede9Q0tGGUs1kFAKqA)  
+- [ Mass Effect: Andromeda](https://mega.nz/#!1coCXawS!Fjns9cFxSkc7iIeJr6hRc6_ciEqUDIcxVgi8zt5l3CA)  
