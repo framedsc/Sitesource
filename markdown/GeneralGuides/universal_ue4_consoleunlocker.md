@@ -148,6 +148,7 @@ Title|Notes
 A Knight`s Quest | 
 Agony | 
 Alice VR | 
+Amid Evil | 
 Ancestors Legacy | 
 Ancestors - The Humankind Odyssey | 
 Ancient Knowledge | 
@@ -228,6 +229,7 @@ Man of Medan (The Dark Pictures Anthology) |
 Marvel vs. Capcom: Infinite | 
 Mind: Path to Thalamus | 
 Monkey King: Hero Is Back | 
+Monster Energy Supercross: The Official Videogame 3 | 
 Monster Jam Steel Titans | 
 Moons of Madness | 
 Morels: The Hunt | 
