@@ -249,6 +249,7 @@ Paranormal Activity The Lost Soul |
 港詭實錄ParanormalHK | 
 Past Cure | 
 Planet Alpha | 
+The Pit: Infinity | 
 Praetorians HD Remaster | 
 Project Remedium | 
 Protocol | 
