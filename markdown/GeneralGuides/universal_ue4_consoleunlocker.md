@@ -156,10 +156,11 @@ Another Sight Definitive Edition |
 Apsulov: End of Gods | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
-Assemblance: Oversight | 
 Ashen | 
 Ashes Of Oahu | 
+Assemblance: Oversight | 
 Assetto Corsa Competizione | 
+Astroneer | Console isn't available
 Bard's Tale IV: Barrows Deep | 
 The Beast Inside | 
 Bee Simulator | 
@@ -267,12 +268,13 @@ Remnant: From the Ashes |
 Remothered: Tormented Fathers | 
 Ruin 2 | 
 Ruiner | 
+Satisfactory | 
+Session: Skateboarding Sim Game | 
 Shenmue 3 | 
 ShockRods | 
-The Sinking City | 
-Session: Skateboarding Sim Game | 
 Shape of the World | 
 Silver Chains | 
+The Sinking City | 
 Sinner: Sacrifice for Redemption | 
 Skylar and Plux | 
 The Sojourn | 
@@ -308,9 +310,6 @@ We Happy Few |
 The Works of Mercy | 
 XING The Land Beyond | 
 ZED | 
-
-[^1]: Console isn't available.
-[^2]: 
 
 ## Built-in functionality
 
