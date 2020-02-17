@@ -176,6 +176,7 @@ Close to the Sun |
 Code Vein | 
 Conarium | 
 Creature in the Well | 
+Daemon X Machina  | 
 Dark Future: Blood Red States | 
 Dark Deception | 
 Dark Occult | 
@@ -203,7 +204,8 @@ Extinction |
 Fade to silence | 
 Fear the Dark Unknown | 
 The Fidelio Incident | 
-Fighting Ex Layer | 
+Fighting Ex Layer |
+Finding the Soul Orb |  
 Genesis Alpha One | 
 Gray Dawn | 
 GRIP: Combat Racing | 
