@@ -18,14 +18,16 @@ API versions | DirectX 11
 **Features**: Camera control
 * [Better Debug Camera by robojumper](https://steamcommunity.com/sharedfiles/filedetails/?id=803411007)  
 **Features**: Camera control
-* [CE Table by -One3rd-](https://framedsc.github.io/cheattablearchive.htm#xcom-2)  
+* [CE Table by -One3rd-](https://framedsc.github.io/CheatTables/Archive/XCom2_AOB_to_FOV_v4.CT)  
 **Features**: Camera control, FoV, Tilt
 
 ## Tips and Tricks  
 
 ### Better Debug Camera 
 
-Press `DEL` key to enable-disable the camera
+Press `DEL` key to enable-disable the camera. 
+Use `WASD` keys to control the camera. You can also use gamepad.
+Camera speed can be adjusted with `Num+` and `Num-` keys. 
 
 ### Console  
 
