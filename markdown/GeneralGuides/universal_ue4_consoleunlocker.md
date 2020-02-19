@@ -296,6 +296,7 @@ Steel rats |
 Stories: the Path of Destinies | 
 Styx 2 | 
 Subdivision Infinity DX | 
+The Suicide of Rachel Foster | 
 Supraland | 
 Sword Art Online: Fatal Bullet | 
 Tartarus | 
