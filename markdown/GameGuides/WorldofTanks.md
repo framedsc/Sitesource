@@ -19,8 +19,8 @@ DirectX versions | DirectX 11
 
 Key/button | Description
 --|--
-Left Shift + F3 | Enable/Disable camera
-WASD |  camera movement
+Left Shift + F3 | Enable / Disable camera
+WASD |  Camera movement
 1-0 | Move slower / faster
 Scroll up and Scroll down | Move camera up / down
 Ins and Del | Increase / decrease FoV
