@@ -1,4 +1,4 @@
-![World of Tanks](Images\WorldofTanks.jpg "Shot by Skramp"){.shadowed}
+![World of Tanks](Images\WorldOfTanks.jpg "Shot by Skramp"){.shadowed}
 
 ## Summary
 
