@@ -192,6 +192,7 @@ Donensbourgh |
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
 Draugen | 
+Dreamo | 
 Dreamscaper | 
 Driftland | 
 Earth Defence Force: Iron Rain  | 
@@ -273,9 +274,10 @@ Ruin 2 |
 Ruiner | 
 Satisfactory | 
 Session: Skateboarding Sim Game | 
+Shadows of Larth
+Shape of the World | 
 Shenmue 3 | 
 ShockRods | 
-Shape of the World | 
 Silver Chains | 
 The Sinking City | 
 Sinner: Sacrifice for Redemption | 
