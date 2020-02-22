@@ -177,6 +177,7 @@ Code Vein |
 Conarium | 
 Corruption 2029 | 
 Creature in the Well | 
+Curse of Anabelle | 
 Daemon X Machina  | 
 Dark Future: Blood Red States | 
 Dark Deception | 
