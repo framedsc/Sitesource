@@ -193,6 +193,7 @@ Donensbourgh |
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
 Draugen | 
+DreadOut 2 | 
 Dreamo | 
 Dreamscaper | 
 Driftland | 
