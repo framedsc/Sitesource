@@ -37,7 +37,7 @@ Just grab any replays from any players at [wotreplays.eu](http://wotreplays.eu/)
 The game's replay mode provides a time stop and HUD toggle. It's probably best to use the camera in that mode.
 
 **ReShade Install**  
-Folder path: Wargaming net\World_of_Tanks_NA\win32\WorldOfTanks.exe
+Folder path: Wargaming net\World_of_Tanks_NA\win32\
 @end
 
 ## Useful links
