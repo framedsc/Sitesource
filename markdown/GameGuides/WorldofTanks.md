@@ -8,7 +8,7 @@ Vanilla Photo Mode | No (Replay Mode Available)
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | No
+Reshade | Yes (Tips)
 Ansel | No
 DirectX versions | DirectX 11
 
@@ -19,12 +19,12 @@ DirectX versions | DirectX 11
 
 Key/button | Description
 --|--
-Left Shift + F3 | Enable / Disable camera
+CAPS + F3 | Enable / Disable camera
 WASD |  Camera movement
-1-0 | Move slower / faster
-Scroll up and Scroll down | Move camera up / down
-Ins and Del | Increase / decrease FoV
-V | Hud toggle
+1-0 | Move slower / Faster
+Scroll up and Scroll down | Move camera up / Down
+Ins and Del | Increase / Decrease FOV
+V | HUD toggle
 Arrows | Replay speed control
 
 ## Tips
@@ -35,6 +35,9 @@ Just grab any replays from any players at [wotreplays.eu](http://wotreplays.eu/)
 
 **Replay Mode**  
 The game's replay mode provides a time stop and HUD toggle. It's probably best to use the camera in that mode.
+
+**ReShade Install**  
+Folder path: Wargaming net\World_of_Tanks_NA\win32\WorldOfTanks.exe
 @end
 
 ## Useful links
