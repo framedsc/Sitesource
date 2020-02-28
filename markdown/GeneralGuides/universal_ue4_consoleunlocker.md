@@ -197,6 +197,7 @@ DreadOut 2 |
 Dreamo | 
 Dreamscaper | 
 Driftland | 
+Dungeon Defenders: Awakened | 
 Earth Defence Force: Iron Rain  | 
 Earthfall | 
 Echo | 
