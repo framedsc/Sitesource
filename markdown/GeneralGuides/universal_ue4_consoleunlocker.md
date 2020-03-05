@@ -316,6 +316,7 @@ Vampyr |
 Visage | 
 Wartile | 
 We Happy Few | 
+Weakless | 
 The Works of Mercy | 
 XING The Land Beyond | 
 ZED | 
