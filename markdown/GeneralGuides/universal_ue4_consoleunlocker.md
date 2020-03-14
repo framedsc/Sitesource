@@ -299,6 +299,7 @@ Spyro Reignited Trilogy |
 Star Wars Jedi: Fallen Order | 
 Stardrop | 
 Steel rats | 
+Stela | 
 Stories: the Path of Destinies | 
 Styx 2 | 
 Subdivision Infinity DX | 
