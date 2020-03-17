@@ -278,7 +278,7 @@ Ruin 2 |
 Ruiner | 
 Satisfactory | 
 Session: Skateboarding Sim Game | 
-Shadows of Larth
+Shadows of Larth | 
 Shape of the World | 
 Shenmue 3 | 
 ShockRods | 
