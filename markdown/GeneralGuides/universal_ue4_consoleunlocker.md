@@ -215,7 +215,7 @@ Finding the Soul Orb |
 Genesis Alpha One | 
 Gray Dawn | 
 GRIP: Combat Racing | 
-Hazel Sky | 
+Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hollow | 
 Hunting Simulator | 
@@ -314,7 +314,7 @@ Terminator Resistance |
 Tetris Effect | 
 Tower of Fate | 
 Train Sim World | 
-Trials of Mana | 
+Trials of Mana | Tested on demo
 Tropico 6 | 
 Urban Trial Playground | 
 Uventa | 
