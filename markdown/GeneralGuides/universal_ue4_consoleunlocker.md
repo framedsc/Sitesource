@@ -313,8 +313,8 @@ Tartarus |
 Terminator Resistance | 
 Tetris Effect | 
 Tower of Fate | 
-Trails of Mana | 
 Train Sim World | 
+Trials of Mana | 
 Tropico 6 | 
 Urban Trial Playground | 
 Uventa | 
