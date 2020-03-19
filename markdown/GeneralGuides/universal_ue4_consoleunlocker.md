@@ -156,6 +156,7 @@ Another Sight Definitive Edition |
 Apsulov: End of Gods | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
+Armoured Onslaught | 
 Ashen | 
 Ashes Of Oahu | 
 Assemblance: Oversight | 
@@ -214,6 +215,7 @@ Finding the Soul Orb |
 Genesis Alpha One | 
 Gray Dawn | 
 GRIP: Combat Racing | 
+Hazel Sky | 
 Hellblade: Senua's Sacrifice | 
 Hollow | 
 Hunting Simulator | 
@@ -245,6 +247,7 @@ Morphies Law Remorphed |
 MotoGP 19 | 
 Mutant Year Zero: Road to Eden | 
 My Hero One's Justice | 
+My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
 Narcos: Rise of the Cartels | 
 NBA 2K Playgrounds 2 | 
@@ -310,6 +313,7 @@ Tartarus |
 Terminator Resistance | 
 Tetris Effect | 
 Tower of Fate | 
+Trails of Mana | 
 Train Sim World | 
 Tropico 6 | 
 Urban Trial Playground | 
