@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.1](https://mega.nz/#!JBxmAK7R!K6mKHMMtn1sRc34I866wdnUJIJS-y4J8QfKWu_JjyAk). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.2](https://mega.nz/#!8IJHBYyB!jw21m-GCs85uzj9E5XRysqyJCsNfZS0Zx4Eu9_zvuUM). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -101,21 +101,26 @@ The UUU has a sophisticated built-in free camera, which you can enable at any ti
 
 Key/button | Description 
 --|--
-Insert                                | Enable/Disable camera
-HOME                                  | Lock/unlock camera movement
-ALT + rotate/move                     | Faster rotate / move
-Right-CTRL + rotate/move              | Slower rotate / move
-Controller Y-button + l/r-stick       | Faster rotate / move
-Controller X-button + l/r-stick       | Slower rotate / move
-Arrow up/down or mouse or r-stick     | Rotate camera up/down
-Arrow left/right or mouse or r-stick  | Rotate camera left/right
-Numpad 8/Numpad 5 or l-stick          | Move camera forward/backward
-Numpad 4/Numpad 6 or l-stick          | Move camera left / right
-Numpad 7/Numpad 9 or l/r-trigger      | Move camera up / down
-Numpad 1/Numpad 3 or d-pad left/right | Tilt camera left / right
-Numpad +/- or d-pad up/down           | Increase / decrease FoV
-Numpad * or controller B-button       | Reset FoV
-Numpad .                              | Toggle block input to game for camera control device.
+Insert                                    | Enable/Disable camera
+HOME                                      | Lock/unlock camera movement
+ALT + rotate/move                         | Faster rotate / move
+Right-CTRL + rotate/move                  | Slower rotate / move
+Controller Y-button + l/r-stick           | Faster rotate / move
+Controller X-button + l/r-stick           | Slower rotate / move
+Arrow up/down or mouse or r-stick         | Rotate camera up/down
+Arrow left/right or mouse or r-stick      | Rotate camera left/right
+LMB + mouse forward / backward            | Move camera up / down
+RMB + mouse forward/backward              | Move camera forward / backward
+LMB or RMB + mouse left / right           | Move camera left / right
+LMB + RMB + mouse left / right            | Tilt camera left / right
+Mousewheel                                | Increase / Decrease FoV
+Numpad 8/Numpad 5 or l-stick              | Move camera forward/backward
+Numpad 4/Numpad 6 or l-stick              | Move camera left / right
+Numpad 7/Numpad 9 or l/r-trigger          | Move camera up / down
+Numpad 1/Numpad 3 or d-pad left/right     | Tilt camera left / right
+Numpad +/- or d-pad up/down               | Increase / decrease FoV
+Numpad * or controller B-button           | Reset FoV
+Numpad .                                  | Toggle block input to game for camera control device.
 
 By default, when the free camera is enabled, the input to the game is blocked for the device that's controlling the camera. 
 The camera will move / rotate slower when you lower the fov.
@@ -340,6 +345,7 @@ Toggle camera | `Insert`
 Toggle widget based HUD / Menu elements | `Delete`
 Toggle game pause (Using UWorld::IsPaused) | `Numpad 0`
 Toggle game pause (Using slomo 0) | `Page Down`
+Skip frames when the game is paused | `Page Up`
 (In-game) Open the console | `~`
 Controlling game speed with slomo 0 game pause| Available features tab
 
@@ -380,6 +386,11 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.2: 
+- **ADDED**: Mouse-based camera movement / fov control (using left/right mouse button and mousewheel)
+- **ADDED**: Frameskip feature for when the game is paused (default PageUp)
+- **FIXED**: A checkbox control didn't send its changed state to the dll if the state changed to 'unchecked'. 
 
 ###v3.0.1:
 - **ADDED**: Added alignment buttons for the window to the Hotsampling tab, so you can examine the window contents if it's larger than your monitor
