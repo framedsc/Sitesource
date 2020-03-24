@@ -39,6 +39,7 @@
 			"DmC: Devil May Cry": "GameGuides\\dmc.md",
 			"Dirt Rally 2.0": "GameGuides\\dirtrally2.md",
 			"DOOM" : "GameGuides\\DOOM.md",
+			"DOOM Eternal" : "GameGuides\\doometernal.md",
 			"Dragon Age: Inquisition": "GameGuides\\dai.md",
 			"Dragon Ball FigtherZ": "GameGuides\\dragon_ball_figtherz.md",
 			"ELEX": "GameGuides\\ELEX.md",
@@ -59,8 +60,10 @@
 			"Mirror's Edge Catalyst": "GameGuides\\mecatalyst.md",
             "Mutant Year Zero: Road to Eden" : "GameGuides\\MutantYearZero.md",
 			"NieR: Automata" : "GameGuides\\NieRAutomata.md",
+			"Ni No Kuni: Wrath of the White Witch Remastered" : "GameGuides\\ninokuniremastered.md",
 			"No Man's Sky" : "GameGuides\\nomanssky.md",
 			"Observer" : "GameGuides\\Observer.md",
+			"The Outer Worlds" : "GameGuides\\theouterworlds.md",
 			"Prince of Persia - The Sands of Time": "GameGuides\\pop_sandsoftime.md",
 			"Quantum Break" : "GameGuides\\Quantum_Break.md",
 			"Red Dead Redemption 2": "GameGuides\\rdr2.md",
@@ -81,6 +84,8 @@
 			"Watch_Dogs 2": "GameGuides\\Watch_Dogs2.md",
 			"What Remains of Edith Finch": "GameGuides\\edithfinch.md",
 			"The Witcher 3: Wild Hunt": "GameGuides\\thewitcher3.md",
+			"World of Tanks" : "GameGuides\\WorldOfTanks.md",
+			"XCOM 2": "GameGuides\\xcom2.md",
         },
 		"General guides" :
 		{
@@ -88,7 +93,7 @@
 			"Cheat Engine - Tables": "GeneralGuides\\cheat_engine_tables.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
-			"Universal Unreal Engine 4 Console Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
+			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
 		}, 
 		"Reshade guides" :

@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Cinematic Tools by Hattiwatti](http://cinetools.xyz/games/)  
+* [Cinematic Tools by Hattiwatti](https://mega.nz/#!pNo2TCiY!BJLBrSEvKxwD-Dyy4HFJ4tsnr4e1EwCEAAAAAAAAAAA)  
 **Features**: Free Camera, Timestop, FOV Control, Hide HUD (read the Readme File for Hotkeys) 
 
 ##Useful Links

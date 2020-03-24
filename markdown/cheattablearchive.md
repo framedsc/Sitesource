@@ -8,12 +8,14 @@ and this archive might just have what you're looking for.
 
 If you still want to know how these tables work try searching in the webarchive of the [DET forums](https://web.archive.org/web/20180208220211/http://www.deadendthrills.com/forum/discussion/501/game-guide-index).
 
-In the case you manage to use one of these tables, its encuraged creating a guide of the correspondent game for future players.
+In the case you manage to use one of these tables, its encouraged creating a guide of the correspondent game for future players.
 
 @alert tip
 Some of the games below have received full camera tools, and you should first look if one of the camera makers have made
 camera tools for the game instead of using these old cheat tables. 
 @end
+
+## Tables
 
 ### ABZU
 - [AbzuGame-Win64-Shipping_det.CT](CheatTables/Archive/AbzuGame-Win64-Shipping_det.CT)
@@ -641,3 +643,13 @@ camera tools for the game instead of using these old cheat tables.
 
 ###ZOMBIE
 - [ZOMBI.ct](CheatTables/Archive/ZOMBI.ct)
+
+## Hattiwatti tools
+
+Below are tools made by Hattiwatti which aren't available elsewhere anymore and which are for games which don't (yet) have a guide. 
+It's unknown whether these tools still work. 
+
+- [Assassin's Creed: Unity & Syndicate](https://mega.nz/#!VIpSEIrK!V1BnX1Mk0g8BrN_ou4tPUfkuMdYutJp7pp1f5XpnzCc)  
+- [Battlefield 1](https://mega.nz/#!Ucx0maIY!qJIQo8r9DSRmVqyST5dCB593JUDL9a2uXRpAr7Ap8j8)  
+- [The Hunter: Call of the Wild](https://mega.nz/#!5UpAiSAD!CeAgMilyzaoSqlz9-5qTiStWeede9Q0tGGUs1kFAKqA)  
+- [ Mass Effect: Andromeda](https://mega.nz/#!1coCXawS!Fjns9cFxSkc7iIeJr6hRc6_ciEqUDIcxVgi8zt5l3CA)  
