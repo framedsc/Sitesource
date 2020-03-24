@@ -8,12 +8,14 @@ and this archive might just have what you're looking for.
 
 If you still want to know how these tables work try searching in the webarchive of the [DET forums](https://web.archive.org/web/20180208220211/http://www.deadendthrills.com/forum/discussion/501/game-guide-index).
 
-In the case you manage to use one of these tables, its encuraged creating a guide of the correspondent game for future players.
+In the case you manage to use one of these tables, its encouraged creating a guide of the correspondent game for future players.
 
 @alert tip
 Some of the games below have received full camera tools, and you should first look if one of the camera makers have made
 camera tools for the game instead of using these old cheat tables. 
 @end
+
+## Tables
 
 ### ABZU
 - [AbzuGame-Win64-Shipping_det.CT](CheatTables/Archive/AbzuGame-Win64-Shipping_det.CT)
@@ -33,7 +35,10 @@ camera tools for the game instead of using these old cheat tables.
 - [AC4BFSP_101.CT](CheatTables/Archive/AC4BFSP_101.CT)
 - [AC4BFSP_104.CT](CheatTables/Archive/AC4BFSP_104.CT)
 - [AC4BFSP_test.CT](CheatTables/Archive/AC4BFSP_test.CT)
-- [Assassins_Credd_IV-pausecamera_AOB_0.3.ct](Assassins_Credd_IV-pausecamera_AOB_0.3.ct)
+- [Assassins_Credd_IV-pausecamera_AOB_0.3.ct](CheatTables/Archive/Assassins_Credd_IV-pausecamera_AOB_0.3.ct)
+- [ACBFUplay_Camera_and_Timestop.CT](CheatTables/Archive/ACBFUplay_Camera_and_Timestop.CT)
+- [Initiate_show_hide_UI_-___navigate_with_numpad2_8_hide_hidehud_with_numpad_5.CT](CheatTables/Archive/Initiate_show_hide_UI_-___navigate_with_numpad2_8_hide_hidehud_with_numpad_5.CT)
+- [sun_position.CT](CheatTables/Archive/sun_position.CT)
 
 ###Assassin's Creed Syndicate
 - [ACS.CT](CheatTables/Archive/ACS.CT)
@@ -58,6 +63,9 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Alan Wake's American Nightmare ([DET forums archive guide](https://web.archive.org/web/20180105152811/http://deadendthrills.com/forum/discussion/518/guide-alan-wake-s-american-nightmare))
 - [alan_wakes_american_nightmare.CT](CheatTables/Archive/alan_wakes_american_nightmare.CT)
+
+###Atelier Ryza: Ever Darkness & the Secret Hideout
+- [Atelier_Ryza_nepafu.CT](CheatTables/Archive/Atelier_Ryza_nepafu.CT)
 
 ###Batman: Arkham Asylum
 - [BatmanAA_One3rd_Camera_Merged.CT](CheatTables/Archive/BatmanAA_One3rd_Camera_Merged.CT)
@@ -225,6 +233,9 @@ camera tools for the game instead of using these old cheat tables.
 - [Dragons_Dogma_Free_Camera.CT](CheatTables/Archive/Dragons_Dogma_Free_Camera.CT)
 - [Dragons_Dogma_GOG_stamina.CT](CheatTables/Archive/Dragons_Dogma_GOG_stamina.CT)
 
+###Dragon Quest XI
+- [DRAGON_QUEST_XI_AnselEverywhere.CT](CheatTables/Archive/DRAGON_QUEST_XI_AnselEverywhere.CT)
+
 ###Dying Light
 - [DyingLightScreenshots.CT](CheatTables/Archive/DyingLightScreenshots.CT)
 - [DyingLightPhotography_One3rd_v0.4.CT](CheatTables/Archive/DyingLightPhotography_One3rd_v0.4.CT)
@@ -267,6 +278,9 @@ camera tools for the game instead of using these old cheat tables.
 
 ###FEZ
 - [FEZ.CT](CheatTables/Archive/FEZ.CT)
+
+###Fighting EX Layer
+- [FEXL.CT](CheatTables/Archive/FEXL.CT)
 
 ###Firewatch
 - [Firewatch.ct](CheatTables/Archive/Firewatch.ct)
@@ -313,6 +327,7 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Injustice 2
 - [Injustice2fc.ct](CheatTables/Archive/Injustice2fc.ct)
+- [Injustice2nepafu.CT](CheatTables/Archive/Injustice2nepafu.CT)
 
 ###Inside
 - [INSIDE_V2.0.CT](CheatTables/Archive/INSIDE_V2.0.CT)
@@ -320,6 +335,7 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Jump Force
 - [Jump_Force_Camera_Hack.CT](CheatTables/Archive/Jump_Force_Camera_Hack.CT)
+- [JUMP_FORCE.CT](CheatTables/Archive/JUMP_FORCE.CT)
 
 ###Killer Is Dead
 - [KiD_DOF_Tonemap_v0.7.1.CT](CheatTables/Archive/KiD_DOF_Tonemap_v0.7.1.CT)
@@ -415,6 +431,9 @@ camera tools for the game instead of using these old cheat tables.
 ###Need for Speed: Rivals
 - [NFS_Rivals_64-1.ct](CheatTables/Archive/NFS_Rivals_64-1.ct)
 
+###Ni no Kuni Wrath of the White Witch Remastered
+- [NinoKuni_WotWW_Remastered.CT](CheatTables/Archive/NinoKuni_WotWW_Remastered.CT)
+
 ###No Man's Sky
 - [NMS.CT](CheatTables/Archive/NMS.CT)
 
@@ -450,6 +469,7 @@ camera tools for the game instead of using these old cheat tables.
 
 ###RiME
 - [RiME_FC.ct](CheatTables/Archive/RiME_FC.ct)
+- [RiME.CT](CheatTables/Archive/RiME.CT)
 
 ###Rise of the Tomb Raider
 - [ROTTR.CT](CheatTables/Archive/ROTTR.CT)
@@ -482,11 +502,22 @@ camera tools for the game instead of using these old cheat tables.
 ###Splinter Cell Conviction
 - [Conviction_game_v0.1.CT](CheatTables/Archive/Conviction_game_v0.1.CT)
 
+###Soulcalibur VI
+- [SC6nepafu.CT](CheatTables/Archive/SC6nepafu.CT)
+
 ###Star Wars Battlefront II
 - [starwarsbattlefrontii_AnselAnywhere.CT](CheatTables/Archive/starwarsbattlefrontii_AnselAnywhere.CT)
+- [starwarsbattlefrontii.CT](CheatTables/Archive/starwarsbattlefrontii.CT)
+- [SWII_ANSEL_RANGE_REMOVER.CT](CheatTables/Archive/SWII_ANSEL_RANGE_REMOVER.CT)
 
 ###State of Mind
 - [StateOfMind-Win64-Shipping.CT](CheatTables/Archive/StateOfMind-Win64-Shipping.CT)
+
+###Street Fighter V
+- [StreetFighterV.CT.ct](CheatTables/Archive/StreetFighterV.CT.ct)
+
+###Street Fighter x Tekken
+- [SFTK.CT](CheatTables/Archive/SFTK.CT)
 
 ###Styx: Master of Shadows
 - [StyxGame_32-bit_v0.2.CT](CheatTables/Archive/StyxGame_32-bit_v0.2.CT)
@@ -500,9 +531,17 @@ camera tools for the game instead of using these old cheat tables.
 - [ShadowOfMordor_aob.CT](CheatTables/Archive/ShadowOfMordor_aob.CT)
 
 ###Spec Ops: The Line
+- [SpecOpsTheLinePPDoF.CT](CheatTables/Archive/SpecOpsTheLinePPDoF.CT)
 - [SpecOpsTheLine.CT](CheatTables/Archive/SpecOpsTheLine.CT)
 - [SpecOpsTheLinePPDoF2.CT](CheatTables/Archive/SpecOpsTheLinePPDoF2.CT)
 - [SpecOpsTheLine_v10.CT](CheatTables/Archive/SpecOpsTheLine_v10.CT)
+
+###Submerged
+- [Submerged.CT](CheatTables/Archive/Submerged.CT)
+
+###Tekken 7
+- [Tekken_Ansel_no_range.CT](CheatTables/Archive/Tekken_Ansel_no_range.CT)
+- [TK7nepafu.CT](CheatTables/Archive/TK7nepafu.CT)
 
 ###The Bureau: XCOM Declassified
 - [TheBureau.CT](CheatTables/Archive/TheBureau.CT)
@@ -531,9 +570,6 @@ camera tools for the game instead of using these old cheat tables.
 
 ###The Chronicles of Riddick: Assault on Dark Athena
 - [Riddick_DarkAthena-rel.ct](CheatTables/Archive/Riddick_DarkAthena-rel.ct)
-
-###The Dark Pictures: Man of Medan
-- [ManOfMedan-Win64-Shipping2.CT](CheatTables/Archive/ManOfMedan-Win64-Shipping2.CT)
 
 ###The Deadly Tower of Monsters
 - [Deadly_Tower_Of_Monsters.CT](CheatTables/Archive/Deadly_Tower_Of_Monsters.CT)
@@ -607,3 +643,13 @@ camera tools for the game instead of using these old cheat tables.
 
 ###ZOMBIE
 - [ZOMBI.ct](CheatTables/Archive/ZOMBI.ct)
+
+## Hattiwatti tools
+
+Below are tools made by Hattiwatti which aren't available elsewhere anymore and which are for games which don't (yet) have a guide. 
+It's unknown whether these tools still work. 
+
+- [Assassin's Creed: Unity & Syndicate](https://mega.nz/#!VIpSEIrK!V1BnX1Mk0g8BrN_ou4tPUfkuMdYutJp7pp1f5XpnzCc)  
+- [Battlefield 1](https://mega.nz/#!Ucx0maIY!qJIQo8r9DSRmVqyST5dCB593JUDL9a2uXRpAr7Ap8j8)  
+- [The Hunter: Call of the Wild](https://mega.nz/#!5UpAiSAD!CeAgMilyzaoSqlz9-5qTiStWeede9Q0tGGUs1kFAKqA)  
+- [ Mass Effect: Andromeda](https://mega.nz/#!1coCXawS!Fjns9cFxSkc7iIeJr6hRc6_ciEqUDIcxVgi8zt5l3CA)  

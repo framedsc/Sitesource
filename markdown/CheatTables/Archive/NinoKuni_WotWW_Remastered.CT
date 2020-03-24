@@ -1,0 +1,4374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>4AD7FC96A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>23A8CFD4098</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>1A8B8A18098</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>110</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>55</ID>
+      <Description>"ENABLE FIRST Rotation (HOME)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+local degToRad = math.pi / 180
+prevYaw = 0
+prevPitch = 0
+prevRoll = 0
+
+function calcCurrentEyePos(rotMemory)
+    local xAxis = {}
+    local yAxis = {}
+    local zAxis = {}
+    local pos = {}
+
+    xAxis[1] = readFloat(rotMemory+16)
+    xAxis[2] = readFloat(rotMemory+20)
+    xAxis[3] = readFloat(rotMemory+24)
+    pos[1] = readFloat(rotMemory+52)
+
+    yAxis[1] = readFloat(rotMemory+28)
+    yAxis[2] = readFloat(rotMemory+32)
+    yAxis[3] = readFloat(rotMemory+36)
+    pos[2] = readFloat(rotMemory+56)
+
+    zAxis[1] = readFloat(rotMemory+40)
+    zAxis[2] = readFloat(rotMemory+44)
+    zAxis[3] = readFloat(rotMemory+48)
+    pos[3] = readFloat(rotMemory+60)
+
+    local realPos = {}
+    realPos[1] = pos[1] * xAxis[1] + pos[2] * yAxis[1] + pos[3] * zAxis[1]
+    realPos[2] = pos[1] * xAxis[2] + pos[2] * yAxis[2] + pos[3] * zAxis[2]
+    realPos[3] = pos[1] * xAxis[3] + pos[2] * yAxis[3] + pos[3] * zAxis[3]
+
+    realPos[1] = -1 * realPos[1]
+    realPos[2] = -1 * realPos[2]
+    realPos[3] = -1 * realPos[3]
+
+    return realPos
+end
+
+function initCamera(cameraPtr, rotMemory)
+    local xAxis = {}
+    local yAxis = {}
+    local zAxis = {}
+    local pos = {}
+
+    print("fuckshitpiss")
+
+    xAxis[1] = readFloat(cameraPtr+416)
+    xAxis[2] = readFloat(cameraPtr+420)
+    xAxis[3] = readFloat(cameraPtr+424)
+    pos[1] = readFloat(cameraPtr+428)
+
+    yAxis[1] = readFloat(cameraPtr+432)
+    yAxis[2] = readFloat(cameraPtr+436)
+    yAxis[3] = readFloat(cameraPtr+440)
+    pos[2] = readFloat(cameraPtr+444)
+
+    zAxis[1] = readFloat(cameraPtr+448)
+    zAxis[2] = readFloat(cameraPtr+452)
+    zAxis[3] = readFloat(cameraPtr+456)
+    pos[3] = readFloat(cameraPtr+460)
+
+    local realPos = {}
+    realPos[1] = pos[1] * xAxis[1] + pos[2] * yAxis[1] + pos[3] * zAxis[1]
+    realPos[2] = pos[1] * xAxis[2] + pos[2] * yAxis[2] + pos[3] * zAxis[2]
+    realPos[3] = pos[1] * xAxis[3] + pos[2] * yAxis[3] + pos[3] * zAxis[3]
+
+    writeFloat(rotMemory + 16, 1)
+    writeFloat(rotMemory + 20, 0)
+    writeFloat(rotMemory + 24, 0)
+    writeFloat(rotMemory + 28, 0)
+    writeFloat(rotMemory + 32, 1)
+    writeFloat(rotMemory + 36, 0)
+    writeFloat(rotMemory + 40, 0)
+    writeFloat(rotMemory + 44, 0)
+    writeFloat(rotMemory + 48, 1)
+
+    writeFloat(rotMemory + 52, realPos[1])
+    writeFloat(rotMemory + 56, realPos[2])
+    writeFloat(rotMemory + 60, realPos[3])
+
+    writeFloat(rotMemory + 64, -realPos[1])
+    writeFloat(rotMemory + 68, -realPos[2])
+    writeFloat(rotMemory + 72, -realPos[3])
+
+end
+
+function calcDot(vec1, vec2)
+    return vec1[1]*vec2[1] + vec1[2]*vec2[2] + vec1[3]*vec2[3]
+end
+
+function calcQuaternion(rotMemory, yaw, pitch, roll)
+	pitch = pitch * degToRad
+    yaw = yaw * degToRad
+    roll = roll * degToRad
+
+    local sx = math.sin(pitch)
+    local cx = math.cos(pitch)
+    local sy = math.sin(yaw)
+    local cy = math.cos(yaw)
+    local sz = math.sin(roll)
+    local cz = math.cos(roll)
+
+    local xAxis = {cy*cz, -cy*sz, sy}
+    local yAxis = {sx*sy*cz + cx*sz,-sx*sy*sz + cx*cz,-sx*cy}
+    local zAxis = {-cx*sy*cz + sx*sz,cx*sy*sz+sx*cz,cx*cy}
+
+    local eyePos = calcCurrentEyePos(rotMemory)
+    print(xAxis[1] .. ' ' .. xAxis[2] .. ' ' .. xAxis[3])
+    local coord = {-calcDot(xAxis,eyePos),-calcDot(yAxis,eyePos),-calcDot(zAxis,eyePos)}
+
+    --xyz2
+    --local r11 = cy*cz
+    --local r12 = -cy*sz
+    --local r13 = sy
+    --local r21 = sx*sy*cz + cx*sz
+    --local r22 = -sx*sy*sz + cx*cz
+    --local r23 = -sx*cy
+    --local r31 = -cx*sy*cz + sx*sz
+    --local r32 = cx*sy*sz+sx*cz
+    --local r33 = cx*cy
+
+    --xzy
+    --local r11 = cz*cy
+    --local r12 = -sz
+    --local r13 = cz*sy
+    --local r21 = cx*sz*cy + sx*cy
+    --local r22 = cx*cz
+    --local r23 = cx*sz*sy-sx*cy
+    --local r31 = -sx*sz*cy-cx*sy
+    --local r32 = sx*cz
+    --local r33 = sx*sz*sy+cx*cy
+
+    --xzy2
+    --local r11 = cz*cy
+    --local r12 = -sz
+    --local r13 = cz*sy
+    --local r21 = cx*sz*cy + sx*cy
+    --local r22 = cx*cz
+    --local r23 = cx*sz*sy-sx*cy
+    --local r31 = -sx*sz*cy-cx*sy
+    --local r32 = sx*cz
+    --local r33 = sx*sz*sy+cx*cy
+
+    ---zxy
+    --local r11 = -sz*sx*sy+cz*cy
+    --local r12 = -sz*cx
+    --local r13 = sz*sx*sy+cz*sy
+    --local r21 = cz*sx*sy+sz*cy
+    --local r22 = cz*cx
+    --local r23 = -cz*cx*cy+sz*sy
+    --local r31 = -cx*sy
+    --local r32 = sx
+    --local r33 = cx*cy
+
+    --zyx
+    --local r11 = cz * cy
+    --local r12 = cz*sy*sx - sz*cx
+    --local r13 = cz*sy*cx + sz*sx
+    --local r21 = sz*cy
+    --local r22 = sz*sy*sx + cz*cx
+    --local r23 = sz*sy*cx - cz*sx
+    --local r31 = -sy
+    --local r32 = cy*sx
+    --local r33 = cy*cx
+
+    --yxz
+    --local r11 = sy*sx*sz + cy+cz
+    --local r12 = sy*sx*cz - cy*sz
+    --local r13 = sy*cx
+    --local r21 = cx*sz
+    --local r22 = cx*cz
+    --local r23 = -sx
+    --local r31 = cy*sx*sz - sy*cz
+    --local r32 = cy*sx*cz + sy*sz
+    --local r33 = cy*cx
+
+    --yxz2
+    --local r11 = sy*sx*sz + cy+cz
+    --local r12 = cx*sz
+    --local r13 = cy*sx*sz - sy*cz
+    --local r21 = sy*sx*cz - cy*sz
+    --local r22 = cx*cz
+    --local r23 = cy*sx*cz + sy*sz
+    --local r31 = sy*cx
+    --local r32 = -sx
+    --local r33 = cy*cx
+
+
+    --local w = cosY * cosX * cosZ + sinY * sinX * sinZ
+    --local x = cosY * sinX * cosZ + sinY * cosX * sinZ
+    --local y = sinY * cosX * cosZ - cosY * sinX * sinZ
+    --local z = cosY * cosX * sinZ - sinY * sinX * cosZ
+
+    writeFloat(rotMemory + 16, xAxis[1])
+    writeFloat(rotMemory + 20, xAxis[2])
+    writeFloat(rotMemory + 24, xAxis[3])
+    writeFloat(rotMemory + 28, yAxis[1])
+    writeFloat(rotMemory + 32, yAxis[2])
+    writeFloat(rotMemory + 36, yAxis[3])
+    writeFloat(rotMemory + 40, zAxis[1])
+    writeFloat(rotMemory + 44, zAxis[2])
+    writeFloat(rotMemory + 48, zAxis[3])
+    writeFloat(rotMemory + 52, coord[1])
+    writeFloat(rotMemory + 56, coord[2])
+    writeFloat(rotMemory + 60, coord[3])
+end
+
+function printShit()
+         print("Shit")
+end
+
+function timer_tick(timer)
+         local rotMemory = getAddressSafe("rotMemory")
+         if rotMemory == nil then
+            return
+         end
+
+         local initialized = readInteger(rotMemory+76)
+         if initialized == 0 then
+            local camPtr = readPointer(rotMemory+80)
+            if camPtr ~= 0 then
+               initCamera(camPtr, rotMemory)
+               writeInteger(rotMemory+76, 1)
+            end
+            return
+         end
+
+         local yaw = readFloat(rotMemory)
+         local pitch = readFloat(rotMemory+4)
+         local roll = readFloat(rotMemory+8)
+
+         if yaw == prevYaw and pitch == prevPitch and roll == prevRoll then
+            return
+         end
+
+         calcQuaternion(rotMemory, yaw, pitch, roll)
+
+         prevYaw = yaw
+         prevPitch = pitch
+         prevRoll = roll
+end
+
+function init()
+         --print("init")
+         if timer == nil then
+            print("Creating timer")
+            timer = createTimer(nil, false)
+            timer.setInterval(10)
+            timer.OnTimer = timer_tick
+         else
+             timer.OnTimer = timer_tick
+             timer.setEnabled(true)
+         end
+end
+
+function deinit()
+         --print("deinit")
+         timer.setEnabled(false)
+end
+
+
+{$asm}
+[ENABLE]
+globalalloc(rotMemory, 0x100, NinoKuni_WotWW_Remastered.exe+8FDF04)
+{$lua}
+init()
+
+{$asm}
+[DISABLE]
+{$lua}
+deinit()
+{$asm}
+dealloc(rotMemory)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>56</ID>
+          <Description>"Yaw"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>58</ID>
+          <Description>"Roll"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"Pitch"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>119</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+34</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>121</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+38</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>120</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+3C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"---- Quaternion ----"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys/>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"qr33"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+30</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>77</ID>
+          <Description>"qr32"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+2C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>76</ID>
+          <Description>"qr31"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+28</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>75</ID>
+          <Description>"qr23"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+24</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>74</ID>
+          <Description>"qr22"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+20</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>62</ID>
+          <Description>"qr21"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+1C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"qr13"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+18</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>61</ID>
+          <Description>"qr12"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+14</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"qr11"</Description>
+          <VariableType>Float</VariableType>
+          <Address>rotMemory+10</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>79</ID>
+      <Description>"Camera"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(_Camera,NinoKuni_WotWW_Remastered.exe,66 0F 7F 12 66 0F 7F 4A 10 66) // should be unique
+registersymbol(_Camera)
+alloc(newmem,$1000,"NinoKuni_WotWW_Remastered.exe"+5B5CF8)
+globalalloc(rotMemory, 0x100)
+
+label(return)
+registersymbol(camerabase)
+label(camerabase)
+
+newmem:
+  mov [camerabase],rdx
+  //movdqa [rdx],xmm2
+  //movdqa [rdx+10],xmm1
+  //movdqa [rdx+20],xmm7
+{
+  push eax
+  mov eax,[rotMemory+10]
+  mov [rdx],eax
+  mov eax,[rotMemory+14]
+  mov [rdx+4],eax
+  mov eax,[rotMemory+18]
+  mov [rdx+8],eax
+
+  mov eax,[rotMemory+1C]
+  mov [rdx+10],eax
+  mov eax,[rotMemory+20]
+  mov [rdx+14],eax
+  mov eax,[rotMemory+24]
+  mov [rdx+18],eax
+
+  mov eax,[rotMemory+28]
+  mov [rdx+20],eax
+  mov eax,[rotMemory+2C]
+  mov [rdx+24],eax
+  mov eax,[rotMemory+30]
+  mov [rdx+28],eax
+  pop eax}
+{
+  push eax
+  mov eax,[rotMemory+10]
+  mov [rdx],eax
+  mov eax,[rotMemory+14]
+  mov [rdx+10],eax
+  mov eax,[rotMemory+18]
+  mov [rdx+20],eax
+
+  mov eax,[rotMemory+1C]
+  mov [rdx+4],eax
+  mov eax,[rotMemory+20]
+  mov [rdx+14],eax
+  mov eax,[rotMemory+24]
+  mov [rdx+24],eax
+
+  mov eax,[rotMemory+28]
+  mov [rdx+8],eax
+  mov eax,[rotMemory+2C]
+  mov [rdx+18],eax
+  mov eax,[rotMemory+30]
+  mov [rdx+28],eax
+  pop eax
+}
+  movaps xmm7,[rsp+20]
+  shufps xmm4,xmm0,-3C
+  //mov [rdx+30],0
+  //mov [rdx+34],0
+  //mov [rdx+38],0
+  jmp return
+
+camerabase:
+dq 0
+
+_Camera:
+  jmp newmem
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+  return:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_Camera:
+  db 66 0F 7F 12 66 0F 7F 4A 10 66 0F 7F 7A 20 0F 28 7C 24 20 0F C6 E0 C4 66 0F 7F 62 30
+
+unregistersymbol(camerabase)
+unregistersymbol(_Camera)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "NinoKuni_WotWW_Remastered.exe"+5B5CF8
+
+"NinoKuni_WotWW_Remastered.exe"+5B5CCE: 66 0F 6F D7              -  movdqa xmm2,xmm7
+"NinoKuni_WotWW_Remastered.exe"+5B5CD2: 66 0F DF D3              -  pandn xmm2,xmm3
+"NinoKuni_WotWW_Remastered.exe"+5B5CD6: 0F 58 E0                 -  addps xmm4,xmm0
+"NinoKuni_WotWW_Remastered.exe"+5B5CD9: 0F 58 E1                 -  addps xmm4,xmm1
+"NinoKuni_WotWW_Remastered.exe"+5B5CDC: 66 0F 6F CF              -  movdqa xmm1,xmm7
+"NinoKuni_WotWW_Remastered.exe"+5B5CE0: 66 0F DF FE              -  pandn xmm7,xmm6
+"NinoKuni_WotWW_Remastered.exe"+5B5CE4: 66 0F DF CD              -  pandn xmm1,xmm5
+"NinoKuni_WotWW_Remastered.exe"+5B5CE8: 0F 28 74 24 30           -  movaps xmm6,[rsp+30]
+"NinoKuni_WotWW_Remastered.exe"+5B5CED: 0F 28 C4                 -  movaps xmm0,xmm4
+"NinoKuni_WotWW_Remastered.exe"+5B5CF0: 0F C6 05 D8 4B 7B 00 FA  -  shufps xmm0,[NinoKuni_WotWW_Remastered.exe+D6A8D0],-06
+// ---------- INJECTING HERE ----------
+"NinoKuni_WotWW_Remastered.exe"+5B5CF8: 66 0F 7F 12              -  movdqa [rdx],xmm2
+"NinoKuni_WotWW_Remastered.exe"+5B5CFC: 66 0F 7F 4A 10           -  movdqa [rdx+10],xmm1
+// ---------- DONE INJECTING  ----------
+"NinoKuni_WotWW_Remastered.exe"+5B5D01: 66 0F 7F 7A 20           -  movdqa [rdx+20],xmm7
+"NinoKuni_WotWW_Remastered.exe"+5B5D06: 0F 28 7C 24 20           -  movaps xmm7,[rsp+20]
+"NinoKuni_WotWW_Remastered.exe"+5B5D0B: 0F C6 E0 C4              -  shufps xmm4,xmm0,-3C
+"NinoKuni_WotWW_Remastered.exe"+5B5D0F: 66 0F 7F 62 30           -  movdqa [rdx+30],xmm4
+"NinoKuni_WotWW_Remastered.exe"+5B5D14: 48 83 C4 48              -  add rsp,48
+"NinoKuni_WotWW_Remastered.exe"+5B5D18: C3                       -  ret 
+"NinoKuni_WotWW_Remastered.exe"+5B5D19: CC                       -  int 3 
+"NinoKuni_WotWW_Remastered.exe"+5B5D1A: CC                       -  int 3 
+"NinoKuni_WotWW_Remastered.exe"+5B5D1B: CC                       -  int 3 
+"NinoKuni_WotWW_Remastered.exe"+5B5D1C: CC                       -  int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>92</ID>
+      <Description>"Camera2"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(_CameraTwo,NinoKuni_WotWW_Remastered.exe,E8 14 01 00 00 48) // should be unique
+globalalloc(rotMemory, 0x100)
+alloc(newmem,$1000,"NinoKuni_WotWW_Remastered.exe"+5B59D7)
+registersymbol(_CameraTwo)
+registersymbol(camerabase)
+label(camerabase)
+
+
+label(return)
+
+newmem:
+  //call NinoKuni_WotWW_Remastered.exe+5B5AF0
+  mov [camerabase],rdx
+  push eax
+  mov eax,[rotMemory+10]
+  mov [rdx],eax
+  mov eax,[rotMemory+14]
+  mov [rdx+4],eax
+  mov eax,[rotMemory+18]
+  mov [rdx+8],eax
+
+  mov eax,[rotMemory+1C]
+  mov [rdx+10],eax
+  mov eax,[rotMemory+20]
+  mov [rdx+14],eax
+  mov eax,[rotMemory+24]
+  mov [rdx+18],eax
+
+  mov eax,[rotMemory+28]
+  mov [rdx+20],eax
+  mov eax,[rotMemory+2C]
+  mov [rdx+24],eax
+  mov eax,[rotMemory+30]
+  mov [rdx+28],eax
+  pop eax
+  jmp return
+
+camerabase:
+dq 0
+
+_CameraTwo:
+  jmp newmem
+return:
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_CameraTwo:
+  db E8 14 01 00 00
+unregistersymbol(camerabase)
+unregistersymbol(_CameraTwo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "NinoKuni_WotWW_Remastered.exe"+5B59D7
+
+"NinoKuni_WotWW_Remastered.exe"+5B59A9: 0F C6 D8 34                    -  shufps xmm3,xmm0,34
+"NinoKuni_WotWW_Remastered.exe"+5B59AD: 4D 8D 83 E0 00 00 00           -  lea r8,[r11+000000E0]
+"NinoKuni_WotWW_Remastered.exe"+5B59B4: 66 41 0F 70 83 00 01 00 00 55  -  pshufd xmm0,[r11+00000100]55
+"NinoKuni_WotWW_Remastered.exe"+5B59BE: 0F 59 E8                       -  mulps xmm5,xmm0
+"NinoKuni_WotWW_Remastered.exe"+5B59C1: 48 89 44 24 20                 -  mov [rsp+20],rax
+"NinoKuni_WotWW_Remastered.exe"+5B59C6: 0F 59 E2                       -  mulps xmm4,xmm2
+"NinoKuni_WotWW_Remastered.exe"+5B59C9: 0F 59 D9                       -  mulps xmm3,xmm1
+"NinoKuni_WotWW_Remastered.exe"+5B59CC: 0F 58 EC                       -  addps xmm5,xmm4
+"NinoKuni_WotWW_Remastered.exe"+5B59CF: 0F 58 EB                       -  addps xmm5,xmm3
+"NinoKuni_WotWW_Remastered.exe"+5B59D2: 0F 29 6C 24 30                 -  movaps [rsp+30],xmm5
+// ---------- INJECTING HERE ----------
+"NinoKuni_WotWW_Remastered.exe"+5B59D7: E8 14 01 00 00                 -  call NinoKuni_WotWW_Remastered.exe+5B5AF0
+// ---------- DONE INJECTING  ----------
+"NinoKuni_WotWW_Remastered.exe"+5B59DC: 48 8B C2                       -  mov rax,rdx
+"NinoKuni_WotWW_Remastered.exe"+5B59DF: 48 8B 4C 24 60                 -  mov rcx,[rsp+60]
+"NinoKuni_WotWW_Remastered.exe"+5B59E4: 48 33 CC                       -  xor rcx,rsp
+"NinoKuni_WotWW_Remastered.exe"+5B59E7: E8 64 88 6A 00                 -  call NinoKuni_WotWW_Remastered.exe+C5E250
+"NinoKuni_WotWW_Remastered.exe"+5B59EC: 0F 28 B4 24 90 00 00 00        -  movaps xmm6,[rsp+00000090]
+"NinoKuni_WotWW_Remastered.exe"+5B59F4: 0F 28 BC 24 80 00 00 00        -  movaps xmm7,[rsp+00000080]
+"NinoKuni_WotWW_Remastered.exe"+5B59FC: 44 0F 28 44 24 70              -  movaps xmm8,[rsp+70]
+"NinoKuni_WotWW_Remastered.exe"+5B5A02: 48 81 C4 A8 00 00 00           -  add rsp,000000A8
+"NinoKuni_WotWW_Remastered.exe"+5B5A09: C3                             -  ret 
+"NinoKuni_WotWW_Remastered.exe"+5B5A0A: CC                             -  int 3 
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>45</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82</ID>
+          <Description>"y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys/>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>81</ID>
+          <Description>"x"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"r11"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84</ID>
+          <Description>"r12"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>4</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>85</ID>
+          <Description>"r13"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>86</ID>
+          <Description>"r21"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87</ID>
+          <Description>"r22"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>88</ID>
+          <Description>"r23"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>89</ID>
+          <Description>"r31"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>90</ID>
+          <Description>"r32"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91</ID>
+          <Description>"r33"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>28</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>93</ID>
+      <Description>"camera3"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : NinoKuni_WotWW_Remastered.exe
+  Version: 
+  Date   : 2019-10-16
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+globalalloc(rotMemory, 0x100)
+aobscanmodule(_camerathree,NinoKuni_WotWW_Remastered.exe,E8 8F 00 00 00 48 8B CB) // should be unique
+registersymbol(_camerathree)
+alloc(newmem,$1000,"NinoKuni_WotWW_Remastered.exe"+5B578C)
+
+label(return)
+registersymbol(camerabase)
+label(camerabase)
+
+newmem:
+  //call NinoKuni_WotWW_Remastered.exe+5B5820
+  mov [camerabase],rbx
+  push eax
+  mov eax,[rotMemory+10]
+  mov [rbx+10],eax
+  mov eax,[rotMemory+14]
+  mov [rbx+14],eax
+  mov eax,[rotMemory+18]
+  mov [rbx+18],eax
+
+  mov eax,[rotMemory+1C]
+  mov [rbx+20],eax
+  mov eax,[rotMemory+20]
+  mov [rbx+24],eax
+  mov eax,[rotMemory+24]
+  mov [rbx+28],eax
+
+  mov eax,[rotMemory+28]
+  mov [rbx+30],eax
+  mov eax,[rotMemory+2C]
+  mov [rbx+34],eax
+  mov eax,[rotMemory+30]
+  mov [rbx+38],eax
+  pop eax
+  jmp return
+
+camerabase:
+dq 0
+
+_camerathree:
+  jmp newmem
+return:
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_camerathree:
+  db E8 8F 00 00 00
+unregistersymbol(camerabase)
+unregistersymbol(_camerathree)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "NinoKuni_WotWW_Remastered.exe"+5B578C
+
+"NinoKuni_WotWW_Remastered.exe"+5B575C: 0F 85 AE 00 00 00        -  jne NinoKuni_WotWW_Remastered.exe+5B5810
+"NinoKuni_WotWW_Remastered.exe"+5B5762: 48 8D 83 F0 00 00 00     -  lea rax,[rbx+000000F0]
+"NinoKuni_WotWW_Remastered.exe"+5B5769: 0F 28 00                 -  movaps xmm0,[rax]
+"NinoKuni_WotWW_Remastered.exe"+5B576C: 48 8D 54 24 60           -  lea rdx,[rsp+60]
+"NinoKuni_WotWW_Remastered.exe"+5B5771: 0F 58 05 78 B5 80 00     -  addps xmm0,[NinoKuni_WotWW_Remastered.exe+DC0CF0]
+"NinoKuni_WotWW_Remastered.exe"+5B5778: 48 8B 03                 -  mov rax,[rbx]
+"NinoKuni_WotWW_Remastered.exe"+5B577B: 48 8B CB                 -  mov rcx,rbx
+"NinoKuni_WotWW_Remastered.exe"+5B577E: 0F 29 44 24 60           -  movaps [rsp+60],xmm0
+"NinoKuni_WotWW_Remastered.exe"+5B5783: FF 90 F8 00 00 00        -  call qword ptr [rax+000000F8]
+"NinoKuni_WotWW_Remastered.exe"+5B5789: 48 8B CB                 -  mov rcx,rbx
+// ---------- INJECTING HERE ----------
+"NinoKuni_WotWW_Remastered.exe"+5B578C: E8 8F 00 00 00           -  call NinoKuni_WotWW_Remastered.exe+5B5820
+// ---------- DONE INJECTING  ----------
+"NinoKuni_WotWW_Remastered.exe"+5B5791: 48 8B CB                 -  mov rcx,rbx
+"NinoKuni_WotWW_Remastered.exe"+5B5794: E8 77 02 00 00           -  call NinoKuni_WotWW_Remastered.exe+5B5A10
+"NinoKuni_WotWW_Remastered.exe"+5B5799: 4C 8D 43 10              -  lea r8,[rbx+10]
+"NinoKuni_WotWW_Remastered.exe"+5B579D: 48 8D 4B 50              -  lea rcx,[rbx+50]
+"NinoKuni_WotWW_Remastered.exe"+5B57A1: 48 8D 54 24 20           -  lea rdx,[rsp+20]
+"NinoKuni_WotWW_Remastered.exe"+5B57A6: E8 45 48 E7 FF           -  call NinoKuni_WotWW_Remastered.exe+429FF0
+"NinoKuni_WotWW_Remastered.exe"+5B57AB: 0F 28 00                 -  movaps xmm0,[rax]
+"NinoKuni_WotWW_Remastered.exe"+5B57AE: 66 0F 7F 83 90 00 00 00  -  movdqa [rbx+00000090],xmm0
+"NinoKuni_WotWW_Remastered.exe"+5B57B6: 0F 28 48 10              -  movaps xmm1,[rax+10]
+"NinoKuni_WotWW_Remastered.exe"+5B57BA: 66 0F 7F 8B A0 00 00 00  -  movdqa [rbx+000000A0],xmm1
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>94</ID>
+          <Description>"z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>95</ID>
+          <Description>"y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys/>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>96</ID>
+          <Description>"x"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>97</ID>
+          <Description>"r11"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>98</ID>
+          <Description>"r12"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>99</ID>
+          <Description>"r13"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>100</ID>
+          <Description>"r21"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>101</ID>
+          <Description>"r22"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>24</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>102</ID>
+          <Description>"r23"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>28</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>103</ID>
+          <Description>"r31"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>104</ID>
+          <Description>"r32"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>105</ID>
+          <Description>"r33"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camerabase</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>106</ID>
+      <Description>"Camera1"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+globalalloc(rotMemory, 0x100, NinoKuni_WotWW_Remastered.exe+8FDF04)
+aobscanmodule(_Cam1,NinoKuni_WotWW_Remastered.exe,30 0F 28 C5 48 8B 46 20 0F 14 CA 0F 15 E2 0F 14 C3 66 0F 7F 88 A0 01 00 00) // should be unique
+alloc(newmem,$1000,"NinoKuni_WotWW_Remastered.exe"+56B560)
+registersymbol(_Cam1)
+label(code1)
+label(return1)
+
+aobscanmodule(_Cam2,NinoKuni_WotWW_Remastered.exe,60 0F 28 C5 48 8B 47 20 0F 14 CA 0F 15 E2 0F 14 C3 66 0F 7F 88 A0 01 00 00) // should be unique
+registersymbol(_Cam2)
+label(code2)
+label(return2)
+
+aobscanmodule(_Cam3,NinoKuni_WotWW_Remastered.exe,30 0F 28 C5 48 8B 47 20 0F 14 CA 0F 15 E2 0F 14 C3 66 0F 7F 88 A0 01 00 00) // should be unique
+registersymbol(_Cam3)
+label(code3)
+label(return3)
+
+registersymbol(cambase)
+label(cambase)
+
+label(skip)
+
+newmem:
+
+code1:
+  //movdqa [rax+000001A0],xmm1
+  //movdqa [rax+000001B0],xmm4
+  unpckhps xmm5,xmm3
+  //movdqa [rax+000001C0],xmm0
+  jmp return1
+
+code2:
+  //movdqa [rax+000001A0],xmm1
+  //movdqa [rax+000001B0],xmm4
+  unpckhps xmm5,xmm3
+  //movdqa [rax+000001C0],xmm0
+  jmp return2
+
+code3:
+  mov [cambase],rax
+  mov [rotMemory+50],rax
+  push rdx
+  mov dl, [rotMemory+4C]
+  test dl,dl
+  je skip
+
+  mov edx,[rotMemory+10]
+  mov [rax+000001A0],edx
+  mov edx,[rotMemory+14]
+  mov [rax+000001A4],edx
+  mov edx,[rotMemory+18]
+  mov [rax+000001A8],edx
+
+  mov edx,[rotMemory+1C]
+  mov [rax+000001B0],edx
+  mov edx,[rotMemory+20]
+  mov [rax+000001B4],edx
+  mov edx,[rotMemory+24]
+  mov [rax+000001B8],edx
+
+  mov edx,[rotMemory+28]
+  mov [rax+000001C0],edx
+  mov edx,[rotMemory+2C]
+  mov [rax+000001C4],edx
+  mov edx,[rotMemory+30]
+  mov [rax+000001C8],edx
+
+  mov edx,[rotMemory+34]
+  mov [rax+000001AC],edx
+  mov edx,[rotMemory+38]
+  mov [rax+000001BC],edx
+  mov edx,[rotMemory+3C]
+  mov [rax+000001CC],edx
+
+skip:
+  pop rdx
+
+  //movdqa [rax+000001A0],xmm1
+  //movdqa [rax+000001B0],xmm4
+  unpckhps xmm5,xmm3
+  //movdqa [rax+000001C0],xmm0
+  jmp return3
+
+cambase:
+dq 0
+
+_Cam1+11:
+  jmp code1
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+return1:
+
+_Cam2+11:
+  jmp code2
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+return2:
+
+_Cam3+11:
+  jmp code3
+  db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+return3:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_Cam1+11:
+  db 66 0F 7F 88 A0 01 00 00 66 0F 7F A0 B0 01 00 00 0F 15 EB 66 0F 7F 80 C0 01 00 00
+
+_Cam2+11:
+  db 66 0F 7F 88 A0 01 00 00 66 0F 7F A0 B0 01 00 00 0F 15 EB 66 0F 7F 80 C0 01 00 00
+
+_Cam3+11:
+  db 66 0F 7F 88 A0 01 00 00 66 0F 7F A0 B0 01 00 00 0F 15 EB 66 0F 7F 80 C0 01 00 00
+
+unregistersymbol(cambase)
+unregistersymbol(_Cam3)
+unregistersymbol(_Cam2)
+unregistersymbol(_Cam1)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "NinoKuni_WotWW_Remastered.exe"+56B560
+
+"NinoKuni_WotWW_Remastered.exe"+56B53E: 0F 14 53 30                          -  unpcklps xmm2,[rbx+30]
+"NinoKuni_WotWW_Remastered.exe"+56B542: 0F 28 CC                             -  movaps xmm1,xmm4
+"NinoKuni_WotWW_Remastered.exe"+56B545: 0F 15 6B 20                          -  unpckhps xmm5,[rbx+20]
+"NinoKuni_WotWW_Remastered.exe"+56B549: 48 8B CE                             -  mov rcx,rsi
+"NinoKuni_WotWW_Remastered.exe"+56B54C: 0F 15 5B 30                          -  unpckhps xmm3,[rbx+30]
+"NinoKuni_WotWW_Remastered.exe"+56B550: 0F 28 C5                             -  movaps xmm0,xmm5
+"NinoKuni_WotWW_Remastered.exe"+56B553: 48 8B 46 20                          -  mov rax,[rsi+20]
+"NinoKuni_WotWW_Remastered.exe"+56B557: 0F 14 CA                             -  unpcklps xmm1,xmm2
+"NinoKuni_WotWW_Remastered.exe"+56B55A: 0F 15 E2                             -  unpckhps xmm4,xmm2
+"NinoKuni_WotWW_Remastered.exe"+56B55D: 0F 14 C3                             -  unpcklps xmm0,xmm3
+// ---------- INJECTING HERE ----------
+"NinoKuni_WotWW_Remastered.exe"+56B560: 66 0F 7F 88 A0 01 00 00              -  movdqa [rax+000001A0],xmm1
+// ---------- DONE INJECTING  ----------
+"NinoKuni_WotWW_Remastered.exe"+56B568: 66 0F 7F A0 B0 01 00 00              -  movdqa [rax+000001B0],xmm4
+"NinoKuni_WotWW_Remastered.exe"+56B570: 0F 15 EB                             -  unpckhps xmm5,xmm3
+"NinoKuni_WotWW_Remastered.exe"+56B573: 66 0F 7F 80 C0 01 00 00              -  movdqa [rax+000001C0],xmm0
+"NinoKuni_WotWW_Remastered.exe"+56B57B: 66 0F 7F A8 D0 01 00 00              -  movdqa [rax+000001D0],xmm5
+"NinoKuni_WotWW_Remastered.exe"+56B583: E8 98 E9 55 00                       -  call NinoKuni_WotWW_Remastered.exe+AC9F20
+"NinoKuni_WotWW_Remastered.exe"+56B588: 4C 8B 4E 20                          -  mov r9,[rsi+20]
+"NinoKuni_WotWW_Remastered.exe"+56B58C: 4D 8B 81 08 01 00 00                 -  mov rdx,[r9+00000108]
+"NinoKuni_WotWW_Remastered.exe"+56B593: 45 33 C9                             -  xor r9d,r9d
+"NinoKuni_WotWW_Remastered.exe"+56B596: 41 8B 90 B8 01 00 00                 -  mov rdx,[rdx+000001B8]
+"NinoKuni_WotWW_Remastered.exe"+56B59D: 41 8B 80 90 02 00 00                 -  mov rdx,[rdx+00000290]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>107</ID>
+          <Description>"r11"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1A0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>108</ID>
+          <Description>"r12"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1A4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>109</ID>
+          <Description>"r13"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1A8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>110</ID>
+          <Description>"r21"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1B0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>115</ID>
+          <Description>"r22"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1B4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>114</ID>
+          <Description>"r23"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1B8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>113</ID>
+          <Description>"r31"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1C0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>112</ID>
+          <Description>"r32"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1C4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>111</ID>
+          <Description>"r33"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1C8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>118</ID>
+          <Description>"x"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1AC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>117</ID>
+          <Description>"y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1BC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>116</ID>
+          <Description>"z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>[cambase]+1CC</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+20],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+4906A3</AddressString>
+      <Before>
+        <Byte>1D</Byte>
+        <Byte>7D</Byte>
+        <Byte>07</Byte>
+        <Byte>93</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>43</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>E3</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rcx+r10+00010FE0],eax</Description>
+      <AddressString>fmod64.dll+E290B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>42</Byte>
+        <Byte>89</Byte>
+        <Byte>84</Byte>
+        <Byte>11</Byte>
+        <Byte>E0</Byte>
+        <Byte>0F</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>04</Byte>
+        <Byte>42</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000F0],xmm2</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E39E</AddressString>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>CF</Byte>
+        <Byte>14</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>93</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>F5</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000E0],xmm12</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93F73F</AddressString>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>97</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A3</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>49</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+00000190],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56B055</AddressString>
+      <Before>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>C6</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>90</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>C6</Byte>
+        <Byte>AA</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000000D0],xmm3</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B7198</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>98</Byte>
+        <Byte>D0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>40</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rcx+00000170],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56ADE9</AddressString>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>D0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>89</Byte>
+        <Byte>70</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>81</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+00000190],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56B055</AddressString>
+      <Before>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>C6</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>90</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>C6</Byte>
+        <Byte>AA</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>beginning of writes Change of movdqa [rax+000001A0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56B560</AddressString>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>E2</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>88</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A0</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001A0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+4449CB</AddressString>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>E2</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>88</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A0</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001A0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+8FDF04</AddressString>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>E2</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>88</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A0</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001B0],xmm4</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56B568</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A0</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>15</Byte>
+        <Byte>EB</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001B0],xmm4</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+4449D3</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A0</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>15</Byte>
+        <Byte>EB</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001B0],xmm4</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+8FDF0C</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>A0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A0</Byte>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>15</Byte>
+        <Byte>EB</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001C0],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56B573</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>15</Byte>
+        <Byte>EB</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>80</Byte>
+        <Byte>C0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A8</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001C0],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+4449DE</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>15</Byte>
+        <Byte>EB</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>80</Byte>
+        <Byte>C0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A8</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>end Change of movdqa [rax+000001C0],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+8FDF17</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>15</Byte>
+        <Byte>EB</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>80</Byte>
+        <Byte>C0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A8</Byte>
+        <Byte>D0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movdqa [rdx+30],xmm4</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5D0F</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>0F</Byte>
+        <Byte>C6</Byte>
+        <Byte>E0</Byte>
+        <Byte>C4</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>62</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>48</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+40],xmm3</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BB56</AddressString>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>CA</Byte>
+        <Byte>52</Byte>
+        <Byte>87</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>5A</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>02</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [r10+40],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BF20</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>42</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>C6</Byte>
+        <Byte>E0</Byte>
+        <Byte>ED</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+40],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54B9CD</AddressString>
+      <Before>
+        <Byte>72</Byte>
+        <Byte>E6</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>42</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [r10+50],xmm3</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BE62</AddressString>
+      <Before>
+        <Byte>14</Byte>
+        <Byte>DA</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>D3</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>5A</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D3</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [r10+50],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BF66</AddressString>
+      <Before>
+        <Byte>FA</Byte>
+        <Byte>0F</Byte>
+        <Byte>C6</Byte>
+        <Byte>C8</Byte>
+        <Byte>C4</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>4A</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>46</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [r10+50],xmm3</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BFDD</AddressString>
+      <Before>
+        <Byte>FA</Byte>
+        <Byte>0F</Byte>
+        <Byte>C6</Byte>
+        <Byte>D9</Byte>
+        <Byte>C4</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>5A</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>EC</Byte>
+        <Byte>F9</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+40],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54B946</AddressString>
+      <Before>
+        <Byte>77</Byte>
+        <Byte>19</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>42</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>81</Byte>
+        <Byte>B7</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+10],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BB60</AddressString>
+      <Before>
+        <Byte>40</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4A</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>52</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+10],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BEE9</AddressString>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4A</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+10],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BF36</AddressString>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4A</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+20],xmm2</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BB66</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>52</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>7A</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [r10+30],xmm7</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+54BB6C</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>7A</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>93</Byte>
+        <Byte>98</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call NinoKuni_WotWW_Remastered.exe+5B5AF0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B59D7</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>14</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm1,[rax+40]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+924491</AddressString>
+      <Before>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>42</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4A</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm3,[rax+40]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+92A159</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>50</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>58</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>60</Byte>
+        <Byte>50</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of pshufd xmm3,[r8+30]55</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+429FF4</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>58</Byte>
+        <Byte>30</Byte>
+        <Byte>55</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of pshufd xmm4,[r8+30]-56</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+429FFE</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>60</Byte>
+        <Byte>30</Byte>
+        <Byte>AA</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of pshufd xmm0,[r8+30]-01</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+42A005</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>40</Byte>
+        <Byte>30</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>29</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of pshufd xmm6,[r8+30]00</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+42A023</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>70</Byte>
+        <Byte>30</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>EE</Byte>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm1,[rbx+40]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B83B9</AddressString>
+      <Before>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4D</Byte>
+        <Byte>E0</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>4B</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>45</Byte>
+        <Byte>F0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm1,[rax+40]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+92505D</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000C0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57D2</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8B</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000E0],xmm5</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+94B7E8</AddressString>
+      <Before>
+        <Byte>49</Byte>
+        <Byte>3B</Byte>
+        <Byte>C4</Byte>
+        <Byte>75</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>AB</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>0D</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000090],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57AE</AddressString>
+      <Before>
+        <Byte>E7</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000A0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57BA</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8B</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000B0],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57C6</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm0,xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5B60</AddressString>
+      <Before>
+        <Byte>CA</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D1</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>CF</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm0,xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5BAF</AddressString>
+      <Before>
+        <Byte>CA</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D1</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D0</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm0,xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5BC5</AddressString>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>CB</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>CA</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>CE</Byte>
+        <Byte>C9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm6,xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5BE5</AddressString>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>C1</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>F5</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F0</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>E6</Byte>
+        <Byte>49</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm0,xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5C1E</AddressString>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>D1</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C7</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C8</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm7,xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5C35</AddressString>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>C3</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>CF</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of xorps xmm4,[NinoKuni_WotWW_Remastered.exe+DC1B70]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5C64</AddressString>
+      <Before>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>DF</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>25</Byte>
+        <Byte>05</Byte>
+        <Byte>BF</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>DF</Byte>
+        <Byte>F1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm1,xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5C88</AddressString>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>C5</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>EE</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C8</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>C1</Byte>
+        <Byte>49</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call NinoKuni_WotWW_Remastered.exe+5B5A10</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5794</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>77</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>43</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [rbp-60],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+AEB979</AddressString>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>45</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>4D</Byte>
+        <Byte>A0</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>CB</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+000002AC],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+6AA6D9</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4D</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>AC</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>45</Byte>
+        <Byte>07</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000E0],xmm12</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93F73F</AddressString>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>97</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A3</Byte>
+        <Byte>E0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>49</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000F0],xmm2</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E39E</AddressString>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>CF</Byte>
+        <Byte>14</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>93</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>F5</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of subps xmm4,[r9]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5AFD</AddressString>
+      <Before>
+        <Byte>70</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>21</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm4,[r8]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5AF9</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>21</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps xmm3,[rax]</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5B06</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>DB</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [NinoKuni_WotWW_Remastered.exe+10C6CB0],xmm9</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+91878E</AddressString>
+      <Before>
+        <Byte>7A</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>0D</Byte>
+        <Byte>19</Byte>
+        <Byte>E5</Byte>
+        <Byte>7A</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [NinoKuni_WotWW_Remastered.exe+10C6C90],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+918783</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>FD</Byte>
+        <Byte>E4</Byte>
+        <Byte>7A</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>0D</Byte>
+        <Byte>05</Byte>
+        <Byte>E5</Byte>
+        <Byte>7A</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>59</Byte>
+        <Byte>D2</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000090],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57AE</AddressString>
+      <Before>
+        <Byte>E7</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000A0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57BA</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8B</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000B0],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57C6</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movaps [rbp-50],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+AEB9C1</AddressString>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>45</Byte>
+        <Byte>B0</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>70</Byte>
+        <Byte>C4</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movaps [rbp-60],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+AEB979</AddressString>
+      <Before>
+        <Byte>30</Byte>
+        <Byte>45</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>4D</Byte>
+        <Byte>A0</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>CB</Byte>
+        <Byte>0F</Byte>
+        <Byte>14</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rsi+00000400],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+899A09</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>45</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8E</Byte>
+        <Byte>00</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>4D</Byte>
+        <Byte>50</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000000F0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5FF52D</AddressString>
+      <Before>
+        <Byte>8A</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>88</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rsi+00016FF0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+612C48</AddressString>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+        <Byte>6F</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>45</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+30],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+612CD3</AddressString>
+      <Before>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>9E</Byte>
+        <Byte>F0</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+30],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+89C0E7</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>4A</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4B</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000000C0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+8980C7</AddressString>
+      <Before>
+        <Byte>8F</Byte>
+        <Byte>00</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>88</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>87</Byte>
+        <Byte>10</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movsd [rbx+00000140],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93F71C</AddressString>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>65</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>48</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rbx+00000140],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93F71C</AddressString>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>65</Byte>
+        <Byte>D0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>48</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+00000148],eax</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93F724</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>48</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000160],xmm12</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93F72A</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A3</Byte>
+        <Byte>60</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>49</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000160],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E18D</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>60</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>49</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000150],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E1B2</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>B0</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>50</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>F1</Byte>
+        <Byte>E7</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000150],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E313</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>50</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8B</Byte>
+        <Byte>F0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rbx+00000140],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E166</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>40</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+00000148],eax</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+93E171</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>83</Byte>
+        <Byte>48</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>49</Byte>
+        <Byte>3B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+00000090],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57AE</AddressString>
+      <Before>
+        <Byte>E7</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000A0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57BA</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8B</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000B0],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57C6</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>83</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+50],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5A62</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>43</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+60],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5A6B</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>4B</Byte>
+        <Byte>60</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+70],xmm0</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B5A74</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>40</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>43</Byte>
+        <Byte>70</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rbx+000000C0],xmm1</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+5B57D2</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>8B</Byte>
+        <Byte>C0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax],r8</Description>
+      <AddressString>VCRUNTIME140.dll+1436</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>4A</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+        <Byte>C3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rax+08],ecx</Description>
+      <AddressString>VCRUNTIME140.dll+1439</AddressString>
+      <Before>
+        <Byte>4A</Byte>
+        <Byte>08</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>0F</Byte>
+        <Byte>1F</Byte>
+        <Byte>00</Byte>
+        <Byte>4C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001D0],xmm5</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+56B57B</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A8</Byte>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>98</Byte>
+        <Byte>E9</Byte>
+        <Byte>55</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001D0],xmm5</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+4449E6</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A8</Byte>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C7</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>74</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movdqa [rax+000001D0],xmm5</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+8FDF1F</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>A8</Byte>
+        <Byte>D0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>F4</Byte>
+        <Byte>BF</Byte>
+        <Byte>1C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call NinoKuni_WotWW_Remastered.exe+ACAF30</Description>
+      <AddressString>NinoKuni_WotWW_Remastered.exe+8FDE60</AddressString>
+      <Before>
+        <Byte>CF</Byte>
+        <Byte>4D</Byte>
+        <Byte>8D</Byte>
+        <Byte>24</Byte>
+        <Byte>07</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>CB</Byte>
+        <Byte>D0</Byte>
+        <Byte>1C</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>rotMemory</Name>
+      <Address>7FF718710000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Structures StructVersion="2">
+    <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="0" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="16" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="24" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="36" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="44" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="56" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="64" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="92" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="100" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="112" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="120" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="128" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="132" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="140" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="152" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="160" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="188" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="196" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="208" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="216" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="224" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="228" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="236" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="240" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="248" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="256" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="284" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="292" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="304" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="312" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="320" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="324" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="332" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="336" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="344" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="352" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="380" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="388" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="400" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="408" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="416" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="420" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="428" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="432" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="440" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="448" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="476" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="484" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="496" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="504" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="516" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="524" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="536" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="544" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="572" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="580" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="592" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="600" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="612" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="620" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="624" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="632" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="640" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="668" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="676" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="688" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="696" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="708" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="716" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="720" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="728" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="736" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="764" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="772" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="784" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="792" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="804" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="812" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="816" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="824" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="832" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="860" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="868" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="880" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="888" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="900" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="908" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="912" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="920" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="928" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="956" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="964" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="976" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="984" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="996" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1004" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1008" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1016" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1024" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1052" Vartype="4 Bytes" Bytesize="4" RLECount="48" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1244" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1252" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1264" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1272" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1284" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1292" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1304" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1312" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1340" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1348" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1360" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1368" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1380" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1388" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1392" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1400" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1408" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1436" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1444" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1456" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1464" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1476" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1484" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1488" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1496" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1504" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1532" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1540" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1552" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1560" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1572" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1580" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1584" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1592" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1600" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1628" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1636" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1648" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1656" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1668" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1676" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1680" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1688" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1696" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1724" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1732" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1744" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1752" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1764" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1772" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1776" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1784" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1792" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1820" Vartype="4 Bytes" Bytesize="4" RLECount="144" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2396" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2404" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2416" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2424" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2436" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2444" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2448" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2452" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2456" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2464" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2492" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2500" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2512" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2520" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2532" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2540" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2544" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2552" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2560" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2588" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2596" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2608" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2616" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2628" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2636" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2640" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2648" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2656" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2684" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2692" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2704" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2712" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2724" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2732" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2736" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2744" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2752" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2780" Vartype="4 Bytes" Bytesize="4" RLECount="24" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2876" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2884" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2896" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2904" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2916" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2924" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2928" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2936" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2944" Vartype="Float" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2972" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2980" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2992" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3000" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3012" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3020" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3032" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3040" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3052" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3060" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3068" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3076" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3088" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3096" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3108" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3116" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3120" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3128" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3136" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3148" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3156" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3164" Vartype="4 Bytes" Bytesize="4" RLECount="233" DisplayMethod="Unsigned Integer"/>
+      </Elements>
+    </Structure>
+    <Structure Name="unnamed structure 2" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="0" Vartype="Float" Bytesize="4" RLECount="5" DisplayMethod="Signed Integer"/>
+        <Element Offset="24" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Signed Integer"/>
+        <Element Offset="36" Vartype="Float" Bytesize="4" RLECount="5" DisplayMethod="Signed Integer"/>
+        <Element Offset="56" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="68" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="80" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="88" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="96" Vartype="Float" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="112" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="120" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="124" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="132" Vartype="4 Bytes" Bytesize="4" RLECount="15" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="192" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="200" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="204" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="212" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="216" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="224" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="232" Vartype="Double" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="248" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="256" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="264" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="276" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="288" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="304" Vartype="4 Bytes" Bytesize="4" RLECount="6" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="328" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="336" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="344" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="352" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="360" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="368" Vartype="Float" Bytesize="4" RLECount="10" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="408" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="416" Vartype="Byte" Bytesize="1" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="420" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="424" Vartype="Byte" Bytesize="1" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="428" Vartype="4 Bytes" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="444" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="448" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="456" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="460" Vartype="4 Bytes" Bytesize="4" RLECount="6" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="484" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="492" Vartype="4 Bytes" Bytesize="4" RLECount="17" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="560" Vartype="Float" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="576" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="584" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="592" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="600" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="608" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="616" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="620" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="628" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="640" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="648" Vartype="4 Bytes" Bytesize="4" RLECount="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="680" Vartype="Float" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="700" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="708" Vartype="Float" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="724" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="732" Vartype="Float" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="752" Vartype="4 Bytes" Bytesize="4" RLECount="10" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="792" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="808" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="812" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="816" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="824" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="828" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="836" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="848" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="856" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="868" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="876" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="888" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="896" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="900" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="912" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="920" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="932" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="940" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="952" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="960" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="964" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="976" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="984" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="996" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1004" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1016" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1024" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1032" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1044" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1052" Vartype="4 Bytes" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1072" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1080" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1088" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1096" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1108" Vartype="4 Bytes" Bytesize="4" RLECount="27" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1216" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1224" Vartype="4 Bytes" Bytesize="4" RLECount="28" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1336" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1352" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="1356" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1360" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1368" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1372" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1380" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1392" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1400" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1412" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1420" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1432" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1440" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1444" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1456" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1464" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1476" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1484" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1496" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1504" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1508" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1520" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1528" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1540" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1548" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1560" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1568" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1576" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1584" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="1588" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1596" Vartype="4 Bytes" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1616" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1624" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1636" Vartype="Float" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1652" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1664" Vartype="Float" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1684" Vartype="4 Bytes" Bytesize="4" RLECount="49" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1880" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1896" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="1900" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1904" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1912" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1916" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1924" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1936" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1944" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1956" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1964" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1976" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1984" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="1988" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2000" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2008" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2020" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2028" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2040" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2048" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2052" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2064" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2072" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2084" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2092" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2104" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2112" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2120" Vartype="4 Bytes" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2136" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2140" Vartype="4 Bytes" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2160" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2168" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2176" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2184" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2196" Vartype="4 Bytes" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2216" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2232" Vartype="4 Bytes" Bytesize="4" RLECount="111" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2676" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2684" Vartype="Byte" Bytesize="1" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2688" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2700" Vartype="4 Bytes" Bytesize="4" RLECount="7" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2728" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2732" Vartype="4 Bytes" Bytesize="4" RLECount="11" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2776" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2780" Vartype="4 Bytes" Bytesize="4" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2796" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2804" Vartype="Byte" Bytesize="1" RLECount="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2808" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2812" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2816" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2828" Vartype="4 Bytes" Bytesize="4" RLECount="18" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2900" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="2904" Vartype="4 Bytes" Bytesize="4" RLECount="10" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2944" Vartype="Float" Bytesize="4" RLECount="11" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="2988" Vartype="4 Bytes" Bytesize="4" RLECount="11" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3032" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3048" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="3052" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3056" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3064" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3068" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3076" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3088" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3096" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3108" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3116" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3128" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3136" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3140" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3152" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3160" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3172" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3180" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3192" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3200" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3204" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3216" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3224" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3236" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3244" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3256" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3264" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3272" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3284" Vartype="Float" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3292" Vartype="4 Bytes" Bytesize="4" RLECount="5" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3312" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3320" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3328" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3336" Vartype="Float" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3348" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3356" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3364" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3368" Vartype="4 Bytes" Bytesize="4" RLECount="33" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3500" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3508" Vartype="4 Bytes" Bytesize="4" RLECount="97" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3896" Vartype="Pointer" Bytesize="8" RLECount="2" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3912" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Hexadecimal"/>
+        <Element Offset="3916" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3920" Vartype="Pointer" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3928" Vartype="4 Bytes" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3932" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3940" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3952" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3960" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3972" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3980" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="3992" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4000" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4004" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4016" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4024" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4036" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4044" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4056" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4064" Vartype="Float" Bytesize="4" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4068" Vartype="4 Bytes" Bytesize="4" RLECount="3" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4080" Vartype="Double" Bytesize="8" DisplayMethod="Unsigned Integer"/>
+        <Element Offset="4088" Vartype="4 Bytes" Bytesize="4" RLECount="2" DisplayMethod="Unsigned Integer"/>
+      </Elements>
+    </Structure>
+  </Structures>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

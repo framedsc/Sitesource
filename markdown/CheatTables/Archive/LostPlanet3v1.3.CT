@@ -1,182 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
-<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app102.us.archive.org';v.server_ms=433;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/ait-client-rewrite.js" charset="utf-8"></script>
-<script type="text/javascript">
-WB_wombat_Init("https://web.archive.org/web/", "20151211055021", "dl.dropboxusercontent.com");
-</script>
-<script type="text/javascript" src="/_static/js/wbhack.js" charset="utf-8"></script>
-<script type="text/javascript">
-__wbhack.init('https://web.archive.org/web');
-</script>
-<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css" />
-<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css" />
-<!-- End Wayback Rewrite JS Include -->
-<!-- BEGIN WAYBACK TOOLBAR INSERT -->
-<script type="text/javascript" src="/_static/js/timestamp.js" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/graph-calc.js" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/auto-complete.js" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/toolbar.js" charset="utf-8"></script>
-<style type="text/css">
-body {
-  margin-top:0 !important;
-  padding-top:0 !important;
-  /*min-width:800px !important;*/
-}
-.wb-autocomplete-suggestions {
-    text-align: left; cursor: default; border: 1px solid #ccc; border-top: 0; background: #fff; box-shadow: -1px 1px 3px rgba(0,0,0,.1);
-    position: absolute; display: none; z-index: 2147483647; max-height: 254px; overflow: hidden; overflow-y: auto; box-sizing: border-box;
-}
-.wb-autocomplete-suggestion { position: relative; padding: 0 .6em; line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.02em; color: #333; }
-.wb-autocomplete-suggestion b { font-weight: bold; }
-.wb-autocomplete-suggestion.selected { background: #f0f0f0; }
-</style>
-<div id="wm-ipp-base" lang="en" style="display:none;direction:ltr;">
-<div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
-<div id="wm-ipp-inside">
-  <div style="position:relative;">
-    <div id="wm-logo" style="float:left;width:130px;padding-top:10px;">
-      <a href="/web/" title="Wayback Machine home page"><img src="/_static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0" /></a>
-    </div>
-    <div class="r" style="float:right;">
-      <div id="wm-btns" style="text-align:right;height:25px;">
-                  <div id="wm-save-snapshot-success">success</div>
-          <div id="wm-save-snapshot-fail">fail</div>
-          <a href="#"
-             onclick="__wm.saveSnapshot('https://dl.dropboxusercontent.com/u/7875170/game settings/Cheat Tables/LostPlanet3 v1.3.CT?dl=0', '20151211055021')"
-             title="Share via My Web Archive"
-             id="wm-save-snapshot-open"
-          >
-            <span class="iconochive-web"></span>
-          </a>
-          <a href="https://archive.org/account/login.php"
-             title="Sign In"
-             id="wm-sign-in"
-          >
-            <span class="iconochive-person"></span>
-          </a>
-          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
-        	<a href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
-	<a id="wm-tb-close" href="#close" onclick="__wm.h(event);return false;" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
-      </div>
-      <div id="wm-share" style="text-align:right;">
-	<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://web.archive.org/web/20151211055021/https://dl.dropboxusercontent.com/u/7875170/game%20settings/Cheat%20Tables/LostPlanet3%20v1.3.CT?dl=0', '', 'height=400,width=600'); return false;" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
-	<a href="#" onclick="window.open('https://twitter.com/intent/tweet?text=https://web.archive.org/web/20151211055021/https://dl.dropboxusercontent.com/u/7875170/game%20settings/Cheat%20Tables/LostPlanet3%20v1.3.CT?dl=0&amp;via=internetarchive', '', 'height=400,width=600'); return false;" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
-      </div>
-    </div>
-    <table class="c" style="">
-      <tbody>
-	<tr>
-	  <td class="u" colspan="2">
-	    <form target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://dl.dropboxusercontent.com/u/7875170/game settings/Cheat Tables/LostPlanet3 v1.3.CT?dl=0" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20151211055021" /><input type="submit" value="Go" /></form>
-	  </td>
-	  <td class="n" rowspan="2" style="width:110px;">
-	    <table>
-	      <tbody>
-		<!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
-		<tr class="m">
-		  <td class="b" nowrap="nowrap">Nov</td>
-		  <td class="c" id="displayMonthEl" title="You are here: 05:50:21 Dec 11, 2015">DEC</td>
-		  <td class="f" nowrap="nowrap">Jan</td>
-		</tr>
-		<!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
-		<tr class="d">
-		  <td class="b" nowrap="nowrap"><img src="/_static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0" /></td>
-		  <td class="c" id="displayDayEl" style="width:34px;font-size:24px;white-space:nowrap;" title="You are here: 05:50:21 Dec 11, 2015">11</td>
-		  <td class="f" nowrap="nowrap"><img src="/_static/images/toolbar/wm_tb_nxt_off.png" alt="Next capture" width="14" height="16" border="0" /></td>
-		</tr>
-		<!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
-		<tr class="y">
-		  <td class="b" nowrap="nowrap">2014</td>
-		  <td class="c" id="displayYearEl" title="You are here: 05:50:21 Dec 11, 2015">2015</td>
-		  <td class="f" nowrap="nowrap">2016</td>
-		</tr>
-	      </tbody>
-	    </table>
-	  </td>
-	</tr>
-	<tr>
-	  <td class="s">
-	    	    <div id="wm-nav-captures">
-	      	      <a class="t" href="/web/20151211055021*/https://dl.dropboxusercontent.com/u/7875170/game settings/Cheat Tables/LostPlanet3 v1.3.CT?dl=0" title="See a list of every capture for this URL">1 capture</a>
-	      <div class="r" title="Timespan for captures of this URL">11 Dec 2015</div>
-	      </div>
-	  </td>
-	  <td class="k">
-	    <a href="" id="wm-graph-anchor">
-	      <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
-		<canvas id="wm-sparkline-canvas" width="600" height="27" border="0"></canvas>
-	      </div>
-	    </a>
-	  </td>
-	</tr>
-      </tbody>
-    </table>
-    <div style="position:absolute;bottom:0;right:2px;text-align:right;">
-      <a id="wm-expand" class="wm-btn wm-closed" href="#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span style="font-size:80%">About this capture</span></a>
-    </div>
-  </div>
-    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
-            <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
-    <div style="padding:3px;position:relative" id="wm-collected-by-content">
-            <div style="display:inline-block;vertical-align:top;width:50%;">
-			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam);"></span>
-		Organization: <a style="color:#33f;" href="https://archive.org/details/archiveteam" target="_new"><span class="wm-title">Archive Team</span></a>
-		<div style="max-height:75px;overflow:hidden;position:relative;">
-	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
-	  <img align=right src="http://archiveteam.org/images/e/e6/Archiveteam.jpg" width=200> Formed in 2009, the Archive Team (not to be confused with the archive.org Archive-It Team) is a rogue archivist collective dedicated to saving copies of rapidly dying or deleted websites for the sake of history and digital heritage. The group is 100% composed of volunteers and interested parties, and has expanded into a large amount of related projects for saving online and digital history.
-<p>
-History is littered with hundreds of conflicts over the future of a community, group, location or business that were "resolved" when one of the parties stepped ahead and destroyed what was there. With the original point of contention destroyed, the debates would fall to the wayside. Archive Team believes that by duplicated condemned data, the conversation and debate can continue, as well as the richness and insight gained by keeping the materials. Our projects have ranged in size from a single volunteer downloading the data to a small-but-critical site, to over 100 volunteers stepping forward to acquire terabytes of user-created data to save for future generations.
-<p>
-The main site for Archive Team is at <a href="http://www.archiveteam.org">archiveteam.org</a> and contains up to the date information on various projects, manifestos, plans and walkthroughs.
-<p>
-This collection contains the output of many Archive Team projects, both ongoing and completed. Thanks to the generous providing of disk space by the Internet Archive, multi-terabyte datasets can be made available, as well as in use by the <a href="http://archive.org/web/web.php">Wayback Machine</a>, providing a path back to lost websites and work. 
-<p>
-Our collection has grown to the point of having sub-collections for the type of data we acquire. If you are seeking to browse the contents of these collections, the Wayback Machine is the best first stop. Otherwise, you are free to dig into the stacks to see what you may find.
-<p>
-<b>The Archive Team Panic Downloads</b> are full pulldowns of currently extant websites, meant to serve as emergency backups for needed sites that are in danger of closing, or which will be missed dearly if suddenly lost due to hard drive crashes or server failures. 
-<p>
-	</div>
-	      </div>
-      <div style="display:inline-block;vertical-align:top;width:49%;">
-			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archivebot)"></span>
-		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/archivebot" target="_new"><span class="wm-title">ArchiveBot: The Archive Team Crowdsourced Crawler</span></a></div>
-		<div style="max-height:75px;overflow:hidden;position:relative;">
-	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
-	  ArchiveBot is an IRC bot designed to automate the archival of smaller websites (e.g. up to a few hundred thousand URLs). You give it a URL to start at, and it grabs all content under that URL, records it in a WARC, and then uploads that WARC to ArchiveTeam servers for eventual injection into the Internet Archive (or other archive sites).
-<p>
-To use ArchiveBot, drop by #archivebot on EFNet. To interact with ArchiveBot, you issue commands by typing it into the channel. Note you will need channel operator permissions in order to issue archiving jobs. The dashboard shows the sites being downloaded currently.
-<p>
-There is a dashboard running for the archivebot process at <a href="http://www.archivebot.com">http://www.archivebot.com</a>.
-<p>
-ArchiveBot's source code can be found at <a href="https://github.com/ArchiveTeam/ArchiveBot">https://github.com/ArchiveTeam/ArchiveBot</a>.
-	</div>
-	      </div>
-    </div>
-    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
-    <div>
-      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
-      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="/_static/images/loading.gif" alt="loading" /></div>
-    </div>
-  </div></div></div></div><script type="text/javascript">
-__wm.bt(600,27,25,2,"web","https://dl.dropboxusercontent.com/u/7875170/game settings/Cheat Tables/LostPlanet3 v1.3.CT?dl=0","2015-12-11",1996,"/_static/",['css/banner-styles.css','css/iconochive.css']);
-</script>
-<!-- END WAYBACK TOOLBAR INSERT --><cheattable cheatenginetableversion="18">
-  <cheatentries>
-    <cheatentry>
-      <id>11830</id>
-      <description>"--------- Lost Planet 3 ---------"</description>
-      <laststate value="" activated="0" realaddress="00000000"/>
-      <color>80000008</color>
-      <groupheader>1</groupheader>
-    </cheatentry>
-    <cheatentry>
-      <id>12211</id>
-      <description>"Camera [Page down]"</description>
-      <options mohidechildren="1"/>
-      <laststate activated="1"/>
-      <color>80000008</color>
-      <variabletype>Auto Assembler Script</variabletype>
-      <assemblerscript>[ENABLE]
+<CheatTable CheatEngineTableVersion="18">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>11830</ID>
+      <Description>"--------- Lost Planet 3 ---------"</Description>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12211</ID>
+      <Description>"Camera [Page down]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
 alloc(newmem,2048)
 label(returnhere)
 label(exit)
@@ -211,419 +50,419 @@ dealloc(newmem)
 movq xmm0,[ecx+000007F4]
 unregistersymbol(pCamera)
 
-</assemblerscript>
-      <hotkeys>
-        <hotkey>
-          <action>Toggle Activation</action>
-          <keys>
-            <key>34</key>
-          </keys>
-          <id>0</id>
-        </hotkey>
-      </hotkeys>
-      <cheatentries>
-        <cheatentry>
-          <id>11819</id>
-          <description>"X [Numpad 4,6]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>Float</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>7F4</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>100</key>
-              </keys>
-              <value>5</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>102</key>
-              </keys>
-              <value>5</value>
-              <id>1</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>17</key>
-                <key>102</key>
-              </keys>
-              <value>50</value>
-              <id>2</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>17</key>
-                <key>100</key>
-              </keys>
-              <value>50</value>
-              <id>3</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>18</key>
-                <key>102</key>
-              </keys>
-              <value>1</value>
-              <id>4</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>18</key>
-                <key>100</key>
-              </keys>
-              <value>1</value>
-              <id>5</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-        <cheatentry>
-          <id>11818</id>
-          <description>"Y [Numpad 2,8]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>Float</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>7F8</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>104</key>
-              </keys>
-              <value>5</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>98</key>
-              </keys>
-              <value>5</value>
-              <id>1</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>17</key>
-                <key>104</key>
-              </keys>
-              <value>50</value>
-              <id>2</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>17</key>
-                <key>98</key>
-              </keys>
-              <value>50</value>
-              <id>3</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>18</key>
-                <key>104</key>
-              </keys>
-              <value>1</value>
-              <id>4</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>18</key>
-                <key>98</key>
-              </keys>
-              <value>1</value>
-              <id>5</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-        <cheatentry>
-          <id>11817</id>
-          <description>"Z [Numpad 3,9]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>Float</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>7FC</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>105</key>
-              </keys>
-              <value>5</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>99</key>
-              </keys>
-              <value>5</value>
-              <id>1</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>17</key>
-                <key>105</key>
-              </keys>
-              <value>40</value>
-              <id>2</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>17</key>
-                <key>99</key>
-              </keys>
-              <value>40</value>
-              <id>3</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>18</key>
-                <key>105</key>
-              </keys>
-              <value>1</value>
-              <id>4</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>18</key>
-                <key>99</key>
-              </keys>
-              <value>1</value>
-              <id>5</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-        <cheatentry>
-          <id>11825</id>
-          <description>"Y Rotation [arrow keys]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>4 Bytes</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>800</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>38</key>
-              </keys>
-              <value>1000</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>40</key>
-              </keys>
-              <value>1000</value>
-              <id>1</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>17</key>
-                <key>38</key>
-              </keys>
-              <value>5000</value>
-              <id>4</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>17</key>
-                <key>40</key>
-              </keys>
-              <value>5000</value>
-              <id>5</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>18</key>
-                <key>38</key>
-              </keys>
-              <value>100</value>
-              <id>2</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>18</key>
-                <key>40</key>
-              </keys>
-              <value>100</value>
-              <id>3</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-        <cheatentry>
-          <id>11826</id>
-          <description>"X Rotation  [arrow keys]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>4 Bytes</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>804</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>39</key>
-              </keys>
-              <value>1000</value>
-              <id>2</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>37</key>
-              </keys>
-              <value>1000</value>
-              <id>3</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>17</key>
-                <key>39</key>
-              </keys>
-              <value>5000</value>
-              <id>4</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>17</key>
-                <key>37</key>
-              </keys>
-              <value>5000</value>
-              <id>5</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>18</key>
-                <key>39</key>
-              </keys>
-              <value>100</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>18</key>
-                <key>37</key>
-              </keys>
-              <value>100</value>
-              <id>1</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-        <cheatentry>
-          <id>11827</id>
-          <description>"Tilt [-,=]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>4 Bytes</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>808</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>189</key>
-              </keys>
-              <value>250</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>187</key>
-              </keys>
-              <value>250</value>
-              <id>1</id>
-            </hotkey>
-            <hotkey>
-              <action>Set Value</action>
-              <keys>
-                <key>18</key>
-                <key>187</key>
-              </keys>
-              <value>0</value>
-              <id>2</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-        <cheatentry>
-          <id>11829</id>
-          <description>"FOV [KP_Minus, KP_Plus]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>Float</variabletype>
-          <address>pCamera</address>
-          <offsets>
-            <offset>21C</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Decrease Value</action>
-              <keys>
-                <key>109</key>
-              </keys>
-              <value>2</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Increase Value</action>
-              <keys>
-                <key>107</key>
-              </keys>
-              <value>2</value>
-              <id>1</id>
-            </hotkey>
-          </hotkeys>
-        </cheatentry>
-      </cheatentries>
-    </cheatentry>
-    <cheatentry>
-      <id>12113</id>
-      <description>"Post Processing [Del]"</description>
-      <options mohidechildren="1"/>
-      <laststate activated="1"/>
-      <color>80000008</color>
-      <variabletype>Auto Assembler Script</variabletype>
-      <assemblerscript>[ENABLE]
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11819</ID>
+          <Description>"X [Numpad 4,6]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>7F4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11818</ID>
+          <Description>"Y [Numpad 2,8]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>7F8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>50</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11817</ID>
+          <Description>"Z [Numpad 3,9]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>7FC</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>40</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11825</ID>
+          <Description>"Y Rotation [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>800</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11826</ID>
+          <Description>"X Rotation  [arrow keys]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>804</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>1000</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>5000</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11827</ID>
+          <Description>"Tilt [-,=]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>808</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>189</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>250</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>187</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11829</ID>
+          <Description>"FOV [KP_Minus, KP_Plus]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>pCamera</Address>
+          <Offsets>
+            <Offset>21C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12113</ID>
+      <Description>"Post Processing [Del]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>80000008</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
 alloc(newmem1,2048)
 label(returnhere)
 label(exit)
@@ -658,879 +497,858 @@ mov esi,[esi+38]
 shr esi,03
 unregistersymbol(DOFEnable1)
 
-</assemblerscript>
-      <hotkeys>
-        <hotkey>
-          <action>Toggle Activation</action>
-          <keys>
-            <key>46</key>
-          </keys>
-          <id>0</id>
-        </hotkey>
-      </hotkeys>
-      <cheatentries>
-        <cheatentry>
-          <id>12099</id>
-          <description>"[---  DOF Effect Enable [P]  ---]"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>0000FF</color>
-          <variabletype>Byte</variabletype>
-          <address>DOFEnable1</address>
-          <offsets>
-            <offset>38</offset>
-          </offsets>
-          <hotkeys>
-            <hotkey>
-              <action>Set Value</action>
-              <keys>
-                <key>80</key>
-              </keys>
-              <value>3</value>
-              <id>0</id>
-            </hotkey>
-            <hotkey>
-              <action>Set Value</action>
-              <keys>
-                <key>16</key>
-                <key>80</key>
-              </keys>
-              <value>7</value>
-              <id>1</id>
-            </hotkey>
-          </hotkeys>
-          <cheatentries>
-            <cheatentry>
-              <id>11869</id>
-              <description>"DOF Focus Distance [ [ ] (default=800)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>7C</offset>
-              </offsets>
-              <hotkeys>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>219</key>
-                  </keys>
-                  <value>20</value>
-                  <id>0</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>16</key>
-                    <key>219</key>
-                  </keys>
-                  <value>20</value>
-                  <id>1</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>17</key>
-                    <key>16</key>
-                    <key>219</key>
-                  </keys>
-                  <value>1</value>
-                  <id>2</id>
-                </hotkey>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>17</key>
-                    <key>219</key>
-                  </keys>
-                  <value>1</value>
-                  <id>3</id>
-                </hotkey>
-              </hotkeys>
-            </cheatentry>
-            <cheatentry>
-              <id>11871</id>
-              <description>"DOF Focus Inner Radius [ ] ] (default=400)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>78</offset>
-              </offsets>
-              <hotkeys>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>221</key>
-                  </keys>
-                  <value>20</value>
-                  <id>0</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>16</key>
-                    <key>221</key>
-                  </keys>
-                  <value>20</value>
-                  <id>1</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>17</key>
-                    <key>16</key>
-                    <key>221</key>
-                  </keys>
-                  <value>1</value>
-                  <id>2</id>
-                </hotkey>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>17</key>
-                    <key>221</key>
-                  </keys>
-                  <value>1</value>
-                  <id>3</id>
-                </hotkey>
-              </hotkeys>
-            </cheatentry>
-            <cheatentry>
-              <id>11921</id>
-              <description>"DOF MaxNearBlurAmount [;] (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>68</offset>
-              </offsets>
-              <hotkeys>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>186</key>
-                  </keys>
-                  <value>0.01</value>
-                  <id>0</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>16</key>
-                    <key>186</key>
-                  </keys>
-                  <value>0.01</value>
-                  <id>1</id>
-                </hotkey>
-                <hotkey>
-                  <action>Set Value</action>
-                  <keys>
-                    <key>18</key>
-                    <key>186</key>
-                  </keys>
-                  <value>0</value>
-                  <id>2</id>
-                </hotkey>
-                <hotkey>
-                  <action>Set Value</action>
-                  <keys>
-                    <key>17</key>
-                    <key>186</key>
-                  </keys>
-                  <value>1</value>
-                  <id>3</id>
-                </hotkey>
-              </hotkeys>
-            </cheatentry>
-            <cheatentry>
-              <id>11922</id>
-              <description>"DOF MaxFarBlurAmount ['] (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>70</offset>
-              </offsets>
-              <hotkeys>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>222</key>
-                  </keys>
-                  <value>0.01</value>
-                  <id>0</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>16</key>
-                    <key>222</key>
-                  </keys>
-                  <value>0.01</value>
-                  <id>1</id>
-                </hotkey>
-                <hotkey>
-                  <action>Set Value</action>
-                  <keys>
-                    <key>18</key>
-                    <key>222</key>
-                  </keys>
-                  <value>0</value>
-                  <id>2</id>
-                </hotkey>
-                <hotkey>
-                  <action>Set Value</action>
-                  <keys>
-                    <key>17</key>
-                    <key>222</key>
-                  </keys>
-                  <value>1</value>
-                  <id>3</id>
-                </hotkey>
-              </hotkeys>
-            </cheatentry>
-            <cheatentry>
-              <id>11876</id>
-              <description>"DOF FallOffExponent [/] (default=2)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>60</offset>
-              </offsets>
-              <hotkeys>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>191</key>
-                  </keys>
-                  <value>0.05</value>
-                  <id>0</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>16</key>
-                    <key>191</key>
-                  </keys>
-                  <value>0.05</value>
-                  <id>1</id>
-                </hotkey>
-              </hotkeys>
-            </cheatentry>
-            <cheatentry>
-              <id>11872</id>
-              <description>"DOF BlurKernelSize - [\] (default=16, 0 - 32)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>64</offset>
-              </offsets>
-              <hotkeys>
-                <hotkey>
-                  <action>Increase Value</action>
-                  <keys>
-                    <key>220</key>
-                  </keys>
-                  <value>0.25</value>
-                  <id>0</id>
-                </hotkey>
-                <hotkey>
-                  <action>Decrease Value</action>
-                  <keys>
-                    <key>16</key>
-                    <key>220</key>
-                  </keys>
-                  <value>0.25</value>
-                  <id>1</id>
-                </hotkey>
-              </hotkeys>
-            </cheatentry>
-          </cheatentries>
-        </cheatentry>
-        <cheatentry>
-          <id>12205</id>
-          <description>"[---  Bloom Settings  ---]"</description>
-          <laststate value="" activated="0" realaddress="00000000"/>
-          <color>0000FF</color>
-          <groupheader>1</groupheader>
-          <cheatentries>
-            <cheatentry>
-              <id>12203</id>
-              <description>"BlurBloomKernelSize (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>90</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12202</id>
-              <description>"BloomScale (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>8C</offset>
-              </offsets>
-            </cheatentry>
-          </cheatentries>
-        </cheatentry>
-        <cheatentry>
-          <id>12115</id>
-          <description>"[---  ToneMap Settings  ---]"</description>
-          <laststate value="" activated="0" realaddress="00000000"/>
-          <color>0000FF</color>
-          <groupheader>1</groupheader>
-          <cheatentries>
-            <cheatentry>
-              <id>12213</id>
-              <description>"Tint BLU (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>C4</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12214</id>
-              <description>"Tint RED (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>C8</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12215</id>
-              <description>"Tint GRN (default=-0.003)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>CC</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12117</id>
-              <description>"MidTones BLU (default=0.8)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>D0</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12118</id>
-              <description>"MidTones RED (default=0.8)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>D4</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12119</id>
-              <description>"MidTones GRN (default=0.8)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>D8</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12123</id>
-              <description>"SceneShadows BLU (default=1.3)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>DC</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12124</id>
-              <description>"SceneShadows RED (default=1.3)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>E0</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12125</id>
-              <description>"SceneShadows GRN (default=1.3)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>E4</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12116</id>
-              <description>"SceneDesaturation (default=0.4)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>E8</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12120</id>
-              <description>"HighLights RED (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>EC</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12121</id>
-              <description>"HighLights GRN (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>F0</offset>
-              </offsets>
-            </cheatentry>
-            <cheatentry>
-              <id>12122</id>
-              <description>"HighLights BLU (default=1)"</description>
-              <laststate value="??" activated="0" realaddress="00000000"/>
-              <color>80000008</color>
-              <variabletype>Float</variabletype>
-              <address>DOFEnable1</address>
-              <offsets>
-                <offset>F4</offset>
-              </offsets>
-            </cheatentry>
-          </cheatentries>
-        </cheatentry>
-      </cheatentries>
-    </cheatentry>
-    <cheatentry>
-      <id>12216</id>
-      <description>"----------- Junk Line ----------"</description>
-      <options mohidechildren="1"/>
-      <laststate value="" activated="0" realaddress="00000000"/>
-      <color>80000008</color>
-      <groupheader>1</groupheader>
-      <cheatentries>
-        <cheatentry>
-          <id>2</id>
-          <description>"timer?"</description>
-          <laststate value="??" activated="0" realaddress="29EC11F0"/>
-          <color>80000008</color>
-          <variabletype>Float</variabletype>
-          <address>29EC11F0</address>
-        </cheatentry>
-        <cheatentry>
-          <id>12217</id>
-          <description>"Tint BLU (default=1)"</description>
-          <laststate value="??" activated="0" realaddress="00000000"/>
-          <color>80000008</color>
-          <variabletype>Float</variabletype>
-          <address>DOFEnable1</address>
-          <offsets>
-            <offset>84</offset>
-          </offsets>
-        </cheatentry>
-      </cheatentries>
-    </cheatentry>
-  </cheatentries>
-  <cheatcodes>
-    <codeentry>
-      <description>Code :fstp dword ptr [ecx] - fov</description>
-      <address>01147604</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>257604</modulenameoffset>
-      <before>
-        <byte>00</byte>
-        <byte>8B</byte>
-        <byte>4C</byte>
-        <byte>24</byte>
-        <byte>04</byte>
-      </before>
-      <actual>
-        <byte>D9</byte>
-        <byte>19</byte>
-      </actual>
-      <after>
-        <byte>C2</byte>
-        <byte>14</byte>
-        <byte>00</byte>
-        <byte>0F</byte>
-        <byte>BF</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :fld dword ptr [eax] - accesses fov</description>
-      <address>011475FE</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>2575FE</modulenameoffset>
-      <before>
-        <byte>0F</byte>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>08</byte>
-      </before>
-      <actual>
-        <byte>D9</byte>
-        <byte>00</byte>
-      </actual>
-      <after>
-        <byte>8B</byte>
-        <byte>4C</byte>
-        <byte>24</byte>
-        <byte>04</byte>
-        <byte>D9</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :movq xmm0,[ecx+000007F4] - x</description>
-      <address>014742D0</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>5842D0</modulenameoffset>
-      <before>
-        <byte>CC</byte>
-        <byte>CC</byte>
-        <byte>CC</byte>
-        <byte>CC</byte>
-        <byte>CC</byte>
-      </before>
-      <actual>
-        <byte>F3</byte>
-        <byte>0F</byte>
-        <byte>7E</byte>
-        <byte>81</byte>
-        <byte>F4</byte>
-        <byte>07</byte>
-        <byte>00</byte>
-        <byte>00</byte>
-      </actual>
-      <after>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>04</byte>
-        <byte>66</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :movq xmm0,[edi+000007F4]</description>
-      <address>027BBEDD</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>18CBEDD</modulenameoffset>
-      <before>
-        <byte>E8</byte>
-        <byte>83</byte>
-        <byte>06</byte>
-        <byte>EF</byte>
-        <byte>FF</byte>
-      </before>
-      <actual>
-        <byte>F3</byte>
-        <byte>0F</byte>
-        <byte>7E</byte>
-        <byte>87</byte>
-        <byte>F4</byte>
-        <byte>07</byte>
-        <byte>00</byte>
-        <byte>00</byte>
-      </actual>
-      <after>
-        <byte>F3</byte>
-        <byte>0F</byte>
-        <byte>10</byte>
-        <byte>64</byte>
-        <byte>24</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :jb MSVCR100.memcpy+80</description>
-      <address>620D1ED5</address>
-      <modulename>MSVCR100.dll</modulename>
-      <modulenameoffset>1ED5</modulenameoffset>
-      <before>
-        <byte>E2</byte>
-        <byte>03</byte>
-        <byte>83</byte>
-        <byte>F9</byte>
-        <byte>08</byte>
-      </before>
-      <actual>
-        <byte>72</byte>
-        <byte>29</byte>
-      </actual>
-      <after>
-        <byte>F3</byte>
-        <byte>A5</byte>
-        <byte>FF</byte>
-        <byte>24</byte>
-        <byte>95</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :mov [edi+ecx*4-1C],eax</description>
-      <address>620D1FA8</address>
-      <modulename>MSVCR100.dll</modulename>
-      <modulenameoffset>1FA8</modulenameoffset>
-      <before>
-        <byte>62</byte>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>8E</byte>
-        <byte>E4</byte>
-      </before>
-      <actual>
-        <byte>89</byte>
-        <byte>44</byte>
-        <byte>8F</byte>
-        <byte>E4</byte>
-      </actual>
-      <after>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>8E</byte>
-        <byte>E8</byte>
-        <byte>89</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :and [eax],ecx - dofenable</description>
-      <address>01152119</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>262119</modulenameoffset>
-      <before>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>30</byte>
-        <byte>F7</byte>
-        <byte>D1</byte>
-      </before>
-      <actual>
-        <byte>21</byte>
-        <byte>08</byte>
-      </actual>
-      <after>
-        <byte>EB</byte>
-        <byte>09</byte>
-        <byte>8B</byte>
-        <byte>57</byte>
-        <byte>68</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :or [eax],edx</description>
-      <address>01152124</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>262124</modulenameoffset>
-      <before>
-        <byte>68</byte>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>30</byte>
-      </before>
-      <actual>
-        <byte>09</byte>
-        <byte>10</byte>
-      </actual>
-      <after>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>10</byte>
-        <byte>89</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :mov eax,[ecx+38] - dof</description>
-      <address>016FD4A6</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>80D4A6</modulenameoffset>
-      <before>
-        <byte>54</byte>
-        <byte>24</byte>
-        <byte>0C</byte>
-        <byte>0B</byte>
-        <byte>C2</byte>
-      </before>
-      <actual>
-        <byte>8B</byte>
-        <byte>41</byte>
-        <byte>38</byte>
-      </actual>
-      <after>
-        <byte>75</byte>
-        <byte>02</byte>
-        <byte>D1</byte>
-        <byte>E8</byte>
-        <byte>5F</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :test byte ptr [ebp+38],04</description>
-      <address>0199F6F2</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>AAF6F2</modulenameoffset>
-      <before>
-        <byte>1C</byte>
-        <byte>3B</byte>
-        <byte>C7</byte>
-        <byte>74</byte>
-        <byte>06</byte>
-      </before>
-      <actual>
-        <byte>F6</byte>
-        <byte>45</byte>
-        <byte>38</byte>
-        <byte>04</byte>
-      </actual>
-      <after>
-        <byte>75</byte>
-        <byte>02</byte>
-        <byte>33</byte>
-        <byte>C0</byte>
-        <byte>8B</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :mov esi,[esi+38]</description>
-      <address>016F234E</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>80234E</modulenameoffset>
-      <before>
-        <byte>04</byte>
-        <byte>85</byte>
-        <byte>F6</byte>
-        <byte>74</byte>
-        <byte>1A</byte>
-      </before>
-      <actual>
-        <byte>8B</byte>
-        <byte>76</byte>
-        <byte>38</byte>
-      </actual>
-      <after>
-        <byte>C1</byte>
-        <byte>EE</byte>
-        <byte>03</byte>
-        <byte>83</byte>
-        <byte>E6</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :and [eax],ecx</description>
-      <address>01152119</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>262119</modulenameoffset>
-      <before>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>30</byte>
-        <byte>F7</byte>
-        <byte>D1</byte>
-      </before>
-      <actual>
-        <byte>21</byte>
-        <byte>08</byte>
-      </actual>
-      <after>
-        <byte>EB</byte>
-        <byte>09</byte>
-        <byte>8B</byte>
-        <byte>57</byte>
-        <byte>68</byte>
-      </after>
-    </codeentry>
-    <codeentry>
-      <description>Code :or [eax],edx</description>
-      <address>01152124</address>
-      <modulename>LostPlanetGame.exe</modulename>
-      <modulenameoffset>262124</modulenameoffset>
-      <before>
-        <byte>68</byte>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>30</byte>
-      </before>
-      <actual>
-        <byte>09</byte>
-        <byte>10</byte>
-      </actual>
-      <after>
-        <byte>8B</byte>
-        <byte>44</byte>
-        <byte>24</byte>
-        <byte>10</byte>
-        <byte>89</byte>
-      </after>
-    </codeentry>
-  </cheatcodes>
-  <userdefinedsymbols>
-    <symbolentry>
-      <name>pCamera</name>
-      <address>16380018</address>
-    </symbolentry>
-    <symbolentry>
-      <name>DOFEnable1</name>
-      <address>15A60016</address>
-    </symbolentry>
-  </userdefinedsymbols>
-</cheattable>
-<!--
-     FILE ARCHIVED ON 05:50:21 Dec 11, 2015 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 21:19:03 Sep 29, 2019.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  LoadShardBlock: 147.791 (3)
-  exclusion.robots.policy: 0.396
-  RedisCDXSource: 101.675
-  CDXLines.iter: 16.664 (3)
-  captures_list: 269.129
-  PetaboxLoader3.datanode: 158.893 (4)
-  esindex: 0.008
-  exclusion.robots: 0.528
-  PetaboxLoader3.resolve: 107.538 (2)
-  load_resource: 137.667
--->
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>12099</ID>
+          <Description>"[---  DOF Effect Enable [P]  ---]"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <VariableType>Byte</VariableType>
+          <Address>DOFEnable1</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>7</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>11869</ID>
+              <Description>"DOF Focus Distance [ [ ] (default=800)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>7C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>219</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11871</ID>
+              <Description>"DOF Focus Inner Radius [ ] ] (default=400)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>78</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>20</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>221</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11921</ID>
+              <Description>"DOF MaxNearBlurAmount [;] (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>68</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>186</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11922</ID>
+              <Description>"DOF MaxFarBlurAmount ['] (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>70</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>222</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11876</ID>
+              <Description>"DOF FallOffExponent [/] (default=2)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>60</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>191</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>191</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11872</ID>
+              <Description>"DOF BlurKernelSize - [\] (default=16, 0 - 32)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>64</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>220</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>220</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12205</ID>
+          <Description>"[---  Bloom Settings  ---]"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12203</ID>
+              <Description>"BlurBloomKernelSize (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12202</ID>
+              <Description>"BloomScale (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>8C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12115</ID>
+          <Description>"[---  ToneMap Settings  ---]"</Description>
+          <LastState Value="" Activated="0" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12213</ID>
+              <Description>"Tint BLU (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>C4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12214</ID>
+              <Description>"Tint RED (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12215</ID>
+              <Description>"Tint GRN (default=-0.003)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12117</ID>
+              <Description>"MidTones BLU (default=0.8)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12118</ID>
+              <Description>"MidTones RED (default=0.8)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>D4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12119</ID>
+              <Description>"MidTones GRN (default=0.8)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>D8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12123</ID>
+              <Description>"SceneShadows BLU (default=1.3)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>DC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12124</ID>
+              <Description>"SceneShadows RED (default=1.3)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12125</ID>
+              <Description>"SceneShadows GRN (default=1.3)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12116</ID>
+              <Description>"SceneDesaturation (default=0.4)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12120</ID>
+              <Description>"HighLights RED (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12121</ID>
+              <Description>"HighLights GRN (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12122</ID>
+              <Description>"HighLights BLU (default=1)"</Description>
+              <LastState Value="??" Activated="0" RealAddress="00000000"/>
+              <Color>80000008</Color>
+              <VariableType>Float</VariableType>
+              <Address>DOFEnable1</Address>
+              <Offsets>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12216</ID>
+      <Description>"----------- Junk Line ----------"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" Activated="0" RealAddress="00000000"/>
+      <Color>80000008</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"timer?"</Description>
+          <LastState Value="??" Activated="0" RealAddress="29EC11F0"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>29EC11F0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12217</ID>
+          <Description>"Tint BLU (default=1)"</Description>
+          <LastState Value="??" Activated="0" RealAddress="00000000"/>
+          <Color>80000008</Color>
+          <VariableType>Float</VariableType>
+          <Address>DOFEnable1</Address>
+          <Offsets>
+            <Offset>84</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :fstp dword ptr [ecx] - fov</Description>
+      <Address>01147604</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>257604</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>19</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>14</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :fld dword ptr [eax] - accesses fov</Description>
+      <Address>011475FE</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>2575FE</ModuleNameOffset>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>D9</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movq xmm0,[ecx+000007F4] - x</Description>
+      <Address>014742D0</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>5842D0</ModuleNameOffset>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>7E</Byte>
+        <Byte>81</Byte>
+        <Byte>F4</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>04</Byte>
+        <Byte>66</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :movq xmm0,[edi+000007F4]</Description>
+      <Address>027BBEDD</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>18CBEDD</ModuleNameOffset>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>83</Byte>
+        <Byte>06</Byte>
+        <Byte>EF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>7E</Byte>
+        <Byte>87</Byte>
+        <Byte>F4</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>64</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :jb MSVCR100.memcpy+80</Description>
+      <Address>620D1ED5</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>1ED5</ModuleNameOffset>
+      <Before>
+        <Byte>E2</Byte>
+        <Byte>03</Byte>
+        <Byte>83</Byte>
+        <Byte>F9</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>72</Byte>
+        <Byte>29</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>A5</Byte>
+        <Byte>FF</Byte>
+        <Byte>24</Byte>
+        <Byte>95</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [edi+ecx*4-1C],eax</Description>
+      <Address>620D1FA8</Address>
+      <ModuleName>MSVCR100.dll</ModuleName>
+      <ModuleNameOffset>1FA8</ModuleNameOffset>
+      <Before>
+        <Byte>62</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>E4</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>8F</Byte>
+        <Byte>E4</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>8E</Byte>
+        <Byte>E8</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :and [eax],ecx - dofenable</Description>
+      <Address>01152119</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>262119</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>F7</Byte>
+        <Byte>D1</Byte>
+      </Before>
+      <Actual>
+        <Byte>21</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>09</Byte>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :or [eax],edx</Description>
+      <Address>01152124</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>262124</ModuleNameOffset>
+      <Before>
+        <Byte>68</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>09</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov eax,[ecx+38] - dof</Description>
+      <Address>016FD4A6</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>80D4A6</ModuleNameOffset>
+      <Before>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>0C</Byte>
+        <Byte>0B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>D1</Byte>
+        <Byte>E8</Byte>
+        <Byte>5F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :test byte ptr [ebp+38],04</Description>
+      <Address>0199F6F2</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>AAF6F2</ModuleNameOffset>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>3B</Byte>
+        <Byte>C7</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>F6</Byte>
+        <Byte>45</Byte>
+        <Byte>38</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov esi,[esi+38]</Description>
+      <Address>016F234E</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>80234E</ModuleNameOffset>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+        <Byte>74</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>76</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>C1</Byte>
+        <Byte>EE</Byte>
+        <Byte>03</Byte>
+        <Byte>83</Byte>
+        <Byte>E6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :and [eax],ecx</Description>
+      <Address>01152119</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>262119</ModuleNameOffset>
+      <Before>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>F7</Byte>
+        <Byte>D1</Byte>
+      </Before>
+      <Actual>
+        <Byte>21</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>09</Byte>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :or [eax],edx</Description>
+      <Address>01152124</Address>
+      <ModuleName>LostPlanetGame.exe</ModuleName>
+      <ModuleNameOffset>262124</ModuleNameOffset>
+      <Before>
+        <Byte>68</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>09</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>pCamera</Name>
+      <Address>16380018</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>DOFEnable1</Name>
+      <Address>15A60016</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

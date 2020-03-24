@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="21">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>58</ID>
+      <Description>"Find Game Speed"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(speed,00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01 00 00 00 01 00 01)
+label(_speed)
+registersymbol(_speed)
+speed:
+_speed:
+[DISABLE]
+unregistersymbol(_speed)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"Speed"</Description>
+          <LastState Value="65536" RealAddress="1C5FFC88"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_speed</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>65</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>655</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>6553</Value>
+              <Description>10%</Description>
+              <ID>4</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>54</Key>
+              </Keys>
+              <Value>16384</Value>
+              <Description>25%</Description>
+              <ID>5</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>32768</Value>
+              <Description>50%</Description>
+              <ID>6</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>65536</Value>
+              <Description>100%</Description>
+              <ID>7</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>131072</Value>
+              <Description>200%</Description>
+              <ID>8</ID>
+              <ActivateSound/>
+              <DeactivateSound/>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>60</ID>
+      <Description>"Disable Xlive (prevents crashing)"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+"xlive.dll"+145A60:
+db C2 08 00
+[DISABLE]
+"xlive.dll"+145A60:
+db 8B FF 55
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18</ID>
+      <Description>"Disable Camera"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cam1,SFTK.exe,66 0F D6 88 98 00 00 00) // should be unique
+aobscanmodule(cam2,SFTK.exe,66 0F D6 88 90 00 00 00) // should be unique
+aobscanmodule(cam3,SFTK.exe,00 66 0F D6 88 A0 00 00 00) // should be unique
+aobscanmodule(cam4,SFTK.exe,F3 0F 11 A0 B0 00 00 00) // should be unique
+aobscanmodule(cam5,SFTK.exe,66 0F D6 88 A8 00 00 00 8B 47) // should be unique
+aobscanmodule(cam6,SFTK.exe,66 0F D6 86 98 00 00 00 F3 0F 7E 82) // should be unique
+aobscanmodule(cam7,SFTK.exe,66 0F D6 86 98 00 00 00 F3 0F 7E 81) // should be unique
+aobscanmodule(cam8,SFTK.exe,66 0F D6 86 90 00 00 00 F3 0F 7E 82) // should be unique
+aobscanmodule(cam9,SFTK.exe,66 0F D6 86 90 00 00 00 F3 0F 7E 81) // should be unique
+aobscanmodule(cam10,SFTK.exe,66 0F D6 86 A0 00 00 00 F3 0F 7E 82) // should be unique
+aobscanmodule(cam11,SFTK.exe,66 0F D6 86 90 00 00 00 F3 0F 7E 45) // should be unique
+aobscanmodule(cam12,SFTK.exe,66 0F D6 86 90 00 00 00 F3 0F 7E 44) // should be unique
+aobscanmodule(cam13,SFTK.exe,66 0F D6 86 A0 00 00 00 F3 0F 7E 45) // should be unique
+aobscanmodule(cam14,SFTK.exe,66 0F D6 86 A8 00 00 00 D9 82) // should be unique
+aobscanmodule(cam15,SFTK.exe,82 D8 00 00 00 83 C8 06 D9 9E D8 00 00 00) // should be unique
+aobscanmodule(cam16,SFTK.exe,D9 82 B0 00 00 00 83) // should be unique
+aobscanmodule(cam17,SFTK.exe,F3 0F 11 86 B0 00 00 00 F3 0F 10) // should be unique
+
+registersymbol(cam1)
+registersymbol(cam2)
+registersymbol(cam3)
+registersymbol(cam4)
+registersymbol(cam5)
+registersymbol(cam6)
+registersymbol(cam7)
+registersymbol(cam8)
+registersymbol(cam9)
+registersymbol(cam10)
+registersymbol(cam11)
+registersymbol(cam12)
+registersymbol(cam13)
+registersymbol(cam14)
+registersymbol(cam15)
+registersymbol(cam16)
+registersymbol(cam17)
+
+cam1:
+db 90 90 90 90 90 90 90 90
+cam2:
+db 90 90 90 90 90 90 90 90
+cam3+1:
+db 90 90 90 90 90 90 90 90
+cam4:
+db 90 90 90 90 90 90 90 90
+cam5:
+db 90 90 90 90 90 90 90 90
+cam6:
+db 90 90 90 90 90 90 90 90
+cam7:
+db 90 90 90 90 90 90 90 90
+cam8:
+db 90 90 90 90 90 90 90 90
+cam9:
+db 90 90 90 90 90 90 90 90
+cam10:
+db 90 90 90 90 90 90 90 90
+cam11:
+db 90 90 90 90 90 90 90 90
+cam12:
+db 90 90 90 90 90 90 90 90 F3 0F 7E 44 24 58 90 90 90 90 90 90 90 90 F3 0F 7E 44 24 40 90 90 90 90 90 90 90 90 F3 0F 7E 44 24 48 90 90 90 90 90 90 90 90
+cam13:
+db 90 90 90 90 90 90 90 90
+cam14:
+db 90 90 90 90 90 90 90 90
+cam15+8:
+db 90 90 90 90 90 90
+cam16:
+db 90 90 90 90 90 90 83 C8 01 90 90 90 90 90 90 89 86 DC 00 00 00 90 90 90 90 90 90 83 C8 06 90 90 90 90 90 90
+cam17:
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+cam1:
+  db 66 0F D6 88 98 00 00 00
+unregistersymbol(cam1)
+cam2:
+  db 66 0F D6 88 90 00 00 00
+unregistersymbol(cam2)
+cam3:
+  db 00 66 0F D6 88 A0 00 00 00
+unregistersymbol(cam3)
+cam4:
+  db F3 0F 11 A0 B0 00 00 00
+unregistersymbol(cam4)
+cam5:
+  db 66 0F D6 88 A8 00 00 00 8B 47
+unregistersymbol(cam5)
+cam6:
+  db 66 0F D6 86 98 00 00 00 F3 0F 7E 82
+unregistersymbol(cam6)
+cam7:
+  db 66 0F D6 86 98 00 00 00 F3 0F 7E 81
+unregistersymbol(cam7)
+cam8:
+  db 66 0F D6 86 90 00 00 00 F3 0F 7E 82
+unregistersymbol(cam8)
+cam9:
+  db 66 0F D6 86 90 00 00 00 F3 0F 7E 81
+unregistersymbol(cam9)
+cam10:
+  db 66 0F D6 86 A0 00 00 00 F3 0F 7E 82
+unregistersymbol(cam10)
+cam11:
+  db 66 0F D6 86 90 00 00 00 F3 0F 7E 45
+unregistersymbol(cam11)
+cam12:
+  db 66 0F D6 86 90 00 00 00 F3 0F 7E 44 24 58 66 0F D6 86 98 00 00 00 F3 0F 7E 44 24 40 66 0F D6 86 A0 00 00 00 F3 0F 7E 44 24 48 66 0F D6 86 A8 00 00 00
+unregistersymbol(cam12)
+cam13:
+  db 66 0F D6 86 A0 00 00 00 F3 0F 7E 45
+unregistersymbol(cam13)
+cam14:
+  db 66 0F D6 86 A8 00 00 00 D9 82
+unregistersymbol(cam14)
+cam15:
+  db 82 D8 00 00 00 83 C8 06 D9 9E D8 00 00 00
+unregistersymbol(cam15)
+cam16:
+  db D9 82 B0 00 00 00 83 C8 01 D9 9E B0 00 00 00 89 86 DC 00 00 00 D9 82 D8 00 00 00 83 C8 06 D9 9E D8 00 00 00
+unregistersymbol(cam16)
+cam17:
+  db F3 0F 11 86 B0 00 00 00
+unregistersymbol(cam17)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>16</Key>
+            <Key>81</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"Camera Controls"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(camera,?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? C0 00 00 ?? ?? ?? ?? ?? ?? ?? ?? A? 3F ?? ?? ?? ?? 00 00 80 3F ?? ?? ?? ?? 81 CF 16 3E 71 A9 A9 3D CD CC CC 3D 00 40 1C 46 CA 23 4E 3F 13 CC 17 3F 5? 83 6C 3F 1? EF C3 3E 39 8E E3 3F ?? ?? ?? ?? 04)
+label(_camera)
+registersymbol(_camera)
+camera:
+_camera:
+[DISABLE]
+unregistersymbol(_camera)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"Z2/Rotation"</Description>
+              <LastState Value="21.20000076" RealAddress="17C7D878"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera+18</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>51</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>51</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>54</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>2</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>54</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>3</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>54</ID>
+              <Description>"Z"</Description>
+              <LastState Value="-4.118969917" RealAddress="17C7D868"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera+8</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>51</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>51</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Y2/Pitch"</Description>
+              <LastState Value="1.787177563" RealAddress="17C7D874"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera+14</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>50</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>50</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>53</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>2</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>53</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>3</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>52</ID>
+              <Description>"Y"</Description>
+              <LastState Value="1.03717804" RealAddress="17C7D864"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera+4</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>50</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>50</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>51</ID>
+              <Description>"X2/Rotation"</Description>
+              <LastState Value="7.954666138" RealAddress="17C7D870"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera+10</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>49</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>49</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>52</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>2</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>52</Key>
+                  </Keys>
+                  <Value>.5</Value>
+                  <ID>3</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"X"</Description>
+              <LastState Value="4.954664707" RealAddress="17C7D860"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>49</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>49</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>62</ID>
+              <Description>"Roll"</Description>
+              <LastState Value="0.000383512699" RealAddress="17C7D880"/>
+              <VariableType>Float</VariableType>
+              <Address>_camera+20</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>9</Key>
+                    <Key>55</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>0</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>16</Key>
+                    <Key>55</Key>
+                  </Keys>
+                  <Value>.1</Value>
+                  <ID>1</ID>
+                  <ActivateSound/>
+                  <DeactivateSound/>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>xlivekiller</Name>
+      <Address>55FC1605</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_camera</Name>
+      <Address>17C7D860</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam1</Name>
+      <Address> 00752CBF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam2</Name>
+      <Address> 00752CB1</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam3</Name>
+      <Address> 00752CE0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam4</Name>
+      <Address> 00752D00</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam5</Name>
+      <Address> 00752CEF</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam6</Name>
+      <Address> 009A8144</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam7</Name>
+      <Address> 009A80B0</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam8</Name>
+      <Address> 009A8127</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam9</Name>
+      <Address> 009A8093</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam10</Name>
+      <Address> 009A8154</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam11</Name>
+      <Address> 0075043B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam12</Name>
+      <Address> 009A84CB</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam13</Name>
+      <Address> 0075047F</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam14</Name>
+      <Address> 009A816D</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam15</Name>
+      <Address> 009A818B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam16</Name>
+      <Address> 009A8175</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>cam17</Name>
+      <Address> 009A8503</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>_speed</Name>
+      <Address>1C5FFC88</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

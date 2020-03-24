@@ -12,18 +12,19 @@ Reshade | Yes (DirectX 11)
 Ansel | No
 DirectX versions | DirectX 11, DirectX 12
 
-\* To use a DSR resolution, set your desktop resolution to it first, then you should be able to select it in-game. You will not see all DSR resolutions though.
- 
+@alert info
+To use a DSR resolution, set your desktop resolution to it first, then you should be able to select it in-game. You will not see all DSR resolutions though.
+@end
+
 ## Tools
 
 * **Cheat Engine Table by Otis_Inf & HattiWatti**  
-[DX11 Cheat Table](https://framedsc.github.io/CheatTables/Control_DX11_Otis.CT)  
-[DX12 Cheat Table](https://framedsc.github.io/CheatTables/Control_DX12_Otis.CT)  
+[DX12 Cheat Table](..\CheatTables\Control_DX12_Otis.CT)  
 **Features**: Debug Camera, FOV, Time stop, Hotsampling, Hud Toggle, Render Toggles
 
 ## Using The CE Table 
 
-First, [read the general Cheat Engine guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
+First, [read the general Cheat Engine guide](..\GeneralGuides\cheat_engine_tables.htm) if you have't already to learn how to use cheat engine tables (don't worry, it's easy).
 
 All hotkeys are mentioned in the table, but here's some general info.
 
@@ -38,4 +39,8 @@ The render effect section contains some more useful toggles. Hotkeys for these a
 
 ## SRWE
 
-To enable hotsampling (via SRWE)... enable the hotsampling script. You mayalso need to check the `Force EXITSIZEMOVE` option in SRWE. Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
+To enable hotsampling (via SRWE) enable the hotsampling script. You may also need to check the `Force EXITSIZEMOVE` option in SRWE. 
+Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
+
+## Useful links
+[PC Gaming wiki](https://pcgamingwiki.com/wiki/Control)

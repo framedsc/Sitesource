@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>852</ID>
+      <Description>"-contact @ twitter.com/somberness"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>183</ID>
+      <Description>"Camera"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cam,EXF-Win64-Shipping.exe,00 0F 28 97 90 01 00 00 0F 28 C2)
+aobscanmodule(cam1,EXF-Win64-Shipping.exe,F3 0F 11 BF 00 01 00 00)
+aobscanmodule(cam2,EXF-Win64-Shipping.exe,0F 29 B3 80 01 00 00 B2 01 44 0F)
+aobscanmodule(camfov,EXF-Win64-Shipping.exe,F3 0F 11 88 90 02 00 00)
+alloc(newmem,$1000,cam)
+alloc(camaob,8)
+label(code)
+label(return)
+registersymbol(camaob)
+registersymbol(cam1)
+registersymbol(cam2)
+registersymbol(camfov)
+cam1:
+db 90 90 90 90 90 90 90 90
+cam1+11:
+db 90 90 90 90 90 90 90 90
+cam1+1E:
+db 90 90 90 90 90 90 90 90
+cam1+2A:
+db 90 90 90 90 90 90 90 90 90
+cam1+33:
+db 90 90 90 90 90 90 90 90 90
+cam1+3C:
+db 90 90 90 90 90 90 90 90 90
+cam2:
+db 90 90 90 90 90 90 90
+cam2+9:
+db 90 90 90 90 90 90 90 90
+cam2+11:
+db 90 90 90 90 90 90 90 90
+camfov:
+db 90 90 90 90 90 90 90 90
+newmem:
+mov [camaob],rcx
+code:
+  movaps xmm2,[rdi+00000190]
+  jmp return
+
+cam+01:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(cam)
+
+[DISABLE]
+
+cam+01:
+db 0F 28 97 90 01 00 00
+cam1:
+db F3 0F 11 BF 00 01 00 00
+cam1+11:
+db F3 0F 11 B7 04 01 00 00
+cam1+1E:
+db F3 0F 11 AF 08 01 00 00
+cam1+2A:
+db F3 44 0F 11 97 0C 01 00 00
+cam1+33:
+db F3 44 0F 11 8F 10 01 00 00
+cam1+3C:
+db F3 44 0F 11 87 14 01 00 00
+cam2:
+db 0F 29 B3 80 01 00 00
+cam2+9:
+db 44 0F 29 AB 90 01 00 00
+cam2+11:
+db 44 0F 29 BB A0 01 00 00
+camfov:
+db F3 0F 11 88 90 02 00 00
+unregistersymbol(cam)
+dealloc(newmem)
+dealloc(camaob)
+unregistersymbol(camaob)
+unregistersymbol(cam1)
+unregistersymbol(cam2)
+unregistersymbol(camfov)
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+90C87F
+
+"EXF-Win64-Shipping.exe"+90C853: 0F C6 CC 55              -  shufps xmm1,xmm455
+"EXF-Win64-Shipping.exe"+90C857: 0F 14 C1                 -  unpcklps xmm0,xmm1
+"EXF-Win64-Shipping.exe"+90C85A: F2 0F 11 06              -  movsd [rsi],xmm0
+"EXF-Win64-Shipping.exe"+90C85E: 89 46 08                 -  mov [rsi+08],eax
+"EXF-Win64-Shipping.exe"+90C861: 0F 29 74 24 50           -  movaps [rsp+50],xmm6
+"EXF-Win64-Shipping.exe"+90C866: E8 95 4A B3 FF           -  call EXF-Win64-Shipping.exe+441300
+"EXF-Win64-Shipping.exe"+90C86B: F2 0F 10 44 24 40        -  movsd xmm0,[rsp+40]
+"EXF-Win64-Shipping.exe"+90C871: 8B 44 24 48              -  mov eax,[rsp+48]
+"EXF-Win64-Shipping.exe"+90C875: F2 0F 11 46 0C           -  movsd [rsi+0C],xmm0
+"EXF-Win64-Shipping.exe"+90C87A: E9 88 00 00 00           -  jmp EXF-Win64-Shipping.exe+90C907
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+90C87F: 0F 28 97 90 01 00 00     -  movaps xmm2,[rdi+00000190]
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+90C886: 0F 28 C2                 -  movaps xmm0,xmm2
+"EXF-Win64-Shipping.exe"+90C889: 0F 28 CA                 -  movaps xmm1,xmm2
+"EXF-Win64-Shipping.exe"+90C88C: 0F C6 C2 AA              -  shufps xmm0,xmm2-56
+"EXF-Win64-Shipping.exe"+90C890: F3 0F 11 44 24 58        -  movss [rsp+58],xmm0
+"EXF-Win64-Shipping.exe"+90C896: 0F 28 C2                 -  movaps xmm0,xmm2
+"EXF-Win64-Shipping.exe"+90C899: 8B 44 24 58              -  mov eax,[rsp+58]
+"EXF-Win64-Shipping.exe"+90C89D: 0F C6 CA 55              -  shufps xmm1,xmm255
+"EXF-Win64-Shipping.exe"+90C8A1: 0F 14 C1                 -  unpcklps xmm0,xmm1
+"EXF-Win64-Shipping.exe"+90C8A4: F2 0F 11 06              -  movsd [rsi],xmm0
+"EXF-Win64-Shipping.exe"+90C8A8: 89 46 08                 -  mov [rsi+08],eax
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>182</ID>
+          <Description>"camx"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>190</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"camy"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>198</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"camz"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>194</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>96</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"fov"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>290</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"pitch"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>1D0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"roll"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>1D8</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>97</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"yaw"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>1D4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1907</ID>
+          <Description>"yaw"</Description>
+          <VariableType>Float</VariableType>
+          <Address>camaob</Address>
+          <Offsets>
+            <Offset>18C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1930</ID>
+      <Description>"Disable HUD"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>define(address,"EXF-Win64-Shipping.exe"+1028FB9)
+define(bytes,0F 11 30 0F 11 78 10)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"EXF-Win64-Shipping.exe"+1028FB9)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+ // movups [rax],xmm6
+  movups [rax+10],xmm5
+  jmp return
+
+address:
+  jmp newmem
+  nop
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movups [rax],xmm6
+  // movups [rax+10],xmm7
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+101A739
+
+"EXF-Win64-Shipping.exe"+101A71A: 48 F7 D8                    -  neg rax
+"EXF-Win64-Shipping.exe"+101A71D: 48 1B D2                    -  sbb rdx,rdx
+"EXF-Win64-Shipping.exe"+101A720: 48 F7 DA                    -  neg rdx
+"EXF-Win64-Shipping.exe"+101A723: 48 FF CA                    -  dec rdx
+"EXF-Win64-Shipping.exe"+101A726: 48 23 D3                    -  and rdx,rbx
+"EXF-Win64-Shipping.exe"+101A729: 48 0B D1                    -  or rdx,rcx
+"EXF-Win64-Shipping.exe"+101A72C: 48 8D 0C F6                 -  lea rcx,[rsi+rsi*8]
+"EXF-Win64-Shipping.exe"+101A730: 48 8D 04 CA                 -  lea rax,[rdx+rcx*8]
+"EXF-Win64-Shipping.exe"+101A734: 48 85 C0                    -  test rax,rax
+"EXF-Win64-Shipping.exe"+101A737: 74 22                       -  je EXF-Win64-Shipping.exe+101A75B
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+101A739: 0F 11 30                    -  movups [rax],xmm6
+"EXF-Win64-Shipping.exe"+101A73C: 0F 11 78 10                 -  movups [rax+10],xmm7
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+101A740: 44 0F 11 40 20              -  movups [rax+20],xmm8
+"EXF-Win64-Shipping.exe"+101A745: F2 44 0F 11 48 30           -  movsd [rax+30],xmm9
+"EXF-Win64-Shipping.exe"+101A74B: 4C 89 70 38                 -  mov [rax+38],r14
+"EXF-Win64-Shipping.exe"+101A74F: 48 89 78 40                 -  mov [rax+40],rdi
+"EXF-Win64-Shipping.exe"+101A753: 48 85 FF                    -  test rdi,rdi
+"EXF-Win64-Shipping.exe"+101A756: 74 2A                       -  je EXF-Win64-Shipping.exe+101A782
+"EXF-Win64-Shipping.exe"+101A758: FF 47 08                    -  inc [rdi+08]
+"EXF-Win64-Shipping.exe"+101A75B: 48 85 FF                    -  test rdi,rdi
+"EXF-Win64-Shipping.exe"+101A75E: 74 22                       -  je EXF-Win64-Shipping.exe+101A782
+"EXF-Win64-Shipping.exe"+101A760: 83 6F 08 01                 -  sub dword ptr [rdi+08],01
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1842</ID>
+      <Description>"Character Speed"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(speedcontrol,EXF-Win64-Shipping.exe,F3 0F 11 73 14 0F) // should be unique
+alloc(newmem,$1000,speedcontrol)
+alloc(speed1,8)
+alloc(speed2,8)
+label(code)
+label(return)
+registersymbol(speed1)
+registersymbol(speed2)
+speed1:
+dd 0
+speed2:
+dd 0
+newmem:
+cmp rsi,2
+jne code
+mov [speed1],rbx
+jmp return
+code:
+mov [speed2],rbx
+//  movss [rbx+14],xmm6
+  jmp return
+
+speedcontrol:
+  jmp newmem
+return:
+registersymbol(speedcontrol)
+
+[DISABLE]
+
+speedcontrol:
+  db F3 0F 11 73 14
+
+unregistersymbol(speedcontrol)
+dealloc(speed1)
+dealloc(speed2)
+unregistersymbol(speed1)
+unregistersymbol(speed2)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+21FED1
+
+"EXF-Win64-Shipping.exe"+21FEAF: 90                       -  nop 
+"EXF-Win64-Shipping.exe"+21FEB0: F3 0F 58 C1              -  addss xmm0,xmm1
+"EXF-Win64-Shipping.exe"+21FEB4: FF C7                    -  inc edi
+"EXF-Win64-Shipping.exe"+21FEB6: 0F 2F C7                 -  comiss xmm0,xmm7
+"EXF-Win64-Shipping.exe"+21FEB9: 77 F5                    -  ja EXF-Win64-Shipping.exe+21FEB0
+"EXF-Win64-Shipping.exe"+21FEBB: F3 0F 11 43 18           -  movss [rbx+18],xmm0
+"EXF-Win64-Shipping.exe"+21FEC0: 89 7B 10                 -  mov [rbx+10],edi
+"EXF-Win64-Shipping.exe"+21FEC3: 80 7B 1C 00              -  cmp byte ptr [rbx+1C],00
+"EXF-Win64-Shipping.exe"+21FEC7: 0F 28 7C 24 20           -  movaps xmm7,[rsp+20]
+"EXF-Win64-Shipping.exe"+21FECC: 48 8B 7C 24 50           -  mov rdi,[rsp+50]
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+21FED1: F3 0F 11 73 14           -  movss [rbx+14],xmm6
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+21FED6: 0F 28 74 24 30           -  movaps xmm6,[rsp+30]
+"EXF-Win64-Shipping.exe"+21FEDB: 74 29                    -  je EXF-Win64-Shipping.exe+21FF06
+"EXF-Win64-Shipping.exe"+21FEDD: 83 7B 10 02              -  cmp dword ptr [rbx+10],02
+"EXF-Win64-Shipping.exe"+21FEE1: 7C 23                    -  jl EXF-Win64-Shipping.exe+21FF06
+"EXF-Win64-Shipping.exe"+21FEE3: 48 8B CB                 -  mov rcx,rbx
+"EXF-Win64-Shipping.exe"+21FEE6: E8 55 08 FC FF           -  call EXF-Win64-Shipping.exe+1E0740
+"EXF-Win64-Shipping.exe"+21FEEB: F3 0F 2C C0              -  cvttss2si eax,xmm0
+"EXF-Win64-Shipping.exe"+21FEEF: 48 8B CB                 -  mov rcx,rbx
+"EXF-Win64-Shipping.exe"+21FEF2: 89 43 10                 -  mov [rbx+10],eax
+"EXF-Win64-Shipping.exe"+21FEF5: E8 46 08 FC FF           -  call EXF-Win64-Shipping.exe+1E0740
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1837</ID>
+          <Description>"Player 1"</Description>
+          <VariableType>Float</VariableType>
+          <Address>speed1</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>.01</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>.1</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>-.1</Value>
+              <ID>9</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1838</ID>
+          <Description>"Player 2"</Description>
+          <VariableType>Float</VariableType>
+          <Address>speed2</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>.01</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>.1</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>-.1</Value>
+              <ID>9</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1926</ID>
+      <Description>"Charamove (don't move or position is reset)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(charamove,EXF-Win64-Shipping.exe,0F 28 BF 90 01 00 00 45)
+alloc(charamove2,$1000,charamove)
+registersymbol(charamove)
+registersymbol(charamove2)
+define(p1pos,charamove2+500)
+registersymbol(p1pos)
+define(p2pos,charamove2+510)
+registersymbol(p2pos)
+label(code2)
+label(return2)
+p1pos:
+dq 0
+p2pos:
+dq 0
+charamove2:
+cmp [p2pos],0
+jne code2
+cmp [p1pos],rdi
+je code2
+cmp [p2pos],rdi
+je code2
+cmp [p1pos],0
+jne @f
+mov [p1pos],rdi
+jmp code2
+@@:
+cmp [p2pos],0
+jne @f
+mov [p2pos],rdi
+code2:
+  movaps xmm7,[rdi+00000190]
+  jmp return2
+
+charamove:
+  jmp charamove2
+  nop
+  nop
+return2:
+
+
+[DISABLE]
+
+charamove:
+  db 0F 28 BF 90 01 00 00
+
+unregistersymbol(charamove)
+dealloc(charamove2)
+unregistersymbol(charamove2)
+unregistersymbol(p1pos)
+unregistersymbol(p2pos)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+82FECE
+
+"EXF-Win64-Shipping.exe"+82FE93: 0F 29 BC 24 20 03 00 00     -  movaps [rsp+00000320],xmm7
+"EXF-Win64-Shipping.exe"+82FE9B: 44 0F 29 84 24 10 03 00 00  -  movaps [rsp+00000310],xmm8
+"EXF-Win64-Shipping.exe"+82FEA4: 44 0F 29 8C 24 00 03 00 00  -  movaps [rsp+00000300],xmm9
+"EXF-Win64-Shipping.exe"+82FEAD: 44 0F 29 9C 24 E0 02 00 00  -  movaps [rsp+000002E0],xmm11
+"EXF-Win64-Shipping.exe"+82FEB6: 44 0F 29 A4 24 D0 02 00 00  -  movaps [rsp+000002D0],xmm12
+"EXF-Win64-Shipping.exe"+82FEBF: 75 0D                       -  jne EXF-Win64-Shipping.exe+82FECE
+"EXF-Win64-Shipping.exe"+82FEC1: 45 33 C0                    -  xor r8d,r8d
+"EXF-Win64-Shipping.exe"+82FEC4: 33 D2                       -  xor edx,edx
+"EXF-Win64-Shipping.exe"+82FEC6: 48 8B CF                    -  mov rcx,rdi
+"EXF-Win64-Shipping.exe"+82FEC9: E8 32 2A EF FF              -  call EXF-Win64-Shipping.exe+722900
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+82FECE: 0F 28 BF 90 01 00 00        -  movaps xmm7,[rdi+00000190]
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+82FED5: 45 0F 57 DB                 -  xorps xmm11,xmm11
+"EXF-Win64-Shipping.exe"+82FED9: 0F 28 A7 80 01 00 00        -  movaps xmm4,[rdi+00000180]
+"EXF-Win64-Shipping.exe"+82FEE0: 44 0F 28 C7                 -  movaps xmm8,xmm7
+"EXF-Win64-Shipping.exe"+82FEE4: 44 0F C6 C7 55              -  shufps xmm8,xmm755
+"EXF-Win64-Shipping.exe"+82FEE9: 0F 28 C7                    -  movaps xmm0,xmm7
+"EXF-Win64-Shipping.exe"+82FEEC: F3 0F 11 7D C0              -  movss [rbp-40],xmm7
+"EXF-Win64-Shipping.exe"+82FEF1: 41 0F 28 F0                 -  movaps xmm6,xmm8
+"EXF-Win64-Shipping.exe"+82FEF5: F3 44 0F 11 45 C4           -  movss [rbp-3C],xmm8
+"EXF-Win64-Shipping.exe"+82FEFB: 44 0F 28 CF                 -  movaps xmm9,xmm7
+"EXF-Win64-Shipping.exe"+82FEFF: 44 0F C6 CF AA              -  shufps xmm9,xmm7-56
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>755</ID>
+          <Description>"Character 1 X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>p1pos</Address>
+          <Offsets>
+            <Offset>190</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>88</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>88</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>(X)</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>754</ID>
+          <Description>"Character 1 Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>p1pos</Address>
+          <Offsets>
+            <Offset>198</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>89</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>89</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>(Y)</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>753</ID>
+          <Description>"Character 1 Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>p1pos</Address>
+          <Offsets>
+            <Offset>194</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>90</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>90</Key>
+                <Key>192</Key>
+              </Keys>
+              <Value>(Z)</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>759</ID>
+          <Description>"Character 2 X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>p2pos</Address>
+          <Offsets>
+            <Offset>190</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>88</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>758</ID>
+          <Description>"Character 2 Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>p2pos</Address>
+          <Offsets>
+            <Offset>198</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>89</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>757</ID>
+          <Description>"Character 2 Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>p2pos</Address>
+          <Offsets>
+            <Offset>194</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>50</Key>
+                <Key>90</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1932</ID>
+      <Description>"Inf Health"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(infhel,EXF-Win64-Shipping.exe,29 51 14 45 33 C0)
+registersymbol(infhel)
+infhel:
+db 90 90 90
+
+[DISABLE]
+
+infhel:
+  db 29 51 14 45 33 C0
+
+unregistersymbol(infhel)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+1F7562
+
+"EXF-Win64-Shipping.exe"+1F7547: A8 01                 -  test al,01
+"EXF-Win64-Shipping.exe"+1F7549: 74 09                 -  je EXF-Win64-Shipping.exe+1F7554
+"EXF-Win64-Shipping.exe"+1F754B: 89 51 1C              -  mov [rcx+1C],edx
+"EXF-Win64-Shipping.exe"+1F754E: 83 61 10 DF           -  and dword ptr [rcx+10],-21
+"EXF-Win64-Shipping.exe"+1F7552: EB 0E                 -  jmp EXF-Win64-Shipping.exe+1F7562
+"EXF-Win64-Shipping.exe"+1F7554: 41 3B D0              -  cmp edx,r8d
+"EXF-Win64-Shipping.exe"+1F7557: 7E 06                 -  jle EXF-Win64-Shipping.exe+1F755F
+"EXF-Win64-Shipping.exe"+1F7559: 44 01 41 1C           -  add [rcx+1C],r8d
+"EXF-Win64-Shipping.exe"+1F755D: EB 03                 -  jmp EXF-Win64-Shipping.exe+1F7562
+"EXF-Win64-Shipping.exe"+1F755F: 01 51 1C              -  add [rcx+1C],edx
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+1F7562: 29 51 14              -  sub [rcx+14],edx
+"EXF-Win64-Shipping.exe"+1F7565: 45 33 C0              -  xor r8d,r8d
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+1F7568: 8B 51 14              -  mov edx,[rcx+14]
+"EXF-Win64-Shipping.exe"+1F756B: 4C 89 41 20           -  mov [rcx+20],r8
+"EXF-Win64-Shipping.exe"+1F756F: 81 FA C8 00 00 00     -  cmp edx,000000C8
+"EXF-Win64-Shipping.exe"+1F7575: 7E 0B                 -  jle EXF-Win64-Shipping.exe+1F7582
+"EXF-Win64-Shipping.exe"+1F7577: C7 41 14 C8 00 00 00  -  mov [rcx+14],000000C8
+"EXF-Win64-Shipping.exe"+1F757E: 8B 41 14              -  mov eax,[rcx+14]
+"EXF-Win64-Shipping.exe"+1F7581: C3                    -  ret 
+"EXF-Win64-Shipping.exe"+1F7582: 85 D2                 -  test edx,edx
+"EXF-Win64-Shipping.exe"+1F7584: 8B C2                 -  mov eax,edx
+"EXF-Win64-Shipping.exe"+1F7586: 41 0F 48 C0           -  cmovs eax,r8d
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1933</ID>
+      <Description>"Inf Gauge"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(infgauge,EXF-Win64-Shipping.exe,C3 CC CC CC CC CC CC CC CC CC CC CC CC 8B 41 18 C3 CC) // should be unique
+alloc(newmem,$1000,"EXF-Win64-Shipping.exe"+1F75C0)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov eax,#150
+  ret 
+  int 3 
+  jmp return
+
+infgauge+0D:
+  jmp newmem
+return:
+registersymbol(infgauge)
+
+[DISABLE]
+
+infgauge+0D:
+  db 8B 41 18 C3 CC
+
+unregistersymbol(infgauge)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+1F75C0
+
+"EXF-Win64-Shipping.exe"+1F75B6: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75B7: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75B8: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75B9: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75BA: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75BB: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75BC: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75BD: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75BE: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75BF: CC                    -  int 3 
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+1F75C0: 8B 41 18              -  mov eax,[rcx+18]
+"EXF-Win64-Shipping.exe"+1F75C3: C3                    -  ret 
+"EXF-Win64-Shipping.exe"+1F75C4: CC                    -  int 3 
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+1F75C5: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75C6: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75C7: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75C8: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75C9: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75CA: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75CB: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75CC: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75CD: CC                    -  int 3 
+"EXF-Win64-Shipping.exe"+1F75CE: CC                    -  int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>160</ID>
+      <Description>"Inf Timer"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(roundtimer,EXF-Win64-Shipping.exe,F3 0F 11 43 1C 0F 28) // should be unique
+alloc(newmem,$1000,roundtimer)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+//  movss [rbx+1C],xmm0
+  jmp return
+
+roundtimer:
+  jmp newmem
+return:
+registersymbol(roundtimer)
+
+[DISABLE]
+
+roundtimer:
+  db F3 0F 11 43 1C
+
+unregistersymbol(roundtimer)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "EXF-Win64-Shipping.exe"+1DC414
+
+"EXF-Win64-Shipping.exe"+1DC3EA: 8B 04 11                       -  mov eax,[rcx+rdx]
+"EXF-Win64-Shipping.exe"+1DC3ED: 39 05 DD 6A D0 02              -  cmp [EXF-Win64-Shipping.exe+2EE2ED0],eax
+"EXF-Win64-Shipping.exe"+1DC3F3: 7F 34                          -  jg EXF-Win64-Shipping.exe+1DC429
+"EXF-Win64-Shipping.exe"+1DC3F5: F6 05 BC 6A D0 02 01           -  test byte ptr [EXF-Win64-Shipping.exe+2EE2EB8],01
+"EXF-Win64-Shipping.exe"+1DC3FC: 74 0D                          -  je EXF-Win64-Shipping.exe+1DC40B
+"EXF-Win64-Shipping.exe"+1DC3FE: F3 0F 10 05 B6 6A D0 02        -  movss xmm0,[EXF-Win64-Shipping.exe+2EE2EBC]
+"EXF-Win64-Shipping.exe"+1DC406: 0F 2F C7                       -  comiss xmm0,xmm7
+"EXF-Win64-Shipping.exe"+1DC409: 77 0E                          -  ja EXF-Win64-Shipping.exe+1DC419
+"EXF-Win64-Shipping.exe"+1DC40B: F3 0F 10 43 1C                 -  movss xmm0,[rbx+1C]
+"EXF-Win64-Shipping.exe"+1DC410: F3 0F 5C C6                    -  subss xmm0,xmm6
+// ---------- INJECTING HERE ----------
+"EXF-Win64-Shipping.exe"+1DC414: F3 0F 11 43 1C                 -  movss [rbx+1C],xmm0
+// ---------- DONE INJECTING  ----------
+"EXF-Win64-Shipping.exe"+1DC419: 0F 28 74 24 30                 -  movaps xmm6,[rsp+30]
+"EXF-Win64-Shipping.exe"+1DC41E: 0F 28 7C 24 20                 -  movaps xmm7,[rsp+20]
+"EXF-Win64-Shipping.exe"+1DC423: 48 83 C4 40                    -  add rsp,40
+"EXF-Win64-Shipping.exe"+1DC427: 5B                             -  pop rbx
+"EXF-Win64-Shipping.exe"+1DC428: C3                             -  ret 
+"EXF-Win64-Shipping.exe"+1DC429: 48 8D 0D A0 6A D0 02           -  lea rcx,[EXF-Win64-Shipping.exe+2EE2ED0]
+"EXF-Win64-Shipping.exe"+1DC430: E8 FB 72 7B 01                 -  call EXF-Win64-Shipping.exe+1993730
+"EXF-Win64-Shipping.exe"+1DC435: 83 3D 94 6A D0 02 FF           -  cmp dword ptr [EXF-Win64-Shipping.exe+2EE2ED0],-01
+"EXF-Win64-Shipping.exe"+1DC43C: 75 B7                          -  jne EXF-Win64-Shipping.exe+1DC3F5
+"EXF-Win64-Shipping.exe"+1DC43E: 0F 57 C0                       -  xorps xmm0,xmm0
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

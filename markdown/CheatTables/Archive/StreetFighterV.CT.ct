@@ -1,0 +1,2068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="28">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3071</ID>
+      <Description>"_Player Control"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3072</ID>
+          <Description>"Player Control"</Description>
+          <Options moActivateChildrenAsWell="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(charamove1,StreetFighterV.exe,0F 11 81 E0 00 00 00 C3)
+aobscanmodule(charamove2,StreetFighterV.exe,0F 11 81 F0 00 00 00 C3 CC CC CC CC F3)
+alloc(charamove,$1000,charamove1)
+registersymbol(charamove)
+registersymbol(charamove1)
+registersymbol(charamove2)
+define(play1,charamove+500)
+registersymbol(play1)
+define(play2,charamove+510)
+registersymbol(play2)
+label(code)
+label(return)
+charamove2:
+db 90 90 90 90 90 90 90
+play1:
+dq 0
+play2:
+dq 0
+charamove:
+cmp [play2],0
+jne code
+cmp [play1],rcx
+je code
+cmp [play2],rcx
+je code
+cmp [play1],0
+jne @f
+mov [play1],rcx
+jmp code
+@@:
+cmp [play2],0
+jne @f
+mov [play2],rcx
+code:
+ // movups [rcx+000000E0],xmm0
+  jmp return
+charamove1:
+  jmp charamove
+  nop
+  nop
+return:
+[DISABLE]
+charamove1:
+db 0F 11 81 E0 00 00 00
+charamove2:
+db 0F 11 81 F0 00 00 00
+dealloc(charamove)
+unregistersymbol(charamove)
+unregistersymbol(charamove1)
+unregistersymbol(charamove2)
+unregistersymbol(play1)
+unregistersymbol(play2)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>3100</ID>
+              <Description>"P1"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>3079</ID>
+                  <Description>"X"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play1</Address>
+                  <Offsets>
+                    <Offset>e0</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>49</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>49</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3078</ID>
+                  <Description>"Y"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play1</Address>
+                  <Offsets>
+                    <Offset>e4</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>50</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>50</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3077</ID>
+                  <Description>"Z"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play1</Address>
+                  <Offsets>
+                    <Offset>e8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>51</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>51</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3076</ID>
+                  <Description>"Pitch"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play1</Address>
+                  <Offsets>
+                    <Offset>f0</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>52</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>52</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3075</ID>
+                  <Description>"Yaw"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play1</Address>
+                  <Offsets>
+                    <Offset>f4</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>53</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>53</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3074</ID>
+                  <Description>"Roll"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play1</Address>
+                  <Offsets>
+                    <Offset>f8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>54</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>54</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>3101</ID>
+              <Description>"P2"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>3086</ID>
+                  <Description>"X"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play2</Address>
+                  <Offsets>
+                    <Offset>e0</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>55</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>55</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3085</ID>
+                  <Description>"Y"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play2</Address>
+                  <Offsets>
+                    <Offset>e4</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>56</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>56</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3084</ID>
+                  <Description>"Z"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play2</Address>
+                  <Offsets>
+                    <Offset>e8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>57</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>57</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3083</ID>
+                  <Description>"Pitch"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play2</Address>
+                  <Offsets>
+                    <Offset>f0</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>48</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>48</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3082</ID>
+                  <Description>"Yaw"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play2</Address>
+                  <Offsets>
+                    <Offset>f4</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>219</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>219</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3081</ID>
+                  <Description>"Roll"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>play2</Address>
+                  <Offsets>
+                    <Offset>f8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>221</Key>
+                        <Key>189</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>221</Key>
+                        <Key>187</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1659</ID>
+      <Description>"_Cam Control"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1661</ID>
+          <Description>"Disable Camera"</Description>
+          <Options moActivateChildrenAsWell="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//76802734
+[ENABLE]
+aobscanmodule(cam1,StreetFighterV.exe,F2 0F 11 83 70 03 00 00)
+aobscanmodule(cam2,StreetFighterV.exe,89 83 78 03 00 00 F2)
+aobscanmodule(cam3,StreetFighterV.exe,F2 0F 11 83 7C 03 00 00)
+aobscanmodule(cam4,StreetFighterV.exe,89 83 84 03 00 00 8B)
+aobscanmodule(cam5,StreetFighterV.exe,89 83 88 03 00 00 8B)
+aobscanmodule(cam6,StreetFighterV.exe,89 83 84 03 00 00 8B 46)
+aobscanmodule(cam7,StreetFighterV.exe,89 83 88 03 00 00 8B 46)
+aobscanmodule(camaob,StreetFighterV.exe,89 8B 68 03 00 00 48 8D)
+alloc(newmem,$1000,camaob)
+alloc(cameralocation,256)
+registersymbol(cam1)
+registersymbol(cam2)
+registersymbol(cam3)
+registersymbol(cam4)
+registersymbol(cam5)
+registersymbol(cam6)
+registersymbol(cam7)
+label(coord1)
+label(code)
+label(return)
+registersymbol(coord1)
+registersymbol(camaob)
+cameralocation:
+coord1:
+dd 0
+newmem:
+code:
+mov [coord1],rcx
+mov [rbx+00000368],ecx
+jmp return
+cam1:
+db 90 90 90 90 90 90 90 90
+cam2:
+db 90 90 90 90 90 90
+cam3:
+db 90 90 90 90 90 90 90 90
+cam4:
+db 90 90 90 90 90 90
+cam5:
+db 90 90 90 90 90 90
+cam6:
+db 90 90 90 90 90 90
+cam7:
+db 90 90 90 90 90 90
+camaob:
+  jmp newmem
+  nop
+return:
+[DISABLE]
+cam1:
+  db F2 0F 11 83 70 03 00 00
+cam2:
+  db 89 83 78 03 00 00
+cam3:
+  db F2 0F 11 83 7C 03 00 00
+cam4:
+  db 89 83 84 03 00 00
+cam5:
+  db 89 83 88 03 00 00
+cam6:
+  db 89 83 84 03 00 00
+cam7:
+  db 89 83 88 03 00 00
+camaob:
+  db 89 8B 68 03 00 00
+unregistersymbol(cam1)
+unregistersymbol(cam2)
+unregistersymbol(cam3)
+unregistersymbol(cam4)
+unregistersymbol(cam5)
+unregistersymbol(cam6)
+unregistersymbol(cam7)
+unregistersymbol(camaob)
+dealloc(newmem)
+dealloc(cameralocation)
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>17</Key>
+                <Key>81</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>3096</ID>
+              <Description>"CAM"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanmodule(camera,StreetFighterV.exe,F2 0F 10 02 48 8B D9 48 83)
+alloc(camera1,$1000,camera)
+registersymbol(camera)
+registersymbol(camera1)
+label(code)
+label(return)
+
+camera1:
+mov [camera1+500],rdx
+code:
+  movsd xmm0,[rdx]
+  mov rbx,rcx
+  jmp return
+
+camera:
+  jmp camera1
+  nop
+  nop
+return:
+
+[DISABLE]
+camera:
+db F2 0F 10 02 48 8B D9
+unregistersymbol(camera)
+dealloc(camera1)
+unregistersymbol(camera1)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "StreetFighterV.exe"+1920AE6
+
+"StreetFighterV.exe"+1920AD8: CC                    -  int 3 
+"StreetFighterV.exe"+1920AD9: CC                    -  int 3 
+"StreetFighterV.exe"+1920ADA: CC                    -  int 3 
+"StreetFighterV.exe"+1920ADB: CC                    -  int 3 
+"StreetFighterV.exe"+1920ADC: CC                    -  int 3 
+"StreetFighterV.exe"+1920ADD: CC                    -  int 3 
+"StreetFighterV.exe"+1920ADE: CC                    -  int 3 
+"StreetFighterV.exe"+1920ADF: CC                    -  int 3 
+"StreetFighterV.exe"+1920AE0: 40 53                 -  push rbx
+"StreetFighterV.exe"+1920AE2: 48 83 EC 20           -  sub rsp,20
+// ---------- INJECTING HERE ----------
+"StreetFighterV.exe"+1920AE6: F2 0F 10 02           -  movsd xmm0,[rdx]
+"StreetFighterV.exe"+1920AEA: 48 8B D9              -  mov rbx,rcx
+// ---------- DONE INJECTING  ----------
+"StreetFighterV.exe"+1920AED: 48 83 C2 30           -  add rdx,30
+"StreetFighterV.exe"+1920AF1: F2 0F 11 01           -  movsd [rcx],xmm0
+"StreetFighterV.exe"+1920AF5: 8B 42 D8              -  mov eax,[rdx-28]
+"StreetFighterV.exe"+1920AF8: 48 83 C1 30           -  add rcx,30
+"StreetFighterV.exe"+1920AFC: 89 41 D8              -  mov [rcx-28],eax
+"StreetFighterV.exe"+1920AFF: F2 0F 10 42 DC        -  movsd xmm0,[rdx-24]
+"StreetFighterV.exe"+1920B04: F2 0F 11 41 DC        -  movsd [rcx-24],xmm0
+"StreetFighterV.exe"+1920B09: 8B 42 E4              -  mov eax,[rdx-1C]
+"StreetFighterV.exe"+1920B0C: 89 41 E4              -  mov [rcx-1C],eax
+"StreetFighterV.exe"+1920B0F: 8B 42 E8              -  mov eax,[rdx-18]
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>222</ID>
+                  <Description>"X"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>100</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>10</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>102</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>10</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>224</ID>
+                  <Description>"Y"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>98</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>98</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>10</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>104</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>10</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>223</ID>
+                  <Description>"Z"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>4</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>96</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>96</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>10</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>101</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>10</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>225</ID>
+                  <Description>"Pitch"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>c</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>103</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>103</Key>
+                        <Key>18</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>226</ID>
+                  <Description>"Yaw"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>10</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>99</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>99</Key>
+                        <Key>18</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>227</ID>
+                  <Description>"Roll"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>14</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>97</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>97</Key>
+                        <Key>18</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>228</ID>
+                  <Description>"FOV"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>camera1+500</Address>
+                  <Offsets>
+                    <Offset>18</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>110</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>110</Key>
+                        <Key>18</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3127</ID>
+      <Description>"Character Expression"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(expression,StreetFighterV.exe,89 83 F4 03 00 00 8B 47)
+alloc(exval,$1000,expression)
+registersymbol(expression)
+registersymbol(exval)
+label(code)
+label(return)
+
+exval:
+cmp r14,0
+je code
+mov [exval+500],rbx
+jmp return
+code:
+//  mov [rbx+000003F4],eax
+mov [exval+510],rbx
+  jmp return
+
+expression:
+  jmp exval
+  nop
+return:
+
+
+[DISABLE]
+
+expression:
+  db 89 83 F4 03 00 00
+
+unregistersymbol(expression)
+dealloc(exval)
+unregistersymbol(exval)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "StreetFighterV.exe"+C679A6
+
+"StreetFighterV.exe"+C6797C: 75 0A                          -  jne StreetFighterV.exe+C67988
+"StreetFighterV.exe"+C6797E: 48 8B CA                       -  mov rcx,rdx
+"StreetFighterV.exe"+C67981: E8 DA A5 FF FF                 -  call StreetFighterV.exe+C61F60
+"StreetFighterV.exe"+C67986: EB 13                          -  jmp StreetFighterV.exe+C6799B
+"StreetFighterV.exe"+C67988: 8B 82 70 09 00 00              -  mov eax,[rdx+00000970]
+"StreetFighterV.exe"+C6798E: C6 82 68 09 00 00 00           -  mov byte ptr [rdx+00000968],00
+"StreetFighterV.exe"+C67995: 89 82 70 06 00 00              -  mov [rdx+00000670],eax
+"StreetFighterV.exe"+C6799B: 8B 07                          -  mov eax,[rdi]
+"StreetFighterV.exe"+C6799D: 89 83 F0 03 00 00              -  mov [rbx+000003F0],eax
+"StreetFighterV.exe"+C679A3: 8B 47 04                       -  mov eax,[rdi+04]
+// ---------- INJECTING HERE ----------
+"StreetFighterV.exe"+C679A6: 89 83 F4 03 00 00              -  mov [rbx+000003F4],eax
+// ---------- DONE INJECTING  ----------
+"StreetFighterV.exe"+C679AC: 8B 47 08                       -  mov eax,[rdi+08]
+"StreetFighterV.exe"+C679AF: 89 83 F8 03 00 00              -  mov [rbx+000003F8],eax
+"StreetFighterV.exe"+C679B5: 8B 47 0C                       -  mov eax,[rdi+0C]
+"StreetFighterV.exe"+C679B8: 89 83 FC 03 00 00              -  mov [rbx+000003FC],eax
+"StreetFighterV.exe"+C679BE: 0F B6 47 10                    -  movzx eax,byte ptr [rdi+10]
+"StreetFighterV.exe"+C679C2: 88 83 00 04 00 00              -  mov [rbx+00000400],al
+"StreetFighterV.exe"+C679C8: 0F B6 47 11                    -  movzx eax,byte ptr [rdi+11]
+"StreetFighterV.exe"+C679CC: 88 83 01 04 00 00              -  mov [rbx+00000401],al
+"StreetFighterV.exe"+C679D2: 0F B6 47 12                    -  movzx eax,byte ptr [rdi+12]
+"StreetFighterV.exe"+C679D6: 88 83 02 04 00 00              -  mov [rbx+00000402],al
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3129</ID>
+          <Description>"1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>exval+510</Address>
+          <Offsets>
+            <Offset>3f4</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3128</ID>
+          <Description>"2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>exval+500</Address>
+          <Offsets>
+            <Offset>3f4</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3035</ID>
+      <Description>"Distortion Fix"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(dfix,StreetFighterV.exe,0F 1F 84 00 00 00 00 00 83 79 FC 00)
+registersymbol(dfix)
+dfix+8:
+cmp dword ptr [rcx-04],01
+[DISABLE]
+dfix+8:
+db 83 79 FC 00
+unregistersymbol(dfix)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>996</ID>
+      <Description>"Hide Pause Screen"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+aobscanmodule(hudAOB,StreetFighterV.exe,41 0F 28 00 41 0F 28 48 10 48 8B C2 0F 29 02 0F 29 4A 10)
+registersymbol(hudAOB)
+
+hudAOB+9:
+db 90 90 90 90 90 90 90 90 90 90
+ 
+[DISABLE]
+hudAOB+9:
+mov rax,rdx
+movaps [rdx],xmm0
+movaps [rdx+10],xmm1
+
+unregistersymbol(hudAOB)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>111</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1821</ID>
+      <Description>"Find Speed &amp; Control"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(speed,00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01 00 00 00 01 00 01 00 00 00 ?? ?? ?? ?? 00 00 01)
+label(_speed)
+registersymbol(_speed)
+registersymbol(speed1)
+registersymbol(speed2)
+registersymbol(speed3)
+speed:
+_speed:
+aobscanmodule(speed1,StreetFighterV.exe,44 89 42 08 41 C1 F8 10)
+aobscanmodule(speed2,StreetFighterV.exe,89 57 08 C1 FA 10)
+aobscanmodule(speed3,StreetFighterV.exe,44 89 40 08 41 C1 F8 10)
+speed1:
+db 90 90 90 90
+speed2:
+db 90 90 90
+speed3:
+db 90 90 90 90
+[DISABLE]
+speed1:
+  db 44 89 42 08 41 C1 F8 10
+speed2:
+  db 89 57 08 C1 FA 10
+speed3:
+  db 44 89 40 08 41 C1 F8 10
+unregistersymbol(_speed)
+unregistersymbol(speed1)
+unregistersymbol(speed2)
+unregistersymbol(speed3)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1839</ID>
+          <Description>"Player 3"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_speed+54</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>65</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>655</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>6553</Value>
+              <Description>10%</Description>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>54</Key>
+              </Keys>
+              <Value>16384</Value>
+              <Description>25%</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>32768</Value>
+              <Description>50%</Description>
+              <ID>6</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>65536</Value>
+              <Description>100%</Description>
+              <ID>7</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>131072</Value>
+              <Description>200%</Description>
+              <ID>8</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1838</ID>
+          <Description>"Player 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_speed+44</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>65</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>655</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>6553</Value>
+              <Description>10%</Description>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>54</Key>
+              </Keys>
+              <Value>16384</Value>
+              <Description>25%</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>32768</Value>
+              <Description>50%</Description>
+              <ID>6</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>65536</Value>
+              <Description>100%</Description>
+              <ID>7</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>115</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>131072</Value>
+              <Description>200%</Description>
+              <ID>8</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1837</ID>
+          <Description>"Player 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_speed+34</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>65</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>655</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>6553</Value>
+              <Description>10%</Description>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>54</Key>
+              </Keys>
+              <Value>16384</Value>
+              <Description>25%</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>32768</Value>
+              <Description>50%</Description>
+              <ID>6</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>65536</Value>
+              <Description>100%</Description>
+              <ID>7</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>131072</Value>
+              <Description>200%</Description>
+              <ID>8</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1836</ID>
+          <Description>"Effects/Gauge Speed"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_speed+24</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>65</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>655</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>6553</Value>
+              <Description>10%</Description>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>54</Key>
+              </Keys>
+              <Value>16384</Value>
+              <Description>25%</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>32768</Value>
+              <Description>50%</Description>
+              <ID>6</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>65536</Value>
+              <Description>100%</Description>
+              <ID>7</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>131072</Value>
+              <Description>200%</Description>
+              <ID>8</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1835</ID>
+          <Description>"Speed Master"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>_speed</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>49</Key>
+              </Keys>
+              <Value>0</Value>
+              <Description>0%</Description>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <Description>.001%</Description>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>51</Key>
+              </Keys>
+              <Value>65</Value>
+              <Description>.1%</Description>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>52</Key>
+              </Keys>
+              <Value>655</Value>
+              <Description>1%</Description>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>53</Key>
+              </Keys>
+              <Value>6553</Value>
+              <Description>10%</Description>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>54</Key>
+              </Keys>
+              <Value>16384</Value>
+              <Description>25%</Description>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>32768</Value>
+              <Description>50%</Description>
+              <ID>6</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>65536</Value>
+              <Description>100%</Description>
+              <ID>7</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>9</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>131072</Value>
+              <Description>200%</Description>
+              <ID>8</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1489</ID>
+      <Description>"DoF"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(dofAOB,StreetFighterV.exe,8B 86 9C 02 00 00 89 83 9C 02 00 00 8B 86 A0 02 00 00 89 83 A0 02 00 00 8B 86 A4 02 00 00)
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"StreetFighterV.exe"+10714B2) 
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(dof1,16)
+registersymbol(dof1)
+alloc(dof2,16)
+registersymbol(dof2)
+alloc(dof3,16)
+registersymbol(dof3)
+alloc(dof4,16)
+registersymbol(dof4)
+alloc(dof5,16)
+registersymbol(dof5)
+alloc(dof6,16)
+registersymbol(dof6)
+registersymbol(dofAOB)
+
+newmem:
+mov eax,[dof1]
+mov [rbx+0000029C],eax
+mov eax,[dof2]
+mov [rbx+000002A0],eax
+mov eax,[dof3]
+mov [rbx+000002A4],eax
+mov eax,[rsi+000002A8]
+mov [rbx+000002A8],eax
+mov eax,[dof4]
+mov [rbx+000002AC],eax
+mov eax,[dof5]
+mov [rbx+000002B0],eax
+mov eax,[dof6]
+mov [rbx+000002B4],eax
+jmp exit
+
+originalcode:
+mov [rbx+000002F8],00000000
+
+exit:
+jmp returnhere
+
+//
+dof1:
+dd (float)1.0
+//
+dof2:
+dd (float)500.0
+//
+dof3:
+dd (float)0
+//
+dof4:
+dd (float)3
+//
+dof5:
+dd (float)1
+//
+dof6:
+dd (float)0
+//
+
+dofAOB:
+jmp newmem
+db 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(dof1)
+dealloc(dof2)
+dealloc(dof3)
+dealloc(dof4)
+dealloc(dof5)
+dealloc(dof6)
+
+dofAOB:
+mov eax,[rsi+0000029C]
+mov [rbx+0000029C],eax
+mov eax,[rsi+000002A0]
+mov [rbx+000002A0],eax
+mov eax,[rsi+000002A4]
+mov [rbx+000002A4],eax
+mov eax,[rsi+000002A8]
+mov [rbx+000002A8],eax
+mov eax,[rsi+000002AC]
+mov [rbx+000002AC],eax
+mov eax,[rsi+000002B0]
+mov [rbx+000002B0],eax
+mov eax,[rsi+000002B4]
+mov [rbx+000002B4],eax
+
+
+//Alt: db 48 C7 83 F8 02 00 00 00 00 00 00
+
+unregistersymbol(dof1)
+unregistersymbol(dof2)
+unregistersymbol(dof3)
+unregistersymbol(dof4)
+unregistersymbol(dof5)
+unregistersymbol(dof6)
+unregistersymbol(dofAOB)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1494</ID>
+          <Description>"Bokeh Scale"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dof5</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1493</ID>
+          <Description>"Strength"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dof4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1491</ID>
+          <Description>"Focal Range"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dof2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1490</ID>
+          <Description>"Focal Point"</Description>
+          <VariableType>Float</VariableType>
+          <Address>dof1</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3038</ID>
+      <Description>"CPU vs CPU"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cpuvs,StreetFighterV.exe,89 9F 8C 01 00 00 41)
+alloc(newmem,$100,cpuvs)
+registersymbol(cpuvs)
+label(code)
+label(return)
+newmem:
+code:
+  mov [rdi+0000018C],2
+  jmp return
+cpuvs:
+jmp newmem
+  nop
+return:
+[DISABLE]
+cpuvs:
+db 89 9F 8C 01 00 00
+unregistersymbol(cpuvs)
+dealloc(newmem)
+{
+// ORIGINAL CODE - INJECTION POINT: "StreetFighterV.exe"+75D4B8
+
+"StreetFighterV.exe"+75D48C: FF C9                          -  dec ecx
+"StreetFighterV.exe"+75D48E: 74 10                          -  je StreetFighterV.exe+75D4A0
+"StreetFighterV.exe"+75D490: FF C9                          -  dec ecx
+"StreetFighterV.exe"+75D492: 75 2A                          -  jne StreetFighterV.exe+75D4BE
+"StreetFighterV.exe"+75D494: C7 87 8C 01 00 00 03 00 00 00  -  mov [rdi+0000018C],00000003
+"StreetFighterV.exe"+75D49E: EB 1E                          -  jmp StreetFighterV.exe+75D4BE
+"StreetFighterV.exe"+75D4A0: C7 87 8C 01 00 00 02 00 00 00  -  mov [rdi+0000018C],00000002
+"StreetFighterV.exe"+75D4AA: EB 12                          -  jmp StreetFighterV.exe+75D4BE
+"StreetFighterV.exe"+75D4AC: C7 87 8C 01 00 00 01 00 00 00  -  mov [rdi+0000018C],00000001
+"StreetFighterV.exe"+75D4B6: EB 06                          -  jmp StreetFighterV.exe+75D4BE
+// ---------- INJECTING HERE ----------
+"StreetFighterV.exe"+75D4B8: 89 9F 8C 01 00 00              -  mov [rdi+0000018C],ebx
+// ---------- DONE INJECTING  ----------
+"StreetFighterV.exe"+75D4BE: 41 8B 45 28                    -  mov eax,[r13+28]
+"StreetFighterV.exe"+75D4C2: 48 8D 4C 24 20                 -  lea rcx,[rsp+20]
+"StreetFighterV.exe"+75D4C7: 48 8B D7                       -  mov rdx,rdi
+"StreetFighterV.exe"+75D4CA: 89 87 90 01 00 00              -  mov [rdi+00000190],eax
+"StreetFighterV.exe"+75D4D0: 41 0F B6 45 2C                 -  movzx eax,byte ptr [r13+2C]
+"StreetFighterV.exe"+75D4D5: 88 44 24 20                    -  mov [rsp+20],al
+"StreetFighterV.exe"+75D4D9: E8 F2 CB FF FF                 -  call StreetFighterV.exe+75A0D0
+"StreetFighterV.exe"+75D4DE: F3 41 0F 10 45 30              -  movss xmm0,[r13+30]
+"StreetFighterV.exe"+75D4E4: F3 0F 59 05 A4 A1 46 02        -  mulss xmm0,[StreetFighterV.exe+2BC7690]
+"StreetFighterV.exe"+75D4EC: F3 0F 2C C0                    -  cvttss2si eax,xmm0
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3019</ID>
+          <Description>"CPU Difficulty Select (enter 0-7, replaces "4" out of 1-8 difficulty level)"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>14075A118</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3040</ID>
+      <Description>"Infinite Health 1p/2p"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(infhealth,StreetFighterV.exe,29 87 C0 00 00 00 29)
+registersymbol(infhealth)
+infhealth:
+db 01 87 C0 00 00 00
+[DISABLE]
+infhealth:
+db 29 87 C0 00 00 00
+unregistersymbol(infhealth)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3106</ID>
+      <Description>"KO/Misc Timer Disable"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(misctimer,StreetFighterV.exe,F3 0F 11 4A 2C F3 0F 10 42)
+registersymbol(misctimer)
+misctimer:
+db 90 90 90 90 90
+
+[DISABLE]
+misctimer:
+db F3 0F 11 4A 2C
+unregistersymbol(misctimer)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "StreetFighterV.exe"+3782C3
+
+"StreetFighterV.exe"+37829B: 0F B7 C1                 -  movzx eax,cx
+"StreetFighterV.exe"+37829E: 89 4A 34                 -  mov [rdx+34],ecx
+"StreetFighterV.exe"+3782A1: C1 F9 10                 -  sar ecx,10
+"StreetFighterV.exe"+3782A4: 66 0F 6E C8              -  movd xmm1,eax
+"StreetFighterV.exe"+3782A8: 66 0F 6E C1              -  movd xmm0,ecx
+"StreetFighterV.exe"+3782AC: 0F 5B C9                 -  cvtdq2ps xmm1,xmm1
+"StreetFighterV.exe"+3782AF: 0F 5B C0                 -  cvtdq2ps xmm0,xmm0
+"StreetFighterV.exe"+3782B2: F3 0F 59 0D 3A 0D 69 02  -  mulss xmm1,[StreetFighterV.exe+2A08FF4]
+"StreetFighterV.exe"+3782BA: F3 0F 58 C8              -  addss xmm1,xmm0
+"StreetFighterV.exe"+3782BE: F3 0F 58 4A 2C           -  addss xmm1,dword ptr [rdx+2C]
+// ---------- INJECTING HERE ----------
+"StreetFighterV.exe"+3782C3: F3 0F 11 4A 2C           -  movss [rdx+2C],xmm1
+// ---------- DONE INJECTING  ----------
+"StreetFighterV.exe"+3782C8: F3 0F 10 42 28           -  movss xmm0,[rdx+28]
+"StreetFighterV.exe"+3782CD: 0F 2F 42 2C              -  comiss xmm0,[rdx+2C]
+"StreetFighterV.exe"+3782D1: 77 08                    -  ja StreetFighterV.exe+3782DB
+"StreetFighterV.exe"+3782D3: 48 8B 4A 18              -  mov rcx,[rdx+18]
+"StreetFighterV.exe"+3782D7: 48 FF 62 20              -  jmp qword ptr [rdx+20]
+"StreetFighterV.exe"+3782DB: C3                       -  ret 
+"StreetFighterV.exe"+3782DC: CC                       -  int 3 
+"StreetFighterV.exe"+3782DD: CC                       -  int 3 
+"StreetFighterV.exe"+3782DE: CC                       -  int 3 
+"StreetFighterV.exe"+3782DF: CC                       -  int 3 
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>16</Key>
+            <Key>17</Key>
+            <Key>88</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>16</Key>
+            <Key>17</Key>
+            <Key>90</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3105</ID>
+      <Description>"Player Fight Control"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(playerfightcontrol,StreetFighterV.exe,4C 8B F1 23 D8)
+alloc(pcontrol,$1000,playerfightcontrol)
+label(code)
+label(return)
+registersymbol(playerfightcontrol)
+registersymbol(pcontrol)
+
+pcontrol:
+mov [pcontrol+500],rdi
+code:
+  mov r14,rcx
+  and ebx,eax
+  jmp return
+
+playerfightcontrol:
+  jmp pcontrol
+return:
+
+[DISABLE]
+playerfightcontrol:
+  db 4C 8B F1 23 D8
+
+unregistersymbol(playerfightcontrol)
+dealloc(pcontrol)
+unregistersymbol(pcontrol)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "StreetFighterV.exe"+324447
+
+"StreetFighterV.exe"+32442E: CC                             -  int 3 
+"StreetFighterV.exe"+32442F: CC                             -  int 3 
+"StreetFighterV.exe"+324430: 40 53                          -  push rbx
+"StreetFighterV.exe"+324432: 41 54                          -  push r12
+"StreetFighterV.exe"+324434: 41 56                          -  push r14
+"StreetFighterV.exe"+324436: 48 83 EC 40                    -  sub rsp,40
+"StreetFighterV.exe"+32443A: 8B 81 24 09 00 00              -  mov eax,[rcx+00000924]
+"StreetFighterV.exe"+324440: 8B DA                          -  mov ebx,edx
+"StreetFighterV.exe"+324442: 45 8B E0                       -  mov r12d,r8d
+"StreetFighterV.exe"+324445: F7 D0                          -  not eax
+// ---------- INJECTING HERE ----------
+"StreetFighterV.exe"+324447: 4C 8B F1                       -  mov r14,rcx
+"StreetFighterV.exe"+32444A: 23 D8                          -  and ebx,eax
+// ---------- DONE INJECTING  ----------
+"StreetFighterV.exe"+32444C: 83 B9 70 07 00 00 00           -  cmp dword ptr [rcx+00000770],00
+"StreetFighterV.exe"+324453: 0F 84 68 02 00 00              -  je StreetFighterV.exe+3246C1
+"StreetFighterV.exe"+324459: E8 92 56 00 00                 -  call StreetFighterV.exe+329AF0
+"StreetFighterV.exe"+32445E: 85 C0                          -  test eax,eax
+"StreetFighterV.exe"+324460: 0F 85 5B 02 00 00              -  jne StreetFighterV.exe+3246C1
+"StreetFighterV.exe"+324466: 49 8B CE                       -  mov rcx,r14
+"StreetFighterV.exe"+324469: E8 92 61 00 00                 -  call StreetFighterV.exe+32A600
+"StreetFighterV.exe"+32446E: 85 C0                          -  test eax,eax
+"StreetFighterV.exe"+324470: 0F 85 4B 02 00 00              -  jne StreetFighterV.exe+3246C1
+"StreetFighterV.exe"+324476: 48 89 6C 24 60                 -  mov [rsp+60],rbp
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3104</ID>
+          <Description>"pcontrol"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>pcontrol+500</Address>
+          <Offsets>
+            <Offset>770</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>16</Key>
+                <Key>57</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>16</Key>
+                <Key>48</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3039</ID>
+      <Description>"Round Timer Disable"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(timer,StreetFighterV.exe,F3 0F 58 8B AC 1B 02 00)
+registersymbol(timer)
+timer:
+db F3 0F 58 8B A8 1B 02 00
+[DISABLE]
+timer:
+db F3 0F 58 8B AC 1B 02 00
+unregistersymbol(timer)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3041</ID>
+      <Description>"Stop BG loop in Skies of Honor"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(skies,StreetFighterV.exe,0F 11 44 24 30 75 06)
+registersymbol(skies)
+skies:
+db 0F 11 4C
+[DISABLE]
+skies:
+db 0F 11 44 24 30 75 06
+unregistersymbol(skies)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3097</ID>
+      <Description>"Story Pause"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(storypause,StreetFighterV.exe,F6 83 60 03 00 00 01 74 18)
+alloc(storypause1,$1000,storypause)
+registersymbol(storypause)
+registersymbol(storypause1)
+label(code)
+label(return)
+"StreetFighterV.exe"+1AAEBD7:
+db 90 90 90 90 90 90 90 90 90
+"StreetFighterV.exe"+1AAFF66:
+db 90 90 90 90 90 90 90 90 90
+storypause1:
+mov [storypause1+500],rbx
+code:
+  test byte ptr [rbx+00000360],01
+  jmp return
+
+storypause:
+  jmp storypause1
+  nop
+  nop
+return:
+
+
+[DISABLE]
+"StreetFighterV.exe"+1AAEBD7:
+db F3 41 0F 11 BE 64 03 00 00
+"StreetFighterV.exe"+1AAFF66:
+db F3 41 0F 11 B7 64 03 00 00
+storypause:
+  db F6 83 60 03 00 00 01
+
+unregistersymbol(storypause)
+dealloc(storypause1)
+unregistersymbol(storypause1)
+{
+// ORIGINAL CODE - INJECTION POINT: "StreetFighterV.exe"+18F42C6
+
+"StreetFighterV.exe"+18F42AC: CC                       -  int 3
+"StreetFighterV.exe"+18F42AD: CC                       -  int 3
+"StreetFighterV.exe"+18F42AE: CC                       -  int 3
+"StreetFighterV.exe"+18F42AF: CC                       -  int 3
+"StreetFighterV.exe"+18F42B0: 40 53                    -  push rbx
+"StreetFighterV.exe"+18F42B2: 48 83 EC 30              -  sub rsp,30
+"StreetFighterV.exe"+18F42B6: 0F 29 74 24 20           -  movaps [rsp+20],xmm6
+"StreetFighterV.exe"+18F42BB: 48 8B D9                 -  mov rbx,rcx
+"StreetFighterV.exe"+18F42BE: 0F 28 F1                 -  movaps xmm6,xmm1
+"StreetFighterV.exe"+18F42C1: E8 0A B9 F0 FF           -  call StreetFighterV.exe+17FFBD0
+// ---------- INJECTING HERE ----------
+"StreetFighterV.exe"+18F42C6: F6 83 60 03 00 00 01     -  test byte ptr [rbx+00000360],01
+// ---------- DONE INJECTING  ----------
+"StreetFighterV.exe"+18F42CD: 74 18                    -  je StreetFighterV.exe+18F42E7
+"StreetFighterV.exe"+18F42CF: 48 83 BB 00 03 00 00 00  -  cmp qword ptr [rbx+00000300],00
+"StreetFighterV.exe"+18F42D7: 74 0E                    -  je StreetFighterV.exe+18F42E7
+"StreetFighterV.exe"+18F42D9: 0F 28 CE                 -  movaps xmm1,xmm6
+"StreetFighterV.exe"+18F42DC: 45 33 C0                 -  xor r8d,r8d
+"StreetFighterV.exe"+18F42DF: 48 8B CB                 -  mov rcx,rbx
+"StreetFighterV.exe"+18F42E2: E8 19 F6 FF FF           -  call StreetFighterV.exe+18F3900
+"StreetFighterV.exe"+18F42E7: 0F 28 74 24 20           -  movaps xmm6,[rsp+20]
+"StreetFighterV.exe"+18F42EC: 48 83 C4 30              -  add rsp,30
+"StreetFighterV.exe"+18F42F0: 5B                       -  pop rbx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3095</ID>
+          <Description>"pause"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>storypause1+500</Address>
+          <Offsets>
+            <Offset>360</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>192</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>49</Key>
+                <Key>50</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3098</ID>
+          <Description>"timer"</Description>
+          <VariableType>Float</VariableType>
+          <Address>storypause1+500</Address>
+          <Offsets>
+            <Offset>364</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>65</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>65</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

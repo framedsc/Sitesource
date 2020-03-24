@@ -1,4 +1,4 @@
-![ue4guide](Images\ue4_header.png)
+![ue4guide](Images\ue4_header.png){.shadowed}
 
 Games using Unreal Engine 4 can be tweaked in many ways to better your experience in-game or while shooting. This guide covers the basics of what you can do, with or without UUU and the console.
 
@@ -109,8 +109,6 @@ With 5 scalability levels per group, you can have 5 different presets for Post-P
 
 Once you're done, it's recommended to **set the file to Read-only** to prevent the game from changing it. You can do that by right-clicking on the file, enter Properties, tick Read-only under Attributes, and apply.
 
----
-
 ## Engine Renderer Settings
 
 Modifying `Engine.ini` allows you to set render settings by default so that the console isn't needed to change them all the time. It can also be an alternative in the event where modifying `Scalability.ini` has no effects.  
@@ -145,6 +143,44 @@ These commands are meant for the developers. Most are likely to have zero effect
 
 Similar to Scalability.ini, it is recommended to change this file to **Read-only** once you're done.
 
----
-*last updated 27th September 2019*  
-*written by moyevka*
+## Examples
+
+The following examples are ready to use. You can just copy / paste the contents of each tab into the console using ctrl-C / ctrl-V and hit enter. 
+
+@tabs
+@tab High end gameplay
+sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096
+@end
+@tab Normal gameplay
+sg.ShadowQuality 4|sg.FoliageQuality 4|sg.ViewDistanceQuality 4|sg.PostProcessQuality 4|sg.EffectsQuality 4|sg.TextureQuality 4|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 1|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.StaticMeshLODDistanceScale 1|r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
+@end
+@tab High end screenshots
+sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 0|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096 | r.Shadow.MaxResolution 8192 | r.Shadow.MaxCSMResolution 8192
+@end
+@endtabs
+
+There are some per-scene tweaks recommended, especially for screenshots. These are listed below
+
+CVar | Value | Effect
+--|--
+r.Shadow.SpotLightTransitionScale | 60 (default) | Large areas have a low amount of shadows from far away lights. Reflected highlights look more pronounced
+r.Shadow.SpotLightTransitionScale | 512 | More shadows are cast by lights further away, shadows near the camera are more pronounced
+r.Shadow.SpotLightTransitionScale | 4096 | Most lights cast shadows everywhere. 
+r.Shadow.MaxResolution | 2048 | Blurry shadows but high performance
+r.Shadow.MaxResolution | 4096 | Sharper shadows, lower performance. Can still show banding on objects near the camera
+r.Shadow.MaxResolution | 8192 | High quality shadows, no banding on near-camera objects
+r.Shadow.MaxResolution | 16384 | Your game will crash
+
+## Fixing issues
+
+### Shadow striping with low fov
+Sometimes you can run into shadow striping with low fov. To fix this you have to set the Depth Bias for the light that causes this. This can be a pointlight, directional light or spotlight. The commands to try are:
+
+* `r.Shadow.PointLightDepthBias`
+* `r.Shadow.CSMDepthBias`
+* `r.Shadow.PerObjectDirectionalDepthBias`
+* `r.Shadow.SpotLightDepthBias`
+
+Usually a value around 0.15 should fix it. Below is an example. Left the default value right the fixed value
+
+![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed}

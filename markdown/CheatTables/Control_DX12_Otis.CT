@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>11</ID>
       <Description>"Enable Hotsampling support (Windowed mode). Leave enabled"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>// By Otis_Inf and Hattiwatti
 // See for info about locations/data:
@@ -13,8 +13,8 @@
 // FRAMED Screenshot Community. https://framedsc.github.io
 //////////////////////////////////////////////////////////
 [ENABLE]
-aobscanmodule(writeRenderResolution,coregame_rmdwin10_f.dll,89 84 24 80 00 00 00 E8) // should be unique
-alloc(newmem,$1000,coregame_rmdwin10_f.dll+A9CEF)
+aobscanmodule(writeRenderResolution,coregame_rmdwin10_f.dll,89 84 24 84 00 00 00 E8) // should be unique
+alloc(newmem,$1000,coregame_rmdwin10_f.dll+A76B3)
 
 label(codeRenderRes)
 label(returnRenderRes)
@@ -22,14 +22,17 @@ label(codeKeepFocus)
 label(returnKeepFocus)
 registersymbol(writeRenderResolution)
 
+//--------------- own memory
 newmem:
 
 codeRenderRes:
-  mov [rsp+00000080],eax
+  // hard-write the resolution back instead of the original code which writes the results of calculations to the addresses
+  // in the stackframe. Do this at width+8 and height+8, so
+  mov [rsp+00000084],eax   // screen height. (screenwidth is at 80)
   cvttss2si eax, [rdi+04]
-  mov [rsp+84], eax
+  mov [rsp+88], eax        // rendering width,
   cvttss2si eax, [rdi+08]
-  mov [rsp+88], eax
+  mov [rsp+8C], eax        // rendering height
   jmp returnRenderRes
 
 codeKeepFocus:
@@ -37,6 +40,9 @@ codeKeepFocus:
   mov [rcx+0000009B],r8l
   jmp returnKeepFocus
 
+//--------------- end own memory
+
+// in game dll!
 writeRenderResolution:
   jmp newmem
   nop
@@ -44,39 +50,39 @@ writeRenderResolution:
 returnRenderRes:
 
 // Will break in a patch
-coregame_rmdwin10_f.dll+A9AAE:
+coregame_rmdwin10_f.dll+ABFEE:
   jmp codeKeepFocus
   nop
   nop
 returnKeepFocus:
 
-coregame_rmdwin10_f.dll+A9CEF:
+coregame_rmdwin10_f.dll+AC281:
 mov r8d, 00000000
 
 coregame_rmdwin10_f.coregame::GameWindow::updateScreenSize+32:
 db e9 C7 00 00 00 90
 
 // will break in a patch
-coregame_rmdwin10_f.coregame::GameWindow::setUserRendererSettings+181:
+coregame_rmdwin10_f.coregame::GameWindow::setUserRendererSettings+189:
 db 90 90 90 90 90 90
 
 [DISABLE]
 
 writeRenderResolution:
-  db 89 84 24 80 00 00 00
+  db 89 84 24 84 00 00 00
 
-coregame_rmdwin10_f.dll+A9AAE:
+coregame_rmdwin10_f.dll+ABFEE:
   mov [rcx+0000009B],r8l
 
-coregame_rmdwin10_f.dll+A9CEF:
+coregame_rmdwin10_f.dll+AC281:
 mov r8d, 00000001
 
 coregame_rmdwin10_f.coregame::GameWindow::updateScreenSize+32:
 db 0F 85 C6 00 00 00
 
 // will break in a patch
-coregame_rmdwin10_f.coregame::GameWindow::setUserRendererSettings+181:
-db FF 15 99 20 4E 00
+coregame_rmdwin10_f.coregame::GameWindow::setUserRendererSettings+189:
+db FF 15 09 7B 4F 00
 
 unregistersymbol(writeRenderResolution)
 dealloc(newmem)
@@ -97,9 +103,9 @@ dealloc(newmem)
 [ENABLE]
 // global r::Timer instance, offset 39
 // See notes for location
-[Control_DX12.exe+1167088]+39:
+[Control_DX12.exe+11C2118]+39:
 db 1
-[Control_DX12.exe+1167088]+69:
+[Control_DX12.exe+11C2118]+69:
 db 1
 
 timerAddress:
@@ -108,9 +114,9 @@ dq 0
  
 [DISABLE]
 // global r::Timer instance, offset 38
-[Control_DX12.exe+1167088]+38:
+[Control_DX12.exe+11C2118]+38:
 dd 0
-[Control_DX12.exe+1167088]+68:
+[Control_DX12.exe+11C2118]+68:
 dd 0
 
 
@@ -176,7 +182,7 @@ CoherentGTCore.WebCore::GraphicsLayer::setOpacity:
 [ENABLE]
 alloc(enableFreeCamThread,248)
 aobscanmodule(interceptFreeCamFoV,Control_DX12.exe,0F 10 43 70 0F 58 C3) // should be unique
-alloc(newmem,$1000,"Control_DX12.exe"+308A1C)
+alloc(newmem,$1000,"Control_DX12.exe"+3163BC)
 label(code)
 label(return)
 registersymbol(interceptFreeCamFoV)
@@ -191,7 +197,7 @@ createthread(enableFreeCamThread)
 enableFreeCamThread:
   // first pull the current camera state from the cache. Using code from coregame_rmdwin10_f.coregame::CameraComponentState::getPosition
   mov rsi, Control_DX12.exe
-  mov rcx, [rsi+01167028]                // hardcoded static address. See notes.
+  mov rcx, [rsi+011C20A8]                // hardcoded static address. See notes.
   mov rbx,[rcx+28]
   mov rdi,rdx
   call coregame_rmdwin10_f.coregame::TransformComponentState::getTypeIDStatic
@@ -210,7 +216,7 @@ enableFreeCamThread:
 
   // enable freecam
   mov eax, 1
-  mov [Control_DX12.exe+1167018], eax
+  mov [Control_DX12.exe+11C20A4], eax
   call input_rmdwin10_f.input::InputManager::getInstance
   mov rcx, rax
   mov dl, 1
@@ -265,7 +271,7 @@ interceptFreeCamFoV:
 return:
 
 // hide outlines. Contributed by Pigeon
-Control_DX12.exe+ABABF:
+Control_DX12.exe+ACEDF:
  db E9 74 02 00 00 90         // jmp instead of je
 
 [DISABLE]
@@ -274,7 +280,7 @@ createthread(disableFreeCamThread)
 
 disableFreeCamThread:
   xor eax, eax
-  mov [Control_DX12.exe+1167018], eax
+  mov [Control_DX12.exe+11C20A4], eax
   call input_rmdwin10_f.input::InputManager::getInstance
   mov rcx, rax
   mov dl, 0
@@ -286,7 +292,7 @@ interceptFreeCamFoV:
   addps xmm0,xmm3
   movups [rbx+70],xmm0
 
-Control_DX12.exe+ABABF:
+Control_DX12.exe+ACEDF:
   db 0F 84 73 02 00 00
 
 unregistersymbol(freeCameraStructAddress)
@@ -306,7 +312,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>24</ID>
           <Description>"Freecam FoV (NUMPAD-/+ Speed: +CTRL. Reset: CRTL-ALT-NUMPAD)"</Description>
-          <LastState Value="1,134464025" RealAddress="170EC99E750"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -362,7 +367,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>39</ID>
           <Description>"Rotation speed (F9: 0.04, for mouse. CTRL-F9: 0.7, for controller)"</Description>
-          <LastState Value="1" RealAddress="170EC99E7FC"/>
           <VariableType>Float</VariableType>
           <Address>freeCameraStructAddress</Address>
           <Offsets>
@@ -512,7 +516,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>36</ID>
           <Description>"Depth of Field (F3: Off, CTRL-F3: On)"</Description>
-          <LastState Value="1" RealAddress="7FF9C959013D"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderDepthOfField</Address>
           <Hotkeys>
@@ -538,7 +541,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>37</ID>
           <Description>"Motion Blur (F4: Off, CTRL-F4: On)"</Description>
-          <LastState Value="1" RealAddress="7FF9C959013E"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderVectorBlur</Address>
           <Hotkeys>
@@ -564,7 +566,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>35</ID>
           <Description>"Bloom (F5: Off, CTRL-F5: On)"</Description>
-          <LastState Value="0" RealAddress="7FF9C959017D"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::RenderBloom</Address>
           <Hotkeys>
@@ -590,7 +591,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>38</ID>
           <Description>"Screenspace AA (F6: Off, CTRL-F6: On)"</Description>
-          <LastState Value="1" RealAddress="7FF9C959014F"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::ScreenSpaceAntialiasing</Address>
           <Hotkeys>
@@ -616,7 +616,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>40</ID>
           <Description>"Wireframe (F7: Off, CTRL-F7: On)"</Description>
-          <LastState Value="0" RealAddress="7FF9C95A5AED"/>
           <VariableType>Byte</VariableType>
           <Address>rend::RenderOptions::Wireframe</Address>
           <Hotkeys>
@@ -670,7 +669,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>26</ID>
-      <Description>"Screenshot CT for Control DirectX 12. By Otis_Inf and Hattiwatti. v1.2 (2-sep-2019). Thanks to Pigeon"</Description>
+      <Description>"Screenshot CT for Control DirectX 12. By Otis_Inf and Hattiwatti. v1.5 (26-jan-2020). Thanks to Pigeon"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
