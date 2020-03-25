@@ -16,7 +16,13 @@ DirectX versions | DirectX 11
 ## Tools
 
 * [Dishonored 2 / DotO camera tools by Frans Bouma](https://github.com/FransBouma/InjectableGenericCameraSystem/releases/tag/DH2_102)  
-**Features**: Free Camera, FOV, Time control, HUD toggle, DOF control, Bloom, Color and more
+**Features**:
+- Camera control: (Also in cut scenes)
+	- FoV control
+	- Free unlimited camera movement and rotation 
+- Ansel everywhere
+- Ansel movement fixed
+- Ansel now works in a windowed game
 
 Even tho the game doesn't hotsample you can still try out the superres feature in ansel.
 
