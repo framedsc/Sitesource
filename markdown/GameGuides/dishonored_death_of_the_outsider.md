@@ -1,4 +1,4 @@
-![DishonoredDeathoftheOutsider](\\DishonoredDeathoftheOutsider.png "Shot by Originalnicodr")
+![DishonoredDeathoftheOutsider](Images\DishonoredDeathoftheOutsider.png "Shot by Originalnicodr")
 
 
 ## Summary
