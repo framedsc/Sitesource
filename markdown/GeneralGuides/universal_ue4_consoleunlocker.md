@@ -220,6 +220,7 @@ Finding the Soul Orb |
 Genesis Alpha One | 
 Gray Dawn | 
 GRIP: Combat Racing | 
+Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hollow | 
