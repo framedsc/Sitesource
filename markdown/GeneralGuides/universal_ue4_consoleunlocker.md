@@ -328,7 +328,7 @@ Uventa |
 Vampyr | 
 Visage | 
 Wartile | 
-We Happy Few | 
+We Happy Few | Built-in camera isn't available.
 Weakless | 
 Withstand: Survival | 
 The Works of Mercy | 
