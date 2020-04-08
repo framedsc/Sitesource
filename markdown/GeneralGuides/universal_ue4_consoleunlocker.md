@@ -195,6 +195,7 @@ Deep Rock Galactic |
 Deliver us the moon | 
 Desolate | 
 Devil's Hunt | 
+Disaster Report 4: Summer Memories |  Tested on demo
 Donensbourgh | 
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
