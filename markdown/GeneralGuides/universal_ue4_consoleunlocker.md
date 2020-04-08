@@ -202,7 +202,7 @@ Dragon Quest XI: Echoes of an Elusive Age |
 Draugen | 
 DreadOut 2 | 
 Dreamo | 
-Dreamscaper | 
+Dreamscaper | Also works in Dreamscaper Prologue
 Driftland | 
 Dungeon Defenders: Awakened | 
 Earth Defence Force: Iron Rain  | 
@@ -330,6 +330,7 @@ Vampyr |
 Visage | 
 Wartile | 
 We Happy Few | Built-in camera isn't available.
+We Went Back | HUD toggle doesn't toggle crosshair. Toggle that with `showhud 0`
 Weakless | 
 Withstand: Survival | 
 The Works of Mercy | 
