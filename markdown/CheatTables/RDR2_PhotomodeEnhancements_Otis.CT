@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>7</ID>
       <Description>"Remove photomode freecam range / rotation limits / black bars (leave enabled!)"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -101,7 +101,7 @@ RDR2.exe+11D821 - F3 0F10 55 48         - movss xmm2,[rbp+48]
     <CheatEntry>
       <ID>14</ID>
       <Description>"Override photomode freecam FOV (Toggle: F7. Zoom in: Numpad+ Zoom out: Numpad-)"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -177,7 +177,6 @@ RDR2.exe+12A4E9 - C3                    - ret
         <CheatEntry>
           <ID>9</ID>
           <Description>"FoV value"</Description>
-          <LastState Value="51,25251389" RealAddress="17603CABEE0"/>
           <VariableType>Float</VariableType>
           <Address>fovAddress</Address>
           <Offsets>
@@ -528,7 +527,7 @@ RDR2.exe+25CC1FB - C3                    - ret
     <CheatEntry>
       <ID>16</ID>
       <Description>"Remove black bars in cinematic parts"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -573,23 +572,20 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
     <CheatEntry>
       <ID>57</ID>
       <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="8" RealAddress="7FF660F09AC0"/>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4469AC0</Address>
+      <Address>RDR2.exe+446E7E0</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>60</ID>
       <Description>"Time of day: Minutes. 0-59. Setting the value outside this range crashes the game"</Description>
-      <LastState Value="31" RealAddress="7FF660F09AC4"/>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4469AC4</Address>
+      <Address>RDR2.exe+446E7E4</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>17</ID>
       <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
-      <LastState Value="0" RealAddress="7FF6622BEB83"/>
       <VariableType>Byte</VariableType>
-      <Address>RDR2.exe+581EB83</Address>
+      <Address>RDR2.exe+5831293</Address>
       <Hotkeys>
         <Hotkey>
           <Action>Set Value</Action>
@@ -690,7 +686,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.12. 15-jan-2020. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
+      <Description>"By Otis_Inf. v0.13. 09-Apr-2020. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>

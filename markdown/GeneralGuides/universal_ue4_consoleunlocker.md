@@ -205,6 +205,7 @@ Dreamo |
 Dreamscaper | Also works in Dreamscaper Prologue
 Driftland | 
 Dungeon Defenders: Awakened | 
+Dwarrows | 
 Earth Defence Force: Iron Rain  | 
 Earthfall | 
 Echo | 
@@ -219,6 +220,7 @@ The Fidelio Incident |
 Fighting Ex Layer |
 Finding the Soul Orb |  
 Genesis Alpha One | 
+Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
 Halflight | 
