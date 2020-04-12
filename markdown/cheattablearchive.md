@@ -266,8 +266,8 @@ camera tools for the game instead of using these old cheat tables.
 - [FarCry4.CT](CheatTables/Archive/FarCry4.CT)
 - [FarCry4_FOV_Override.CT](CheatTables/Archive/FarCry4_FOV_Override.CT)
 
-###Fable 5
-- [FareCry5_final.ct](CheatTables/Archive/FareCry5_final.ct)
+###Far Cry 5
+- [FarCry5_final.ct](CheatTables/Archive/FarCry5_final.ct)
 
 ###Far Cry New Dawn
 - [FarCryNewDawn.CT](CheatTables/Archive/FarCryNewDawn.CT)
