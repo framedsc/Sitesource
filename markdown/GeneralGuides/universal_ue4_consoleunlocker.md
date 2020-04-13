@@ -267,6 +267,7 @@ Only After |
 Operencia: The Stolen Sun | 
 The Outer Worlds | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Overkill's The Walking Dead | 
+Override: Mech City Brawl | 
 Pagui打鬼 | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
