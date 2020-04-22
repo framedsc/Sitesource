@@ -204,6 +204,7 @@ DreadOut 2 |
 Dreamo | 
 Dreamscaper | Also works in Dreamscaper Prologue
 Driftland | 
+Drug Dealer Simulator | 
 Dungeon Defenders: Awakened | 
 Dwarrows | 
 Earth Defence Force: Iron Rain  | 
