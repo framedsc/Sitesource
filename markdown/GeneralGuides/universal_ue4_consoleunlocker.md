@@ -167,7 +167,9 @@ Ashes Of Oahu |
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
+Azur Lane Crosswave | 
 Bard's Tale IV: Barrows Deep | 
+Bastide | 
 The Beast Inside | 
 Bee Simulator | 
 The Blackout Club | 
@@ -219,6 +221,7 @@ Fade to silence |
 Fear the Dark Unknown | 
 The Fidelio Incident | 
 Fighting Ex Layer |
+Filament | 
 Finding the Soul Orb |  
 Genesis Alpha One | 
 Grand Guilds | 
@@ -248,6 +251,7 @@ Lost Ember |
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Mind: Path to Thalamus | 
+MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
 Monster Jam Steel Titans | 
@@ -327,7 +331,7 @@ Terminator Resistance |
 Tetris Effect | 
 Tower of Fate | 
 Train Sim World | 
-Trials of Mana | Tested on demo
+Trials of Mana | Also works with the demo
 Tropico 6 | 
 Urban Trial Playground | 
 Uventa | 
