@@ -231,6 +231,7 @@ Halflight |
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hollow | 
+Hunter's Arena: Legends | 
 Hunting Simulator | 
 Infliction | 
 Insomnia the Ark | 
