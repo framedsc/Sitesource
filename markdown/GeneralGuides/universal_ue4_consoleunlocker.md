@@ -233,6 +233,7 @@ Hellblade: Senua's Sacrifice |
 Hollow | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
+Hypercharge Unboxed | 
 Infliction | 
 Insomnia the Ark | 
 Intruders: Hide and Seek" | 
