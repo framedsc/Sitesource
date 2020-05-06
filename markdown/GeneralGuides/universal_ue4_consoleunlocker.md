@@ -224,6 +224,7 @@ Fighting Ex Layer |
 Filament | 
 Finding the Soul Orb |  
 Genesis Alpha One | 
+Ghostrunner | Tested on demo
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
