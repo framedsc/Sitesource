@@ -102,7 +102,7 @@ unregistersymbol(PM_NoClipCheck)
     </CheatEntry>
     <CheatEntry>
       <ID>120</ID>
-      <Description>"FOV"</Description>
+      <Description>"FOV  (Toggle: ctrl-Numpad*)"</Description>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
@@ -155,6 +155,16 @@ unregistersymbol(fov)
 unregistersymbol(camAOB)
 unregistersymbol(fovNOP)
 </AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>106</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
       <CheatEntries>
         <CheatEntry>
           <ID>121</ID>
@@ -413,13 +423,6 @@ unregistersymbol(healthAOB2)
           </Offsets>
         </CheatEntry>
       </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>570</ID>
-      <Description>"z?"</Description>
-      <LastState Value="6180.85498" RealAddress="8ED54DC0"/>
-      <VariableType>Float</VariableType>
-      <Address>8ED54DC0</Address>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols>

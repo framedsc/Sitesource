@@ -310,6 +310,7 @@ Sinner: Sacrifice for Redemption |
 Skylar and Plux | 
 The Sojourn | 
 SolSeraph | 
+Someday You Will Return | 
 Song of Horror | 
 Sophont | 
 Soul Valley | 
