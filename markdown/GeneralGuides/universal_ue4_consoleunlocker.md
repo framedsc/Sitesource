@@ -235,6 +235,7 @@ Hollow |
 Hunter's Arena: Legends | 
 Hunting Simulator | 
 Hypercharge Unboxed | 
+Industries of Titan | 
 Infliction | 
 Insomnia the Ark | 
 Intruders: Hide and Seek" | 
