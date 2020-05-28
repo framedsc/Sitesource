@@ -195,6 +195,7 @@ Darksiders Genesis |
 Daymare: 1998 | 
 Deep Rock Galactic | 
 Deliver us the moon | 
+Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
 Disaster Report 4: Summer Memories |  Also works with the demo
@@ -252,6 +253,7 @@ Life is Strange 2 |
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
+Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Mind: Path to Thalamus | 
