@@ -167,7 +167,9 @@ Ashes Of Oahu |
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
+Azur Lane Crosswave | 
 Bard's Tale IV: Barrows Deep | 
+Bastide | 
 The Beast Inside | 
 Bee Simulator | 
 The Blackout Club | 
@@ -193,17 +195,21 @@ Darksiders Genesis |
 Daymare: 1998 | 
 Deep Rock Galactic | 
 Deliver us the moon | 
+Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
+Disaster Report 4: Summer Memories |  Also works with the demo
 Donensbourgh | 
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
 Draugen | 
 DreadOut 2 | 
 Dreamo | 
-Dreamscaper | 
+Dreamscaper | Also works in Dreamscaper Prologue
 Driftland | 
+Drug Dealer Simulator | 
 Dungeon Defenders: Awakened | 
+Dwarrows | 
 Earth Defence Force: Iron Rain  | 
 Earthfall | 
 Echo | 
@@ -216,16 +222,24 @@ Fade to silence |
 Fear the Dark Unknown | 
 The Fidelio Incident | 
 Fighting Ex Layer |
+Filament | 
 Finding the Soul Orb |  
 Genesis Alpha One | 
+Ghostrunner | Tested on demo
+Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
+Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hollow | 
+Hunter's Arena: Legends | 
 Hunting Simulator | 
+Hypercharge Unboxed | 
+Industries of Titan | 
 Infliction | 
 Insomnia the Ark | 
+Insurgency Sandstorm | 
 Intruders: Hide and Seek" | 
 Journey to the Savage Planet | 
 Jumanji The Video Game | 
@@ -240,9 +254,11 @@ Life is Strange 2 |
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
+Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Mind: Path to Thalamus | 
+MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
 Monster Jam Steel Titans | 
@@ -263,6 +279,7 @@ Only After |
 Operencia: The Stolen Sun | 
 The Outer Worlds | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Overkill's The Walking Dead | 
+Override: Mech City Brawl | 
 Pagui打鬼 | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
@@ -273,6 +290,7 @@ Praetorians HD Remaster |
 Project Remedium | 
 Protocol | 
 Occupation | 
+OCTOPATH TRAVELER | 
 Omen of Sorrow | 
 Omensight | 
 Quantum Replica | 
@@ -297,6 +315,7 @@ Sinner: Sacrifice for Redemption |
 Skylar and Plux | 
 The Sojourn | 
 SolSeraph | 
+Someday You Will Return | 
 Song of Horror | 
 Sophont | 
 Soul Valley | 
@@ -320,15 +339,17 @@ Terminator Resistance |
 Tetris Effect | 
 Tower of Fate | 
 Train Sim World | 
-Trials of Mana | Tested on demo
+Trials of Mana | Also works with the demo
 Tropico 6 | 
 Urban Trial Playground | 
 Uventa | 
 Vampyr | 
 Visage | 
 Wartile | 
-We Happy Few | 
+We Happy Few | Built-in camera isn't available.
+We Went Back | HUD toggle doesn't toggle crosshair. Toggle that with `showhud 0`
 Weakless | 
+Withstand: Survival | 
 The Works of Mercy | 
 XING The Land Beyond | 
 ZED | 
