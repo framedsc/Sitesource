@@ -15,10 +15,11 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Yakuza Free Cam by etra0](https://github.com/etra0/yakuza-freecam/releases)
+* [Yakuza Free Cam by etra0](https://github.com/etra0/yakuza-freecam/releases)  
 **Features**: Pause, camera position, camera orientation and FoV control.
 
-* [HelixMod](https://helixmod.blogspot.com/2019/03/yakuza-0-kiwami.html) **Features**: HUD  and DOF Toggles.
+* [HelixMod](https://helixmod.blogspot.com/2019/03/yakuza-0-kiwami.html)  
+**Features**: HUD  and DOF Toggles.
 
  
 
@@ -37,9 +38,13 @@ CTRL, SPACE | Move UP or DOWN
 PG UP, PG DOWN | Increase/Decrase speed multiplier
 F1,F2/L2/LT,R2/RT | Increase/Decrease FoV respectively
 
-*WARNING: Once you deattach the camera (PAUSE), your mouse will be set in a fixed position, so in order to attach/deattach the mouse to the camera, you can press DEL.*
+@alert important
+Once you deattach the camera (PAUSE), your mouse will be set in a fixed position, so in order to attach/deattach the mouse to the camera, you can press DEL.
+@end
 
-*WARNING: If you are in freeroam and you stop hearing audio, its probably because you have the paused option activated, simply press END to deactivate it.*
+@alert important
+If you are in freeroam and you stop hearing audio, its probably because you have the paused option activated, simply press END to deactivate it.
+@end
 
 ### HelixMod
 
@@ -50,11 +55,11 @@ F5 | Depth of field toggle
 
 HUD toggle also disables the vignette from cutscenes.
 
-*HelixMod have other functionalities, if you wanna know more see the mods page.*
+HelixMod has other functionalities, if you want to know more see the mods page
 
 ## Reshade
 
-Even if you open Reshade's menu the game still takes input from your mouse. You can disable the mouse input in the game if you are using a joystick tho.
+Even if you open Reshade's menu the game still takes input from your mouse. You can disable the mouse input in the game if you are using a joystick.
 
 NOTE: It is not possible to use ReShade and the HelixMod at the same time as they share the same DLL name.
 
