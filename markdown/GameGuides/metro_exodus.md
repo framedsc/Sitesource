@@ -14,7 +14,7 @@ DirectX versions | DirectX 11, DirectX 12
  
 ## Tools
 
-* [CE Table by Otis_Inf](..\CheatTables\metro_exodus_otis_inf.ct)  
+* [Camera tools by Otis_Inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/MetroExodus)  
 **Features**: Use Photomode/Ansel anywhere, unlimited Photomode / Ansel range, FOV
 @alert tip
 Rebind FOV hotkeys to something other than the numpad to avoid game slowdown during photo mode. 
