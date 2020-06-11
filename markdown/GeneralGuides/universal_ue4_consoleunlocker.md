@@ -281,6 +281,7 @@ The Outer Worlds | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Overkill's The Walking Dead | 
 Override: Mech City Brawl | 
 Pagui打鬼 | 
+Paper Dolls Original | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
 Past Cure | 
