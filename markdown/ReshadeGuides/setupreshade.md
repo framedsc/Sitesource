@@ -8,6 +8,9 @@ information might still apply, but that's not guaranteed.
 This guide is written for screenshotting. This means it doesn't really go into topics like performance mode as the game is likely
 paused when you're going to set up your shot and the Reshade configuration you want to use for it. 
 
+## Video
+If you prefer video guidance, Framed member TheGordinho Ochinchin [made a video guiding you through the basic steps](https://www.youtube.com/watch?v=hYUiWfvyafQ) 
+
 ## Setting up Reshade for the game
 To set up Reshade for a game, and not having the game running, we first have to [download it from the Reshade website](https://reshade.me/). 
 After you've downloaded the .exe and started it, it will open a small program that will guide you through the process. Simply pick the game's .exe file as 
@@ -104,6 +107,7 @@ depth of field shader in a game like The Division is therefore not going to work
 * [Reshade website](https://reshade.me/)
 * [Reshade forums](https://reshade.me/forum/index)
 * [Easy troubleshooting guide](https://reshade.me/forum/troubleshooting/5227-introducing-easy-troubleshooting#33088)
+* [PC Gaming wiki guide](https://www.pcgamingwiki.com/wiki/ReShade)
 
 ## Custom shader repositories
 

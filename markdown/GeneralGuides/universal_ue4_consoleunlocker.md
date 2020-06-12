@@ -319,6 +319,7 @@ SolSeraph |
 Someday You Will Return | 
 Song of Horror | 
 Sophont | 
+Sorrowvirus A Faceless Short Story | 
 Soul Valley | 
 SOULCALIBUR VI | 
 Space Hulk: Deadwing Enhanced Edition | 
