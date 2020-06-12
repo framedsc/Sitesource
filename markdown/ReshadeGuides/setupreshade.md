@@ -90,11 +90,7 @@ When you go to the DX11 tab in the Reshade menu you can then pick the right dept
 *Copy depth before clearing* checkbox). If the screen becomes what it should be you picked the right depth buffer and you can use it with the techniques that depend on it. 
 
 ## Limitations and gotchas
-There are a couple of limitations with the current Reshade version (v4.2) which might cause some confusion. They're listed below.
-
-* There's currently no DirectX12 support. Reshade supports DirectX 9, 10 and 11 and OpenGL. This means that if your game uses
-DirectX12 or Vulkan, you can't use Reshade, as it won't be able to intercept the rendering API and therefore your shaders won't 
-work. The game likely crashes at startup. So to use Reshade, be sure your game is set to use the right rendering API, e.g. DirectX11.
+There are some limitations with the current Reshade version (v4.2) which might cause some confusion. They're listed below.
 
 * When the game is an online game or actively performs network access, the depth buffer is disabled. Access to the depth buffer is 
 often required as a lot of effects use the depth buffer of the game. Reshade actively disables access to the depth buffer if it
