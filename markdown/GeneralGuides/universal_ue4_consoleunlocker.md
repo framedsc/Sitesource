@@ -297,6 +297,7 @@ Omen of Sorrow |
 Omensight | 
 Quantum Replica | 
 Qube 2 | 
+The Quiet Man | 
 Race With Ryan | 
 RAD | 
 Redeemer | 
