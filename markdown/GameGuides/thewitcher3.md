@@ -18,8 +18,7 @@ some Chinese translation fixes but no new functionality/fixes however the versio
 It's therefore highly recommended to roll back your game to v1.31A or v1.31. 
 
 On GoG you can do that in the GoG Galaxy client
-by clicking 'More' on the game's page in your library, then selecting 'Settings'. Scrolling down you can select the version 
-you want. You should also disable auto-updates to avoid having to do it all over again later on. 
+by clicking the settings icon on the game's page in your library, then selecting 'Manage installation'->'Configure'. Scrolling down you can select the version you want, which in this case should be 1.31 or 1.31A. You should also disable auto-updates to avoid having to do it all over again later on. 
 
 For Steam, please use [the guide to rollback to a previous version of a game on steam](../GeneralGuides/steam_update_guide.htm).
 
