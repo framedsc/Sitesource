@@ -217,6 +217,7 @@ Echo |
 Effie | 
 Elea | 
 Everspace | 
+Everspace 2 | Tested on demo
 Explore Fushimi Inari | 
 Extinction | 
 Fade to silence | 
