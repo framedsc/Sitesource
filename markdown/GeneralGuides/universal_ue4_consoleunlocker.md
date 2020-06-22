@@ -228,6 +228,7 @@ Ghostrunner | Tested on demo
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
+Grounded | Tested on demo
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
@@ -351,7 +352,7 @@ Vampyr |
 Visage | 
 Wartile | 
 We Happy Few | Built-in camera isn't available.
-We Went Back | HUD toggle doesn't toggle crosshair. Toggle that with `showhud 0`
+We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
 Withstand: Survival | 
 The Works of Mercy | 
