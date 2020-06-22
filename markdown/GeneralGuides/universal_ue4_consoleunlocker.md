@@ -62,9 +62,6 @@ To correct this, on the *Configuration* tab, the setting **Key to open in-game c
 
 To change a key binding, click in the textbox and press the key combination you want to use, then click the **OK** button that appeared next to the textbox when you clicked it. If you changed your mind, just click **Cancel**. You can use the same key combination for multiple features. This allows you to e.g. use `Insert` for enabling the free camera, stopping time and hiding the HUD at the same time. 
 
-The UUU comes with its own menu. To open this menu, press `Ctrl-Ins`. It contains various tab pages, among them one where you can configure key bindings. The main 
-tab is the first tab, the Settings tab. This tab allows you to configure camera specific values, which device you want to use for the camera etc. 
-
 ## Opening the in-game console
 In-game, press the `~` key (it's the key above the `TAB` key on your keyboard). This should give a small line at the bottom of the 
 game screen in which you can type commands. If you type the `~` again you'll get a larger console window which also shows the response of the game on your commands. 
