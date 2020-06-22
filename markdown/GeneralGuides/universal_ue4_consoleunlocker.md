@@ -344,6 +344,7 @@ Terminator Resistance |
 Tetris Effect | 
 Tower of Fate | 
 Train Sim World | 
+Transient | Tested on demo
 Trials of Mana | Also works with the demo
 Tropico 6 | 
 Urban Trial Playground | 
