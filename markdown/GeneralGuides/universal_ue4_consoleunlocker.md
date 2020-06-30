@@ -214,6 +214,7 @@ Earthfall |
 Echo | 
 Effie | 
 Elea | 
+Estranged Act II | 
 Everspace | 
 Everspace 2 | Tested on demo
 Explore Fushimi Inari | 
