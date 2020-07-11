@@ -174,6 +174,7 @@ The Blackout Club |
 Blair Witch | 
 Borderlands 3 | 
 Bright Memory | Also works with the RTX tech demo
+Britannic: Patroness of the Mediterranean | 
 Burning Daylight | 
 Call of Cthulhu | 
 Captain Starshot | 
