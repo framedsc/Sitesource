@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="29">
+<CheatTable CheatEngineTableVersion="31">
   <CheatEntries>
     <CheatEntry>
       <ID>7</ID>
@@ -573,19 +573,19 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
       <ID>57</ID>
       <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+446E7E0</Address>
+      <Address>RDR2.exe+4473640</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>60</ID>
       <Description>"Time of day: Minutes. 0-59. Setting the value outside this range crashes the game"</Description>
       <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+446E7E4</Address>
+      <Address>RDR2.exe+4473644</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>17</ID>
       <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
       <VariableType>Byte</VariableType>
-      <Address>RDR2.exe+5831293</Address>
+      <Address>RDR2.exe+583D4F3</Address>
       <Hotkeys>
         <Hotkey>
           <Action>Set Value</Action>
@@ -686,7 +686,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.13. 09-Apr-2020. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
+      <Description>"By Otis_Inf. v0.14. 13-Jul-2020. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
