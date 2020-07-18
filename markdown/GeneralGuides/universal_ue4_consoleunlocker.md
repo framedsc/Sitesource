@@ -242,6 +242,7 @@ Hello Guest | Tested on Alpha build.
 Hollow | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
+Hunting Simulator 2 | 
 Hypercharge Unboxed | 
 Industries of Titan | 
 Infliction | 
