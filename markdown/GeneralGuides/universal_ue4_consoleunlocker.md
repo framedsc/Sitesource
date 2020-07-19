@@ -170,6 +170,7 @@ Bard's Tale IV: Barrows Deep |
 Bastide | 
 The Beast Inside | 
 Bee Simulator | 
+Beyond a Steel Sky | 
 The Blackout Club | 
 Blair Witch | 
 Borderlands 3 | 
@@ -218,6 +219,7 @@ Earthfall |
 Echo | 
 Effie | 
 Elea | 
+Elli | 
 Estranged Act II | 
 Everspace | 
 Everspace 2 | Tested on demo
@@ -266,6 +268,7 @@ Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Mind: Path to Thalamus | 
+Minecraft Dungeons | 
 MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
