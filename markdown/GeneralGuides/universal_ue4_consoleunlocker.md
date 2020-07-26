@@ -157,6 +157,7 @@ Ancestors - The Humankind Odyssey |
 Ancient Knowledge | 
 Another Sight Definitive Edition | 
 Apsulov: End of Gods | 
+Arboria | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
 Armoured Onslaught | 
@@ -317,6 +318,7 @@ RAD |
 Redeemer | 
 Remnant: From the Ashes | 
 Remothered: Tormented Fathers | 
+Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
 Satisfactory | 
