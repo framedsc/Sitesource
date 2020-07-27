@@ -135,7 +135,6 @@ camera tools for the game instead of using these old cheat tables.
 - [Captain_Spirit_fc.CT](CheatTables/Archive/Captain_Spirit_fc.CT)
 
 ###Castlevania: Lords of Shadow - Ultimate Edition
-- [CastlevaniaLoSUE_1.5.CT](CheatTables/Archive/CastlevaniaLoSUE_1.5.CT)
 - [CastlevaniaLoS.CT](CheatTables/Archive/CastlevaniaLoS.CT)
 
 ###Castlevania: Lords of Shadow 2
