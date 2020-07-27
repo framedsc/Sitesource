@@ -1,7 +1,5 @@
 ![Batman: Arkham City](\Images\batman_ac.png "Shot by Originalnicodr")
 
-[//]: #\Images\batman_ac.png
-
 ## Summary
 
 Feature | Supported
@@ -16,7 +14,7 @@ DirectX versions | DirectX 9
  
 ## Tools
 
-* [CE table by One3rd, Cielos and SunBeam](https://framedsc.github.io/CheatTables/DMC_freecam0.02.CT)  
+* [CE table by One3rd, Cielos and SunBeam](../CheatTables/DMC_freecam0.02.CT)  
 **Features**: Camera Control, Tilt, HUD Toggle, FoV, Tonemap, Bloom, Console Enabler, Cheats.
 
 ## Usage
@@ -37,8 +35,6 @@ Ctrl + F12 | Menu HUD Enable
 Pause Button | Timestop
 Hold CTRL | Move the camera position and orientation faster
 Hold ALT | Move the camera position and orientation slower
-
-
 
 FoV control: (requires you to force it with the UE3 FOV keybind command while in game first, do this before going into the Pause Menu for it to work. See FOV section below.)
 
@@ -79,18 +75,20 @@ ShadowFadeResolution=5
 ShadowFilterRadius=5.000000
 SkeletalMeshLODBias=-1
 ParticleLODBias=-1
-// these last two settings affects LoD (Level of Details) which reduces quality of meshes and particles the further the camera is from them. Something far away doesn't need to be as detailed as something which is right in front of the camera. This is made to improve performance, but can introduce some popping. The -1 settings disable LoD altogether, which is very performance hungry!
 ```
+These last two settings affects LoD (Level of Details) which reduces quality of meshes and particles 
+the further the camera is from them. Something far away doesn't need to be as detailed as something which is 
+right in front of the camera. This is made to improve performance, but can introduce some popping. The -1 settings disable LoD altogether, which is very performance hungry!
 
 Press Ctrl+F and search for MemoryPools.
-Under [MemoryPools] make the following changes:
+Under `[MemoryPools]` make the following changes:
 
 ```
 FLightPrimitiveInteractionInitialBlockSize=1024
 FModShadowPrimitiveInteractionInitialBlockSize=1024
-// you can use higher values than that but it will makes the loading screens longer, but will reduce textures and static shadow popping.
-Remember to save the changes and set the file to read only so it doesn't get overridden.
 ```
+You can use higher values than that but it will makes the loading screens longer, but will reduce textures and static shadow popping.
+Remember to save the changes and set the file to read only so it doesn't get overridden.
 
 ## Cheats
 

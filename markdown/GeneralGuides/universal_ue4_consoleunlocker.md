@@ -157,6 +157,7 @@ Ancestors - The Humankind Odyssey |
 Ancient Knowledge | 
 Another Sight Definitive Edition | 
 Apsulov: End of Gods | 
+Arboria | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
 Armoured Onslaught | 
@@ -170,6 +171,7 @@ Bard's Tale IV: Barrows Deep |
 Bastide | 
 The Beast Inside | 
 Bee Simulator | 
+Beyond a Steel Sky | 
 The Blackout Club | 
 Blair Witch | 
 Borderlands 3 | 
@@ -218,6 +220,7 @@ Earthfall |
 Echo | 
 Effie | 
 Elea | 
+Elli | 
 Estranged Act II | 
 Everspace | 
 Everspace 2 | Tested on demo
@@ -242,6 +245,7 @@ Hello Guest | Tested on Alpha build.
 Hollow | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
+Hunting Simulator 2 | 
 Hypercharge Unboxed | 
 Industries of Titan | 
 Infliction | 
@@ -265,6 +269,7 @@ Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Mind: Path to Thalamus | 
+Minecraft Dungeons | 
 MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
@@ -313,6 +318,7 @@ RAD |
 Redeemer | 
 Remnant: From the Ashes | 
 Remothered: Tormented Fathers | 
+Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
 Satisfactory | 
