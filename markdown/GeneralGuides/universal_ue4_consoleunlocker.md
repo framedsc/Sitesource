@@ -255,6 +255,7 @@ Intruders: Hide and Seek" |
 Journey to the Savage Planet | 
 Jumanji The Video Game | 
 Jump Force (limited) | 
+Kari | 
 Killsquad | 
 Kine | 
 Koral | 
