@@ -241,6 +241,7 @@ Grounded | Tested on demo
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
+Hellbound | 
 Hello Guest | Tested on Alpha build.
 Hollow | 
 Hunter's Arena: Legends | 
@@ -263,6 +264,7 @@ Laser League |
 Layers of Fear 2 | 
 Liberty Prime | 
 Life is Strange 2 | 
+Light Tracer 2 | 
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
@@ -373,6 +375,7 @@ We Happy Few | Built-in camera isn't available.
 We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
 Withstand: Survival | 
+What Happened | 
 The Works of Mercy | 
 XING The Land Beyond | 
 ZED | 
