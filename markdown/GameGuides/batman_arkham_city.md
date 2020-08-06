@@ -14,7 +14,7 @@ DirectX versions | DirectX 9
  
 ## Tools
 
-* [CE table by One3rd, Cielos and SunBeam](../CheatTables/DMC_freecam0.02.CT)  
+* [CE table by One3rd, Cielos and SunBeam](../CheatTables/Archive/BatmanACv0.5.2.CT)  
 **Features**: Camera Control, Tilt, HUD Toggle, FoV, Tonemap, Bloom, Console Enabler, Cheats.
 
 ## Usage
