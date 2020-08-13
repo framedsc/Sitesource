@@ -169,6 +169,7 @@ Astroneer | Console isn't available
 Azur Lane Crosswave | 
 Bard's Tale IV: Barrows Deep | 
 Bastide | 
+The Battle of Visby | 
 The Beast Inside | 
 Bee Simulator | 
 Beyond a Steel Sky | 
@@ -271,6 +272,7 @@ Lost Ember |
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
+Metamorphosis | 
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
 MotoGP 20 | 
