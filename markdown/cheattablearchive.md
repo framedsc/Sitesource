@@ -83,9 +83,9 @@ camera tools for the game instead of using these old cheat tables.
 - [BatmanOrigins.CT](CheatTables/Archive/BatmanOrigins.CT)
 
 ###Battlefield 4
-- [battlefield4.CT](CheatTables/Archive/battlefield4.CT)
+- [battlefield4.CT](CheatTables/Archive/battlefield4.ct)
 - [bf4.CT](CheatTables/Archive/bf4.CT)
-- [bf4_32bit_hidegun.CT](CheatTables/Archive/bf4_32bit_hidegun.CT)
+- [bf4_32bit_hidegun.CT](CheatTables/Archive/bf4_32bit_hidegun.ct)
 
 ###Battlefield: Bad Company 2
 - [badcompany2.CT](CheatTables/Archive/badcompany2.CT)
@@ -135,7 +135,6 @@ camera tools for the game instead of using these old cheat tables.
 - [Captain_Spirit_fc.CT](CheatTables/Archive/Captain_Spirit_fc.CT)
 
 ###Castlevania: Lords of Shadow - Ultimate Edition
-- [CastlevaniaLoSUE_1.5.CT](CheatTables/Archive/CastlevaniaLoSUE_1.5.CT)
 - [CastlevaniaLoS.CT](CheatTables/Archive/CastlevaniaLoS.CT)
 
 ###Castlevania: Lords of Shadow 2
@@ -171,9 +170,9 @@ camera tools for the game instead of using these old cheat tables.
 - [ds2_latest.CT](CheatTables/Archive/ds2_latest.CT)
 
 ###Dark Souls III
-- [darksouls3(1).CT](CheatTables/Archive/darksouls3(1).CT)
-- [darksouls3(2).CT](CheatTables/Archive/darksouls3(2).CT)
-- [darksouls3.CT](CheatTables/Archive/darksouls3.CT)
+- [darksouls3(1).CT](CheatTables/Archive/darksouls3(1).ct)
+- [darksouls3(2).CT](CheatTables/Archive/darksouls3(2).ct)
+- [darksouls3.CT](CheatTables/Archive/darksouls3.ct)
 
 ###Deadlight
 - [Deadlight.CT](CheatTables/Archive/Deadlight.CT)
@@ -266,8 +265,8 @@ camera tools for the game instead of using these old cheat tables.
 - [FarCry4.CT](CheatTables/Archive/FarCry4.CT)
 - [FarCry4_FOV_Override.CT](CheatTables/Archive/FarCry4_FOV_Override.CT)
 
-###Fable 5
-- [FareCry5_final.ct](CheatTables/Archive/FareCry5_final.ct)
+###Far Cry 5
+- [FarCry5_final.ct](CheatTables/Archive/FarCry5_final.ct)
 
 ###Far Cry New Dawn
 - [FarCryNewDawn.CT](CheatTables/Archive/FarCryNewDawn.CT)
@@ -400,13 +399,13 @@ camera tools for the game instead of using these old cheat tables.
 - [METAL_GEAR_RISING_REVENGEANCE.CT](CheatTables/Archive/METAL_GEAR_RISING_REVENGEANCE.CT)
 
 ###Metal Gear Solid V: The Phantom Pain
-- [MGSV_Freecamera+Cheats[combined_by_Pino44io].CT](CheatTables/Archive/MGSV_Freecamera+Cheats[combined_by_Pino44io].CT)
+- [MGSV_Freecamera+Cheats[combined_by_Pino44io].CT](CheatTables/Archive/MGSV_Freecamera_Cheats.CT)
 
 ###Metro 2033 / Last Light
-- [metro.CT](CheatTables/Archive/metro.CT)
+- [metro.CT](CheatTables/Archive/metro.ct)
 
 ###Metro 2033
-- [metro2033.[v1.0.6].CT](CheatTables/Archive/metro2033.[v1.0.6].CT)
+- [metro2033.[v1.0.6].CT](CheatTables/Archive/metro2033_106.CT)
 
 ###Metro Exodus
 - [MetroExodus_PMHacks_Otis.CT](CheatTables/Archive/MetroExodus_PMHacks_Otis.CT)

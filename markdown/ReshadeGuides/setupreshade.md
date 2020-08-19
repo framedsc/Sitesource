@@ -8,6 +8,9 @@ information might still apply, but that's not guaranteed.
 This guide is written for screenshotting. This means it doesn't really go into topics like performance mode as the game is likely
 paused when you're going to set up your shot and the Reshade configuration you want to use for it. 
 
+## Video
+If you prefer video guidance, Framed member TheGordinho Ochinchin [made a video guiding you through the basic steps](https://www.youtube.com/watch?v=hYUiWfvyafQ) 
+
 ## Setting up Reshade for the game
 To set up Reshade for a game, and not having the game running, we first have to [download it from the Reshade website](https://reshade.me/). 
 After you've downloaded the .exe and started it, it will open a small program that will guide you through the process. Simply pick the game's .exe file as 
@@ -87,11 +90,7 @@ When you go to the DX11 tab in the Reshade menu you can then pick the right dept
 *Copy depth before clearing* checkbox). If the screen becomes what it should be you picked the right depth buffer and you can use it with the techniques that depend on it. 
 
 ## Limitations and gotchas
-There are a couple of limitations with the current Reshade version (v4.2) which might cause some confusion. They're listed below.
-
-* There's currently no DirectX12 support. Reshade supports DirectX 9, 10 and 11 and OpenGL. This means that if your game uses
-DirectX12 or Vulkan, you can't use Reshade, as it won't be able to intercept the rendering API and therefore your shaders won't 
-work. The game likely crashes at startup. So to use Reshade, be sure your game is set to use the right rendering API, e.g. DirectX11.
+There are some limitations with the current Reshade version (v4.2) which might cause some confusion. They're listed below.
 
 * When the game is an online game or actively performs network access, the depth buffer is disabled. Access to the depth buffer is 
 often required as a lot of effects use the depth buffer of the game. Reshade actively disables access to the depth buffer if it
@@ -104,6 +103,7 @@ depth of field shader in a game like The Division is therefore not going to work
 * [Reshade website](https://reshade.me/)
 * [Reshade forums](https://reshade.me/forum/index)
 * [Easy troubleshooting guide](https://reshade.me/forum/troubleshooting/5227-introducing-easy-troubleshooting#33088)
+* [PC Gaming wiki guide](https://www.pcgamingwiki.com/wiki/ReShade)
 
 ## Custom shader repositories
 

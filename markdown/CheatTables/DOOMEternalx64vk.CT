@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>87467</ID>
+      <Description>"[ gamedate: Mar 12 2020 ]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0080</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>87481</ID>
+          <Description>"Unrestrict Console Commands/CVars"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript Async="1">{$STRICT}
+
+{$lua}
+
+if syntaxcheck then return end
+
+[ENABLE]
+
+function _readInteger( Input )
+  -- thanks, Pox!
+  local Value = readInteger( Input )
+  if Value &lt; 0x80000000 then return Value
+  else return Value - 0x100000000 end
+end
+
+function aobscanex( aob, p, a, n, s, e, pb )
+  local p, a, n, s, e = p or '*X*W', a or fsmNotAligned, n or '0', s or 0x0, e or 0xffffffffffffffff
+  local ms = pb and createMemScan( pb ) or createMemScan()
+  local fl = createFoundList( ms )
+  ms.firstScan( soExactValue, vtByteArray, nil, aob, nil, s, e, p, a, n, true, false, false, false )
+  ms.waitTillDone()
+  fl.initialize()
+  local result = nil
+  if fl ~= nil and fl.getCount() &gt; 0 then
+    result = createStringlist()
+    for i = 1, fl.getCount() do result.add( fl.getAddress( i - 1 ) ) end
+  end
+  fl.destroy()
+  ms.destroy()
+  return result
+end
+
+local gameProcess = "DOOMEternalx64vk.exe"
+local gameModule = getAddress( gameProcess )
+local t = aobscanex( "4C8B0EBA01000000488BCE448BF041FF51??8D", nil, nil, nil, gameModule, gameModule + getModuleSize( gameProcess ) )
+t = tonumber( t[0], 16 ) + 0x3
+unregisterSymbol( "CheckRestrictedMode" )
+registerSymbol( "CheckRestrictedMode", t, true )
+
+autoAssemble([[
+  CheckRestrictedMode+1:
+  db 00
+]])
+
+[DISABLE]
+
+autoAssemble([[
+  CheckRestrictedMode+1:
+  db 01
+
+  unregistersymbol( CheckRestrictedMode )
+]])
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87471</ID>
+          <Description>"Add 'noclip' &amp; 'notarget' Commands"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript Async="1">define(idCmdSystem_Noclip,DOOMEternalx64vk.exe+2669130)
+define(idCmdSystem_Notarget,DOOMEternalx64vk.exe+2669478)
+
+[ENABLE]
+
+alloc( AddCommands, 0x1000, DOOMEternalx64vk.exe )
+registersymbol( AddCommands )
+CreateThread( AddCommands )
+
+label( idPlayer_Noclip )
+label( @L00000001 )
+label( @L00000002 )
+label( @L00000003 )
+label( @L00000004 )
+label( @L00000005 )
+
+label( szNoclipCmd )
+label( szNoclipDesc )
+label( qwNoclipFunc )
+
+label( idPlayer_Notarget )
+label( @L00000006 )
+label( @L00000007 )
+label( @L00000008 )
+label( @L00000009 )
+label( @L00000010 )
+
+label( szNotargetCmd )
+label( szNotargetDesc )
+label( qwNotargetFunc )
+
+AddCommands:
+sub rsp,38
+lea r9,[szNoclipDesc]                   // "enables no clipping"
+mov dword ptr [rsp+28],200000
+mov r8,[qwNoclipFunc]                   // noclip function
+mov [rsp+20],0
+lea rdx,[szNoclipCmd]                   // "noclip"
+mov rcx,[DOOMEternalx64vk.exe+3B6E028]  // cmdSystem
+mov rax,[rcx]                           // cmdSystem-&gt;cmdSystemLocal
+call qword ptr [rax+18]                 // cmdSystemLocal-&gt;AddCommand
+lea r9,[szNotargetDesc]                 // "disables the player as a target"
+mov dword ptr [rsp+28],200000
+mov r8,[qwNotargetFunc]                 // notarget function
+mov [rsp+20],0
+lea rdx,[szNotargetCmd]                 // "notarget"
+mov rcx,[DOOMEternalx64vk.exe+3B6E028]  // cmdSystem
+mov rax,[rcx]                           // cmdSystem-&gt;cmdSystemLocal
+call qword ptr [rax+18]                 // cmdSystemLocal-&gt;AddCommand
+add rsp,38
+ret
+
+align 10 CC
+
+idPlayer_Noclip:
+
+  mov [rsp+10],rbx
+  mov [rsp+18],rbp
+  push rsi
+  sub rsp,40
+  mov rbx,rcx
+  mov rcx,[DOOMEternalx64vk.exe+6136A10]
+  call DOOMEternalx64vk.exe+B67AD0
+  test rax,rax
+  je short @L00000001
+  mov rdx,[rax]
+  mov rcx,rax
+  call qword ptr [rdx+88]
+  mov esi,eax
+  jmp short @L00000002
+
+@L00000001:
+  xor esi,esi
+
+@L00000002:
+  mov rcx,[DOOMEternalx64vk.exe+6136A10]
+  or ebp,-1
+  mov rax,[rcx]
+  call qword ptr [rax+150]
+  test al,al
+  je short @L00000005
+  mov eax,[rbx]
+  mov [rsp+50],rdi
+  lea rdi,[DOOMEternalx64vk.exe+2584910]
+  cmp eax,1
+  jle short @L00000003
+  mov rcx,[rbx+10]
+  call DOOMEternalx64vk.exe+23E36B4
+  mov esi,eax
+
+@L00000003:
+  mov eax,[rbx]
+  cmp eax,02
+  jle short @L00000004
+  mov rdi,[rbx+18]
+  mov rcx,rdi
+  call DOOMEternalx64vk.exe+23E36B4
+  mov ebp,eax
+
+@L00000004:
+  mov rdi,[rsp+50]
+
+@L00000005:
+  mov rcx,[DOOMEternalx64vk.exe+6136A10]
+  lea rdx,[rsp+20]
+  mov eax,FFFF
+  mov [rsp+2C],FFFFFFFF
+  mov [rsp+28],ax
+  lea rax,[idCmdSystem_Noclip]
+  mov [rsp+20],rax
+  mov [rsp+30],esi
+  mov byte ptr [rsp+34],0
+  mov [rsp+38],ebp
+  call DOOMEternalx64vk.exe+B0CDC0
+  mov rbx,[rsp+58]
+  mov rbp,[rsp+60]
+  add rsp,40
+  pop rsi
+  ret
+
+align 10 CC
+
+idPlayer_Notarget:
+
+  mov [rsp+10],rbx
+  mov [rsp+18],rbp
+  push rsi
+  sub rsp,40
+  mov rbx,rcx
+  mov rcx,[DOOMEternalx64vk.exe+6136A10]
+  call DOOMEternalx64vk.exe+B67AD0
+  test rax,rax
+  je short @L00000006
+  mov rdx,[rax]
+  mov rcx,rax
+  call qword ptr [rdx+88]
+  mov esi,eax
+  jmp short @L00000007
+
+@L00000006:
+  xor esi,esi
+
+@L00000007:
+  mov rcx,[DOOMEternalx64vk.exe+6136A10]
+  or ebp,-1
+  mov rax,[rcx]
+  call qword ptr [rax+150]
+  test al,al
+  je short @L00000010
+  mov eax,[rbx]
+  mov [rsp+50],rdi
+  lea rdi,[DOOMEternalx64vk.exe+2584910]
+  cmp eax,1
+  jle short @L00000008
+  mov rcx,[rbx+10]
+  call DOOMEternalx64vk.exe+23E36B4
+  mov esi,eax
+
+@L00000008:
+  mov eax,[rbx]
+  cmp eax,02
+  jle short @L00000009
+  mov rdi,[rbx+18]
+  mov rcx,rdi
+  call DOOMEternalx64vk.exe+23E36B4
+  mov ebp,eax
+
+@L00000009:
+  mov rdi,[rsp+50]
+
+@L00000010:
+  mov rcx,[DOOMEternalx64vk.exe+6136A10]
+  lea rdx,[rsp+20]
+  mov eax,FFFF
+  mov [rsp+2C],FFFFFFFF
+  mov [rsp+28],ax
+  lea rax,[idCmdSystem_Notarget]
+  mov [rsp+20],rax
+  mov [rsp+30],esi
+  mov byte ptr [rsp+34],0
+  mov [rsp+38],ebp
+  call DOOMEternalx64vk.exe+B0CDC0
+  mov rbx,[rsp+58]
+  mov rbp,[rsp+60]
+  add rsp,40
+  pop rsi
+  ret
+
+align 10 CC
+
+szNoclipCmd:
+  db 'noclip',0
+
+align 10 CC
+
+szNoclipDesc:
+  db 'enables no clipping',0
+
+align 10 CC
+
+qwNoclipFunc:
+  dq idPlayer_Noclip
+
+align 10 CC
+
+szNotargetCmd:
+  db 'notarget',0
+
+align 10 CC
+
+szNotargetDesc:
+  db 'disables the player as a target',0
+
+align 10 CC
+
+qwNotargetFunc:
+  dq idPlayer_Notarget
+
+[DISABLE]
+
+unregistersymbol( AddCommands )
+dealloc( AddCommands )
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18</ID>
+      <Description>"[ Debug ]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Signature>
+    <SignedHash HashSize="132">0O@60veLs8fZiqjYgPeIFVI?Il-8q,biOP_J95JM)^oD{%]n{xragE_kUCLd-3%/O5{o39s6s^=hp+=}L+M]-s9--gM+o,3-eFX8/2D5XJQg:s(ey}t@0lb)QI/Q2dEFT%UsJxeH7jzR!y.NxNZ-Cy;0x+3*]VQ$@OhnK</SignedHash>
+    <PublicKey Size="3019">5dZ*HQ*y;zWn;@=c[34DZbD@YZHxc]07XMnH9]OY004,YdAcuzstQ.NhpCaQg6AIpKI?^QXluZR?y1@F5,b8P_8TaZPM}UYAu^tzILzkaeRya)Q_$+F-OiKgDNRcNHE^..L2(s2e#y#x)It_%SOsCw-_,ww=o.JqtVdFTsjG#Rp;qE#U{+d2.i5@Lc/Fbs[q5_W1MTu/vLRr=.^{-t004/lPDc$28VUda01Zh/L^b0%03ZMW03Zkk0001UdV2H#000JJOGiWi^^a60_De66lK:n!32.bRa^vGf6951U69E94oEQKA00)qQO,@Rc1R4/[FZfxb0000ACP[p:R9M5UmwR.8*s?FT:l9ON$t93WAYiZrfnY+NpcsS(7Ing-5+RJ(xFod-K1NnsA213!OtGTXL07HdgX!;S3)i:qhL:Ev89^KSMKlsh7C^9Z0)sw=]}3ax?0_JL?)[j9S,hKA^nl@oz0ZEEy{xVkv+E8CZ[DkMm8s9]ZT}.,4PC@GeR*B5$Gv/j$KP;BAArPfYVbc/d7huzG[NH3^NVBDXm_UAL_,.s0NnZ=6!UGJ[-kWIBQI25e}wPCpC_x2o}fAKx?5!xfb^B0aZcX-^HVI+s;%WX7u)u5Qoi+L/nj0LKl/f*UhuvHN8HZX#=-${=E^dBrECDzqyCPx]VoLNZmI#0+zo/Z,Z_t#Gw/V5@Uvz^RDienHsP*+$J.UYB7fo:;E80ULjV3BRPwh_F!CJCnePD5?mS@djEdLT^R$?NW,u/:N!GY0^D)0VW=!+Nw}Z#Ne_Tg3P_H!xG8?Co4pjnp?758mUndGyqS9}QZrZcn?V?HL[$rZHT]iOy(P{Ylu^]I[=fU[uFO4!oKmNp1PO8xTvkg_.2QsaJp}!TY3QY)=-aIen/Ho-HXSX2-dt71_Kx,MsdFIr0J%Ea;sJh;t@}S62TQh{q@E;LY835;hwse^o:b]XjQ{3YU#h$jsLqC+*%H.btRzQ)IM(Y+?#2S21kXvD)5Af+xFAb?IH8za}o(A/I7sOUyJ34W,eXCPkTpoI0SNqp{eItO[s*@+z,e6!.tN$Ro/SYtYq-$X22+fUv^ikEBYU$:@I*!6tC=M%dN@OUE^qwoDC;J?:$MZ92rb3.v)2M:meSg,.cYNIpf[0lN4j{X1-)%dc5@v3L%*6S-3+0RehP1!c-t0E)/P24]9{wJf[!y-DhbM^)8D]mhmUIz7Nx/UMWQwOwx6(L;vuSJz]NJX6pb[_/huz/p*[cL;cLCD%b:bA+vOYFWxpWDXnqYS/=b[wJ;G7Gp4h[c;%sF_I1LZ@cv?@x;o){kKg3?6,08LFk*/.1Wgu*E!Wl.6$QQjPMC6#3Xv^7kv-H7ykYGYp@%Dk,7rF)DQ5VCIF*g:Jb-Uq_6gL}]TE,y$5[+[P!H,hltTua*V^Ltsd^l^qe=g)ldPBL[Uif13w2$%v.:PMca6bqh}biEd2ZTSES^(bkV*mJfaqJ{3t=6CHNo);*JGSON*-;DBh*UXmjcw6USPX7%6=LQy6RJLTE%ybGej#PQ4OmX#(BQ%a4#+Bs(^NpyCnz0b,1_hzlHRzQOn=IDSn(t3H:;RGY9[5Q$OX/]z%1jwT8:S@0aB2z]H_(f(*koyb,phGde%Fu%-/s*K^+OP^wQzR7h@hRkkw0qUg@xR@3Ojt;nW1E9jJj!pXcQbf]=,q]c[:R%Kq3JZg9XhYkLXSd#{w?QI7OAp5uu45/myj]pJ-g8l*]V]jy-A7g-(R=hh,TKv39ticjJ,,G)W5UjPY-Fk]7DO1l#$Cxf./Pur2t^^TeU-3s[b+kbim)8k.ms10p?J[/oJo(32sOlJReLv1H[D968_/aLl0Ea*TXPA[)5IJL?;{?v9f7?_B8TOdp:7R619wNI.D)%TbU1#8D}_P;}Y;rMd(@v4/QreTt=0j){2.fErnDsujxvD$^:UP9(h[KVYkyCI@*4%uy/ut8N_/QtDTuR)(1thEaJxN,}V2qPi-1re}ga)z]F@D}VDXKzqXH]iUm#R2Fd2C[FOXptDO6iz_eHH-2qV*DPl];;W1,+H6%S=tl.IfFhj]DswzDw^:ljsc@LQP9O8nfl:2TG34(M?=+a(zai1=U#q#s6xj*Qh.sm!67qZL[]XLdU!y0Yur0{e^#lt*aOD+WDYL-L%?ZW!iu[(zDZheLsZgFk7{5dhYfdn)6/[BW,T:Cez^a!RqiWUYrN(.KL;HhGx(h6fWf)U]qjG{J-fcRb2fD5/3?^%u84#MFYEp*SdkmVt0NqgM];h@Cm=h$@zCSs9%Y}?,TmWHubp/NE*j}SX-xLLTeZ9-cF3DiWq/+VUcNAvNGI*F]@ezO.Qs+-e;IIIYG3P#b.BJ#h7i][.F}Bf6+)F*;vd5eeAqWOHq(L)ABUP7{hUrW^-40H7Tc5eQ/GxY7]Te5-mS,,=-9N.]J5HlJlEn^8^]-K(w3(+VXIKm#BuTr1J@K]gj!0H67Yyw06G.o=]$2wM*Q1/x[An]w$Bnn?v[,Fz.oJ{7)G{x$9@B]jZA5osPXBFo:0831Isc4Y.B]y%JgKZUQ=woOIFs;NSbUuQJ8im-]{8i/XgUmS=FvJOD,dXR20^BNNqC6P[^nKjoc/0$O]}9lNvgnCT1E)=K%*26pD%c#aUp;Fc5QYRsC@F:#2fbCoNS48h[Lq.k#eqb,Y/Gf*QRp87$}.1#?ICB4DYVC?LfeuEDJ(aP0KbTVF.$)/x%(iBC7KpL]WkvUf[u_W-n*?mTPa6QHpZH!pbQf^jPrfs,LO,qdj$lTDR?rgr],;y*D2^IHur0B+h{Hg$Ezk[}GpuK]RTgSQ:Juko?Z{1kYPV3:dhPQi[}n9ebRMhVf/Ll#+-2q@(Jq@@/:63N-(/[U-5IdouefS}FgViR)?XOMT%UHp#7q^OfdlQ:;f3W;4V_w50^i8EA7.xz3DogS*TDA-JqByZe/eIM;7%8lh?_j0.q_j#c11E,%blNv/4)Z2buN#rACXt?-uk#[?_r;%+@k!comiNK1MQ)hNalvxZa)*7LO]g^BEm.7diuhm0YydKu)SmPl73%nYi^M)ZOF6,YWEGP1lv@m=R0UGi1zH=AeI:6f1I:g)i=V3p*uQ{_5N)7=d[dv#meg[f.xaF_ZsOo:hfASo0nLt$4L/lO^Lk%0iD?*5c@7Agsk;$hZ79{ID^bJ;Xby(h;$N}udf$@6E):w(}_edh.dX6?_12yvTiUp7jF7k#1tPA_MlWsW$=tV^{-6bM]3H5m#C:5S9aPoUWn=?$11Si(oO=wIA*+P2#sy$29qJ$Z}73bt6cY)90[y($vm9%0S:eWMV!Nr3R8PgKWG(t25otTL{HZ)wo%.E;]PU1PUVB!$si2[rY;wVXnGZeGdA?0exj6C$H20IRm%%WS)7?BJkNf3+96X=3)+e+J1)n[W!*c;g8kt(2+!lu^flK}KK7*COo/JbYu?g0kZP^?b/o%Ci_gvuNny%:(Q!:f{YR=8)}RSo8l_%}ETti,g?mb:@6-^ZzJ(Jug;Zb7t{IR^-1%lLf%DfcjvD6MOaAS;M]j:*YIz03=4]gZy(mMY8Biqwl$tj?(Xe?U1xaHqX8!KXWj/CCmK[i?u?r=}{6sx2F76]}M3VK!Mw9)+!^P0000/MNUMnLSTY}00001XZi^(F#=O7]eM)7uRBu%n]bT=vOZV1$D.[G6uNS!4t$sN=:117^ai4HQvZM(kYLB]Ys8SuD.VIgPmfTD1pvGokqOhgjAgO*Y#0E1?:$y5^EJx7Gxdyyt[}hApw9;jcA{^5=3e{GlwM!%@D:iDnVkgGP7rDABB?5$ww(b</PublicKey>
+  </Signature>
+</CheatTable>

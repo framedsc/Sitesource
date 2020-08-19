@@ -5,7 +5,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes (read hotslamping section)
+Hotsampling | Yes (read hotsampling section)
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 

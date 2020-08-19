@@ -62,9 +62,6 @@ To correct this, on the *Configuration* tab, the setting **Key to open in-game c
 
 To change a key binding, click in the textbox and press the key combination you want to use, then click the **OK** button that appeared next to the textbox when you clicked it. If you changed your mind, just click **Cancel**. You can use the same key combination for multiple features. This allows you to e.g. use `Insert` for enabling the free camera, stopping time and hiding the HUD at the same time. 
 
-The UUU comes with its own menu. To open this menu, press `Ctrl-Ins`. It contains various tab pages, among them one where you can configure key bindings. The main 
-tab is the first tab, the Settings tab. This tab allows you to configure camera specific values, which device you want to use for the camera etc. 
-
 ## Opening the in-game console
 In-game, press the `~` key (it's the key above the `TAB` key on your keyboard). This should give a small line at the bottom of the 
 game screen in which you can type commands. If you type the `~` again you'll get a larger console window which also shows the response of the game on your commands. 
@@ -151,6 +148,7 @@ Title|Notes
 10 Miles to Safety | 
 103 | 
 A Knight`s Quest | 
+Adam - Lost Memories | 
 Agony | 
 Alice VR | 
 Amid Evil | 
@@ -159,6 +157,7 @@ Ancestors - The Humankind Odyssey |
 Ancient Knowledge | 
 Another Sight Definitive Edition | 
 Apsulov: End of Gods | 
+Arboria | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
 Armoured Onslaught | 
@@ -167,19 +166,25 @@ Ashes Of Oahu |
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
+Azur Lane Crosswave | 
 Bard's Tale IV: Barrows Deep | 
+Bastide | 
+The Battle of Visby | 
 The Beast Inside | 
 Bee Simulator | 
+Beyond a Steel Sky | 
 The Blackout Club | 
 Blair Witch | 
 Borderlands 3 | 
 Bright Memory | Also works with the RTX tech demo
+Britannic: Patroness of the Mediterranean | 
 Burning Daylight | 
 Call of Cthulhu | 
 Captain Starshot | 
 Chernobylite | 
 Close to the Sun | 
 Code Vein | 
+Comanche | 
 Conarium | 
 Corruption 2029 | 
 Creature in the Well | 
@@ -188,48 +193,71 @@ Daemon X Machina  |
 Dark Future: Blood Red States | 
 Dark Deception | 
 Dark Occult | 
+Dark Space Ex Machina | 
 Darksiders 3 | 
 Darksiders Genesis | 
 Daymare: 1998 | 
 Deep Rock Galactic | 
 Deliver us the moon | 
+Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
+Devolverland Expo | 
+Disaster Report 4: Summer Memories |  Also works with the demo
+Disintegration | 
 Donensbourgh | 
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
 Draugen | 
 DreadOut 2 | 
 Dreamo | 
-Dreamscaper | 
+Dreamscaper | Also works in Dreamscaper Prologue
 Driftland | 
+Drug Dealer Simulator | 
 Dungeon Defenders: Awakened | 
+Dwarrows | 
 Earth Defence Force: Iron Rain  | 
 Earthfall | 
 Echo | 
 Effie | 
 Elea | 
+Elli | 
+Estranged Act II | 
 Everspace | 
+Everspace 2 | Tested on demo
 Explore Fushimi Inari | 
 Extinction | 
 Fade to silence | 
 Fear the Dark Unknown | 
 The Fidelio Incident | 
 Fighting Ex Layer |
+Filament | 
 Finding the Soul Orb |  
 Genesis Alpha One | 
+Ghostrunner | Tested on demo
+Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
+Grounded | Tested on demo
+Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
+Hellbound | 
+Hello Guest | Tested on Alpha build.
 Hollow | 
+Hunter's Arena: Legends | 
 Hunting Simulator | 
+Hunting Simulator 2 | 
+Hypercharge Unboxed | 
+Industries of Titan | 
 Infliction | 
 Insomnia the Ark | 
+Insurgency Sandstorm | 
 Intruders: Hide and Seek" | 
 Journey to the Savage Planet | 
 Jumanji The Video Game | 
 Jump Force (limited) | 
+Kari | 
 Killsquad | 
 Kine | 
 Koral | 
@@ -237,18 +265,24 @@ Laser League |
 Layers of Fear 2 | 
 Liberty Prime | 
 Life is Strange 2 | 
+Light Tracer 2 | 
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
+Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
+Metamorphosis | 
 Mind: Path to Thalamus | 
+Minecraft Dungeons | 
+MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
 Monster Jam Steel Titans | 
 Moons of Madness | 
 Morels: The Hunt | 
 Morphies Law Remorphed | 
+Mortal Shell | Tested on beta
 MotoGP 19 | 
 Mutant Year Zero: Road to Eden | 
 My Hero One's Justice | 
@@ -263,25 +297,33 @@ Only After |
 Operencia: The Stolen Sun | 
 The Outer Worlds | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Overkill's The Walking Dead | 
+Override: Mech City Brawl | 
 Pagui打鬼 | 
+Paper Dolls Original | 
+Paradise Lost | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
 Past Cure | 
 Planet Alpha | 
 The Pit: Infinity | 
+Pluviophile | 
 Praetorians HD Remaster | 
 Project Remedium | 
 Protocol | 
 Occupation | 
+OCTOPATH TRAVELER | 
 Omen of Sorrow | 
 Omensight | 
+The Otterman Empire | 
 Quantum Replica | 
 Qube 2 | 
+The Quiet Man | 
 Race With Ryan | 
 RAD | 
 Redeemer | 
 Remnant: From the Ashes | 
 Remothered: Tormented Fathers | 
+Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
 Satisfactory | 
@@ -297,13 +339,16 @@ Sinner: Sacrifice for Redemption |
 Skylar and Plux | 
 The Sojourn | 
 SolSeraph | 
+Someday You Will Return | 
 Song of Horror | 
 Sophont | 
+Sorrowvirus A Faceless Short Story | 
 Soul Valley | 
 SOULCALIBUR VI | 
 Space Hulk: Deadwing Enhanced Edition | 
 Space Hulk Tactics | 
 Spacebourne | 
+Sponge Bob Bikni Bottom Rehydrated | 
 Spyro Reignited Trilogy | 
 Star Wars Jedi: Fallen Order | 
 Stardrop | 
@@ -320,15 +365,19 @@ Terminator Resistance |
 Tetris Effect | 
 Tower of Fate | 
 Train Sim World | 
-Trials of Mana | Tested on demo
+Transient | Tested on demo
+Trials of Mana | Also works with the demo
 Tropico 6 | 
 Urban Trial Playground | 
 Uventa | 
 Vampyr | 
 Visage | 
 Wartile | 
-We Happy Few | 
+We Happy Few | Built-in camera isn't available.
+We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
+Withstand: Survival | 
+What Happened | 
 The Works of Mercy | 
 XING The Land Beyond | 
 ZED | 
