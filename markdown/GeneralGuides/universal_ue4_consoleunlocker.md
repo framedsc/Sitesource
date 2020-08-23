@@ -326,6 +326,7 @@ Remothered: Tormented Fathers |
 Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
+Samurai Jack Battle Through Time | No console/timestop. Use menu + hud toggle for pause.
 Satisfactory | 
 SCUM | 
 Session: Skateboarding Sim Game | 
