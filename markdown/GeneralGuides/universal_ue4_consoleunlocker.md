@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Unlocker
 
 ![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
 
-**Engine versions supported**: Unreal Engine 4.15 - 4.24
+**Engine versions supported**: Unreal Engine 4.15 - 4.25
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.2](https://mega.nz/#!8IJHBYyB!jw21m-GCs85uzj9E5XRysqyJCsNfZS0Zx4Eu9_zvuUM). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.4](https://mega.nz/file/ZNwiSADa#GhlCsCfDzPMGQbyngCHRhlf4kNCWUhPcjFg-MMqXs2U). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -313,6 +313,7 @@ Pluviophile |
 Praetorians HD Remaster | 
 Project Remedium | 
 Protocol | 
+Observer System Redux | Requires UUU 3.0.4+. Tested on demo.
 Occupation | 
 OCTOPATH TRAVELER | 
 Omen of Sorrow | 
@@ -441,6 +442,12 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.4:
+- **FIXED**: Added better version checking so games using UE4 v4.25 are better detected.
+
+###v3.0.3:
+- **FIXED**: Fixed an issue with duplicate resolutions showing up in the hotsampling list. 
 
 ###v3.0.2: 
 - **ADDED**: Mouse-based camera movement / fov control (using left/right mouse button and mousewheel)
