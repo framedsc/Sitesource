@@ -150,6 +150,7 @@ Title|Notes
 A Knight`s Quest | 
 Adam - Lost Memories | 
 Agony | 
+Alan Sharp | 
 Alice VR | 
 Amid Evil | 
 Ancestors Legacy | 
@@ -266,6 +267,7 @@ Layers of Fear 2 |
 Liberty Prime | 
 Life is Strange 2 | 
 Light Tracer 2 | 
+The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
@@ -291,6 +293,7 @@ Mýrdalssandur, Iceland |
 Narcos: Rise of the Cartels | 
 NBA 2K Playgrounds 2 | 
 Nephise: Ascension | 
+No Straight Roads | 
 Observer | Built-in camera isn't available.
 Offroad Racing Buggy X ATV X Moto | 
 Only After | 
@@ -322,7 +325,8 @@ Race With Ryan |
 RAD | 
 Redeemer | 
 Remnant: From the Ashes | 
-Remothered: Tormented Fathers | 
+Remothered: Tormented Fathers |
+Roboquest | 
 Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
@@ -362,6 +366,7 @@ The Suicide of Rachel Foster |
 Supraland | 
 Sword Art Online: Fatal Bullet | 
 Tartarus | 
+Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
 Tower of Fate | 
