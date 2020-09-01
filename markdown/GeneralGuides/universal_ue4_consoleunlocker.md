@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.4](https://mega.nz/file/ZNwiSADa#GhlCsCfDzPMGQbyngCHRhlf4kNCWUhPcjFg-MMqXs2U). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.5](https://mega.nz/file/kEhTSBDR#cg2H5ikROO9l-M7rf7n9VtONw5u5OktUYtF5hp6C-4o). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -209,6 +209,7 @@ Disintegration |
 Donensbourgh | 
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
+Drake Hollow | 
 Draugen | 
 DreadOut 2 | 
 Dreamo | 
@@ -293,6 +294,7 @@ Mýrdalssandur, Iceland |
 Narcos: Rise of the Cartels | 
 NBA 2K Playgrounds 2 | 
 Nephise: Ascension | 
+Night of the Dead | 
 No Straight Roads | 
 Observer | Built-in camera isn't available.
 Offroad Racing Buggy X ATV X Moto | 
@@ -442,6 +444,9 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.5:
+- **FIXED**: Added a more solid filter for v4.25, the one added in 3.0.4 could miss a couple of variants. 
 
 ###v3.0.4:
 - **FIXED**: Added better version checking so games using UE4 v4.25 are better detected.
