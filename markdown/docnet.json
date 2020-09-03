@@ -100,6 +100,7 @@
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
 			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
+			"The Basics of Taking Screenshots": "GeneralGuides\\basics.md",
 		}, 
 		"Reshade guides" :
 		{
@@ -111,6 +112,6 @@
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
 			}
 		},
-		"Cheat Table Archive": "cheattablearchive.md"
+		"Cheat Table Archive": "cheattablearchive.md",
     }
 }
