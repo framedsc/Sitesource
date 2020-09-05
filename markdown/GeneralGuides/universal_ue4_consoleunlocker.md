@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Unlocker
 
 ![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
 
-**Engine versions supported**: Unreal Engine 4.15 - 4.24
+**Engine versions supported**: Unreal Engine 4.15 - 4.25
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.2](https://mega.nz/#!8IJHBYyB!jw21m-GCs85uzj9E5XRysqyJCsNfZS0Zx4Eu9_zvuUM). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.5](https://mega.nz/file/kEhTSBDR#cg2H5ikROO9l-M7rf7n9VtONw5u5OktUYtF5hp6C-4o). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -150,6 +150,7 @@ Title|Notes
 A Knight`s Quest | 
 Adam - Lost Memories | 
 Agony | 
+Alan Sharp | 
 Alice VR | 
 Amid Evil | 
 Ancestors Legacy | 
@@ -169,6 +170,7 @@ Astroneer | Console isn't available
 Azur Lane Crosswave | 
 Bard's Tale IV: Barrows Deep | 
 Bastide | 
+The Battle of Visby | 
 The Beast Inside | 
 Bee Simulator | 
 Beyond a Steel Sky | 
@@ -207,6 +209,7 @@ Disintegration |
 Donensbourgh | 
 DRAGON BALL Z: KAKAROT | HUD toggle doesn't hide some parts of the HUD.
 Dragon Quest XI: Echoes of an Elusive Age | 
+Drake Hollow | 
 Draugen | 
 DreadOut 2 | 
 Dreamo | 
@@ -241,6 +244,7 @@ Grounded | Tested on demo
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
+Hellbound | 
 Hello Guest | Tested on Alpha build.
 Hollow | 
 Hunter's Arena: Legends | 
@@ -255,6 +259,7 @@ Intruders: Hide and Seek" |
 Journey to the Savage Planet | 
 Jumanji The Video Game | 
 Jump Force (limited) | 
+Kari | 
 Killsquad | 
 Kine | 
 Koral | 
@@ -262,12 +267,15 @@ Laser League |
 Layers of Fear 2 | 
 Liberty Prime | 
 Life is Strange 2 | 
+Light Tracer 2 | 
+The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
+Metamorphosis | 
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
 MotoGP 20 | 
@@ -286,6 +294,8 @@ Mýrdalssandur, Iceland |
 Narcos: Rise of the Cartels | 
 NBA 2K Playgrounds 2 | 
 Nephise: Ascension | 
+Night of the Dead | 
+No Straight Roads | 
 Observer | Built-in camera isn't available.
 Offroad Racing Buggy X ATV X Moto | 
 Only After | 
@@ -305,6 +315,7 @@ Pluviophile |
 Praetorians HD Remaster | 
 Project Remedium | 
 Protocol | 
+Observer System Redux | Requires UUU 3.0.4+. Tested on demo.
 Occupation | 
 OCTOPATH TRAVELER | 
 Omen of Sorrow | 
@@ -317,10 +328,12 @@ Race With Ryan |
 RAD | 
 Redeemer | 
 Remnant: From the Ashes | 
-Remothered: Tormented Fathers | 
+Remothered: Tormented Fathers |
+Roboquest | 
 Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
+Samurai Jack Battle Through Time | No console/timestop. Use menu + hud toggle for pause.
 Satisfactory | 
 SCUM | 
 Session: Skateboarding Sim Game | 
@@ -356,6 +369,7 @@ The Suicide of Rachel Foster |
 Supraland | 
 Sword Art Online: Fatal Bullet | 
 Tartarus | 
+Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
 Tower of Fate | 
@@ -372,6 +386,7 @@ We Happy Few | Built-in camera isn't available.
 We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
 Withstand: Survival | 
+What Happened | 
 The Works of Mercy | 
 XING The Land Beyond | 
 ZED | 
@@ -429,6 +444,15 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.5:
+- **FIXED**: Added a more solid filter for v4.25, the one added in 3.0.4 could miss a couple of variants. 
+
+###v3.0.4:
+- **FIXED**: Added better version checking so games using UE4 v4.25 are better detected.
+
+###v3.0.3:
+- **FIXED**: Fixed an issue with duplicate resolutions showing up in the hotsampling list. 
 
 ###v3.0.2: 
 - **ADDED**: Mouse-based camera movement / fov control (using left/right mouse button and mousewheel)
