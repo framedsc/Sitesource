@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.5](https://mega.nz/file/kEhTSBDR#cg2H5ikROO9l-M7rf7n9VtONw5u5OktUYtF5hp6C-4o). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.6](https://mega.nz/file/8dYAlCaD#kOc8OJuoTp9YUU_Zen6p6tA2Qg5at_cXEfI3CeTnyGI). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -444,6 +444,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.6:
+- **FIXED**: Added a way to intercept LockFOV in recent UE4 releases so the FOV control works again in recent games like Remnant from the Ashes. 
+- **CHANGED**: The engine version is now always reported, if found. Previously this was only reported when the console was also activated. 
 
 ###v3.0.5:
 - **FIXED**: Added a more solid filter for v4.25, the one added in 3.0.4 could miss a couple of variants. 

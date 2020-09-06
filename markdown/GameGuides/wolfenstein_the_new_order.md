@@ -14,7 +14,7 @@ Graphic API version | OpenGL
  
 ## Tools
  
-* [CE Table by K-Putt & Jim2point0, merged with SunBeam's table](\CheatTables\wolfenstein_the_new_order.CT)
+* [CE Table by K-Putt & Jim2point0, merged with SunBeam's table](\CheatTables\wolfenstein_the_new_order.CT)  
 **Features**: Freecam, Tilt.
 * Plus some cfg edits and commands for pause, HUD toggle, gun and arms toggle, FoV control, DoF and film grain toggle.
  
@@ -68,15 +68,13 @@ Move camera position (CE movement) | Numpad 4, Numpad 6, Numpad 8, Numpad 2
 Move camera orientation| Mouse
 Move camera up/down | Space bar/Control
 Move camera up/down (CE movement)| Numpad 9, Numpad 3
-Activate tilt modification | '.'
-Tilt left/right | '{' / '}'
-Tilto to 0 degrees | '+'
-Tilt to 90 degrees | '´'
+Activate tilt modification | `.`
+Tilt left/right | `{` / `}`
+Tilto to 0 degrees | `+`
+Tilt to 90 degrees | `´`
 Faster CE camera position movement | Alt + Numpad 4, 6, 8, 2
 Slower CE camera position movement | Ctrl + Numpad 4, 6, 8, 2
-Faster tilting | Alt + '{' / '}'
- 
- 
+Faster tilting | Alt + `{` / `}`
  
 To use the freecam you will need to click the box in Cheat Engine that says "Enable 'god', 'noclip', 'notarget', console commands" so you can use the `noclip` command, which will be used as the freecam. Use the WASD keys to set up the shot and press Numpad 0 to activate the cheat engine movement (which only works with noclip enabled), allowing you to do fine adjustments with the numpad.
  
