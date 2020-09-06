@@ -11,7 +11,7 @@ To properly hotsample you would need to use programs like [SRWE](https://github.
  [WindowedBorderlessGaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/). Please take in mind not every game supports this feature, 
  so before attempting to hotsample check if the game is capable of doing so in the games [guide](https://framedsc.github.io/GameGuides/index.htm) if it has one. Some games might have a mod or cheat engine table that unlocks hotsampling or custom ARs, and there have been reports of games hotsampling in borderless windows instead of windowed mode (which should be tried by default).
  
-Another technique used to achieve high resolution screenshots is [DSR](link). The advantage of hotsampling over DSR is that you can play at your regular definition, go to a higher one to get a screenshot, and come back to your gameplay definition when you are done, where DSR makes you play with the same definition as the one you use while shooting, which can be quite demanding depending on the PC and the game.
+Another technique used to achieve high resolution screenshots is [DSR](https://framedsc.github.io/GeneralGuides/basics.htm#dynamic-super-resolution---dsr). The advantage of hotsampling over DSR is that you can play at your regular definition, go to a higher one to get a screenshot, and come back to your gameplay definition when you are done, where DSR makes you play with the same definition as the one you use while shooting, which can be quite demanding depending on the PC and the game.
  
 ### How to hotsample
  
@@ -60,6 +60,8 @@ That last one can sometimes be overcome with mods or cheat engine tables, so mak
  
 ### List of Games
 You can find the full list of games that support Ansel [here](https://www.nvidia.com/es-la/geforce/geforce-experience/games/), but the list also includes games that lack one or more Ansel features, so be aware that not all of the games listed there have a freecam available using Ansel.
+
+Be sure to check the "enable experimental features" in GeForce Experience, since some games support isnt released yet.
  
 ### External links
  
