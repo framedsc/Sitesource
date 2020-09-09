@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.6](https://mega.nz/file/8dYAlCaD#kOc8OJuoTp9YUU_Zen6p6tA2Qg5at_cXEfI3CeTnyGI). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.7](https://mega.nz/file/Zcgy3CgD#CtcWi01Zklm0keUAaY1HVKl1b_qtBJNn6IRqr8suWkI). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -292,7 +292,8 @@ My Hero One's Justice |
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
 Narcos: Rise of the Cartels | 
-NBA 2K Playgrounds 2 | 
+NBA 2K Playgrounds 2 |
+Necromunda Underhive Wars | No hud toggle 
 Nephise: Ascension | 
 Night of the Dead | 
 No Straight Roads | 
@@ -444,6 +445,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.7:
+- **FIXED**: Fixed a crash introduced in 3.0.6 when the object store wasn't found as well as the engine version and version auto-detect assumed they were.
+- **ADDED**: Additional AOBs for UE4 4.25 for object store (console support), engine version and HUD toggle.
 
 ###v3.0.6:
 - **FIXED**: Added a way to intercept LockFOV in recent UE4 releases so the FOV control works again in recent games like Remnant from the Ashes. 
