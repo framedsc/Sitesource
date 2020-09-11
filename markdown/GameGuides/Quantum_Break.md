@@ -40,6 +40,17 @@ For custom aspect ratios you will need to set the AR while you are in freecam mo
 - **PageUp** - Increase FoV
 - **PageDown** - Decrease FoV
 
+## Hotsampling specific info
+
+To hotsample correctly you have to make sure have in SRWE the ForceExitSizeMove checkbox checked to hotsample correctly. 
+Additionally to use custom aspect ratios, be sure to follow these steps in the right order:
+
+- Enable the free camara
+- Set aspect ratio
+- Check the override custom AR checkbox
+- Use SRWE to resize the resolution
+- Uncheck the override AR checkbox to fix the broken lighting. This last step is particularly important since it breaks the games lights when it is enabled.
+
 ## Useful Links
 
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Quantum_Break)
