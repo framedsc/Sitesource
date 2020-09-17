@@ -277,6 +277,7 @@ Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Metamorphosis | 
+Medieval Dynasty | No hud toggle
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
 MotoGP 20 | 
