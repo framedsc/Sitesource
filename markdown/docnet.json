@@ -109,6 +109,7 @@
 			"__index": "ReshadeGuides\\index.md",
 			"Setting up reshade": "ReshadeGuides\\setupreshade.md",
 			"LUT Generation": "ReshadeGuides\\lutgenguide.md",
+			"Injecting ReShade in UWP games": "ReshadeGuides\\reshadeuwp.md",
 			"Shader guides":
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
