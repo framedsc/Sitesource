@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.7](https://mega.nz/file/Zcgy3CgD#CtcWi01Zklm0keUAaY1HVKl1b_qtBJNn6IRqr8suWkI). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.8](https://mega.nz/file/YNpSBIiD#jwzWUpE-PVU1rHT-OrZT7h0wLqSjBk5V_Djc5XpBaR4). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -392,6 +392,7 @@ Weakless |
 Withstand: Survival | 
 What Happened | 
 The Works of Mercy | 
+WWE Battlegrounds | 
 XING The Land Beyond | 
 ZED | 
 
@@ -448,6 +449,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.8:
+- **FIXED**: Fixed a bug where in some games the HUD toggle was found but went unnoticed so it was reported as not working
+- **ADDED**: Additional AOBs to detect some v4.24 based games. 
 
 ###v3.0.7:
 - **FIXED**: Fixed a crash introduced in 3.0.6 when the object store wasn't found as well as the engine version and version auto-detect assumed they were.
