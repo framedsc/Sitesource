@@ -167,7 +167,8 @@ Ashes Of Oahu |
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
-Azur Lane Crosswave | 
+Azur Lane Crosswave |
+Bad Boys at School | 
 Bard's Tale IV: Barrows Deep | 
 Bastide | 
 The Battle of Visby | 
@@ -237,8 +238,11 @@ The Fidelio Incident |
 Fighting Ex Layer |
 Filament | 
 Finding the Soul Orb |  
+Freud Gate | 
+Gal Gun 2 | 
 Genesis Alpha One | 
 Ghostrunner | Tested on demo
+Giraffe and Annika | 
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
@@ -274,6 +278,7 @@ The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Lost Ember | 
+Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
@@ -397,6 +402,8 @@ The Works of Mercy |
 WWE Battlegrounds | 
 XING The Land Beyond | 
 ZED | 
+
+Additionally, most [UE4 games on Itch.io](https://itch.io/games/newest/made-with-unreal-engine) are usable with the UUU. 
 
 ## Built-in functionality
 
