@@ -232,6 +232,7 @@ Everspace |
 Everspace 2 | Tested on demo
 Explore Fushimi Inari | 
 Extinction | 
+Fortnite | Only versions below 1.9.1 are compatible.
 Fade to silence | 
 Fear the Dark Unknown | 
 The Fidelio Incident | 
