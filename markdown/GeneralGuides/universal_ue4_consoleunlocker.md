@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.8](https://mega.nz/file/YNpSBIiD#jwzWUpE-PVU1rHT-OrZT7h0wLqSjBk5V_Djc5XpBaR4). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.9](https://mega.nz/file/kQoyCJZL#Q9_kltmcqfS9LJMT-yPfFWbkFomjAjeu-QMF9f2aH1U). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -324,11 +324,12 @@ Pluviophile |
 Praetorians HD Remaster | 
 Project Remedium | 
 Protocol | 
-Observer System Redux | Requires UUU 3.0.4+. Tested on demo.
+Observer System Redux | Tested on demo.
 Occupation | 
 OCTOPATH TRAVELER | 
 Omen of Sorrow | 
 Omensight | 
+Omno | Tested on demo
 The Otterman Empire | 
 Quantum Replica | 
 Qube 2 | 
@@ -458,6 +459,9 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.9:
+- **ADDED**: Some v4.21 games had different instructions after the engine version write which resulted in the wrong engine version being chosen. 
 
 ###v3.0.8:
 - **FIXED**: Fixed a bug where in some games the HUD toggle was found but went unnoticed so it was reported as not working
