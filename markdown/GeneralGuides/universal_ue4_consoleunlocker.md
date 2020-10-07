@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.9](https://mega.nz/file/kQoyCJZL#Q9_kltmcqfS9LJMT-yPfFWbkFomjAjeu-QMF9f2aH1U). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.10](https://mega.nz/file/sYBWnLbB#bs7ureB9AOta3TBJm9lPWhjXmYpn0b3qGjJMG4hyNc0). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -404,6 +404,7 @@ What Happened |
 The Works of Mercy | 
 WWE Battlegrounds | 
 XING The Land Beyond | 
+Xuan-Yuan Sword VII | Tested on demo. Requires UUU 3.0.10+
 ZED | 
 
 Additionally, most [UE4 games on Itch.io](https://itch.io/games/newest/made-with-unreal-engine) are usable with the UUU. 
@@ -461,6 +462,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.10:
+- **ADDED**: Another pattern added to find the engine version in 4.24+ games. 
+- **CHANGED**: Default fall-back version has been bumped from 4.16 to 4.23.
 
 ###v3.0.9:
 - **ADDED**: Some v4.21 games had different instructions after the engine version write which resulted in the wrong engine version being chosen. 
