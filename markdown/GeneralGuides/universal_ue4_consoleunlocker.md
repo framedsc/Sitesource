@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.10](https://mega.nz/file/sYBWnLbB#bs7ureB9AOta3TBJm9lPWhjXmYpn0b3qGjJMG4hyNc0). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.11](https://mega.nz/file/NcoFlCYD#hjjEeExgr3HkEf87M3o5Re6sTJHPVCx9jLWiATyMrMA). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -462,6 +462,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.11:
+- **FIXED**: The Engine Version checks had one wrong address marker for v4.21 like engines which could lead to the wrong version being chosen
+- **ADDED**: Logging of all activity to a .log file (UniversalUE4Unlocker.dll.log) for easier debugging when things go wrong.
 
 ###v3.0.10:
 - **ADDED**: Another pattern added to find the engine version in 4.24+ games. 
