@@ -1,4 +1,4 @@
-![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by Otis_Inf"){.shadowed}
+![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by jim2point0"){.shadowed}
 
 ## Summary
 
@@ -79,6 +79,10 @@ Hold CTRL to move the time slower.
 High Resolution Screenshots
 --
 If you freeze the game with Photomode2inOne, you should still be able to access the menu by pressing escape. This will allow you to bump up your resolution with DSR or another means. 
+
+## Tips and Tricks
+* When using the freecam mod, you might notice that trees\bushes behind Geralt will disappear as you fly around. That's because, when you enable the freecamera, those trees exist outside of the current camera frustum. If you want those trees or objects to stick around, you need to trick the game into thinking the camera is looking at those trees. So before you enable the freecam, rotate the in-game camera to look behind Geralt. Then when you enable the camera, those trees/objects will not disappear.
+
 
 ## Useful links
 
