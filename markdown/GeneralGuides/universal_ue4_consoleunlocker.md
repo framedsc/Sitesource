@@ -338,6 +338,7 @@ Qube 2 |
 The Quiet Man | 
 Race With Ryan | 
 RAD | 
+Raji: An Ancient Epic Prologue | 
 Redeemer | 
 Relicta | 
 Remnant: From the Ashes | 
@@ -387,6 +388,7 @@ Tartarus |
 Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
+Torchlight 3 | 
 Tower of Fate | 
 Train Sim World | 
 Transient | Tested on demo
