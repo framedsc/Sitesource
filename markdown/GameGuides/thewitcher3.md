@@ -53,18 +53,16 @@ Lighting Mods will probably make the biggest visual difference, but they are ver
 * Yen Eyes: [https://www.nexusmods.com/witcher3/mods/2565](https://www.nexusmods.com/witcher3/mods/2565)  
 * Ultimate Clouds: [https://mega.nz/file/yqpziabQ#JwJdR_9ytETCHET3GtpthVgmAcE91X24caugHQHN1GM](https://mega.nz/file/yqpziabQ#JwJdR_9ytETCHET3GtpthVgmAcE91X24caugHQHN1GM)  
 * Ultimate Water: [https://mega.nz/file/CrQC0KLS#lwajFoosXm4Y2yuhG6bvfzevGKf3b0CLG3NTyFLA7W4](https://mega.nz/file/CrQC0KLS#lwajFoosXm4Y2yuhG6bvfzevGKf3b0CLG3NTyFLA7W4)  
-    ```
-    Ultimate water gives you higher resolution water textures and enhanced reflections. 
+
+    This mod gives you higher resolution water textures and enhanced reflections. 
     The clouds do come with a performance penalty on some rigs (or so I've heard) so keep that in mind if you have relatively low performance
-    ```
+
 For screenshots:
 --
 * [Freecam & console](https://www.nexusmods.com/witcher3/mods/3574)  
 * [Photomode2inOne](https://www.nexusmods.com/witcher3/mods/190)  
 * [AMM](https://www.nexusmods.com/witcher3/mods/780)    
-    ```
-    AMM lets you change your appearance (as well as Roach). It will ignore whatever you're wearing so you can still look cool while using items that have the stats you want.
-    ```
+    The alternate appearances menu lets you change your appearance (as well as Roach). It will ignore whatever you're wearing so you can still look cool while using items that have the stats you want.
 
 Time of Day Control
 --
