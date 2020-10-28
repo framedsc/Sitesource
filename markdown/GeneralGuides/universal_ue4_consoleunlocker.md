@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.11](https://mega.nz/file/NcoFlCYD#hjjEeExgr3HkEf87M3o5Re6sTJHPVCx9jLWiATyMrMA). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.12](https://mega.nz/file/xEIXCKrQ#zUm-T6qd-ZJ3UTsl0ZOWVSZb1mx7sGWjtchM0461_1w). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -243,7 +243,7 @@ Finding the Soul Orb |
 Freud Gate | 
 Gal Gun 2 | 
 Genesis Alpha One | 
-Ghostrunner | Tested on demo
+Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
 Grand Guilds | 
 Gray Dawn | 
@@ -467,6 +467,11 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.12:
+- **FIXED**: The checks for Engine Version for select v4.25 games failed, this has been corrected. 
+- **CHANGED**: The AOB for the ObjectsStore could fail in some situations, it has been made less strict
+- **ADDED**: The UUU now re-enables the `set` command, which is disabled in every UE4 shipped game. The `set` command allows you to set any property on any object. 
 
 ###v3.0.11:
 - **FIXED**: The Engine Version checks had one wrong address marker for v4.21 like engines which could lead to the wrong version being chosen
