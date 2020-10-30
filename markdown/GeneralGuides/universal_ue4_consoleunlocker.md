@@ -254,6 +254,7 @@ Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hellbound | 
 Hello Guest | Tested on Alpha build.
+Hello Neighbor 2 | 
 Hollow | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
