@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.11](https://mega.nz/file/NcoFlCYD#hjjEeExgr3HkEf87M3o5Re6sTJHPVCx9jLWiATyMrMA). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.12](https://mega.nz/file/xEIXCKrQ#zUm-T6qd-ZJ3UTsl0ZOWVSZb1mx7sGWjtchM0461_1w). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -158,6 +158,7 @@ Ancestors - The Humankind Odyssey |
 Ancient Knowledge | 
 Another Sight Definitive Edition | 
 Apsulov: End of Gods | 
+Aquanox Deep Descent | 
 Arboria | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
@@ -242,7 +243,7 @@ Finding the Soul Orb |
 Freud Gate | 
 Gal Gun 2 | 
 Genesis Alpha One | 
-Ghostrunner | Tested on demo
+Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
 Grand Guilds | 
 Gray Dawn | 
@@ -253,6 +254,7 @@ Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hellbound | 
 Hello Guest | Tested on Alpha build.
+Hello Neighbor 2 | 
 Hollow | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
@@ -278,6 +280,7 @@ Light Tracer 2 |
 The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
+Little Hope | No console, camera only (v3.0.12 or lower)
 Lost Ember | 
 Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
@@ -296,7 +299,6 @@ Morels: The Hunt |
 Morphies Law Remorphed | 
 Mortal Shell | Tested on beta
 MotoGP 19 | 
-Mutant Year Zero: Road to Eden | 
 My Hero One's Justice | 
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
@@ -344,6 +346,7 @@ Relicta |
 Remnant: From the Ashes | 
 Remothered: Broken Porcelain | 
 Remothered: Tormented Fathers |
+Ride 4 | 
 Roboquest | 
 Rock of Ages 3: Make and Break | 
 Ruin 2 | 
@@ -407,7 +410,7 @@ What Happened |
 The Works of Mercy | 
 WWE Battlegrounds | 
 XING The Land Beyond | 
-Xuan-Yuan Sword VII | Tested on demo. Requires UUU 3.0.10+
+Xuan-Yuan Sword VII | 
 ZED | 
 
 Additionally, most [UE4 games on Itch.io](https://itch.io/games/newest/made-with-unreal-engine) are usable with the UUU. 
@@ -465,6 +468,11 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.12:
+- **FIXED**: The checks for Engine Version for select v4.25 games failed, this has been corrected. 
+- **CHANGED**: The AOB for the ObjectsStore could fail in some situations, it has been made less strict
+- **ADDED**: The UUU now re-enables the `set` command, which is disabled in every UE4 shipped game. The `set` command allows you to set any property on any object. 
 
 ###v3.0.11:
 - **FIXED**: The Engine Version checks had one wrong address marker for v4.21 like engines which could lead to the wrong version being chosen
