@@ -66,7 +66,7 @@ For screenshots:
 
 Time of Day Control
 --
-* [CE table](../CheatTables/witcher3.CT)  
+* [CE table](../CheatTables/witcher3.ct)  
 Enable the script. Use the [ ] keys to change the time of day.
 Hold ALT to move the time faster.
 Hold CTRL to move the time slower. 
