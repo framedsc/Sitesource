@@ -249,6 +249,7 @@ Grand Guilds |
 Gray Dawn | 
 GRIP: Combat Racing | 
 Grounded | Tested on demo
+Gu Lady 蛊婆 | 
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
