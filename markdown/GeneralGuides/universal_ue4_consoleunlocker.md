@@ -208,6 +208,7 @@ Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
 Devolverland Expo | 
+Die young | 
 Disaster Report 4: Summer Memories |  Also works with the demo
 Disintegration | 
 Donensbourgh | 
@@ -321,8 +322,9 @@ Paper Dolls Original |
 Paradise Lost | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
-Past Cure | 
 Partisans 1941 | 
+Past Cure | 
+Pathless | No timestop/pause. Use ESC + hud toggle.
 Planet Alpha | 
 The Pit: Infinity | 
 Pluviophile | 
