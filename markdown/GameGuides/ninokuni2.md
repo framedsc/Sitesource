@@ -1,4 +1,4 @@
-![Ni No Kuni: Remastered](Images\nnkrm.png "Shot by Ghostinthecamera"){.shadowed}
+![Ni No Kuni 2](Images\nnk2.png "Shot by Ghostinthecamera"){.shadowed}
 
 ## Summary
 
@@ -15,4 +15,4 @@ DirectX versions | DirectX 11
 ## Tools
 
 * [Camera Tools by ghostinthecamera](https://github.com/ghostinthecamera/IGCS-GITC)  
-**Features**: Camera control, FOV Control, Time Stop, HUD Toggle, Speed multiplier, Slow Motion, 
+**Features**: Camera control, FOV Control, Time Stop, HUD Toggle. 
