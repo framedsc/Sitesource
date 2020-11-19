@@ -5,7 +5,7 @@
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
     "SourceFoldersToCopy" : ["CheatTables", "Images"],
-    "Footer" : "&copy 2019 FRAMED. All rights reserved.",
+    "Footer" : "&copy 2019-2020 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
     "Pages" : 
@@ -17,6 +17,7 @@
 			"A Plague Tale: Innocence" : "GameGuides\\aplaguetale.md",
 			"Abzu" : "GameGuides\\Abzu.md",
 			"Ace Combat 7": "GameGuides\\AceCombat7.md",
+			"Alan Wake": "GameGuides\\Alan_Wake.md",
 			"Alien Isolation": "GameGuides\\alienisolation.md",
             "Ashen": "GameGuides\\ashen.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
@@ -87,6 +88,7 @@
 			"Watch_Dogs 2": "GameGuides\\Watch_Dogs2.md",
 			"What Remains of Edith Finch": "GameGuides\\edithfinch.md",
 			"The Witcher 3: Wild Hunt": "GameGuides\\thewitcher3.md",
+			"Wolfenstein: The New Order": "GameGuides\\wolfenstein_the_new_order.md",
 			"World of Tanks" : "GameGuides\\WorldOfTanks.md",
 			"XCOM 2": "GameGuides\\xcom2.md",
 			"Yakuza 0": "GameGuides\\Yakuza_0.md",
@@ -100,17 +102,23 @@
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
 			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
+			"The Basics of Taking Screenshots": "GeneralGuides\\basics.md",
+			"Advanced" : 
+			{
+				"Using RTTI info in a game exe": "GeneralGuides\\using_rtti.md",
+			},
 		}, 
 		"Reshade guides" :
 		{
 			"__index": "ReshadeGuides\\index.md",
 			"Setting up reshade": "ReshadeGuides\\setupreshade.md",
 			"LUT Generation": "ReshadeGuides\\lutgenguide.md",
+			"Injecting ReShade in UWP games": "ReshadeGuides\\reshadeuwp.md",
 			"Shader guides":
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
 			}
 		},
-		"Cheat Table Archive": "cheattablearchive.md"
+		"Cheat Table Archive": "cheattablearchive.md",
     }
 }

@@ -1,70 +1,86 @@
-![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by Otis_Inf"){.shadowed}
+![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by jim2point0"){.shadowed}
 
 ## Summary
 
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
+Ansel | Yes
 Hotsampling | No
 DSR | Yes
-Custom Aspect Ratios | No
+Custom Aspect Ratios | Yes
 Reshade | Yes
-Ansel | Yes
 DirectX versions | DirectX 11
 
-## Versions
-The latest build of The Witcher 3 is v1.32. However most mods work with v1.31 or v1.31A. Version 1.32 only brings 
-some Chinese translation fixes but no new functionality/fixes however the version number will break a lot of mods.
-It's therefore highly recommended to roll back your game to v1.31A or v1.31. 
+Essential mods
+--
+* Some mods touch the same files. The script merger detects conflicts and allows you to decide which mods have priority over others. It is absolutely essential.
+[https://www.nexusmods.com/witcher3/mods/484](https://www.nexusmods.com/witcher3/mods/484)
 
-On GoG you can do that in the GoG Galaxy client
-by clicking the settings icon on the game's page in your library, then selecting 'Manage installation'->'Configure'. Scrolling down you can select the version you want, which in this case should be 1.31 or 1.31A. You should also disable auto-updates to avoid having to do it all over again later on. 
+* The game keels over if you install too many mods due to a weird internal mod limit. This mod removes that limit: [https://www.nexusmods.com/witcher3/mods/3643](https://www.nexusmods.com/witcher3/mods/3643)
 
-For Steam, please use [the guide to rollback to a previous version of a game on steam](../GeneralGuides/steam_update_guide.htm).
+Mods for Visuals: Jim2point0 Edition
+--
+* [Immersive Lighting (nudel edition)](https://www.nexusmods.com/witcher3/mods/3953)  
+Lighting Mods will probably make the biggest visual difference, but they are very subjective as to what you'll like.
+* [HD Reworked](https://www.nexusmods.com/witcher3/mods/1021/)
+* [Monsters Reworked](https://www.nexusmods.com/witcher3/mods/3580)
+* [Elysium Grass](https://drive.google.com/file/d/1lGsFSyc3_7LitGL3csqk8ZntbAbbLWUb/view)  
+    Make sure your `mod.settings` file has the following
+    ```
+    [mod0Elysium]
+    Enabled=1
+    Priority=0
+    ```
+* [Tweaks](https://www.nexusmods.com/witcher3/mods/2658)  
+    Lets you push the graphics higher than ultra, like grass distance, density, etc.
+    ```
+    Recommended grass settings:
+    Grass density: 6000-8000
+    Grass distance SCale: 2.3
+    Grass Ring Size: 33554432
+    Grass Efficienty: 0.001
+    ```
 
-### Alternative using a mod
-There's also [a mod which can revert the version](https://www.nexusmods.com/witcher3/mods/3374). It might work, it might not work, with all
-mods. The rollback to a previous version through the store clients is a proven method.
+**Extra odds and ends**
 
-## Essential mods and tools
+* Beautiful Rocks: [https://www.nexusmods.com/witcher3/mods/2691](https://www.nexusmods.com/witcher3/mods/2691)  
+* Oaks: [https://www.nexusmods.com/witcher3/mods/3852](https://www.nexusmods.com/witcher3/mods/3852)  
+* Haystacks: [https://www.nexusmods.com/witcher3/mods/1515](https://www.nexusmods.com/witcher3/mods/1515)  
+* Volumetric Clouds Over Skellige: [https://www.nexusmods.com/witcher3/mods/1302](https://www.nexusmods.com/witcher3/mods/1302)  
+* High quality faces: [https://www.nexusmods.com/witcher3/mods/1024](https://www.nexusmods.com/witcher3/mods/1024)  
+* Ciri Eyes: [https://www.nexusmods.com/witcher3/mods/3215](https://www.nexusmods.com/witcher3/mods/3215)  
+* Yen Eyes: [https://www.nexusmods.com/witcher3/mods/2565](https://www.nexusmods.com/witcher3/mods/2565)  
+* Ultimate Clouds: [https://mega.nz/file/yqpziabQ#JwJdR_9ytETCHET3GtpthVgmAcE91X24caugHQHN1GM](https://mega.nz/file/yqpziabQ#JwJdR_9ytETCHET3GtpthVgmAcE91X24caugHQHN1GM)  
+* Ultimate Water: [https://mega.nz/file/CrQC0KLS#lwajFoosXm4Y2yuhG6bvfzevGKf3b0CLG3NTyFLA7W4](https://mega.nz/file/CrQC0KLS#lwajFoosXm4Y2yuhG6bvfzevGKf3b0CLG3NTyFLA7W4)  
 
-* [Debug Console Enabler](https://www.nexusmods.com/witcher3/mods/1555). This mod gives you the free camera using F1 and a console, opened with `~`
- that allows you to specify all kinds of commands. It's highly recommended to use a controller with the free camera offered by this mod, as the camera moves
-way too fast when used with keyboard/mouse.
-* [Photomode2in1](https://www.nexusmods.com/witcher3/mods/190). This mods adds a handy timestop and weather control, as well as other commands that 
-could help you setup the perfect shot.
-* [The Witcher Script Merger](https://www.nexusmods.com/witcher3/mods/484). To work with mods, you will run into conflicts, things that need to be 
-loaded before the other etc. The easiest to solve this is via this tool
-* [Unification patch for 1.32 - 1.31 - 1.31GOTY - 1.31A](https://www.nexusmods.com/witcher3/mods/2134). This mod makes sure other mods work with your
-install no matter the version they were made for.
-* [Merged Free DLC mod limit fix](https://www.nexusmods.com/witcher3/mods/3334). The engine used for The Witcher 3 has a mod limit: if you have more
-mods than the limit, it simply stops loading. While there's no direct fix for this, there's a way to free up a lot of 'slots' by merging all the free DLC mods
-for e.g. Ciri, Triss and Yennefer into a single mod. This mod offers all those DLC files into one single mod.
+    This mod gives you higher resolution water textures and enhanced reflections. 
+    The clouds do come with a performance penalty on some rigs (or so I've heard) so keep that in mind if you have relatively low performance
 
-For more mods, and to completely configure the game to your liking, please visit [The Witcher 3 on Nexus](https://www.nexusmods.com/witcher3). 
+For screenshots:
+--
+* [Freecam & console](https://www.nexusmods.com/witcher3/mods/3574)  
+* [Photomode2inOne](https://www.nexusmods.com/witcher3/mods/190)  
+* [AMM](https://www.nexusmods.com/witcher3/mods/780)    
+    The alternate appearances menu lets you change your appearance (as well as Roach). It will ignore whatever you're wearing so you can still look cool while using items that have the stats you want.
 
-## Tricks and tips 
+Time of Day Control
+--
+* [CE table](../CheatTables/witcher3.ct)  
+Enable the script. Use the [ ] keys to change the time of day.
+Hold ALT to move the time faster.
+Hold CTRL to move the time slower. 
 
-### How to get a high resolution shot
-To get a high resolution shot using a DSR resolution higher than the one you use during normal gameplay, use the following steps:
+    To make the time transition smoother, in Cheat Engine, go to Edit -> settings -> hotkeys  
+    Decrease keypoll interval and delay to 25-50
 
-* Open the console with the `~` key
-* Type `testpause`. This pauses the game.
-* Unpause the game with the Photomode2in1 key (Default is numpad0). This keeps the game paused, but will allow you to access the in-game menus
-* Go into the in-game menu and select a different resolution
-* Setup and create your shot
-* When done, go into the in-game menus again, go back to the resolution you want to play the game in
-* Open the console again with `~` and type `testunpause` to resume gameplay.
+High Resolution Screenshots
+--
+If you freeze the game with Photomode2inOne, you should still be able to access the menu by pressing escape. This will allow you to bump up your resolution with DSR or another means. 
 
-@alert Important
-If you start the free camera with F1 and setup a shot, you won't be able to type commands in the console. so enter `testpause` and `testunpause` before setting up a 
-shot so you can scroll through previous commands with the up arrow in the console.
-@end
+## Tips and Tricks
+* When using the freecam mod, you might notice that trees\bushes behind Geralt will disappear as you fly around. That's because, when you enable the freecamera, those trees exist outside of the current camera frustum. If you want those trees or objects to stick around, you need to trick the game into thinking the camera is looking at those trees. So before you enable the freecam, rotate the in-game camera to look behind Geralt. Then when you enable the camera, those trees/objects will not disappear.
 
-## Helpful cheat tables
-
-* [Time Of Day / Camera position / Unit anim speed control](..\CheatTables\witcher3.ct). This cheat table by Jim2Point0 offers control over time of day by the keyboard, 
-can adjust the camera distance and height and allows you to control speed of animations of NPCs and Geralt. 
 
 ## Useful links
 

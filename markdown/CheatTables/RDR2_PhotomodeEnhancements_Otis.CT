@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>7</ID>
       <Description>"Remove photomode freecam range / rotation limits / black bars (leave enabled!)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -16,7 +16,7 @@
 [ENABLE]
 aobscanmodule(RemovePMCoordRange,RDR2.exe,E8 ?? ?? ?? ?? 45 33 C0 48 8D 55 B0 48 8D 4B 20) // should be unique
 aobscanmodule(RemovePMRotationRange,RDR2.exe,E8 ?? ?? ?? ?? F3 0F 10 4D 30 48 8D 55 F0) // should be unique
-aobscanmodule(RemovePMBlackBars,RDR2.exe, 0F 86 6E 03 00 00)
+aobscanmodule(RemovePMBlackBars,RDR2.exe, 0F 86 ?? ?? 00 00 41 0F 2F F9 0F 92 C0 40 0F 97 C6)
 
 RemovePMCoordRange:
   nop
@@ -33,7 +33,7 @@ RemovePMRotationRange:
   nop
 
 RemovePMBlackBars:
-  db E9 6F 03 00 00 90                         // jmp RDR2.exe+51D290 and a NOP
+  db 90 E9   // nop + jmp. We don't know the offset bytes, and as jbe is 2 bytes and jmp is 1 byte, we first write a nop.
 
 registersymbol(RemovePMCoordRange)
 registersymbol(RemovePMRotationRange)
@@ -47,7 +47,7 @@ RemovePMRotationRange:
   db E8 FC A6 00 00
 
 RemovePMBlackBars:
-  db 0F 86 6E 03 00 00
+  db 0F 86
 
 
 unregistersymbol(RemovePMCoordRange)
@@ -101,7 +101,7 @@ RDR2.exe+11D821 - F3 0F10 55 48         - movss xmm2,[rbp+48]
     <CheatEntry>
       <ID>14</ID>
       <Description>"Override photomode freecam FOV (Toggle: F7. Zoom in: Numpad+ Zoom out: Numpad-)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -206,7 +206,7 @@ RDR2.exe+12A4E9 - C3                    - ret
     <CheatEntry>
       <ID>22</ID>
       <Description>"Weather control (leave enabled)"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -301,8 +301,7 @@ dealloc(newmem)
       <CheatEntries>
         <CheatEntry>
           <ID>23</ID>
-          <Description>"Weather type (0-21: various weather types. -1 (FFFFFFFF): 0ff)"</Description>
-          <ShowAsHex>1</ShowAsHex>
+          <Description>"Weather type (0-21: various weather types. -1 (FFFFFFFF): 0ff)  See list below"</Description>
           <VariableType>4 Bytes</VariableType>
           <Address>weatherAddress</Address>
           <Offsets>
@@ -312,7 +311,7 @@ dealloc(newmem)
         <CheatEntry>
           <ID>55</ID>
           <Description>"Enable weather interpolation"</Description>
-          <LastState/>
+          <LastState Activated="1"/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -400,7 +399,7 @@ dealloc(newmem)
     <CheatEntry>
       <ID>8</ID>
       <Description>"Enable hotsampling. Leave enabled. Use Borderless Windowed in settings"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -412,7 +411,7 @@ dealloc(newmem)
 
 [ENABLE]
 
-aobscanmodule(EnableHotsampling,RDR2.exe,FF 90 10 01 00 00 84 C0 74 05 4D 85 E4) // can match with another block, check if it's the right one!
+aobscanmodule(EnableHotsampling,RDR2.exe,FF 90 ?? 01 00 00 84 C0 74 05 4D 85 E4) // can match with another block, check if it's the right one!
 aobscanmodule(AlwaysResize,RDR2.exe,75 0? 8B 45 ?? 39 05) // should be unique
 aobscanmodule(InterceptPreferredRes, RDR2.exe, 8B 41 20 89 02 8B 41 24 41 89 00 C3)
 alloc(newmem,$1000,"RDR2.exe"+263167B)
@@ -570,42 +569,133 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
-      <ID>57</ID>
-      <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
-      <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4473640</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>60</ID>
-      <Description>"Time of day: Minutes. 0-59. Setting the value outside this range crashes the game"</Description>
-      <VariableType>2 Bytes</VariableType>
-      <Address>RDR2.exe+4473644</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>17</ID>
-      <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
-      <VariableType>Byte</VariableType>
-      <Address>RDR2.exe+583D4F3</Address>
-      <Hotkeys>
-        <Hotkey>
-          <Action>Set Value</Action>
-          <Keys>
-            <Key>17</Key>
-            <Key>96</Key>
-          </Keys>
-          <Value>1</Value>
-          <ID>0</ID>
-        </Hotkey>
-        <Hotkey>
-          <Action>Set Value</Action>
-          <Keys>
-            <Key>18</Key>
-            <Key>96</Key>
-          </Keys>
-          <Value>0</Value>
-          <ID>1</ID>
-        </Hotkey>
-      </Hotkeys>
+      <ID>61</ID>
+      <Description>"Obtain Time of Day/pause addresses (leave enabled)"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$STRICT}
+
+{$lua}
+
+----------------------------------------------------------------------------------------------------
+-- Helper functions. From me (Otis_Inf), SunBeam and others.
+----------------------------------------------------------------------------------------------------
+
+-- nextOpCodeOffset is the # of bytes in the instruction starting from the RIP till the next opcode.
+-- Usually 4, as the RIP value is at the end of the instruction
+function ripToRealAddress(ripStartAddress, nextOpCodeOffset)
+  local ripValue = readInteger(ripStartAddress)
+  return ripStartAddress + nextOpCodeOffset + ripValue
+end
+
+function stopExec( s )
+  error( string.format( "\r\n&gt;&gt; %s &lt;&lt;", s ) )
+end
+
+function aobScanEx( aob )
+  -- thanks panraven for this function!
+  -- https://forum.cheatengine.org/viewtopic.php?t=577536
+  -- simplified for my needs
+  local p, a, n, s, e = nil or '*X*W', nil or fsmNotAligned, nil or '0', getAddress( process ) or 0x0, ( getAddress( process ) + getModuleSize( process ) ) or 0xffffffffffffffff
+  local ms = pb and createMemScan( pb ) or createMemScan()
+  local fl = createFoundList( ms )
+  ms.firstScan( soExactValue, vtByteArray, nil, aob, nil, s, e, p, a, n, true, false, false, false )
+  ms.waitTillDone()
+  fl.initialize()
+  local result = nil
+  if fl ~= nil and fl.getCount() &gt; 0 then
+    result = createStringlist()
+    for i = 1, fl.getCount() do result.add( fl.getAddress( i - 1 ) ) end
+  end
+  fl.destroy()
+  ms.destroy()
+  return result
+end
+
+function string.fromhex( s )
+    return ( s:gsub( '..', function ( cc )
+        return string.char( tonumber( cc, 16 ) )
+    end ) )
+end
+
+function aobScanSmall( aob, s, e )
+  local i = byteTableToString( readBytes( s, e, true ) ):find( string.fromhex( aob ), 1, true )
+  if i == nil then i = 1 end
+  return ( s + i - 1 )
+end
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+function obtainAddresses()
+  unregisterSymbol("g_todMinutes")
+  unregisterSymbol("g_todHours")
+  unregisterSymbol("g_pauseByte")
+  -- see notes
+  -- Time of Day
+  local todCode = aobScanEx("660F6E15????????4533C9660F6E05????????BA70406659")
+  if not todCode or todCode.Count &lt; 1 then stopExec("Time of Day aob not found. The end") end
+  local todCodeAddress = tonumber(todCode[0], 16)
+  local minutesRealAddress = ripToRealAddress(todCodeAddress+4, 4)
+  registerSymbol("g_todMinutes", minutesRealAddress, true)
+  registerSymbol("g_todHours", minutesRealAddress-4, true)
+  -- Pause byte
+  local pauseCode = aobScanEx("8A05????????8805????????0F85????000040383D????????74")
+  if not pauseCode or pauseCode.Count &lt; 1 then stopExec("Pause byte aob not found. The end") end
+  local pauseCodeAddress = tonumber(pauseCode[0], 16) + 0x12   -- the cmp address starts 18 (0x12) bytes further than the aob starts.
+  pauseCodeRealAddress = ripToRealAddress(pauseCodeAddress + 3, 4) + 1 	  -- the value we need is 1 byte further than the address we're reading here
+  registerSymbol("g_pauseByte", pauseCodeRealAddress, true)
+end
+
+[ENABLE]
+return obtainAddresses()
+ 
+ 
+[DISABLE]
+unregisterSymbol("g_todMinutes")
+unregisterSymbol("g_todHours")
+unregisterSymbol("g_pauseByte")
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"Time of day: Hour. 0-23. Setting the value outside this range crashes the game"</Description>
+          <VariableType>2 Bytes</VariableType>
+          <Address>g_todHours</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"Time of day: Minutes. 0-59. Setting the value outside this range crashes the game"</Description>
+          <VariableType>2 Bytes</VariableType>
+          <Address>g_todMinutes</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"Pause game. Ctrl+Numpad0: set to 1 (paused). Alt-Numpad0: set to 0 (unpaused)"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>g_pauseByte</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>96</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>24</ID>
@@ -686,7 +776,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.14. 13-Jul-2020. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
+      <Description>"By Otis_Inf. v0.15. 21-aug-2020. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
@@ -713,7 +803,7 @@ dealloc(newmem)
     </CheatEntry>
     <CheatEntry>
       <ID>25</ID>
-      <Description>"Available weather types:"</Description>
+      <Description>"Available weather types: (in hex values)"</Description>
       <Options moManualExpandCollapse="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
@@ -854,4 +944,48 @@ dealloc(newmem)
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
+  <LuaScript>-- nextOpCodeOffset is the # of bytes in the instruction starting from the RIP till the next opcode.
+-- Usually 4, as the RIP value is at the end of the instruction
+function ripToRealAddress(ripStartAddress, nextOpCodeOffset)
+  local ripValue = readInteger(ripStartAddress)
+  return ripStartAddress + nextOpCodeOffset + ripValue
+end
+
+function stopExec( s )
+  error( string.format( "\r\n&gt;&gt; %s &lt;&lt;", s ) )
+end
+
+function aobScanEx( aob )
+  -- thanks panraven for this function!
+  -- https://forum.cheatengine.org/viewtopic.php?t=577536
+  -- simplified for my needs
+  local p, a, n, s, e = nil or '*X*W', nil or fsmNotAligned, nil or '0', getAddress( process ) or 0x0, ( getAddress( process ) + getModuleSize( process ) ) or 0xffffffffffffffff
+  local ms = pb and createMemScan( pb ) or createMemScan()
+  local fl = createFoundList( ms )
+  ms.firstScan( soExactValue, vtByteArray, nil, aob, nil, s, e, p, a, n, true, false, false, false )
+  ms.waitTillDone()
+  fl.initialize()
+  local result = nil
+  if fl ~= nil and fl.getCount() &gt; 0 then
+    result = createStringlist()
+    for i = 1, fl.getCount() do result.add( fl.getAddress( i - 1 ) ) end
+  end
+  fl.destroy()
+  ms.destroy()
+  return result
+end
+
+  local todCode = aobScanEx("660F6E15????????4533C9660F6E05????????BA70406659")
+  if not todCode or todCode.Count &lt; 1 then stopExec("Time of Day aob not found. The end") end
+  local todCodeAddress = tonumber(todCode[0], 16)
+  local minutesRealAddress = ripToRealAddress(todCodeAddress+4, 4)
+  registerSymbol("g_todMinutes", minutesRealAddress, true)
+  registerSymbol("g_todHours", minutesRealAddress-4, true)
+  -- Pause byte
+  local pauseCode = aobScanEx("8A05????????8805????????0F85????000040383D????????74")
+  if not pauseCode or pauseCode.Count &lt; 1 then stopExec("Pause byte aob not found. The end") end
+  local pauseCodeAddress = tonumber(pauseCode[0], 16) + 0x12   -- the cmp address starts 18 (0x12) bytes further than the aob starts.
+  pauseCodeRealAddress = ripToRealAddress(pauseCodeAddress + 3, 4) + 1 	  -- the value we need is 1 byte further than the address we're reading here
+  registerSymbol("g_pauseByte", pauseCodeRealAddress, true)
+</LuaScript>
 </CheatTable>

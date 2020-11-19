@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9802</ID>
+      <Description>"Enable Coordinates [Num 0]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(pcoords_aob,WolfNewOrder_x64.exe,8B 81 2C 02 00 00 89 81 EC 02 00 00 8B 81 30 02 00 00 89 81 F0 02 00 00 8B 81 34 02 00 00 89 81 F4 02 00 00 8B 81 38 02 00 00 89 81 F8 02 00 00 8B 81 3C 02 00 00 89 81 FC 02 00 00)
+
+
+alloc(newmem,2048,"WolfNewOrder_x64.exe")
+label(returnhere)
+label(originalcode)
+label(exit)
+label(CordPointer)
+registersymbol(CordPointer)
+registersymbol(pcoords_aob)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+mov [CordPointer],rcx
+jmp exit
+
+originalcode:
+mov eax,[rcx+0000022C]
+
+exit:
+jmp returnhere
+
+///
+CordPointer:
+dd 0
+///
+
+//"WolfOldBlood_x64.exe"+244B3C:
+pcoords_aob:
+jmp newmem
+nop
+returnhere:
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+//"WolfOldBlood_x64.exe"+244B3C:
+pcoords_aob:
+mov eax,[rcx+0000022C]
+unregistersymbol(CordPointer)
+unregistersymbol(pcoords_aob)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8976</ID>
+          <Description>"X"</Description>
+          <VariableType>Float</VariableType>
+          <Address>CordPointer</Address>
+          <Offsets>
+            <Offset>228</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>12</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>12</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>18</Key>
+                <Key>98</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8977</ID>
+          <Description>"Y"</Description>
+          <VariableType>Float</VariableType>
+          <Address>CordPointer</Address>
+          <Offsets>
+            <Offset>224</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>12</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>12</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9798</ID>
+          <Description>"Z"</Description>
+          <VariableType>Float</VariableType>
+          <Address>CordPointer</Address>
+          <Offsets>
+            <Offset>22C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>12</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>12</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>18</Key>
+                <Key>99</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>517</ID>
+      <Description>"Kill Gravity [Num 0]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(gravity_aob,WolfNewOrder_x64.exe,F3 0F 11 87 2C 02 00 00 40 38 B7)
+registersymbol(gravity_aob)
+
+gravity_aob:
+db 90 90 90 90 90 90 90 90
+
+ 
+ 
+[DISABLE]
+gravity_aob:
+movss [rdi+0000022C],xmm0
+unregistersymbol(gravity_aob)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9809</ID>
+      <Description>"Tilt [Num .]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(tildMod_aob,WolfNewOrder_x64.exe,39 9F E0 22 00 00 0F 95 C3 0F B6 C3 48 8B 5C 24 30)
+aobscanmodule(tilt_aob,WolfNewOrder_x64.exe,89 87 40 23 00 00 48 8B 0D 91 13 46 01 48 8B 01 FF 90 90 01 00 00 48 8D 8F 40 23 00 00)
+
+alloc(newmem,2048,"WolfNewOrder_x64.exe")
+label(returnhere)
+label(exit)
+
+label(tiltPointer)
+registersymbol(tiltPointer)
+label(tiltMod)
+registersymbol(tiltMod)
+
+registersymbol(tilt_aob)
+registersymbol(tildMod_aob)
+
+
+newmem:
+mov [tiltPointer],rdi
+push r15
+mov [tiltMod],1
+mov r15,[tiltMod]
+mov [rdi+000022E0],r15
+pop r15
+cmp [rdi+000022E0],ebx
+jmp exit
+
+exit:
+jmp returnhere
+
+///
+tiltPointer:
+dq 0
+tiltMod:
+dd 0
+///
+
+tildMod_aob:
+jmp newmem
+nop
+returnhere:
+
+tilt_aob:
+db 90 90 90 90 90 90
+
+[DISABLE]
+dealloc(newmem)
+tildMod_aob:
+cmp [rdi+000022E0],ebx
+
+tilt_aob:
+mov [rdi+00002340],eax
+
+unregistersymbol(tiltPointer)
+unregistersymbol(tiltMod)
+unregistersymbol(tilt_aob)
+unregistersymbol(tildMod_aob)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>110</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9812</ID>
+          <Description>"1"</Description>
+          <VariableType>Float</VariableType>
+          <Address>tiltPointer</Address>
+          <Offsets>
+            <Offset>2340</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>90</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>222</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>191</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>222</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>191</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9813</ID>
+          <Description>"2"</Description>
+          <VariableType>Float</VariableType>
+          <Address>tiltPointer</Address>
+          <Offsets>
+            <Offset>2344</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>222</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>191</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>222</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>191</Key>
+              </Keys>
+              <Value>5</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>186</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>187</Key>
+              </Keys>
+              <Value>90</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"Unlimited Health"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(health,WolfNewOrder_x64.exe,F3 0F 10 0F F3 0F 10 43 08)
+health:
+  db 0F 57 C9 90
+registersymbol(health)
+
+[DISABLE]
+health:
+  db F3 0F 10 0F
+unregistersymbol(health)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Patch the ConsoleKey to Tilde (~)"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+WolfNewOrder_x64.exe+14F17E:
+cmove esi,ecx
+
+[DISABLE]
+
+WolfNewOrder_x64.exe+14F17E:
+cmovne esi,ecx
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"Unrestrict CVars"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">define( TestCVarFlag, WolfNewOrder_x64.exe+9DD8B5 )
+registersymbol( TestCVarFlag )
+
+[ENABLE]
+
+alloc( Hook, 0x1000, WolfNewOrder_x64.exe )
+label( TestCVarFlag_o )
+registersymbol( TestCVarFlag_o )
+label( back )
+
+Hook:
+mov eax,[rbx+48]
+test al,10                     // cannot be set in retail?
+jne short @f
+  mov byte ptr [rbx+48],11
+@@:
+test eax,10000                 // archived in production mode?
+je short @f
+  mov byte ptr [rbx+4A],2
+TestCVarFlag_o:
+readmem( TestCVarFlag, 7 )
+jmp back
+
+// tests first CVar flag
+TestCVarFlag:
+jmp Hook
+db 90 90
+back:
+
+/*
+WolfNewOrder_x64.exe+9DD8B5 - 8B 43 48              - mov eax,[rbx+48]
+WolfNewOrder_x64.exe+9DD8B8 - 0FBA E0 0E            - bt eax,0E
+*/
+
+[DISABLE]
+
+TestCVarFlag:
+readmem( TestCVarFlag_o, 7 )
+
+unregistersymbol( TestCVarFlag_o )
+dealloc( Hook )
+unregistersymbol( TestCVarFlag )
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>22</ID>
+      <Description>"Enable 'god', 'noclip', 'notarget' console commands"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript Async="1">[ENABLE]
+
+{$lua}
+
+if not syntaxcheck then
+  showMessage( "Remember where you got this from!" )
+end
+
+{$asm}
+
+alloc( AddCommandThread, 0x1000, WolfNewOrder_x64.exe )
+registersymbol( AddCommandThread )
+CreateThread( AddCommandThread )
+
+label( sz_godCommand )
+label( sz_godDescription )
+label( dq_godFunction )
+label( sz_noclipCommand )
+label( sz_noclipDescription )
+label( dq_noclipFunction )
+label( sz_notargetCommand )
+label( sz_notargetDescription )
+label( dq_notargetFunction )
+
+label( god_exec )
+registersymbol( god_exec )
+label( noclip_exec )
+registersymbol( noclip_exec )
+label( notarget_exec )
+registersymbol( notarget_exec )
+
+label( sz_On )
+label( sz_Off )
+label( sz_godString )
+label( sz_noclipString )
+label( sz_One )
+label( sz_notargetString )
+
+label( @L00000001 )
+label( @L00000002 )
+label( @L00000003 )
+label( @L00000004 )
+label( @L00000005 )
+label( @L00000006 )
+label( @L00000007 )
+label( @L00000008 )
+
+AddCommandThread:
+sub rsp,38
+mov dword ptr [rsp+28],200000
+mov [rsp+20],0
+lea r9,[sz_godDescription]                          // "enables god mode"
+mov r8,[dq_godFunction]                             // god function
+lea rdx,[sz_godCommand]                             // "god"
+mov rcx,[WolfNewOrder_x64.exe+15BA108]              // cmdSystem
+mov rax,[rcx]
+call qword ptr [rax+18]                             // cmdSystem-&gt;AddCommand
+mov dword ptr [rsp+28],200000
+mov [rsp+20],0
+lea r9,[sz_noclipDescription]                       // "disables collision detection for the player"
+mov r8,[dq_noclipFunction]                          // noclip function
+lea rdx,[sz_noclipCommand]                          // "noclip"
+mov rcx,[WolfNewOrder_x64.exe+15BA108]              // cmdSystem
+mov rax,[rcx]
+call qword ptr [rax+18]                             // cmdSystem-&gt;AddCommand
+mov dword ptr [rsp+28],200000
+mov [rsp+20],0
+lea r9,[sz_notargetDescription]                     // "disables the player as a target"
+mov r8,[dq_notargetFunction]                        // notarget function
+lea rdx,[sz_notargetCommand]                        // "notarget"
+mov rcx,[WolfNewOrder_x64.exe+15BA108]              // cmdSystem
+mov rax,[rcx]
+call qword ptr [rax+18]                             // cmdSystem-&gt;AddCommand
+add rsp,38
+ret
+
+align 10 CC
+
+god_exec:
+
+    push rbx
+    sub rsp,20
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	call WolfNewOrder_x64.exe+851620                // GetPlayer
+	mov rbx,rax
+	test rax,rax
+	je short @L00000003
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	mov rdx,rax
+	call WolfNewOrder_x64.exe+852530                // "you must be alive to use this command"
+	test al,al
+	je short @L00000003
+	test byte ptr [rbx+00004318],2
+	je short @L00000001
+    cmp dword ptr [WolfNewOrder_x64.exe+1DB03C8],0  // g_permaGodMode CVar
+	jne short @L00000001
+	xor eax,eax
+	jmp short @L00000002
+
+@L00000001:
+	mov al,1
+
+@L00000002:
+	and byte ptr [rbx+00004318],FD
+	and al,01
+	add al,al
+	or [rbx+00004318],al
+    mov r8d,[rbx+8]                                 // player_id
+	lea rax,[sz_On]                                 // "ON"
+	lea rdx,[sz_Off]                                // "OFF"
+	test byte ptr [rbx+00004318],2
+	cmovne rdx,rax
+	lea rcx,[sz_godString]                          // "godmode %s for player %d\n"
+	add rsp,20
+	pop rbx
+	jmp WolfNewOrder_x64.exe+9CA710
+
+@L00000003:
+    add rsp,20
+    pop rbx
+    ret
+
+align 10 CC
+
+noclip_exec:
+
+	mov [rsp+08],rbx
+	push rdi
+	sub rsp,20
+	mov rdi,rcx
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	call WolfNewOrder_x64.exe+851620                // GetPlayer
+	mov rbx,rax
+	test rax,rax
+	je @L00000007
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	mov rdx,rax
+	call WolfNewOrder_x64.exe+852530                // "you must be alive to use this command"
+	test al,al
+	je short @L00000007
+	cmp dword ptr [rdi],2
+	jne short @L00000004
+    mov rcx,[rdi+10]
+    lea rdx,[sz_One]                                // "1"
+	call WolfNewOrder_x64.exe
+	test eax,eax
+	jmp short @L00000005
+
+@L00000004:
+	mov rcx,rbx
+	call WolfNewOrder_x64.exe+747F60
+	test al,al
+
+@L00000005:
+	sete dl
+	mov rcx,rbx
+	call WolfNewOrder_x64.exe+557DB0
+    mov rcx,[rbx+00000210]
+    test rcx,rcx
+	jne short @L00000006
+    xor eax,eax
+    jmp short @L00000007
+
+@L00000006:
+    mov rax,[rcx]
+    call qword ptr [rax+D0]
+   	test byte ptr [rax+000109A4],4
+	mov r8d,[rbx+8]                                 // player_id
+	lea rax,[sz_On]                                 // "ON"
+	lea rdx,[sz_Off]                                // "OFF"
+	lea rcx,[sz_noclipString]                       // "noclip %s for player %d\n"
+	cmovne rdx,rax
+	call WolfNewOrder_x64.exe+9CA710
+
+@L00000007:
+    mov rbx,[rsp+30]
+    add rsp,20
+    pop rdi
+    ret
+
+align 10 CC
+
+notarget_exec:
+
+    push rdi
+    sub rsp,20
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	call WolfNewOrder_x64.exe+851620                // GetPlayer
+    mov rdi,rax
+    test rax,rax
+	je short @L00000008
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	mov rdx,rax
+	call WolfNewOrder_x64.exe+852530                // "you must be alive to use this command"
+	test al,al
+	je short @L00000008
+    movzx eax,byte ptr [rdi+00004318]
+    movzx ecx,al
+    shr cl,2
+    not cl
+    shl cl,2
+    xor cl,al
+    and cl,10
+    xor cl,al
+	mov byte ptr [rdi+0x4318],cl
+    mov r8d,[rbx+8]                                 // player_id
+	lea rax,[sz_On]                                 // "ON"
+	lea rdx,[sz_Off]                                // "OFF"
+	test byte ptr [rdi+00004318],10
+	cmovne rdx,rax
+	lea rcx,[sz_notargetString]                     // "notarget %s for player %d\n"
+	add rsp,20
+	pop rbx
+	jmp WolfNewOrder_x64.exe+9CA710
+
+@L00000008:
+	add rsp, 0x20
+	pop rdi
+	ret
+
+align 10 CC
+
+sz_On:
+db 'ON',0
+sz_Off:
+db 'OFF',0
+sz_godCommand:
+db 'god',0
+sz_godDescription:
+db 'enables god mode',0
+sz_godString:
+db 'godmode %s for player %d',0A,0
+dq_godFunction:
+dq god_exec
+sz_noclipCommand:
+db 'noclip',0
+sz_noclipDescription:
+db 'disables collision detection for the player',0
+sz_noclipString:
+db 'noclip %s for player %d',0A,0
+dq_noclipFunction:
+dq noclip_exec
+sz_One:
+db '1',0
+sz_notargetCommand:
+db 'notarget',0
+sz_notargetDescription:
+db 'disables the player as a target',0
+sz_notargetString:
+db 'notarget %s for player %d',0A,0
+dq_notargetFunction:
+dq notarget_exec
+
+[DISABLE]
+
+unregistersymbol( notarget_exec )
+unregistersymbol( noclip_exec )
+unregistersymbol( god_exec )
+unregistersymbol( AddCommandThread )
+dealloc( AddCommandThread )
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>23</ID>
+      <Description>"[ Debug ]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"if this is 1, then input is disabled at [2]"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>00007FF754CE1360+400</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"[2] (if 1, you get access to console input; if 0, then you have access to game input)"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>7FF75538E291</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"activateConsole 0.5 float"</Description>
+          <VariableType>Float</VariableType>
+          <Address>7FF7552E97D0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"to get console to show, 1 at first address and 0.5 at second and it shows; to kill it, 0/0"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9814</ID>
+          <Description>"No description"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>7FF7552F4DDD</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"No description"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>7FF7552F4E5D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"No description"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>7FF754CE1108</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"g_infiniteAmmo"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>4 Bytes</VariableType>
+          <Address>WolfNewOrder_x64.exe+1DBF390+48</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"g_permaInfiniteAmmo"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>4 Bytes</VariableType>
+          <Address>WolfNewOrder_x64.exe+1DBF410+48</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"g_permaGodMode"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>4 Bytes</VariableType>
+          <Address>WolfNewOrder_x64.exe+1DB03A0+48</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"god_bool"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>D08B6700+4318</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>19</ID>
+          <Description>"noclip_bool"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>D08EF020+109A4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"godmode_alloc"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+alloc( _godmode, 0x1000, WolfNewOrder_x64.exe )
+registersymbol( _godmode )
+
+label( szOn )
+label( szOff )
+label( szString )
+
+label( @L00000001 )
+label( @L00000002 )
+label( @L00000003 )
+
+_godmode:
+
+    push rbx
+    sub rsp,20
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	call WolfNewOrder_x64.exe+851620                // GetPlayer
+	mov rbx,rax
+	test rax,rax
+	je short @L00000003
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	mov rdx,rax
+	call WolfNewOrder_x64.exe+852530                // "you must be alive to use this command"
+	test al,al
+	je short @L00000003
+	test byte ptr [rbx+00004318],2
+	je short @L00000001
+    cmp dword ptr [WolfNewOrder_x64.exe+1DB03C8],0  // g_permaGodMode CVar
+	jne short @L00000001
+	xor eax,eax
+	jmp short @L00000002
+
+@L00000001:
+	mov al,1
+
+@L00000002:
+	and byte ptr [rbx+00004318],FD
+	and al,01
+	add al,al
+	or [rbx+00004318],al
+    mov r8d,[rbx+8]                                 // player_id
+	lea rax,[szOn]                                  // "ON"
+	lea rdx,[szOff]                                 // "OFF"
+	test byte ptr [rbx+00004318],2
+	cmovne rdx,rax
+	lea rcx,[szString]                              // "godmode %s for player %d\n"
+	add rsp,20
+	pop rbx
+	jmp WolfNewOrder_x64.exe+9CA710
+
+@L00000003:
+    add rsp,20
+    pop rbx
+    ret
+
+szOn:
+db 'ON',0
+szOff:
+db 'OFF',0
+szString:
+db 'godmode %s for player %d',0A,0
+
+[DISABLE]
+
+unregistersymbol( _godmode )
+dealloc( _godmode )
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"noclip_alloc"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+alloc( _noclip, 0x1000, WolfNewOrder_x64.exe )
+registersymbol( _noclip )
+
+label( szOn )
+label( szOff )
+label( szString )
+label( szOne )
+
+label( @L00000001 )
+label( @L00000002 )
+label( @L00000003 )
+label( @L00000004 )
+
+_noclip:
+
+	mov [rsp+08],rbx
+	push rdi
+	sub rsp,20
+	mov rdi,rcx
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	call WolfNewOrder_x64.exe+851620                // GetPlayer
+	mov rbx,rax
+	test rax,rax
+	je @L00000004
+	mov rcx,[WolfNewOrder_x64.exe+1DA60E0]          // p
+	mov rdx,rax
+	call WolfNewOrder_x64.exe+852530                // "you must be alive to use this command"
+	test al,al
+	je short @L00000004
+	cmp dword ptr [rdi],2
+	jne short @L00000001
+    mov rcx,[rdi+10]
+    lea rdx,[szOne]                                 // "1"
+	call WolfNewOrder_x64.exe
+	test eax,eax
+	jmp short @L00000002
+
+@L00000001:
+	mov rcx,rbx
+	call WolfNewOrder_x64.exe+747F60
+	test al,al
+
+@L00000002:
+	sete dl
+	mov rcx,rbx
+	call WolfNewOrder_x64.exe+557DB0
+    mov rcx,[rbx+00000210]
+    test rcx,rcx
+	jne short @L00000003
+    xor eax,eax
+    jmp short @L00000004
+
+@L00000003:
+    mov rax,[rcx]
+    call qword ptr [rax+D0]
+   	test byte ptr [rax+000109A4],4
+	mov r8d,[rbx+8]                                 // player_id
+	lea rax,[szOn]                                  // "ON"
+	lea rdx,[szOff]                                 // "OFF"
+	lea rcx,[szString]                              // "noclip %s for player %d\n"
+	cmovne rdx,rax
+	call WolfNewOrder_x64.exe+9CA710
+
+@L00000004:
+    mov rbx,[rsp+30]
+    add rsp,20
+    pop rdi
+    ret
+
+szOn:
+db 'ON',0
+szOff:
+db 'OFF',0
+szString:
+db 'noclip %s for player %d',0A,0
+szOne:
+db '1',0
+
+[DISABLE]
+
+unregistersymbol( _noclip )
+dealloc( _noclip )
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
