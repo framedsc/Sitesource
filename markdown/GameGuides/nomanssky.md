@@ -15,8 +15,8 @@ Compatible with | Current (VISIONS 1.77)
 
 ## Tools
 
-* [CE Table by ghostinthecamera](..\CheatTables\NMSv2.12.177.ct)  
-**Features**: FoV limit removal
+* [CE Table by ghostinthecamera](..\CheatTables\GITC_NMS Origins_FoV.Range Remover.v2.CT)  
+**Features**: FoV limit removal + photomode range removal  
 
 ## Useful links
 

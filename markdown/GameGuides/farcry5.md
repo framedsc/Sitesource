@@ -22,9 +22,8 @@ select whatever resolution you want in SRWE without the game forcing the window 
 
 To create shots in this game, use the in-game photomode together with the cheat table below.
 
-* [CE Table by GhostIntheCamera and Otis_Inf](..\CheatTables\FC5.ct)  
-**Features**: range limit removal and FoV range removal in photomode, and hotsampling enable through SRWE without
-the requirement of window borders.
+* [CE Table by GhostIntheCamera and Otis_Inf](..\CheatTables\FarCry5_v5.CT)  
+**Features**: range limit removal and FoV range removal in photomode.
 
 ## Useful links
 

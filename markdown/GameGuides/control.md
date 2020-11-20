@@ -18,9 +18,13 @@ To use a DSR resolution, set your desktop resolution to it first, then you shoul
 
 ## Tools
 
-* **Cheat Engine Table by Otis_Inf & HattiWatti**  
+* **Cheat Engine Table by Otis_Inf & HattiWatti**  - Not working with current version of game  
 [DX12 Cheat Table](..\CheatTables\Control_DX12_Otis.CT)  
 **Features**: Debug Camera, FOV, Time stop, Hotsampling, Hud Toggle, Render Toggles
+
+* **Cheat Engine Table by Otis_Inf & HattiWatti**  
+[DX12 Hotsampling Script](..\CheatTables\Control_DX12_Hotsampling.CT)  
+**Features**: Hotsampling
 
 ## Using The CE Table 
 
