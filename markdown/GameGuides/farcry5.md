@@ -5,18 +5,12 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes, see below
+Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes in Windowed Mode
 Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11
-
-@alert Info
-Hotsampling works, however the cheat table is required to get rid of the window border/header. Run the game
-in windowed mode, enable the 'Enable hotsampling through SRWE' script in the cheat table and you can then 
-select whatever resolution you want in SRWE without the game forcing the window border back on the window.
-@end
  
 ## Tools
 
