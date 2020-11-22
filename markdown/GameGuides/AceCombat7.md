@@ -7,7 +7,7 @@ Feature | Supported
 Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes - See Tips
-Custom Aspect Ratios | Not Tested
+Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11

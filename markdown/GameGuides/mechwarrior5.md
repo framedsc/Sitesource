@@ -1,16 +1,16 @@
-![MechWarrior 5](Images\mw5.png "Shot by Ghostinthecamera"){.shadowed}
+![MechWarrior 5](Images\mw5.png "Shot by ghostinthecamera"){.shadowed}
 
 ## Summary
 
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | No
+Hotsampling | Yes
 DSR | Yes
-Custom Aspect Ratios | No
+Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+DirectX versions | DirectX 12
  
 ## Tools
 
