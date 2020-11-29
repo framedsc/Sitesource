@@ -14,7 +14,7 @@ Rendering API | DX9
 
 Getting Started: Ini Edits
 ==========================================================
-Go to your `Documents/My Games/UnrealEngine4/RememberMeGame` folder and open the ExampleInput.ini (yes it really is "ExampleInput"). 
+Go to your `Documents/My Games/UnrealEngine3/RememberMeGame` folder and open the ExampleInput.ini (yes it really is "ExampleInput"). 
 
 Under [Engine.PlayerInput] add:
 ```

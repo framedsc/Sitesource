@@ -7,11 +7,10 @@ Feature | Supported
 Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes - See Tips
-Custom Aspect Ratios | Not Tested
+Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11
-Compatible with | Current (1.02)
 
 ## Tips
 
@@ -42,32 +41,6 @@ This may make action shots a little more difficult due to the delay between pres
 
 You can have the 3dmigoto HUD toggle installed and use the tools built in HUD toggle. They do not prevent each others functioning.
 @end
-
-
-Key/button | Description
---|--
-Ctrl-Ins | Show / Hide Camera tools main window
-Ctrl + Mouse wheel | Resize font
-Ins | Enable/Disable camera
-DEL | Toggle HUD
-HOME | Lock/unlock camera movement
-PG UP | Skip forward specified time in milliseconds when the game is paused
-TAB | 3dmigoto HUD toggle
-ALT + rotate/move | Faster rotate / move
-Right-CTRL + rotate/move | Slower rotate / move
-Controller Y-button + l/r-stick | Faster rotate / move
-Controller X-button + l/r-stick | Slower rotate / move
-Arrow up/down or mouse or r-stick | Rotate camera up/down
-Arrow left/right or mouse or r-stick | Rotate camera left/right
-Numpad 8/Numpad 5 or l-stick | Move camera forward/backward
-Numpad 4/Numpad 6 or l-stick | Move camera left / right
-Numpad 7/Numpad 9 or l/r-trigger | Move camera up / down
-Numpad 1/Numpad 3 or d-pad left/right | Tilt camera left / right
-Numpad +/- or d-pad up/down | Increase / decrease FoV
-Numpad * or controller B-button | Reset FoV
-Numpad . | Block input to game for camera control device.
-Numpad 0 | Toggle game pause
-
 
 ## Useful links
 

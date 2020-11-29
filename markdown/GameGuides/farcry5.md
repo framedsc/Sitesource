@@ -5,26 +5,19 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes, see below
+Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes in Windowed Mode
 Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11
-
-@alert Info
-Hotsampling works, however the cheat table is required to get rid of the window border/header. Run the game
-in windowed mode, enable the 'Enable hotsampling through SRWE' script in the cheat table and you can then 
-select whatever resolution you want in SRWE without the game forcing the window border back on the window.
-@end
  
 ## Tools
 
 To create shots in this game, use the in-game photomode together with the cheat table below.
 
-* [CE Table by GhostIntheCamera and Otis_Inf](..\CheatTables\FC5.ct)  
-**Features**: range limit removal and FoV range removal in photomode, and hotsampling enable through SRWE without
-the requirement of window borders.
+* [CE Table by GhostIntheCamera and Otis_Inf](..\CheatTables\FarCry5_v5.CT)  
+**Features**: range limit removal and FoV range removal in photomode.
 
 ## Useful links
 

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"Remove FoV + Range Limit (INS)"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(_FOVLimit,NMS.exe,66 0F 6E 47 x 4C 8D 4C 24 x) // Scan for FoV write
+aobscanmodule(_rangeUnlock,NMS.exe,74 x f3 0f 10 05 x x x x eb x f3 0f 10 05 x x x x f3 0f 5c) //scan for limit checks
+registersymbol(_FOVLimit)
+registersymbol(_rangeUnlock)
+
+alloc(fovlimit,$1000,"NMS.exe"+AEAA26)
+label(fovlimitreturn)
+//
+alloc(hookreturn,5) //Allocate memory to store the AOBScan result so we can restore previous bytes with wildcards
+registersymbol(hookreturn)
+//
+label(fovbase)
+registersymbol(fovbase)
+//
+alloc(OGvalue,4) // Allocate memory (4 bytes) for the Minimum FoV value
+registersymbol(OGvalue) // Register symbol so we can reference in CE
+//
+alloc(OGfovstep,4) // Allocate memory (4 bytes) for the Minimum FoV value
+registersymbol(OGfovstep) // Register symbol so we can reference in
+//
+alloc(rangecode1,8)
+registersymbol(rangecode1)
+//
+alloc(rangecode2,8)
+registersymbol(rangecode2)
+
+
+fovlimit:
+  movss xmm2,[rdi+74] //Opcode that moves current FoV into memory for other operations
+  mov [fovbase],rdi // Copy FoV base address
+  mov [rdi+68],(int)1 // Write 1 into FoV lower limit
+
+  push rax
+  mov eax,[OGfovstep]
+  mov [rdi+70],eax // Make FoV change in steps of 1 instead of 2
+  pop rax
+
+  jmp fovlimitreturn //jump back into game code
+
+//////////
+fovbase:
+dq 0
+//
+OGvalue:
+db (int)50
+//
+hookreturn: //read first 5 bytes from AOB scan into hookreturn. First 5 as the code we want to put back is 5 bytes long
+readmem(_FOVLimit,5)
+//
+OGfovstep:
+db (int)1
+//
+rangecode1:
+readmem(_rangeUnlock+2,8)
+
+rangecode2:
+readmem(_rangeUnlock+C,8)
+
+_FOVLimit:
+  jmp fovlimit
+  fovlimitreturn:
+
+_rangeUnlock+2:
+db 90 90 90 90 90 90 90 90
+
+_rangeUnlock+C:
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+//return bytes to the way they were
+_FOVLimit:
+readmem(hookreturn,5)
+
+//return minimum FoV to what it was
+[fovbase]+68:
+readmem(OGvalue,4)
+
+[fovbase]+70:
+db (int)2
+
+_rangeUnlock+2:
+readmem(rangecode1,8)
+
+_rangeUnlock+C:
+readmem(rangecode2,8)
+
+//NMS.exe+975969:
+//db F3 0F 10 05 83 C5 F1 01
+
+//NMS.exe+975973:
+//db F3 0F 10 05 75 C5 F1 01
+
+
+unregistersymbol(fovminaddress)
+unregistersymbol(OGvalue)
+unregistersymbol(fovbase)
+unregistersymbol(_FOVLimit)
+unregistersymbol(OGfovstep)
+unregistersymbol(_rangeUnlock)
+unregistersymbol(rangecode2)
+unregistersymbol(rangecode1)
+dealloc(rangecode2)
+dealloc(rangecode1)
+dealloc(OGvalue)
+dealloc(hookreturn)
+dealloc(fovlimit)
+dealloc(OGfovstep)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: "NMS.exe"+B45D7E
+
+"NMS.exe"+B45D54: 48 89 5C 24 48           -  mov [rsp+48],rbx
+"NMS.exe"+B45D59: 83 EA 01                 -  sub edx,01
+"NMS.exe"+B45D5C: 0F 84 D2 01 00 00        -  je NMS.exe+B45F34
+"NMS.exe"+B45D62: 0F 29 74 24 20           -  movaps [rsp+20],xmm6
+"NMS.exe"+B45D67: 83 EA 01                 -  sub edx,01
+"NMS.exe"+B45D6A: 0F 84 A7 00 00 00        -  je NMS.exe+B45E17
+"NMS.exe"+B45D70: 83 EA 01                 -  sub edx,01
+"NMS.exe"+B45D73: 74 46                    -  je NMS.exe+B45DBB
+"NMS.exe"+B45D75: 83 FA 01                 -  cmp edx,01
+"NMS.exe"+B45D78: 0F 85 A6 01 00 00        -  jne NMS.exe+B45F24
+// ---------- INJECTING HERE ----------
+"NMS.exe"+B45D7E: F3 0F 10 51 74           -  movss xmm2,[rcx+74]
+// ---------- DONE INJECTING  ----------
+"NMS.exe"+B45D83: 4C 8D 4C 24 40           -  lea r9,[rsp+40]
+"NMS.exe"+B45D88: 0F 5A D2                 -  vcvtps2pd xmm2,xmm2
+"NMS.exe"+B45D8B: 48 8D 15 A6 28 2D 01     -  lea rdx,[NMS.exe+1E18638]
+"NMS.exe"+B45D92: 66 C7 44 24 40 C2 B0     -  mov word ptr [rsp+40],B0C2
+"NMS.exe"+B45D99: 48 8B CF                 -  mov rcx,rdi
+"NMS.exe"+B45D9C: C6 44 24 42 00           -  mov byte ptr [rsp+42],00
+"NMS.exe"+B45DA1: 66 49 0F 7E D0           -  movq r8,xmm2
+"NMS.exe"+B45DA6: E8 F5 A2 AF FF           -  call NMS.exe+6400A0
+"NMS.exe"+B45DAB: 0F 28 74 24 20           -  movaps xmm6,[rsp+20]
+"NMS.exe"+B45DB0: 48 8B 5C 24 48           -  mov rbx,[rsp+48]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>45</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>29</ID>
+          <Description>"CurrentFoV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>fovbase</Address>
+          <Offsets>
+            <Offset>74</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"LowerLimitFoV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>fovbase</Address>
+          <Offsets>
+            <Offset>68</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"FoV Step"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>fovbase</Address>
+          <Offsets>
+            <Offset>70</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>36</ID>
+      <Description>"Pointers"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"Range Limit 1 OpCode"</Description>
+          <LastState Value="F3 0F 10 05 83 C5 F1 01" RealAddress="7FF648A7100D"/>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>8</ByteLength>
+          <Address>rangecode1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Range Limit 2 OpCode"</Description>
+          <LastState Value="F3 0F 10 05 75 C5 F1 01" RealAddress="7FF648A71015"/>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Array of byte</VariableType>
+          <ByteLength>8</ByteLength>
+          <Address>rangecode2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"No description"</Description>
+          <LastState Value="0000000000000000" RealAddress="7FF648A7002F"/>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>8 Bytes</VariableType>
+          <Address>fovbase</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Change of subss xmm7,xmm0</Description>
+      <AddressString>NMS.exe+9699DA</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>12</Byte>
+        <Byte>65</Byte>
+        <Byte>EF</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F8</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>FC</Byte>
+        <Byte>76</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss xmm0,[NMS.AmdPowerXpressRequestHighPerformance+2C18]</Description>
+      <AddressString>NMS.exe+9699D2</AddressString>
+      <Before>
+        <Byte>65</Byte>
+        <Byte>EF</Byte>
+        <Byte>01</Byte>
+        <Byte>EB</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>12</Byte>
+        <Byte>65</Byte>
+        <Byte>EF</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F8</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rsi+000006F4],xmm0</Description>
+      <AddressString>NMS.exe+3292CC</AddressString>
+      <Before>
+        <Byte>86</Byte>
+        <Byte>E8</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>86</Byte>
+        <Byte>F4</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>0D</Byte>
+        <Byte>B5</Byte>
+        <Byte>42</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rsi+000006F0],ecx</Description>
+      <AddressString>NMS.exe+32933B</AddressString>
+      <Before>
+        <Byte>88</Byte>
+        <Byte>B0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>8E</Byte>
+        <Byte>F0</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>0D</Byte>
+        <Byte>48</Byte>
+        <Byte>42</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of divss xmm6,[NMS.exe+2CBF548]</Description>
+      <AddressString>NMS.exe+B4813E</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>7F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5E</Byte>
+        <Byte>35</Byte>
+        <Byte>02</Byte>
+        <Byte>74</Byte>
+        <Byte>17</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>F5</Byte>
+        <Byte>F5</Byte>
+        <Byte>7A</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss xmm0,[NMS.AmdPowerXpressRequestHighPerformance+2C20]</Description>
+      <AddressString>NMS.exe+975969</AddressString>
+      <Before>
+        <Byte>C4</Byte>
+        <Byte>84</Byte>
+        <Byte>DB</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>83</Byte>
+        <Byte>C5</Byte>
+        <Byte>F1</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>08</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss xmm0,[NMS.AmdPowerXpressRequestHighPerformance+2C1C]</Description>
+      <AddressString>NMS.exe+975973</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>EB</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>05</Byte>
+        <Byte>75</Byte>
+        <Byte>C5</Byte>
+        <Byte>F1</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F0</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
