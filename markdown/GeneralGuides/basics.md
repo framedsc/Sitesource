@@ -52,6 +52,7 @@ Ins | Hide/show the Ansel GUI
  
 ### Limitations
 It's often overlook since it comes with some limitations:
+
 - You can't use ReShade with Ansel enabled, instead you have to use the Nvidia alternative [Freestyle](https://www.geforce.com/es_ES/gfecnt/whats-new/articles/nvidia-freestyle-ansel-enhancements-geforce-experience-article) (which works with most reshade shaders).
 - You can't hotsample with Ansel enabled.
 - The camera often has limitations such as a range limit or clipping.
