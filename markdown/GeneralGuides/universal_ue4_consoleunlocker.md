@@ -400,6 +400,7 @@ Train Sim World |
 Transient | Tested on demo
 Trials of Mana | Also works with the demo
 Tropico 6 | 
+Twin Mirror | 
 Urban Trial Playground | 
 Uventa | 
 Vampyr | 
