@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.5](https://mega.nz/file/kEhTSBDR#cg2H5ikROO9l-M7rf7n9VtONw5u5OktUYtF5hp6C-4o). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.12](https://mega.nz/file/xEIXCKrQ#zUm-T6qd-ZJ3UTsl0ZOWVSZb1mx7sGWjtchM0461_1w). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -158,6 +158,7 @@ Ancestors - The Humankind Odyssey |
 Ancient Knowledge | 
 Another Sight Definitive Edition | 
 Apsulov: End of Gods | 
+Aquanox Deep Descent | 
 Arboria | 
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
@@ -167,7 +168,8 @@ Ashes Of Oahu |
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
-Azur Lane Crosswave | 
+Azur Lane Crosswave |
+Bad Boys at School | 
 Bard's Tale IV: Barrows Deep | 
 Bastide | 
 The Battle of Visby | 
@@ -177,11 +179,13 @@ Beyond a Steel Sky |
 The Blackout Club | 
 Blair Witch | 
 Borderlands 3 | 
+BPM: Bullets per minute | 
 Bright Memory | Also works with the RTX tech demo
 Britannic: Patroness of the Mediterranean | 
 Burning Daylight | 
 Call of Cthulhu | 
 Captain Starshot | 
+Castle Rock Beach, West Australia | 
 Chernobylite | 
 Close to the Sun | 
 Code Vein | 
@@ -204,6 +208,7 @@ Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
 Devolverland Expo | 
+Die young | 
 Disaster Report 4: Summer Memories |  Also works with the demo
 Disintegration | 
 Donensbourgh | 
@@ -229,23 +234,29 @@ Everspace |
 Everspace 2 | Tested on demo
 Explore Fushimi Inari | 
 Extinction | 
+Fortnite | Only versions below 1.9.1 are compatible.
 Fade to silence | 
 Fear the Dark Unknown | 
 The Fidelio Incident | 
 Fighting Ex Layer |
 Filament | 
 Finding the Soul Orb |  
+Freud Gate | 
+Gal Gun 2 | 
 Genesis Alpha One | 
-Ghostrunner | Tested on demo
+Ghostrunner | requires UUU 3.0.12+
+Giraffe and Annika | 
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
 Grounded | Tested on demo
+Gu Lady 蛊婆 | 
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hellbound | 
 Hello Guest | Tested on Alpha build.
+Hello Neighbor 2 | 
 Hollow | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
@@ -271,11 +282,14 @@ Light Tracer 2 |
 The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
+Little Hope | No console, camera only (v3.0.12 or lower)
 Lost Ember | 
+Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
 Marvel vs. Capcom: Infinite | 
 Metamorphosis | 
+Medieval Dynasty | No hud toggle
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
 MotoGP 20 | 
@@ -287,12 +301,12 @@ Morels: The Hunt |
 Morphies Law Remorphed | 
 Mortal Shell | Tested on beta
 MotoGP 19 | 
-Mutant Year Zero: Road to Eden | 
 My Hero One's Justice | 
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
 Narcos: Rise of the Cartels | 
-NBA 2K Playgrounds 2 | 
+NBA 2K Playgrounds 2 |
+Necromunda Underhive Wars | No hud toggle 
 Nephise: Ascension | 
 Night of the Dead | 
 No Straight Roads | 
@@ -308,27 +322,34 @@ Paper Dolls Original |
 Paradise Lost | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
+Partisans 1941 | 
 Past Cure | 
+Pathless | No timestop/pause. Use ESC + hud toggle.
 Planet Alpha | 
 The Pit: Infinity | 
 Pluviophile | 
 Praetorians HD Remaster | 
 Project Remedium | 
 Protocol | 
-Observer System Redux | Requires UUU 3.0.4+. Tested on demo.
+Observer System Redux | Tested on demo.
 Occupation | 
 OCTOPATH TRAVELER | 
 Omen of Sorrow | 
 Omensight | 
+Omno | Tested on demo
 The Otterman Empire | 
 Quantum Replica | 
 Qube 2 | 
 The Quiet Man | 
 Race With Ryan | 
 RAD | 
+Raji: An Ancient Epic Prologue | 
 Redeemer | 
+Relicta | 
 Remnant: From the Ashes | 
+Remothered: Broken Porcelain | 
 Remothered: Tormented Fathers |
+Ride 4 | 
 Roboquest | 
 Rock of Ages 3: Make and Break | 
 Ruin 2 | 
@@ -345,6 +366,7 @@ Silver Chains |
 The Sinking City | 
 Sinner: Sacrifice for Redemption | 
 Skylar and Plux | 
+Skully | 
 The Sojourn | 
 SolSeraph | 
 Someday You Will Return | 
@@ -372,11 +394,13 @@ Tartarus |
 Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
+Torchlight 3 | 
 Tower of Fate | 
 Train Sim World | 
 Transient | Tested on demo
 Trials of Mana | Also works with the demo
 Tropico 6 | 
+Twin Mirror | 
 Urban Trial Playground | 
 Uventa | 
 Vampyr | 
@@ -388,8 +412,12 @@ Weakless |
 Withstand: Survival | 
 What Happened | 
 The Works of Mercy | 
+WWE Battlegrounds | 
 XING The Land Beyond | 
+Xuan-Yuan Sword VII | 
 ZED | 
+
+Additionally, most [UE4 games on Itch.io](https://itch.io/games/newest/made-with-unreal-engine) are usable with the UUU. 
 
 ## Built-in functionality
 
@@ -444,6 +472,34 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.12:
+- **FIXED**: The checks for Engine Version for select v4.25 games failed, this has been corrected. 
+- **CHANGED**: The AOB for the ObjectsStore could fail in some situations, it has been made less strict
+- **ADDED**: The UUU now re-enables the `set` command, which is disabled in every UE4 shipped game. The `set` command allows you to set any property on any object. 
+
+###v3.0.11:
+- **FIXED**: The Engine Version checks had one wrong address marker for v4.21 like engines which could lead to the wrong version being chosen
+- **ADDED**: Logging of all activity to a .log file (UniversalUE4Unlocker.dll.log) for easier debugging when things go wrong.
+
+###v3.0.10:
+- **ADDED**: Another pattern added to find the engine version in 4.24+ games. 
+- **CHANGED**: Default fall-back version has been bumped from 4.16 to 4.23.
+
+###v3.0.9:
+- **ADDED**: Some v4.21 games had different instructions after the engine version write which resulted in the wrong engine version being chosen. 
+
+###v3.0.8:
+- **FIXED**: Fixed a bug where in some games the HUD toggle was found but went unnoticed so it was reported as not working
+- **ADDED**: Additional AOBs to detect some v4.24 based games. 
+
+###v3.0.7:
+- **FIXED**: Fixed a crash introduced in 3.0.6 when the object store wasn't found as well as the engine version and version auto-detect assumed they were.
+- **ADDED**: Additional AOBs for UE4 4.25 for object store (console support), engine version and HUD toggle.
+
+###v3.0.6:
+- **FIXED**: Added a way to intercept LockFOV in recent UE4 releases so the FOV control works again in recent games like Remnant from the Ashes. 
+- **CHANGED**: The engine version is now always reported, if found. Previously this was only reported when the console was also activated. 
 
 ###v3.0.5:
 - **FIXED**: Added a more solid filter for v4.25, the one added in 3.0.4 could miss a couple of variants. 

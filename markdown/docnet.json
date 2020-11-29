@@ -5,7 +5,7 @@
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
     "SourceFoldersToCopy" : ["CheatTables", "Images"],
-    "Footer" : "&copy 2019 FRAMED. All rights reserved.",
+    "Footer" : "&copy 2019-2020 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
     "Pages" : 
@@ -17,11 +17,11 @@
 			"A Plague Tale: Innocence" : "GameGuides\\aplaguetale.md",
 			"Abzu" : "GameGuides\\Abzu.md",
 			"Ace Combat 7": "GameGuides\\AceCombat7.md",
+			"Alan Wake": "GameGuides\\Alan_Wake.md",
 			"Alien Isolation": "GameGuides\\alienisolation.md",
             "Ashen": "GameGuides\\ashen.md",
 			"Assassin's Creed Odyssey": "GameGuides\\assassins_creed_odyssey.md",
             "Assassin's Creed Origins": "GameGuides\\assassins_creed_origins.md",
-			"Battlestar Galactica Deadlock": "GameGuides\\BSG Deadlock.md",
 			"Batman Arkham Asylum" : "GameGuides\\batman_arkham_asylum.md",
 			"Batman Arkham City" : "GameGuides\\batman_arkham_city.md",
 			"Batman Arkham Knight" : "GameGuides\\batman_arkhamknight.md",
@@ -58,12 +58,14 @@
 			"Mass Effect": "GameGuides\\mass_effect.md",
 			"Mass Effect 2": "GameGuides\\mass_effect_2.md",
 			"Mass Effect 3": "GameGuides\\mass_effect_3.md",
+			"MechWarrior 5": "GameGuides\\mechwarrior5.md",
 			"Metal Gear Solid V: The Phantom Pain": "GameGuides\\mgsv_phantom_pain.md",
             "Metro Exodus" : "GameGuides\\metro_exodus.md",
 			"Mirror's Edge Catalyst": "GameGuides\\mecatalyst.md",
             "Mutant Year Zero: Road to Eden" : "GameGuides\\MutantYearZero.md",
 			"NieR: Automata" : "GameGuides\\NieRAutomata.md",
 			"Ni No Kuni: Wrath of the White Witch Remastered" : "GameGuides\\ninokuniremastered.md",
+			"Ni No Kuni 2" : "GameGuides\\ninokuni2.md",
 			"No Man's Sky" : "GameGuides\\nomanssky.md",
 			"Observer" : "GameGuides\\Observer.md",
 			"The Outer Worlds" : "GameGuides\\theouterworlds.md",
@@ -102,12 +104,17 @@
 			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
 			"The Basics of Taking Screenshots": "GeneralGuides\\basics.md",
+			"Advanced" : 
+			{
+				"Using RTTI info in a game exe": "GeneralGuides\\using_rtti.md",
+			},
 		}, 
 		"Reshade guides" :
 		{
 			"__index": "ReshadeGuides\\index.md",
 			"Setting up reshade": "ReshadeGuides\\setupreshade.md",
 			"LUT Generation": "ReshadeGuides\\lutgenguide.md",
+			"Injecting ReShade in UWP games": "ReshadeGuides\\reshadeuwp.md",
 			"Shader guides":
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",

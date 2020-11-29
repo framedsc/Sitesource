@@ -48,27 +48,6 @@ Use HOME and Numpad . to lock the camera and control the replay.
 @end
 
 
-Key/button | Description
---|--
-Ctrl-Ins | Show / Hide Camera tools main window
-Ctrl + Mouse wheel | Resize font
-Ins | Enable/Disable camera
-HOME | Lock/unlock camera movement
-ALT + rotate/move | Faster rotate / move
-Right-CTRL + rotate/move | Slower rotate / move
-Controller Y-button + l/r-stick | Faster rotate / move
-Controller X-button + l/r-stick | Slower rotate / move
-Arrow up/down or mouse or r-stick | Rotate camera up/down
-Arrow left/right or mouse or r-stick | Rotate camera left/right
-Numpad 8/Numpad 5 or l-stick | Move camera forward/backward
-Numpad 4/Numpad 6 or l-stick | Move camera left / right
-Numpad 7/Numpad 9 or l/r-trigger | Move camera up / down
-Numpad 1/Numpad 3 or d-pad left/right | Tilt camera left / right
-Numpad +/- or d-pad up/down | Increase / decrease FoV
-Numpad * or controller B-button | Reset FoV
-Numpad . | Block input to game for camera control device.
-
-
 ## Useful links
 
 * [Real-life Liveries (through mods)](https://www.racedepartment.com/forums/dirt-rally-2-0-mods.536/)  
