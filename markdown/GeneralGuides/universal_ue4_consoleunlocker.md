@@ -185,6 +185,7 @@ Bright Memory | Also works with the RTX tech demo
 Britannic: Patroness of the Mediterranean | 
 Burning Daylight | 
 Call of Cthulhu | 
+Call of the Sea | 
 Captain Starshot | 
 Castle Rock Beach, West Australia | 
 Chernobylite | 
