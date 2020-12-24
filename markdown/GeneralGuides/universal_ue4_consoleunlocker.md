@@ -332,6 +332,7 @@ The Pit: Infinity |
 Pluviophile | 
 Praetorians HD Remaster | 
 Project Remedium | 
+Project Wingman | 
 Protocol | 
 Observer System Redux | Tested on demo.
 Occupation | 
@@ -357,6 +358,7 @@ Rock of Ages 3: Make and Break |
 Ruin 2 | 
 Ruiner | 
 Samurai Jack Battle Through Time | No console/timestop. Use menu + hud toggle for pause.
+Samurai Showdown | No aspect ratio correction
 Satisfactory | 
 SCUM | 
 Session: Skateboarding Sim Game | 
