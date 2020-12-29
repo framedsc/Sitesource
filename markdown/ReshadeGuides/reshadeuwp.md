@@ -1,6 +1,8 @@
 ![Header](..\Images\MiscGuides\uwp_reshade_header.png){.shadowed}
  
 # Injecting ReShade in UWP games (Universal Windows Platform aka. Windows Store and XBOX Game Pass PC)
+
+[MilkyDeveloper](https://github.com/MilkyDeveloper) has made a GUI to inject Reshade into UWP / Xbox game Pass PC games, [located here](https://github.com/MilkyDeveloper/ReshadeForUWP) with little manual intervention. It asks you for the package name (and the custom process name, if any) and get's the metadata of the game through the ```appxmanifest.xml``` file. It then generates a BAT file to inject Reshade into the game and then launch it. Optionally, it also bootstraps a working Reshade install by downloading / extracting all of the FX files and generates the Reshade.ini file.
  
 This guide will help you to inject ReShade into UWP games. Please note that this won't work in every UWP game since some have protections (like forza horizon 4 which shutdown when you inject a .dll).
  
