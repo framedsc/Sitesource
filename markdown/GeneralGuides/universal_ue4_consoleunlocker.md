@@ -341,6 +341,7 @@ Omen of Sorrow |
 Omensight | 
 Omno | Tested on demo
 The Otterman Empire | 
+Pacer | 
 Quantum Replica | 
 Qube 2 | 
 The Quiet Man | 
