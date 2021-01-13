@@ -178,6 +178,7 @@ The Beast Inside |
 Bee Simulator | 
 Beyond a Steel Sky | 
 The Blackout Club | 
+Blade of Arena | 
 Blair Witch | 
 Borderlands 3 | 
 BPM: Bullets per minute | 
@@ -285,6 +286,7 @@ The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Little Hope | No console, camera only (v3.0.12 or lower)
+Little Nightmares | Console only, no camera (v3.0.12 or lower). Tested on demo.
 Lost Ember | 
 Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
