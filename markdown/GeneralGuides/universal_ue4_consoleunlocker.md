@@ -308,6 +308,7 @@ MotoGP 19 |
 My Hero One's Justice | 
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
+Mysteria Occult Shadows | 
 Narcos: Rise of the Cartels | 
 NBA 2K Playgrounds 2 |
 Necromunda Underhive Wars | No hud toggle 
@@ -323,6 +324,7 @@ Overkill's The Walking Dead |
 Override: Mech City Brawl | 
 Pagui打鬼 | 
 Paper Dolls Original | 
+Paradise Killer | 
 Paradise Lost | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
@@ -405,6 +407,7 @@ Torchlight 3 |
 Tower of Fate | 
 Train Sim World | 
 Transient | Tested on demo
+Travis Strikes Again: No More Heroes Complete Edition | 
 Trials of Mana | Also works with the demo
 Tropico 6 | 
 Twin Mirror | 
