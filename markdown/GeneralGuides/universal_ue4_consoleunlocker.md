@@ -294,6 +294,7 @@ Man of Medan (The Dark Pictures Anthology) |
 Marvel vs. Capcom: Infinite | 
 Metamorphosis | 
 Medieval Dynasty | No hud toggle
+The Medium | Camera doesn't work in split-screen scenes
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
 MotoGP 20 | 
@@ -353,6 +354,7 @@ Race With Ryan |
 RAD | 
 Raji: An Ancient Epic Prologue | 
 Redeemer | 
+Redout: Space Assault | 
 Relicta | 
 Remnant: From the Ashes | 
 Remothered: Broken Porcelain | 
