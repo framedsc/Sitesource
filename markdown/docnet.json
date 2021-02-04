@@ -115,6 +115,7 @@
 		{
 			"__index": "ReshadeGuides\\index.md",
 			"Setting up reshade": "ReshadeGuides\\setupreshade.md",
+			"Shaders Catalogue": "ReshadeGuides\\shaderscatalogue.md",
 			"LUT Generation": "ReshadeGuides\\lutgenguide.md",
 			"Injecting ReShade in UWP games": "ReshadeGuides\\reshadeuwp.md",
 			"Shader guides":
