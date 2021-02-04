@@ -14,8 +14,8 @@ DirectX versions | DirectX 11, DirectX 12
  
 ## Tools
 
-* [Camera tools by Otis_Inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/MetroExodus)  
-**Features**: Use Photomode/Ansel anywhere, unlimited Photomode / Ansel range, FOV
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**Features**: Camera control, fov, timestop. Use Photomode/Ansel anywhere, unlimited Photomode / Ansel range, FOV
 @alert tip
 Rebind FOV hotkeys to something other than the numpad to avoid game slowdown during photo mode. 
 @end

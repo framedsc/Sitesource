@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera tools by Otis](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/Titanfall2)  
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Free camera, FOV, Timestop and DOF control.
 
 * [Hud toggle by The Janitor](http://www.moddb.com/games/titanfall-2/downloads/toggle-hud5)
