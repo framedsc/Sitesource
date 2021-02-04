@@ -12,8 +12,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Ansel enhancement tools by Otis_Inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/KingdomComeDeliverance)
-
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera control (FoV Control, free unlimited camera movement), Ansel also in conversations, No-clip check anymore for ansel/freecamera,
 makes all cvars writable.
 

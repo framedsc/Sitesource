@@ -14,7 +14,7 @@ DirectX versions | DirectX 11, DirectX 12
  
 ## Tools
 
-* [Camera tools by Otis_Inf and Jim2Point0](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/ResidentEvil2)  
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera control, FOV control, Time stop, vignette removal, DOF removal in cutscenes, resolution scaling, hotsampling enable, HUD toggle
 * [CE Table by Jim2point0](..\CheatTables\re2_new.ct)  
 **Features**: Camera control, FOV Control, Time Stop
