@@ -89,6 +89,10 @@ you should select, first enable the *DisplayDepth* shader. You likely either see
 When you go to the DX11 tab in the Reshade menu you can then pick the right depth buffer by checking its checkbox (or by trying the 
 *Copy depth before clearing* checkbox). If the screen becomes what it should be you picked the right depth buffer and you can use it with the techniques that depend on it. 
 
+## Shader duplication
+
+There are cases where you would want to use one shader more than once (CanvasFog and StageDepthPlus shaders are popular in that regard). With most shaders all you need to do is replace the technique name in the shader code to a different one, but some shaders will need to change the name of a `namespace` or a texture name, so be aware of that. Be sure to check the shaders code for comments regarding duplicating the shader.
+
 ## Limitations and gotchas
 There are some limitations with the current Reshade version (v4.2) which might cause some confusion. They're listed below.
 
