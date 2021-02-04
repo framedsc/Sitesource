@@ -20,15 +20,13 @@ These are the shaders that I consider essential to screenshotting. If you have t
 One of the advantages of using reshade over other post processing softwares (besides the obvious realtime post processing) is the use of the depth buffer. With a depth buffer effects like depth of field became second nature where if you would want to apply said effect with another software not only it will take way more time, but it would probably won't look as good as it does. 
  
 - [**CinematicDOF**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/CinematicDOF.fx): Based on various scientific papers. The most "realistic" and used one depth of field effect. It has near plane bleed, configurable highlights, high performance, easy to use focusing code and great bokeh. Please see the [Full guide on this site](Shaders/cinematicdof.htm).
-- [**quintDoF**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_dof.fx): Depth of Field shader that aspires to give movie-quality bokeh blur to video games. It provides a very high quality DoF effect with artistic controls, ideal for both screenshots and gameplay. The bokeh discs it produces can be polygonal, circular and anything in between, it also features a disc occlusion feature (where the bokeh discs look like a boolean intersection between 2 circles) and chromatic aberration at bokeh shape edges. This is done by a unique gradient-based algorithm that has a very low constant cost ignorant of scene complexity or blur settings. To prohibit focused areas from bleeding their color into blurred areas the shader employs a highly sophisticated solution that is capable of mitigating this artifact completely without the overhead of common solutions that also mostly underperform.
 - [**LightDOF**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Alternate/LightDoF.fx): Doesnt tank performance and easy to configure.
+- [**quintDoF**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_dof.fx): Depth of Field shader that aspires to give movie-quality bokeh blur to video games. It provides a very high quality DoF effect with artistic controls, ideal for both screenshots and gameplay. The bokeh discs it produces can be polygonal, circular and anything in between, it also features a disc occlusion feature (where the bokeh discs look like a boolean intersection between 2 circles) and chromatic aberration at bokeh shape edges. This is done by a unique gradient-based algorithm that has a very low constant cost ignorant of scene complexity or blur settings. To prohibit focused areas from bleeding their color into blurred areas the shader employs a highly sophisticated solution that is capable of mitigating this artifact completely without the overhead of common solutions that also mostly underperform.
 
 ## Deband
 - [**Deband**](https://github.com/crosire/reshade-shaders): Have you ever seen gradients that don't seamlessly blend into each other? That's called banding. It happens when there aren't enough tones available to recreate a seamless gradation. This shader is ment to fix that. Be sure to grab the one linked since it has an option to adjust the depth of where the shader should act (since most of the time it should be applied only in backgrounds). Deband is part of the 
 official Reshade shaders the Reshade installer will install for you always.
- 
-(Do check if there is a newer version of the shader in the official repo)
- 
+
 - [**qUINT_deband.fx**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_deband.fx): Fixes blocky color gradients and breaks up crushed texture detail.
  
 # Screenshotting
@@ -92,9 +90,7 @@ Ambient occlusion aims to simulate shadows based on the scene geometry. As with 
 ## Reflections
 
 - [**qUINT_ssr**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_ssr.fx): Adds reflections to the scene, using the data that is already available in the image. As a Screen-Space technique, it suffers like all similar implementations from the fact that nothing outside the screen can be reflected. It also cannot distinguish between reflective and non-reflective surfaces, so it will just cover everything with a reflection layer.
- 
-[//]: # (- **ReflectiveBumpmapping** no lo agrego por que es el viejo)
- 
+
 ## Bloom
 As they sound, bloom shaders are used to imitate bloom in a scene.
 
@@ -123,6 +119,7 @@ If the shaders in the "graphics improvement" section were situational, these one
 - [**CanvasFog**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/CanvasFog.fx): Used most for drawing colored shapes in the game, but it has a lot of room for creativity. More explanation on how it works on the repos readme.
 - [**ColorIsolation**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/ColorIsolation.fx): This shader lets the user configure the preferred hue and desaturates everything else. It is also possible to desaturate only the user-defined hue. It also has a nice debug option to see the interaction of the shader with the colors.
 - [**ColorSort**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/ColorSort.fx): Compute shader, which sorts colors from brightest to darkest.
+- [**ComputeGravity**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/computeGravity.fx): Compute shader version of Gravity.fx. It has a better color selection, and inverse gravity option. It runs slower on normal solution, but a lot faster than Gravity.fx on high resolution, so you can downsample/hotsample without issues. Don't forget to include the texture inside the Textures folder!
 - [**DepthHaze**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/DepthHaze.fx): This effect is a simple depth-blur which makes far away objects look slightly blurred. It's more subtle than a Depth of Field effect as it's not based on a lens, but on how the human eye sees far away objects outdoors: detail is lost and the farther away an object, e.g. a tower, the less sharp the human eye sees it. Modern render engines tend to render far away objects crisp and sharp which makes the far away objects too sharp to look natural. Additionally Depth Haze also includes fog based on depth and screen position, which is configurable through parameters. It currently fogs more around the middle line of the screen and gradiently lowers the fog intensity towards the top/bottom of the screen, to avoid fog on the sky. Take in mind that the blur used in the shader is outdated compared to DoF shaders.
 - [**DirectionalDepthBlur**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/DirectionalDepthBlur.fx): Can be used for more abstract backgrounds, but with the "focus point targeting strokes" option it can also be used to simulate movement with slow shutter speed. Keep in mind that it can be a very heavy shader when hotsampling.
 - [**DisplayDepth**](https://github.com/crosire/reshade-shaders/blob/slim/Shaders/DisplayDepth.fx): This is a shader mostly useful for checking if the depth buffer is working as intended, BUT it can also help with simple silhouette shots.
@@ -144,7 +141,6 @@ If the shaders in the "graphics improvement" section were situational, these one
 - [**TiltShift**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/TiltShift.fx): Useful for simulating tilt shift photography, altho with the lack of depth controls and an outdated DOF method its recommended to use CinematicDOF and try to recreate the effect with it.
 - [**TinyPlanet**](https://github.com/Radegast-FFXIV/reshade-shaders/blob/master/Shaders/TinyPlanet.fx): Its purpose is to create a "tiny planet" image based on what's shown on screen. Useful if you don't know/want to do the proper work in Photoshop or similar post processing softwares.
 - [**Trails**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Trails.fx): Similar brightness results to RealLongExposure with improved smoothness and depth effects.
-- [**computeGravity**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/computeGravity.fx): Compute shader version of Gravity.fx. It has a better color selection, and inverse gravity option. It runs slower on normal solution, but a lot faster than Gravity.fx on high resolution, so you can downsample/hotsample without issues. Don't forget to include the texture inside the Textures folder!
 - [**qUINT_frametool**](https://github.com/martymcmodding/qUINT/blob/experimental/Shaders/qUINT_frametool.fx): If you want to hotsample with a background blur similar to the one "DirectionalDepthBlur" makes then this one does the job.
 
 ## Painty shaders.
@@ -156,8 +152,8 @@ If the shaders in the "graphics improvement" section were situational, these one
 - [**BilateralComic**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/BilateralComic.fx): Cel-shading shader that uses a combination of bilateral filtering, posterization and edge detection to create a comic book style effect.
 - [**Cartoon**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Cartoon.fx): Creates an outline-effect that makes the image look more cartoonish.
 - [**Comic**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/Comic.fx): In order to achieve this look this shader uses different sorts of (configurable) edge detection methods on the color and depth information of the frame. Also, every edge layer can be individually faded in and out with distance. After all the layers are combined the resulting layer can be masked based on the luminosity and saturation of the original color (can be useful to mask the game's UI).
-- [**MeshEdges**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MeshEdges.fx): More outlines with some color regarding the outlines themselves and the possibility to use a plain color with the outlines on top.
 - [**dh_anime**](https://github.com/AlucardDH/dh-reshade-shaders/blob/master/Shaders/dh_anime.fx): Outlines and some color stuff.
+- [**MeshEdges**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MeshEdges.fx): More outlines with some color regarding the outlines themselves and the possibility to use a plain color with the outlines on top.
  
 ## Lens Flare
  
