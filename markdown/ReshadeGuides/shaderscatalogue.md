@@ -74,7 +74,7 @@ You are probably familiar with the term, if not Anti Alising helps reduce the "s
 ## Raytracing
 You probably stumble across the term. Raytracing technology aims to simulate light and shadows more precisely. Even tho a game implementation of this kind of technology would be more accurate than a reshade implementation, most games dont do ray tracing within them and so these shaders can be useful, especially in old titles.
  
-- [**Marty's RTGI**]((https://www.patreon.com/mcflypg)): With a lot of work put into it, Marty's RTGI is the way to go. You might need to learn how to configure it.
+- [**Marty's RTGI**](https://www.patreon.com/mcflypg): With a lot of work put into it, Marty's RTGI is the way to go. You might need to learn how to configure it.
 - [**RadiantGI**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/RadiantGI.fx): BlueSky implementation of global illumination plus subsurface scattering. Can be used in conjunction with marty's RTGI, but it also works very well on its one. It would require you to learn [how to use it](https://www.youtube.com/watch?v=soXozWWV7e0).
  
 ## Ambient Occlusion
@@ -85,8 +85,7 @@ Ambient occlusion aims to simulate shadows based on the scene geometry. As with 
 - [**MXAO**](https://github.com/cyrie/Stormshade/blob/master/reshade-shaders/Shaders/MXAO.fx)
 - [**SSAO (HBAO, RayAO, HBAO, SSGI, AO_SAO, SSAO)**](https://github.com/Mortalitas/GShade/blob/master/Shaders/SSAO.fx): The SSAO shader has all the ambient occlusion techniques in parenthesis.
 - [**PPFX_SSDO**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/PPFX_SSDO.fx)
- 
- 
+
 ## Reflections
 
 - [**qUINT_ssr**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_ssr.fx): Adds reflections to the scene, using the data that is already available in the image. As a Screen-Space technique, it suffers like all similar implementations from the fact that nothing outside the screen can be reflected. It also cannot distinguish between reflective and non-reflective surfaces, so it will just cover everything with a reflection layer.
@@ -143,7 +142,7 @@ If the shaders in the "graphics improvement" section were situational, these one
 - [**Trails**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Trails.fx): Similar brightness results to RealLongExposure with improved smoothness and depth effects.
 - [**qUINT_frametool**](https://github.com/martymcmodding/qUINT/blob/experimental/Shaders/qUINT_frametool.fx): If you want to hotsample with a background blur similar to the one "DirectionalDepthBlur" makes then this one does the job.
 
-## Painty shaders.
+## Painty shaders
 - [**Oilify**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/Oilify.fx): Applies a Kuwahara painty filter using an optimized method for extracting the image mean and variance separably.
 - [**pkd_kuwahara**](https://github.com/Mortalitas/GShade/blob/master/Shaders/pkd_Kuwahara.fx)
  
