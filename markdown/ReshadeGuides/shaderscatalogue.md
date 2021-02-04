@@ -19,20 +19,17 @@ These are the shaders that I consider essential to screenshotting. If you have t
 ## Depth of Field
 One of the advantages of using reshade over other post processing softwares (besides the obvious realtime post processing) is the use of the depth buffer. With a depth buffer effects like depth of field became second nature where if you would want to apply said effect with another software not only it will take way more time, but it would probably won't look as good as it does. 
  
-- [**CinematicDOF**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/CinematicDOF.fx): Based on Unreal Engine 4 DOF technology. The most "realistic" and used one is depth of field effect. It has near plane bleed, configurable highlights, high performance, easy to use focusing code and great bokeh.
+- [**CinematicDOF**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/CinematicDOF.fx): Based on various scientific papers. The most "realistic" and used one depth of field effect. It has near plane bleed, configurable highlights, high performance, easy to use focusing code and great bokeh. Please see the [Full guide on this site](Shaders/cinematicdof.htm).
 - [**quintDoF**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_dof.fx): Depth of Field shader that aspires to give movie-quality bokeh blur to video games. It provides a very high quality DoF effect with artistic controls, ideal for both screenshots and gameplay. The bokeh discs it produces can be polygonal, circular and anything in between, it also features a disc occlusion feature (where the bokeh discs look like a boolean intersection between 2 circles) and chromatic aberration at bokeh shape edges. This is done by a unique gradient-based algorithm that has a very low constant cost ignorant of scene complexity or blur settings. To prohibit focused areas from bleeding their color into blurred areas the shader employs a highly sophisticated solution that is capable of mitigating this artifact completely without the overhead of common solutions that also mostly underperform.
 - [**LightDOF**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Alternate/LightDoF.fx): Doesnt tank performance and easy to configure.
- 
-[//]: # (- - **MartyMcflyDOF**)
- 
+
 ## Deband
-- [**Deband**](https://reshade.me/forum/shader-presentation/768-deband?start=100#40360): Have you ever seen gradients that don't seamlessly blend into each other? That's called banding. It happens when there aren't enough tones available to recreate a seamless gradation. This shader is ment to fix that. Be sure to grab the one linked since it has an option to adjust the depth of where the shader should act (since most of the time it should be applied only in backgrounds).
+- [**Deband**](https://github.com/crosire/reshade-shaders): Have you ever seen gradients that don't seamlessly blend into each other? That's called banding. It happens when there aren't enough tones available to recreate a seamless gradation. This shader is ment to fix that. Be sure to grab the one linked since it has an option to adjust the depth of where the shader should act (since most of the time it should be applied only in backgrounds). Deband is part of the 
+official Reshade shaders the Reshade installer will install for you always.
  
 (Do check if there is a newer version of the shader in the official repo)
  
 - [**qUINT_deband.fx**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_deband.fx): Fixes blocky color gradients and breaks up crushed texture detail.
- 
- 
  
 # Screenshotting
  
@@ -45,6 +42,7 @@ Shaders that are useful for composition and cropping.
  
 ## Histograms
 If you want an histogram while shooting and editing in reshade. Same as you would find in photoshop or lightroom.
+
 - [**Histogram**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/DevShaders/Histogram.fx): Shows an histogram on screen.
 - [**HistogramCompute**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/DevShaders/ComputeShaders/HistogramCompute.fx): Same shader as before but faster (does not work in DX9).
  
@@ -59,8 +57,7 @@ A collateral effect of [hotsampling](https://framedsc.github.io/GeneralGuides/ba
 I am using quotes since the title can be deceptive. What I mean with it is that these shaders can be used in most situations since they can improve how a scene looks, especially in old titles.
 It's worth pointing out that most of these shaders are situational, so you will have to ask yourself if the scene benefits from the use of a specific shader.
 But before listing the shaders I will first introduce you to one that can be useful in conjunction with the rest.
- 
- 
+
 - [**ReVail**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/ReVeil.fx): Similar to the dehaze option in photoshop, except that it also allows you to reintroduce the haze afterwards. Super useful with ambient occlusion or raytracing effects to help them look native. Put the shaders that you don't want to see on top of smoke/fog/mist between the `Revail_Top` and `Revail_Bottom` techniques. RadiantGI has native revail support so it doesn't need it.
  
 ## Anti Aliasing
@@ -74,7 +71,6 @@ You are probably familiar with the term, if not Anti Alising helps reduce the "s
 - [**BIAA**](https://github.com/Mortalitas/GShade/blob/master/Shaders/BIAA.fx): Bilinear Interpolation Anti Aliasing. Based on the temporal AA "Epic Games" implementation
 - [**Pirate_FXAA**](https://github.com/Heathen/Pirate-Shaders/blob/master/reshade-shaders/Shaders/Pirate_FXAA.fx)
 - [**TAA**](https://github.com/Mortalitas/GShade/blob/master/Shaders/TAA.fx): Another TAA implementation
- 
  
  
 ## Raytracing
@@ -93,14 +89,15 @@ Ambient occlusion aims to simulate shadows based on the scene geometry. As with 
 - [**PPFX_SSDO**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/PPFX_SSDO.fx)
  
  
- 
 ## Reflections
+
 - [**qUINT_ssr**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_ssr.fx): Adds reflections to the scene, using the data that is already available in the image. As a Screen-Space technique, it suffers like all similar implementations from the fact that nothing outside the screen can be reflected. It also cannot distinguish between reflective and non-reflective surfaces, so it will just cover everything with a reflection layer.
  
 [//]: # (- **ReflectiveBumpmapping** no lo agrego por que es el viejo)
  
 ## Bloom
 As they sound, bloom shaders are used to imitate bloom in a scene.
+
 - [**AmbientLight**](https://pastebin.com/Lnmrmb3v): Bloom mixed with eye adaptation and lens dirt. The linked version of the shader has a toggle for using dither, since having it turned on can produce artifacts. It's highly recommended to turn off the dither. If the shader gets updated you won't find the latest version in this link.
 - [**MagicBloom**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/MagicBloom.fx)
 - [**NeoBloom**](https://github.com/luluco250/FXShaders/blob/master/Shaders/NeoBloom.fx)
@@ -113,132 +110,117 @@ As they sound, bloom shaders are used to imitate bloom in a scene.
 - [**SimpleBloom**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/SimpleBloom.fx)
  
 ## Light Rays
+
 - [**PPFX_Godrays**](https://github.com/Mortalitas/GShade/blob/master/Shaders/PPFX_Godrays.fx): If you want to add godrays to a scene then this shader can help you with that.
 - [**TrackingRays**](https://github.com/luluco250/FXShaders/blob/master/Shaders/TrackingRays.fx): Similar to the previous shader but the orientation of the rays are automatic.
- 
-[//]: # (- **bloom**)
- 
+
 # Fun effects
 If the shaders in the "graphics improvement" section were situational, these ones are even more. They would probably require some fiddling, but use them if you are going for a *very* specific look. In some of them, instead of explaining what they do I will be dropping screenshots because it would be easier to see than read about them.
  
- 
-- [**DirectionalDepthBlur**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/DirectionalDepthBlur.fx): Can be used for more abstract backgrounds, but with the "focus point targeting strokes" option it can also be used to simulate movement with slow shutter speed. Keep in mind that it can be a very heavy shader when hotsampling.
-- [**qUINT_frametool**](https://github.com/martymcmodding/qUINT/blob/experimental/Shaders/qUINT_frametool.fx): If you want to hotsample with a background blur similar to the one "DirectionalDepthBlur" makes then this one does the job.
-- [**RealLongExposure**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/RealLongExposure.fx): Enables you to capture changes over time, like in long-exposure photography. If you filter by brightness, it will have the most similar effect to real world photography, but try Freeze on a static scene with brightness turned off and not moving the camera to receive the most interesting results. It can also be used when you have a jitter depth buffer (sometimes caused by TAA or other noisy effects like SSR or raytracing) to accumulate and produce a cleaner image.
-- [**Trails**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Trails.fx): Similar brightness results to RealLongExposure with improved smoothness and depth effects.
- 
- 
- 
-- [**Atmospheric Density**](https://github.com/TreyM/MShaders/blob/main/Shaders/MShaders/AtmosphericDensity.fx): A more faithful fog simulation.
-- [**DepthHaze**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/DepthHaze.fx): This effect is a simple depth-blur which makes far away objects look slightly blurred. It's more subtle than a Depth of Field effect as it's not based on a lens, but on how the human eye sees far away objects outdoors: detail is lost and the farther away an object, e.g. a tower, the less sharp the human eye sees it. Modern render engines tend to render far away objects crisp and sharp which makes the far away objects too sharp to look natural. Additionally Depth Haze also includes fog based on depth and screen position, which is configurable through parameters. It currently fogs more around the middle line of the screen and gradiently lowers the fog intensity towards the top/bottom of the screen, to avoid fog on the sky. Take in mind that the blur used in the shader is outdated compared to DoF shaders.
 - [**AdaptiveFog**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/AdaptiveFog.fx): Used most for creating a color background, or putting a subject in shadows. It also has some bloom settings for when the fog starts.
-- [**PD80_06_Depth_Slicer**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Depth_Slicer.fx): Similar to the previous shader but with blending mods and other a couple more options.
-- [**CanvasFog**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/CanvasFog.fx): Used most for drawing colored shapes in the game, but it has a lot of room for creativity. More explanation on how it works on the repos readme.
-- [**PD80_04_Magical_Rectangle**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Magical_Rectangle.fx): Create a rectangle, change dimensions/rotation, change color, change position in 3D space, blend with depth, blend with colors, create gradients, soften edges, create game mist, remove game mist, create flares, manipulate contrasts/brightness, create light leaks, and so on.
-- [**MagicBorder**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/MagicBorder.fx): If you want to add borders in your shot but want the subject to hover over said border then try this shader.
- 
-- [**NormalMap**](https://github.com/luluco250/FXShaders/blob/master/Shaders/NormalMap.fx): It allows the use of a normalmap texture to be applied on screen. You can find one of these on the internet, but it's often better to make your own with a software like Substance Designer.
- 
- 
- 
-- [**ColorSort**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/ColorSort.fx): Compute shader, which sorts colors from brightest to darkest.
-- [**Gravity**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/Gravity.fx): Lets pixels gravitate towards the bottom of the screen inside the game's 3D environment. This shader consumes an insane amount of resources on high resolutions (4k+), so keep this in mind as a warning. Don't forget to include the texture inside the Textures folder! About the texture: You can replace it with your own texture, if you want. It has to be 1920x1080 and greyscale. The brighter the pixel inside the texture, the more intense the effect will be at this location ingame.
-- [**computeGravity**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/computeGravity.fx): Compute shader version of Gravity.fx. It has a better color selection, and inverse gravity option. It runs slower on normal solution, but a lot faster than Gravity.fx on high resolution, so you can downsample/hotsample without issues. Don't forget to include the texture inside the Textures folder!
- 
- 
-- [**Emphasize**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/Emphasize.fx): Allows you to make a part of the scene pop out more while other parts are de-emphasized. This is done by using the depth buffer of the 3D engine, and by default it desaturates the areas which are not 'in focus'. Additionally you can specify a blend color which allows you to e.g. make what's not important much darker so the not-in-focus parts of the scene are way darker than the area which should be emphasized which is left as-is.
-- [**ColorIsolation**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/ColorIsolation.fx): This shader lets the user configure the preferred hue and desaturates everything else. It is also possible to desaturate only the user-defined hue. It also has a nice debug option to see the interaction of the shader with the colors.
-- [**PD80_04_Color_Isolation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Color_Isolation.fx): Sames as the shader above.
- 
- 
-- [**FreezeShot**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/FreezeShot.fx): Can be used to grab a subject from the game, freeze it and carry it into another scene, but keep in mind that the freezed image will be lost if reshade is restarted (for example, after hotsampling).
-- [**DisplayDepth**](https://github.com/crosire/reshade-shaders/blob/slim/Shaders/DisplayDepth.fx): This is a shader mostly useful for checking if the depth buffer is working as intended, BUT it can also help with simple silhouette shots.
-- [**Flip**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/Flip.fx): Invert the orientation of the image in the x or y axis. Can be used interestingly with masks.
 - [**Anime4k**](https://github.com/lybxlpsv/ReshadeAnime4k/blob/master/Anime4k.fx): Port of UnityAnime4K, used for upscaling textures, specifically anime style images.
-- [**Monocular_Cues(Depth_Cues)**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Depth_Cues.fx): (Image Enhancement by Unsharp Masking the Depth Buffer)
- 
- - [**TinyPlanet**](https://github.com/Radegast-FFXIV/reshade-shaders/blob/master/Shaders/TinyPlanet.fx): Its purpose is to create a "tiny planet" image based on what's shown on screen. Useful if you don't know/want to do the proper work in Photoshop or similar post processing softwares.
- 
-- [**TiltShift**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/TiltShift.fx): Useful for simulating tilt shift photography, altho with the lack of depth controls and an outdated DOF method its recommended to use CinematicDOF and try to recreate the effect with it.
- 
+- [**Atmospheric Density**](https://github.com/TreyM/MShaders/blob/main/Shaders/MShaders/AtmosphericDensity.fx): A more faithful fog simulation.
+- [**CanvasFog**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/CanvasFog.fx): Used most for drawing colored shapes in the game, but it has a lot of room for creativity. More explanation on how it works on the repos readme.
+- [**ColorIsolation**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/ColorIsolation.fx): This shader lets the user configure the preferred hue and desaturates everything else. It is also possible to desaturate only the user-defined hue. It also has a nice debug option to see the interaction of the shader with the colors.
+- [**ColorSort**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/ColorSort.fx): Compute shader, which sorts colors from brightest to darkest.
+- [**DepthHaze**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/DepthHaze.fx): This effect is a simple depth-blur which makes far away objects look slightly blurred. It's more subtle than a Depth of Field effect as it's not based on a lens, but on how the human eye sees far away objects outdoors: detail is lost and the farther away an object, e.g. a tower, the less sharp the human eye sees it. Modern render engines tend to render far away objects crisp and sharp which makes the far away objects too sharp to look natural. Additionally Depth Haze also includes fog based on depth and screen position, which is configurable through parameters. It currently fogs more around the middle line of the screen and gradiently lowers the fog intensity towards the top/bottom of the screen, to avoid fog on the sky. Take in mind that the blur used in the shader is outdated compared to DoF shaders.
+- [**DirectionalDepthBlur**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/DirectionalDepthBlur.fx): Can be used for more abstract backgrounds, but with the "focus point targeting strokes" option it can also be used to simulate movement with slow shutter speed. Keep in mind that it can be a very heavy shader when hotsampling.
+- [**DisplayDepth**](https://github.com/crosire/reshade-shaders/blob/slim/Shaders/DisplayDepth.fx): This is a shader mostly useful for checking if the depth buffer is working as intended, BUT it can also help with simple silhouette shots.
 - [**Dither**](https://github.com/luluco250/FXShaders/blob/master/Shaders/Dither.fx)
+- [**Emphasize**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/Emphasize.fx): Allows you to make a part of the scene pop out more while other parts are de-emphasized. This is done by using the depth buffer of the 3D engine, and by default it desaturates the areas which are not 'in focus'. Additionally you can specify a blend color which allows you to e.g. make what's not important much darker so the not-in-focus parts of the scene are way darker than the area which should be emphasized which is left as-is.
+- [**Flip**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/Flip.fx): Invert the orientation of the image in the x or y axis. Can be used interestingly with masks.
+- [**FreezeShot**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/FreezeShot.fx): Can be used to grab a subject from the game, freeze it and carry it into another scene, but keep in mind that the freezed image will be lost if reshade is restarted (for example, after hotsampling).
+- [**Gravity**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/Gravity.fx): Lets pixels gravitate towards the bottom of the screen inside the game's 3D environment. This shader consumes an insane amount of resources on high resolutions (4k+), so keep this in mind as a warning. Don't forget to include the texture inside the Textures folder! About the texture: You can replace it with your own texture, if you want. It has to be 1920x1080 and greyscale. The brighter the pixel inside the texture, the more intense the effect will be at this location ingame.
+- [**MagicBorder**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/MagicBorder.fx): If you want to add borders in your shot but want the subject to hover over said border then try this shader.
+- [**Monocular_Cues(Depth_Cues)**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Depth_Cues.fx): (Image Enhancement by Unsharp Masking the Depth Buffer)
+- [**NormalMap**](https://github.com/luluco250/FXShaders/blob/master/Shaders/NormalMap.fx): It allows the use of a normalmap texture to be applied on screen. You can find one of these on the internet, but it's often better to make your own with a software like Substance Designer.
+- [**PD80_04_Color_Isolation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Color_Isolation.fx): Sames as the shader above.
+- [**PD80_04_Magical_Rectangle**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Magical_Rectangle.fx): Create a rectangle, change dimensions/rotation, change color, change position in 3D space, blend with depth, blend with colors, create gradients, soften edges, create game mist, remove game mist, create flares, manipulate contrasts/brightness, create light leaks, and so on.
+- [**PD80_06_Depth_Slicer**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Depth_Slicer.fx): Similar to the previous shader but with blending mods and other a couple more options.
+- [**RealLongExposure**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/RealLongExposure.fx): Enables you to capture changes over time, like in long-exposure photography. If you filter by brightness, it will have the most similar effect to real world photography, but try Freeze on a static scene with brightness turned off and not moving the camera to receive the most interesting results. It can also be used when you have a jitter depth buffer (sometimes caused by TAA or other noisy effects like SSR or raytracing) to accumulate and produce a cleaner image.
 - [**Retrofog**](https://github.com/luluco250/FXShaders/blob/master/Shaders/RetroFog.fx)
 - [**Retrofog2**](https://github.com/Mortalitas/GShade/blob/master/Shaders/RetroFog2.fx)
 - [**ThinFilm**](https://github.com/Mortalitas/GShade/blob/master/Shaders/ThinFilm.fx)
- 
+- [**TiltShift**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/TiltShift.fx): Useful for simulating tilt shift photography, altho with the lack of depth controls and an outdated DOF method its recommended to use CinematicDOF and try to recreate the effect with it.
+- [**TinyPlanet**](https://github.com/Radegast-FFXIV/reshade-shaders/blob/master/Shaders/TinyPlanet.fx): Its purpose is to create a "tiny planet" image based on what's shown on screen. Useful if you don't know/want to do the proper work in Photoshop or similar post processing softwares.
+- [**Trails**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Trails.fx): Similar brightness results to RealLongExposure with improved smoothness and depth effects.
+- [**computeGravity**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/computeGravity.fx): Compute shader version of Gravity.fx. It has a better color selection, and inverse gravity option. It runs slower on normal solution, but a lot faster than Gravity.fx on high resolution, so you can downsample/hotsample without issues. Don't forget to include the texture inside the Textures folder!
+- [**qUINT_frametool**](https://github.com/martymcmodding/qUINT/blob/experimental/Shaders/qUINT_frametool.fx): If you want to hotsample with a background blur similar to the one "DirectionalDepthBlur" makes then this one does the job.
+
 ## Painty shaders.
 - [**Oilify**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/Oilify.fx): Applies a Kuwahara painty filter using an optimized method for extracting the image mean and variance separably.
 - [**pkd_kuwahara**](https://github.com/Mortalitas/GShade/blob/master/Shaders/pkd_Kuwahara.fx)
  
-[//]: # (- **KuwaharaMod**)
- 
- 
 ## Outlines
-- [**Comic**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/Comic.fx): In order to achieve this look this shader uses different sorts of (configurable) edge detection methods on the color and depth information of the frame. Also, every edge layer can be individually faded in and out with distance. After all the layers are combined the resulting layer can be masked based on the luminosity and saturation of the original color (can be useful to mask the game's UI).
-- [**Cartoon**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Cartoon.fx): Creates an outline-effect that makes the image look more cartoonish.
-- [**dh_anime**](https://github.com/AlucardDH/dh-reshade-shaders/blob/master/Shaders/dh_anime.fx): Outlines and some color stuff.
-- [**MeshEdges**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MeshEdges.fx): More outlines with some color regarding the outlines themselves and the possibility to use a plain color with the outlines on top.
+
 - [**BilateralComic**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/BilateralComic.fx): Cel-shading shader that uses a combination of bilateral filtering, posterization and edge detection to create a comic book style effect.
- 
- 
+- [**Cartoon**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Cartoon.fx): Creates an outline-effect that makes the image look more cartoonish.
+- [**Comic**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/Comic.fx): In order to achieve this look this shader uses different sorts of (configurable) edge detection methods on the color and depth information of the frame. Also, every edge layer can be individually faded in and out with distance. After all the layers are combined the resulting layer can be masked based on the luminosity and saturation of the original color (can be useful to mask the game's UI).
+- [**MeshEdges**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MeshEdges.fx): More outlines with some color regarding the outlines themselves and the possibility to use a plain color with the outlines on top.
+- [**dh_anime**](https://github.com/AlucardDH/dh-reshade-shaders/blob/master/Shaders/dh_anime.fx): Outlines and some color stuff.
  
 ## Lens Flare
  
 - [**Flair**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Flair.fx): Adds lens flares.
-- [**UnrealLens**](https://github.com/luluco250/FXShaders/blob/master/Shaders/UnrealLens.fx)
 - [**HexLensFlare**](https://github.com/luluco250/FXShaders/blob/master/Shaders/HexLensFlare.fx): More lens flares.
- 
+- [**UnrealLens**](https://github.com/luluco250/FXShaders/blob/master/Shaders/UnrealLens.fx)
  
 ## Screenshot with alpha pixels
 Used to screenshot using pixels with alpha value of 0 depending on the depth of the shot. You will probably need to use the latest version of reshade for these ones.
+
 - [**DepthAlpha**](https://github.com/luluco250/FXShaders/blob/master/Shaders/DepthAlpha.fx)
 - [**CuttingTool_Depth**](https://github.com/Mortalitas/GShade/blob/master/Shaders/CuttingTool_Depth.fx)
  
 ## Images
 Shaders used for rendering an image in game (like changing the sky). Can be used in combination with shaders like DepthAlpha and CuttingTool_Depth very well.
+
+- [**Image**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/Image.fx)
+- [**StageDepth**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Recommended/StageDepth.fx)
 - [**StageDepthPlus**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/StageDepthPlus.fx): Allows manipulating an image, letting you resize it independently from the x and y axis, positioning it, rotating it, using depth for masking and the ability of using different blending modes. You can also use a depth map alongside the texture image to interact with the game's depth.
 The only problem is that it takes every image as if it has an square AR, so it's kind of bothersome to resize it taking that in mind. To avoid this it is recommended to edit the original image adding invisible pixels to make the image a square so it doesn't get distorted.
-- [**StageDepth**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Recommended/StageDepth.fx)
-- [**Image**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/Image.fx)
- 
- 
  
 ## Styles
 - **Posterize**: You can only get this shader in the [pack provided by nvidia](https://international-gfe.download.nvidia.com/GFE/GFEClient/ReShadeFilters/v1.0/Curated_ReShade_Filters.zip)
- 
-<p align="center"><img src="https://user-images.githubusercontent.com/24371572/106832822-29968500-6671-11eb-8da9-12a2334223ea.png"></p>
- 
- 
+
+![](../Images/ShadersCatalog_Posterize.png){.shadowed}
+
 - [**Colorful Poster**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/ColorfulPoster.fx)
-<p align="center"><img src="https://user-images.githubusercontent.com/24371572/106832825-2a2f1b80-6671-11eb-89f5-be6bd68c9168.png"></p>
+
+![](../Images/ShadersCatalog_ColorfulPoster.png){.shadowed}
  
 - [**MultiTonePoster**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MultiTonePoster.fx)
-<p align="center"><img src="https://user-images.githubusercontent.com/24371572/106832833-2e5b3900-6671-11eb-9cdf-dacc0f31e2bd.png"></p>
- 
- 
+
+![](../Images/ShadersCatalog_MultiTonePoster.png){.shadowed}
+
 - [**Nostalgia**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Nostalgia.fx): Tries to mimic the look of very old computers or console systems.
-<p align="center"><img src="https://user-images.githubusercontent.com/24371572/106832839-3024fc80-6671-11eb-8533-9c818275e559.png"></p>
- 
- 
+
+![](../Images/ShadersCatalog_Nostalgia.png){.shadowed}
+
 - [**Sketch**](https://github.com/luluco250/FXShaders/blob/master/Shaders/Sketch.fx)
-<p align="center"><img src="https://user-images.githubusercontent.com/24371572/106832811-2602fe00-6671-11eb-87ee-2d892bde2595.png"></p>
- 
+
+![](../Images/ShadersCatalog_Sketch.png){.shadowed}
+
 ## Masking
 If you are familiar with photoshop or lightroom you probably know what masking is. If not, masking is referred to the act of selecting what parts of the screen you want some editing to take effect, often represented by white and black pixels for (white = the effects in between the CanvasMask shaders will be visible there, black= those effect won't be visible). The shaders that are in between the "Before" and "After" techniques of each mask shader will be masked out of the scene.
  
 - [**CanvasMask**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/CanvasMask.fx): Use the same controls as CanvasFog for masking pruporses (linear, circle, rectangle gradients with depth interaction).
-- [**PD80_06_Luma_Fade**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Luma_Fade.fx): Use the scene luminance to mask shaders.
-- [**UIMaskCreator**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/UIMaskCreator.fx): Not exactly a masking shader, but this shader makes it possible to quickly create a UI mask ingame without making use of a photo editor by directly drawing over the UI, so that it can then be saved with a screenshot and used with a shader like `UIMask`.
-- [**UIMask**](https://github.com/crosire/reshade-shaders/blob/slim/Shaders/UIMask.fx): Simply uses an image to mask effects.
 - [**ColorMask**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/ColorMask.fx): Use the color of the image to create a dynamic mask, altho it doesnt mask stuff very well in its state.
- 
+- [**PD80_06_Luma_Fade**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Luma_Fade.fx): Use the scene luminance to mask shaders.
+- [**UIMask**](https://github.com/crosire/reshade-shaders/blob/slim/Shaders/UIMask.fx): Simply uses an image to mask effects.
+- [**UIMaskCreator**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/UIMaskCreator.fx): Not exactly a masking shader, but this shader makes it possible to quickly create a UI mask ingame without making use of a photo editor by directly drawing over the UI, so that it can then be saved with a screenshot and used with a shader like `UIMask`.
+
 # Common software editing tools
 So this section has shaders that are similar to what you could expect of a editing software like lightroom or photoshop camera raw. Some of these implementations may be different to what you might find in these softwares, so even if at first glance it may look like these shaders can be seen as "stuff you can do in post after taking the shot" it might be worth trying them anyway.
  
 If you want a detailed explanation about what most of prods shaders do make sure to check [his reshade forum thread](https://reshade.me/forum/shader-presentation/6167-prod80-s-shader-library).
  
 ## Editing
-- [**qUINT_lightroom**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_lightroom.fx): Highly comprehensive set of color grading filters, modeled after industry applications such as Adobe Lightroom, Da Vinci Resolve and others. It allows for miniscule adjustments of the scene colors with the ability to embed the current preset into a 3D LUT - a small image file that contains all color grading that the LUT.fx of the ReShade repository can easily load and apply. This both saves performance as reading a LUT is faster and it also protects your work as you only need to deploy the LUT along with your preset so you can keep your configuration private.
+ 
+- [**ArtisticVignette**](https://github.com/luluco250/FXShaders/blob/master/Shaders/ArtisticVignette.fx)
+- [**Clarity**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Clarity.fx)
+- [**ColorLab**](https://github.com/luluco250/FXShaders/blob/master/Shaders/ColorLab.fx)
+- [**ContrastStretch**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/ContrastStretch.fx): A histogram based contrast stretching shader that adaptively adjusts the contrast of the image based on its contents.
+- [**LocalContrastCS**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/LocalContrastCS.fx): A histogram based contrast stretching shader that locally adjusts the contrast of the image based on the contents of small regions of the image.
 - [**PD80_01A_RT_Correct_Contrast**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_01A_RT_Correct_Contrast.fx): Automatic contrast correction when it finds a need to correct in the current scene. It works by adjusting white/black points and does not change color. Works like Photoshop "Auto Contrast".
 - [**PD80_01B_RT_Correct_Color**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_01B_RT_Correct_Color.fx): Removes the tint of a scene. Works exactly the same (with additional methods/options) as Photoshop "Auto Tint".
 - [**PD80_03_Color_Space_Curves**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_03_Color_Space_Curves.fx): : Ability to apply contrast curve in luminance channel of L*A*B*, HSL, HSV, and RGBW color spaces. This would avoid shifts in saturation when adjusting contrast. Also comes with a saturation slider to apply saturation using any of those color spaces.
@@ -250,68 +232,63 @@ If you want a detailed explanation about what most of prods shaders do make sure
 - [**PD80_04_Color_Gradients**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Color_Gradients.fx): Lets you apply a color gradient to the image while preserving luminosity. You can pick the colors in the UI and determine the balance between shadows and mid tones. It will preserve highlights.
 - [**PD80_04_Color_Temperature**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Color_Temperature.fx)
 - [**PD80_04_Contrast_Brightness_Saturation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Contrast_Brightness_Saturation.fx)
-- [**PD80_04_Selective_Color_v2**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Selective_Color_v2.fx)
 - [**PD80_04_Selective_Color**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Selective_Color.fx)
-- [**LocalContrastCS**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/LocalContrastCS.fx): A histogram based contrast stretching shader that locally adjusts the contrast of the image based on the contents of small regions of the image.
-- [**ContrastStretch**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/ContrastStretch.fx): A histogram based contrast stretching shader that adaptively adjusts the contrast of the image based on its contents.
-- [**Clarity**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Clarity.fx)
-- [**ColorLab**](https://github.com/luluco250/FXShaders/blob/master/Shaders/ColorLab.fx)
+- [**PD80_04_Selective_Color_v2**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Selective_Color_v2.fx)
 - [**Selective_hue_rotate_xy**](https://github.com/crabshank/HLSL-Reshade-colour-remappers/blob/main/Selective_hue_rotate_xy.fx)
-- [**ArtisticVignette**](https://github.com/luluco250/FXShaders/blob/master/Shaders/ArtisticVignette.fx)
- 
+- [**qUINT_lightroom**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_lightroom.fx): Highly comprehensive set of color grading filters, modeled after industry applications such as Adobe Lightroom, Da Vinci Resolve and others. It allows for miniscule adjustments of the scene colors with the ability to embed the current preset into a 3D LUT - a small image file that contains all color grading that the LUT.fx of the ReShade repository can easily load and apply. This both saves performance as reading a LUT is faster and it also protects your work as you only need to deploy the LUT along with your preset so you can keep your configuration private.
  
 ## Sharpening and texture
-- [**qUINT_sharp**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_sharp.fx): Attempts to sharpen texture detail only while avoiding common sharpen artifacts such as halos around strong edges, excessive aliasing and flickering. It uses the depth buffer to enhance the detail and mask areas that would otherwise produce oversharpening.
-- [**CAS (ContrastAdaptiveSharpen)**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/CAS.fx): AMD FidelityFX Contrast Adaptive Sharpening. Sharpens the image, making details easier to see.
-- [**Smart_Sharp**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Smart_Sharp.fx): Depth Based Unsharp Mask Bilateral Contrast Adaptive Sharpening
-- [**PD80_05_Sharpening**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_05_Sharpening.fx)
-- [**FastSharpen**](https://github.com/guestrr/ReshadeShaders/blob/master/FastSharpen.fx)
+
 - [**AdaptiveSharpen**](https://github.com/Mortalitas/GShade/blob/master/Shaders/AdaptiveSharpen.fx)
+- [**CAS (ContrastAdaptiveSharpen)**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/CAS.fx): AMD FidelityFX Contrast Adaptive Sharpening. Sharpens the image, making details easier to see.
+- [**FastSharpen**](https://github.com/guestrr/ReshadeShaders/blob/master/FastSharpen.fx)
 - [**FilmicAnamorphicSharpen**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/FilmicAnamorphSharpen.fx)
 - [**FilmicSharpen**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/FilmicSharpen.fx)
 - [**LumaSharpen**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/LumaSharpen.fx)
- 
+- [**PD80_05_Sharpening**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_05_Sharpening.fx)
+- [**Smart_Sharp**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Smart_Sharp.fx): Depth Based Unsharp Mask Bilateral Contrast Adaptive Sharpening
+- [**qUINT_sharp**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_sharp.fx): Attempts to sharpen texture detail only while avoiding common sharpen artifacts such as halos around strong edges, excessive aliasing and flickering. It uses the depth buffer to enhance the detail and mask areas that would otherwise produce oversharpening.
+
 ## Tonemapping and color grading
+
+- [**DPX**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/DPX.fx): Makes the image look like it was converted from film to Cineon DPX. Can be used to create a "sunny" look.
+- [**FilmicPass**](https://github.com/Mortalitas/GShade/blob/master/Shaders/FilmicPass.fx): Applies some common color adjustments to mimic a more cinema-like look.
 - [**PD80_01_Filmic_Adaptation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_03_Filmic_Adaptation.fx)
 - [**PD80_04_Technicolor**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Technicolor.fx)
 - [**Reinhard**](https://github.com/Mortalitas/GShade/blob/master/Shaders/Reinhard.fx)
-- [**WatchDogsTonemapping**](https://github.com/Mortalitas/GShade/blob/master/Shaders/WatchDogs.fx)
-- [**DPX**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/DPX.fx): Makes the image look like it was converted from film to Cineon DPX. Can be used to create a "sunny" look.
-- [**FilmicPass**](https://github.com/Mortalitas/GShade/blob/master/Shaders/FilmicPass.fx): Applies some common color adjustments to mimic a more cinema-like look.
 - [**Technicolor**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Technicolor.fx): Makes the image look like it was processed using a three-strip Technicolor process - see http://en.wikipedia.org/wiki/Technicolor
 - [**Technicolor2**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Technicolor.fx)
- 
+- [**WatchDogsTonemapping**](https://github.com/Mortalitas/GShade/blob/master/Shaders/WatchDogs.fx)
  
 ## Film grain
-- [**PD80_06_Film_Grain**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Film_Grain.fx)
+
 - [**FilmGrain**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/FilmGrain.fx)
 - [**FilmGrain2**](https://github.com/Mortalitas/GShade/blob/master/Shaders/FilmGrain2.fx)
+- [**PD80_06_Film_Grain**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Film_Grain.fx)
 - [**SimpleGrain**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/SimpleGrain.fx)
- 
-[//]: # (- **RealGrain**)
- 
+
 ## Chromatic Aberration
-- [**PD80_06_Chromatic_Aberration**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Chromatic_Aberration.fx)
-- [**FlexibleCA**](https://github.com/luluco250/FXShaders/blob/master/Shaders/FlexibleCA.fx)
-- [**ChromaticAberration**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/ChromaticAberration.fx)
-- [**Prism**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/Prism.fx)
+
 - [**CA**](https://reshade.me/forum/shader-presentation/2990-ported-reshade-2-x-effects)
- 
+- [**ChromaticAberration**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/ChromaticAberration.fx)
+- [**FlexibleCA**](https://github.com/luluco250/FXShaders/blob/master/Shaders/FlexibleCA.fx)
+- [**PD80_06_Chromatic_Aberration**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Chromatic_Aberration.fx)
+- [**Prism**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/Prism.fx)
  
 ## Emboss
+
 - [**Bumpmapping**](https://github.com/guestrr/ReshadeShaders/blob/master/Bumpmapping.fx)
 - [**Emboss**](https://reshade.me/forum/shader-presentation/2990-ported-reshade-2-x-effects)
  
- 
 # Extra
+
 - [**NativeEnhancer-FE**](https://github.com/dddfault/NativeEnhancer-FE/blob/master/Shaders/NativeEnhancer-FE.fx): A Film emulation using LUT with various overlay and textures to mimic an old film looks. Lot of stuff.
 - [**PandaFX**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/PandaFX.fx): Applies cinematic lens effects and color grading, bloom for example.
  
- 
 # LUTs
 LUTs are a very important part of doing post, that being for screenshotting or just playing. For a more detailed look on what LUTs are and how to make your own go to [this guide](https://framedsc.github.io/ReshadeGuides/lutgenguide.htm). If you want a great source of LUTs head over to [gordinho MLUT shader repo](https://github.com/TheGordinho/MLUT). Below I would list some of my favorites.
- 
- 
+
+
 - MultiLUTFaustus
 - Film_Presets_MLUT
 - Instagram_Filters_MLUT
