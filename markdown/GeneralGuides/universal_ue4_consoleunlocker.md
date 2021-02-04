@@ -149,6 +149,7 @@ Title|Notes
 103 | 
 A Knight`s Quest | 
 Adam - Lost Memories | 
+Aefen Fall | 
 Agony | 
 Alan Sharp | 
 Alice VR | 
@@ -177,6 +178,7 @@ The Beast Inside |
 Bee Simulator | 
 Beyond a Steel Sky | 
 The Blackout Club | 
+Blade of Arena | 
 Blair Witch | 
 Borderlands 3 | 
 BPM: Bullets per minute | 
@@ -184,6 +186,7 @@ Bright Memory | Also works with the RTX tech demo
 Britannic: Patroness of the Mediterranean | 
 Burning Daylight | 
 Call of Cthulhu | 
+Call of the Sea | 
 Captain Starshot | 
 Castle Rock Beach, West Australia | 
 Chernobylite | 
@@ -283,6 +286,7 @@ The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Little Hope | No console, camera only (v3.0.12 or lower)
+Little Nightmares | Console only, no camera (v3.0.12 or lower). Tested on demo.
 Lost Ember | 
 Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
@@ -290,6 +294,7 @@ Man of Medan (The Dark Pictures Anthology) |
 Marvel vs. Capcom: Infinite | 
 Metamorphosis | 
 Medieval Dynasty | No hud toggle
+The Medium | Camera doesn't work in split-screen scenes
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
 MotoGP 20 | 
@@ -304,6 +309,7 @@ MotoGP 19 |
 My Hero One's Justice | 
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
+Mysteria Occult Shadows | 
 Narcos: Rise of the Cartels | 
 NBA 2K Playgrounds 2 |
 Necromunda Underhive Wars | No hud toggle 
@@ -319,6 +325,7 @@ Overkill's The Walking Dead |
 Override: Mech City Brawl | 
 Pagui打鬼 | 
 Paper Dolls Original | 
+Paradise Killer | 
 Paradise Lost | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
@@ -330,6 +337,7 @@ The Pit: Infinity |
 Pluviophile | 
 Praetorians HD Remaster | 
 Project Remedium | 
+Project Wingman | 
 Protocol | 
 Observer System Redux | Tested on demo.
 Occupation | 
@@ -338,6 +346,7 @@ Omen of Sorrow |
 Omensight | 
 Omno | Tested on demo
 The Otterman Empire | 
+Pacer | 
 Quantum Replica | 
 Qube 2 | 
 The Quiet Man | 
@@ -345,6 +354,7 @@ Race With Ryan |
 RAD | 
 Raji: An Ancient Epic Prologue | 
 Redeemer | 
+Redout: Space Assault | 
 Relicta | 
 Remnant: From the Ashes | 
 Remothered: Broken Porcelain | 
@@ -355,6 +365,7 @@ Rock of Ages 3: Make and Break |
 Ruin 2 | 
 Ruiner | 
 Samurai Jack Battle Through Time | No console/timestop. Use menu + hud toggle for pause.
+Samurai Showdown | No aspect ratio correction
 Satisfactory | 
 SCUM | 
 Session: Skateboarding Sim Game | 
@@ -398,6 +409,7 @@ Torchlight 3 |
 Tower of Fate | 
 Train Sim World | 
 Transient | Tested on demo
+Travis Strikes Again: No More Heroes Complete Edition | 
 Trials of Mana | Also works with the demo
 Tropico 6 | 
 Twin Mirror | 

@@ -4,8 +4,8 @@
     "Destination" : "..\\site",
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
-    "SourceFoldersToCopy" : ["CheatTables", "Images"],
-    "Footer" : "&copy 2019-2020 FRAMED. All rights reserved.",
+    "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed"],
+    "Footer" : "&copy 2019-2021 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
     "Pages" : 
@@ -48,6 +48,7 @@
 			"ELEX": "GameGuides\\ELEX.md",
 			"The Evil Within 2": "GameGuides\\TEW2.md",
 			"Far Cry 5": "GameGuides\\farcry5.md",
+			"Far Cry Primal": "GameGuides\\FarCryPrimal.md",
 			"Generation Zero": "GameGuides\\generationzero.md",
 			"Greedfall": "GameGuides\\greedfall.md",
 			"Hitman: Absolution": "GameGuides\\HitmanAbsolution.md",
@@ -94,6 +95,7 @@
 			"XCOM 2": "GameGuides\\xcom2.md",
 			"Yakuza 0": "GameGuides\\Yakuza_0.md",
 			"Yakuza Kiwami 2": "GameGuides\\Yakuza_Kiwami_2.md",
+			"Yakuza Like a Dragon": "GameGuides\\Yakuza_Like_a_Dragon.md",
         },
 		"General guides" :
 		{
@@ -123,3 +125,4 @@
 		"Cheat Table Archive": "cheattablearchive.md",
     }
 }
+
