@@ -1,4 +1,5 @@
-# Shaders Catalogue
+Shaders Catalogue
+=========
  
 The purpose of this guide is to let you know about the different stuff you can do in [reshade](https://framedsc.github.io/GeneralGuides/basics.htm#reshade) and show you why to use it instead of doing pos processing in a common editing software.
  
@@ -24,8 +25,7 @@ One of the advantages of using reshade over other post processing softwares (bes
 - [**quintDoF**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_dof.fx): Depth of Field shader that aspires to give movie-quality bokeh blur to video games. It provides a very high quality DoF effect with artistic controls, ideal for both screenshots and gameplay. The bokeh discs it produces can be polygonal, circular and anything in between, it also features a disc occlusion feature (where the bokeh discs look like a boolean intersection between 2 circles) and chromatic aberration at bokeh shape edges. This is done by a unique gradient-based algorithm that has a very low constant cost ignorant of scene complexity or blur settings. To prohibit focused areas from bleeding their color into blurred areas the shader employs a highly sophisticated solution that is capable of mitigating this artifact completely without the overhead of common solutions that also mostly underperform.
 
 ## Deband
-- [**Deband**](https://github.com/crosire/reshade-shaders): Have you ever seen gradients that don't seamlessly blend into each other? That's called banding. It happens when there aren't enough tones available to recreate a seamless gradation. This shader is ment to fix that. Be sure to grab the one linked since it has an option to adjust the depth of where the shader should act (since most of the time it should be applied only in backgrounds). Deband is part of the 
-official Reshade shaders the Reshade installer will install for you always.
+- [**Deband**](https://github.com/crosire/reshade-shaders): Have you ever seen gradients that don't seamlessly blend into each other? That's called banding. It happens when there aren't enough tones available to recreate a seamless gradation. This shader is ment to fix that. Be sure to grab the one linked since it has an option to adjust the depth of where the shader should act (since most of the time it should be applied only in backgrounds). Deband is part of the official Reshade shaders the Reshade installer will install for you always.
 
 - [**qUINT_deband.fx**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_deband.fx): Fixes blocky color gradients and breaks up crushed texture detail.
  
@@ -130,9 +130,9 @@ If the shaders in the "graphics improvement" section were situational, these one
 - [**MagicBorder**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/MagicBorder.fx): If you want to add borders in your shot but want the subject to hover over said border then try this shader.
 - [**Monocular_Cues(Depth_Cues)**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Depth_Cues.fx): (Image Enhancement by Unsharp Masking the Depth Buffer)
 - [**NormalMap**](https://github.com/luluco250/FXShaders/blob/master/Shaders/NormalMap.fx): It allows the use of a normalmap texture to be applied on screen. You can find one of these on the internet, but it's often better to make your own with a software like Substance Designer.
-- [**PD80_04_Color_Isolation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Color_Isolation.fx): Sames as the shader above.
+- [**PD80_04_Color_Isolation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Color_Isolation.fx): Sames as the previous Color Isolation shader.
 - [**PD80_04_Magical_Rectangle**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Magical_Rectangle.fx): Create a rectangle, change dimensions/rotation, change color, change position in 3D space, blend with depth, blend with colors, create gradients, soften edges, create game mist, remove game mist, create flares, manipulate contrasts/brightness, create light leaks, and so on.
-- [**PD80_06_Depth_Slicer**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Depth_Slicer.fx): Similar to the previous shader but with blending mods and other a couple more options.
+- [**PD80_06_Depth_Slicer**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Depth_Slicer.fx): Similar to AdaptiveFog but with blending mods and other a couple more options.
 - [**RealLongExposure**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/RealLongExposure.fx): Enables you to capture changes over time, like in long-exposure photography. If you filter by brightness, it will have the most similar effect to real world photography, but try Freeze on a static scene with brightness turned off and not moving the camera to receive the most interesting results. It can also be used when you have a jitter depth buffer (sometimes caused by TAA or other noisy effects like SSR or raytracing) to accumulate and produce a cleaner image.
 - [**Retrofog**](https://github.com/luluco250/FXShaders/blob/master/Shaders/RetroFog.fx)
 - [**Retrofog2**](https://github.com/Mortalitas/GShade/blob/master/Shaders/RetroFog2.fx)
