@@ -40,14 +40,14 @@ Referred to as the Nvidia tool that allows the player to move the camera freely 
 Description|Key/Jotstick button
 -|-
 Open Ansel | Alt + F2
-Move the camera orientation | Mouse / Right analog
+Move the camera orientation | Mouse (While pressing left click)/ Right analog
 Move the camera position forwards,left, backguards, right  | W,A,S,D / Left analog
-Move the camera up, down | Z,X / 
-Tilt the camera | Q,E / Left and Right D-pads
-Fast movement | (While moving) Shift / 
-Slow movement | /
-FoV | / 
-Ins | Hide/show the Ansel GUI
+Move the camera up, down | Z,X /  L2, L2
+Tilt the camera | Q,E / L1, R1
+Fast movement |  Shift (While moving) / R3
+Slow movement | Control (While moving)
+FoV | In Ansel GUI (Camera section) 
+Hide/show the Ansel GUI | Ins / In Ansel GUI
  
  
 ### Limitations
@@ -92,8 +92,10 @@ ReShade is a post-processing injector for games, which means that it allows you 
 - [ReShade official page](https://reshade.me/)
 - [List of repositories](https://www.pcgamingwiki.com/wiki/ReShade#List_of_known_shader_repositories)
 - [Game compatibility list](https://www.pcgamingwiki.com/wiki/ReShade#Game_compatibility)
+- [Easy Troubleshooting](https://reshade.me/forum/troubleshooting/5227)
 - [How To fix most of your problems with ReShade](https://www.youtube.com/watch?v=hYUiWfvyafQ)
 - [How to Fix a Misaligned Depth Buffer on ReShade](https://www.youtube.com/watch?v=1z3VyU_4GQY)
+
  
 ## How to capture a screenshot of a game
  
