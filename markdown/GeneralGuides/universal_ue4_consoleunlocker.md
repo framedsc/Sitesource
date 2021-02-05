@@ -421,6 +421,7 @@ Wartile |
 We Happy Few | Built-in camera isn't available.
 We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
+Werewolf The Apocalypse Earthblood | 
 Withstand: Survival | 
 What Happened | 
 The Works of Mercy | 
