@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.9f6135ab.chunk.css",
+    "main.css": "./static/css/main.d94146e3.chunk.css",
     "main.js": "./static/js/main.278ae6dd.chunk.js",
     "main.js.map": "./static/js/main.278ae6dd.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.90f3faf5.js",
@@ -10,7 +10,7 @@
     "static/js/3.519f6157.chunk.js": "./static/js/3.519f6157.chunk.js",
     "static/js/3.519f6157.chunk.js.map": "./static/js/3.519f6157.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.9f6135ab.chunk.css.map": "./static/css/main.9f6135ab.chunk.css.map",
+    "static/css/main.d94146e3.chunk.css.map": "./static/css/main.d94146e3.chunk.css.map",
     "static/js/2.df5ecef8.chunk.js.LICENSE.txt": "./static/js/2.df5ecef8.chunk.js.LICENSE.txt",
     "static/media/stylesheet.css": "./static/media/GalanoGrotesqueAlt-Regular.d302862d.woff",
     "static/media/App.css": "./static/media/social-icons.10a16408.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.90f3faf5.js",
     "static/js/2.df5ecef8.chunk.js",
-    "static/css/main.9f6135ab.chunk.css",
+    "static/css/main.d94146e3.chunk.css",
     "static/js/main.278ae6dd.chunk.js"
   ]
 }
