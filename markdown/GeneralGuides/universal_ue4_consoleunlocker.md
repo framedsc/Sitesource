@@ -286,7 +286,8 @@ The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Little Hope | No console, camera only (v3.0.12 or lower)
-Little Nightmares | Console only, no camera (v3.0.12 or lower). Tested on demo.
+Little Nightmares | Console only, no camera. Use `toggledebugcamera` for camera
+Little Nightmares 2 | Console only, no camera. Use `toggledebugcamera` for camera
 Lost Ember | 
 Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
@@ -421,6 +422,7 @@ Wartile |
 We Happy Few | Built-in camera isn't available.
 We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
+Werewolf The Apocalypse Earthblood | 
 Withstand: Survival | 
 What Happened | 
 The Works of Mercy | 
