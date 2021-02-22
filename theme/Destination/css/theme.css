@@ -1186,7 +1186,6 @@ div.figure p {
 	padding: 1.618em 3.236em;
 	height: 100%;
 	max-width: 800px;
-	margin: auto;
 }
 
 .side-nav-search {
@@ -1285,6 +1284,11 @@ div.figure p {
 }
 
 @media only screen and (max-width: 480px) {
+	img {
+		max-width: 100%;
+		height:auto;
+	}	
+	
 	.form input[type="text"] {
 		margin-bottom: 0.3em;
 		display: block;
@@ -1297,6 +1301,11 @@ div.figure p {
 }
 
 @media screen and (max-width: 480px) {
+	img {
+		max-width: 100%;
+		height:auto;
+	}
+	
 	.mobile-hide {
 		display: none;
 	}
@@ -1311,6 +1320,11 @@ div.figure p {
 }
 
 @media screen and (max-width: 768px) {
+	img {
+		max-width: 100%;
+		height:auto;
+	}	
+	
 	.nav-top {
 		display: block;
 	}
