@@ -1,96 +1,88 @@
-![Mass Effect 1](\Images\mass_effect.png "Shot by erika.tschinkel")
-
 ## Summary
 
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | No, but Setres
+Hotsampling | No*
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Yes (d3d9.dll), but plays poorly with GeDoSaTo sometimes
+Reshade | Yes 
 Ansel | No
 Rendering API | DX9
 
-Getting Started: Ini Edits
+\* resolutions can be set to hotkeys which give an advantage similar to hotsampling
+
+INI Edits
 ==========================================================
 
-Go to your `Documents/Bioware/Mass Effect/Config` folder and open the BIOInput.ini.
+Find your `Documents/Bioware/Mass Effect/Config` folder and open `BIOInput.ini`.
 
 Add these settings under [BIOC_Base.BioPlayerInput]
 ```
-Bindings=(Name="NumPadOne",InputMode=BIO_INPUT_MODE_NONE,Command="show scaleform",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadTwo",InputMode=BIO_INPUT_MODE_NONE,Command="FOV 0",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadThree",InputMode=BIO_INPUT_MODE_NONE,Command="FOV 70",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadSix",InputMode=BIO_INPUT_MODE_NONE,Command="set DOFAndBloomEffect bUseWorldSettings false",Control=False,Shift=False,Alt=False)
-Bindings=(Name="F10",Command="set DOFAndBloomEffect bUseWorldSettings true")
-Bindings=(Name="NumPadFour",InputMode=BIO_INPUT_MODE_NONE,Command="SloMo 0.5",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadFive",InputMode=BIO_INPUT_MODE_NONE,Command="SloMo 1",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadSeven",InputMode=BIO_INPUT_MODE_NONE,Command="ghost",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadEight",InputMode=BIO_INPUT_MODE_NONE,Command="walk",Control=False,Shift=False,Alt=False)
-Bindings=(Name="NumPadNine",InputMode=BIO_INPUT_MODE_NONE,Command="ToggleFlyCam",Control=False,Shift=False,Alt=False)
+Bindings=(Name="NumPadOne",Command="show scaleform")
+Bindings=(Name="NumPadTwo",Command="FOV 0")
+Bindings=(Name="NumPadThree",Command="FOV 70")
+Bindings=(Name="NumPadFour",Command="SloMo 0.5")
+Bindings=(Name="NumPadFive",Command="SloMo 1")
+Bindings=(Name="NumPadSeven",Command="ghost")
+Bindings=(Name="NumPadEight",Command="walk")
+Bindings=(Name="NumPadNine",Command="ToggleFlyCam")
 Bindings=(Name="Multiply",Command="PlayersOnly")
 ```
 
-An explanation for some of the less obvious commands:
+Explanation:
 
-The command "setDOFAndBloomEffect etc" is a command that tells the game whether or not to use the default post-processing settings or the ones meant for that particular scene. It is for use alongside a cheat table I will provide later on, that allows you to manipulate in-engine depth of field and tonemapping via keybinds. However, thanks to IDK, we now do not always need to tell the game to revert to default post-processing settings anymore in order to change the tonemapping and DoF. Sometimes that section of the cheat table does not work, though, so you have to use the old method.
+`ShowScaleForm` toggles the HUD
 
-What you do is: toggle "setDOFAndBloomEffect etc" to "false", change the tonemapping and DoF (or whatever else) as you see fit, grab the shot, and then change it back to "true." When you toggle it to "false," you should see a pretty drastic change in the colors on the screen. Sometimes more than others. Note that it is also usually necessary to add regular movement commands to the cinematic and conversation modes, because these do not usually contain movement keys by default. Lastly "ShowScaleForm" is actually the HUD toggle for some UE3 games, this one included, and unlike in ME3, the HUD does not go off when you toggle the flycam. Also "show ScaleForm" is the HUD Toggle for this game.
+This game suffers from the same shadow banding that plagues most UE3 games. Try this tweak to fix it:
+
+In `BioEngine.ini` add/change the following under `[SystemSettings]`
+```
+bEnableVSMShadows=True
+bEnableBranchingPCFShadows=False
+bAllowHardwareShadowFiltering=True
+ShadowDepthBias=0.100
+```
 
 
-Note: I also recommend adding ShadowDepthBias=0.100 in the BioEngine.ini to reduce shadow banding. You can search for this value in your text editor.
-
-
-Part II: Custom Resolutions
+Custom Resolutions
 ==========================================================
 
-Unreal Engine 3 has a very useful command, the setres command, which will change the resolution to whatever you tell it to. This can be bound to a key, which means that we can swap resolutions in ME3 from within the game. It’s extremely convenient for taking high resolution shots.
+Unreal Engine has a command called `setres` that can be used to bind hotkeys to specific resolutions. In order to achieve resolutions are higher than your monitor supports, you can use DSR (see our guide for custom DSR resolutions). If for whatever reason DSR doesn't work, you can also do this in a program called GeDoSaTo.
 
 However, the only way this works for resolutions outside our screen resolution is if we use GeDoSaTo. GeDoSaTo allows you to run resolutions outside your screen resolution, downsampled to your screen resolution. This makes up for the fact that UE3 will not allow you to run outside your screen resolution. So what happens is that every time you hit the setres command, it tells the game to go to a resolution outside your screen, which GeDoSaTo allows, and then downsamples that so you can see the whole thing on the screen. Complicated, but very useful. Some of you may use this already for Skyrim.
 
 Setting up the setres commands is a two part process. First you will need to add them to the coalesced file. The format is: `( Name="Key", Command="setres WidthxHeight" )`, so mine look like this:
 
+Hotkeys are just examples. Please feel free to choose your own. In these examples, I swap between a resolution that will fit on a 1440p screen, then use the same hotkey + ALT to switch to a higher resolution in the same aspect ratio.
 ```
-Bindings=(Name="L",InputMode=BIO_INPUT_MODE_NONE,Command="setres 4500x6000",Control=False,Shift=False,Alt=True)
-Bindings=(Name="L",InputMode=BIO_INPUT_MODE_NONE,Command="setres 4320x7680",Control=False,Shift=False,Alt=False)
-Bindings=(Name="Add",InputMode=BIO_INPUT_MODE_NONE,Command="setres 6000x4000",Control=False,Shift=False,Alt=False)
-Bindings=(Name="K",InputMode=BIO_INPUT_MODE_NONE,Command="setres 4000x6000",Control=False,Shift=False,Alt=False)
-Bindings=(Name="Subtract",InputMode=BIO_INPUT_MODE_NONE,Command="setres 7680x3840",Control=False,Shift=False,Alt=False)
-Bindings=(Name="Home",InputMode=BIO_INPUT_MODE_NONE,Command="setres 5000x5000",Control=False,Shift=False,Alt=False)
-Bindings=(Name="H",InputMode=BIO_INPUT_MODE_NONE,Command="setres 8000x3404",Control=False,Shift=False,Alt=False)
-Bindings=(Name="End",InputMode=BIO_INPUT_MODE_NONE,Command="setres 9000x3000",Control=False,Shift=False,Alt=False)
-Bindings=(Name="Equals",InputMode=BIO_INPUT_MODE_NONE,Command="setres 3840x2160",Control=False,Shift=False,Alt=False)
+Bindings=(Name="F1",Command="setres 2560x1440")
+Bindings=(Name="F1",Command="setres 7680x4320")
+Bindings=(Name="F2",Command="setres 1080x1440")
+Bindings=(Name="F2",Command="setres 4800x6300")
+Bindings=(Name="F3",Command="setres 3440x1440")
+Bindings=(Name="F3",Command="setres 6880x2880")
 ```
 
-Note that these are kind of weird keybinds, but I found that this game really doesn't like certain commands to be bound to certain keys. I recommend, just to save yourself the hassle, that you use my exact keybinds for everything.
+Sometimes the game will not allow certain keys to be bound to commands. So experiment to find what works.
 
-Next, we have to mirror those in the GeDoSaTo user.ini. Add your resolutions in the following format:
+If you need to use GeDoSaTo, here's how you can configure the resolutions above to work in the GeDoSaTo config file.
 
 ```
-renderResolution 3840x2160@60 
-```
-The @60 is your refresh rate. Leave this the way it is if you do not know.
+#16:9
+renderResolution 7680x4320@60
 
-Then change your "present resolution," which is the resolution you will downsample to, to your screen resolution:
+#3:4
+renderResolution 1080x1440@60
+renderResolution 4800x6400@60
+
+#21:9
+renderResolution 3440x1440@60
+renderResolution 6880x2880@60
 ```
-presentWidth 3840 
-presentHeight 2160 
-presentHz 60 
-```
-In theory, you should now be able to run ME1 fullscreen, hit one of your setres keybinds, and watch the game re-render. In reality, GeDoSaTo is a really finicky program, and you may have to change the settings to get it to work. I now have to get GeDoSaTo to force borderless fullscreen, which is one of the settings you can toggle. I advise you to try stuff that sounds halfway reasonable until you figure it out. 
 
 
-Part III: Cheat Table
+Mods
 ==========================================================
-
-You can download the Cheat Table (by Erika Tschinkel) [here](..\CheatTables\MassEffectWIP4.CT), and the keybinds are in the table.
-
-To use tilt you must pause the game first, which you can do by typing "pause" in the console. Also, to change the FOV, you must use your FOV 70 bind first, and then when you're done you can reset it with your FOV 0 bind. The rest of the table is devoted to in-engine post-processing and DoF. You must first toggle the world settings (as I said above), using F6, and then use the "Post-Processing" script, which I’ve not bound to keys because reasons. So tickthe box (and you can leave this one on if you like) depending on what game mode you’re currently in, and then you can use the hotkeys on the table, or enter the numbers in manually if you would rather. 
-
-Shadows, midtones, and highlights are fairly self-explanatory, as is desaturation. The DoF controls are less so. Near blur and far blur are different from "blur kernel." You’ll see the degradation in quality when you lower the near or far blur down from 1. I advise, if you want a less strong DoF, to lower the blur kernel size. You can hit "shift" (I think, it might be "alt") while you hit \ to lower it quickly, because it starts out quite high. Focus distance, self explanatory, but focus inner radius is the distance between near and far blur. It also makes a difference to how gentle the falloff is. Low focus inner radius means a very sharp falloff. Which is a bit different from falloff exponent, which only seems to act on the very end of the DoF. Bloom scale raises or lowers the amount of bloom, and you can use negative values. 
-
-
-The Home Stretch: Mods
-==========================================================
-So these are just mods I consider essential for screenshotting this game. First of all [ALOT](https://www.nexusmods.com/masseffect/mods/83) textures takes care of a very high quality base high resolution texture set. The other one that is essential to me is a new one that [removes the vignette](https://www.nexusmods.com/masseffect/mods/104).
+[High quality textures](https://www.nexusmods.com/masseffect/mods/83)  
+[Vignette Removal](https://www.nexusmods.com/masseffect/mods/104)
