@@ -249,6 +249,7 @@ Gal Gun 2 |
 Genesis Alpha One | 
 Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
+Godfall | Inject the UUU at launch, before the game starts. No console.
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
