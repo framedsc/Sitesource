@@ -7,7 +7,7 @@ Feature | Supported
 Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
-Custom Aspect Ratios | Yes
+Custom Aspect Ratios | Yes ([limited](mass_effect_andromeda.htm#custom-aspect-ratios))
 Reshade | Yes
 Ansel | Yes
 DirectX versions | DirectX 11
