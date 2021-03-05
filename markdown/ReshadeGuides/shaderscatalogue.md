@@ -174,7 +174,6 @@ Shaders used for rendering an image in game (like changing the sky). Can be used
 - [**Image**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/Image.fx)
 - [**StageDepth**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Recommended/StageDepth.fx)
 - [**StageDepthPlus**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/StageDepthPlus.fx): Allows manipulating an image, letting you resize it independently from the x and y axis, positioning it, rotating it, using depth for masking and the ability of using different blending modes. You can also use a depth map alongside the texture image to interact with the game's depth.
-The only problem is that it takes every image as if it has an square AR, so it's kind of bothersome to resize it taking that in mind. To avoid this it is recommended to edit the original image adding invisible pixels to make the image a square so it doesn't get distorted.
  
 ## Styles
 - **Posterize**: You can only get this shader in the [pack provided by nvidia](https://international-gfe.download.nvidia.com/GFE/GFEClient/ReShadeFilters/v1.0/Curated_ReShade_Filters.zip)
@@ -279,6 +278,7 @@ If you want a detailed explanation about what most of prods shaders do make sure
  
 # Extra
 
+- [**Film Workshop**](https://www.patreon.com/posts/film-workshop-48118405): Emulates the process of real-world film capture, scanning & grading, and printing process workflow of traditional motion picture filmstock for cinema. For more info on the shader see the info displayed on the shader UI or [TreyM tutorial on how to use it](https://www.youtube.com/watch?v=VX_jMMccv5k).
 - [**NativeEnhancer-FE**](https://github.com/dddfault/NativeEnhancer-FE/blob/master/Shaders/NativeEnhancer-FE.fx): A Film emulation using LUT with various overlay and textures to mimic an old film looks. Lot of stuff.
 - [**PandaFX**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/PandaFX.fx): Applies cinematic lens effects and color grading, bloom for example.
  
