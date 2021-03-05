@@ -64,5 +64,6 @@ Vertical aspect ratios don't work, but horizontals do. Also the game doesn't sup
 ## Useful Links
  
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Mass_Effect:_Andromeda)
+* [Mods on Nexus](https://www.nexusmods.com/masseffectandromeda/)
 
 
