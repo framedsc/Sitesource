@@ -29,7 +29,7 @@ Right click that folder and click "export." Save the file somewhere you'll remem
 
 The DSR Calculator is a tool I made that will allow you to type in 10 custom resolutions and will generate the required hex information for them. You simply need to copy that to your clipboard and be prepared to replace that section of the registry file you exported.
 
-[Click here to download the DSR Calculator](https://web.archive.org/web/20180301201005/http://www.jim2point0.com/tools/dsr_hex/) (extract to a folder and open the index.html in your browser)
+[Click here to view the DSR Calculator](https://jim2point0.github.io/jim2point0/dsr_hex/)
 
 When you finish, you'll get some data that looks like this:
 
@@ -41,7 +41,7 @@ When you finish, you'll get some data that looks like this:
 
 Remember that file you exported? Open it in a text editor. We're interested in replacing the lines highlighted like in this picture (lines 5-10):
 
-![Registry File Editing](https://i.imgur.com/r3KJVKY.png)
+![Registry File Editing](Images\dsr_hex\dsr_copy_paste.png){.shadowed .resizable}
 
 Highlight those lines and paste in the data you copied from the DSR tool. Save the file and then run it (double click). Say yes when it warns you about the potential damage you could be doing to your computer. 
 
