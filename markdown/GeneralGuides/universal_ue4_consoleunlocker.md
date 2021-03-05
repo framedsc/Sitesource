@@ -16,7 +16,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
-* [Universal UE4 Unlocker v3.0.12](https://mega.nz/file/xEIXCKrQ#zUm-T6qd-ZJ3UTsl0ZOWVSZb1mx7sGWjtchM0461_1w). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.13](https://mega.nz/file/0QwBiIhC#SuS8jMZkEzNBQ8wtfI2vJGLVSnckGBajR_y4n0EDgpk). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -249,6 +249,7 @@ Gal Gun 2 |
 Genesis Alpha One | 
 Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
+Godfall | Inject the UUU at launch, before the game starts. No console.
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
@@ -486,6 +487,9 @@ Special thanks to Pino44io for testing.
 &copy;2019-2020 All rights reserved.
 
 ## Changelog
+
+###v3.0.13:
+- **FIXED**: The `SET` command was readded using code which assumed a fixed length of the check block, but in some games this was a different length, causing crashes when a command was specified on the console.
 
 ###v3.0.12:
 - **FIXED**: The checks for Engine Version for select v4.25 games failed, this has been corrected. 
