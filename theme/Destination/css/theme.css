@@ -533,6 +533,11 @@ img.shadowed, div.figure img {
 	box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
 }
 
+img.resizable {
+    max-width: 100%;
+    height:auto;
+}
+
 div.figure p {
 	font-size: smaller;
 	text-align: left;

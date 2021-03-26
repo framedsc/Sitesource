@@ -60,19 +60,28 @@ Lighting Mods will probably make the biggest visual difference, but they are ver
 For screenshots:
 --
 * [Freecam & console](https://www.nexusmods.com/witcher3/mods/3574)  
+As the title suggests, this enables the console and enables the debug free camera. The free camera is best operated with a controller, as the keyboard controls do not include a way to change FOV.
 * [Photomode2inOne](https://www.nexusmods.com/witcher3/mods/190)  
+This mod allows you to freeze the game as well as hide the HUD with a single hotkey. It also includes controls for changing the weather, game speed, and adds a few effects like fog and mist that you can spawn.
 * [AMM](https://www.nexusmods.com/witcher3/mods/780)    
     The alternate appearances menu lets you change your appearance (as well as Roach). It will ignore whatever you're wearing so you can still look cool while using items that have the stats you want.
 
-Time of Day Control
+Cheat Engine Table
 --
-* [CE table](../CheatTables/witcher3.ct)  
+* [Download link](../CheatTables/witcher3.CT) 
+
+**Time of Day Control**  
 Enable the script. Use the [ ] keys to change the time of day.
 Hold ALT to move the time faster.
 Hold CTRL to move the time slower. 
 
     To make the time transition smoother, in Cheat Engine, go to Edit -> settings -> hotkeys  
     Decrease keypoll interval and delay to 25-50
+
+**Unit Animation Speeds**  
+This script can be used to individually freeze Geralt and\or enemies and NPCS. This can be useful when setting up a combat shot. You can set a hotkey to freeze enemies in the middle of their attack animation. Then you can focus on positioning Geralt once the enemy is frozen in place.
+
+If you freeze Geralt in the middle of most animations using this script, his face and eyes will still move. This can be a good way to get the exact eye line or expression you want for your screenshot. Once you have what you want, use the photomode2in1 timestop to freeze everything.
 
 High Resolution Screenshots
 --

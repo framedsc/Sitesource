@@ -271,14 +271,17 @@ Infliction |
 Insomnia the Ark | 
 Insurgency Sandstorm | 
 Intruders: Hide and Seek" | 
+Iron Survival | 
 Journey to the Savage Planet | 
 Jumanji The Video Game | 
 Jump Force (limited) | 
 Kari | 
+Keep Out | 
 Killsquad | 
 Kine | 
 Koral | 
 Laser League | 
+The Last Show of Mr. Chardish | 
 Layers of Fear 2 | 
 Liberty Prime | 
 Life is Strange 2 | 

@@ -7,7 +7,7 @@ Feature | Supported
 Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
-Custom Aspect Ratios | Yes*
+Custom Aspect Ratios | Yes ([limited](mass_effect_andromeda.htm#custom-aspect-ratios))
 Reshade | Yes
 Ansel | Yes
 DirectX versions | DirectX 11
@@ -40,6 +40,7 @@ Page Up/Down - L3 / R3                         | Change FoV
 (Joystick sensibility can be high)
 
 In the tools window you can find the following features:
+
 - Movement Speed
 - Rotation Speed
 - Roll Speed
