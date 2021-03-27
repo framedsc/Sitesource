@@ -52,7 +52,7 @@ In the tools window you can find the following features:
 - Film Grain
 
 ## Custom Aspect Ratios
-Vertical aspect ratios don't work, but horizontals do. Also the game doesn't support high definitions like 6k, but you can get some higher definitions in other ARs that aren't 16:9 (the max I could use was 5760x2468).
+Vertical aspect ratios don't work, but horizontals do. Also the game doesn't support high definitions like 6k, but you can get some higher definitions in other ARs that aren't 16:9 (the max I could use was 5760x2468). Also custom aspect ratios dont seem to work in cutscenes.
  
 ## Tips
 - After changing the FOV the game will stop changing it when zooming, in cinematics, etc. To fix that change the "Override FoV" value from -1 to 0 and then back to -1.
