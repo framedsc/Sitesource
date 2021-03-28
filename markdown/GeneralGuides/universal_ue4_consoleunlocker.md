@@ -247,6 +247,7 @@ Finding the Soul Orb |
 Freud Gate | 
 Gal Gun 2 | 
 Genesis Alpha One | 
+Genesis Noir | 
 Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
 Godfall | Inject the UUU at launch, before the game starts. No console.
@@ -403,6 +404,7 @@ Stela |
 Stories: the Path of Destinies | 
 Styx 2 | 
 Subdivision Infinity DX | 
+Subverse | 
 The Suicide of Rachel Foster | 
 Supraland | 
 Sword Art Online: Fatal Bullet | 
