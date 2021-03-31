@@ -178,6 +178,7 @@ The Beast Inside |
 Bee Simulator | 
 Beyond a Steel Sky | 
 The Blackout Club | 
+Black Legend | 
 Blade of Arena | 
 Blair Witch | 
 Borderlands 3 | 
@@ -195,6 +196,7 @@ Code Vein |
 Comanche | 
 Conarium | 
 Corruption 2029 | 
+Crash Bandicoot 4: It's About Time | 
 Creature in the Well | 
 Curse of Anabelle | 
 Daemon X Machina  | 
