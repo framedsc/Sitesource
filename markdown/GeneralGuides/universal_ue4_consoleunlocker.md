@@ -264,7 +264,8 @@ Hellblade: Senua's Sacrifice |
 Hellbound | 
 Hello Guest | Tested on Alpha build.
 Hello Neighbor 2 | 
-Hollow | 
+Hollow |
+Human or Virus | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
 Hunting Simulator 2 | 
