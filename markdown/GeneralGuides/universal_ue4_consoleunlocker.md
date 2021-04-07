@@ -237,6 +237,7 @@ Elli |
 Estranged Act II | 
 Everspace | 
 Everspace 2 | Tested on demo
+Eximius: Seize the Frontline | 
 Explore Fushimi Inari | 
 Extinction | 
 Fortnite | Only versions below 1.9.1 are compatible.
