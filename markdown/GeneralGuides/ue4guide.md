@@ -131,7 +131,12 @@ r.ViewDistanceScale=2
 
 This forces the game to always render at 150% native resolution, with draw distance doubled from its native settings. You can also add the same `r.` commands from the scalability groups to enforce them by default.
 
-For a full list of `r.` commands, [click here](https://digilander.libero.it/ZioYuri78/). 
+## All UE4 console commands and variables
+
+To know more about which commands are available and which variables you can set through the console you can use the following search engine: [https://digilander.libero.it/ZioYuri78/](https://digilander.libero.it/ZioYuri78/). 
+
+This search engine allows you to search on both description and command/variable so it's easy to find the command or variable you're after. The engine gives the variables of the
+latest public UE4 build, so it might be the game you're using the UUU with is of an earlier version and doesn't support the variable.
 
 @alert tip
 Use the console to test out these commands and find the appropriate values in-game before adding them to the .ini. It'll save time!
