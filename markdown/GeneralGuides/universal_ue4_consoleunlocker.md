@@ -164,6 +164,7 @@ Arboria |
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
 Armoured Onslaught | 
+Aron's Adventure | Console isn't available
 Ashen | 
 Ashes Of Oahu | 
 Assemblance: Oversight | 
@@ -194,6 +195,7 @@ Chernobylite |
 Cions of Vega | 
 Close to the Sun | 
 Code Vein | 
+Colony Ship | Console isn't available
 Comanche | 
 Conarium | 
 Corruption 2029 | 
