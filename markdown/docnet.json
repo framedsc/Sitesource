@@ -109,6 +109,7 @@
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
 			"The Basics of Taking Screenshots": "GeneralGuides\\basics.md",
 			"Creating Tiny Planets": "GeneralGuides\\tinyplanetsguide.md",
+			"CyberLit for CyberPunk 2077 user guide": "GeneralGuides\\cyberlit.md",
 			"Advanced" : 
 			{
 				"Using RTTI info in a game exe": "GeneralGuides\\using_rtti.md",
