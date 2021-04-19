@@ -62,10 +62,12 @@ This controls how bright the light is.
 
 **Radius**  
 This controls how far the light can travel, likely in in-game meters.
+
 ![radius](Images\cyberlit\eg_radius.png){.shadowed .autosize}
 
 **Attenuation**  
 This controls the intensity falloff of the light. 0 represents a 'natural' (inverse-square) falloff, while 1 maintains the intensity throughout the light radius. Values above 1 don't appear to do anything.
+
 ![attenuation](Images\cyberlit\eg_attn.png){.shadowed .autosize}
 
 @alert tip  
@@ -74,6 +76,7 @@ Attenuation is a useful setting to have set to 1 while moving lights around. Sin
 
 **Roughness Bias**  
 This overrides the roughness of the specular highlights produced by a light when shone on a surface. Values to 127 appear to make specular highlights rougher. A flip happens at 128, where specular highlights are now sharp and become more rough until they return to default at 255.
+
 ![highlights!](Images\cyberlit\eg_roughness.png){.shadowed .autosize}
 
 ---
@@ -86,15 +89,17 @@ With the light type set to **Spot**, these controls are exposed, allowing the ed
 
 **Inner angle**  
 This controls the softness of the light relative to the outer angle, in degrees. Anything within the inner cone will be evenly lit while the light gradually falls off closer to the outer cone. Setting inner angle to be equal or greater than outer angle creates a spotlight with hard edges.
-![angles 1](Images\cyberlit\eg_innerangle.png){.shadowed .autosize}
 
+![angles 1](Images\cyberlit\eg_innerangle.png){.shadowed .autosize}
 Note how the edges of the light are visibly harder towards the bottom when inner angle is equal to outer angle. 
 
 **Outer angle**  
 This controls how wide the whole cone of light is, in degrees.
+
 ![angles 2](Images\cyberlit\eg_outerangle.png){.shadowed .autosize}
 
 A larger outer angle will cast shadows over a larger region, however the shadow map remains the same resolution. An outer angle that's too large will result in pixelated shadows! This is also why you may not get hair shadows; the shadow map is simply too "low-res" / stretched out to capture them.
+
 ![ew!](Images\cyberlit\eg_outres.png){.shadowed .autosize}
 
 **Softness**  
@@ -115,6 +120,7 @@ This appears to be a modifier of fade distance.
 
 **Softness mode**  
 This determines how sharp / soft the edges of your shadows are. Can be useful when replicating a harsh camera flash or strong sunlight.
+
 ![shadows 2!](Images\cyberlit\eg_shadows.png){.shadowed .autosize}
 
 **Enable local / contact shadows**  
@@ -177,6 +183,7 @@ This determines how long the capsule is. This affects both the shape of the cast
 These settings function identically to the spotlight settings above. However, by playing with the outer angle you can create strips of light when capsule length is long enough. This can be used to create some pretty neat effects, especially when outer angle is played with.
 
 ![strips](Images\cyberlit\eg_strip.png){.shadowed .autosize}  
+
 This was done using a long capsule light that's been rotated vertically with the orientation gizmo. Due to the incredibly small outer angle, inner angle is basically useless. The softness modifier helps to soften the edges of an otherwise quite harsh light strip. Also, note how the size of the light's reflection stays the same.
 
 **Area rectangle side A / B / Two sided**  
