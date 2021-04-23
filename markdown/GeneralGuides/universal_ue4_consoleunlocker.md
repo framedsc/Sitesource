@@ -327,6 +327,7 @@ Narcos: Rise of the Cartels |
 NBA 2K Playgrounds 2 |
 Necromunda Underhive Wars | No hud toggle 
 Nephise: Ascension | 
+Nigate Tale | 
 Night of the Dead | 
 No Straight Roads | 
 Observer | Built-in camera isn't available.
