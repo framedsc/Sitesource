@@ -417,6 +417,7 @@ The Suicide of Rachel Foster |
 Supraland | 
 Sword Art Online: Fatal Bullet | 
 Tartarus | 
+TASOMACHI Behind The Twilight | 
 Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
