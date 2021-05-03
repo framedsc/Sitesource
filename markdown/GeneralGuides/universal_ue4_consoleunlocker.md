@@ -14,12 +14,10 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 ## Downloading the UUU
 
-To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
+To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
-
-If v3.0.14 doesn't work for you, please try 3.0.13:
-* [Universal UE4 Unlocker v3.0.13](https://mega.nz/file/0QwBiIhC#SuS8jMZkEzNBQ8wtfI2vJGLVSnckGBajR_y4n0EDgpk). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). 
+* [Universal UE4 Unlocker v3.0.13](https://mega.nz/file/0QwBiIhC#SuS8jMZkEzNBQ8wtfI2vJGLVSnckGBajR_y4n0EDgpk). Use this version if v3.0.14 gives problems
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
