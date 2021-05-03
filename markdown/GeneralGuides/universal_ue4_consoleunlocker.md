@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Unlocker
 
 ![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
 
-**Engine versions supported**: Unreal Engine 4.15 - 4.25
+**Engine versions supported**: Unreal Engine 4.15 - 4.26
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
@@ -16,6 +16,9 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
 
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+
+If v3.0.14 doesn't work for you, please try 3.0.13:
 * [Universal UE4 Unlocker v3.0.13](https://mega.nz/file/0QwBiIhC#SuS8jMZkEzNBQ8wtfI2vJGLVSnckGBajR_y4n0EDgpk). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
 ## Starting the UUU
@@ -43,6 +46,11 @@ After you've successfully injected the dll, you'll get a series of notification 
 Here, with Darksiders III as example game, all features are available. 
 
 The **Game speed** can be used with the *Slomo timestop* when it's active. The **Dump object info** button can be used to dump all active object names and the addresses in memory to a text file on disk. This feature is helpful for people who want to use cheat engine with the game at hand. See for more info [the object dumping section below](universal_ue4_consoleunlocker.htm#dumping-object-addresses).
+
+@alert Info
+It might be the UUU reports some elements aren't found while the game should be fully supported. This might be caused by assembly mismatches or the timing you injected the dll into the game process. If this
+happens try to inject the DLL at moment after you've loaded the level or after the game's menu has fully loaded. 
+@end
 
 ## Configuration
 The UUU has various settings you can configure, which you'll do on the *Configuration* tab. Additionally you can define the key-shortcuts for various functionality on the *Key bindings* tab. These are discussed below
@@ -498,9 +506,13 @@ Logo: Ichisake
 Dumper code is based on the SDK generator by Kn4ck3r.  
 Special thanks to Pino44io for testing.  
 
-&copy;2019-2020 All rights reserved.
+&copy;2019-2021 All rights reserved.
 
 ## Changelog
+
+###v3.0.14: 
+- **ADDED**: Support for Unreal Engine v4.26
+- **FIXED**: Custom console keys now work again after it was broken for newer engine versions. 
 
 ###v3.0.13:
 - **FIXED**: The `SET` command was readded using code which assumed a fixed length of the check block, but in some games this was a different length, causing crashes when a command was specified on the console.
