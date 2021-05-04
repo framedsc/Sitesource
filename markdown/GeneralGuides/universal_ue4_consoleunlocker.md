@@ -201,7 +201,7 @@ Chernobylite |
 Cions of Vega | 
 Close to the Sun | 
 Code Vein | 
-Colony Ship | Console isn't available
+Colony Ship | 
 Comanche | 
 Conarium | 
 Corruption 2029 | 
