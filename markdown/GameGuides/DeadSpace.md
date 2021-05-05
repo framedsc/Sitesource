@@ -5,24 +5,17 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling |  
-DSR | 
+Hotsampling | Yes
+DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
-Ansel | 
+Ansel | No
 DirectX versions | 9
 
 ## Tools
 
 * [Modified Cheat Table of jim2point0](../CheatTables/deadspace_AoB.CT) - FOV, Camera, Char Size. Supports every game version by AoB scan.
 * [Original Cheat Table by jim2point0](../CheatTables/Archive/deadspace.CT)
-
-### Showcase:
-
-* [Video](https://www.youtube.com/watch?v=O_B3cwMmPZ0)  
-* [Tutorial (use subtitles)](https://www.youtube.com/watch?v=ubLh_vtkf8U)  
-* [Screenshots by K-putt](https://www.flickr.com/photos/k_putt/albums/72157636764341944)
-* [K-putt'e Config](https://sfx.thelazy.net/games/preset/810/)
 
 ### Text Description
 
@@ -70,8 +63,6 @@ F5| reset defaults*
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Dead_Space)
-
-* [Widescreen Fixer Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=183959163)
 
 * [SweetFX Settings DB / Dead Space 1](https://sfx.thelazy.net/games/game/304/)
 
