@@ -1,4 +1,4 @@
-![Dead Space](Images\DeadSpace_header.png "Shot by K-Putt"){.shadowed}
+![Dead Space](../Images/DeadSpace_header.png "Shot by K-Putt"){.shadowed}
 
 ## Summary
 
