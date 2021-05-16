@@ -12,38 +12,41 @@ Reshade | Yes
 Ansel | No
 DirectX versions | 9
 
-Resolution can be changed in configuration file.
-GeDoSaTo is supported.
-[(guide)](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024)  
+Resolution can be changed in configuration file. GeDoSaTo is supported. [(guide)](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024)  
 
 ## Free Camera
-[Table by GhostInTheCamera](https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space/GITC%20-%20Dead%20Space%20WIP.CT)  #
-[(download)](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space/GITC%20-%20Dead%20Space%20WIP.CT)
+[Table by GhostInTheCamera (modified)](../CheatTables/DeadSpace_GITC_Mod.CT)  #
+[source](https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space/GITC%20-%20Dead%20Space%20WIP.CT)
 
-### Description:  
-Turn Free Camera on/off with `Insert` and `Delete`:
-* for camera navigation/rotation - use `Num 1-9` and arrows.
-* change FOV with `Num +/-`.
-* char can be moved in that mode. 
-### Other features:  
-* Timeflow: turn  off/on with `Num 0/.` - used to pause (freeze) the game. 
-* Modify Timescale and Aspect Ratio.    
+**Easing attach process**  
+In settings, set auto-attach to `Dead Space.exe` and tick `Even ...`.  
+Alternatively, set and use hotkey `Attach to current foreground process`.  
+Otherwise, use script `Attach to game` or do it manually.
 
-### Hotkeys Modification
-[Cheat Table](https://gist.github.com/r3sus/93edc2c58a25841c30b6effcf7936257)  #
-[(download)](https://gist.github.com/r3sus/93edc2c58a25841c30b6effcf7936257/archive/601e332a1d2ba1bc31fd32472923a87b93aab492.zip)  
-Changes:
-* Single key used to toggle:  `Num0` - time, `Del` - camera.
-* `Ctrl` modifier added to Arrows.
+**Hotkey delay**  
+Single hotkey used to toggle scripts - for correct command interpretation, set `Keypoll` to `100` in `Settings → Hotkeys`.  
+Source table used two hotkeys for on/off instead.  
 
-@alert tip  
-Add key delay in CE settings to prevent double press.  
+### Description: 
+Free Camera:
+* Toggle with `Num 0`.  
+* Move `Num 4-9`.  
+* Rotate `Ctrl ←↑↓→`, `Num 1/3`.
+* change FOV `Num +/-`.
+
+Timeflow - pause (freeze) the game to move camera:
+* toggle with `Num /`  
+* side effect - it breaks physics, making the gravity act horizontally until reload.  
+
+Modify Timescale and Aspect Ratio.    
+ 
 Customize hotkeys and their function by pressing `Ctrl+H` on selected entry.  
-@end
 
 ## Fixed Camera Control
-* [Original Cheat Table by Jim2Point0](../CheatTables/Archive/deadspace.CT) - Camera Control.
-* [Modified Cheat Table](../CheatTables/deadspace_AoB.CT) - FOV, Camera, Char Size. Supports every game version by AoB scan.
+[Cheat Table by Jim2Point0 (modified)](../CheatTables/DeadSpace_Jim2Point0_Mod.CT)  
+- FOV, Camera, Char Size. 
+- Supports every game version by AoB scan. 
+- [source](../CheatTables/Archive/deadspace.CT)
 
 ### Text Description
 
@@ -62,14 +65,10 @@ Center Offset 1\2\3: 3 values the game uses to determine how far left\right the 
 Pivot Distance: The camera rotates around a pivot point. By default, that point is located wherever Isaac is. However, if you increase this value, the camera will rotate around a point in front of Isaac. Negative values for behind him. This is one of several ways to simply put the camera in front of Isaac and get him out of the shot. Has other uses too.
 
 @alert important  
-Aiming and many other in-game events reset camera values. To prevent value from changing, **freeze it**: open cheat table window, click in the box leftside of it's name. Or navigate with keyboard arrows and press `Space`. 
+Aiming and many other in-game events reset camera values. To prevent value from changing, **freeze it**: click in the box leftside of it's name. Or highlight it and press `Space`.  
 @end
-
-@alert tip  
-To keep favourite values for further use, organize them in dropdown: right click on entry, click on gear, fill value:name.   
-Change the value manually by pressing `Enter` or double clicking on value.  
-@end
-
+  
+Change the values manually by pressing `Enter` or double clicking on value. 
 
 ### Controls
 
