@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Unlocker
 
 ![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
 
-**Engine versions supported**: Unreal Engine 4.15 - 4.26
+**Engine versions supported**: Unreal Engine 4.15 - 4.26 
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
@@ -16,8 +16,8 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). 
-* [Universal UE4 Unlocker v3.0.13](https://mega.nz/file/0QwBiIhC#SuS8jMZkEzNBQ8wtfI2vJGLVSnckGBajR_y4n0EDgpk). Use this version if v3.0.14 gives problems
+* [Universal UE4 Unlocker v3.0.15](https://mega.nz/file/BUoHyATQ#JSI5ghsVA_YoveYINzVGhIQMHZdqlZnxqMY6Nc8miIQ). 
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.15 gives problems
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -216,6 +216,7 @@ Dark Space Ex Machina |
 Darksiders 3 | 
 Darksiders Genesis | 
 Daymare: 1998 | 
+Days Gone | No custom console keys
 Deep Rock Galactic | 
 Deliver us the moon | 
 Destroy all humans | Tested on demo
@@ -507,6 +508,10 @@ Special thanks to Pino44io for testing.
 &copy;2019-2021 All rights reserved.
 
 ## Changelog
+
+###v3.0.15:
+- **ADDED**: Special cases added for Unreal Engine v4.11 for Days Gone
+- **ADDED**: Toggle on the Log tab to suppress notifications.
 
 ###v3.0.14: 
 - **ADDED**: Support for Unreal Engine v4.26
