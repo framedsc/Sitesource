@@ -258,6 +258,7 @@ Fighting Ex Layer |
 Filament | 
 Finding the Soul Orb |  
 Freud Gate | 
+Frozenheim | 
 Gal Gun 2 | 
 Genesis Alpha One | 
 Genesis Noir | 

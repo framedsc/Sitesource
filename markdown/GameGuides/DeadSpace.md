@@ -44,6 +44,7 @@ Customize hotkeys and their function by pressing `Ctrl+H` on selected entry.
 
 ## Fixed Camera Control
 [Cheat Table by Jim2Point0 (modified)](../CheatTables/DeadSpace_Jim2Point0_Mod.CT)  
+
 - FOV, Camera, Char Size. 
 - Supports every game version by AoB scan. 
 - [source](../CheatTables/Archive/deadspace.CT)
@@ -88,5 +89,4 @@ F5| reset defaults[^1]
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Dead_Space)
-
 * [SweetFX Settings DB / Dead Space](https://sfx.thelazy.net/games/game/304/)
