@@ -37,8 +37,10 @@
 			"Darksiders 3": "GameGuides\\darksiders3.md",
 			"Deadlight": "GameGuides\\deadlight.md",
 			"Dead Rising 4": "GameGuides\\DeadRising4.md",
+			"Dead Space": "GameGuides\\DeadSpace.md",
 			"Devil May Cry 5": "GameGuides\\devil_may_cry_5.md",
 			"Dishonored: Death of the Outsider": "GameGuides\\dishonored_death_of_the_outsider.md",
+			"The Division": "GameGuides\\thedivision.md",
 			"DmC: Devil May Cry": "GameGuides\\dmc.md",
 			"Dirt Rally 2.0": "GameGuides\\dirtrally2.md",
 			"DOOM" : "GameGuides\\DOOM.md",
@@ -109,6 +111,7 @@
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
 			"The Basics of Taking Screenshots": "GeneralGuides\\basics.md",
 			"Creating Tiny Planets": "GeneralGuides\\tinyplanetsguide.md",
+			"CyberLit for CyberPunk 2077 user guide": "GeneralGuides\\cyberlit.md",
 			"Advanced" : 
 			{
 				"Using RTTI info in a game exe": "GeneralGuides\\using_rtti.md",

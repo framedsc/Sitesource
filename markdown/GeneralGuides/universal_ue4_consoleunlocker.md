@@ -3,7 +3,7 @@ Universal Unreal Engine 4 Unlocker
 
 ![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
 
-**Engine versions supported**: Unreal Engine 4.15 - 4.25
+**Engine versions supported**: Unreal Engine 4.15 - 4.26 
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
@@ -14,9 +14,10 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 ## Downloading the UUU
 
-To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
+To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.13](https://mega.nz/file/0QwBiIhC#SuS8jMZkEzNBQ8wtfI2vJGLVSnckGBajR_y4n0EDgpk). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.16](https://mega.nz/file/RRhXHAiQ#Y-P1AGAV7FDI8IjzvErK2gSrGK74ggHwa3BfEAdtjQk). 
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.16 gives problems
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -43,6 +44,11 @@ After you've successfully injected the dll, you'll get a series of notification 
 Here, with Darksiders III as example game, all features are available. 
 
 The **Game speed** can be used with the *Slomo timestop* when it's active. The **Dump object info** button can be used to dump all active object names and the addresses in memory to a text file on disk. This feature is helpful for people who want to use cheat engine with the game at hand. See for more info [the object dumping section below](universal_ue4_consoleunlocker.htm#dumping-object-addresses).
+
+@alert Info
+It might be the UUU reports some elements aren't found while the game should be fully supported. This might be caused by assembly mismatches or the timing you injected the dll into the game process. If this
+happens try to inject the DLL at moment after you've loaded the level or after the game's menu has fully loaded. 
+@end
 
 ## Configuration
 The UUU has various settings you can configure, which you'll do on the *Configuration* tab. Additionally you can define the key-shortcuts for various functionality on the *Key bindings* tab. These are discussed below
@@ -164,6 +170,7 @@ Arboria |
 Areia: Pathway to Dawn | 
 Arise a Simple Story | 
 Armoured Onslaught | 
+Aron's Adventure | Console isn't available
 Ashen | 
 Ashes Of Oahu | 
 Assemblance: Oversight | 
@@ -178,6 +185,7 @@ The Beast Inside |
 Bee Simulator | 
 Beyond a Steel Sky | 
 The Blackout Club | 
+Black Legend | 
 Blade of Arena | 
 Blair Witch | 
 Borderlands 3 | 
@@ -190,11 +198,14 @@ Call of the Sea |
 Captain Starshot | 
 Castle Rock Beach, West Australia | 
 Chernobylite | 
+Cions of Vega | 
 Close to the Sun | 
 Code Vein | 
+Colony Ship | 
 Comanche | 
 Conarium | 
 Corruption 2029 | 
+Crash Bandicoot 4: It's About Time | 
 Creature in the Well | 
 Curse of Anabelle | 
 Daemon X Machina  | 
@@ -205,6 +216,7 @@ Dark Space Ex Machina |
 Darksiders 3 | 
 Darksiders Genesis | 
 Daymare: 1998 | 
+Days Gone | No custom console keys
 Deep Rock Galactic | 
 Deliver us the moon | 
 Destroy all humans | Tested on demo
@@ -235,6 +247,7 @@ Elli |
 Estranged Act II | 
 Everspace | 
 Everspace 2 | Tested on demo
+Eximius: Seize the Frontline | 
 Explore Fushimi Inari | 
 Extinction | 
 Fortnite | Only versions below 1.9.1 are compatible.
@@ -245,8 +258,10 @@ Fighting Ex Layer |
 Filament | 
 Finding the Soul Orb |  
 Freud Gate | 
+Frozenheim | 
 Gal Gun 2 | 
 Genesis Alpha One | 
+Genesis Noir | 
 Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
 Godfall | Inject the UUU at launch, before the game starts. No console.
@@ -261,7 +276,8 @@ Hellblade: Senua's Sacrifice |
 Hellbound | 
 Hello Guest | Tested on Alpha build.
 Hello Neighbor 2 | 
-Hollow | 
+Hollow |
+Human or Virus | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
 Hunting Simulator 2 | 
@@ -319,6 +335,7 @@ Narcos: Rise of the Cartels |
 NBA 2K Playgrounds 2 |
 Necromunda Underhive Wars | No hud toggle 
 Nephise: Ascension | 
+Nigate Tale | 
 Night of the Dead | 
 No Straight Roads | 
 Observer | Built-in camera isn't available.
@@ -403,10 +420,12 @@ Stela |
 Stories: the Path of Destinies | 
 Styx 2 | 
 Subdivision Infinity DX | 
+Subverse | 
 The Suicide of Rachel Foster | 
 Supraland | 
 Sword Art Online: Fatal Bullet | 
 Tartarus | 
+TASOMACHI Behind The Twilight | 
 Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
@@ -487,9 +506,20 @@ Logo: Ichisake
 Dumper code is based on the SDK generator by Kn4ck3r.  
 Special thanks to Pino44io for testing.  
 
-&copy;2019-2020 All rights reserved.
+&copy;2019-2021 All rights reserved.
 
 ## Changelog
+
+###v3.0.16:
+- **CHANGED**: Implemented a better AOB scanner so it should match the blocks it has to find better. 
+
+###v3.0.15:
+- **ADDED**: Special cases added for Unreal Engine v4.11 for Days Gone
+- **ADDED**: Toggle on the Log tab to suppress notifications.
+
+###v3.0.14: 
+- **ADDED**: Support for Unreal Engine v4.26
+- **FIXED**: Custom console keys now work again after it was broken for newer engine versions. 
 
 ###v3.0.13:
 - **FIXED**: The `SET` command was readded using code which assumed a fixed length of the check block, but in some games this was a different length, causing crashes when a command was specified on the console.
@@ -542,31 +572,3 @@ Special thanks to Pino44io for testing.
 
 ###v3.0.0: 
 - **ADDED**: Added new user interface which offers hotsampling and doesn't rely on DirectX hooking for menu display.
-
-###v2.0.6: 
-- **ADDED**: Added support for UE4.23's new NamePool structure for object names. This adds support for UE4 4.23 and higher
-- **FIXED**: Fixed an issue that could occur with some games where one of the camera write blocks in the engine uses a different register, causing the game to crash as
-the UUU uses a single interception block for all camera write blocks. 
-
-###v2.0.5:
-- **FIXED**: Fixes issue with slomo interception where a slow motion action set by the game was resulting in a high game speed instead of a slow game speed. 
-
-###v2.0.4:
-- **ADDED**: Better compatibility with v4.20 based engines for the camera system.
-
-###v2.0.3:
-- **FIXED**: Corrects fix for UWorld::IsPaused on older engines as the offset used wasn't correct. 
-- **FIXED**: Corrects a small issue with ctrl not working for slow movement with camera after introduction of fov-driven movement corrections. 
-- **FIXED**: Fixes issue with numpad 0 not pausing the first time it was pressed.
-- **ADDED**: Some new AOBs for constructs seen in newer engines (v4.22+)
-
-###v2.0.2:
-- **FIXED**: Camera intercept struct 2 wasn't marked as non-critical
-- **FIXED**: Using UWorld::IsPaused pause + camera in a v4.15 game enables the in-game menu camera to activate, causing the built-in free camera to be locked in-place
-- **FIXED**: The rotation slider in the overlay has a range that's way too wide for the values that are practical
-- **IMPLEMENTED**: Make rotation/movement speed adjust themselves based on fov. 
-- **IMPLEMENTED**: Switch default screenshot type to 'HorizontalPanorama' instead of 'Lightfield'
-- **IMPLEMENTED**: Use the executable filename for screenshot filename prefix in single shot screenshots.
-
-###v2.0.1: 
-- First v2.0 release with IGCS camera system built-in.

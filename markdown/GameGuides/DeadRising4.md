@@ -1,4 +1,4 @@
-![DEAD RISING 4](Images\deadrising4.png "Shot by One3rd")
+![DEAD RISING 4](Images\deadrising4.png "Shot by One3rd"){.shadowed}
 
 ##Feature summary
 
