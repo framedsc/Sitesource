@@ -16,8 +16,8 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.15](https://mega.nz/file/BUoHyATQ#JSI5ghsVA_YoveYINzVGhIQMHZdqlZnxqMY6Nc8miIQ). 
-* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.15 gives problems
+* [Universal UE4 Unlocker v3.0.16](https://mega.nz/file/RRhXHAiQ#Y-P1AGAV7FDI8IjzvErK2gSrGK74ggHwa3BfEAdtjQk). 
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.16 gives problems
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -510,6 +510,9 @@ Special thanks to Pino44io for testing.
 
 ## Changelog
 
+###v3.0.16:
+- **CHANGED**: Implemented a better AOB scanner so it should match the blocks it has to find better. 
+
 ###v3.0.15:
 - **ADDED**: Special cases added for Unreal Engine v4.11 for Days Gone
 - **ADDED**: Toggle on the Log tab to suppress notifications.
@@ -569,31 +572,3 @@ Special thanks to Pino44io for testing.
 
 ###v3.0.0: 
 - **ADDED**: Added new user interface which offers hotsampling and doesn't rely on DirectX hooking for menu display.
-
-###v2.0.6: 
-- **ADDED**: Added support for UE4.23's new NamePool structure for object names. This adds support for UE4 4.23 and higher
-- **FIXED**: Fixed an issue that could occur with some games where one of the camera write blocks in the engine uses a different register, causing the game to crash as
-the UUU uses a single interception block for all camera write blocks. 
-
-###v2.0.5:
-- **FIXED**: Fixes issue with slomo interception where a slow motion action set by the game was resulting in a high game speed instead of a slow game speed. 
-
-###v2.0.4:
-- **ADDED**: Better compatibility with v4.20 based engines for the camera system.
-
-###v2.0.3:
-- **FIXED**: Corrects fix for UWorld::IsPaused on older engines as the offset used wasn't correct. 
-- **FIXED**: Corrects a small issue with ctrl not working for slow movement with camera after introduction of fov-driven movement corrections. 
-- **FIXED**: Fixes issue with numpad 0 not pausing the first time it was pressed.
-- **ADDED**: Some new AOBs for constructs seen in newer engines (v4.22+)
-
-###v2.0.2:
-- **FIXED**: Camera intercept struct 2 wasn't marked as non-critical
-- **FIXED**: Using UWorld::IsPaused pause + camera in a v4.15 game enables the in-game menu camera to activate, causing the built-in free camera to be locked in-place
-- **FIXED**: The rotation slider in the overlay has a range that's way too wide for the values that are practical
-- **IMPLEMENTED**: Make rotation/movement speed adjust themselves based on fov. 
-- **IMPLEMENTED**: Switch default screenshot type to 'HorizontalPanorama' instead of 'Lightfield'
-- **IMPLEMENTED**: Use the executable filename for screenshot filename prefix in single shot screenshots.
-
-###v2.0.1: 
-- First v2.0 release with IGCS camera system built-in.
