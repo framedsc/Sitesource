@@ -8,7 +8,7 @@ Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Yes (No Depth Buffer)
+Reshade | Yes (No Depth Buffer. For the depth buffer, use Reshade Debbie)
 Ansel | No
 DirectX versions | DirectX 11
  
