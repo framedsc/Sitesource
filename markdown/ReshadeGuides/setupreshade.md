@@ -98,7 +98,7 @@ There are cases where you would want to use one shader more than once (CanvasFog
 When the game is an online game or actively performs network access, the depth buffer is disabled. Access to the depth buffer is often required as a lot of effects use the depth buffer of the game. Reshade actively disables access to the depth buffer if it
 detects the game to be an online game (so there's network traffic on a regular basis). If the depth buffer isn't available in the game, because of this, the shaders that depend on that will likely fail.
  
-So if you are trying to use reshade in a game which uses the internet connection constantly (because of the DRM or because it's always online like The Division or Steep) you will have to use custom reshade .dlls builds to get depth buffer access, otherwise reshade will block it. You can find some of these .dlls [here](http://project7.rf.gd). Alternatively you can still use reshade without depth buffer access, but some shaders that use it like CinematicDof won't work.
+So if you are trying to use reshade in a game which uses the internet connection constantly (because of the DRM or because it's always online like The Division or Steep) you will have to use custom reshade .dlls builds to get depth buffer access, otherwise reshade will block it. Alternatively you can still use reshade without depth buffer access, but some shaders that use it like CinematicDof won't work.
  
 Keep in mind that the official version of reshade is whitelisted by some games anti-cheat software, so by using a custom .dll you may get banned depending on the game, so do your research beforehand.
  
