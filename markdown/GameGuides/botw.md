@@ -17,6 +17,8 @@ DirectX versions | Unknown (what ever works with CEMU)
 * [TLoZ: Breath of the Wild Free Camera by etra0](https://github.com/etra0/botw-freecam/releases)  
 **Features**: Free Camera, Tilt and FOV Control  
 **Important**: Tested with Cemu 1.22.2 and Breath of the Wild v1.5.0 DLC Ver.3.0 (Support for other versions is not assured)
+* [Stop Time and LOD Enhancement CE table by Postposterous](https://gamebanana.com/tools/7052)
+**Features**: Timestop and improved LOD
 
 ## Controls
 
