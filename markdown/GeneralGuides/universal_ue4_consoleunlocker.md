@@ -271,6 +271,7 @@ Gray Dawn |
 GRIP: Combat Racing | 
 Grounded | Tested on demo
 Gu Lady 蛊婆 | 
+Guilty Gear Strive | Pause the game before moving the camera, otherwise the characters move too.
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
