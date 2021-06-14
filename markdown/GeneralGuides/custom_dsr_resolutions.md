@@ -6,7 +6,7 @@ You can now create any resolution you want by directly editing the Nvidia DSR re
 Quick summary:
 
 1. Export your Nvidia DSR registry settings (you should only ever need to do this once).
-2. Use this tool to generate the registry data for up to 10 custom resolutions.
+2. [Use this tool](https://jim2point0.github.io/jim2point0/dsr_hex/) to generate the registry data for up to 10 custom resolutions.
 3. Swap that into your exported registry file and save. Double click that file to import your registry settings.
 4. Use DevManView to toggle your display adapters so the new settings kick in. This saves you from having to do a restart and only takes about 10 seconds.
 5. Enjoy your 10 custom resolutions in any aspect ratio you want.

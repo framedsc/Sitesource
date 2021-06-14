@@ -16,8 +16,8 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.16](https://mega.nz/file/RRhXHAiQ#Y-P1AGAV7FDI8IjzvErK2gSrGK74ggHwa3BfEAdtjQk). 
-* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.16 gives problems
+* [Universal UE4 Unlocker v3.0.18](https://mega.nz/file/9IoEABbC#02Lvai7c6ofYTPaiIJ6CORbhrBEfG9kixMFLv4K7Nd8). 
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.18 gives problems
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -177,6 +177,7 @@ Assemblance: Oversight |
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
 Azur Lane Crosswave |
+Backbone | 
 Bad Boys at School | 
 Bard's Tale IV: Barrows Deep | 
 Bastide | 
@@ -270,6 +271,7 @@ Gray Dawn |
 GRIP: Combat Racing | 
 Grounded | Tested on demo
 Gu Lady 蛊婆 | 
+Guilty Gear Strive | Pause the game before moving the camera, otherwise the characters move too.
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
@@ -509,6 +511,12 @@ Special thanks to Pino44io for testing.
 &copy;2019-2021 All rights reserved.
 
 ## Changelog
+
+###v3.0.18:
+- **CHANGED**: Rewritten AOB scanner, 10%/20% faster and won't crash the game the cases the previous scanner would. It also now shouldn't miss any AOBs anymore.
+
+###v3.0.17:
+- **FIXED**: In some cases the new AOB scanner could run into memory it shouldn't end up in and crash the game. 
 
 ###v3.0.16:
 - **CHANGED**: Implemented a better AOB scanner so it should match the blocks it has to find better. 
