@@ -1,4 +1,4 @@
-![Far Cry Primal](Images\FarCryPrimal_header.png "Shot by One")
+![Far Cry Primal](Images\FarCryPrimal_header.png "Shot by One3rd")
 
 ##Feature summary
 
