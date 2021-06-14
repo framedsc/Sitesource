@@ -22,14 +22,14 @@ DirectX versions | DirectX 11
 Description | Key
 --|--
 Toggle free camera | PageDown
-Move forwards, backwards, left, right, up, down | NumPad 8, 5, 4, 6, 9, 7
-Change camera orientation up, down, left, right | NumPad '+'+8, '+'+5, '+'+4, '+'+6
-Increase, decrease FOV | NumPad '+'+7, '+'+9
-Camera tilt | NumPad '+'+1, '+'+3
-Reset tilt | NumPad '+'+2
-Change tilt to 90° | NumPad '+'+'.'
-Disable/Enable HUD | H, G
-Change game speed | F5-F11 (default=F9)
+Move forwards, backwards, left, right, up, down | `NumPad 8`, `Numpad 5`, `Numpad 4`, `Numpad 6`, `Numpad 9`, `Numpad 7`
+Change camera orientation up, down, left, right | `NumPad +` + `Numpad 8`, `Numpad +` + `Numpad 5`, `Numpad +` + `Numpad 4`, `Numpad +` + `Numpad 6`
+Increase, decrease FOV | `NumPad +` + `Numpad 7`, `Numpad +` + `Numpad 9`
+Camera tilt | `NumPad +` + `Numpad 1`, `Numpad +` + `Numpad 3`
+Reset tilt | `NumPad +` + `Numpad 2`
+Change tilt to 90° | `NumPad +` + `Numpad .`
+Disable/Enable HUD | `H`, `G`
+Change game speed | `F5`-`F11` (default=`F9`)
 Save current settings | ALT + [number 1 to 9]
 Load current settings | ALT + [number 1 to 9]
 Undo: Load previous settings | 0
@@ -42,11 +42,11 @@ For fancy camera movement (to use in videos for instance) you can use the contro
  
 Key| Description
 --|--
-Rotate camera up, down, left, right | NumPad Enter+8, Enter+5, Enter+4, Enter+6
-Move forward,backward (cam only) | NumPad Enter+9, Enter+7
-Dolly zoom in,out | NumPad Enter+1, Enter+3
-Reset dolly zoom | NumPad Enter+2
-Point camera Up/Down | Numpad 1, 3
+Rotate camera up, down, left, right | `NumPad Enter` + `Numpad 8`, `Numpad Enter` + `Numpad 5`, `Numpad Enter` + `Numpad 4`, `Numpad Enter` + `Numpad 6`
+Move forward,backward (cam only) | `NumPad Enter` + `Numpad 9`, `Numpad Enter` + `Numpad 7`
+Dolly zoom in,out | `NumPad Enter` + `Numpad 1`, `Numpad Enter` + `Numpad 3`
+Reset dolly zoom | `NumPad Enter` + `Numpad 2`
+Point camera Up/Down | `Numpad 1`, `Numpad 3`
  
 And finally, you can change the velocity of the camera movement, camera orientation and field of view if you hold down the keys 'C', 'F' and 'T' for slow, fast and faster change of values respectively.
  
