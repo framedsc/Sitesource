@@ -369,6 +369,7 @@ OCTOPATH TRAVELER |
 Omen of Sorrow | 
 Omensight | 
 Omno | Tested on demo
+Open Country | 
 The Otterman Empire | 
 Pacer | 
 Quantum Replica | 
