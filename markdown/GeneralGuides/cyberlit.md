@@ -90,7 +90,7 @@ With the light type set to **Spot**, these controls are exposed, allowing the ed
 **Inner angle**  
 This controls the softness of the light relative to the outer angle, in degrees. Anything within the inner cone will be evenly lit while the light gradually falls off closer to the outer cone. Setting inner angle to be equal or greater than outer angle creates a spotlight with hard edges.
 
-![angles 1](Images\cyberlit\eg_innerangle.png){.shadowed .autosize}
+![angles 1](Images\cyberlit\eg_innerangle.png){.shadowed .autosize}  
 Note how the edges of the light are visibly harder towards the bottom when inner angle is equal to outer angle. 
 
 **Outer angle**  
