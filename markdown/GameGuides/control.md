@@ -4,28 +4,40 @@
 
 Feature | Supported
 --|--
-Vanilla Photo Mode | No
+Vanilla Photo Mode | Yes
 Hotsampling | Yes (with tools)
-DSR | No *
+DSR | Yes (not all resolutions are supported)
 Custom Aspect Ratios | Yes
-Reshade | Yes (DirectX 11)
+Reshade | Yes
 Ansel | No
 DirectX versions | DirectX 11, DirectX 12
 
-@alert info
-To use a DSR resolution, set your desktop resolution to it first, then you should be able to select it in-game. You will not see all DSR resolutions though.
-@end
+## Mods
+
+* [Loose Files Loader](https://www.nexusmods.com/control/mods/11): This mod does not do anything on its own but is used by other mods that supply loose files.
+
+* [Tweakables](https://www.nexusmods.com/control/mods/14): This mod allows the player to customize a wide variety of the game's tweakable parameters. 
+
+* [Photomode Range Unlocker](https://www.nexusmods.com/control/mods/23): This mod unlocks the in-game Photomode allowing the player to move the camera to greater distances than what is possible in the vanilla game.
 
 ## Tools
 
-* **Cheat Engine Table by Otis_Inf & HattiWatti**  
-[DX12 Hotsampling Script](..\CheatTables\Control_DX12_Hotsampling.CT)  
-**Features**: Hotsampling
+* [Reshade](https://reshade.me/): A fantastic piece of software that allows players to heavily customize how the game looks. Refer to these [series of guides](https://framedsc.github.io/ReshadeGuides/index.htm) for more detail.
 
-## SRWE
+* [Simple Runtime Window Editor (SRWE)](https://github.com/dtgDTGdtg/SRWE): This tool is needed to rescale the game window to custom sizes for the purpose of taking screenshots at a very high resolution
 
-To enable hotsampling (via SRWE) enable the hotsampling script. You may also need to check the `Force EXITSIZEMOVE` option in SRWE. 
-Press `ESC` in-game in order to alt-tab to SRWE. After changing the resolution, alt-tab back to the game and press `ESC` again to force the game to update.
+* [Cheat Engine Table by Otis_Inf & HattiWatti](..\CheatTables\Control_DX12_Hotsampling.CT): This tool is used to perform Hotsampling. To learn more, refer to this [Cheat Engine Table guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm).
+
+## Workflow
+First, run the game as adminstrator. [*Note*: Only the DX12 exe supports Raytracing].
+
+Alt-tab out of the game to run both SRWE (as administrator) and Control's Cheat Engine table. Attach both of them to Control's exe process and hop back in game.
+
+When you feel like taking a shot, press `ESC`, change the game's Display Mode to `Windowed` and open the Photo Mode. Frame your shot and add any Reshade effect if you want. When you are satisfied with the composition and the colors, alt-tab out and in SRWE, set the Width and Height according to the resolution you want to take the shot in. Remember to check the `Force EXITSIZEMOVE` option in SRWE. After setting the resolution, alt-tab back in to the game and wait for 1-2 second while Reshade reloads the effects. Take the screenshot using Reshade's screenshot keybind.
+
+## Rough Edges
+The game seems to have some issues with noise, which is exacerbated with Raytracing, especially on walls and doors in some cases. Texture breaking has also been noticed at certain resolutions and aspect ratios.
 
 ## Useful links
-[PC Gaming wiki](https://pcgamingwiki.com/wiki/Control)
+
+[PC Gaming wiki](https://www.pcgamingwiki.com/wiki/Control)
