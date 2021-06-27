@@ -29,7 +29,7 @@ When Reshade is setup and running in the game, you can open its menu. Newer Resh
 Reshade configuration you might have to use `Shift-F2`. 
  
 After opening the menu it might first show you the tutorial if you're new. The tutorial will set you up with a preset and tell you what all the parts 
-are for. If you decided to download shaders when setting up Reshade you'll see all *techniques* these shaders contain listed in a nice order on the 
+are for. If you decided to download shaders when setting up Reshade you'll see all the *techniques* these shaders contain listed in a nice order on the 
 **Home** tab. You can assign hotkeys for each technique by right-clicking the name and clicking in the textbox next to *Toggle Key*. 
  
 Pressing the toggle key will then activate/deactivate the technique. To activate/deactivate a technique, e.g. DisplayDepth, you can also check the checkbox in front of 
@@ -83,7 +83,7 @@ Reshade configuration properly. You have to do this only once per game.
  
 ### Picking the right depth buffer
 It might be the game uses multiple depth buffers that might be useful, or it switches depth buffers on the fly for the final image and therefore it looks like the
-depth buffer isn't available. For DirectX11 Reshade contains an additional tab the **DX11** tab, which shows all currently active depth buffers. To see which one
+depth buffer isn't available. For DirectX11, Reshade contains an additional tab - the **DX11** tab, which shows all currently active depth buffers. To see which one
 you should select, first enable the *DisplayDepth* shader. You likely either see a white or a black screen. 
  
 When you go to the DX11 tab in the Reshade menu you can then pick the right depth buffer by checking its checkbox (or by trying the 

@@ -21,7 +21,7 @@ Below you can find some guides on how to hotsample using SRWE:
 ### Historical background
  
 The original SRWE was intentionally made for running Skyrim in a smaller window to save memory, but in 2012, the user midhras used it to do the opposite and asked the developer to build a generic tool that would allow the same in other windowed games, which he later did. 
-Since this had become widely popular, there was a need for a term to define this act. When Duncan Harris and midhras were discussing on what to call the act of using SRWE (or similar tools) to resize the game window, allowing for higher resolutions, they came up with the term/name Shotsampling, but later Duncan called it Hotsampling, which stayed.
+Since this had become widely popular, there was a need for a term to define this act. When Duncan Harris and midhras were discussing on what to call the act of using SRWE (or similar tools) to resize the game window, allowing for higher resolutions, they came up with the term/name Shotsampling. Later, Duncan called it Hotsampling, which stayed.
  
 ### External links
 - [Midhras nexus guide](https://www.nexusmods.com/fallout3/articles/49/?)
@@ -31,7 +31,7 @@ Since this had become widely popular, there was a need for a term to define this
 - [Yet another guide](https://bsn.boards.net/post/552340)
  
 ## Ansel
-Ansel is the NVIDIA tool that allows the player to move the camera freely (with restrictions depending on the game), taking screenshots with high definition by stitching various shots, taking 360° shots, applying filters, etc. Named after the famous landscape photographer Ansel Adams.
+Ansel is the NVIDIA tool that allows the player to move the camera freely (with restrictions depending on the game), take screenshots in high definition by stitching various shots, take 360° shots, apply filters, etc. It is named after the famous landscape photographer Ansel Adams.
  
 ### Controls
  
@@ -80,7 +80,7 @@ Be sure to check the "enable experimental features" in GeForce Experience, since
 ## Dynamic Super Resolution - DSR
 Dynamic Super Resolution (DSR for short) is a feature available in the NVIDIA GPUs that allows games to render at higher resolutions than your monitor supports. When playing with DSR, the image is downscaled such that it fits your monitor, but the screenshots you take using it will be at the definition that the game renders.
  
-To add new resolutions (with custom aspect ratios) see the [custom dsr resolutions guide](custom_dsr_resolutions.htm).
+To add new resolutions (with custom aspect ratios) see the [Custom DSR Resolutions guide](custom_dsr_resolutions.htm).
  
 Bear in mind that not all games support this feature, so if you can't find the resolution in the game options after adding a new DSR resolution to your system then it probably doesn't support DSR. However, on some games while they do support DSR, the definition won’t show up in the game’s video settings and you will need to set the DSR definition as your desktop definition.
  

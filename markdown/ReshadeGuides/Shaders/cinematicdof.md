@@ -18,7 +18,7 @@ The screenshots below are taken with Cinematic DOF v1.1.10, released on May 25th
 @end
 
 ## Focusing
-One of the most important parts of a depth of field shader is to focus on the right element in the 3D world. By default the 
+One of the most important parts of a depth of field shader is to focus on the right element in the 3D world. By default, the 
 shader has its focusing mode set to *auto-focus* and *mouse-driven auto-focus*. This means that if you mouse the mouse over the scene, the 
 element that's below the mouse pointer will be the element the shader will focus on. Everything in front of it and behind it will be blurred.
 
@@ -35,7 +35,7 @@ the stronger the blur will be in the out-of-focus areas.
 
 ### Focusing overlay
 Cinematic DOF has an important focus helper, its *out-of-focus plane overlay*. When the **Show out-of-focus plane overlay on mouse down** is checked,
-the shader will show an overlay every time the left-mousebutton is pressed and hold down. The overlay consists of three colors: white for far plane 
+the shader will show an overlay every time the left-mousebutton is pressed and held down. The overlay consists of three colors: white for far plane 
 (the area behind what's in focus) out of focus elements, red for near plane (the area in front of what's in focus) out of focus elements and a blue
 line for what's exact in focus. 
 
@@ -62,7 +62,7 @@ Here's the default setting in action:
 
 ![100mm/2.8](../../Images/ShaderGuides/CinematicDOF/focus_100mm_2_8.jpg "100mm with 2.8 aperture"){.shadowed}
 
-Look careful at the blurring on the wings of the statue, and the thick blurring in the background. 
+Look carefully at the blurring on the wings of the statue, and the thick blurring in the background. 
 
 If we change the lens and aperture to the values of a lens that's often sold with a modern camera, a 50mm lens with aperture 5.6, the results are a bit different:
 
