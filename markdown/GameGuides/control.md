@@ -15,16 +15,10 @@ DirectX versions | DirectX 11, DirectX 12
 ## Mods
 
 * [Loose Files Loader](https://www.nexusmods.com/control/mods/11): This mod does not do anything on its own but is used by other mods that supply loose files.
-
 * [Tweakables](https://www.nexusmods.com/control/mods/14): This mod allows the player to customize a wide variety of the game's tweakable parameters. 
-
 * [Photomode Range Unlocker](https://www.nexusmods.com/control/mods/23): This mod unlocks the in-game Photomode allowing the player to move the camera to greater distances than what is possible in the vanilla game.
 
 ## Tools
-
-* [Reshade](https://reshade.me/): A fantastic piece of software that allows players to heavily customize how the game looks. Refer to these [series of guides](https://framedsc.github.io/ReshadeGuides/index.htm) for more detail.
-
-* [Simple Runtime Window Editor (SRWE)](https://github.com/dtgDTGdtg/SRWE): This tool is needed to rescale the game window to custom sizes for the purpose of taking screenshots at a very high resolution
 
 * [Cheat Engine Table by Otis_Inf & HattiWatti](..\CheatTables\Control_DX12_Hotsampling.CT): This tool is used to perform Hotsampling. To learn more, refer to this [Cheat Engine Table guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm).
 
