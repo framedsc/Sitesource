@@ -391,6 +391,7 @@ Ruiner |
 Samurai Jack Battle Through Time | No console/timestop. Use menu + hud toggle for pause.
 Samurai Showdown | No aspect ratio correction
 Satisfactory | 
+Scarlet Nexus | No slomo (PgDn) pause
 SCUM | 
 Session: Skateboarding Sim Game | 
 Shadows of Larth | 
