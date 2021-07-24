@@ -371,6 +371,7 @@ Omen of Sorrow |
 Omensight | 
 Omno | Tested on demo
 Open Country | 
+Orcs Must Die 3 | 
 The Otterman Empire | 
 Pacer | 
 Quantum Replica | 

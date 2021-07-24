@@ -76,8 +76,10 @@ To go back to the other weather option, simply disable the 'Enable weather inter
 
 ## Tweaks
 
-- In the settings ini, search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
-- in the settings ini, search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
+In de file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
+
+- search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
+- search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
 
 ##Useful Links
 
