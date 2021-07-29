@@ -21,7 +21,8 @@ Essential mods
 
 Mods for Visuals: Jim2point0 Edition
 --
-Some mods are only available in the Gudmods modding server. Here's an [invite to the Gudmods Discord Server](https://discord.gg/2speGxK8VR).
+Some mods are only available in the Gudmods modding server. Here's an [invite to the Gudmods Discord Server](https://discord.gg/2speGxK8VR).  
+
 * [Immersive Lighting (nudel edition)](https://www.nexusmods.com/witcher3/mods/3953)  
 Lighting Mods will probably make the biggest visual difference, but they are very subjective as to what you'll like.
 * [HD Reworked](https://www.nexusmods.com/witcher3/mods/1021/)
