@@ -21,11 +21,13 @@ Essential mods
 
 Mods for Visuals: Jim2point0 Edition
 --
+Some mods are only available in the Gudmods modding server. Here's an [invite to the Gudmods Discord Server](https://discord.gg/2speGxK8VR).
 * [Immersive Lighting (nudel edition)](https://www.nexusmods.com/witcher3/mods/3953)  
 Lighting Mods will probably make the biggest visual difference, but they are very subjective as to what you'll like.
 * [HD Reworked](https://www.nexusmods.com/witcher3/mods/1021/)
 * [Monsters Reworked](https://www.nexusmods.com/witcher3/mods/3580)
-* [Elysium Grass](https://drive.google.com/file/d/1lGsFSyc3_7LitGL3csqk8ZntbAbbLWUb/view)  
+* Elysium Grass   
+Download from [Gudmods](https://discord.gg/2speGxK8VR)  
     Make sure your `mod.settings` file has the following
     ```
     [mod0Elysium]
@@ -51,8 +53,8 @@ Lighting Mods will probably make the biggest visual difference, but they are ver
 * High quality faces: [https://www.nexusmods.com/witcher3/mods/1024](https://www.nexusmods.com/witcher3/mods/1024)  
 * Ciri Eyes: [https://www.nexusmods.com/witcher3/mods/3215](https://www.nexusmods.com/witcher3/mods/3215)  
 * Yen Eyes: [https://www.nexusmods.com/witcher3/mods/2565](https://www.nexusmods.com/witcher3/mods/2565)  
-* Ultimate Clouds: [https://mega.nz/file/yqpziabQ#JwJdR_9ytETCHET3GtpthVgmAcE91X24caugHQHN1GM](https://mega.nz/file/yqpziabQ#JwJdR_9ytETCHET3GtpthVgmAcE91X24caugHQHN1GM)  
-* Ultimate Water: [https://mega.nz/file/CrQC0KLS#lwajFoosXm4Y2yuhG6bvfzevGKf3b0CLG3NTyFLA7W4](https://mega.nz/file/CrQC0KLS#lwajFoosXm4Y2yuhG6bvfzevGKf3b0CLG3NTyFLA7W4)  
+* Ultimate Clouds: download from [Gudmods](https://discord.gg/2speGxK8VR)
+* Ultimate Water: download from [Gudmods](https://discord.gg/2speGxK8VR)
 
     This mod gives you higher resolution water textures and enhanced reflections. 
     The clouds do come with a performance penalty on some rigs (or so I've heard) so keep that in mind if you have relatively low performance
