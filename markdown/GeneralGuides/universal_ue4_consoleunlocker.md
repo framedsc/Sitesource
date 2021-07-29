@@ -441,6 +441,7 @@ Train Sim World |
 Transient | Tested on demo
 Travis Strikes Again: No More Heroes Complete Edition | 
 Trials of Mana | Also works with the demo
+Tribes of Midgard | 
 Tropico 6 | 
 Twin Mirror | 
 Urban Trial Playground | 
