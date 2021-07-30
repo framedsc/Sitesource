@@ -172,6 +172,7 @@ Arid |
 Arise a Simple Story | 
 Armoured Onslaught | 
 Aron's Adventure | Console isn't available
+The Ascent | Rebind Enable camera and UWorld Pause keys to different keys than `Numpad 0` and `Insert` as the game opens the menu with these. 
 Ashen | 
 Ashes Of Oahu | 
 Assemblance: Oversight | 
@@ -382,6 +383,7 @@ Race With Ryan |
 RAD | 
 Raji: An Ancient Epic Prologue | 
 Redeemer | 
+Redout | 
 Redout: Space Assault | 
 Relicta | 
 Remnant: From the Ashes | 
