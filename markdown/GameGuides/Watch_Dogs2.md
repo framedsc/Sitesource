@@ -26,4 +26,5 @@ DirectX versions | DirectX 11
 
 ## Useful Links
 
+* [Time of day, weather control, time scale, spawner and more](https://www.moddb.com/mods/watch-dogs-2-scripthook) 
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Watch_Dogs_2)

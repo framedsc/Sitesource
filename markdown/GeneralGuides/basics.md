@@ -8,19 +8,22 @@ The term refers to running a game in higher resolutions than your monitor suppor
 It is also often referred to when talking about a game running in aspect ratios that aren't supported by monitors, like `4:3` or `2:1`.
  
 To properly Hotsample you would need to use programs like [SRWE](https://github.com/dtgDTGdtg/SRWE) or [WindowedBorderlessGaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/). Please take in mind not every game supports this feature, so before attempting to Hotsample check if the game is capable of doing so in the games guide if it has one. Some games might have a mod or cheat engine table that unlocks Hotsampling or custom ARs, and there have been reports of games Hotsampling in borderless windows instead of windowed mode (which should be tried by default).
+
+If a game hotsamples it's advised to use SRWE on it, but in some cases, like with some Ubisoft games (Steep, Ghost Recon Breakpoint), you will only be able to hotsample with *Windowed Borderless Gaming*. It might be tricker and more frustrating than SRWE to use, so make sure to follow the guide linked below.
  
 Another technique used to achieve high-resolution screenshots is [DSR](https://framedsc.github.io/GeneralGuides/basics.htm#dynamic-super-resolution---dsr). The advantage of Hotsampling over DSR is that you can play at your regular resolution, switch to a higher one for a screenshot, and come back to your gameplay resolution when you are done without the need to go through a menu, whereas DSR requires you to go to the menu to change resolutions, which in some games might reset the camera thus losing the composition (besides having to traverse menus with low fps and using higher resolutions for longer, which might increase the chances of crashes.)
  
 ### How to hotsample
  
-Below you can find some guides on how to hotsample using SRWE:
+Below you can find some guides on how to hotsample:
  
 - [Markdown guide in SRWE repository](https://github.com/dtgDTGdtg/SRWE/blob/master/README.md)
-- [Dom steam guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1119283512)
- 
+- [Dom SRWE steam guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1119283512)
+- [NoHUD guide on WindowedBorderlessGaming](https://nohud.fandom.com/wiki/Hotsampling_with_SRWE_/_WBG)
+
 ### Historical background
  
-The original SRWE was intentionally made for running Skyrim in a smaller window to save memory, but in 2012, the user midhras used it to do the opposite and asked the developer to build a generic tool that would allow the same in other windowed games, which he later did. 
+SRWE precursor, [Skyrim - Unstretched Windowed Fullscreen Mode](https://www.nexusmods.com/skyrim/mods/7347), was intentionally made for running Skyrim in a smaller window to save memory, but in 2012, the user midhras used it to do the opposite and asked the developer to build a generic tool that would allow the same in other windowed games, which he later did. 
 Since this had become widely popular, there was a need for a term to define this act. When Duncan Harris and midhras were discussing on what to call the act of using SRWE (or similar tools) to resize the game window, allowing for higher resolutions, they came up with the term/name Shotsampling. Later, Duncan called it Hotsampling, which stayed.
  
 ### External links
@@ -111,13 +114,17 @@ If you wanna know about the stuff ReShade allows you to do check out the [shader
 There are a number of ways to take screenshots from games, here are a few of the most commonly used programs.
  
 - **Steam** (Make sure to select in Steam screenshot parameters the option to save a lossless .png)
-- **ReShade** (In some ReShade builds the built-in screenshot function does not behave well with certain graphic APIs)
+- **Reshade** (In some ReShade builds the built-in screenshot function does not behave well with certain graphic APIs)
 - **Windows Gaming Bar** (Windows key + Alt + Print Screen)
 - **MSI Afterburner** (Key is configurable)
 - **Nvidia Overlay** (Alt-F1)
 - **Windows Screen Capture** (Windows key + Print Screen)
  
 Steam, ReShade and Afterburner have been proven to work well while Hotsampling, but if you run into difficulties with any of them try switching up.
+
+If you feel like **Reshade** takes too long to take the screenshot in `.png` format you can use `.bmp` instead. It will be faster, but the files will also be heavier, so it's advised to later convert them to lossless pngs.
+ 
+It's worth mentioning tho that if you use **Reshade** screenshot function with low fps (that being while using DSR or hotsampling) you may have to spend a good amount of time hitting the screenshot key to see if the game detects. That is because the same process that has to read the keyboard to detect when you hit the screenshot key is the same as the game, so if the game is slow so will Reshade. An alternative to this would be using **MSI Afterburner** since it has its own process, so the game running slow won't interfere with reading if the screenshot key was pressed. However, sometimes Afterburner isn't compatible with some tools or mods and it may crash the game, so be aware. 
  
 ## Further reading
  
