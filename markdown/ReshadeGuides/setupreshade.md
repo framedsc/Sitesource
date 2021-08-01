@@ -101,6 +101,11 @@ detects the game to be an online game (so there's network traffic on a regular b
 So if you are trying to use reshade in a game which uses the internet connection constantly (because of the DRM or because it's always online like The Division or Steep) you will have to use custom reshade .dlls builds to get depth buffer access, otherwise reshade will block it. Alternatively you can still use reshade without depth buffer access, but some shaders that use it like CinematicDof won't work.
  
 Keep in mind that the official version of reshade is whitelisted by some games anti-cheat software, so by using a custom .dll you may get banned depending on the game, so do your research beforehand.
+
+## Using reshade alongisde other injectable mods
+
+Sometimes you may encounter that you can't use reshade alongside another mod that also injects itself into the process. One way of avoiding this is using [ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases) to put the extra mods in a scripts folder. Read the [README file on the ASI Loader repo](https://github.com/ThirteenAG/Ultimate-ASI-Loader/blob/master/readme.md) for more information on how to use it.
+
  
 ## Further information
  

@@ -1,10 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="26">
+<CheatTable CheatEngineTableVersion="31">
   <CheatEntries>
+    <CheatEntry>
+      <ID>852</ID>
+      <Description>"-contact @ twitter.com/somberness"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>263</ID>
+      <Description>"Disable HUD"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(DISABLEHUD,RED-Win64-Shipping.exe,F3 0F 10 05 64 B8 94 02)
+aobscanmodule(DISABLEHUD2,RED-Win64-Shipping.exe,0F 28 25 1E C5 7B 01)
+aobscanmodule(DISABLEHUD3,RED-Win64-Shipping.exe,F3 0F 10 05 BE E7 E9 00)
+//aobscanmodule(DISABLEHUD3,RED-Win64-Shipping.exe,0F 28 15 64 10 F0 00)
+registersymbol(DISABLEHUD)
+registersymbol(DISABLEHUD2)
+registersymbol(DISABLEHUD3)
+DISABLEHUD:
+db 90 90 90 90 90 90 90 90
+DISABLEHUD2:
+db 90 90 90 90 90 90 90
+DISABLEHUD3:
+db F3 0F 10 05 AE E7 E9 00
+[DISABLE]
+
+DISABLEHUD:
+db F3 0F 10 05 64 B8 94 02
+DISABLEHUD2:
+db 0F 28 25 1E C5 7B 01
+DISABLEHUD3:
+db F3 0F 10 05 BE E7 E9 00
+unregistersymbol(DISABLEHUD)
+unregistersymbol(DISABLEHUD2)
+unregistersymbol(DISABLEHUD3)
+{
+// ORIGINAL CODE - INJECTION POINT: "RED-Win64-Shipping.exe"+1FD2F8
+
+"RED-Win64-Shipping.exe"+1FD2DD: 45 2B D9                 -  sub r11d,r9d
+"RED-Win64-Shipping.exe"+1FD2E0: 44 0F 44 DE              -  cmove r11d,esi
+"RED-Win64-Shipping.exe"+1FD2E4: 44 2B D2                 -  sub r10d,edx
+"RED-Win64-Shipping.exe"+1FD2E7: 44 0F 44 D6              -  cmove r10d,esi
+"RED-Win64-Shipping.exe"+1FD2EB: 85 C9                    -  test ecx,ecx
+"RED-Win64-Shipping.exe"+1FD2ED: 79 04                    -  jns RED-Win64-Shipping.exe+1FD2F3
+"RED-Win64-Shipping.exe"+1FD2EF: 33 C9                    -  xor ecx,ecx
+"RED-Win64-Shipping.exe"+1FD2F1: EB 05                    -  jmp RED-Win64-Shipping.exe+1FD2F8
+"RED-Win64-Shipping.exe"+1FD2F3: 3B C8                    -  cmp ecx,eax
+"RED-Win64-Shipping.exe"+1FD2F5: 0F 4F C8                 -  cmovg ecx,eax
+// ---------- INJECTING HERE ----------
+"RED-Win64-Shipping.exe"+1FD2F8: F3 0F 10 05 C4 86 8E 02  -  movss xmm0,[RED-Win64-Shipping.exe+2AE59C4]
+// ---------- DONE INJECTING  ----------
+"RED-Win64-Shipping.exe"+1FD300: 0F 28 D8                 -  movaps xmm3,xmm0
+"RED-Win64-Shipping.exe"+1FD303: 41 3B C8                 -  cmp ecx,r8d
+"RED-Win64-Shipping.exe"+1FD306: 7F 2A                    -  jg RED-Win64-Shipping.exe+1FD332
+"RED-Win64-Shipping.exe"+1FD308: 66 0F 6E CF              -  movd xmm1,edi
+"RED-Win64-Shipping.exe"+1FD30C: 0F 5B C9                 -  cvtdq2ps xmm1,xmm1
+"RED-Win64-Shipping.exe"+1FD30F: 66 0F 6E E1              -  movd xmm4,ecx
+"RED-Win64-Shipping.exe"+1FD313: 0F 5B E4                 -  cvtdq2ps xmm4,xmm4
+"RED-Win64-Shipping.exe"+1FD316: F3 0F 5E D9              -  divss xmm3,xmm1
+"RED-Win64-Shipping.exe"+1FD31A: 0F 28 D3                 -  movaps xmm2,xmm3
+"RED-Win64-Shipping.exe"+1FD31D: F3 0F 59 D4              -  mulss xmm2,xmm4
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "RED-Win64-Shipping.exe"+1330B7B
+
+"RED-Win64-Shipping.exe"+1330B58: 8B 40 08                       -  mov eax,[rax+08]
+"RED-Win64-Shipping.exe"+1330B5B: 85 C0                          -  test eax,eax
+"RED-Win64-Shipping.exe"+1330B5D: 7E 04                          -  jle RED-Win64-Shipping.exe+1330B63
+"RED-Win64-Shipping.exe"+1330B5F: B0 01                          -  mov al,01
+"RED-Win64-Shipping.exe"+1330B61: EB 02                          -  jmp RED-Win64-Shipping.exe+1330B65
+"RED-Win64-Shipping.exe"+1330B63: 33 C0                          -  xor eax,eax
+"RED-Win64-Shipping.exe"+1330B65: 84 C0                          -  test al,al
+"RED-Win64-Shipping.exe"+1330B67: 0F 85 BD 19 00 00              -  jne RED-Win64-Shipping.exe+133252A
+"RED-Win64-Shipping.exe"+1330B6D: 0F 28 1D 8C BF 7B 01           -  movaps xmm3,[RED-Win64-Shipping.exe+2AECB00]
+"RED-Win64-Shipping.exe"+1330B74: 4C 8D 85 70 02 00 00           -  lea r8,[rbp+00000270]
+// ---------- INJECTING HERE ----------
+"RED-Win64-Shipping.exe"+1330B7B: 0F 28 25 9E BF 7B 01           -  movaps xmm4,[RED-Win64-Shipping.exe+2AECB20]
+// ---------- DONE INJECTING  ----------
+"RED-Win64-Shipping.exe"+1330B82: 48 8D 95 50 03 00 00           -  lea rdx,[rbp+00000350]
+"RED-Win64-Shipping.exe"+1330B89: 0F 28 2D C0 BF 7B 01           -  movaps xmm5,[RED-Win64-Shipping.exe+2AECB50]
+"RED-Win64-Shipping.exe"+1330B90: 0F 28 D3                       -  movaps xmm2,xmm3
+"RED-Win64-Shipping.exe"+1330B93: 48 8B 45 90                    -  mov rax,[rbp-70]
+"RED-Win64-Shipping.exe"+1330B97: 45 33 C9                       -  xor r9d,r9d
+"RED-Win64-Shipping.exe"+1330B9A: F3 41 0F 10 44 24 04           -  movss xmm0,[r12+04]
+"RED-Win64-Shipping.exe"+1330BA1: F3 41 0F 10 4C 24 08           -  movss xmm1,[r12+08]
+"RED-Win64-Shipping.exe"+1330BA8: 0F C6 D3 00                    -  shufps xmm2,xmm3,00
+"RED-Win64-Shipping.exe"+1330BAC: 0F 28 78 10                    -  movaps xmm7,[rax+10]
+"RED-Win64-Shipping.exe"+1330BB0: 0F 28 30                       -  movaps xmm6,[rax]
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "RED-Win64-Shipping.exe"+1BEBA95
+
+"RED-Win64-Shipping.exe"+1BEBA62: 0F 28 1D B7 10 F0 00     -  movaps xmm3,[RED-Win64-Shipping.exe+2AECB20]
+"RED-Win64-Shipping.exe"+1BEBA69: 0F 28 2D E0 10 F0 00     -  movaps xmm5,[RED-Win64-Shipping.exe+2AECB50]
+"RED-Win64-Shipping.exe"+1BEBA70: 0F 28 F3                 -  movaps xmm6,xmm3
+"RED-Win64-Shipping.exe"+1BEBA73: F3 0F 10 15 05 2C EF 00  -  movss xmm2,[RED-Win64-Shipping.exe+2ADE680]
+"RED-Win64-Shipping.exe"+1BEBA7B: F3 0F 10 64 24 20        -  movss xmm4,[rsp+20]
+"RED-Win64-Shipping.exe"+1BEBA81: 0F 57 CA                 -  xorps xmm1,xmm2
+"RED-Win64-Shipping.exe"+1BEBA84: F3 0F 10 44 24 28        -  movss xmm0,[rsp+28]
+"RED-Win64-Shipping.exe"+1BEBA8A: 0F 57 E2                 -  xorps xmm4,xmm2
+"RED-Win64-Shipping.exe"+1BEBA8D: 0F 57 C2                 -  xorps xmm0,xmm2
+"RED-Win64-Shipping.exe"+1BEBA90: F3 0F 11 4D C4           -  movss [rbp-3C],xmm1
+// ---------- INJECTING HERE ----------
+"RED-Win64-Shipping.exe"+1BEBA95: 0F 28 15 64 10 F0 00     -  movaps xmm2,[RED-Win64-Shipping.exe+2AECB00]
+// ---------- DONE INJECTING  ----------
+"RED-Win64-Shipping.exe"+1BEBA9C: F3 0F 11 45 C8           -  movss [rbp-38],xmm0
+"RED-Win64-Shipping.exe"+1BEBAA1: 0F 28 FA                 -  movaps xmm7,xmm2
+"RED-Win64-Shipping.exe"+1BEBAA4: F3 0F 11 85 A0 01 00 00  -  movss [rbp+000001A0],xmm0
+"RED-Win64-Shipping.exe"+1BEBAAC: 0F 28 C2                 -  movaps xmm0,xmm2
+"RED-Win64-Shipping.exe"+1BEBAAF: 0F C6 C2 55              -  shufps xmm0,xmm2,55
+"RED-Win64-Shipping.exe"+1BEBAB3: F3 0F 11 4D 80           -  movss [rbp-80],xmm1
+"RED-Win64-Shipping.exe"+1BEBAB8: 0F 28 CA                 -  movaps xmm1,xmm2
+"RED-Win64-Shipping.exe"+1BEBABB: 0F C6 CA AA              -  shufps xmm1,xmm2,-56
+"RED-Win64-Shipping.exe"+1BEBABF: 0F C6 F3 00              -  shufps xmm6,xmm3,00
+"RED-Win64-Shipping.exe"+1BEBAC3: 41 0F 59 C6              -  mulps xmm0,xmm14
+}
+{
+// ORIGINAL CODE - INJECTION POINT: "RED-Win64-Shipping.exe"+1C49B6E
+
+"RED-Win64-Shipping.exe"+1C49B41: 48 8B 53 38              -  mov rdx,[rbx+38]
+"RED-Win64-Shipping.exe"+1C49B45: 4C 8D 87 C0 00 00 00     -  lea r8,[rdi+000000C0]
+"RED-Win64-Shipping.exe"+1C49B4C: 4D 8B CE                 -  mov r9,r14
+"RED-Win64-Shipping.exe"+1C49B4F: C7 44 24 20 00 00 00 00  -  mov [rsp+20],00000000
+"RED-Win64-Shipping.exe"+1C49B57: 48 8B CE                 -  mov rcx,rsi
+"RED-Win64-Shipping.exe"+1C49B5A: E8 81 34 1B FF           -  call RED-Win64-Shipping.exe+DFCFE0
+"RED-Win64-Shipping.exe"+1C49B5F: 40 84 ED                 -  test bpl,bpl
+"RED-Win64-Shipping.exe"+1C49B62: 74 0A                    -  je RED-Win64-Shipping.exe+1C49B6E
+"RED-Win64-Shipping.exe"+1C49B64: F3 0F 10 05 10 F4 E9 00  -  movss xmm0,[RED-Win64-Shipping.exe+2AE8F7C]
+"RED-Win64-Shipping.exe"+1C49B6C: EB 08                    -  jmp RED-Win64-Shipping.exe+1C49B76
+// ---------- INJECTING HERE ----------
+"RED-Win64-Shipping.exe"+1C49B6E: F3 0F 10 05 4E BE E9 00  -  movss xmm0,[RED-Win64-Shipping.exe+2AE59C4]
+// ---------- DONE INJECTING  ----------
+"RED-Win64-Shipping.exe"+1C49B76: 48 8B 5F 48              -  mov rbx,[rdi+48]
+"RED-Win64-Shipping.exe"+1C49B7A: F3 0F 11 44 24 68        -  movss [rsp+68],xmm0
+"RED-Win64-Shipping.exe"+1C49B80: 80 7B 28 00              -  cmp byte ptr [rbx+28],00
+"RED-Win64-Shipping.exe"+1C49B84: 75 08                    -  jne RED-Win64-Shipping.exe+1C49B8E
+"RED-Win64-Shipping.exe"+1C49B86: 48 8B CB                 -  mov rcx,rbx
+"RED-Win64-Shipping.exe"+1C49B89: E8 E2 6D 11 FF           -  call RED-Win64-Shipping.exe+D60970
+"RED-Win64-Shipping.exe"+1C49B8E: 48 8B 53 38              -  mov rdx,[rbx+38]
+"RED-Win64-Shipping.exe"+1C49B92: 4C 8D 87 C6 00 00 00     -  lea r8,[rdi+000000C6]
+"RED-Win64-Shipping.exe"+1C49B99: 4C 8D 4C 24 68           -  lea r9,[rsp+68]
+"RED-Win64-Shipping.exe"+1C49B9E: C7 44 24 20 00 00 00 00  -  mov [rsp+20],00000000
+}
+</AssemblerScript>
+    </CheatEntry>
     <CheatEntry>
       <ID>130</ID>
       <Description>"CAM"</Description>
-      <Options moManualExpandCollapse="1"/>
+      <Options moHideChildren="1" moManualExpandCollapse="1"/>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
@@ -170,101 +317,7 @@ unregistersymbol(camdisable3)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>190</ID>
-          <Description>"FOV"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord1</Address>
-          <Offsets>
-            <Offset>428</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>236</ID>
-          <Description>"FOV"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord2</Address>
-          <Offsets>
-            <Offset>-28</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>103</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>225</ID>
+          <ID>3112</ID>
           <Description>"X"</Description>
           <VariableType>Float</VariableType>
           <Address>coord1</Address>
@@ -275,45 +328,42 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>97</Key>
-                <Key>37</Key>
+                <Key>100</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>10</Value>
               <ID>0</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>97</Key>
-                <Key>39</Key>
+                <Key>102</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>10</Value>
               <ID>1</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>97</Key>
-                <Key>40</Key>
+                <Key>100</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>2</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>97</Key>
-                <Key>38</Key>
+                <Key>102</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>3</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>97</Key>
-                <Key>40</Key>
-                <Key>17</Key>
+                <Key>100</Key>
+                <Key>88</Key>
               </Keys>
               <Value>100</Value>
               <ID>4</ID>
@@ -321,9 +371,8 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>97</Key>
-                <Key>38</Key>
-                <Key>17</Key>
+                <Key>102</Key>
+                <Key>88</Key>
               </Keys>
               <Value>100</Value>
               <ID>5</ID>
@@ -331,168 +380,7 @@ unregistersymbol(camdisable3)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>233</ID>
-          <Description>"X"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord2</Address>
-          <Offsets>
-            <Offset>-40</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>97</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>97</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>97</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>10</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>97</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>10</Value>
-              <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>97</Key>
-                <Key>40</Key>
-                <Key>17</Key>
-              </Keys>
-              <Value>100</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>97</Key>
-                <Key>38</Key>
-                <Key>17</Key>
-              </Keys>
-              <Value>100</Value>
-              <ID>5</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>226</ID>
-          <Description>"X2"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord1</Address>
-          <Offsets>
-            <Offset>420</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>234</ID>
-          <Description>"X2"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord2</Address>
-          <Offsets>
-            <Offset>-30</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>100</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>131</ID>
+          <ID>3113</ID>
           <Description>"Y"</Description>
           <VariableType>Float</VariableType>
           <Address>coord1</Address>
@@ -504,44 +392,41 @@ unregistersymbol(camdisable3)
               <Action>Decrease Value</Action>
               <Keys>
                 <Key>98</Key>
-                <Key>37</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>10</Value>
               <ID>0</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>98</Key>
-                <Key>39</Key>
+                <Key>104</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>10</Value>
               <ID>1</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
                 <Key>98</Key>
-                <Key>40</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>2</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>98</Key>
-                <Key>38</Key>
+                <Key>104</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>3</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
                 <Key>98</Key>
-                <Key>40</Key>
-                <Key>17</Key>
+                <Key>88</Key>
               </Keys>
               <Value>100</Value>
               <ID>4</ID>
@@ -549,9 +434,8 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>98</Key>
-                <Key>38</Key>
-                <Key>17</Key>
+                <Key>104</Key>
+                <Key>88</Key>
               </Keys>
               <Value>100</Value>
               <ID>5</ID>
@@ -559,168 +443,7 @@ unregistersymbol(camdisable3)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>239</ID>
-          <Description>"Y"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord2</Address>
-          <Offsets>
-            <Offset>-38</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>98</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>98</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>98</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>10</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>98</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>10</Value>
-              <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>98</Key>
-                <Key>40</Key>
-                <Key>17</Key>
-              </Keys>
-              <Value>100</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>98</Key>
-                <Key>38</Key>
-                <Key>17</Key>
-              </Keys>
-              <Value>100</Value>
-              <ID>5</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>133</ID>
-          <Description>"Y2"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord1</Address>
-          <Offsets>
-            <Offset>41c</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>238</ID>
-          <Description>"Y2"</Description>
-          <VariableType>Float</VariableType>
-          <Address>coord2</Address>
-          <Offsets>
-            <Offset>-34</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>37</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>39</Key>
-              </Keys>
-              <Value>.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>40</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>101</Key>
-                <Key>38</Key>
-              </Keys>
-              <Value>1</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>194</ID>
+          <ID>3114</ID>
           <Description>"Z"</Description>
           <VariableType>Float</VariableType>
           <Address>coord1</Address>
@@ -731,45 +454,42 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>99</Key>
-                <Key>37</Key>
+                <Key>96</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>10</Value>
               <ID>0</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>99</Key>
-                <Key>39</Key>
+                <Key>101</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>10</Value>
               <ID>1</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>99</Key>
-                <Key>40</Key>
+                <Key>96</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>2</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>99</Key>
-                <Key>38</Key>
+                <Key>101</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>3</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>99</Key>
-                <Key>40</Key>
-                <Key>17</Key>
+                <Key>96</Key>
+                <Key>88</Key>
               </Keys>
               <Value>100</Value>
               <ID>4</ID>
@@ -777,9 +497,8 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>99</Key>
-                <Key>38</Key>
-                <Key>17</Key>
+                <Key>101</Key>
+                <Key>88</Key>
               </Keys>
               <Value>100</Value>
               <ID>5</ID>
@@ -787,75 +506,102 @@ unregistersymbol(camdisable3)
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>235</ID>
-          <Description>"Z"</Description>
+          <ID>3115</ID>
+          <Description>"Yaw"</Description>
           <VariableType>Float</VariableType>
-          <Address>coord2</Address>
+          <Address>coord1</Address>
           <Offsets>
-            <Offset>-3c</Offset>
+            <Offset>420</Offset>
           </Offsets>
           <Hotkeys>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
                 <Key>99</Key>
-                <Key>37</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>.1</Value>
               <ID>0</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
                 <Key>99</Key>
-                <Key>39</Key>
+                <Key>88</Key>
               </Keys>
-              <Value>1</Value>
+              <Value>.1</Value>
               <ID>1</ID>
             </Hotkey>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
                 <Key>99</Key>
-                <Key>40</Key>
+                <Key>17</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>2</ID>
             </Hotkey>
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
                 <Key>99</Key>
-                <Key>38</Key>
+                <Key>18</Key>
               </Keys>
-              <Value>10</Value>
+              <Value>1</Value>
               <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>99</Key>
-                <Key>40</Key>
-                <Key>17</Key>
-              </Keys>
-              <Value>100</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>99</Key>
-                <Key>38</Key>
-                <Key>17</Key>
-              </Keys>
-              <Value>100</Value>
-              <ID>5</ID>
             </Hotkey>
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>135</ID>
-          <Description>"rotate"</Description>
+          <ID>3116</ID>
+          <Description>"Pitch"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord1</Address>
+          <Offsets>
+            <Offset>41c</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3117</ID>
+          <Description>"Rotate"</Description>
           <VariableType>Float</VariableType>
           <Address>coord1</Address>
           <Offsets>
@@ -865,8 +611,8 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
-                <Key>96</Key>
-                <Key>37</Key>
+                <Key>97</Key>
+                <Key>90</Key>
               </Keys>
               <Value>1</Value>
               <ID>0</ID>
@@ -874,37 +620,358 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>96</Key>
-                <Key>39</Key>
+                <Key>97</Key>
+                <Key>88</Key>
               </Keys>
               <Value>1</Value>
               <ID>1</ID>
             </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3118</ID>
+          <Description>"FOV"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord1</Address>
+          <Offsets>
+            <Offset>428</Offset>
+          </Offsets>
+          <Hotkeys>
             <Hotkey>
-              <Action>Set Value</Action>
+              <Action>Decrease Value</Action>
               <Keys>
-                <Key>96</Key>
                 <Key>110</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>0</Value>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
               <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
             </Hotkey>
           </Hotkeys>
         </CheatEntry>
         <CheatEntry>
-          <ID>237</ID>
-          <Description>"rotate"</Description>
+          <ID>225</ID>
+          <Description>"X (story)"</Description>
           <VariableType>Float</VariableType>
           <Address>coord2</Address>
           <Offsets>
-            <Offset>-2c</Offset>
+            <Offset>410-450</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>131</ID>
+          <Description>"Y (story)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord2</Address>
+          <Offsets>
+            <Offset>418-450</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>98</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>194</ID>
+          <Description>"Z (story)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord2</Address>
+          <Offsets>
+            <Offset>414-450</Offset>
           </Offsets>
           <Hotkeys>
             <Hotkey>
               <Action>Decrease Value</Action>
               <Keys>
                 <Key>96</Key>
-                <Key>37</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>10</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>96</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>101</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>100</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>226</ID>
+          <Description>"Yaw (story)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord2</Address>
+          <Offsets>
+            <Offset>420-450</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>99</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>133</ID>
+          <Description>"Pitch (story)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord2</Address>
+          <Offsets>
+            <Offset>41c-450</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>90</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>103</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>135</ID>
+          <Description>"Rotate (story)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord2</Address>
+          <Offsets>
+            <Offset>424-450</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>97</Key>
+                <Key>90</Key>
               </Keys>
               <Value>1</Value>
               <ID>0</ID>
@@ -912,20 +979,58 @@ unregistersymbol(camdisable3)
             <Hotkey>
               <Action>Increase Value</Action>
               <Keys>
-                <Key>96</Key>
-                <Key>39</Key>
+                <Key>97</Key>
+                <Key>88</Key>
               </Keys>
               <Value>1</Value>
               <ID>1</ID>
             </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>190</ID>
+          <Description>"FOV (story)"</Description>
+          <VariableType>Float</VariableType>
+          <Address>coord2</Address>
+          <Offsets>
+            <Offset>428-450</Offset>
+          </Offsets>
+          <Hotkeys>
             <Hotkey>
-              <Action>Set Value</Action>
+              <Action>Decrease Value</Action>
               <Keys>
-                <Key>96</Key>
                 <Key>110</Key>
+                <Key>90</Key>
               </Keys>
-              <Value>0</Value>
+              <Value>.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>88</Key>
+              </Keys>
+              <Value>.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>17</Key>
+              </Keys>
+              <Value>1</Value>
               <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>110</Key>
+                <Key>18</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>3</ID>
             </Hotkey>
           </Hotkeys>
         </CheatEntry>
