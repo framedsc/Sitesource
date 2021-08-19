@@ -5,6 +5,11 @@ Universal Unreal Engine 4 Unlocker
 
 **Engine versions supported**: Unreal Engine 4.15 - 4.26 
 
+@alert Info
+This page is for the UUU v3.0.x. This is the free version and won't be updated anymore. If you're looking for the UUU v4.x with camera paths and other
+additional features, please visit [Otis_Inf's Patreon page](https://patreon.com/Otis_Inf): the UUU v4.x is part of Tier 1.
+@end
+
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
 The only site the unlocker binary is distributed on is this site. 
@@ -18,6 +23,7 @@ To download the UUU please use the link below. It's usable with all [the support
 
 * [Universal UE4 Unlocker v3.0.19](https://mega.nz/file/JQgmmTDQ#JicdedqwrbiCwj-DzfOIgJUD-HiKphSlO8Ppvkvqwfc). 
 * [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.19 gives problems
+
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -317,6 +323,7 @@ Lost Ember |
 Mahoe Arms | 
 Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
 Man of Medan (The Dark Pictures Anthology) | 
+Marie's Room | Built-in camera doesn't work. Use `toggledebugcamera` for camera
 Marvel vs. Capcom: Infinite | 
 Metamorphosis | 
 Medieval Dynasty | No hud toggle
