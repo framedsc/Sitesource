@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"By Ghostinthecamera"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"---------------------------------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Get Timescale"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : GRIS.exe
+  Version: 
+  Date   : 2021-08-10
+  Author : Hussain
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(_timeScaleRead,UnityPlayer.dll,8B 80 x x x x F3 0F 11 47) // should be unique
+registersymbol(_timeScaleRead)
+alloc(newmem,$1000,_timeScaleRead)
+
+label(code)
+label(return)
+registersymbol(_timescaleStruct)
+
+newmem:
+
+code:
+  mov [_timescaleStruct],rax
+  mov eax,[rax+000000F4]
+  jmp return
+
+_timescaleStruct:
+dq 0
+
+_timeScaleRead:
+  jmp newmem
+  nop
+return:
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+_timeScaleRead:
+  db 8B 80 F4 00 00 00
+
+unregistersymbol(_timeScaleRead)
+unregistersymbol(_timescaleStruct)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+38B25E
+
+UnityPlayer.dll+38B230: 48 89 5C 24 08           - mov [rsp+08],rbx
+UnityPlayer.dll+38B235: 57                       - push rdi
+UnityPlayer.dll+38B236: 48 83 EC 20              - sub rsp,20
+UnityPlayer.dll+38B23A: 48 8B F9                 - mov rdi,rcx
+UnityPlayer.dll+38B23D: 48 8D 0D AC 69 02 01     - lea rcx,[UnityPlayer.dll+13B1BF0]
+UnityPlayer.dll+38B244: E8 F7 F8 FF FF           - call UnityPlayer.dll+38AB40
+UnityPlayer.dll+38B249: E8 D2 DE 10 00           - call UnityPlayer.dll+499120
+UnityPlayer.dll+38B24E: 48 8B CF                 - mov rcx,rdi
+UnityPlayer.dll+38B251: F3 0F 10 80 A8 00 00 00  - movss xmm0,[rax+000000A8]
+UnityPlayer.dll+38B259: F3 0F 10 48 7C           - movss xmm1,[rax+7C]
+// ---------- INJECTING HERE ----------
+UnityPlayer.dll+38B25E: 8B 80 F4 00 00 00        - mov eax,[rax+000000F4]
+// ---------- DONE INJECTING  ----------
+UnityPlayer.dll+38B264: F3 0F 11 47 04           - movss [rdi+04],xmm0
+UnityPlayer.dll+38B269: F3 0F 11 4F 08           - movss [rdi+08],xmm1
+UnityPlayer.dll+38B26E: 89 07                    - mov [rdi],eax
+UnityPlayer.dll+38B270: E8 FB CD FF FF           - call UnityPlayer.dll+388070
+UnityPlayer.dll+38B275: BB 02 00 00 00           - mov ebx,00000002
+UnityPlayer.dll+38B27A: 66 0F 1F 44 00 00        - nop word ptr [rax+rax+00]
+UnityPlayer.dll+38B280: 8B D3                    - mov edx,ebx
+UnityPlayer.dll+38B282: 48 8B CF                 - mov rcx,rdi
+UnityPlayer.dll+38B285: E8 36 C9 FF FF           - call UnityPlayer.dll+387BC0
+UnityPlayer.dll+38B28A: FF C3                    - inc ebx
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Timescale Value"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>_timescaleStruct</Address>
+          <Offsets>
+            <Offset>F4</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>110</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
