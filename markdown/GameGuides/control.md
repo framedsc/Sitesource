@@ -39,8 +39,8 @@ In its default state, it might not be possible to run the game in administrator 
     3. Similarly, right-click on `Control_DX11.exe` or `Control_DX12.exe` (depending on which version of the game you want to play), go to the Compatibility tab, and check the `Run this program as administrator` box.
     4. Go to the launcher's installation directory, right-click on its .exe, go to the Compatibility tab, and check the `Run this program as administrator` box.
     5. Open the launcher and start the game.
-
- Steps 2 and 4 are necessary (and not just 3) because when you start the game using the launcher, it runs `Control.exe` and from there, you choose which version (and thus which .exe) you want to play. If `Control_DX11.exe` or `Control_DX12.exe` has administrator status, `Control.exe` needs to have it as well to be able to run them and in turn, the launcher needs to have the elevated status as well.
+    
+    Steps 2 and 4 are necessary (and not just 3) because when you start the game using the launcher, it runs `Control.exe` and from there, you choose which version (and thus which .exe) you want to play. If `Control_DX11.exe` or `Control_DX12.exe` has administrator status, `Control.exe` needs to have it as well to be able to run them and in turn, the launcher needs to have the elevated status as well.
 
 * **Hotsampling and SRWE**: If you directly hotsample to a high resolution, you might experience crashes even though theoretically your GPU can handle that particular resolution. So, the best practice is, before you set your hotsample resolution, switch to a lower one, like 1 Megapixel in SRWE. Only after that, set the resolution you want to shoot in.
 
@@ -54,4 +54,4 @@ The game seems to have some issues with noise, which is exacerbated with Raytrac
 
 ## Useful links
 
-[PC Gaming wiki](https://www.pcgamingwiki.com/wiki/Control)
+* [PC Gaming wiki](https://www.pcgamingwiki.com/wiki/Control)
