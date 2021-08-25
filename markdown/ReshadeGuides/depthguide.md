@@ -13,6 +13,7 @@ This guide will cover the export of depth buffers 3 different ways, all using Re
 If all you need is a simple slice of the depth buffer prod80's [Depth Slicer](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/) is the shader you want. **prod80's shaders require the 4 FXH files listed at the top of the repository to be downloaded and added to your shaders.** You will also need any colour-modifying shader that can turn the entire scene black, such as [qUINT_Lightroom](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_lightroom.fx) with the black level set to max. The goal is to capture a black-on-white image we can easily use as a mask.
 
 With your scene turned black, make sure Depth Slicer is placed **below** Lightroom / the shader you're using in the Reshade GUI. We want Depth Slicer to be able to affect the black image. Set Depth Slicer up like shown below.
+
 ![1](Images\depthguide\ds_depthslicer1.png){.shadowed .autosize}
 
 Your scene should now be white, with maybe a slice of black visible. The only settings you need to adjust now are *Depth Position* and *Depth Near Plane*. Adjust *Depth Position* until all of your subject is in black, with the background entirely white. Next, reduce *Depth Near Plane* until any foreground objects are now white too. I recommend using the arrows to make these adjustments as the sliders can get difficult to work with at such small values.
