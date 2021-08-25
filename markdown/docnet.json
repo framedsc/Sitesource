@@ -30,6 +30,7 @@
 				"BioShock Infinite" : "GameGuides\\BioshockInfinite.md",
 				"Borderlands 2" : "GameGuides\\borderlands2.md",
 				"Borderlands 3" : "GameGuides\\Borderlands3.md",
+				"Bugsnax" : "GameGuides\\Bugsnax.md",
 				"Castlevania: Lords of Shadow" : "GameGuides\\castlevania_lords_of_shadows.md",
 				"Code Vein": "GameGuides\\codevein.md",
 				"Control" : "GameGuides\\control.md",
@@ -81,6 +82,7 @@
 				"Ni No Kuni 2" : "GameGuides\\ninokuni2.md",
 				"Nioh 2: The Complete Edition": "GameGuides\\Nioh2.md",
 				"No Man's Sky" : "GameGuides\\nomanssky.md",
+				"Left 4 Dead 2" : "GameGuides\\l4d2.md",
 				"Observer" : "GameGuides\\Observer.md",
 				"The Outer Worlds" : "GameGuides\\theouterworlds.md",
 				"Prince of Persia - The Sands of Time": "GameGuides\\pop_sandsoftime.md",
@@ -137,6 +139,7 @@
 			"Shaders Catalogue": "ReshadeGuides\\shaderscatalogue.md",
 			"LUT Generation": "ReshadeGuides\\lutgenguide.md",
 			"Injecting ReShade in UWP games": "ReshadeGuides\\reshadeuwp.md",
+			"Exporting Depth Buffers with Reshade": "ReshadeGuides\\depthguide.md",
 			"Shader guides":
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
