@@ -40,7 +40,7 @@ This tiny range of the depth buffer is handy for effects like shallow depth of f
 Once set up, screenshot it with your favourite screenshotting tool.
 
 @alert tip
-`DisplayDepth.fx` dithers its depth layers together so that its output isn't full of banding. This dithering can appear as artifacts in some depth effects. A modified version of `DisplayDepth.fx` that includes a dither toggle can be downloaded [here](Images\depthguide\DisplayDepth.fx).
+`DisplayDepth.fx` dithers its depth layers together so that its output isn't full of banding. This dithering can appear as artifacts in some depth effects. A modified version of `DisplayDepth.fx` that includes a dither toggle can be downloaded [here](https://framedsc.github.io/Images/depthguide/DisplayDepth.fx).
 @end
 
 ---
@@ -104,7 +104,7 @@ Lastly, we can return to our Fog folder and adjust our adjustment layers until w
 
 ![final](Images\depthguide\fog_final.png){.shadowed .autosize}
 
-[Download the PSD](Images\depthguide\L4D2_humveeFog.psd). 
+[Download the PSD](https://framedsc.github.io/Images/depthguide/L4D2_humveeFog.psd). 
 
 Yes, there are much better approaches to adding fog through Reshade like TreyM's fantastic [Atmospheric Density](https://github.com/TreyM/MShaders/blob/main/Shaders/MShaders/AtmosphericDensity.fx) shader. The point of this tutorial is to provide you with a starting point for all that can be done with an image and its depth map. I hope this has given you some ideas!
 
