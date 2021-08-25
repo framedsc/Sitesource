@@ -18,9 +18,8 @@ With your scene turned black, make sure Depth Slicer is placed **below** Lightro
 
 Your scene should now be white, with maybe a slice of black visible. The only settings you need to adjust now are *Depth Position* and *Depth Near Plane*. Adjust *Depth Position* until all of your subject is in black, with the background entirely white. Next, reduce *Depth Near Plane* until any foreground objects are now white too. I recommend using the arrows to make these adjustments as the sliders can get difficult to work with at such small values.
 
-If set up right, you should get something like this.
-![2](../Images/depthguide/ds_example.png){.shadowed .autosize}  
-*The original scene is visible on the left.*
+If set up right, you should get something like this.  
+![2](../Images/depthguide/ds_example.png "Bugsnax"){.shadowed .autosize}  
 
 You can now capture this and use it as a mask in your image editor of choice. This method is very similar to what you can achieve with `Chromakey.fx`. A matte is likely to produce a cleaner result than a greenscreen key and is best for still images. 
 
@@ -48,7 +47,7 @@ Once set up, screenshot it with your favourite screenshotting tool.
 
 ## High-range Depth Export
 
-This last method gets you as close as we can to the full-range, raw depth buffer Reshade depth effects work with. By capturing depth that's been packed into all three RGB channels, it can be unpacked and merged into a 24-bit channel that has many more depth layers than the 8-bit alternative. This relies on BlueSkyDefender's `Depth_Tool.fx` and a tool written by seven to convert the capture into a 32-bit EXR file, both of which can be downloaded [here](https://github.com/stillseven/depth_converter). 
+This last method gets you as close as we can to the full-range, raw depth buffer Reshade depth effects work with. By capturing depth that's been packed into all three RGB channels, it can be unpacked and merged into a 24-bit channel that has many more depth layers than the 8-bit alternative. This relies on [BlueSkyDefender](https://github.com/BlueSkyDefender)'s `Depth_Tool.fx` and a tool written by [seven](https://twitter.com/7MinutesToEight) to convert the capture into a 32-bit EXR file, both of which can be downloaded [here](https://github.com/stillseven/depth_converter). 
 
 After adding `Depth_Tool.fx` to your shaders folder and setting up a shot, all you have to do is enable the shader and ensure Reshade is set to capture BMPs. The shader does not need to be adjusted.
 
@@ -110,4 +109,5 @@ Lastly, we can return to our Fog folder and adjust our adjustment layers until w
 Yes, there are much better approaches to adding fog through Reshade like TreyM's fantastic [Atmospheric Density](https://github.com/TreyM/MShaders/blob/main/Shaders/MShaders/AtmosphericDensity.fx) shader. The point of this tutorial is to provide you with a starting point for all that can be done with an image and its depth map. I hope this has given you some ideas!
 
 ---
-*last updated 24th August 2021* 
+*last updated 25th August 2021*  
+*written by [moyevka](https://twitter.com/moyevka)*  
