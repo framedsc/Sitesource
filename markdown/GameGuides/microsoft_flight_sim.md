@@ -79,7 +79,7 @@ The cloud adjustments are also ridiculously detailed. If you want to mess around
 
 ### Hotsampling
 
-Microsoft Flight Simulator supports [hotsampling](https://framedsc.github.io/GeneralGuides/basics.htm#hotsampling) via SRWE without any additional tools.
+Microsoft Flight Simulator supports [hotsampling](../GeneralGuides/basics.htm#hotsampling) via SRWE without any additional tools.
 
 ## Useful Links
 
