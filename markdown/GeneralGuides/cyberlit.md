@@ -106,7 +106,7 @@ A larger outer angle will cast shadows over a larger region, however the shadow 
 This 'modifies' the falloff gradient set by the inner & outer angle. Values closer to 0 shift the gradient to be harsher, while values past 2 further soften the light past the set inner angle. Setting softness to 0 produces a very similar hard-edged spotlight to the one produced by an 'inner angle = outer angle' spotlight.
 
 **Shadow angle & radius**  
-*unknown*
+Independent controls for fine-tuning shadow casting. Similar to light angle & radius above, except just for shadows.
 
 ---
 ## Shadow settings
