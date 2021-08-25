@@ -79,13 +79,13 @@ The cloud adjustments are also ridiculously detailed. If you want to mess around
 
 ### Hotsampling
 
-[Microsoft Flight Simulator supports hotsampling via SRWE without any additional tools.] (https://framedsc.github.io/GeneralGuides/basics.htm)
+Microsoft Flight Simulator supports [hotsampling](https://framedsc.github.io/GeneralGuides/basics.htm#hotsampling) via SRWE without any additional tools.
 
-##Useful Links
+## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Microsoft_Flight_Simulator_(2020))
 
-##Sources
+## Sources
 
 * [Eurogamer.net](https://www.eurogamer.net/articles/flight-simulator-change-camera-view-active-pause-photo-mode-7043)
 * [Krepelka.com](http://krepelka.com/fsweb/learningcenter/theworld/slewing.htm#:~:text=To%20change%20your%20aircraft's%20position,Y%20to%20enter%20Slew%20Mode.)
