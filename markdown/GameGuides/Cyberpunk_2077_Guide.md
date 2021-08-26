@@ -24,7 +24,6 @@ Guide Updated For Game Version | 1.3
 
 * [Cyber Engine Tweaks](https://www.nexusmods.com/cyberpunk2077/mods/107) / [Wiki](https://wiki.redmodding.org/cyber-engine-tweaks/)
 Required by many mods.
-
 * [Cybercat Save Editor](https://www.nexusmods.com/cyberpunk2077/mods/718)  
 **Features**: Edit the appeareance of V without starting a new game.
 
@@ -38,18 +37,19 @@ Required by many mods.
 ## Graphical Tweaks
 * [Update Nvidia DLSS](https://www.techpowerup.com/download/nvidia-dlss-dll/)   
   Update DLSS from 2.1 to 2.2.X. Add to \Cyberpunk 2077\bin\x64 and overwrite. Tested up to 2.2.16.
-
 * [Cinematic RTX](https://www.tomshardware.com/uk/news/how-to-unlock-cyberpunk-2077-cinematic-rtx-mode)   
  Add an extra level of ray tracing.
+* Increase Draw Distance and Reduce Pop-in. __Your mileage may vary with this one__.
+In `\Cyberpunk 2077\engine\config\platform\pc` create a new file called `DrawDistanceBoost.ini` and paste the following:
 
- * Increase Draw Distance and Reduce Pop-in. __Your mileage may vary with this one__.
- In `\Cyberpunk 2077\engine\config\platform\pc` create a new file called `DrawDistanceBoost.ini` and paste the following:
- ```
- [Streaming]
+```
+[Streaming]
 DistanceBoost = 60.000000
-``` 
- In ```\Cyberpunk 2077\engine\config\platform\pc``` open ```rendering.ini``` and change it to:
- ```
+```
+
+In `\Cyberpunk 2077\engine\config\platform\pc` open `rendering.ini` and change it to:
+
+```
 [LevelOfDetail]
 DecalsHideDistance = 100.0
 ```
