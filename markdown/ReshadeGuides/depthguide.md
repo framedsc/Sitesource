@@ -19,7 +19,8 @@ With your scene turned black, make sure Depth Slicer is placed **below** Lightro
 Your scene should now be white, with maybe a slice of black visible. The only settings you need to adjust now are *Depth Position* and *Depth Near Plane*. Adjust *Depth Position* until all of your subject is in black, with the background entirely white. Next, reduce *Depth Near Plane* until any foreground objects are now white too. I recommend using the arrows to make these adjustments as the sliders can get difficult to work with at such small values.
 
 If set up right, you should get something like this.  
-![2](../Images/depthguide/ds_example.png "Bugsnax"){.shadowed .autosize}  
+![2](../Images/depthguide/ds_example.png){.shadowed .autosize}  
+*Bugsnax*
 
 You can now capture this and use it as a mask in your image editor of choice. This method is very similar to what you can achieve with `Chromakey.fx`. A matte is likely to produce a cleaner result than a greenscreen key and is best for still images. 
 
@@ -31,7 +32,8 @@ This method exports a specific range of the depth buffer. Given the 8-bit greysc
 
 With `DisplayDepth.fx` active, set *Present type* to *Depth map* and enter the Advanced settings. The two settings that are relevant here are *Far Plane* and *Multiplier*. *Far Plane* brings the far plane, the white point, closer to the camera. *Multiplier* acts sort of like the near plane, bringing the black point further from the camera.
 
-![example](../Images/depthguide/gdr_grading.png){.shadowed .autosize}
+![example](../Images/depthguide/gdr_grading.png){.shadowed .autosize}  
+*Cyberpunk 2077*
 
 Above is an example of a graded depth map following the above. *Far Plane* was set to a very small number, 1.0, and *Multiplier* was increased until the subject (in black) was well separated from the background. 
 
@@ -106,8 +108,8 @@ Lastly, we can return to our Fog folder and adjust our adjustment layers until w
 
 [Download the PSD](../Images/depthguide/L4D2_humveeFog.psd). 
 
-Yes, there are much better approaches to adding fog through Reshade like TreyM's fantastic [Atmospheric Density](https://github.com/TreyM/MShaders/blob/main/Shaders/MShaders/AtmosphericDensity.fx) shader. The point of this tutorial is to provide you with a starting point for all that can be done with an image and its depth map. I hope this has given you some ideas!
+The point of this tutorial is to provide you with a starting point for all that can be done with an image and its depth map. I hope this has given you some ideas!
 
 ---
-*last updated 25th August 2021*  
+*last updated 26th August 2021*  
 *written by [moyevka](https://twitter.com/moyevka)*  
