@@ -43,7 +43,7 @@ Required by many mods.
  Add an extra level of ray tracing.
 
  * Increase Draw Distance and Reduce Pop-in. __Your mileage may vary with this one__.
- In ```\Cyberpunk 2077\engine\config\platform\pc``` create a new file called ```DrawDistanceBoost.ini``` and paste the following:
+ In `\Cyberpunk 2077\engine\config\platform\pc` create a new file called `DrawDistanceBoost.ini` and paste the following:
  ```
  [Streaming]
 DistanceBoost = 60.000000
@@ -60,22 +60,37 @@ DecalsHideDistance = 100.0
 * Create more natural poses by using Appearence Menu Mod to swap an NPC to V (or anyone) to have them play out their NPC animations, enter photomode when you see a pose you want.
   * See also: [NoraLee's Pose Mod](https://www.nexusmods.com/cyberpunk2077/mods/2831) and [Ferret's Poses](https://www.nexusmods.com/cyberpunk2077/mods/2718), amongst many others.
 * In the abscense of Cyberlit, Use Appearence Menu Mod to spawn in game light objects to light up a scene, allbeit with less control. 
-* There can often be lots of artifacting around hair textures and these are amplified when using various reshade effects. One way to minimise this is to use [Reallongexposure.fx from CobraFX](https://github.com/LordKobra/CobraFX) to create a 'long exposure' which helps to blend together the issues. This is less of an issue with DLSS enabled.  [Example.](https://i.imgur.com/ldUeaki.png)
+* There can often be lots of artifacting around hair textures and these are amplified when using various reshade effects. One way to minimise this is to use [Reallongexposure.fx from CobraFX](https://github.com/LordKobra/CobraFX) to create a 'long exposure' which helps to blend together the issues. This is less of an issue with DLSS enabled.  [Example.](../Images/cp_RLEexample.png)
 * Using Cyberlit, create a 0 intensity light to use as a camera anchor point then use 'Move camera to light' to quickly get back to your shot angle. The same can be done by using ICGS camera paths to create multiple camera points.
 * Spawn objects to create scenes or photo studios.
-  [Example.](https://imgur.com/27ddcd66-2739-467f-a124-dbeb31ddf2ab)
-* Disable in game depth of field completely, photo mode included, by going inside ```\Cyberpunk 2077\engine\config\platform\pc``` create a new filed called ```DisableDepthOfField.ini```  and paste the following:
+  [Example.](../Images/cp_AMMexample.png)
+* Disable in game depth of field completely, photo mode included, by going inside `\Cyberpunk 2077\engine\config\platform\pc` create a new filed called `DisableDepthOfField.ini`  and paste the following:
 ```
 [Developer/FeatureToggles]
 
 DepthOfField = False
 ```
-* In the event of another game update breaking lots of mods, you can make a copy of your ```Cyberpunk 2077``` game folder before the update and play it outside of Steam/GOG whilst you wait for mod updates or if you prefer to stick to a certain version of the game.
-* If you find Reshade is causing performance issues, enable ```copy depth buffer before clear operations``` until it's time to compose a shot.
+* In the event of another game update breaking lots of mods, you can make a copy of your `Cyberpunk 2077` game folder before the update and play it outside of Steam/GOG whilst you wait for mod updates or if you prefer to stick to a certain version of the game.
+* If you find Reshade is causing performance issues, enable `copy depth buffer before clear operations` until it's time to compose a shot.
 
+## Broken Mods 
+Useful mods broken by the 1.3 update that are worth using once updated. These work fine if you remained on 1.23.
+
+* [Photo Mode Unlocked](https://www.nexusmods.com/cyberpunk2077/mods/3035)  
+**Features**: Enables look at for any pose. Removes many limits of photo mode.
+
+* [City H4ck](https://www.nexusmods.com/cyberpunk2077/mods/808)  
+**Features**: Control aspects of Night City such as street lights, TVs and Vehicles.
+
+* [Settings Manager](https://www.nexusmods.com/cyberpunk2077/mods/2332)   
+**Features**: Save your game settings to presets, and switch between them anytime
+
+* [Object Spawner](https://www.nexusmods.com/cyberpunk2077/mods/2833)   
+ **Features**: Spawn over 16k different items. 
+ 
 ## Useful Links
 * [Nexus Mods](https://www.nexusmods.com/cyberpunk2077)
 * [Cyberpunk 2077 Modding Discord](https://discord.com/invite/BTApCbE) Many exclusive mods available through Discord.
-* [Cyberlit Guide](https://framedsc.github.io/GeneralGuides/cyberlit.htm)
+* [Cyberlit Guide](../GeneralGuides/cyberlit.htm)
 * [Clothing Catalog](https://steamcommunity.com/sharedfiles/filedetails/?id=2328941813) / [Alternate](https://cp2077.8713.su/) / [Hash list](https://docs.google.com/spreadsheets/d/1CCOmY__uhYhpRixs3XizqwUvx1LICqa2GrmyVpA2Nlc/edit#gid=1420053180)
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Cyberpunk_2077)

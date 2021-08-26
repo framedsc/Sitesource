@@ -2,7 +2,7 @@
 
 Exporting depth buffers gives you much greater control over any post-work you might want to do on a shot, in Photoshop or other similar image editors. Exported depth buffers, or simply depth maps, can be used as mattes for background replacements, masks for depth-based colour grades, adding effects like fog, or even simulating complex effects like depth of field in post.
 
-While Reshade does offer all this functionality through its [extensive catalogue of shaders](https://framedsc.github.io/ReshadeGuides/shaderscatalogue.htm), some may prefer to make these changes in post. It gives the stability of working 'offline' (can't crash your game if it isn't running!), access to tools one might be more comfortable with, as well as effects that aren't possible in Reshade right now.
+While Reshade does offer all this functionality through its [extensive catalogue of shaders](../ReshadeGuides/shaderscatalogue.htm), some may prefer to make these changes in post. It gives the stability of working 'offline' (can't crash your game if it isn't running!), access to tools one might be more comfortable with, as well as effects that aren't possible in Reshade right now.
 
 This guide will cover the export of depth buffers 3 different ways, all using Reshade but with the use of different shaders. It fundamentally relies on capturing a screenshot of the Reshade effect. Additionally, a short tutorial on how to use an exported depth buffer to add a very simple fog effect is included at the end.
 
