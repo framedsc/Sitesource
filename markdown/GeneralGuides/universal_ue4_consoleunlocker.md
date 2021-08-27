@@ -157,323 +157,323 @@ Although the name suggests it's a universal unlocker that always works with any 
 
 Title| UUU v3| UUU v4 | Notes
 --|--
-10 Miles to Safety | X | X | 
-103 | X | X | 
-A Knight`s Quest | X | X | 
-Adam - Lost Memories | X | X | 
-Aefen Fall | X | X | 
-Agony | X | X | 
-Alan Sharp | X | X | 
-Alice VR | X | X | 
-Alien: Fireteam Elite | X | X | 
-Amid Evil | X | X | 
-Ancestors Legacy | X | X | 
-Ancestors - The Humankind Odyssey | X | X | 
-Ancient Knowledge | X | X | 
-Another Sight Definitive Edition | X | X | 
-Apsulov: End of Gods | X | X | 
-Aquanox Deep Descent | X | X | 
-Arboria | X | X | 
-Areia: Pathway to Dawn | X | X | 
-Arid | X | X | 
-Arise a Simple Story | X | X | 
-Armoured Onslaught | X | X | 
-Aron's Adventure | X | X | Console isn't available
-The Ascent | X | X | Rebind Enable camera and UWorld Pause keys to different keys than `Numpad 0` and `Insert` as the game opens the menu with these. 
-Ashen | X | X | 
-Ashes Of Oahu | X | X | 
-Assemblance: Oversight | X | X | 
-Assetto Corsa Competizione | X | X | 
-Astroneer | X | X | Console isn't available
-Azur Lane Crosswave | X | X | 
-Backbone | X | X | 
-Bad Boys at School | X | X | 
-Bard's Tale IV: Barrows Deep | X | X | 
-Bastide | X | X | 
-The Battle of Visby | X | X | 
-The Beast Inside | X | X | 
-Bee Simulator | X | X | 
-Beyond a Steel Sky | X | X | 
-The Blackout Club | X | X | 
-Black Legend | X | X | 
-Blade of Arena | X | X | 
-Blair Witch | X | X | 
-Borderlands 3 | X | X | 
-BPM: Bullets per minute | X | X | 
-Bright Memory | X | X | Also works with the RTX tech demo
-Britannic: Patroness of the Mediterranean | X | X | 
-Burning Daylight | X | X | 
-Call of Cthulhu | X | X | 
-Call of the Sea | X | X | 
-Captain Starshot | X | X | 
-Castle Rock Beach, West Australia | X | X | 
-Chernobylite | X | X | 
-Cions of Vega | X | X | 
-Close to the Sun | X | X | 
-Code Vein | X | X | 
-Colony Ship | X | X | 
-Comanche | X | X | 
-Conarium | X | X | 
-Corruption 2029 | X | X | 
-Crash Bandicoot 4: It's About Time | X | X | 
-Creature in the Well | X | X | 
-Curse of Anabelle | X | X | 
-Daemon X Machina  | X | X | 
-Dark Future: Blood Red States | X | X | 
-Dark Deception | X | X | 
-Dark Occult | X | X | 
-Dark Space Ex Machina | X | X | 
-Darksiders 3 | X | X | 
-Darksiders Genesis | X | X | 
-Daymare: 1998 | X | X | 
-Days Gone | X | X | No custom console keys
-Deep Rock Galactic | X | X | 
-Deliver us the moon | X | X | 
-Destroy all humans | X | X | Tested on demo
-Desolate | X | X | 
-Devil's Hunt | X | X | 
-Devolverland Expo | X | X | 
-Do you copy? | X | X | 
-Die young | X | X | 
-Disaster Report 4: Summer Memories | X | X |  Also works with the demo
-Disintegration | X | X | 
-Donensbourgh | X | X | 
-DRAGON BALL Z: KAKAROT | X | X | HUD toggle doesn't hide some parts of the HUD.
-Dragon Quest XI: Echoes of an Elusive Age | X | X | 
-Drake Hollow | X | X | 
-Draugen | X | X | 
-DreadOut 2 | X | X | 
-Dreamo | X | X | 
-Dreamscaper | X | X | Also works in Dreamscaper Prologue
-Driftland | X | X | 
-Drug Dealer Simulator | X | X | 
-Dungeon Defenders: Awakened | X | X | 
-Dwarrows | X | X | 
-Earth Defence Force: Iron Rain  | X | X | 
-Earthfall | X | X | 
-Echo | X | X | 
-Effie | X | X | 
-Elea | X | X | 
-Elli | X | X | 
-Estranged Act II | X | X | 
-Everspace | X | X | 
-Everspace 2 | X | X | Tested on demo
-Eximius: Seize the Frontline | X | X | 
-Explore Fushimi Inari | X | X | 
-Extinction | X | X | 
-Fortnite | X | X | Only versions below 1.9.1 are compatible.
-Fade to silence | X | X | 
-Fear the Dark Unknown | X | X | 
-The Fidelio Incident | X | X | 
+10 Miles to Safety |Yes|Yes| 
+103 |Yes|Yes| 
+A Knight`s Quest |Yes|Yes| 
+Adam - Lost Memories |Yes|Yes| 
+Aefen Fall |Yes|Yes| 
+Agony |Yes|Yes| 
+Alan Sharp |Yes|Yes| 
+Alice VR |Yes|Yes| 
+Alien: Fireteam Elite |Yes|Yes| 
+Amid Evil |Yes|Yes| 
+Ancestors Legacy |Yes|Yes| 
+Ancestors - The Humankind Odyssey |Yes|Yes| 
+Ancient Knowledge |Yes|Yes| 
+Another Sight Definitive Edition |Yes|Yes| 
+Apsulov: End of Gods |Yes|Yes| 
+Aquanox Deep Descent |Yes|Yes| 
+Arboria |Yes|Yes| 
+Areia: Pathway to Dawn |Yes|Yes| 
+Arid |Yes|Yes| 
+Arise a Simple Story |Yes|Yes| 
+Armoured Onslaught |Yes|Yes| 
+Aron's Adventure |Yes|Yes| Console isn't available
+The Ascent |Yes|Yes| Rebind Enable camera and UWorld Pause keys to different keys than `Numpad 0` and `Insert` as the game opens the menu with these. 
+Ashen |Yes|Yes| 
+Ashes Of Oahu |Yes|Yes| 
+Assemblance: Oversight |Yes|Yes| 
+Assetto Corsa Competizione |Yes|Yes| 
+Astroneer |Yes|Yes| Console isn't available
+Azur Lane Crosswave |Yes|Yes| 
+Backbone |Yes|Yes| 
+Bad Boys at School |Yes|Yes| 
+Bard's Tale IV: Barrows Deep |Yes|Yes| 
+Bastide |Yes|Yes| 
+The Battle of Visby |Yes|Yes| 
+The Beast Inside |Yes|Yes| 
+Bee Simulator |Yes|Yes| 
+Beyond a Steel Sky |Yes|Yes| 
+The Blackout Club |Yes|Yes| 
+Black Legend |Yes|Yes| 
+Blade of Arena |Yes|Yes| 
+Blair Witch |Yes|Yes| 
+Borderlands 3 |Yes|Yes| 
+BPM: Bullets per minute |Yes|Yes| 
+Bright Memory |Yes|Yes| Also works with the RTX tech demo
+Britannic: Patroness of the Mediterranean |Yes|Yes| 
+Burning Daylight |Yes|Yes| 
+Call of Cthulhu |Yes|Yes| 
+Call of the Sea |Yes|Yes| 
+Captain Starshot |Yes|Yes| 
+Castle Rock Beach, West Australia |Yes|Yes| 
+Chernobylite |Yes|Yes| 
+Cions of Vega |Yes|Yes| 
+Close to the Sun |Yes|Yes| 
+Code Vein |Yes|Yes| 
+Colony Ship |Yes|Yes| 
+Comanche |Yes|Yes| 
+Conarium |Yes|Yes| 
+Corruption 2029 |Yes|Yes| 
+Crash Bandicoot 4: It's About Time |Yes|Yes| 
+Creature in the Well |Yes|Yes| 
+Curse of Anabelle |Yes|Yes| 
+DaemonYesMachina  |Yes|Yes| 
+Dark Future: Blood Red States |Yes|Yes| 
+Dark Deception |Yes|Yes| 
+Dark Occult |Yes|Yes| 
+Dark Space Ex Machina |Yes|Yes| 
+Darksiders 3 |Yes|Yes| 
+Darksiders Genesis |Yes|Yes| 
+Daymare: 1998 |Yes|Yes| 
+Days Gone |Yes|Yes| No custom console keys
+Deep Rock Galactic |Yes|Yes| 
+Deliver us the moon |Yes|Yes| 
+Destroy all humans |Yes|Yes| Tested on demo
+Desolate |Yes|Yes| 
+Devil's Hunt |Yes|Yes| 
+Devolverland Expo |Yes|Yes| 
+Do you copy? |Yes|Yes| 
+Die young |Yes|Yes| 
+Disaster Report 4: Summer Memories |Yes|Yes|  Also works with the demo
+Disintegration |Yes|Yes| 
+Donensbourgh |Yes|Yes| 
+DRAGON BALL Z: KAKAROT |Yes|Yes| HUD toggle doesn't hide some parts of the HUD.
+Dragon Quest XI: Echoes of an Elusive Age |Yes|Yes| 
+Drake Hollow |Yes|Yes| 
+Draugen |Yes|Yes| 
+DreadOut 2 |Yes|Yes| 
+Dreamo |Yes|Yes| 
+Dreamscaper |Yes|Yes| Also works in Dreamscaper Prologue
+Driftland |Yes|Yes| 
+Drug Dealer Simulator |Yes|Yes| 
+Dungeon Defenders: Awakened |Yes|Yes| 
+Dwarrows |Yes|Yes| 
+Earth Defence Force: Iron Rain  |Yes|Yes| 
+Earthfall |Yes|Yes| 
+Echo |Yes|Yes| 
+Effie |Yes|Yes| 
+Elea |Yes|Yes| 
+Elli |Yes|Yes| 
+Estranged Act II |Yes|Yes| 
+Everspace |Yes|Yes| 
+Everspace 2 |Yes|Yes| Tested on demo
+Eximius: Seize the Frontline |Yes|Yes| 
+Explore Fushimi Inari |Yes|Yes| 
+Extinction |Yes|Yes| 
+Fortnite |Yes|Yes| Only versions below 1.9.1 are compatible.
+Fade to silence |Yes|Yes| 
+Fear the Dark Unknown |Yes|Yes| 
+The Fidelio Incident |Yes|Yes| 
 Fighting Ex Layer |
-Filament | X | X | 
-Finding the Soul Orb | X | X |  
-The Forgotten City | X | X | 
-Freud Gate | X | X | 
-Frozenheim | X | X | 
-Gal Gun 2 | X | X | 
-Genesis Alpha One | X | X | 
-Genesis Noir | X | X | 
-Ghostrunner | X | X | requires UUU 3.0.12+
-Giraffe and Annika | X | X | 
-Godfall | X | X | Inject the UUU at launch, before the game starts. No console.
-Grand Guilds | X | X | 
-Gray Dawn | X | X | 
-GRIP: Combat Racing | X | X | 
-Grounded | X | X | Tested on demo
-Gu Lady 蛊婆 | X | X | 
-Guilty Gear Strive | X | X | Pause the game before moving the camera, otherwise the characters move too.
-Halflight | X | X | 
-Hazel Sky | X | X | Tested on demo
-Hellblade: Senua's Sacrifice | X | X | 
-Hellbound | X | X | 
-Hello Guest | X | X | Tested on Alpha build.
-Hello Neighbor 2 | X | X | 
+Filament |Yes|Yes| 
+Finding the Soul Orb |Yes|Yes|  
+The Forgotten City |Yes|Yes| 
+Freud Gate |Yes|Yes| 
+Frozenheim |Yes|Yes| 
+Gal Gun 2 |Yes|Yes| 
+Genesis Alpha One |Yes|Yes| 
+Genesis Noir |Yes|Yes| 
+Ghostrunner |Yes|Yes| requires UUU 3.0.12+
+Giraffe and Annika |Yes|Yes| 
+Godfall |Yes|Yes| Inject the UUU at launch, before the game starts. No console.
+Grand Guilds |Yes|Yes| 
+Gray Dawn |Yes|Yes| 
+GRIP: Combat Racing |Yes|Yes| 
+Grounded |Yes|Yes| Tested on demo
+Gu Lady 蛊婆 |Yes|Yes| 
+Guilty Gear Strive |Yes|Yes| Pause the game before moving the camera, otherwise the characters move too.
+Halflight |Yes|Yes| 
+Hazel Sky |Yes|Yes| Tested on demo
+Hellblade: Senua's Sacrifice |Yes|Yes| 
+Hellbound |Yes|Yes| 
+Hello Guest |Yes|Yes| Tested on Alpha build.
+Hello Neighbor 2 |Yes|Yes| 
 Hollow |
-Human or Virus | X | X | 
-Hunter's Arena: Legends | X | X | 
-Hunting Simulator | X | X | 
-Hunting Simulator 2 | X | X | 
-Hypercharge Unboxed | X | X | 
-Industries of Titan | X | X | 
-Infliction | X | X | 
-Insomnia the Ark | X | X | 
-Insurgency Sandstorm | X | X | 
-Intruders: Hide and Seek" | X | X | 
-Iron Survival | X | X | 
-Journey to the Savage Planet | X | X | 
-Jumanji The Video Game | X | X | 
-Jump Force (limited) | X | X | 
-Kari | X | X | 
-Keep Out | X | X | 
-Killsquad | X | X | 
-Kine | X | X | 
-Koral | X | X | 
-Laser League | X | X | 
-The Last Show of Mr. Chardish | X | X | 
-Layers of Fear 2 | X | X | 
-Liberty Prime | X | X | 
-Life is Strange 2 | X | X | 
-Light Tracer 2 | X | X | 
-The Line | X | X | The K148 Game Studio game 'The Line'
-Ling: a Road Alone  | X | X | 
-Little Brother Jim | X | X | 
-Little Hope | X | X | No console, camera only (v3.0.12 or lower)
-Little Nightmares 2 | X | X | Console only, no camera. Use `toggledebugcamera` for camera
-Lost Ember | X | X | 
-Mahoe Arms | X | X | 
-Man Eater | X | X | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
-Man of Medan (The Dark Pictures Anthology) | X | X | 
-Marie's Room | X | X | Built-in camera doesn't work. Use `toggledebugcamera` for camera
-Marvel vs. Capcom: Infinite | X | X | 
-Metamorphosis | X | X | 
-Medieval Dynasty | X | X | No hud toggle
-The Medium | X | X | Camera doesn't work in split-screen scenes
-Mind: Path to Thalamus | X | X | 
-Minecraft Dungeons | X | X | 
-MotoGP 20 | X | X | 
-Monkey King: Hero Is Back | X | X | 
-Monster Energy Supercross: The Official Videogame 3 | X | X | 
-Monster Jam Steel Titans | X | X | 
-Moons of Madness | X | X | 
-Morels: The Hunt | X | X | 
-Morphies Law Remorphed | X | X | 
-Mortal Shell | X | X | Tested on beta
-MotoGP 19 | X | X | 
-My Hero One's Justice | X | X | 
-My Hero One's Justice 2 | X | X | 
-Mýrdalssandur, Iceland | X | X | 
-Mysteria Occult Shadows | X | X | 
-Narcos: Rise of the Cartels | X | X | 
-NBA 2K Playgrounds 2 |
-Necromunda Underhive Wars | X | X | No hud toggle 
-Nemezis - Mysterious Journey III | X | X | 
-Nephise: Ascension | X | X | 
-Nigate Tale | X | X | 
-Night of the Dead | X | X | 
-No Straight Roads | X | X | 
-Observer | X | X | Built-in camera isn't available.
-Offroad Racing Buggy X ATV X Moto | X | X | 
-Only After | X | X | 
-Operencia: The Stolen Sun | X | X | 
-The Outer Worlds | X | X | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
-Overkill's The Walking Dead | X | X | 
-Override: Mech City Brawl | X | X | 
-Pagui打鬼 | X | X | 
-Paper Dolls Original | X | X | 
-Paradise Killer | X | X | 
-Paradise Lost | X | X | 
-Paranormal Activity The Lost Soul | X | X | 
-港詭實錄ParanormalHK | X | X | 
-Partisans 1941 | X | X | 
-Past Cure | X | X | 
-Pathless | X | X | No timestop/pause. Use ESC + hud toggle.
-Planet Alpha | X | X | 
-The Pit: Infinity | X | X | 
-Pluviophile | X | X | 
-Praetorians HD Remaster | X | X | 
-Project Remedium | X | X | 
-Project Wingman | X | X | 
-Protocol | X | X | 
-Psychonauts 2 | X | X | 
-Observer System Redux | X | X | Tested on demo.
-Occupation | X | X | 
-OCTOPATH TRAVELER | X | X | 
-Omen of Sorrow | X | X | 
-Omensight | X | X | 
-Omno | X | X | Tested on demo
-Open Country | X | X | 
-Orcs Must Die 3 | X | X | 
-The Otterman Empire | X | X | 
-Pacer | X | X | 
-Quantum Replica | X | X | 
-Qube 2 | X | X | 
-The Quiet Man | X | X | 
-Race With Ryan | X | X | 
-RAD | X | X | 
-Raji: An Ancient Epic Prologue | X | X | 
-Redeemer | X | X | 
-Redout | X | X | 
-Redout: Space Assault | X | X | 
-Relicta | X | X | 
-Remnant: From the Ashes | X | X | 
-Remothered: Broken Porcelain | X | X | 
-Remothered: Tormented Fathers |
-Ride 4 | X | X | 
-Roboquest | X | X | 
-Rock of Ages 3: Make and Break | X | X | 
-Ruin 2 | X | X | 
-Ruiner | X | X | 
-Samurai Jack Battle Through Time | X | X | No console/timestop. Use menu + hud toggle for pause.
-Samurai Showdown | X | X | No aspect ratio correction
-Satisfactory | X | X | 
-Scarlet Nexus | X | X | No slomo (PgDn) pause
-SCUM | X | X | 
-Session: Skateboarding Sim Game | X | X | 
-Shadows of Larth | X | X | 
-Shape of the World | X | X | 
-Shenmue 3 | X | X | 
-ShockRods | X | X | 
-Silver Chains | X | X | 
-The Sinking City | X | X | 
-Sinner: Sacrifice for Redemption | X | X | 
-Skylar and Plux | X | X | 
-Skully | X | X | 
-The Sojourn | X | X | 
-SolSeraph | X | X | 
-Someday You Will Return | X | X | 
-Song of Horror | X | X | 
-Sophont | X | X | 
-Sorrowvirus A Faceless Short Story | X | X | 
-Soul Valley | X | X | 
-SOULCALIBUR VI | X | X | 
-Space Hulk: Deadwing Enhanced Edition | X | X | 
-Space Hulk Tactics | X | X | 
-Spacebourne | X | X | 
-Sponge Bob Bikni Bottom Rehydrated | X | X | 
-Spyro Reignited Trilogy | X | X | 
-Star Wars Jedi: Fallen Order | X | X | 
-Stardrop | X | X | 
-Steel rats | X | X | 
-Stela | X | X | 
-Stories: the Path of Destinies | X | X | 
-Styx 2 | X | X | 
-Subdivision Infinity DX | X | X | 
-Subverse | X | X | 
-The Suicide of Rachel Foster | X | X | 
-Supraland | X | X | 
-Sword Art Online: Fatal Bullet | X | X | 
-Tartarus | X | X | 
-TASOMACHI Behind The Twilight | X | X | 
-Tell Me Why | X | X | (Also with xbox gamepass version)
-Terminator Resistance | X | X | 
-Tetris Effect | X | X | 
-Torchlight 3 | X | X | 
-Tower of Fate | X | X | 
-Train Sim World | X | X | 
-Transient | X | X | Tested on demo
-Travis Strikes Again: No More Heroes Complete Edition | X | X | 
-Trials of Mana | X | X | Also works with the demo
-Tribes of Midgard | X | X | 
-Tropico 6 | X | X | 
-Twin Mirror | X | X | 
-Urban Trial Playground | X | X | 
-Uventa | X | X | 
-Vampyr | X | X | 
-Venineth | X | X | 
-Visage | X | X | 
-Wartile | X | X | 
-We Happy Few | X | X | Built-in camera isn't available.
-We Went Back | X | X | HUD toggle doesn't toggle crosshair. Use `showhud 0`
-Weakless | X | X | 
-Werewolf The Apocalypse Earthblood | X | X | 
-Withstand: Survival | X | X | 
-What Happened | X | X | 
-The Works of Mercy | X | X | 
-WWE Battlegrounds | X | X | 
-XING The Land Beyond | X | X | 
-Xuan-Yuan Sword VII | X | X | 
-ZED | X | X | 
+Human or Virus |Yes|Yes| 
+Hunter's Arena: Legends |Yes|Yes| 
+Hunting Simulator |Yes|Yes| 
+Hunting Simulator 2 |Yes|Yes| 
+Hypercharge Unboxed |Yes|Yes| 
+Industries of Titan |Yes|Yes| 
+Infliction |Yes|Yes| 
+Insomnia the Ark |Yes|Yes| 
+Insurgency Sandstorm |Yes|Yes| 
+Intruders: Hide and Seek" |Yes|Yes| 
+Iron Survival |Yes|Yes| 
+Journey to the Savage Planet |Yes|Yes| 
+Jumanji The Video Game |Yes|Yes| 
+Jump Force (limited) |Yes|Yes| 
+Kari |Yes|Yes| 
+Keep Out |Yes|Yes| 
+Killsquad |Yes|Yes| 
+Kine |Yes|Yes| 
+Koral |Yes|Yes| 
+Laser League |Yes|Yes| 
+The Last Show of Mr. Chardish |Yes|Yes| 
+Layers of Fear 2 |Yes|Yes| 
+Liberty Prime |Yes|Yes| 
+Life is Strange 2 |Yes|Yes| 
+Light Tracer 2 |Yes|Yes| 
+The Line |Yes|Yes| The K148 Game Studio game 'The Line'
+Ling: a Road Alone  |Yes|Yes| 
+Little Brother Jim |Yes|Yes| 
+Little Hope |Yes|Yes| No console, camera only (v3.0.12 or lower)
+Little Nightmares 2 |Yes|Yes| Console only, no camera. Use `toggledebugcamera` for camera
+Lost Ember |Yes|Yes| 
+Mahoe Arms |Yes|Yes| 
+Man Eater |Yes|Yes| HUD toggle doesn't hide the entire HUD. Use `showhud 0`
+Man of Medan (The Dark Pictures Anthology) |Yes|Yes| 
+Marie's Room |Yes|Yes| Built-in camera doesn't work. Use `toggledebugcamera` for camera
+Marvel vs. Capcom: Infinite |Yes|Yes| 
+Metamorphosis |Yes|Yes| 
+Medieval Dynasty |Yes|Yes| No hud toggle
+The Medium |Yes|Yes| Camera doesn't work in split-screen scenes
+Mind: Path to Thalamus |Yes|Yes| 
+Minecraft Dungeons |Yes|Yes| 
+MotoGP 20 |Yes|Yes| 
+Monkey King: Hero Is Back |Yes|Yes| 
+Monster Energy Supercross: The Official Videogame 3 |Yes|Yes| 
+Monster Jam Steel Titans |Yes|Yes| 
+Moons of Madness |Yes|Yes| 
+Morels: The Hunt |Yes|Yes| 
+Morphies Law Remorphed |Yes|Yes| 
+Mortal Shell |Yes|Yes| Tested on beta
+MotoGP 19 |Yes|Yes| 
+My Hero One's Justice |Yes|Yes| 
+My Hero One's Justice 2 |Yes|Yes| 
+Mýrdalssandur, Iceland |Yes|Yes| 
+Mysteria Occult Shadows |Yes|Yes| 
+Narcos: Rise of the Cartels |Yes|Yes| 
+NBA 2K Playgrounds 2 | Yes | Yes | 
+Necromunda Underhive Wars |Yes|Yes| No hud toggle 
+Nemezis - Mysterious Journey III |Yes|Yes| 
+Nephise: Ascension |Yes|Yes| 
+Nigate Tale |Yes|Yes| 
+Night of the Dead |Yes|Yes| 
+No Straight Roads |Yes|Yes| 
+Observer |Yes|Yes| Built-in camera isn't available.
+Offroad Racing BuggyYesATVYesMoto |Yes|Yes| 
+Only After |Yes|Yes| 
+Operencia: The Stolen Sun |Yes|Yes| 
+The Outer Worlds |Yes|Yes| HUD toggle doesn't hide the entire HUD. Use `showhud 0`
+Overkill's The Walking Dead |Yes|Yes| 
+Override: Mech City Brawl |Yes|Yes| 
+Pagui打鬼 |Yes|Yes| 
+Paper Dolls Original |Yes|Yes| 
+Paradise Killer |Yes|Yes| 
+Paradise Lost |Yes|Yes| 
+Paranormal Activity The Lost Soul |Yes|Yes| 
+港詭實錄ParanormalHK |Yes|Yes| 
+Partisans 1941 |Yes|Yes| 
+Past Cure |Yes|Yes| 
+Pathless |Yes|Yes| No timestop/pause. Use ESC + hud toggle.
+Planet Alpha |Yes|Yes| 
+The Pit: Infinity |Yes|Yes| 
+Pluviophile |Yes|Yes| 
+Praetorians HD Remaster |Yes|Yes| 
+Project Remedium |Yes|Yes| 
+Project Wingman |Yes|Yes| 
+Protocol |Yes|Yes| 
+Psychonauts 2 |Yes\* |Yes| \* Not with Gamepass / MS Store version
+Observer System Redux |Yes|Yes| Tested on demo.
+Occupation |Yes|Yes| 
+OCTOPATH TRAVELER |Yes|Yes| 
+Omen of Sorrow |Yes|Yes| 
+Omensight |Yes|Yes| 
+Omno |Yes|Yes| Tested on demo
+Open Country |Yes|Yes| 
+Orcs Must Die 3 |Yes|Yes| 
+The Otterman Empire |Yes|Yes| 
+Pacer |Yes|Yes| 
+Quantum Replica |Yes|Yes| 
+Qube 2 |Yes|Yes| 
+The Quiet Man |Yes|Yes| 
+Race With Ryan |Yes|Yes| 
+RAD |Yes|Yes| 
+Raji: An Ancient Epic Prologue |Yes|Yes| 
+Redeemer |Yes|Yes| 
+Redout |Yes|Yes| 
+Redout: Space Assault |Yes|Yes| 
+Relicta |Yes|Yes| 
+Remnant: From the Ashes |Yes|Yes| 
+Remothered: Broken Porcelain |Yes|Yes| 
+Remothered: Tormented Fathers |Yes|Yes| 
+Ride 4 |Yes|Yes| 
+Roboquest |Yes|Yes| 
+Rock of Ages 3: Make and Break |Yes|Yes| 
+Ruin 2 |Yes|Yes| 
+Ruiner |Yes|Yes| 
+Samurai Jack Battle Through Time |Yes|Yes| No console/timestop. Use menu + hud toggle for pause.
+Samurai Showdown |Yes|Yes| No aspect ratio correction
+Satisfactory |Yes|Yes| 
+Scarlet Nexus |Yes|Yes| No slomo (PgDn) pause
+SCUM |Yes|Yes| 
+Session: Skateboarding Sim Game |Yes|Yes| 
+Shadows of Larth |Yes|Yes| 
+Shape of the World |Yes|Yes| 
+Shenmue 3 |Yes|Yes| 
+ShockRods |Yes|Yes| 
+Silver Chains |Yes|Yes| 
+The Sinking City |Yes|Yes| 
+Sinner: Sacrifice for Redemption |Yes|Yes| 
+Skylar and Plux |Yes|Yes| 
+Skully |Yes|Yes| 
+The Sojourn |Yes|Yes| 
+SolSeraph |Yes|Yes| 
+Someday You Will Return |Yes|Yes| 
+Song of Horror |Yes|Yes| 
+Sophont |Yes|Yes| 
+Sorrowvirus A Faceless Short Story |Yes|Yes| 
+Soul Valley |Yes|Yes| 
+SOULCALIBUR VI |Yes|Yes| 
+Space Hulk: Deadwing Enhanced Edition |Yes|Yes| 
+Space Hulk Tactics |Yes|Yes| 
+Spacebourne |Yes|Yes| 
+Sponge Bob Bikni Bottom Rehydrated |Yes|Yes| 
+Spyro Reignited Trilogy |Yes|Yes| 
+Star Wars Jedi: Fallen Order |Yes|Yes| 
+Stardrop |Yes|Yes| 
+Steel rats |Yes|Yes| 
+Stela |Yes|Yes| 
+Stories: the Path of Destinies |Yes|Yes| 
+Styx 2 |Yes|Yes| 
+Subdivision Infinity DX |Yes|Yes| 
+Subverse |Yes|Yes| 
+The Suicide of Rachel Foster |Yes|Yes| 
+Supraland |Yes|Yes| 
+Sword Art Online: Fatal Bullet |Yes|Yes| 
+Tartarus |Yes|Yes| 
+TASOMACHI Behind The Twilight |Yes|Yes| 
+Tell Me Why |Yes|Yes| (Also with xbox gamepass version)
+Terminator Resistance |Yes|Yes| 
+Tetris Effect |Yes|Yes| 
+Torchlight 3 |Yes|Yes| 
+Tower of Fate |Yes|Yes| 
+Train Sim World |Yes|Yes| 
+Transient |Yes|Yes| Tested on demo
+Travis Strikes Again: No More Heroes Complete Edition |Yes|Yes| 
+Trials of Mana |Yes|Yes| Also works with the demo
+Tribes of Midgard |Yes|Yes| 
+Tropico 6 |Yes|Yes| 
+Twin Mirror |Yes|Yes| 
+Urban Trial Playground |Yes|Yes| 
+Uventa |Yes|Yes| 
+Vampyr |Yes|Yes| 
+Venineth |Yes|Yes| 
+Visage |Yes|Yes| 
+Wartile |Yes|Yes| 
+We Happy Few |Yes|Yes| Built-in camera isn't available.
+We Went Back |Yes|Yes| HUD toggle doesn't toggle crosshair. Use `showhud 0`
+Weakless |Yes|Yes| 
+Werewolf The Apocalypse Earthblood |Yes|Yes| 
+Withstand: Survival |Yes|Yes| 
+What Happened |Yes|Yes| 
+The Works of Mercy |Yes|Yes| 
+WWE Battlegrounds |Yes|Yes| 
+XING The Land Beyond |Yes|Yes| 
+Xuan-Yuan Sword VII |Yes|Yes| 
+ZED |Yes|Yes| 
 
 Additionally, most [UE4 games on Itch.io](https://itch.io/games/newest/made-with-unreal-engine) are usable with the UUU. 
 
