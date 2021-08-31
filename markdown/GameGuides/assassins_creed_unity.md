@@ -1,7 +1,5 @@
 ![Assassin's Creed Unity](Images\acunity_header.png "Shot by TeoTave"){.shadowed}
 
-
-
 ## Summary
 
 Feature | Supported
@@ -84,23 +82,7 @@ Download and place all files in the same folder as your game .exe. To remove all
 *_The default Toggle HUD controller key interferes with Hatti's Camera Control bindings - it is recommended to change this mod's controller binding for toggling the HUD for ease of use._
 
 1. Locate _d3dx.ini_ in the game directory, open it with a text editor and go to line 158. 
-2. Replace _XB_LEFT_THUMB_ with any binding of your choice (that does not interfere with any existing tool hotkey). 
-
-
-### Timestop/Disable HUD
-
-Use the [Toggle HUD Mod](https://www.nexusmods.com/assassinscreedunity/mods/2) as a way to pause the game and remove the HUD. Please note that using this as a timestop does not pause the game's weather such as overhead clouds and the dynamic lighting system. It does also not block input to the game - if you pause the game and hide the HUD, make sure you are not pressing any buttons that will open any sub-menus.
-
-Download and place all files in the same folder as your game .exe. To remove all HUD completely, it is recommended to select the __All Hidden__ HUD Preset within the game's HUD options. The default controls with this mod installed are as follows:
-
-**Toggle HUD (including menus)** - CAPS LOCK OR CONTROLLER LEFT THUMB*
-
-**Toggle Last known position silhouette and sword trails** - H
-
-*_The default Toggle HUD controller key interferes with Hatti's Camera Control bindings - it is recommended to change this mod's controller binding for toggling the HUD for ease of use._
-
-1. Locate _d3dx.ini_ in the game directory, open it with a text editor and go to line 158. 
-2. Replace _XB_LEFT_THUMB_ with any binding of your choice (that does not interfere with any existing tool hotkey). 
+2. Replace _XB_LEFT_THUMB_ with any binding of your choice (that does not interfere with any existing tool hotkey).  
 
 ### Useful Links
 
