@@ -81,7 +81,7 @@ deadspace2.exe+36F39F: DD 05 28 7B AE 01        - fld qword ptr [deadspace2.exe+
         <CheatEntry>
           <ID>305</ID>
           <Description>"timescale (Ctrl + 7|8)"</Description>
-          <LastState Value="1" RealAddress="01EC51F0"/>
+          <LastState Value="-4.121455698E-32" RealAddress="760FF708"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>time</Address>
@@ -220,7 +220,6 @@ deadspace2.exe+44C01D: F3 0F 10 4C 24 10        - movss xmm1,[esp+10]
         <CheatEntry>
           <ID>369</ID>
           <Description>"X (Alt+Num4|6)"</Description>
-          <LastState Value="93.80799103" RealAddress="2C848DD0"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>camPosBase</Address>
@@ -252,7 +251,6 @@ deadspace2.exe+44C01D: F3 0F 10 4C 24 10        - movss xmm1,[esp+10]
             <CheatEntry>
               <ID>370</ID>
               <Description>"H (Alt+Num8|2)"</Description>
-              <LastState Value="-30.08282661" RealAddress="2C848DD4"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Float</VariableType>
               <Address>+4</Address>
@@ -280,7 +278,6 @@ deadspace2.exe+44C01D: F3 0F 10 4C 24 10        - movss xmm1,[esp+10]
             <CheatEntry>
               <ID>371</ID>
               <Description>"Y (Alt+Num+|-)"</Description>
-              <LastState Value="-367.6761169" RealAddress="2C848DD8"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Float</VariableType>
               <Address>+8</Address>
@@ -371,7 +368,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
         <CheatEntry>
           <ID>391</ID>
           <Description>"FOV"</Description>
-          <LastState Value="1.221730471" RealAddress="2C45D684"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>ptrBase-4c</Address>
@@ -392,7 +388,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>393</ID>
                   <Description>"Z1"</Description>
-                  <LastState Value="2" RealAddress="2C45D688"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+4</Address>
@@ -420,7 +415,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>394</ID>
                   <Description>"Z2"</Description>
-                  <LastState Value="2" RealAddress="2C45D68C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+8</Address>
@@ -450,7 +444,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
             <CheatEntry>
               <ID>398</ID>
               <Description>"camHeight1 (Ctrl+Num8|2)"</Description>
-              <LastState Value="1.350000024" RealAddress="2C45D698"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Float</VariableType>
               <Address>+14</Address>
@@ -485,7 +478,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>402</ID>
                   <Description>"CO1"</Description>
-                  <LastState Value="-0.6000000238" RealAddress="2C45D6A4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+20</Address>
@@ -513,7 +505,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>403</ID>
                   <Description>"CO2"</Description>
-                  <LastState Value="-0.5500000119" RealAddress="2C45D6A8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+24</Address>
@@ -541,7 +532,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>404</ID>
                   <Description>"CO3"</Description>
-                  <LastState Value="-0.5500000119" RealAddress="2C45D6AC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+28</Address>
@@ -571,7 +561,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
             <CheatEntry>
               <ID>405</ID>
               <Description>"Pivot Distance (Ctrl+Num3|9)"</Description>
-              <LastState Value="0.400000006" RealAddress="2C45D6B0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Float</VariableType>
               <Address>+2C</Address>
@@ -606,7 +595,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>410</ID>
                   <Description>"Max Vertical Rotation"</Description>
-                  <LastState Value="1.04719758" RealAddress="2C45D6BC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+38</Address>
@@ -614,7 +602,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>411</ID>
                   <Description>"A1"</Description>
-                  <LastState Value="1.04719758" RealAddress="2C45D6C0"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+3C</Address>
@@ -622,7 +609,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>412</ID>
                   <Description>"A2"</Description>
-                  <LastState Value="-0.1134463996" RealAddress="2C45D6C4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+40</Address>
@@ -632,7 +618,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
             <CheatEntry>
               <ID>413</ID>
               <Description>"Height #3 (try &lt; 0)"</Description>
-              <LastState Value="0.8249999881" RealAddress="2C45D6C8"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Float</VariableType>
               <Address>+44</Address>
@@ -640,7 +625,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
             <CheatEntry>
               <ID>395</ID>
               <Description>"camHeight2"</Description>
-              <LastState Value="2" RealAddress="2C45D6A0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Float</VariableType>
               <Address>+1C</Address>
@@ -655,7 +639,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>396</ID>
                   <Description>"unk"</Description>
-                  <LastState Value="1.396263361" RealAddress="2C45D690"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+C</Address>
@@ -663,7 +646,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>397</ID>
                   <Description>"unk"</Description>
-                  <LastState Value="2" RealAddress="2C45D694"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+10</Address>
@@ -671,7 +653,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>399</ID>
                   <Description>"unk"</Description>
-                  <LastState Value="1.200000048" RealAddress="2C45D69C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+18</Address>
@@ -679,7 +660,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>406</ID>
                   <Description>"unk (~pi)"</Description>
-                  <LastState Value="3.141592741" RealAddress="2C45D6B4"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+30</Address>
@@ -687,7 +667,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>407</ID>
                   <Description>"unk (~pi) #2"</Description>
-                  <LastState Value="3.141592741" RealAddress="2C45D6B8"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+34</Address>
@@ -695,7 +674,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
                 <CheatEntry>
                   <ID>381</ID>
                   <Description>"unk"</Description>
-                  <LastState Value="2" RealAddress="2C45D688"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <VariableType>Float</VariableType>
                   <Address>+4</Address>
@@ -707,7 +685,6 @@ deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EA
         <CheatEntry>
           <ID>380</ID>
           <Description>"charSize (Ctrl+PgUp|Dn)"</Description>
-          <LastState Value="2.517999411" RealAddress="1F9D13F8"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>ptrBase</Address>
@@ -813,6 +790,100 @@ deadspace2.exe+B81C55: 8B 76 04           - mov esi,[esi+04]
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>ghostModeHook</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>417</ID>
+      <Description>"0g (Ctrl + 9)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-28
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+// enable 0g
+ 
+aobscanmodule(0g,deadspace2.exe,F3 0F 5E E1 0F C6 E4 00 0F 59 EC) // should be unique
+
+define(0g,0g-13)
+
+0g:
+db 00
+
+registersymbol(0g)
+
+// find flag
+
+aobscanmodule(fl0g,deadspace2.exe,83 E4 F0 83 EC 54 53 56 57 8B 3D) // should be unique
+
+define(fl0g,[fl0g+B])
+
+registersymbol(fl0g)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+0g:
+db 01
+
+//unregistersymbol(0g)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+B7283D
+
+deadspace2.exe+B727FF: F3 0F 11 9E 34 01 00 00  - movss [esi+00000134],xmm3
+deadspace2.exe+B72807: F3 0F 11 9E 30 01 00 00  - movss [esi+00000130],xmm3
+deadspace2.exe+B7280F: 83 8E 44 01 00 00 02     - or dword ptr [esi+00000144],02
+deadspace2.exe+B72816: 0F 2F CA                 - comiss xmm1,xmm2
+deadspace2.exe+B72819: 8B 86 44 01 00 00        - mov eax,[esi+00000144]
+deadspace2.exe+B7281F: F3 0F 11 9E 40 01 00 00  - movss [esi+00000140],xmm3
+deadspace2.exe+B72827: 0F 82 A5 00 00 00        - jb deadspace2.exe+B728D2
+deadspace2.exe+B7282D: 83 C8 08                 - or eax,08
+deadspace2.exe+B72830: E9 97 00 00 00           - jmp deadspace2.exe+B728CC
+deadspace2.exe+B72835: F3 0F 10 25 D0 4E AA 01  - movss xmm4,[deadspace2.exe+16A4ED0]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+B7283D: 83 8E 44 01 00 00 01     - or dword ptr [esi+00000144],01
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+B72844: 0F 2F 54 24 1C           - comiss xmm2,[esp+1C]
+deadspace2.exe+B72849: 0F 28 AE 20 01 00 00     - movaps xmm5,[esi+00000120]
+deadspace2.exe+B72850: 8B 86 44 01 00 00        - mov eax,[esi+00000144]
+deadspace2.exe+B72856: F3 0F 5E E1              - divss xmm4,xmm1
+deadspace2.exe+B7285A: 0F C6 E4 00              - shufps xmm4,xmm4,00
+deadspace2.exe+B7285E: 0F 59 EC                 - mulps xmm5,xmm4
+deadspace2.exe+B72861: 0F 29 AE 30 01 00 00     - movaps [esi+00000130],xmm5
+deadspace2.exe+B72868: 76 05                    - jna deadspace2.exe+B7286F
+deadspace2.exe+B7286A: 83 C8 04                 - or eax,04
+deadspace2.exe+B7286D: EB 5D                    - jmp deadspace2.exe+B728CC
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>57</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>418</ID>
+          <Description>""</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>0g</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
