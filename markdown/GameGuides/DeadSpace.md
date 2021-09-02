@@ -29,14 +29,14 @@ Source table used two hotkeys for on/off instead.
 
 ### Description: 
 Free Camera:
-* Toggle with `Num 0`.  
-* Move `Num 4-9`.  
-* Rotate `Ctrl ←↑↓→`, `Num 1/3`.
-* change FOV `Num +/-`.
+- Toggle with `Num 0`.  
+- Move `Num 4-9`.  
+- Rotate `Ctrl ←↑↓→`, `Num 1/3`.
+- change FOV `Num +/-`.
 
 Timeflow - pause (freeze) the game to move camera:
-* toggle with `Num /`  
-* side effect - it breaks physics, making the gravity act horizontally until reload.  
+- toggle with `Num /`  
+- side effect - it breaks physics, making the gravity act horizontally until reload.  
 
 Modify Timescale and Aspect Ratio.    
  
@@ -55,13 +55,13 @@ Based on [original description by Jim2Point0](https://web.archive.org/web/201410
 
 FOV: Field of View.
 
-Cam Distance: How far back the camera sits from character. The further you go, the smaller he is. This is what the "widescreen fixer" app modifies as well.
+Cam Distance: How far back the camera sits from character. The further you go, the smaller char is. This is what the "widescreen fixer" app modifies as well.
 
 Cam Move Distance: Same as above, but for when you're walking. 
 
-Cam Height: when the camera is level or pointing up, there is a minimum height the camera is allowed to go. By increasing\decreasing this, the camera will move up and down. HOWEVER, this does not apply when looking down. To change height when looking up and down, you'll need to use distance.
+Cam Height: by increasing\decreasing this, the camera will move up and down. HOWEVER, this does not apply when looking up or down - change distance for this.
 
-Center Offset 1\2\3: 3 values the game uses to determine how far left\right the camera sits from Isaac. However, it's dependent on where you're looking. No matter where you look, these will always move the camera left\right. To make matters simple, hotkeys are setup to change all 3 at the same time.
+Center Offset 1\2\3: 3 values the game uses to determine how far left\right the camera sits from character. However, it's dependent on where you're looking. No matter where you look, these will always move the camera left\right. To make things simple, hotkeys are setup to change all 3 at the same time.
 
 Pivot Distance: The camera rotates around a pivot point. By default, that point is located wherever Isaac is. However, if you increase this value, the camera will rotate around a point in front of Isaac. Negative values for behind him. This is one of several ways to simply put the camera in front of Isaac and get him out of the shot. Has other uses too.
 
@@ -88,5 +88,6 @@ F5| reset defaults[^1]
 
 ## Useful Links
 
-* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Dead_Space)
-* [SweetFX Settings DB / Dead Space](https://sfx.thelazy.net/games/game/304/)
+- [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Dead_Space)
+- [SweetFX Settings DB / Dead Space](https://sfx.thelazy.net/games/game/304/)
+- [FPS Counter And Post Processing Effects (Pharago)](https://www.nexusmods.com/deadspace/mods/1)

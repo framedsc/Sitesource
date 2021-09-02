@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>303</ID>
+      <Description>"Attach to game"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+openProcess("deadspace2.exe")
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>219</ID>
+      <Description>"Compact Mode"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>304</ID>
+      <Description>"time"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-27
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(time,deadspace2.exe,89 4C 24 18 F3 0F 10 05) // should be unique
+define(time,[time+8])
+registersymbol(time)
+
+[DISABLE]
+
+//unregistersymbol(time)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+36F370
+
+deadspace2.exe+36F347: 89 0D CC C3 04 02        - mov [deadspace2.exe+1C4C3CC],ecx
+deadspace2.exe+36F34D: 83 D1 00                 - adc ecx,00
+deadspace2.exe+36F350: 8B C1                    - mov eax,ecx
+deadspace2.exe+36F352: 81 E1 FF FF FF 7F        - and ecx,7FFFFFFF
+deadspace2.exe+36F358: 89 4C 24 1C              - mov [esp+1C],ecx
+deadspace2.exe+36F35C: DF 6C 24 18              - fild qword ptr [esp+18]
+deadspace2.exe+36F360: 25 00 00 00 80           - and eax,80000000
+deadspace2.exe+36F365: 89 44 24 1C              - mov [esp+1C],eax
+deadspace2.exe+36F369: 0F B7 44 24 24           - movzx eax,word ptr [esp+24]
+deadspace2.exe+36F36E: 33 C9                    - xor ecx,ecx
+// ---------- INJECTING HERE ----------
+deadspace2.exe+36F370: 89 4C 24 18              - mov [esp+18],ecx
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+36F374: F3 0F 10 05 F0 41 EC 01  - movss xmm0,[deadspace2.exe+1AC41F0]
+deadspace2.exe+36F37C: F3 0F 59 05 FC C3 04 02  - mulss xmm0,[deadspace2.exe+1C4C3FC]
+deadspace2.exe+36F384: DF 6C 24 18              - fild qword ptr [esp+18]
+deadspace2.exe+36F388: 0D 00 0C 00 00           - or eax,00000C00
+deadspace2.exe+36F38D: 89 44 24 18              - mov [esp+18],eax
+deadspace2.exe+36F391: F3 0F 11 05 E4 C3 04 02  - movss [deadspace2.exe+1C4C3E4],xmm0
+deadspace2.exe+36F399: D9 E0                    - fchs 
+deadspace2.exe+36F39B: DE C1                    - faddp 
+deadspace2.exe+36F39D: D9 C0                    - fld st(0)
+deadspace2.exe+36F39F: DD 05 28 7B AE 01        - fld qword ptr [deadspace2.exe+16E7B28]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>305</ID>
+          <Description>"timescale (Ctrl + 7|8)"</Description>
+          <LastState Value="-4.121455698E-32" RealAddress="760FF708"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>time</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>56</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>55</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>374</ID>
+          <Description>"timefreeze (Ctrl + 0)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+time:
+dd (float)1e-4
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+time:
+dd (float)1
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>48</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>368</ID>
+      <Description>"Free Cam (Alt+Num0)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-27
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+// prevent camera following player
+ 
+aobscanmodule(FreeCam,deadspace2.exe,83 C4 14 47) // should be unique
+
+define(FreeCam,FreeCam+16)
+
+FreeCam:
+db 90 90 90
+
+registersymbol(FreeCam)
+
+// find camera ptr to change it directly
+
+aobscanmodule(camPosBase,deadspace2.exe,8B 0D ? ? ? ? 8D 44 24 20 50 6A 00 E8) // should be unique
+define(camPosBase,[camPosBase+2])
+registersymbol(camPosBase)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+FreeCam:
+movaps [ebx],xmm1
+
+unregistersymbol(FreeCam)
+unregistersymbol(camPosBase)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+44BFEC
+
+deadspace2.exe+44BFBE: 0F 29 84 24 84 00 00 00  - movaps [esp+00000084],xmm0
+deadspace2.exe+44BFC6: 89 84 24 90 00 00 00     - mov [esp+00000090],eax
+deadspace2.exe+44BFCD: 0F 57 C0                 - xorps xmm0,xmm0
+deadspace2.exe+44BFD0: F3 0F 10 64 24 48        - movss xmm4,[esp+48]
+deadspace2.exe+44BFD6: 83 C4 14                 - add esp,14
+deadspace2.exe+44BFD9: 47                       - inc edi
+deadspace2.exe+44BFDA: 89 7C 24 18              - mov [esp+18],edi
+deadspace2.exe+44BFDE: 83 FF 0C                 - cmp edi,0C
+deadspace2.exe+44BFE1: 0F 82 79 FB FF FF        - jb deadspace2.exe+44BB60
+deadspace2.exe+44BFE7: 0F 28 4C 24 70           - movaps xmm1,[esp+70]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+44BFEC: 0F 29 0B                 - movaps [ebx],xmm1
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+44BFEF: 0F 28 4C 24 60           - movaps xmm1,[esp+60]
+deadspace2.exe+44BFF4: 0F 29 4B 10              - movaps [ebx+10],xmm1
+deadspace2.exe+44BFF8: F3 0F 10 4B 24           - movss xmm1,[ebx+24]
+deadspace2.exe+44BFFD: F3 0F 11 4C 24 34        - movss [esp+34],xmm1
+deadspace2.exe+44C003: 0F 28 4C 24 40           - movaps xmm1,[esp+40]
+deadspace2.exe+44C008: 0F 29 4B 20              - movaps [ebx+20],xmm1
+deadspace2.exe+44C00C: F3 0F 10 4C 24 3C        - movss xmm1,[esp+3C]
+deadspace2.exe+44C012: 8B 8B 98 01 00 00        - mov ecx,[ebx+00000198]
+deadspace2.exe+44C018: F3 0F 11 4B 30           - movss [ebx+30],xmm1
+deadspace2.exe+44C01D: F3 0F 10 4C 24 10        - movss xmm1,[esp+10]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>369</ID>
+          <Description>"X (Alt+Num4|6)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>camPosBase</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.25</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>370</ID>
+              <Description>"H (Alt+Num8|2)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+4</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>371</ID>
+              <Description>"Y (Alt+Num+|-)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+8</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>107</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>109</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>378</ID>
+      <Description>"Relative Camera Control"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : deadspace2.exe (paused)
+  Version: 
+  Date   : 2021-08-26
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(ptrBase,deadspace2.exe,83 C4 04 C7 87 ? ? ? ? 00 00 00 00 8B 87 ? ? ? ? 85 C0 0F 84) // should be unique
+
+define(ptrBase,[ptrBase+1D])
+
+registersymbol(ptrBase)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+//unregistersymbol(ptrBase)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+353BCB
+
+deadspace2.exe+353BB0: 56                             - push esi
+deadspace2.exe+353BB1: 57                             - push edi
+deadspace2.exe+353BB2: 8B F9                          - mov edi,ecx
+deadspace2.exe+353BB4: 8B B7 E8 01 00 00              - mov esi,[edi+000001E8]
+deadspace2.exe+353BBA: 85 F6                          - test esi,esi
+deadspace2.exe+353BBC: 74 1A                          - je deadspace2.exe+353BD8
+deadspace2.exe+353BBE: 8B CE                          - mov ecx,esi
+deadspace2.exe+353BC0: E8 4B E7 FF FF                 - call deadspace2.exe+352310
+deadspace2.exe+353BC5: 56                             - push esi
+deadspace2.exe+353BC6: E8 DF E3 CA FF                 - call deadspace2.exe+1FAA
+// ---------- INJECTING HERE ----------
+deadspace2.exe+353BCB: 83 C4 04                       - add esp,04
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+353BCE: C7 87 E8 01 00 00 00 00 00 00  - mov [edi+000001E8],00000000
+deadspace2.exe+353BD8: 8B 87 94 01 00 00              - mov eax,[edi+00000194]
+deadspace2.exe+353BDE: 85 C0                          - test eax,eax
+deadspace2.exe+353BE0: 0F 84 9C 00 00 00              - je deadspace2.exe+353C82
+deadspace2.exe+353BE6: 8B 0D 68 13 02 02              - mov ecx,[deadspace2.exe+1C21368]
+deadspace2.exe+353BEC: 50                             - push eax
+deadspace2.exe+353BED: E8 CE 26 07 00                 - call deadspace2.exe+3C62C0
+deadspace2.exe+353BF2: 8B 87 94 01 00 00              - mov eax,[edi+00000194]
+deadspace2.exe+353BF8: 50                             - push eax
+deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EAF0
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>391</ID>
+          <Description>"FOV"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>ptrBase-4c</Address>
+          <Offsets>
+            <Offset>88</Offset>
+            <Offset>4</Offset>
+            <Offset>94</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>416</ID>
+              <Description>"Zoom (Ctrl+Num+|-)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>393</ID>
+                  <Description>"Z1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>109</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>394</ID>
+                  <Description>"Z2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>109</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>398</ID>
+              <Description>"camHeight1 (Ctrl+Num8|2)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+14</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>415</ID>
+              <Description>"Center Offsets (Ctrl+Num4|6)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>402</ID>
+                  <Description>"CO1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>403</ID>
+                  <Description>"CO2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+24</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>404</ID>
+                  <Description>"CO3"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+28</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>0.25</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>405</ID>
+              <Description>"Pivot Distance (Ctrl+Num3|9)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+2C</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.25</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>414</ID>
+              <Description>"Angles (+/-1.5 max)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>410</ID>
+                  <Description>"Max Vertical Rotation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+38</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>411</ID>
+                  <Description>"A1"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+3C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>412</ID>
+                  <Description>"A2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+40</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>413</ID>
+              <Description>"Height #3 (try &lt; 0)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+44</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>395</ID>
+              <Description>"camHeight2"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>+1C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>400</ID>
+              <Description>"unknown"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>396</ID>
+                  <Description>"unk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>397</ID>
+                  <Description>"unk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>399</ID>
+                  <Description>"unk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>406</ID>
+                  <Description>"unk (~pi)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+30</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>407</ID>
+                  <Description>"unk (~pi) #2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>381</ID>
+                  <Description>"unk"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>380</ID>
+          <Description>"charSize (Ctrl+PgUp|Dn)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>ptrBase</Address>
+          <Offsets>
+            <Offset>108</Offset>
+            <Offset>0</Offset>
+            <Offset>28</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>33</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>34</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>292</ID>
+      <Description>"enemy don't see you"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-22
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(ghostModeHook,deadspace2.exe,8D 9B 00 00 00 00 8B 4C 24 20 8B 54 24 24) // should be unique
+
+registersymbol(ghostModeHook)
+
+define(ghostModeHook, ghostModeHook-10)
+
+//assert(ghostModeHook,74)
+
+ghostModeHook:
+db EB
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+ghostModeHook:
+db 74
+
+unregistersymbol(ghostModeHook)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+B81C3A
+
+deadspace2.exe+B81C20: 8B CE              - mov ecx,esi
+deadspace2.exe+B81C22: E8 49 52 82 FF     - call deadspace2.exe+3A6E70
+deadspace2.exe+B81C27: 83 F8 FF           - cmp eax,-01
+deadspace2.exe+B81C2A: 74 30              - je deadspace2.exe+B81C5C
+deadspace2.exe+B81C2C: 50                 - push eax
+deadspace2.exe+B81C2D: 8B CE              - mov ecx,esi
+deadspace2.exe+B81C2F: E8 1C 52 82 FF     - call deadspace2.exe+3A6E50
+deadspace2.exe+B81C34: 8B 30              - mov esi,[eax]
+deadspace2.exe+B81C36: 85 F6              - test esi,esi
+deadspace2.exe+B81C38: 74 22              - je deadspace2.exe+B81C5C
+// ---------- INJECTING HERE ----------
+deadspace2.exe+B81C3A: 8D 9B 00 00 00 00  - lea ebx,[ebx+00000000]
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+B81C40: 8B 4C 24 20        - mov ecx,[esp+20]
+deadspace2.exe+B81C44: 8B 54 24 24        - mov edx,[esp+24]
+deadspace2.exe+B81C48: 8B 06              - mov eax,[esi]
+deadspace2.exe+B81C4A: 51                 - push ecx
+deadspace2.exe+B81C4B: 52                 - push edx
+deadspace2.exe+B81C4C: 53                 - push ebx
+deadspace2.exe+B81C4D: 50                 - push eax
+deadspace2.exe+B81C4E: 8B CF              - mov ecx,edi
+deadspace2.exe+B81C50: E8 EB FB FF FF     - call deadspace2.exe+B81840
+deadspace2.exe+B81C55: 8B 76 04           - mov esi,[esi+04]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>293</ID>
+          <Description>"No description"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>ghostModeHook</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>417</ID>
+      <Description>"0g (Ctrl + 9)"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-28
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+// enable 0g
+ 
+aobscanmodule(0g,deadspace2.exe,F3 0F 5E E1 0F C6 E4 00 0F 59 EC) // should be unique
+
+define(0g,0g-13)
+
+0g:
+db 00
+
+registersymbol(0g)
+
+// find flag
+
+aobscanmodule(fl0g,deadspace2.exe,83 E4 F0 83 EC 54 53 56 57 8B 3D) // should be unique
+
+define(fl0g,[fl0g+B])
+
+registersymbol(fl0g)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+0g:
+db 01
+
+//unregistersymbol(0g)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+B7283D
+
+deadspace2.exe+B727FF: F3 0F 11 9E 34 01 00 00  - movss [esi+00000134],xmm3
+deadspace2.exe+B72807: F3 0F 11 9E 30 01 00 00  - movss [esi+00000130],xmm3
+deadspace2.exe+B7280F: 83 8E 44 01 00 00 02     - or dword ptr [esi+00000144],02
+deadspace2.exe+B72816: 0F 2F CA                 - comiss xmm1,xmm2
+deadspace2.exe+B72819: 8B 86 44 01 00 00        - mov eax,[esi+00000144]
+deadspace2.exe+B7281F: F3 0F 11 9E 40 01 00 00  - movss [esi+00000140],xmm3
+deadspace2.exe+B72827: 0F 82 A5 00 00 00        - jb deadspace2.exe+B728D2
+deadspace2.exe+B7282D: 83 C8 08                 - or eax,08
+deadspace2.exe+B72830: E9 97 00 00 00           - jmp deadspace2.exe+B728CC
+deadspace2.exe+B72835: F3 0F 10 25 D0 4E AA 01  - movss xmm4,[deadspace2.exe+16A4ED0]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+B7283D: 83 8E 44 01 00 00 01     - or dword ptr [esi+00000144],01
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+B72844: 0F 2F 54 24 1C           - comiss xmm2,[esp+1C]
+deadspace2.exe+B72849: 0F 28 AE 20 01 00 00     - movaps xmm5,[esi+00000120]
+deadspace2.exe+B72850: 8B 86 44 01 00 00        - mov eax,[esi+00000144]
+deadspace2.exe+B72856: F3 0F 5E E1              - divss xmm4,xmm1
+deadspace2.exe+B7285A: 0F C6 E4 00              - shufps xmm4,xmm4,00
+deadspace2.exe+B7285E: 0F 59 EC                 - mulps xmm5,xmm4
+deadspace2.exe+B72861: 0F 29 AE 30 01 00 00     - movaps [esi+00000130],xmm5
+deadspace2.exe+B72868: 76 05                    - jna deadspace2.exe+B7286F
+deadspace2.exe+B7286A: 83 C8 04                 - or eax,04
+deadspace2.exe+B7286D: EB 5D                    - jmp deadspace2.exe+B728CC
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>57</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>418</ID>
+          <Description>""</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>0g</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Freeze values to prevent them from changing: click in the box or press Space.
+Set hotkeys - Ctrl + H.
+</Comments>
+</CheatTable>
