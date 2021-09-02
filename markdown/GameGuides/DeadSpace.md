@@ -55,7 +55,7 @@ Based on [original description by Jim2Point0](https://web.archive.org/web/201410
 
 FOV: Field of View.
 
-Cam Distance: How far back the camera sits from character. The further you go, the smaller char is. This is what the "widescreen fixer" app modifies as well.
+Cam Distance: How far back the camera sits from character. The further you go, the smaller the character becomes. This is what the "widescreen fixer" app modifies as well.
 
 Cam Move Distance: Same as above, but for when you're walking. 
 
