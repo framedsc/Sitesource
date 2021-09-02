@@ -15,19 +15,17 @@ DirectX versions | 9
 Resolution can be changed in configuration file. GeDoSaTo is supported according to [whitelist](https://github.com/PeterTh/gedosato/blob/master/pack/config/whitelist.txt#L52). 
 Configuration is similar to [DS1.](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024) 
 
-## Tools & Features
-
-[Cheat Table](../CheatTables/DeadSpace2_camera.CT)
+## [Cheat Table](../CheatTables/DeadSpace2_camera.CT) Features:
 
 ### Relative Camera Control (RCC)
 Control the camera position, relative to player. Limited by walls. 
-#
+
 Description:
 
 - `FOV`: Field of View.
-- `Zoom`: it's Cam Distance - how far back the camera sits from character. The further you go, the smaller char is. It has two values for when you stay or walk. Single hotkey for both for smooth gameplay.
+- `Zoom` (Cam Distance): how far back the camera sits from character. The further you go, the smaller char is. 
 
-- `Cam Height`: by increasing\decreasing this, the camera will move up and down. HOWEVER, this does not apply when looking up or down - change distance for this.
+- `Cam Height`: by increasing\decreasing this, the camera will move up\down. HOWEVER, this does not apply when looking up or down - change distance for this.
 
 - `Center Offsets`: 3 values the game uses to determine how far left\right the camera sits from character. However, it's dependent on where you're looking. No matter where you look, these will always move the camera left\right. To make things simple, hotkeys are setup to change all 3 at the same time.
 
@@ -36,7 +34,7 @@ Description:
 @alert important  
 Aiming and many other in-game events reset camera values. To prevent value from changing, **freeze it**: click in the box leftside of it's name. Or highlight it and press `Space`.  
 @end
-#
+
 Hotkeys:
 
 Controls|CTRL +
@@ -46,11 +44,11 @@ Height|Num 2/8
 X|Num 4/6
 Y|Num 3/9
 Char Size|PgUp/Dn
-#
+
 Technical info: 
 
 This is the port of Jim2Point0's DS1 table. See [original description.](https://web.archive.org/web/20141021190640/flickr.com/groups/deadendthrills/discuss/72157631765632995/) Altho code differs, the same camera values with similar structure were found using CE's 'Group search'. The table only modifies values, without changes to code.
-#
+
 ### Free Camera
 Detaches camera from character. 
 
@@ -66,7 +64,7 @@ Y|Num +/-
 Controls are not handy, as they move camera in absolute coordinate system. Recommended to use after RCC.
 
 Credits: [Notes by GhostInTheCamera.](https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space%202/notes.txt)
-#
+
 ### Extra
 
 - Timescale
