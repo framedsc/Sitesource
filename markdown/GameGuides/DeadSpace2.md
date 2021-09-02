@@ -19,7 +19,7 @@ Configuration would be similar to [DS1.](https://steamcommunity.com/sharedfiles/
 
 ## Timescale
 
-Timescale is game speed multiplier. 1.00 - default, >1 faster, 0 (and lower) pauses the game, while still able to control the camera to catch the composition. 
+Timescale is game speed multiplier. 1.00 - default, >1 faster, 0 (and lower) pauses the game, while still able to control the camera. 
 
 Controls|CTRL +
 --|--
@@ -34,21 +34,25 @@ Control your camera by modifying 3 values. In-game rotating still works and you 
 Controls|ALT +
 --|--
 Toggle|`Num 0` 
-Height|`Num 2|8`
-X|`Num 4|6`
-Y|`Num +|-`
+Height|`Num 2/8`
+X|`Num 4/6`
+Y|`Num +/-`
+
+Controls are not handy, as they move camera in absolute coordinate system.
+
+Recommended to use after RCC.
 
 Credits: [Notes by GhostInTheCamera.](https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space%202/notes.txt)
 
-## Relative Camera Control
-Control the camera position, relative to char. 
+## Relative Camera Control (RCC)
+Control the camera position, relative to player. Limited by walls. 
 
 Controls|CTRL +
 --|--
-Zoom|`Num +|-` 
-Height|`Num 2|8`
-X|`Num 4|6`
-Y|`Num 3|9`
+Zoom|Num +/-
+Height|Num 2/8
+X|Num 4/6
+Y|Num 3/9
 Char Size|PgUp/Dn
 
 
