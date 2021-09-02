@@ -1,3 +1,4 @@
+![Dead Space 2](../Images/DeadSpace2_header.png "Shot by Jim2point0"){.shadowed}
 
 ## Summary
 
@@ -14,9 +15,7 @@ DirectX versions | 9
 Resolution can be changed in configuration file. GeDoSaTo is supported according to [whitelist](https://github.com/PeterTh/gedosato/blob/master/pack/config/whitelist.txt#L52). 
 Configuration would be similar to [DS1.](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024) 
 
-## Camera Control
-
-[Cheat Table](../CheatTables/deadspace2_camera.CT)
+## [Cheat Table](../CheatTables/DeadSpace2_camera.CT)
 
 ## Timescale
 
@@ -72,6 +71,10 @@ Aiming and many other in-game events reset camera values. To prevent value from 
 Technical info: 
 
 This is the port of Jim2Point0's DS1 table. See [original description.](https://web.archive.org/web/20141021190640/flickr.com/groups/deadendthrills/discuss/72157631765632995/) Altho code differs, the same camera values with similar structure were found using CE's 'Group search'. Only modifies values, without code changes.
+
+## Extra features
+
+Enemies don't see you and 0g anywhere.
 
 ## Common Info
 
