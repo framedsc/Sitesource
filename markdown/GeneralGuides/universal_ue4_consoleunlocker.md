@@ -322,7 +322,7 @@ Little Hope | No console, camera only (v3.0.12 or lower)
 Little Nightmares 2 | Console only, no camera. Use `toggledebugcamera` for camera
 Lost Ember | 
 Mahoe Arms | 
-Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
+ManEater | HUD toggle doesn't hide the entire HUD. Console not available.
 Man of Medan (The Dark Pictures Anthology) | 
 Marie's Room | Built-in camera doesn't work. Use `toggledebugcamera` for camera
 Marvel vs. Capcom: Infinite | 
