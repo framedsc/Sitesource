@@ -662,7 +662,7 @@ deadspace2.exe+36F39F: DD 05 28 7B AE 01        - fld qword ptr [deadspace2.exe+
         <CheatEntry>
           <ID>305</ID>
           <Description>"timescale (Ctrl + 7|8)"</Description>
-          <LastState Value="-4.121455698E-32" RealAddress="760FF708"/>
+          <LastState Value="-4.121455698E-32" RealAddress="7549F708"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Float</VariableType>
           <Address>time</Address>
@@ -722,37 +722,14 @@ dd (float)1
       <Options moHideChildren="1"/>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : deadspace2.exe
-  Version: 
-  Date   : 2021-08-22
-  Author : user
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-//code from here to '[DISABLE]' will be used to enable the cheat
-
- 
- 
+      <AssemblerScript>[ENABLE]
 aobscanmodule(ghostModeHook,deadspace2.exe,8D 9B 00 00 00 00 8B 4C 24 20 8B 54 24 24) // should be unique
 
 registersymbol(ghostModeHook)
 
 define(ghostModeHook, ghostModeHook-10)
 
-//assert(ghostModeHook,74)
-
-ghostModeHook:
-db EB
-
 [DISABLE]
-//code from here till the end of the code will be used to disable the cheat
-
-ghostModeHook:
-db 74
-
-unregistersymbol(ghostModeHook)
 
 {
 // ORIGINAL CODE - INJECTION POINT: deadspace2.exe+B81C3A
@@ -785,17 +762,38 @@ deadspace2.exe+B81C55: 8B 76 04           - mov esi,[esi+04]
       <CheatEntries>
         <CheatEntry>
           <ID>293</ID>
-          <Description>"No description"</Description>
+          <Description>" "</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">74:disabled
+EB:enabled
+</DropDownList>
+          <LastState Value="74" RealAddress="00F8237A"/>
           <ShowAsHex>1</ShowAsHex>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>ghostModeHook</Address>
         </CheatEntry>
+        <CheatEntry>
+          <ID>419</ID>
+          <Description>"toggle"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+ 
+ghostModeHook:
+db EB
+
+[DISABLE]
+
+ghostModeHook:
+db 74
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>417</ID>
-      <Description>"0g (Ctrl + 9)"</Description>
+      <Description>"0g"</Description>
       <Options moHideChildren="1"/>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
@@ -858,24 +856,45 @@ deadspace2.exe+B7286A: 83 C8 04                 - or eax,04
 deadspace2.exe+B7286D: EB 5D                    - jmp deadspace2.exe+B728CC
 }
 </AssemblerScript>
-      <Hotkeys>
-        <Hotkey>
-          <Action>Toggle Activation</Action>
-          <Keys>
-            <Key>17</Key>
-            <Key>57</Key>
-          </Keys>
-          <ID>0</ID>
-        </Hotkey>
-      </Hotkeys>
       <CheatEntries>
         <CheatEntry>
-          <ID>418</ID>
-          <Description>""</Description>
+          <ID>420</ID>
+          <Description>" "</Description>
+          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">01:disabled
+00:enabled
+</DropDownList>
+          <LastState Value="01" RealAddress="00F72F93"/>
           <ShowAsHex>1</ShowAsHex>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>Byte</VariableType>
           <Address>0g</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>421</ID>
+          <Description>"toggle"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+ 
+0g:
+db 00
+
+[DISABLE]
+
+0g:
+db 01
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>57</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
