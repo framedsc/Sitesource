@@ -15,7 +15,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [CE Table by Jim2point0](..\CheatTables\sekiro_photoModeAOB.CT)  
+* [CE Table by Jim2point0](..\CheatTables\sekiro_photoModeUpdated.CT)  
 **Features**: Camera Coordinates, FOV, Timestop, PlayersOnly, Hud Toggle. Aspect Ratio Unlocker
 * [Unlocked Aspect Ratio, remove stretching of HUD textures (by Jackfuste)](https://www.wsgf.org/phpBB3/viewtopic.php?p=176159#p176159)  
 **Features**: Removed the 16:9 aspect ratio restriction. Any and all aspect ratios will work. Fixes overlay stretching. Extremely useful for screenshots as these overlays 
