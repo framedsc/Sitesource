@@ -47,7 +47,7 @@ Customize hotkeys and their function by pressing `Ctrl+H` on selected entry.
 
 - FOV, Camera, Char Size. 
 - Supports every game version by AoB scan. 
-- [source](../CheatTables/Archive/deadspace.CT)
+- [source](../CheatTables/deadspace.CT)
 
 ### Text Description
 
