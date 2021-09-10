@@ -157,6 +157,7 @@ Although the name suggests it's a universal unlocker that always works with any 
 
 Title| Notes
 --|--
+9 Monkeys of Shaolin | 
 10 Miles to Safety | 
 103 | 
 A Knight`s Quest | 
@@ -313,6 +314,7 @@ Laser League |
 The Last Show of Mr. Chardish | 
 Layers of Fear 2 | 
 Liberty Prime | 
+Life is Strange: True Colors | 
 Life is Strange 2 | 
 Light Tracer 2 | 
 The Line | The K148 Game Studio game 'The Line'
@@ -444,6 +446,7 @@ Subverse |
 The Suicide of Rachel Foster | 
 Supraland | 
 Sword Art Online: Fatal Bullet | 
+Tales of Arise | 
 Tartarus | 
 TASOMACHI Behind The Twilight | 
 Tell Me Why | (Also with xbox gamepass version)
