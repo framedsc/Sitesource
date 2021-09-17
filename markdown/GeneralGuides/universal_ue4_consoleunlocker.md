@@ -228,8 +228,9 @@ Darksiders 3 |
 Darksiders Genesis | 
 Daymare: 1998 | 
 Days Gone | No custom console keys
-Deep Rock Galactic | 
+Deep Rock Galactic | Console not available
 Deliver us the moon | 
+Demon Skin | 
 Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
@@ -273,6 +274,7 @@ The Forgotten City |
 Freud Gate | 
 Frozenheim | 
 Gal Gun 2 | 
+Gamedec | 
 Genesis Alpha One | 
 Genesis Noir | 
 Ghostrunner | requires UUU 3.0.12+
