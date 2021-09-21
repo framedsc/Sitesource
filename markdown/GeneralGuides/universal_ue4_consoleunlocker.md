@@ -21,7 +21,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.20](https://mega.nz/file/RAYxUaRQ#LpX54i5ewUDRDDD0QbJaK4MB1T28WFTcEG_7Pcr8gtI). 
+* [Universal UE4 Unlocker v3.0.21](https://mega.nz/file/QRQnDQpR#FkoYvjMD0KJiMPezXBy2l4XbUxjTlrYDhghnLXkWFXY). 
 * [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.20 gives problems
 
 
@@ -309,7 +309,7 @@ Jumanji The Video Game |
 Jump Force (limited) | 
 Kari | 
 Keep Out | 
-Kena: Bridge of Spirits | Use v3.0.20+
+Kena: Bridge of Spirits | Use v3.0.21+
 Killsquad | 
 Kine | 
 Koral | 
@@ -537,6 +537,9 @@ Special thanks to Pino44io for testing.
 &copy;2019-2021 All rights reserved.
 
 ## Changelog
+
+###v3.0.21:
+- **FIXED**: The HUD toggle didn't always work as it matched with the wrong piece of code in some games. 
 
 ###v3.0.20:
 - **FIXED**: In some engine builds the offsets of the three Aspect Ratio correction blocks were different, causing the game to show a distorted image due to the wrong offsets being used
