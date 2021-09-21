@@ -11,7 +11,7 @@ Custom Aspect Ratios | Yes
 Reshade | Yes (4.9.1+)
 Ansel | No
 DirectX versions |  DirectX 12
-Guide Updated For Game Version | 1.3
+Guide Updated For Game Version | 1.31
  
 ## Tools
 
@@ -19,6 +19,8 @@ Guide Updated For Game Version | 1.3
 **Features**: Photo Mode Camera control, FOV Control, Custom Aspect Ratios, Time Of Day, Camera Paths and custom lights.  
 * [Photomode Improvement with lookat controls CT By Deadendthrills and Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Lock torso/head in place to control eyes separately.
+* [Photo Mode Unlocked](https://www.nexusmods.com/cyberpunk2077/mods/3035)  
+**Features**: Enables look at for any pose. Removes many limits of photo mode.
 
 ## Essential Mods
 
@@ -31,6 +33,8 @@ Required by many mods.
 
 * [Appearance Menu Mod](https://www.nexusmods.com/cyberpunk2077/mods/790) / [Discord](https://discord.com/invite/47jV2rNdgn)  
 **Features**: Spawn, move and remove characters and objects. Save and teleport to locations. And much more.
+* [Object Spawner](https://www.nexusmods.com/cyberpunk2077/mods/2833)   
+ **Features**: Spawn over 16k different items. 
 * [Freefly](https://www.nexusmods.com/cyberpunk2077/mods/780)  
 **Features**: Enable noclip to fly V to places you wouldn't normally be able to reach.
 
@@ -117,8 +121,6 @@ This can be used together with AMM to 'transfer' look-ats to poses that don't ha
 ## Broken Mods 
 Useful mods broken by the 1.3 update that are worth using once updated. These work fine if you remained on 1.23.
 
-* [Photo Mode Unlocked](https://www.nexusmods.com/cyberpunk2077/mods/3035)  
-**Features**: Enables look at for any pose. Removes many limits of photo mode.
 
 * [City H4ck](https://www.nexusmods.com/cyberpunk2077/mods/808)  
 **Features**: Control aspects of Night City such as street lights, TVs and Vehicles.
@@ -126,9 +128,7 @@ Useful mods broken by the 1.3 update that are worth using once updated. These wo
 * [Settings Manager](https://www.nexusmods.com/cyberpunk2077/mods/2332)   
 **Features**: Save your game settings to presets, and switch between them anytime
 
-* [Object Spawner](https://www.nexusmods.com/cyberpunk2077/mods/2833)   
- **Features**: Spawn over 16k different items. 
- 
+
 ## Useful Links
 * [Nexus Mods](https://www.nexusmods.com/cyberpunk2077)
 * [Cyberpunk 2077 Modding Discord](https://discord.com/invite/BTApCbE) Many exclusive mods available through Discord.
