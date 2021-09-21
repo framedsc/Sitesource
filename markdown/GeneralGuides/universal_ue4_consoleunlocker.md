@@ -21,7 +21,7 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.19](https://mega.nz/file/RAYxUaRQ#LpX54i5ewUDRDDD0QbJaK4MB1T28WFTcEG_7Pcr8gtI). 
+* [Universal UE4 Unlocker v3.0.20](https://mega.nz/file/RAYxUaRQ#LpX54i5ewUDRDDD0QbJaK4MB1T28WFTcEG_7Pcr8gtI). 
 * [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.20 gives problems
 
 
