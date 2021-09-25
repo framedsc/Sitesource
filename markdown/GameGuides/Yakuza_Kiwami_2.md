@@ -25,7 +25,7 @@ DirectX versions | DirectX 11
 Key | Action
 --|--
 Pause/L2/LT + X/A | Activate/Deactivate Free Camera
-DEL | Deattach Mouse
+DEL | Detach Mouse
 W, A, S, D/Left Stick | Move the camera
 Mouse/Right Stick | Point the camera
 CTRL, SPACE | Move UP or DOWN
@@ -39,21 +39,22 @@ Don't forget to deactivate the freecam before skipping a cutscene (it may cause 
 @end
 
 @alert Important
-Once you de-attach the camera (PAUSE), your mouse will be set in a fixed position, so in order to 
-attach/deattach the mouse to the camera, you can press DEL.
+Once you detach the camera (PAUSE), your mouse will be set in a fixed position, so in order to 
+attach/detach the mouse to the camera, you can press DEL.
 @end
 
 ## Tips
 
 ### Reshade
 
-After having composed your shot and before starting ReShade press DEL to detach the camera!
+After composing your shot, press DEL to detach the camera before opening Reshade!
 
-### Depth of filed and ReShade
+### Depth of field and Reshade
 
-If you want to use Cinematic DOF available in ReShade, disable the in game DOF in Settings - Graphic Settings - Depth of field.
+In-game DOF in Settings - Graphic Settings - Depth of field has to be disabled to use Reshade DoF shaders.
 
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Yakuza_Kiwami_2)
-* [Multiple MODS for Yakuza Kiwami 2](https://www.nexusmods.com/yakuzakiwami2/mods/)
+* [Nexus Mods](https://www.nexusmods.com/yakuzakiwami2/mods/)
+* [FilterLESS - removes colour grading and other filters](https://www.nexusmods.com/yakuzakiwami2/mods/119) (Nexus Mods)

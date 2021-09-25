@@ -31,7 +31,7 @@ Key | Action
 --|--
 Pause/L2/LT + X/A | Activate/Deactivate Free Camera
 END/L2/LT + Square/X | Pause the cinematic 
-DEL | Deattach Mouse
+DEL | Detach Mouse
 W, A, S, D/Left Stick | Move the camera
 Mouse/Right Stick | Point the camera
 CTRL, SPACE | Move UP or DOWN
@@ -39,7 +39,7 @@ PG UP, PG DOWN | Increase/Decrase speed multiplier
 F1,F2/L2/LT,R2/RT | Increase/Decrease FoV respectively
 
 @alert important
-Once you deattach the camera (PAUSE), your mouse will be set in a fixed position, so in order to attach/deattach the mouse to the camera, you can press DEL.
+Once you detach the camera (PAUSE), your mouse will be set in a fixed position, so in order to attach/detach the mouse to the camera, you can press DEL.
 @end
 
 @alert important
@@ -68,3 +68,4 @@ NOTE: It is not possible to use ReShade and the HelixMod at the same time as the
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Yakuza_0)
 * [Cutscene character textures in gameplay](https://www.nexusmods.com/yakuza0/mods/9)
 * [Better LOD mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1469962010)
+* [FilterLESS - removes colour grading](https://www.nexusmods.com/yakuza0/mods/177?tab=description) (Nexus Mods)
