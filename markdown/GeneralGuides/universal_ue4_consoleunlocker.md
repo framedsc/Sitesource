@@ -336,7 +336,6 @@ Medieval Dynasty | No hud toggle
 The Medium | Camera doesn't work in split-screen scenes
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
-MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
 Monster Jam Steel Titans | 
@@ -345,6 +344,8 @@ Morels: The Hunt |
 Morphies Law Remorphed | 
 Mortal Shell | Tested on beta
 MotoGP 19 | 
+MotoGP 20 | 
+MotoGP 21 | 
 My Hero One's Justice | 
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
@@ -354,6 +355,7 @@ NBA 2K Playgrounds 2 |
 Necromunda Underhive Wars | No hud toggle 
 Nemezis - Mysterious Journey III | 
 Nephise: Ascension | 
+Nero | 
 Nigate Tale | 
 Night of the Dead | 
 No Straight Roads | 
