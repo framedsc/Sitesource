@@ -186,6 +186,7 @@ Ashes Of Oahu |
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
+AWAY: The Survival Series | 
 Azur Lane Crosswave | 
 Backbone | 
 Bad Boys at School | 
