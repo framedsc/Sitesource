@@ -19,7 +19,7 @@ Guide Updated For Game Version | 1.31
 **Features**: Photo Mode Camera control, FOV Control, Custom Aspect Ratios, Time Of Day, Camera Paths and custom lights.  
 * [Photomode Improvement with lookat controls CT By Deadendthrills and Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Lock torso/head in place to control eyes separately.
-* [Photo Mode Unlocked](https://www.nexusmods.com/cyberpunk2077/mods/3035)  
+* [Photo Mode Unlocked](https://www.nexusmods.com/cyberpunk2077/mods/3135)  
 **Features**: Enables look at for any pose. Removes many limits of photo mode.
 
 ## Essential Mods
@@ -68,22 +68,6 @@ DepthOfField = False
 Bloom = False
 ```
 *Disabling depth of field permanently disables it in photomode too!*
-
-**Tweaked Raytracing**  
-```
-[RayTracing]
-DiffuseIlluminationAOModulation = 1.000000
-AccumulationSpeed = 0.000000
-
-[RayTracing/NRD]
-DiffuseDenoisingRadius = 30.000000
-DiffuseMaxAccumulatedFrameNum = 16
-
-[RayTracing/Reflection]
-EnableHalfResolutionTracing = 0
-FilterRadius = 512.000000
-```
-Minor tweaks to how raytraced effects look in-game. Mostly to improve AO and reflections. Will probably have a performance penalty.
 
 ## Tips and Tricks
 

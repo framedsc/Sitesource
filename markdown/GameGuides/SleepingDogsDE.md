@@ -13,7 +13,7 @@ Ansel | No
 DirectX versions | DirectX 11
  
 ## Tools
-* [Camera Tools by Hatti](https://mega.nz/file/vQgDRKxK#rWJDBAyjb_dXX5WowRPI43n8YKGOeLI9vyK_jmQbfuo)  
+* [Camera Tools](https://mega.nz/file/vQgDRKxK#rWJDBAyjb_dXX5WowRPI43n8YKGOeLI9vyK_jmQbfuo)  
 **Features**: Camera control (in-built HUD removal), FoV, Timestop, Time of Day, Weather Control, Sun Position, Lighting Control
 * [CE table by One3rd](..\CheatTables\SDHDShip_Slomo_ChaseCam_v1.CT)  
 **Features**: Features: Car Chase Camera, Timeflow, HUD toggle, Cheats
@@ -51,10 +51,10 @@ Options for hi-def model spawning and camera based LOD. These work but after a w
 
 ##Cheat Table Notes
 * Once the cheat table is loaded enable the Attach to game script or manually attach to game process.
-* Use Cheat Engine to inject Hatti's camera tools by going to Memory View -> Tools -> Inject DLL, browse for and select SDHDCamera.dll.
+* Use Cheat Engine to inject the camera tools by going to Memory View -> Tools -> Inject DLL, browse for and select SDHDCamera.dll.
 
 ##Timeflow
-* Timeflow can be used in conjunction with Hatti's Camera Tool TIMESTOP. For Slomo press F9, to disable press SHIFT + F9.
+* Timeflow can be used in conjunction with the Camera Tool TIMESTOP. For Slomo press F9, to disable press SHIFT + F9.
 
     Key	| Command
     --|--
