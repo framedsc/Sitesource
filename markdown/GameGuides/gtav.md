@@ -31,7 +31,7 @@ DirectX versions | DirectX 10, DirectX 11
 - [Native Trainer](https://www.gta5-mods.com/scripts/enhanced-native-trainer-zemanez-and-others) 
 - [Simple Trainer](https://www.gta5-mods.com/scripts/simple-trainer-for-gtav): Weather/time, teleporting to locations.
 
-An advantage of using the Rockstar Editor is that byou can save the project and camera position so that crashes arent that impactful.
+An advantage of using the Rockstar Editor is that you can save the project and camera position so that crashes arent that impactful.
 
 If you use R editor, don't install NVE motion blur, since it will be captured by R Editor without the possibility to remove it, only use Enhanced Video Editor that lets you tweak it via a dedicated .ini
 

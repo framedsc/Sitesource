@@ -25,14 +25,16 @@ As more and more games are powered by the same game engines like Unreal or Unity
 
 For Unreal Engine 4, the [Universal Unreal Unlocker](./GeneralGuides/universal_ue4_consoleunlocker.htm) by [Otis_Inf](https://www.patreon.com/Otis_Inf) has become the go-to tool for many UE4 games. It includes a freecam with all the common controls, as well as extra features like access to the console and many more.
 
-For Unity, the [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) project by [VTVRVXIV](https://twitter.com/vtvrvxiv) adds a freecam that works in most Unity games. It relies on the [BepInEx](https://github.com/BepInEx/BepInEx) plugin framework for Unity and does require a bit more setup than the UUU to be feature-complete as a camera tool. We have a guide covering the process [here](./GeneralGuides/universal_unity_freecam.htm).
+For Unity, the [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) project by [VTVRVXIV](https://twitter.com/vtvrvxiv) adds a freecam that works in most Unity games. It relies on plugin loaders like BepInEx and MelonLoader, and does require a bit more setup than the UUU to be feature-complete as a camera tool. We have a guide covering the process [here](./GeneralGuides/universal_unity_freecam.htm).
+
+The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also includes a built-in freecam known as [Free Look](https://wiki.dolphin-emu.org/index.php?title=Free_Look).
 
 ### Ansel
 
 [Ansel](https://www.nvidia.com/en-sg/geforce/geforce-experience/ansel/) is a camera tool developed by Nvidia that's made its way into many modern-day games. Along with a freecam, it's also able to create "super resolution" shots through stitching or AI upscaling, take 360° shots, apply filters, and more. It does come with limitations, depending on the game, so it is what we would consider a last resort. If you have to use Ansel, check out our [guide](./GeneralGuides/anselguide.htm) on making the best of it.
 
 ### More links
-- [A very large spreadsheet of possible camera tools for many games](https://docs.google.com/spreadsheets/d/1lnM2SM_RBzqile870zG70E39wuuseqQE0AaPW-P1p5E/edit#gid=0), compiled by originalnicodr (Google Sheets)
+- [A very large spreadsheet of possible camera tools for more games than our guides cover](https://docs.google.com/spreadsheets/d/1lnM2SM_RBzqile870zG70E39wuuseqQE0AaPW-P1p5E/edit#gid=0), compiled by originalnicodr (Google Sheets)
 - [Our Cheat Engine tables guide](./GeneralGuides/cheat_engine_tables.htm)
 - [Let’s add a photo mode to Wolfenstein II: The New Colossus (PC)](https://weblogs.asp.net/fbouma/let-s-add-a-photo-mode-to-wolfenstein-ii-the-new-colossus-pc) (Frans Bouma's blog)
 - [Cheat Engine Tutorials by Stephen Chapman](https://www.youtube.com/playlist?list=PLNffuWEygffbbT9Vz-Y1NXQxv2m6mrmHr) (YouTube)
@@ -53,7 +55,7 @@ Keep in mind that not every game is able to hotsample. Do consult our [game guid
 
 ### Composing for custom aspect ratios
 
-Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how to compose it. Cropping from 16:9 wastes a lot of pixels, and hotsampling makes the shot too large to fit on your screen. You could use [hotsampling helper shaders](./ReshadeGuides/shaderscatalogue.htm#hotsampling) for Reshade, but instead we'll use SRWE to help us out here.
+Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how to compose it. Cropping from 16:9 wastes a lot of pixels, and hotsampling makes the shot too large to fit on your screen. You could use [hotsampling helper shaders](./ReshadeGuides/shaderscatalogue.htm#hotsampling) for Reshade, they can scale down a duplicate of your hotsampled window to fit in your monitor. That still comes at the cost of running your game at a very high resolution i.e. low framerate, so instead we'll use SRWE to help us out here.
 
 We can use SRWE to set our game window to 3:4 but *within* our monitor's limits. Since we're shooting a portrait, we'll take our monitor's height as our bounds. We can then find out the width from some simple math. So, at 1080p, we'd set the game window to **810x1080**. 1440p would be **1080x1440**, and 4K would be **1620x2160**. This gives us a 3:4 preview of our shot fit perfectly in our monitor where we can now compose in.
 
@@ -132,15 +134,13 @@ There are many ways of doing so, and none of them through a game's built-in capt
 Here are some typical methods:
 
 - **[Reshade](https://reshade.me)**  
-Reshade comes with its own capture function and typically is the 'default' option for most screenshotters. Reshade capture can get quite slow at high resolutions / low framerates though, as it runs in the same process as the game (which has already slowed down). Switching to BMP capture alleviates this issue at the cost of larger files, or you could try using:
+Reshade comes with its own capture function and is typically the chosen option for many that have it installed. It can have issues detecting keypresses at high resolutions / low framerates, as it runs in the same process as the game (which has already slowed down). Switching to BMP capture alleviates this issue at the cost of larger files, or you could try using:
 - **[MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)**  
 Favoured by quite a few, Afterburner is a graphics card utility that happens to be able to hook into games and take screen captures of them, even when the game isn't in focus. As it runs as its own process, it's able to capture and save files quicker than Reshade at high resolutions. However, it's been known to conflict with certain games and their tools, causing crashes.
 - **[Nvidia GeForce Experience](https://www.nvidia.com/en-sg/geforce/geforce-experience/)**  
 Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Same with Afterburner, it can capture faster than Reshade. Be sure you have *Desktop capture* disabled, otherwise it will just save whatever's on your monitor at the moment of capture.
 - **Steam**  
 If you're playing a Steam game and are used to hitting F12, Steam Overlay works just fine for capturing too. Just be sure to enable *Save an uncompressed copy* under Steam Settings > In-Game to save proper PNGs, Steam JPGs can be very low quality.
-- **Windows Gaming Bar** and **Windows Screen Capture**  
-These work too, if you happen to be used to them.
 
 These methods above have been proven to work well with hotsampling and Reshade, but if you run into issues with them, try switching them up.
 
