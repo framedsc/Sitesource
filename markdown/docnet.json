@@ -11,6 +11,7 @@
     "Pages" : 
     {
         "__index" : "index.md",
+		"The Basics": "basics.md",
         "Game guides" : 
         {
 			"A-L": 
@@ -60,6 +61,7 @@
 				"Far Cry 5": "GameGuides\\farcry5.md",
 				"Far Cry Primal": "GameGuides\\FarCryPrimal.md",
 				"Generation Zero": "GameGuides\\generationzero.md",
+				"Grand Theft Auto V": "GameGuides\\gtav.md",
 				"Greedfall": "GameGuides\\greedfall.md",
 				"GRIS": "GameGuides\\gris.md",
 				"Hitman: Absolution": "GameGuides\\HitmanAbsolution.md",
@@ -127,12 +129,13 @@
 		"General guides" :
 		{
 			"__index": "GeneralGuides\\index.md",
+			"Ansel": "GeneralGuides\\anselguide.md",
 			"Cheat Engine - Tables": "GeneralGuides\\cheat_engine_tables.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
 			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
-			"The Basics of Taking Screenshots": "GeneralGuides\\basics.md",
+			"Universal Unity Freecam":"GeneralGuides\\universal_unity_freecam.md",
 			"Creating Tiny Planets": "GeneralGuides\\tinyplanetsguide.md",
 			"CyberLit for CyberPunk 2077 user guide": "GeneralGuides\\cyberlit.md",
 			"Advanced" : 
