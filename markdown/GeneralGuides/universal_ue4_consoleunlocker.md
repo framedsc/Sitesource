@@ -449,6 +449,7 @@ Stories: the Path of Destinies |
 Styx 2 | 
 Subdivision Infinity DX | 
 Subverse | 
+Succubus | 
 The Suicide of Rachel Foster | 
 Supraland | 
 Sword Art Online: Fatal Bullet | 
