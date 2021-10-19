@@ -452,7 +452,8 @@ Subdivision Infinity DX |
 Subverse | 
 Succubus | 
 The Suicide of Rachel Foster | 
-Supraland | 
+Supraland |
+Sword and Fairy 7 | 
 Sword Art Online: Fatal Bullet | 
 Tales of Arise | 
 Tartarus | 
