@@ -37,8 +37,10 @@ camera tools for the game instead of using these old cheat tables.
 - [AC4BFSP_test.CT](CheatTables/Archive/AC4BFSP_test.CT)
 - [Assassins_Credd_IV-pausecamera_AOB_0.3.ct](CheatTables/Archive/Assassins_Credd_IV-pausecamera_AOB_0.3.ct)
 - [ACBFUplay_Camera_and_Timestop.CT](CheatTables/Archive/ACBFUplay_Camera_and_Timestop.CT)
+- [Hit_Del_to_enable_camera_move_with_j,k,l,i,o,u.CT](CheatTables/Archive/Hit_Del_to_enable_camera_move_with_j,k,l,i,o,u.CT)
 - [Initiate_show_hide_UI_-___navigate_with_numpad2_8_hide_hidehud_with_numpad_5.CT](CheatTables/Archive/Initiate_show_hide_UI_-___navigate_with_numpad2_8_hide_hidehud_with_numpad_5.CT)
 - [sun_position.CT](CheatTables/Archive/sun_position.CT)
+- [Timestop-Del_then_P-Shift_P.CT](CheatTables/Archive/Timestop-Del_then_P-Shift_P.CT)
 
 ###Assassin's Creed Syndicate
 - [ACS.CT](CheatTables/Archive/ACS.CT)
@@ -323,7 +325,6 @@ camera tools for the game instead of using these old cheat tables.
 - [INSIDE_Epic_Store_V1.0.CT](CheatTables/Archive/INSIDE_Epic_Store_V1.0.CT)
 
 ###Jump Force
-- [Jump_Force_Camera_Hack.CT](CheatTables/Archive/Jump_Force_Camera_Hack.CT)
 - [JUMP_FORCE.CT](CheatTables/Archive/JUMP_FORCE.CT)
 
 ###Killer Is Dead
