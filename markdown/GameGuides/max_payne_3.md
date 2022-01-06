@@ -50,4 +50,4 @@ NOTE: It is not possible to use ReShade and the HelixMod at the same time as the
 ## Useful Links
 
 * [Time of day, weather, spawner and more](https://www.nexusmods.com/maxpayne3/mods/5)
-* [PC Gaming Wiki](hhttps://www.pcgamingwiki.com/wiki/Max_Payne_3)
+* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Max_Payne_3)
