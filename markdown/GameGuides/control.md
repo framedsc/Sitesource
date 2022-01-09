@@ -54,4 +54,5 @@ The game seems to have some issues with noise, which is exacerbated with Raytrac
 
 ## Useful links
 
+* [Unlock the PS4 exxclusive outfit](https://cdn.discordapp.com/attachments/762793138480742411/881914438091935844/Desktop_Screenshot_zzz.png)
 * [PC Gaming wiki](https://www.pcgamingwiki.com/wiki/Control)

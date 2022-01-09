@@ -6,7 +6,7 @@ This guide will help you to inject ReShade into UWP games. Please note that this
  
 ## Tools
  
-You will need [crosire injector](http://www.mediafire.com/file/hb7hcuczquhqudd/file).
+You will need [crosire injector](https://reshade.me/downloads/inject64.exe).
 
 ### ReshadeForUWP tool
 Alternatively, there's a GUI tool to inject Reshade into UWP / Xbox game Pass PC games, [located here](https://github.com/MilkyDeveloper/ReshadeForUWP) with little manual intervention. It asks you for the package name (and the custom process name, if any) and gets the metadata of the game through the ```appxmanifest.xml``` file. It then generates a BAT file to inject Reshade into the game and then launch it. Optionally, it also bootstraps a working Reshade install by downloading / extracting all of the FX files and generates the Reshade.ini file.
