@@ -47,6 +47,7 @@
 				"Dead Rising 4": "GameGuides\\DeadRising4.md",
 				"Dead Space": "GameGuides\\DeadSpace.md",
 				"Dead Space 2": "GameGuides\\DeadSpace2.md",
+				"Deathloop": "GameGuides\\deathloop.md",
 				"Devil May Cry 5": "GameGuides\\devil_may_cry_5.md",
 				"Dishonored: Death of the Outsider": "GameGuides\\dishonored_death_of_the_outsider.md",
 				"The Division": "GameGuides\\thedivision.md",
@@ -76,6 +77,7 @@
 			},
 			"M-Z": 
 			{
+				"Mafia: Definitive Edition": "GameGuides\\MafiaDE.md",
 				"Marvel vs. Capcom: Infinite": "GameGuides\\MVCI.md",
 				"Mass Effect": "GameGuides\\mass_effect.md",
 				"Mass Effect 2": "GameGuides\\mass_effect_2.md",
@@ -96,6 +98,7 @@
 				"No Man's Sky" : "GameGuides\\nomanssky.md",
 				"Observer" : "GameGuides\\Observer.md",
 				"The Outer Worlds" : "GameGuides\\theouterworlds.md",
+				"Persona 5 Strikers" : "GameGuides\\persona5strikers.md",
 				"Prince of Persia - The Sands of Time": "GameGuides\\pop_sandsoftime.md",
 				"Quantum Break" : "GameGuides\\Quantum_Break.md",
 				"Red Dead Redemption 2": "GameGuides\\rdr2.md",
@@ -114,8 +117,8 @@
 				"S.T.A.L.K.E.R - Call of Pripyat": "GameGuides\\stalker.md", 
 				"Street Fighter V: Arcade Edition" : "GameGuides\\SFVAE.md",
 				"The Surge 2": "GameGuides\\thesurge2.md",
-				"Titanfall 2": "GameGuides\\titanfall2.md",
 				"Thief": "GameGuides\\thief.md",
+				"Titanfall 2": "GameGuides\\titanfall2.md",
 				"Tom Clancy's Splinter Cell: Blacklist": "GameGuides\\SplinterCellBlacklist.md",
 				"Watch_Dogs" : "GameGuides\\Watch_Dogs.md",
 				"Watch_Dogs 2": "GameGuides\\Watch_Dogs2.md",

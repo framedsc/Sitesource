@@ -19,8 +19,6 @@ Guide Updated For Game Version | 1.31
 **Features**: Photo Mode Camera control, FOV Control, Custom Aspect Ratios, Time Of Day, Camera Paths and custom lights.  
 * [Photomode Improvement with lookat controls CT By Deadendthrills and Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Lock torso/head in place to control eyes separately.
-* [Photo Mode Unlocked](https://www.nexusmods.com/cyberpunk2077/mods/3135)  
-**Features**: Enables look at for any pose. Removes many limits of photo mode.
 
 ## Essential Mods
 
@@ -32,7 +30,9 @@ Required by many mods.
 ##  Mods for Setting Up Screenshots
 
 * [Appearance Menu Mod](https://www.nexusmods.com/cyberpunk2077/mods/790) / [Discord](https://discord.com/invite/47jV2rNdgn)  
-**Features**: Spawn, move and remove characters and objects. Save and teleport to locations. And much more.
+**Features**: Spawn, move and remove characters and objects. Save and teleport to locations. Enables look at for any pose. Removes many limits of photo mode. And much more.
+* [JB Body Replacer](https://www.nexusmods.com/cyberpunk2077/mods/3675)   
+ **Features**: Replace V in photomode with various NPCs. Poses can be used but facial expressions can't (as of V3)
 * [Object Spawner](https://www.nexusmods.com/cyberpunk2077/mods/2833)   
  **Features**: Spawn over 16k different items. 
 * [Freefly](https://www.nexusmods.com/cyberpunk2077/mods/780)  
@@ -40,7 +40,7 @@ Required by many mods.
 
 ## Graphical Tweaks
 * [Update Nvidia DLSS](https://www.techpowerup.com/download/nvidia-dlss-dll/)   
-  Update DLSS from 2.1 to 2.2.X. Add to \Cyberpunk 2077\bin\x64 and overwrite. Tested up to 2.2.16.
+  Update DLSS from 2.1 to 2.2.X. Add to \Cyberpunk 2077\bin\x64 and overwrite. Tested up to 2.3.5.
 * [Cinematic RTX](https://www.tomshardware.com/uk/news/how-to-unlock-cyberpunk-2077-cinematic-rtx-mode)   
  Add an extra level of ray tracing.
 
@@ -105,13 +105,11 @@ This can be used together with AMM to 'transfer' look-ats to poses that don't ha
 ## Broken Mods 
 Useful mods broken by the 1.3 update that are worth using once updated. These work fine if you remained on 1.23.
 
-
 * [City H4ck](https://www.nexusmods.com/cyberpunk2077/mods/808)  
 **Features**: Control aspects of Night City such as street lights, TVs and Vehicles.
 
 * [Settings Manager](https://www.nexusmods.com/cyberpunk2077/mods/2332)   
 **Features**: Save your game settings to presets, and switch between them anytime
-
 
 ## Useful Links
 * [Nexus Mods](https://www.nexusmods.com/cyberpunk2077)

@@ -67,7 +67,7 @@ Bindings=(Name="Y",Command="setres 3840x2160",Control=False,Shift=False,Alt=Fals
  
 Bare in mind that you can only use definitions that can be selected in the graphics options, so [set up your DSR definitions](https://framedsc.github.io/GeneralGuides/custom_dsr_resolutions.htm) if you haven't done so yet. These commands can also be assigned to hotkeys in the `TdInput.ini` file, if you have troubles using the console.
  
-It's worth mentioning tho that, since the game uses a pre-baked shadowmap, it means that it is not being calculated in real time, so using the command tildeshot ("tildeshot n" will take a shot of the game, which resolution would be n times the resolution the game is running) might be more viable for getting highdefinition shots than in other games, the downside of that would be not being able to use reshade in the shot. These shots are stored in `C:\Users\User\Documents\EA Games\Mirror's Edge\TdGame\ScreenShots`.
+It's worth mentioning tho that, since the game uses a pre-baked shadowmap, it means that it is not being calculated in real time, so using the command tiledshot ("tiledshot n" will take a shot of the game, which resolution would be n times the resolution the game is running) might be more viable for getting highdefinition shots than in other games, the downside of that would be not being able to use reshade in the shot. These shots are stored in `C:\Users\User\Documents\EA Games\Mirror's Edge\TdGame\ScreenShots`.
  
 
  

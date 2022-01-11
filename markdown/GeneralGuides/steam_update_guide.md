@@ -10,6 +10,8 @@ Alternatively, you can access Steam console from client or internet browser by t
 `steam://nav/console`
 or adding `-console` to Steam target address shortcut. 
 
+Another alternative is to use [this](https://github.com/mmvanheusden/SteamDepotDownloaderGUI) tool with some friendly UI. You can find a written and a video tutorial in the programs repository.
+
 ## 2. Get AppID. 
 Go to [Steamdb.info](http://www.steamdb.info) and type the name of the game into search bar on top left.
 After searching the name of the game, look at the search result and find your game. Record its appID.

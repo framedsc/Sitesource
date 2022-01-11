@@ -6,7 +6,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | No
+Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
@@ -43,7 +43,9 @@ Once you detach the camera (PAUSE), your mouse will be set in a fixed position, 
 attach/detach the mouse to the camera, you can press DEL.
 @end
 
-## Tips
+## Hotsampling
+
+The game hotsamples but there is one caveat. WHen you hotsample and tab back to the game from the hotsample window the camera moves, so once you hotsample take the show with reshade or Afterburner.
 
 ### Reshade
 
