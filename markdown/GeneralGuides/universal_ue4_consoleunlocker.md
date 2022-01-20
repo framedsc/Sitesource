@@ -155,6 +155,10 @@ dump the file again. The Objects file is useful for people who create cheat tabl
 ## Games that work with the unlocker
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code and the unlocker can't re-activate the console as essential functions aren't there anymore, or activate other features offered by the UUU. The list below are games which are known to work with the unlocker. 
 
+@alert Info
+With the release of the UUU v4, this list has been frozen. A new list of games that work with the UUU v4 is maintained [**here**](https://opm.fransbouma.com/uuuv4.htm#games-that-work-with-the-uuu). *Games on that list are not guaranteed to work with the UUU v3*.
+@end
+
 Title| Notes
 --|--
 9 Monkeys of Shaolin | 
