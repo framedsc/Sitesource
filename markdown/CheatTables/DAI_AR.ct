@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16643</ID>
+      <Description>"Cutscene bars toggle [ALT+P]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"DragonAgeInquisition.exe"+39D9F9E
+[ENABLE]
+
+aobscanmodule(writesAR,DragonAgeInquisition.exe,F3 0F 11 89 34 01 00 00)
+alloc(newmem,$1000,writesAR)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rcx+00000134],xmm1
+  mov [rcx+134],0
+  jmp return
+
+writesAR:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(writesAR)
+
+[DISABLE]
+
+writesAR:
+  db F3 0F 11 89 34 01 00 00
+
+unregistersymbol(writesAR)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>80</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16641</ID>
+      <Description>"HUD toggle [ALT+H]"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//"DragonAgeInquisition.exe"+3A145AA
+//Borrowed from olegbl's ct
+[ENABLE]
+
+aobscanmodule(hudAOB,DragonAgeInquisition.exe,80 78 3D 00 0F 84 01 02 00 00)
+alloc(newmem,$1000,hudAOB)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp byte ptr [rax+3D],1
+  je DragonAgeInquisition.exe+3A147B5
+  jmp return
+
+hudAOB:
+  jmp newmem
+  nop
+  nop
+  nop
+  nop
+  nop
+return:
+registersymbol(hudAOB)
+
+[DISABLE]
+
+hudAOB:
+  db 80 78 3D 00 0F 84 01 02 00 00
+
+unregistersymbol(hudAOB)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>18</Key>
+            <Key>72</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

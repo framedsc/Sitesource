@@ -14,24 +14,8 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera tools by Hattiwatti](http://s000.tinyupload.com/index.php?file_id=29974862871895437644)  
-**Features**: Camera control, FoV. It also has timestop but it can be a little buggy. For timestop, see below. It helps to reconfigure the
-speed for movement / rotation in the console menu opened by the tools. 
-@alert warning
-A recent update has broken the latest version of the tools. You will have to revert your version of the game in orde to continue using them. 
-See [this guide](..\GeneralGuides\steam_update_guide.htm) for instructions.
-@end
-* [HUD/Menu toggle by Otis_Inf](https://mega.nz/#!9IwzQB5B!lfExc2g1nItGv2FFz_4DxEOWCvT_91-xa8dUaxCHLLs)  
-Use [Caps Lock] to toggle the visibility of the HUD / menu text. See the enclosed readme how to install.
-
-## Timestop
-The tools by Hattiwatti don't come with a timestop/gamepause. To take a shot of a paused game or use the camera during cutscenes,
-use the following steps:
-
-* Pause the game so the menu comes up
-* Press [Caps Lock] to hide the menu
-* Press Ins to enable the camera.
-* Press the key configured to block input
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**Features**: Camera control, FoV, timestop, hud toggle, higher LODs selector.
 
 ## Depth buffer access
 Recent Reshade versions (3.4.3 and up) have solid depth buffer detection code but sometimes can still make the wrong choice. In Rise of the Tomb Raider especially

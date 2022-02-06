@@ -17,7 +17,7 @@ DirectX versions | Direct3D 9
 To use the cheat table, you'll need to downgrade the game's binaries. Please use the guide on FRAMED to learn how to [Revert Game Update using Steam Console](../GeneralGuides/steam_update_guide.htm). After the first step you can download the necessary binaries using this code: download_depot 108710 108723 5060317705156608793. Then you need to copy these files to your game folder. (explained at step 6)
 
 ## Tools
-* [Cheat Table by Jim2point0](../CheatTables/Archive/AlanWake.CT)  
+* [Cheat Table by Jim2point0](../CheatTables/AlanWake.CT)  
 **Features**: Timestop and FoV 
 
 Key | Function

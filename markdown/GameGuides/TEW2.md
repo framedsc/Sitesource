@@ -14,7 +14,7 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera Tools by Otis_inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/TEW2)  
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera control, FOV Control, Timestop
 * [Hud Removal Tool by Otis_inf](https://mega.nz/#!1EIgFaSC!_P7LmSBpLrE6RcMd4iq4cOn1Je_ElvMzIQdxxGJzjyo)  
 **Features**: Toggle for the in-game HUD

@@ -1,0 +1,1547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>303</ID>
+      <Description>"Attach to game"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+openProcess("SDHDShip.exe")
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>219</ID>
+      <Description>"Compact Mode"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13995</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13956</ID>
+      <Description>"TIME CONTROL"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13958</ID>
+      <Description>"  1. Can be used in conjunction with Hatti's Camera Tool TIMESTOP. For Slomo press F9, to disable press SHIFT + F9."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13961</ID>
+      <Description>"  2. F9 activates the script and sets time a mellow 0.3, SHIFT + F9 to set time back to abrupt 1.0."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13994</ID>
+      <Description>"  3. Game Speed  keybinds - [F5-F8 - slower : F9 - slomo 0.3 : Shift +F9 - real time]"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13957</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13965</ID>
+      <Description>"Time Master"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"SDHDShip.exe"+5B0A16) 
+label(returnhere)
+label(originalcode)
+label(exit)
+label(Game_Speed)
+registersymbol(Game_Speed)
+
+newmem:
+push rbx
+mov ebx, [Game_Speed]
+mov [SDHDShip.exe+203C958], ebx
+pop rbx
+
+jmp exit
+
+originalcode:
+//movss xmm1,[SDHDShip.exe+203C958]
+
+Game_Speed:
+dd (float)0.3
+
+exit:
+jmp returnhere
+
+"SDHDShip.exe"+5B0A16:
+jmp newmem
+nop 3
+returnhere:
+
+[DISABLE]
+
+SDHDShip.exe+203C958:
+dd (float)1.0
+
+"SDHDShip.exe"+5B0A16:
+movss xmm1,[SDHDShip.exe+203C958]
+//Alt: db F3 0F 10 0D 3A BF A8 01
+
+dealloc(newmem)
+unregistersymbol(Game_Speed)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>120</Key>
+          </Keys>
+          <ID>0</ID>
+          <ActivateSound TTS="EN">{MRDescription} Activated</ActivateSound>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13966</ID>
+          <Description>"Game Speed [value from 0.0001 - 1.0]"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>Game_Speed</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>116</Key>
+              </Keys>
+              <Value>0.0001</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>117</Key>
+              </Keys>
+              <Value>0.001</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>118</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>119</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>120</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>120</Key>
+              </Keys>
+              <Value>0.3</Value>
+              <ID>6</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14005</ID>
+          <Description>"(reference static game speed value)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>SDHDShip.exe+203C958</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13952</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13954</ID>
+      <Description>"VEHICLE CHASE CAMERA AND HUD CONTROL"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13959</ID>
+      <Description>"  1. NUMPAD_0 activates vehicle chase camera. This will disable the camera rotation and allow these to be manually set."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13997</ID>
+      <Description>"  2. This only works in vehicles and only when they are moving or have recently been moving."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13996</ID>
+      <Description>"  3. Using NUMPAD keys 4, 6, 8 and 5 to control pitch and yaw."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82638</ID>
+      <Description>"  4. Using NUMPAD keys 7 and 9 to decrease/increase camera distance to vehicle."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82639</ID>
+      <Description>"  5. Using NUMPAD_PLUS + 7 and NUMPAD_PLUS + 9 to decrease/increase camera FOV."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13998</ID>
+      <Description>"  6. The [ key will disable the game HUD and the ] key next to it will re-enable the game HUD."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13953</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13911</ID>
+      <Description>"HUD Toggle [ - Off, ] - On"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>FF0000</Color>
+      <VariableType>Float</VariableType>
+      <Address>"SDHDShip.exe"+20F2FCC</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys/>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>219</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>221</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>2</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13941</ID>
+      <Description>"Vehicle camera Pitch / Yaw [ NUMPAD_0 ]"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"SDHDShip.exe"+3D1909)
+label(returnhere)
+label(exit)
+registersymbol(PitchYaw)
+label(PitchYaw)
+
+
+newmem:
+addss xmm8,[rsi]
+mov [PitchYaw],rsi
+
+exit:
+jmp returnhere
+
+PitchYaw:
+dd 0
+
+"SDHDShip.exe"+3D1909:
+jmp newmem
+
+returnhere:
+
+{
+// function writes to car cam distance multiplier
+"SDHDShip.exe"+181AA0: // - F3 0F10 01            - movss xmm0,[rcx]
+ret
+db 90 90 90
+}
+
+// writes to CarCamFOV
+"SDHDShip.exe"+3D0932: // - F3 41 0F11 75 1C      - movss [r13+1C],xmm6
+db 90 90 90 90 90 90
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+"SDHDShip.exe"+3D1909:
+addss xmm8,[rsi]
+
+{
+"SDHDShip.exe"+181AA0: // - F3 0F10 01            -
+movss xmm0,[rcx]
+}
+
+"SDHDShip.exe"+3D0932: // - F3 41 0F11 75 1C      -
+movss [r13+1C],xmm6
+
+dealloc(newmem)
+unregistersymbol(PitchYaw)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>96</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13947</ID>
+          <Description>"NOP Chase Camera OpCodes"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//NOP Pitch writes
+"SDHDShip.exe"+3D1FEC: // F3 0F11 1E            - movss [rsi],xmm3
+db 90 90 90 90
+
+"SDHDShip.exe"+3D2014: // F3 0F11 06            - movss [rsi],xmm0
+db 90 90 90 90
+
+//NOP Yaw writes
+
+"SDHDShip.exe"+3D25B9: // F3 0F11 87 04050000   - movss [rdi+00000504],xmm0
+db 90 90 90 90 90 90 90 90
+
+"SDHDShip.exe"+181B7A: // F3 0F11 01            - movss [rcx],xmm0
+db 90 90 90 90
+
+"SDHDShip.exe"+3C77A9: // F3 0F11 01            - movss [rcx],xmm0
+db 90 90 90 90
+
+"SDHDShip.exe"+3C77CF: // F3 0F11 01            - movss [rcx],xmm0
+db 90 90 90 90
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+"SDHDShip.exe"+3D1FEC:
+movss [rsi],xmm3
+
+"SDHDShip.exe"+3D2014:
+movss [rsi],xmm0
+
+"SDHDShip.exe"+3D25B9:
+movss [rdi+00000504],xmm0
+
+"SDHDShip.exe"+181B7A:
+movss [rcx],xmm0
+
+"SDHDShip.exe"+3C77A9:
+movss [rcx],xmm0
+
+"SDHDShip.exe"+3C77CF:
+movss [rcx],xmm0
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82633</ID>
+          <Description>"Car cam dist"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"SDHDShip.exe"+3CB6F2) 
+label(returnhere)
+label(exit)
+registersymbol(CarCamDist)
+label(CarCamDist)
+
+newmem:
+mov [CarCamDist],r13
+subss xmm0,[r13+00]
+
+exit:
+jmp returnhere
+
+CarCamDist:
+dd 0
+
+"SDHDShip.exe"+3CB6F2:
+jmp newmem
+nop
+returnhere:
+
+// function writes car cam distance multiplier
+"SDHDShip.exe"+181AA0: // - F3 0F10 01            - movss xmm0,[rcx]
+ret
+db 90 90 90
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+"SDHDShip.exe"+3CB6F2:
+subss xmm0,[r13+00]
+//Alt: db F3 41 0F 5C 45 00
+
+"SDHDShip.exe"+181AA0: // - F3 0F10 01            -
+movss xmm0,[rcx]
+
+dealloc(newmem)
+unregistersymbol(CarCamDist)
+
+{
+aobscanmodule(INJECT,SDHDShip.exe,F3 41 0F 5C 45 00 0F) // should be unique
+alloc(newmem,$1000,INJECT)
+
+
+// ORIGINAL CODE - INJECTION POINT: SDHDShip.exe+3CB6F2
+
+SDHDShip.exe+3CB6BA: 44 38 A6 F4 02 00 00     - cmp [rsi+000002F4],r12l
+SDHDShip.exe+3CB6C1: 0F 94 C0                 - sete al
+SDHDShip.exe+3CB6C4: 88 86 9C 03 00 00        - mov [rsi+0000039C],al
+SDHDShip.exe+3CB6CA: 44 38 A6 90 03 00 00     - cmp [rsi+00000390],r12l
+SDHDShip.exe+3CB6D1: 75 0E                    - jne SDHDShip.exe+3CB6E1
+SDHDShip.exe+3CB6D3: 44 89 A6 94 03 00 00     - mov [rsi+00000394],r12d
+SDHDShip.exe+3CB6DA: C6 86 90 03 00 00 01     - mov byte ptr [rsi+00000390],01
+SDHDShip.exe+3CB6E1: 44 38 25 59 3B 00 02     - cmp [SDHDShip.exe+23CF241],r12l
+SDHDShip.exe+3CB6E8: 4C 8D AE 94 03 00 00     - lea r13,[rsi+00000394]
+SDHDShip.exe+3CB6EF: 0F 28 C6                 - movaps xmm0,xmm6
+// ---------- INJECTING HERE ----------
+SDHDShip.exe+3CB6F2: F3 41 0F 5C 45 00        - subss xmm0,[r13+00]
+// ---------- DONE INJECTING  ----------
+SDHDShip.exe+3CB6F8: 0F 54 05 51 2A 2A 01     - andps xmm0,[SDHDShip.exe+166E150]
+SDHDShip.exe+3CB6FF: 74 06                    - je SDHDShip.exe+3CB707
+SDHDShip.exe+3CB701: F3 41 0F 11 75 00        - movss [r13+00],xmm6
+SDHDShip.exe+3CB707: 41 0F 2F 75 00           - comiss xmm6,[r13+00]
+SDHDShip.exe+3CB70C: 76 18                    - jna SDHDShip.exe+3CB726
+SDHDShip.exe+3CB70E: F3 0F 10 96 F8 02 00 00  - movss xmm2,[rsi+000002F8]
+SDHDShip.exe+3CB716: 41 0F 2F D2              - comiss xmm2,xmm10
+SDHDShip.exe+3CB71A: 77 12                    - ja SDHDShip.exe+3CB72E
+SDHDShip.exe+3CB71C: F3 0F 10 15 00 71 CA 01  - movss xmm2,[SDHDShip.exe+2072824]
+SDHDShip.exe+3CB724: EB 08                    - jmp SDHDShip.exe+3CB72E
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13942</ID>
+      <Description>"Pitch angle"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>PitchYaw</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>104</Key>
+          </Keys>
+          <Value>0.5</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>101</Key>
+          </Keys>
+          <Value>0.5</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>104</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>101</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>3</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13943</ID>
+      <Description>"Yaw angle"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>PitchYaw</Address>
+      <Offsets>
+        <Offset>+8</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>100</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>102</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>1</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>100</Key>
+          </Keys>
+          <Value>0.02</Value>
+          <ID>2</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>102</Key>
+          </Keys>
+          <Value>0.02</Value>
+          <ID>3</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82629</ID>
+      <Description>"CarFOV"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>PitchYaw</Address>
+      <Offsets>
+        <Offset>270</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>107</Key>
+            <Key>103</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>107</Key>
+            <Key>105</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82634</ID>
+      <Description>"Car cam dist multiplier"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>CarCamDist</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Decrease Value</Action>
+          <Keys>
+            <Key>103</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Increase Value</Action>
+          <Keys>
+            <Key>105</Key>
+          </Keys>
+          <Value>0.1</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13962</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82640</ID>
+      <Description>"CHEATS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82641</ID>
+      <Description>"  1. Manually enable Qi POWER AND HEAT script."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82643</ID>
+      <Description>"  2. Heat can be disabled by setting the NO HEAT value to 1 - currently not bound to a key."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82644</ID>
+      <Description>"  3. P enables Qi power cheat, Shift+P disables cheat."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82642</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14004</ID>
+      <Description>"Qi POWER AND HEAT"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// Credit: ++METHOS
+
+[ENABLE]
+
+alloc(NEWMEM10,2048,"SDHDShip.exe"+4A67AA)
+label(RETURNHERE10)
+label(ORIGINALCODE10)
+label(QI_POWER)
+label(HEAT)
+label(NO_HEAT_ENABLE)
+label(QI_POWER_ENABLE)
+label(HEAT_VALUE)
+registersymbol(QI_POWER)
+registersymbol(NO_HEAT_ENABLE)
+registersymbol(QI_POWER_ENABLE)
+registersymbol(HEAT_VALUE)
+
+{=====================
+HEAT / QI POWER
+=====================}
+
+NEWMEM10:
+PUSH RDI
+LEA RDI,[RDX]
+CMP RDI,29
+POP RDI
+JE HEAT
+PUSH RDI
+LEA RDI,[RDX]
+CMP RDI,2B
+POP RDI
+JE QI_POWER
+JMP ORIGINALCODE10
+
+HEAT:
+PUSH RDI
+LEA RDI,[RAX+RDX*4+00000560]
+MOV [HEAT_VALUE],RDI
+POP RDI
+CMP BYTE PTR [NO_HEAT_ENABLE],1
+JNE ORIGINALCODE10
+MOV [RAX+RDX*4+00000560],(FLOAT)0
+JMP ORIGINALCODE10
+
+QI_POWER:
+CMP BYTE PTR [QI_POWER_ENABLE],1
+JNE ORIGINALCODE10
+//CMP [BUMPER_VALUE],#768
+//JNE ORIGINALCODE10
+MOV [RAX+RDX*4+00000560],(FLOAT)100.0
+MOVSS XMM0,[RAX+RDX*4+00000560]
+MOV [RAX+RDX*4+00000560],(FLOAT)0
+JMP RETURNHERE10
+
+ORIGINALCODE10:
+MOVSS XMM0,[RAX+RDX*4+00000560]
+JMP RETURNHERE10
+
+NO_HEAT_ENABLE:
+DB 0
+QI_POWER_ENABLE:
+DB 0
+HEAT_VALUE:
+DD 0
+
+"SDHDShip.exe"+4A67AA:
+JMP NEWMEM10
+NOP
+NOP
+NOP
+NOP
+RETURNHERE10:
+
+ 
+[DISABLE]
+
+"SDHDShip.exe"+4A67AA:
+MOVSS XMM0,[RAX+RDX*4+00000560]
+
+dealloc(NEWMEM10)
+unregistersymbol(QI_POWER)
+unregistersymbol(NO_HEAT_ENABLE)
+unregistersymbol(QI_POWER_ENABLE)
+unregistersymbol(HEAT_VALUE)
+{
+aobscanmodule(INJECT,SDHDShip.exe,F3 0F 10 84 90 60 05 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+// ORIGINAL CODE - INJECTION POINT: SDHDShip.exe+4A67AA
+
+SDHDShip.exe+4A6798: CC                          - int 3
+SDHDShip.exe+4A6799: CC                          - int 3
+SDHDShip.exe+4A679A: CC                          - int 3
+SDHDShip.exe+4A679B: CC                          - int 3
+SDHDShip.exe+4A679C: CC                          - int 3
+SDHDShip.exe+4A679D: CC                          - int 3
+SDHDShip.exe+4A679E: CC                          - int 3
+SDHDShip.exe+4A679F: CC                          - int 3
+SDHDShip.exe+4A67A0: 48 8B 81 10 18 00 00        - mov rax,[rcx+00001810]
+SDHDShip.exe+4A67A7: 48 63 D2                    - movsxd  rdx,edx
+// ---------- INJECTING HERE ----------
+SDHDShip.exe+4A67AA: F3 0F 10 84 90 60 05 00 00  - movss xmm0,[rax+rdx*4+00000560]
+// ---------- DONE INJECTING  ----------
+SDHDShip.exe+4A67B3: C3                          - ret
+SDHDShip.exe+4A67B4: CC                          - int 3
+SDHDShip.exe+4A67B5: CC                          - int 3
+SDHDShip.exe+4A67B6: CC                          - int 3
+SDHDShip.exe+4A67B7: CC                          - int 3
+SDHDShip.exe+4A67B8: CC                          - int 3
+SDHDShip.exe+4A67B9: CC                          - int 3
+SDHDShip.exe+4A67BA: CC                          - int 3
+SDHDShip.exe+4A67BB: CC                          - int 3
+SDHDShip.exe+4A67BC: CC                          - int 3
+
+
+{=====================
+HEAT / QI POWER
+=====================}
+
+{
+NEWMEM10:
+PUSH RDI
+LEA RDI,[RDX]
+CMP RDI,29
+POP RDI
+JE HEAT
+PUSH RDI
+LEA RDI,[RDX]
+CMP RDI,2B
+POP RDI
+JE QI_POWER
+JMP ORIGINALCODE10
+
+HEAT:
+PUSH RDI
+LEA RDI,[RAX+RDX*4+00000560]
+MOV [HEAT_VALUE],RDI
+POP RDI
+CMP BYTE PTR [NO_HEAT_ENABLE],1
+JNE ORIGINALCODE10
+MOV [RAX+RDX*4+00000560],(FLOAT)0
+JMP ORIGINALCODE10
+
+QI_POWER:
+CMP BYTE PTR [QI_POWER_ENABLE],1
+JNE ORIGINALCODE10
+CMP [BUMPER_VALUE],#768
+JNE ORIGINALCODE10
+MOV [RAX+RDX*4+00000560],(FLOAT)100.0
+MOVSS XMM0,[RAX+RDX*4+00000560]
+MOV [RAX+RDX*4+00000560],(FLOAT)0
+JMP RETURNHERE10
+
+ORIGINALCODE10:
+MOVSS XMM0,[RAX+RDX*4+00000560]
+JMP RETURNHERE10
+
+NO_HEAT_ENABLE:
+DB 0
+QI_POWER_ENABLE:
+DB 0
+HEAT_VALUE:
+DD 0
+
+AOB_HEAT:
+JMP NEWMEM10
+NOP
+NOP
+NOP
+NOP
+RETURNHERE10:
+
+
+}
+
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"NO HEAT"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Byte</VariableType>
+          <Address>no_heat_enable</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13981</ID>
+          <Description>"QI POWER [ P, SHIFT+P]"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>FF0000</Color>
+          <VariableType>Byte</VariableType>
+          <Address>qi_power_enable</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>16</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82607</ID>
+      <Description>"ACTIVATE TRAINER (Speed)"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//TARGET:  SLEEPING DOGS - DEFINITIVE EDITION
+//AUTHOR:  ++METHOS
+
+[ENABLE]
+{======================================================
+AOB SCANS
+======================================================}
+
+{=====================
+CONTROLLER BUTTONS
+=====================}
+
+AOBSCANMODULE(AOB_BUMPER,SDHDSHIP.EXE,0FB780480800004C)
+ALLOC(NEWMEM1,$2000,"SDHDSHIP.EXE"+A3B1FF)
+
+{=====================
+CONTROLLER ANALOG
+=====================}
+
+AOBSCANMODULE(AOB_ANALOG_LEFT,SDHDSHIP.EXE,F3450F115634)
+ALLOC(NEWMEM2,$2000,"SDHDSHIP.EXE"+3082E1)
+
+{=====================
+PLAYER ID
+=====================}
+
+AOBSCANMODULE(AOB_PLAYER_ID,SDHDSHIP.EXE,F30F104154F30F5E)
+ALLOC(NEWMEM3,$2000,"SDHDSHIP.EXE"+54FAED)
+
+{=====================
+SPEED / FREEZE
+=====================}
+
+AOBSCANMODULE(AOB_SPEED,SDHDSHIP.EXE,0F584770F3440F10642430)
+ALLOC(NEWMEM14,$2000,"SDHDSHIP.EXE"+D90278)
+
+{=====================
+GAME SPEED
+=====================}
+
+AOBSCANMODULE(AOB_GAME_SPEED,SDHDSHIP.EXE,F3 0F10 0D 3ABFA801)
+// original AOB - F30F100D7AC1A801
+ALLOC(NEWMEM15,$2000,"SDHDSHIP.EXE"+5B07D6)
+
+{=====================
+PLAYER COORDINATES ID
+=====================}
+
+AOBSCANMODULE(AOB_PLAYER_COORDINATES_ID,SDHDSHIP.EXE,0F5C80A00100000FC6C0AA0F2FF076030F28F08B44243C25FFFFFF3F8B4C24383BC8752641B840000000488D542430488D0D4640C801)
+// original AOB - 0F5C80A00100000FC6C0AA0F2FF076030F28F08B44243C25FFFFFF3F8B4C24383BC8752641B840000000488D542430488D0DE641C801
+ALLOC(NEWMEM_PLAYER_COORDINATES_ID,$2000,"SDHDSHIP.EXE"+48580C)
+
+
+
+
+
+
+
+{======================================================
+LABELS
+======================================================}
+
+{=====================
+CONTROLLER BUTTONS
+=====================}
+
+LABEL(RETURNHERE1)
+LABEL(BUMPER_VALUE)
+LABEL(BUMP_BASE)
+LABEL(TURN_ON_RAPIDFIRE)
+LABEL(TURN_OFF_RAPIDFIRE)
+LABEL(RAPID_FIRE_ENABLE)
+
+{=====================
+CONTROLLER ANALOG
+=====================}
+
+LABEL(RETURNHERE2)
+LABEL(ANALOG_LEFT)
+LABEL(ANALOG_RIGHT)
+
+{=====================
+PLAYER ID
+=====================}
+
+LABEL(RETURNHERE3)
+LABEL(PLAYER_ID)
+
+{=====================
+SPEED / FREEZE
+=====================}
+
+LABEL(RETURNHERE14)
+LABEL(ORIGINALCODE14)
+LABEL(HERO)
+LABEL(FAST)
+LABEL(FREEZE)
+LABEL(FREEZE_ENABLE)
+LABEL(RESET_ENEMY)
+LABEL(RESET_PLAYER)
+LABEL(ENEMY)
+LABEL(PLAYER_SPEED)
+
+{=====================
+GAME SPEED
+=====================}
+
+LABEL(RETURNHERE15)
+LABEL(ORIGINALCODE15)
+LABEL(GAME_SLOW)
+LABEL(GAME_RESET)
+LABEL(GAME_SPEED_BASE)
+
+{=====================
+PLAYER COORDINATES ID
+=====================}
+
+LABEL(RETURN_PLAYER_COORDINATES_ID)
+LABEL(PLAYER_COORDINATES_ID_ADDRESS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+{======================================================
+SYMBOLS
+======================================================}
+
+{=====================
+CONTROLLER BUTTONS
+=====================}
+
+REGISTERSYMBOL(AOB_BUMPER)
+REGISTERSYMBOL(BUMPER_VALUE)
+REGISTERSYMBOL(BUMP_BASE)
+REGISTERSYMBOL(RAPID_FIRE_ENABLE)
+
+{=====================
+CONTROLLER ANALOG
+=====================}
+
+REGISTERSYMBOL(AOB_ANALOG_LEFT)
+REGISTERSYMBOL(ANALOG_LEFT)
+REGISTERSYMBOL(ANALOG_RIGHT)
+
+{=====================
+PLAYER ID
+=====================}
+
+REGISTERSYMBOL(PLAYER_ID)
+REGISTERSYMBOL(AOB_PLAYER_ID)
+
+{=====================
+SPEED / FREEZE
+=====================}
+
+REGISTERSYMBOL(AOB_SPEED)
+REGISTERSYMBOL(FREEZE_ENABLE)
+REGISTERSYMBOL(PLAYER_SPEED)
+
+{=====================
+GAME SPEED
+=====================}
+
+REGISTERSYMBOL(AOB_GAME_SPEED)
+REGISTERSYMBOL(GAME_SPEED_BASE)
+
+{=====================
+PLAYER COORDINATES ID
+=====================}
+
+REGISTERSYMBOL(AOB_PLAYER_COORDINATES_ID)
+REGISTERSYMBOL(PLAYER_COORDINATES_ID_ADDRESS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{======================================================
+CODE
+======================================================}
+
+{=====================
+CONTROLLER BUTTONS
+=====================}
+
+NEWMEM1:
+PUSH RCX
+LEA RCX,[RAX]
+MOV [BUMP_BASE],RCX
+POP RCX
+PUSH RDI
+MOV RDI,[RAX+00000848]
+MOV [BUMPER_VALUE],RDI
+POP RDI
+MOVZX EAX,WORD PTR [RAX+00000848]
+CMP [BUMPER_VALUE],#16711744
+JE TURN_ON_RAPIDFIRE
+CMP [BUMPER_VALUE],#16711808
+JE TURN_OFF_RAPIDFIRE
+JMP RETURNHERE1
+
+TURN_ON_RAPIDFIRE:
+MOV BYTE PTR [RAPID_FIRE_ENABLE],1
+JMP RETURNHERE1
+
+TURN_OFF_RAPIDFIRE:
+MOV BYTE PTR [RAPID_FIRE_ENABLE],0
+JMP RETURNHERE1
+
+BUMPER_VALUE:
+DQ 0
+BUMP_BASE:
+DQ 0
+RAPID_FIRE_ENABLE:
+DB 0
+
+AOB_BUMPER:
+JMP NEWMEM1
+NOP
+NOP
+RETURNHERE1:
+
+{=====================
+CONTROLLER ANALOG
+=====================}
+
+NEWMEM2:
+PUSH EAX
+MOV EAX,[R14+34]
+MOV [ANALOG_LEFT],EAX
+POP EAX
+PUSH EAX
+MOV EAX,[R14+30]
+MOV [ANALOG_RIGHT],EAX
+POP EAX
+MOVSS [R14+34],XMM10
+JMP RETURNHERE2
+
+ANALOG_LEFT:
+DQ (FLOAT)0
+ANALOG_RIGHT:
+DQ (FLOAT)0
+
+AOB_ANALOG_LEFT:
+JMP NEWMEM2
+NOP
+RETURNHERE2:
+
+{=====================
+PLAYER ID
+=====================}
+
+NEWMEM3:
+PUSH RDI
+LEA RDI,[RCX]
+MOV [PLAYER_ID],RDI
+POP RDI
+MOVSS XMM0,[RCX+54]
+JMP RETURNHERE3
+
+PLAYER_ID:
+DQ 0
+
+AOB_PLAYER_ID:
+JMP NEWMEM3
+RETURNHERE3:
+
+{=====================
+SPEED / FREEZE
+=====================}
+
+NEWMEM14:
+PUSH RDX
+LEA RDX,[RDI+70]
+CMP RDX,[PLAYER_COORDINATES_ID_ADDRESS]
+POP RDX
+JNE ENEMY
+JMP HERO
+
+ENEMY:
+CMP DWORD PTR [BUMPER_VALUE],#520
+JE FREEZE
+CMP DWORD PTR [BUMPER_VALUE],#514
+JE RESET_ENEMY
+CMP BYTE PTR [FREEZE_ENABLE],1
+JE FREEZE
+JMP ORIGINALCODE14
+
+FREEZE:
+MOV BYTE PTR [FREEZE_ENABLE],1
+SUBPS XMM0,XMM0
+ADDPS XMM0,[RDI+70]
+MOVSS XMM12,[RSP+30]
+JMP RETURNHERE14
+
+RESET_ENEMY:
+MOV BYTE PTR [FREEZE_ENABLE],0
+JMP ORIGINALCODE14
+
+RESET_PLAYER:
+MOV BYTE PTR [PLAYER_SPEED],0
+JMP ORIGINALCODE14
+
+HERO:
+CMP DWORD PTR [BUMPER_VALUE],#64
+JE FAST
+CMP DWORD PTR [BUMPER_VALUE],#128
+JE RESET_PLAYER
+CMP BYTE PTR [PLAYER_SPEED],1
+JE FAST
+CMP BYTE PTR [PLAYER_SPEED],0
+JE RESET_PLAYER
+JMP ORIGINALCODE14
+
+FAST:
+MOV BYTE PTR [PLAYER_SPEED],1
+MOVHLPS XMM1,XMM0
+ADDPS XMM0,XMM0
+ADDPS XMM0,XMM0
+MOVLHPS XMM0,XMM1
+JMP ORIGINALCODE14
+
+ORIGINALCODE14:
+ADDPS XMM0,[RDI+70]
+MOVSS XMM12,[RSP+30]
+JMP RETURNHERE14
+
+FREEZE_ENABLE:
+DB 0
+PLAYER_SPEED:
+DB 0
+
+AOB_SPEED:
+JMP NEWMEM14
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+RETURNHERE14:
+
+{=====================
+GAME SPEED
+=====================}
+
+NEWMEM15:
+PUSH RDI
+//LEA RDI,[SDHDSHIP.UFG::METRICS::MSINSTANCE+38]
+LEA RDI,[SDHDShip.exe+203C958]
+MOV [GAME_SPEED_BASE],RDI
+POP RDI
+CMP [BUMPER_VALUE],#4278190336
+JE GAME_SLOW
+CMP [BUMPER_VALUE],#4278190848
+JE GAME_SLOW
+CMP [BUMPER_VALUE],#4278190592
+JE GAME_RESET
+JMP ORIGINALCODE15
+
+GAME_SLOW:
+MOV [SDHDShip.exe+203C958],(FLOAT).01
+JMP ORIGINALCODE15
+
+GAME_RESET:
+MOV [SDHDShip.exe+203C958],(FLOAT)1.0
+JMP ORIGINALCODE15
+
+ORIGINALCODE15:
+MOVSS XMM1,[SDHDShip.exe+203C958]
+JMP RETURNHERE15
+
+GAME_SPEED_BASE:
+DQ 0
+
+AOB_GAME_SPEED:
+JMP NEWMEM15
+NOP
+NOP
+NOP
+RETURNHERE15:
+
+{=====================
+PLAYER COORDINATES ID
+=====================}
+
+NEWMEM_PLAYER_COORDINATES_ID:
+PUSH RDI
+LEA RDI,[RAX+000001C0]
+MOV [PLAYER_COORDINATES_ID_ADDRESS],RDI
+POP RDI
+SUBPS XMM0,[RAX+000001A0]
+JMP RETURN_PLAYER_COORDINATES_ID
+
+PLAYER_COORDINATES_ID_ADDRESS:
+DQ 0
+
+AOB_PLAYER_COORDINATES_ID:
+JMP NEWMEM_PLAYER_COORDINATES_ID
+NOP
+NOP
+RETURN_PLAYER_COORDINATES_ID:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{======================================================
+DEALLOCATION
+======================================================}
+
+[DISABLE]
+
+{=====================
+CONTROLLER BUTTONS
+=====================}
+
+DEALLOC(NEWMEM1)
+AOB_BUMPER:
+MOVZX EAX,WORD PTR [RAX+00000848]
+
+UNREGISTERSYMBOL(AOB_BUMPER)
+UNREGISTERSYMBOL(BUMPER_VALUE)
+UNREGISTERSYMBOL(BUMP_BASE)
+UNREGISTERSYMBOL(RAPID_FIRE_ENABLE)
+
+{=====================
+CONTROLLER ANALOG
+=====================}
+
+DEALLOC(NEWMEM2)
+AOB_ANALOG_LEFT:
+MOVSS [R14+34],XMM10
+//"SDHDSHIP.EXE"+3082E1
+
+UNREGISTERSYMBOL(AOB_ANALOG_LEFT)
+UNREGISTERSYMBOL(ANALOG_LEFT)
+UNREGISTERSYMBOL(ANALOG_RIGHT)
+
+{=====================
+PLAYER ID
+=====================}
+
+DEALLOC(NEWMEM3)
+AOB_PLAYER_ID:
+MOVSS XMM0,[RCX+54]
+//"SDHDSHIP.EXE"+54FAED
+
+UNREGISTERSYMBOL(PLAYER_ID)
+UNREGISTERSYMBOL(AOB_PLAYER_ID)
+
+{=====================
+SPEED / FREEZE
+=====================}
+
+DEALLOC(NEWMEM14)
+AOB_SPEED:
+DB 0F 58 47 70 F3 44 0F 10 64 24 30
+
+UNREGISTERSYMBOL(AOB_SPEED)
+UNREGISTERSYMBOL(FREEZE_ENABLE)
+UNREGISTERSYMBOL(PLAYER_SPEED)
+
+{=====================
+GAME SPEED
+=====================}
+
+DEALLOC(NEWMEM15)
+AOB_GAME_SPEED:
+MOVSS XMM1,[SDHDShip.exe+203C958]
+//"SDHDSHIP.EXE"+5B07D6
+
+UNREGISTERSYMBOL(AOB_GAME_SPEED)
+UNREGISTERSYMBOL(GAME_SPEED_BASE)
+
+{=====================
+PLAYER COORDINATES ID
+=====================}
+
+DEALLOC(NEWMEM_PLAYER_COORDINATES_ID)
+AOB_PLAYER_COORDINATES_ID:
+DB 0F 5C 80 A0 01 00 00
+
+UNREGISTERSYMBOL(AOB_PLAYER_COORDINATES_ID)
+UNREGISTERSYMBOL(PLAYER_COORDINATES_ID_ADDRESS)
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>82608</ID>
+          <Description>"POINTERS"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82609</ID>
+              <Description>"HEALTH"</Description>
+              <VariableType>Float</VariableType>
+              <Address>PLAYER_ID</Address>
+              <Offsets>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82610</ID>
+              <Description>"GAME SPEED"</Description>
+              <VariableType>Float</VariableType>
+              <Address>GAME_SPEED_BASE</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82611</ID>
+              <Description>"GAME TIME (0/MIDNIGHT  -  43200/NOON)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>GAME_CLOCK</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82612</ID>
+          <Description>"SYMBOLS"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82613</ID>
+              <Description>"FREEZE"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>freeze_enable</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>79</Key>
+                  </Keys>
+                  <Value>1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>16</Key>
+                    <Key>79</Key>
+                  </Keys>
+                  <Value>0</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82614</ID>
+              <Description>"PLAYER SPEED"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>PLAYER_SPEED</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82615</ID>
+              <Description>"RAPID FIRE"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>RAPID_FIRE_ENABLE</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82616</ID>
+          <Description>"STATIC ADDRESSES"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82617</ID>
+              <Description>"X AXIS"</Description>
+              <VariableType>Float</VariableType>
+              <Address>7FFDFEB2260</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82618</ID>
+              <Description>"Z AXIS"</Description>
+              <VariableType>Float</VariableType>
+              <Address>7FFDFEB2264</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82619</ID>
+              <Description>"Y AXIS"</Description>
+              <VariableType>Float</VariableType>
+              <Address>7FFDFEB2268</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82620</ID>
+              <Description>"GAME TIME (0/MIDNIGHT  -  43200/NOON)"</Description>
+              <VariableType>Float</VariableType>
+              <Address>sdhdship.exe+2163534</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

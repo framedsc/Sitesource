@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>776</ID>
+      <Description>"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>779</ID>
+      <Description>"Assassin's Creed Unity hack by Skall (@skalledit)"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>780</ID>
+      <Description>"Thanks to Otis_Inf (Frans Bouma) for the LOD AOB! "</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>777</ID>
+      <Description>"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>762</ID>
+      <Description>"DISABLE CHROMATIC ABERRATION"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : ACU.exe
+  Version: 
+  Date   : 2021-08-15
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(killC,ACU.exe,F3 0F 10 47 2C F3 0F 11) // should be unique
+registersymbol(killC)
+
+killC:
+  db 90 90 90 90 90
+
+[DISABLE]
+
+killC:
+  db F3 0F 10 47 2C
+
+unregistersymbol(killC)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>774</ID>
+      <Description>"DISABLE FOG"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : ACU.exe
+  Version: 
+  Date   : 2021-08-15
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(killfog,ACU.exe,0F 28 B5 30 03 00 00) // should be unique
+registersymbol(killfog)
+
+killfog:
+  db 90 90 90 90 90 90 90
+
+[DISABLE]
+
+killfog:
+  db 0F 28 B5 30 03 00 00
+
+unregistersymbol(killfog)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "ACU.exe"+21A8062
+
+"ACU.exe"+21A8024: 0F 14 CB                    -  unpcklps xmm1,xmm3
+"ACU.exe"+21A8027: 0F 28 C4                    -  movaps xmm0,xmm4
+"ACU.exe"+21A802A: 0F 14 C2                    -  unpcklps xmm0,xmm2
+"ACU.exe"+21A802D: 0F 14 C1                    -  unpcklps xmm0,xmm1
+"ACU.exe"+21A8030: 0F 29 87 80 01 00 00        -  movaps [rdi+00000180],xmm0
+"ACU.exe"+21A8037: 45 0F 28 8C 24 F0 00 00 00  -  movaps xmm9,[r12+000000F0]
+"ACU.exe"+21A8040: 41 0F 28 AC 24 00 01 00 00  -  movaps xmm5,[r12+00000100]
+"ACU.exe"+21A8049: 41 0F 28 9C 24 10 01 00 00  -  movaps xmm3,[r12+00000110]
+"ACU.exe"+21A8052: 45 0F 28 94 24 E0 00 00 00  -  movaps xmm10,[r12+000000E0]
+"ACU.exe"+21A805B: 0F 28 BD 20 03 00 00        -  movaps xmm7,[rbp+00000320]
+// ---------- INJECTING HERE ----------
+"ACU.exe"+21A8062: 0F 28 B5 30 03 00 00        -  movaps xmm6,[rbp+00000330]
+// ---------- DONE INJECTING  ----------
+"ACU.exe"+21A8069: 45 0F 28 D9                 -  movaps xmm11,xmm9
+"ACU.exe"+21A806D: 41 0F 28 C1                 -  movaps xmm0,xmm9
+"ACU.exe"+21A8071: 41 0F C6 C1 00              -  shufps xmm0,xmm9,00
+"ACU.exe"+21A8076: 45 0F C6 D9 55              -  shufps xmm11,xmm9,55
+"ACU.exe"+21A807B: 41 0F 28 C9                 -  movaps xmm1,xmm9
+"ACU.exe"+21A807F: 44 0F 28 ED                 -  movaps xmm13,xmm5
+"ACU.exe"+21A8083: 0F 28 E3                    -  movaps xmm4,xmm3
+"ACU.exe"+21A8086: 0F 59 C7                    -  mulps xmm0,xmm7
+"ACU.exe"+21A8089: 44 0F 59 DE                 -  mulps xmm11,xmm6
+"ACU.exe"+21A808D: 41 0F 28 D2                 -  movaps xmm2,xmm10
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>775</ID>
+      <Description>"LOD FIX"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : ACU.exe
+  Version: 
+  Date   : 2021-08-15
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(lodFIX,ACU.exe,75 0D F3 0F 10 05 B6 A5 C4 00) // should be unique
+registersymbol(lodFIX)
+lodFIX:
+  db 90 90 F3 0F 10 05 B6 A5 C4 00
+
+[DISABLE]
+
+lodFIX:
+  db 75 0D F3 0F 10 05 B6 A5 C4 00
+
+unregistersymbol(lodFIX)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "ACU.exe"+222D920
+
+"ACU.exe"+222D906: 48 83 C4 50                 -  add rsp,50
+"ACU.exe"+222D90A: 41 5F                       -  pop r15
+"ACU.exe"+222D90C: 5F                          -  pop rdi
+"ACU.exe"+222D90D: 5E                          -  pop rsi
+"ACU.exe"+222D90E: C3                          -  ret 
+"ACU.exe"+222D90F: CC                          -  int 3 
+"ACU.exe"+222D910: 48 83 EC 28                 -  sub rsp,28
+"ACU.exe"+222D914: 48 85 C9                    -  test rcx,rcx
+"ACU.exe"+222D917: 74 16                       -  je ACU.exe+222D92F
+"ACU.exe"+222D919: 83 B9 40 02 00 00 01        -  cmp dword ptr [rcx+00000240],01
+// ---------- INJECTING HERE ----------
+"ACU.exe"+222D920: 75 0D                       -  jne ACU.exe+222D92F
+"ACU.exe"+222D922: F3 0F 10 05 B6 A5 C4 00     -  movss xmm0,[ACU.exe+2E77EE0]
+// ---------- DONE INJECTING  ----------
+"ACU.exe"+222D92A: 48 83 C4 28                 -  add rsp,28
+"ACU.exe"+222D92E: C3                          -  ret 
+"ACU.exe"+222D92F: F3 0F 59 0D 25 77 C4 00     -  mulss xmm1,[ACU.exe+2E7505C]
+"ACU.exe"+222D937: 0F 28 C1                    -  movaps xmm0,xmm1
+"ACU.exe"+222D93A: E8 F1 BE 6C 00              -  call ACU.exe+28F9830
+"ACU.exe"+222D93F: F3 0F 59 05 9D 3D E7 00     -  mulss xmm0,[ACU.exe+30A16E4]
+"ACU.exe"+222D947: 48 83 C4 28                 -  add rsp,28
+"ACU.exe"+222D94B: C3                          -  ret 
+"ACU.exe"+222D94C: CC                          -  int 3 
+"ACU.exe"+222D94D: CC                          -  int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>778</ID>
+      <Description>"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

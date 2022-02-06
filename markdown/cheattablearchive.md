@@ -37,8 +37,10 @@ camera tools for the game instead of using these old cheat tables.
 - [AC4BFSP_test.CT](CheatTables/Archive/AC4BFSP_test.CT)
 - [Assassins_Credd_IV-pausecamera_AOB_0.3.ct](CheatTables/Archive/Assassins_Credd_IV-pausecamera_AOB_0.3.ct)
 - [ACBFUplay_Camera_and_Timestop.CT](CheatTables/Archive/ACBFUplay_Camera_and_Timestop.CT)
+- [Hit_Del_to_enable_camera_move_with_j,k,l,i,o,u.CT](CheatTables/Archive/Hit_Del_to_enable_camera_move_with_j,k,l,i,o,u.CT)
 - [Initiate_show_hide_UI_-___navigate_with_numpad2_8_hide_hidehud_with_numpad_5.CT](CheatTables/Archive/Initiate_show_hide_UI_-___navigate_with_numpad2_8_hide_hidehud_with_numpad_5.CT)
 - [sun_position.CT](CheatTables/Archive/sun_position.CT)
+- [Timestop-Del_then_P-Shift_P.CT](CheatTables/Archive/Timestop-Del_then_P-Shift_P.CT)
 
 ###Assassin's Creed Syndicate
 - [ACS.CT](CheatTables/Archive/ACS.CT)
@@ -58,9 +60,6 @@ camera tools for the game instead of using these old cheat tables.
 ###Alien Isolation
 - [AI.CT](CheatTables/Archive/AI.CT)
 
-###Alan Wake
-- [AlanWake.CT](CheatTables/Archive/AlanWake.CT)
-
 ###Alan Wake's American Nightmare ([DET forums archive guide](https://web.archive.org/web/20180105152811/http://deadendthrills.com/forum/discussion/518/guide-alan-wake-s-american-nightmare))
 - [alan_wakes_american_nightmare.CT](CheatTables/Archive/alan_wakes_american_nightmare.CT)
 
@@ -72,7 +71,6 @@ camera tools for the game instead of using these old cheat tables.
 - [Batman_AAsylum_console_enablerShippingPC-BmGame.CT](CheatTables/Archive/Batman_AAsylum_console_enablerShippingPC-BmGame.CT)
 
 ###Batman: Arkham City ([DET forums archive guide](https://web.archive.org/web/20151211055428/http://www.deadendthrills.com/forum/discussion/421/guide-batman-arkham-city/p1))
-- [BatmanAC v0.5.2.CT](CheatTables/Archive/BatmanACv0.5.2.CT)
 - [BatmanAC_console_enabler.CT](CheatTables/Archive/BatmanAC_console_enabler.CT)
 
 ###Batman: Arkham Knight
@@ -106,9 +104,6 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Blades of Time
 - [bladesoftime_freecam.CT](CheatTables/Archive/bladesoftime_freecam.CT)
-
-###Blur
-- [Blur.CT](CheatTables/Archive/Blur.CT)
 
 ###Borderlands
 - [Borderlands.CT](CheatTables/Archive/Borderlands.CT)
@@ -182,9 +177,6 @@ camera tools for the game instead of using these old cheat tables.
 
 ###Dead Rising 4
 - [deadrising4_One3rd.CT](CheatTables/Archive/deadrising4_One3rd.CT)
-
-###Dead Space
-- [deadspace.CT](CheatTables/Archive/deadspace.CT)
 
 ###Dead Space 3
 - [deadspace3.CT](CheatTables/Archive/deadspace3.CT)
@@ -333,7 +325,6 @@ camera tools for the game instead of using these old cheat tables.
 - [INSIDE_Epic_Store_V1.0.CT](CheatTables/Archive/INSIDE_Epic_Store_V1.0.CT)
 
 ###Jump Force
-- [Jump_Force_Camera_Hack.CT](CheatTables/Archive/Jump_Force_Camera_Hack.CT)
 - [JUMP_FORCE.CT](CheatTables/Archive/JUMP_FORCE.CT)
 
 ###Killer Is Dead
@@ -630,7 +621,6 @@ camera tools for the game instead of using these old cheat tables.
 - [Wolfenstein_youngblood_x64vk2.ct](CheatTables/Archive/Wolfenstein_youngblood_x64vk2.ct)
 
 ###XCOM 2
-- [XCom2_AOB_to_FOV_v4.CT](CheatTables/Archive/XCom2_AOB_to_FOV_v4.CT)
 - [XCom2camera.CT](CheatTables/Archive/XCom2camera.CT)
 
 ###X-Men Origins: Wolverine

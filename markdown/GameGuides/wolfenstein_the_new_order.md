@@ -45,7 +45,9 @@ bind F5 "toggle g_showhud;toggle hands_show"
 ```
  
 The first command turns off the engine DoF and filmgrain, but it also turns off other post processing effects like color correction, altho not all of them. If you only want to turn off the post processing effects for shooting you can instead add bindings to change the `r_skippostprocess` value to -1 and 1 to turn them on and off respectively.
- 
+
+If you want to remove the game's bloom you can use the console command `r_skipadaptiveglare 1` to do so.
+
 Subtitles cant be turned off with F5, but you can dissabled them in the game options after composing a shot.
  
 ## Usage

@@ -14,11 +14,10 @@ DirectX versions | DirectX 11
  
 ## Tools
 
-* [Camera Tools by Otis_inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/Watch_Dogs2)  
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera control, FOV Control, Timestop, Hotsampling
 * [Hud Removal Tool by Otis_inf](https://mega.nz/#!FQQShJyS!Ipg4CycflblD2LvZdlfQMgl29ptx_yqPX_HA03u5hoU)  
 **Features**: Toggle for the in-game HUD
-
 
 ### Additional Notes
 
@@ -27,4 +26,5 @@ DirectX versions | DirectX 11
 
 ## Useful Links
 
+* [Time of day, weather control, time scale, spawner and more](https://www.moddb.com/mods/watch-dogs-2-scripthook) 
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Watch_Dogs_2)

@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"+------------------+ CREATED BY SKALL (DM @skalledit on Twitter if there is any problem +------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>26</ID>
+      <Description>" +------------------+ FORBIDDEN to sell and forbidden to share without credits. +------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"God Mode"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : nioh2.exe
+  Version: 
+  Date   : 2021-02-05
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(god,nioh2.exe,49 39 47 20 76 04) // should be unique
+alloc(newmem,$1000,god)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //cmp [r15+20],rax
+  jna nioh2.exe+A76E53
+  jmp return
+
+god:
+  jmp newmem
+  nop
+return:
+registersymbol(god)
+
+[DISABLE]
+
+god:
+  db 49 39 47 20 76 04
+
+unregistersymbol(god)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: nioh2.exe+A76E49
+
+nioh2.exe+A76E2A: 33 C9                    - xor ecx,ecx
+nioh2.exe+A76E2C: 0F 2F C6                 - comiss xmm0,xmm6
+nioh2.exe+A76E2F: 72 0C                    - jb nioh2.exe+A76E3D
+nioh2.exe+A76E31: F3 0F 5C C6              - subss xmm0,xmm6
+nioh2.exe+A76E35: 0F 2F C6                 - comiss xmm0,xmm6
+nioh2.exe+A76E38: 73 03                    - jae nioh2.exe+A76E3D
+nioh2.exe+A76E3A: 49 8B CE                 - mov rcx,r14
+nioh2.exe+A76E3D: F3 48 0F 2C C0           - cvttss2si rax,xmm0
+nioh2.exe+A76E42: 48 03 C1                 - add rax,rcx
+nioh2.exe+A76E45: 49 89 47 18              - mov [r15+18],rax
+// ---------- INJECTING HERE ----------
+nioh2.exe+A76E49: 49 39 47 20              - cmp [r15+20],rax
+// ---------- DONE INJECTING  ----------
+nioh2.exe+A76E4D: 76 04                    - jna nioh2.exe+A76E53
+nioh2.exe+A76E4F: 49 89 47 20              - mov [r15+20],rax
+nioh2.exe+A76E53: 49 8B 87 E8 0B 00 00     - mov rax,[r15+00000BE8]
+nioh2.exe+A76E5A: 49 8B CD                 - mov rcx,r13
+nioh2.exe+A76E5D: 41 0F B6 AF 3B 18 00 00  - movzx ebp,byte ptr [r15+0000183B]
+nioh2.exe+A76E65: 48 85 C0                 - test rax,rax
+nioh2.exe+A76E68: 41 0F B6 BF 39 18 00 00  - movzx edi,byte ptr [r15+00001839]
+nioh2.exe+A76E70: 48 8B B6 88 16 00 00     - mov rsi,[rsi+00001688]
+nioh2.exe+A76E77: 48 0F 45 C8              - cmovne rcx,rax
+nioh2.exe+A76E7B: 44 8B 71 04              - mov r14d,[rcx+04]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"Infinite Stamina"</Description>
+      <LastState/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : nioh2.exe
+  Version: 
+  Date   : 2021-02-05
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(InfiniteStamina,nioh2.exe,F3 0F 11 51 08 7A) // should be unique
+alloc(newmem,$1000,InfiniteStamina)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rcx+08],xmm2
+  jmp return
+
+InfiniteStamina:
+  jmp newmem
+return:
+registersymbol(InfiniteStamina)
+
+[DISABLE]
+
+InfiniteStamina:
+  db F3 0F 11 51 08
+
+unregistersymbol(InfiniteStamina)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: nioh2.exe+A31DA3
+
+nioh2.exe+A31D85: F3 0F 5C C4        - subss xmm0,xmm4
+nioh2.exe+A31D89: 0F 2F C3           - comiss xmm0,xmm3
+nioh2.exe+A31D8C: 73 03              - jae nioh2.exe+A31D91
+nioh2.exe+A31D8E: 0F 28 CC           - movaps xmm1,xmm4
+nioh2.exe+A31D91: 0F 28 C1           - movaps xmm0,xmm1
+nioh2.exe+A31D94: F3 0F 5C C2        - subss xmm0,xmm2
+nioh2.exe+A31D98: 0F 2F C3           - comiss xmm0,xmm3
+nioh2.exe+A31D9B: 73 03              - jae nioh2.exe+A31DA0
+nioh2.exe+A31D9D: 0F 28 D1           - movaps xmm2,xmm1
+nioh2.exe+A31DA0: 0F 2E D6           - ucomiss xmm2,xmm6
+// ---------- INJECTING HERE ----------
+nioh2.exe+A31DA3: F3 0F 11 51 08     - movss [rcx+08],xmm2
+// ---------- DONE INJECTING  ----------
+nioh2.exe+A31DA8: 7A 06              - jp nioh2.exe+A31DB0
+nioh2.exe+A31DAA: 0F 84 9C 01 00 00  - je nioh2.exe+A31F4C
+nioh2.exe+A31DB0: F3 0F 10 49 44     - movss xmm1,[rcx+44]
+nioh2.exe+A31DB5: 0F 2F CB           - comiss xmm1,xmm3
+nioh2.exe+A31DB8: 77 14              - ja nioh2.exe+A31DCE
+nioh2.exe+A31DBA: F3 0F 10 41 5C     - movss xmm0,[rcx+5C]
+nioh2.exe+A31DBF: 0F 2F C3           - comiss xmm0,xmm3
+nioh2.exe+A31DC2: 77 0A              - ja nioh2.exe+A31DCE
+nioh2.exe+A31DC4: F3 0F 10 41 64     - movss xmm0,[rcx+64]
+nioh2.exe+A31DC9: 0F 2F C3           - comiss xmm0,xmm3
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Range Unlocker"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : nioh2.exe
+  Version: 
+  Date   : 2021-02-05
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(RangeUnlocker,nioh2.exe,66 0F 7F 0E F3 0F 10 4E 08) // should be unique
+alloc(newmem,$1000,"nioh2.exe"+C0E05D)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movdqa [rsi],xmm1
+  movss xmm1,[rsi+08]
+  jmp return
+
+RangeUnlocker:
+  jmp newmem
+  nop 4
+return:
+registersymbol(RangeUnlocker)
+
+[DISABLE]
+
+RangeUnlocker:
+  db 66 0F 7F 0E F3 0F 10 4E 08
+
+unregistersymbol(RangeUnlocker)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "nioh2.exe"+C0E05D
+
+"nioh2.exe"+C0E027: F3 0F 58 44 24 20        -  addss xmm0,[rsp+20]
+"nioh2.exe"+C0E02D: F3 0F 58 7C 24 28        -  addss xmm7,[rsp+28]
+"nioh2.exe"+C0E033: F3 0F 11 4C 24 34        -  movss [rsp+34],xmm1
+"nioh2.exe"+C0E039: F3 0F 11 44 24 30        -  movss [rsp+30],xmm0
+"nioh2.exe"+C0E03F: F3 0F 10 44 24 2C        -  movss xmm0,[rsp+2C]
+"nioh2.exe"+C0E045: F3 0F 11 44 24 3C        -  movss [rsp+3C],xmm0
+"nioh2.exe"+C0E04B: 0F 28 C6                 -  movaps xmm0,xmm6
+"nioh2.exe"+C0E04E: 0F C6 C6 55              -  shufps xmm0,xmm6,55
+"nioh2.exe"+C0E052: F3 0F 11 7C 24 38        -  movss [rsp+38],xmm7
+"nioh2.exe"+C0E058: 0F 28 4C 24 30           -  movaps xmm1,[rsp+30]
+// ---------- INJECTING HERE ----------
+"nioh2.exe"+C0E05D: 66 0F 7F 0E              -  movdqa [rsi],xmm1
+"nioh2.exe"+C0E061: F3 0F 10 4E 08           -  movss xmm1,[rsi+08]
+// ---------- DONE INJECTING  ----------
+"nioh2.exe"+C0E066: F3 0F 10 1E              -  movss xmm3,[rsi]
+"nioh2.exe"+C0E06A: F3 0F 10 56 04           -  movss xmm2,[rsi+04]
+"nioh2.exe"+C0E06F: F3 0F 5C DE              -  subss xmm3,xmm6
+"nioh2.exe"+C0E073: 0F C6 F6 AA              -  shufps xmm6,xmm6,-56
+"nioh2.exe"+C0E077: F3 0F 5C D0              -  subss xmm2,xmm0
+"nioh2.exe"+C0E07B: F3 0F 10 45 0C           -  movss xmm0,[rbp+0C]
+"nioh2.exe"+C0E080: F3 0F 5C CE              -  subss xmm1,xmm6
+"nioh2.exe"+C0E084: 0F 28 B4 24 90 00 00 00  -  movaps xmm6,[rsp+00000090]
+"nioh2.exe"+C0E08C: F3 0F 11 44 24 3C        -  movss [rsp+3C],xmm0
+"nioh2.exe"+C0E092: F3 0F 58 5D 00           -  addss xmm3,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"FOV+TILT Smooth"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"killFOV"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : nioh2.exe
+  Version: 
+  Date   : 2021-02-05
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(fovtilt,nioh2.exe,F3 0F 11 81 48 01 00 00 F3 0F 10 44 24 40) // should be unique
+alloc(newmem,$1000,"nioh2.exe"+214847)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rcx+00000148],xmm0
+  jmp return
+
+fovtilt:
+  jmp newmem
+  nop 3
+return:
+registersymbol(fovtilt)
+
+[DISABLE]
+
+fovtilt:
+  db F3 0F 11 81 48 01 00 00
+
+unregistersymbol(fovtilt)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "nioh2.exe"+214847
+
+"nioh2.exe"+214813: 48 8B C1                    -  mov rax,rcx
+"nioh2.exe"+214816: 66 0F 7F 41 10              -  movdqa [rcx+10],xmm0
+"nioh2.exe"+21481B: 41 0F 28 08                 -  movaps xmm1,[r8]
+"nioh2.exe"+21481F: 66 0F 7F 49 20              -  movdqa [rcx+20],xmm1
+"nioh2.exe"+214824: 41 0F 28 01                 -  movaps xmm0,[r9]
+"nioh2.exe"+214828: F3 0F 10 4C 24 28           -  movss xmm1,[rsp+28]
+"nioh2.exe"+21482E: F3 0F 11 89 50 01 00 00     -  movss [rcx+00000150],xmm1
+"nioh2.exe"+214836: F3 0F 10 4C 24 38           -  movss xmm1,[rsp+38]
+"nioh2.exe"+21483C: 66 0F 7F 41 30              -  movdqa [rcx+30],xmm0
+"nioh2.exe"+214841: F3 0F 10 44 24 30           -  movss xmm0,[rsp+30]
+// ---------- INJECTING HERE ----------
+"nioh2.exe"+214847: F3 0F 11 81 48 01 00 00     -  movss [rcx+00000148],xmm0
+// ---------- DONE INJECTING  ----------
+"nioh2.exe"+21484F: F3 0F 10 44 24 40           -  movss xmm0,[rsp+40]
+"nioh2.exe"+214855: F3 0F 11 89 40 01 00 00     -  movss [rcx+00000140],xmm1
+"nioh2.exe"+21485D: F3 0F 10 4C 24 48           -  movss xmm1,[rsp+48]
+"nioh2.exe"+214863: F3 0F 11 81 44 01 00 00     -  movss [rcx+00000144],xmm0
+"nioh2.exe"+21486B: F3 0F 11 89 4C 01 00 00     -  movss [rcx+0000014C],xmm1
+"nioh2.exe"+214873: 66 C7 81 60 01 00 00 01 01  -  mov word ptr [rcx+00000160],0101
+"nioh2.exe"+21487C: C3                          -  ret 
+"nioh2.exe"+21487D: CC                          -  int 3 
+"nioh2.exe"+21487E: CC                          -  int 3 
+"nioh2.exe"+21487F: CC                          -  int 3 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"killTILT"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : nioh2.exe
+  Version: 
+  Date   : 2021-02-05
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(killtilt,nioh2.exe,F3 0F 11 89 50 01 00 00 F3 0F 10 4C 24 38) // should be unique
+alloc(newmem,$1000,"nioh2.exe"+21482E)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rcx+00000150],xmm1
+  jmp return
+
+killtilt:
+  jmp newmem
+  nop 3
+return:
+registersymbol(killtilt)
+
+[DISABLE]
+
+killtilt:
+  db F3 0F 11 89 50 01 00 00
+
+unregistersymbol(killtilt)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "nioh2.exe"+21482E
+
+"nioh2.exe"+21480D: CC                          -  int 3 
+"nioh2.exe"+21480E: CC                          -  int 3 
+"nioh2.exe"+21480F: CC                          -  int 3 
+"nioh2.exe"+214810: 0F 28 02                    -  movaps xmm0,[rdx]
+"nioh2.exe"+214813: 48 8B C1                    -  mov rax,rcx
+"nioh2.exe"+214816: 66 0F 7F 41 10              -  movdqa [rcx+10],xmm0
+"nioh2.exe"+21481B: 41 0F 28 08                 -  movaps xmm1,[r8]
+"nioh2.exe"+21481F: 66 0F 7F 49 20              -  movdqa [rcx+20],xmm1
+"nioh2.exe"+214824: 41 0F 28 01                 -  movaps xmm0,[r9]
+"nioh2.exe"+214828: F3 0F 10 4C 24 28           -  movss xmm1,[rsp+28]
+// ---------- INJECTING HERE ----------
+"nioh2.exe"+21482E: F3 0F 11 89 50 01 00 00     -  movss [rcx+00000150],xmm1
+// ---------- DONE INJECTING  ----------
+"nioh2.exe"+214836: F3 0F 10 4C 24 38           -  movss xmm1,[rsp+38]
+"nioh2.exe"+21483C: 66 0F 7F 41 30              -  movdqa [rcx+30],xmm0
+"nioh2.exe"+214841: F3 0F 10 44 24 30           -  movss xmm0,[rsp+30]
+"nioh2.exe"+214847: F3 0F 11 81 48 01 00 00     -  movss [rcx+00000148],xmm0
+"nioh2.exe"+21484F: F3 0F 10 44 24 40           -  movss xmm0,[rsp+40]
+"nioh2.exe"+214855: F3 0F 11 89 40 01 00 00     -  movss [rcx+00000140],xmm1
+"nioh2.exe"+21485D: F3 0F 10 4C 24 48           -  movss xmm1,[rsp+48]
+"nioh2.exe"+214863: F3 0F 11 81 44 01 00 00     -  movss [rcx+00000144],xmm0
+"nioh2.exe"+21486B: F3 0F 11 89 4C 01 00 00     -  movss [rcx+0000014C],xmm1
+"nioh2.exe"+214873: 66 C7 81 60 01 00 00 01 01  -  mov word ptr [rcx+00000160],0101
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"pointers"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : nioh2.exe
+  Version: 
+  Date   : 2021-02-05
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(pointerFOV,nioh2.exe,0F 10 4A 30 0F 11 48 30 0F 10 42 40 66 C7 81 C0) // should be unique
+alloc(newmem,$1000,"nioh2.exe"+12FB1F)
+
+label(code)
+label(return)
+label(pFOV)
+registersymbol(pFOV)
+
+newmem:
+
+code:
+  movups xmm1,[rdx+30]
+  mov [pFOV],rdx
+  movups [rax+30],xmm1
+  jmp return
+
+pFOV:
+dq 0
+
+pointerFOV:
+  jmp newmem
+  nop 3
+return:
+registersymbol(pointerFOV)
+
+[DISABLE]
+
+pointerFOV:
+  db 0F 10 4A 30 0F 11 48 30
+
+unregistersymbol(pointerFOV)
+unregistersymbol(pFOV)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "nioh2.exe"+12FB1F
+
+"nioh2.exe"+12FAFB: 0F 10 4A F0                 -  movups xmm1,[rdx-10]
+"nioh2.exe"+12FAFF: 0F 11 48 F0                 -  movups [rax-10],xmm1
+"nioh2.exe"+12FB03: 49 83 E8 01                 -  sub r8,01
+"nioh2.exe"+12FB07: 75 AD                       -  jne nioh2.exe+12FAB6
+"nioh2.exe"+12FB09: 0F 10 02                    -  movups xmm0,[rdx]
+"nioh2.exe"+12FB0C: 0F 11 00                    -  movups [rax],xmm0
+"nioh2.exe"+12FB0F: 0F 10 4A 10                 -  movups xmm1,[rdx+10]
+"nioh2.exe"+12FB13: 0F 11 48 10                 -  movups [rax+10],xmm1
+"nioh2.exe"+12FB17: 0F 10 42 20                 -  movups xmm0,[rdx+20]
+"nioh2.exe"+12FB1B: 0F 11 40 20                 -  movups [rax+20],xmm0
+// ---------- INJECTING HERE ----------
+"nioh2.exe"+12FB1F: 0F 10 4A 30                 -  movups xmm1,[rdx+30]
+"nioh2.exe"+12FB23: 0F 11 48 30                 -  movups [rax+30],xmm1
+// ---------- DONE INJECTING  ----------
+"nioh2.exe"+12FB27: 0F 10 42 40                 -  movups xmm0,[rdx+40]
+"nioh2.exe"+12FB2B: 66 C7 81 C0 03 00 00 01 01  -  mov word ptr [rcx+000003C0],0101
+"nioh2.exe"+12FB34: 0F 11 40 40                 -  movups [rax+40],xmm0
+"nioh2.exe"+12FB38: 0F B6 84 24 62 01 00 00     -  movzx eax,byte ptr [rsp+00000162]
+"nioh2.exe"+12FB40: 88 81 C2 03 00 00           -  mov [rcx+000003C2],al
+"nioh2.exe"+12FB46: 0F B6 84 24 63 01 00 00     -  movzx eax,byte ptr [rsp+00000163]
+"nioh2.exe"+12FB4E: 88 81 C3 03 00 00           -  mov [rcx+000003C3],al
+"nioh2.exe"+12FB54: 48 8B 8C 24 70 01 00 00     -  mov rcx,[rsp+00000170]
+"nioh2.exe"+12FB5C: 48 33 CC                    -  xor rcx,rsp
+"nioh2.exe"+12FB5F: E8 AC 93 85 01              -  call nioh2.exe+1988F10
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"FOV"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pfov</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9</ID>
+              <Description>"TILT"</Description>
+              <VariableType>Float</VariableType>
+              <Address>pfov</Address>
+              <Offsets>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Smooth FOV+Tilt control"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+
+function keyCheck()
+
+local tilt = readFloat("[pfov]+40")
+local fov = readFloat("[pfov]+38")
+
+   if isKeyPressed(VK_NUMPAD1) then
+      writeFloat("[pfov]+40", tilt + 0.01)
+   end
+
+   if isKeyPressed(VK_NUMPAD2) then
+      writeFloat("[pfov]+40", tilt - 0.01)
+   end
+
+   if isKeyPressed(VK_ADD) then
+      writeFloat("[pfov]+38", fov + 0.01)
+   end
+
+   if isKeyPressed(VK_SUBTRACT) then
+      writeFloat("[pfov]+38", fov - 0.01)
+   end
+
+end
+
+function timerStart(timer)
+  t=createTimer()
+  t.OnTimer=keyCheck
+  t.Interval=10
+  t.Enabled=true
+end
+
+timerStart(t)
+
+[DISABLE]
+t.destroy()
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [r14+04],xmm0</Description>
+      <AddressString>nioh2.exe+C4176E</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>76</Byte>
+        <Byte>16</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss xmm2,[rsi+04]</Description>
+      <AddressString>nioh2.exe+C0E06A</AddressString>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>1E</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>56</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>DE</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movdqa [rsi],xmm1</Description>
+      <AddressString>nioh2.exe+C0E05D</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>7F</Byte>
+        <Byte>0E</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4E</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rcx+00000148],xmm0</Description>
+      <AddressString>nioh2.exe+214847</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>81</Byte>
+        <Byte>48</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rcx+00000150],xmm1</Description>
+      <AddressString>nioh2.exe+21482E</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rcx+34],xmm1</Description>
+      <AddressString>nioh2.exe+4735E6</AddressString>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>30</Byte>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>EF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>49</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>C8</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov qword ptr [r14+00000908],40B33333</Description>
+      <AddressString>nioh2.exe+DD093C</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>A0</Byte>
+        <Byte>40</Byte>
+      </Before>
+      <Actual>
+        <Byte>49</Byte>
+        <Byte>C7</Byte>
+        <Byte>86</Byte>
+        <Byte>08</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>33</Byte>
+        <Byte>33</Byte>
+        <Byte>B3</Byte>
+        <Byte>40</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>C7</Byte>
+        <Byte>86</Byte>
+        <Byte>10</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movups [r8+00000900],xmm0</Description>
+      <AddressString>nioh2.exe+D9C21C</AddressString>
+      <Before>
+        <Byte>82</Byte>
+        <Byte>00</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>8A</Byte>
+        <Byte>10</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rbx+0000090C],xmm0</Description>
+      <AddressString>nioh2.exe+DFA407</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>58</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>0C</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rbx+0000090C],xmm0</Description>
+      <AddressString>nioh2.exe+DFAB1D</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>0C</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>05</Byte>
+        <Byte>24</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movups [r8+00000910],xmm1</Description>
+      <AddressString>nioh2.exe+D9C22B</AddressString>
+      <Before>
+        <Byte>8A</Byte>
+        <Byte>10</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>88</Byte>
+        <Byte>10</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>82</Byte>
+        <Byte>20</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [r14+0000091C],461C4000</Description>
+      <AddressString>nioh2.exe+DD0968</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>80</Byte>
+        <Byte>3F</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>C7</Byte>
+        <Byte>86</Byte>
+        <Byte>1C</Byte>
+        <Byte>09</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>40</Byte>
+        <Byte>1C</Byte>
+        <Byte>46</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>C7</Byte>
+        <Byte>86</Byte>
+        <Byte>20</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movaps [r8+000008F0],xmm0</Description>
+      <AddressString>nioh2.exe+D9C20D</AddressString>
+      <Before>
+        <Byte>82</Byte>
+        <Byte>F0</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>80</Byte>
+        <Byte>F0</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>82</Byte>
+        <Byte>00</Byte>
+        <Byte>09</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of cmp [rdi+20],rax</Description>
+      <AddressString>nioh2.exe+9C4D5A</AddressString>
+      <Before>
+        <Byte>37</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>39</Byte>
+        <Byte>47</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>72</Byte>
+        <Byte>2D</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of cmp [r15+20],rax</Description>
+      <AddressString>nioh2.exe+A76E49</AddressString>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>49</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>49</Byte>
+        <Byte>39</Byte>
+        <Byte>47</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>76</Byte>
+        <Byte>04</Byte>
+        <Byte>49</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rdi+00000090],rbx</Description>
+      <AddressString>nioh2.exe+FEAF26</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>48</Byte>
+        <Byte>0F</Byte>
+        <Byte>2A</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rbx+000000A0],xmm6</Description>
+      <AddressString>nioh2.exe+1000A67</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B3</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>6C</Byte>
+        <Byte>52</Byte>
+        <Byte>A0</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rcx+08],xmm2</Description>
+      <AddressString>nioh2.exe+A31DA3</AddressString>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>D1</Byte>
+        <Byte>0F</Byte>
+        <Byte>2E</Byte>
+        <Byte>D6</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>7A</Byte>
+        <Byte>06</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>9C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rdi+00000080],rbx</Description>
+      <AddressString>nioh2.exe+FDA625</AddressString>
+      <Before>
+        <Byte>C6</Byte>
+        <Byte>00</Byte>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov r15,[rdi+00000080]</Description>
+      <AddressString>nioh2.exe+FDA614</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>A0</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>BF</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>05</Byte>
+        <Byte>7E</Byte>
+        <Byte>25</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov rbp,[rdi+00000080]</Description>
+      <AddressString>nioh2.exe+FDA676</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>D8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>AF</Byte>
+        <Byte>80</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>ED</Byte>
+        <Byte>0F</Byte>
+        <Byte>85</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of cmp [rdi+0007B778],rbx</Description>
+      <AddressString>nioh2.exe+1340F25</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>4B</Byte>
+        <Byte>D4</Byte>
+        <Byte>1A</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>39</Byte>
+        <Byte>9F</Byte>
+        <Byte>78</Byte>
+        <Byte>B7</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7D</Byte>
+        <Byte>18</Byte>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rdi+0007B778],rbx</Description>
+      <AddressString>nioh2.exe+CBD137</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>79</Byte>
+        <Byte>DA</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>78</Byte>
+        <Byte>B7</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>41</Byte>
+        <Byte>83</Byte>
+        <Byte>7E</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

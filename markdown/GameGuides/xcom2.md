@@ -18,7 +18,7 @@ API versions | DirectX 11
 **Features**: Camera control
 * [Better Debug Camera by robojumper](https://steamcommunity.com/sharedfiles/filedetails/?id=803411007)  
 **Features**: Camera control
-* [CE Table by -One3rd-](https://framedsc.github.io/CheatTables/Archive/XCom2_AOB_to_FOV_v4.CT)  
+* [CE Table by -One3rd-](../CheatTables/XCom2_AOB_to_FOV_v4.CT)  
 **Features**: Camera control, FoV, Tilt
 
 ## Tips and Tricks  

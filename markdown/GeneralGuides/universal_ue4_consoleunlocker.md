@@ -3,7 +3,12 @@ Universal Unreal Engine 4 Unlocker
 
 ![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
 
-**Engine versions supported**: Unreal Engine 4.15 - 4.25
+**Engine versions supported**: Unreal Engine 4.15 - 4.26 
+
+@alert Info
+This page is for the UUU v3.0.x. This is the free version and won't be updated anymore. If you're looking for the UUU v4.x with camera paths and other
+additional features, please visit [Otis_Inf's Patreon page](https://patreon.com/Otis_Inf): the UUU v4.x is part of Tier 1.
+@end
 
 @alert Important
 It's forbidden to host the Universal Unreal Engine 4 Unlocker binaries elsewhere, be it your own site or e.g. Nexus Mods. 
@@ -14,9 +19,11 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 ## Downloading the UUU
 
-To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). 
+To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.12](https://mega.nz/file/xEIXCKrQ#zUm-T6qd-ZJ3UTsl0ZOWVSZb1mx7sGWjtchM0461_1w). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
+* [Universal UE4 Unlocker v3.0.21](https://mega.nz/file/MUhUlaqa#PI0ubSy_sQc4GouDPnZbulNSgQRUNIJeXNwLb2LnKhk). 
+* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.20 gives problems
+
 
 ## Starting the UUU
 After downloading the zip linked below, unpack it in an empty folder. 
@@ -43,6 +50,11 @@ After you've successfully injected the dll, you'll get a series of notification 
 Here, with Darksiders III as example game, all features are available. 
 
 The **Game speed** can be used with the *Slomo timestop* when it's active. The **Dump object info** button can be used to dump all active object names and the addresses in memory to a text file on disk. This feature is helpful for people who want to use cheat engine with the game at hand. See for more info [the object dumping section below](universal_ue4_consoleunlocker.htm#dumping-object-addresses).
+
+@alert Info
+It might be the UUU reports some elements aren't found while the game should be fully supported. This might be caused by assembly mismatches or the timing you injected the dll into the game process. If this
+happens try to inject the DLL at moment after you've loaded the level or after the game's menu has fully loaded. 
+@end
 
 ## Configuration
 The UUU has various settings you can configure, which you'll do on the *Configuration* tab. Additionally you can define the key-shortcuts for various functionality on the *Key bindings* tab. These are discussed below
@@ -143,15 +155,22 @@ dump the file again. The Objects file is useful for people who create cheat tabl
 ## Games that work with the unlocker
 Although the name suggests it's a universal unlocker that always works with any Unreal Engine 4 game, the reality is that developers sometimes change the game engine's code and the unlocker can't re-activate the console as essential functions aren't there anymore, or activate other features offered by the UUU. The list below are games which are known to work with the unlocker. 
 
-Title|Notes
+@alert Info
+With the release of the UUU v4, this list has been frozen. A new list of games that work with the UUU v4 is maintained [**here**](https://opm.fransbouma.com/uuuv4.htm#games-that-work-with-the-uuu). *Games on that list are not guaranteed to work with the UUU v3*.
+@end
+
+Title| Notes
 --|--
+9 Monkeys of Shaolin | 
 10 Miles to Safety | 
 103 | 
 A Knight`s Quest | 
 Adam - Lost Memories | 
+Aefen Fall | 
 Agony | 
 Alan Sharp | 
 Alice VR | 
+Alien: Fireteam Elite | 
 Amid Evil | 
 Ancestors Legacy | 
 Ancestors - The Humankind Odyssey | 
@@ -161,14 +180,19 @@ Apsulov: End of Gods |
 Aquanox Deep Descent | 
 Arboria | 
 Areia: Pathway to Dawn | 
+Arid | 
 Arise a Simple Story | 
 Armoured Onslaught | 
+Aron's Adventure | Console isn't available
+The Ascent | Rebind Enable camera and UWorld Pause keys to different keys than `Numpad 0` and `Insert` as the game opens the menu with these. 
 Ashen | 
 Ashes Of Oahu | 
 Assemblance: Oversight | 
 Assetto Corsa Competizione | 
 Astroneer | Console isn't available
-Azur Lane Crosswave |
+AWAY: The Survival Series | 
+Azur Lane Crosswave | 
+Backbone | 
 Bad Boys at School | 
 Bard's Tale IV: Barrows Deep | 
 Bastide | 
@@ -177,6 +201,8 @@ The Beast Inside |
 Bee Simulator | 
 Beyond a Steel Sky | 
 The Blackout Club | 
+Black Legend | 
+Blade of Arena | 
 Blair Witch | 
 Borderlands 3 | 
 BPM: Bullets per minute | 
@@ -184,17 +210,21 @@ Bright Memory | Also works with the RTX tech demo
 Britannic: Patroness of the Mediterranean | 
 Burning Daylight | 
 Call of Cthulhu | 
+Call of the Sea | 
 Captain Starshot | 
 Castle Rock Beach, West Australia | 
 Chernobylite | 
+Cions of Vega | 
 Close to the Sun | 
 Code Vein | 
+Colony Ship | 
 Comanche | 
 Conarium | 
 Corruption 2029 | 
+Crash Bandicoot 4: It's About Time | 
 Creature in the Well | 
 Curse of Anabelle | 
-Daemon X Machina  | 
+DaemonYesMachina  | 
 Dark Future: Blood Red States | 
 Dark Deception | 
 Dark Occult | 
@@ -202,12 +232,15 @@ Dark Space Ex Machina |
 Darksiders 3 | 
 Darksiders Genesis | 
 Daymare: 1998 | 
-Deep Rock Galactic | 
+Days Gone | No custom console keys
+Deep Rock Galactic | Console not available
 Deliver us the moon | 
+Demon Skin | 
 Destroy all humans | Tested on demo
 Desolate | 
 Devil's Hunt | 
 Devolverland Expo | 
+Do you copy? | 
 Die young | 
 Disaster Report 4: Summer Memories |  Also works with the demo
 Disintegration | 
@@ -232,6 +265,7 @@ Elli |
 Estranged Act II | 
 Everspace | 
 Everspace 2 | Tested on demo
+Eximius: Seize the Frontline | 
 Explore Fushimi Inari | 
 Extinction | 
 Fortnite | Only versions below 1.9.1 are compatible.
@@ -241,23 +275,30 @@ The Fidelio Incident |
 Fighting Ex Layer |
 Filament | 
 Finding the Soul Orb |  
+The Forgotten City | 
 Freud Gate | 
+Frozenheim | 
 Gal Gun 2 | 
+Gamedec | 
 Genesis Alpha One | 
+Genesis Noir | 
 Ghostrunner | requires UUU 3.0.12+
 Giraffe and Annika | 
+Godfall | Inject the UUU at launch, before the game starts. No console.
 Grand Guilds | 
 Gray Dawn | 
 GRIP: Combat Racing | 
 Grounded | Tested on demo
 Gu Lady 蛊婆 | 
+Guilty Gear Strive | Pause the game before moving the camera, otherwise the characters move too.
 Halflight | 
 Hazel Sky | Tested on demo
 Hellblade: Senua's Sacrifice | 
 Hellbound | 
 Hello Guest | Tested on Alpha build.
 Hello Neighbor 2 | 
-Hollow | 
+Hollow |
+Human or Virus | 
 Hunter's Arena: Legends | 
 Hunting Simulator | 
 Hunting Simulator 2 | 
@@ -267,51 +308,65 @@ Infliction |
 Insomnia the Ark | 
 Insurgency Sandstorm | 
 Intruders: Hide and Seek" | 
+Iron Survival | 
 Journey to the Savage Planet | 
 Jumanji The Video Game | 
 Jump Force (limited) | 
 Kari | 
+Keep Out | 
+Kena: Bridge of Spirits | Use v3.0.21+
+Kid a mnesia exhibition | 
 Killsquad | 
 Kine | 
 Koral | 
 Laser League | 
+The Last Show of Mr. Chardish | 
 Layers of Fear 2 | 
 Liberty Prime | 
+Life is Strange: True Colors | 
 Life is Strange 2 | 
 Light Tracer 2 | 
 The Line | The K148 Game Studio game 'The Line'
 Ling: a Road Alone  | 
 Little Brother Jim | 
 Little Hope | No console, camera only (v3.0.12 or lower)
+Little Nightmares 2 | Console only, no camera. Use `toggledebugcamera` for camera
 Lost Ember | 
 Mahoe Arms | 
-Man Eater | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
+ManEater | HUD toggle doesn't hide the entire HUD. Console not available.
 Man of Medan (The Dark Pictures Anthology) | 
+Marie's Room | Built-in camera doesn't work. Use `toggledebugcamera` for camera
 Marvel vs. Capcom: Infinite | 
 Metamorphosis | 
 Medieval Dynasty | No hud toggle
+The Medium | Camera doesn't work in split-screen scenes
 Mind: Path to Thalamus | 
 Minecraft Dungeons | 
-MotoGP 20 | 
 Monkey King: Hero Is Back | 
 Monster Energy Supercross: The Official Videogame 3 | 
 Monster Jam Steel Titans | 
 Moons of Madness | 
 Morels: The Hunt | 
 Morphies Law Remorphed | 
-Mortal Shell | Tested on beta
+Mortal Shell | 
 MotoGP 19 | 
+MotoGP 20 | 
+MotoGP 21 | 
 My Hero One's Justice | 
 My Hero One's Justice 2 | 
 Mýrdalssandur, Iceland | 
+Mysteria Occult Shadows | 
 Narcos: Rise of the Cartels | 
-NBA 2K Playgrounds 2 |
+NBA 2K Playgrounds 2 | 
 Necromunda Underhive Wars | No hud toggle 
+Nemezis - Mysterious Journey III | 
 Nephise: Ascension | 
+Nero | 
+Nigate Tale | 
 Night of the Dead | 
 No Straight Roads | 
 Observer | Built-in camera isn't available.
-Offroad Racing Buggy X ATV X Moto | 
+Offroad Racing BuggyYesATVYesMoto | 
 Only After | 
 Operencia: The Stolen Sun | 
 The Outer Worlds | HUD toggle doesn't hide the entire HUD. Use `showhud 0`
@@ -319,6 +374,7 @@ Overkill's The Walking Dead |
 Override: Mech City Brawl | 
 Pagui打鬼 | 
 Paper Dolls Original | 
+Paradise Killer | 
 Paradise Lost | 
 Paranormal Activity The Lost Soul | 
 港詭實錄ParanormalHK | 
@@ -330,14 +386,19 @@ The Pit: Infinity |
 Pluviophile | 
 Praetorians HD Remaster | 
 Project Remedium | 
+Project Wingman | 
 Protocol | 
+Psychonauts 2 | Not with Gamepass / MS Store version
 Observer System Redux | Tested on demo.
 Occupation | 
 OCTOPATH TRAVELER | 
 Omen of Sorrow | 
 Omensight | 
 Omno | Tested on demo
+Open Country | 
+Orcs Must Die 3 | 
 The Otterman Empire | 
+Pacer | 
 Quantum Replica | 
 Qube 2 | 
 The Quiet Man | 
@@ -345,17 +406,22 @@ Race With Ryan |
 RAD | 
 Raji: An Ancient Epic Prologue | 
 Redeemer | 
+Redout | 
+Redout: Space Assault | 
 Relicta | 
 Remnant: From the Ashes | 
 Remothered: Broken Porcelain | 
-Remothered: Tormented Fathers |
+Remothered: Tormented Fathers | 
 Ride 4 | 
 Roboquest | 
+Robin Hood - Sherwood Builders | 
 Rock of Ages 3: Make and Break | 
 Ruin 2 | 
 Ruiner | 
 Samurai Jack Battle Through Time | No console/timestop. Use menu + hud toggle for pause.
+Samurai Showdown | No aspect ratio correction
 Satisfactory | 
+Scarlet Nexus | No slomo (PgDn) pause
 SCUM | 
 Session: Skateboarding Sim Game | 
 Shadows of Larth | 
@@ -371,6 +437,7 @@ The Sojourn |
 SolSeraph | 
 Someday You Will Return | 
 Song of Horror | 
+Song of Iron | 
 Sophont | 
 Sorrowvirus A Faceless Short Story | 
 Soul Valley | 
@@ -378,7 +445,7 @@ SOULCALIBUR VI |
 Space Hulk: Deadwing Enhanced Edition | 
 Space Hulk Tactics | 
 Spacebourne | 
-Sponge Bob Bikni Bottom Rehydrated | 
+Sponge Bob Bikini Bottom Rehydrated | 
 Spyro Reignited Trilogy | 
 Star Wars Jedi: Fallen Order | 
 Stardrop | 
@@ -387,10 +454,15 @@ Stela |
 Stories: the Path of Destinies | 
 Styx 2 | 
 Subdivision Infinity DX | 
+Subverse | 
+Succubus | 
 The Suicide of Rachel Foster | 
-Supraland | 
+Supraland |
+Sword and Fairy 7 | 
 Sword Art Online: Fatal Bullet | 
+Tales of Arise | 
 Tartarus | 
+TASOMACHI Behind The Twilight | 
 Tell Me Why | (Also with xbox gamepass version)
 Terminator Resistance | 
 Tetris Effect | 
@@ -398,16 +470,21 @@ Torchlight 3 |
 Tower of Fate | 
 Train Sim World | 
 Transient | Tested on demo
+Travis Strikes Again: No More Heroes Complete Edition | 
 Trials of Mana | Also works with the demo
+Tribes of Midgard | 
 Tropico 6 | 
+Twin Mirror | 
 Urban Trial Playground | 
 Uventa | 
 Vampyr | 
+Venineth | 
 Visage | 
 Wartile | 
 We Happy Few | Built-in camera isn't available.
 We Went Back | HUD toggle doesn't toggle crosshair. Use `showhud 0`
 Weakless | 
+Werewolf The Apocalypse Earthblood | 
 Withstand: Survival | 
 What Happened | 
 The Works of Mercy | 
@@ -468,9 +545,39 @@ Logo: Ichisake
 Dumper code is based on the SDK generator by Kn4ck3r.  
 Special thanks to Pino44io for testing.  
 
-&copy;2019-2020 All rights reserved.
+&copy;2019-2021 All rights reserved.
 
 ## Changelog
+
+###v3.0.21:
+- **FIXED**: The HUD toggle didn't always work as it matched with the wrong piece of code in some games. 
+
+###v3.0.20:
+- **FIXED**: In some engine builds the offsets of the three Aspect Ratio correction blocks were different, causing the game to show a distorted image due to the wrong offsets being used
+
+###v3.0.19:
+- **FIXED**: In newer engines pillar/letterbox black bars would still appear even though the UUU should have removed them
+- **FIXED**: It could be you received an error that a named pipe couldn't be created. 
+
+###v3.0.18:
+- **CHANGED**: Rewritten AOB scanner, 10%/20% faster and won't crash the game the cases the previous scanner would. It also now shouldn't miss any AOBs anymore.
+
+###v3.0.17:
+- **FIXED**: In some cases the new AOB scanner could run into memory it shouldn't end up in and crash the game. 
+
+###v3.0.16:
+- **CHANGED**: Implemented a better AOB scanner so it should match the blocks it has to find better. 
+
+###v3.0.15:
+- **ADDED**: Special cases added for Unreal Engine v4.11 for Days Gone
+- **ADDED**: Toggle on the Log tab to suppress notifications.
+
+###v3.0.14: 
+- **ADDED**: Support for Unreal Engine v4.26
+- **FIXED**: Custom console keys now work again after it was broken for newer engine versions. 
+
+###v3.0.13:
+- **FIXED**: The `SET` command was readded using code which assumed a fixed length of the check block, but in some games this was a different length, causing crashes when a command was specified on the console.
 
 ###v3.0.12:
 - **FIXED**: The checks for Engine Version for select v4.25 games failed, this has been corrected. 
@@ -520,31 +627,3 @@ Special thanks to Pino44io for testing.
 
 ###v3.0.0: 
 - **ADDED**: Added new user interface which offers hotsampling and doesn't rely on DirectX hooking for menu display.
-
-###v2.0.6: 
-- **ADDED**: Added support for UE4.23's new NamePool structure for object names. This adds support for UE4 4.23 and higher
-- **FIXED**: Fixed an issue that could occur with some games where one of the camera write blocks in the engine uses a different register, causing the game to crash as
-the UUU uses a single interception block for all camera write blocks. 
-
-###v2.0.5:
-- **FIXED**: Fixes issue with slomo interception where a slow motion action set by the game was resulting in a high game speed instead of a slow game speed. 
-
-###v2.0.4:
-- **ADDED**: Better compatibility with v4.20 based engines for the camera system.
-
-###v2.0.3:
-- **FIXED**: Corrects fix for UWorld::IsPaused on older engines as the offset used wasn't correct. 
-- **FIXED**: Corrects a small issue with ctrl not working for slow movement with camera after introduction of fov-driven movement corrections. 
-- **FIXED**: Fixes issue with numpad 0 not pausing the first time it was pressed.
-- **ADDED**: Some new AOBs for constructs seen in newer engines (v4.22+)
-
-###v2.0.2:
-- **FIXED**: Camera intercept struct 2 wasn't marked as non-critical
-- **FIXED**: Using UWorld::IsPaused pause + camera in a v4.15 game enables the in-game menu camera to activate, causing the built-in free camera to be locked in-place
-- **FIXED**: The rotation slider in the overlay has a range that's way too wide for the values that are practical
-- **IMPLEMENTED**: Make rotation/movement speed adjust themselves based on fov. 
-- **IMPLEMENTED**: Switch default screenshot type to 'HorizontalPanorama' instead of 'Lightfield'
-- **IMPLEMENTED**: Use the executable filename for screenshot filename prefix in single shot screenshots.
-
-###v2.0.1: 
-- First v2.0 release with IGCS camera system built-in.

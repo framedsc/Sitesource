@@ -17,7 +17,7 @@ See notes | Yes
 
 ## Tools
 
-* [Camera tools by Otis_Inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/DOOM)  
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera control, FoV control, Timestop
 * [CE Table by DET](..\CheatTables\DOOMx64_DET.CT)  
 **Features**: AR fix, FoV control

@@ -63,13 +63,18 @@ Time of Day and Weather control
 ==========================================================
 In order to efectivly control time of day and Weather the game must be unpaused and the camera must be enabled, otherwise the game's values are overwriting your changes. This is done to avoid you configuring things which have a negative effect on gameplay. 
 
-@alert important
-The game doesnt support the new versions of ReShade, it runs with the version 0.10.0.602 and SweetFx 2.0. However it isn't compatible with the camera tools. The only way to use both is to start the game and just when the game window comeout start the tools as admin (it's likely it will crash, just keep trying until you get it).
-@end
+## Reshade
 
+To be able to use reshade in the game you will need:
+ 
+* [DXVK](https://github.com/doitsujin/dxvk/releases/tag/v1.8.1) (drop the DLLs from the x64 directory into the game's root dir), which will convert DirectX to Vulkan (v1.8.1 was suggested, but feel free to try a newer version).
+* Install Reshade as Vulkan globally (the second button on Reshade's installer).
+ 
+Other methods for using reshade in the game involve defocusing the games window when the game is being initialized, but the method described above seems to work well. Overlays (Steam/Afterburner/etc) also work fine with this method.
 
 ## Useful Links
 
+* [Infinite Heaven mod](https://www.nexusmods.com/metalgearsolidvtpp/mods/45)
 * [Post-processing mod](https://www.nexusmods.com/metalgearsolidvtpp/mods/406/)
 * [Anti-Aliasing Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1210727595)
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Metal_Gear_Solid_V:_The_Phantom_Pain)

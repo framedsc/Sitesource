@@ -25,9 +25,10 @@ DirectX versions | DirectX 11
 
 * There is no Camera Tilt and the default FOV is 0.75.
 
-* For the camera script work you need to install the Stealth Edit 2.4. It is required for the full functioning of the CT, the camera script will not work without it. Check the README inside the stealthedit2.4 folder for the setup of this plugin.
+* For the camera script to work, you need to install Stealth Edit 2.4. It is required for the full functions of the CT, the camera script will not work without it. Check the README inside the stealthedit2.4 folder for the setup of this plugin.
 
 ## Useful Links
 
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Dark_Souls_Remastered)
 * [Stealth Edit 2.4](https://fearlessrevolution.com/viewtopic.php?t=8422)
+* Texture mods: [Dark Souls Visual Overhaul](https://www.nexusmods.com/darksoulsremastered/mods/91), [DSR 2020 Textures](https://www.nexusmods.com/darksoulsremastered/mods/220)

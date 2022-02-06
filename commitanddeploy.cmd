@@ -6,7 +6,7 @@ REM Pass a string for the commit message
 git add -A
 git commit -m %1
 git push
-docnet -c markdown
+.\tools\docnet -c markdown
 
 del /q ..\framedsc.github.io\*.*
 for /d %%i in (..\framedsc.github.io\*.*) do @rd /s /q "%%i"

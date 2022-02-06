@@ -15,10 +15,14 @@ Command | Arguments| Description
 `r.ScreenPercentage` | `10` - ?? | sets resolution scale (in %)
 `r.ViewDistanceScale` | `0.0` - ?? | sets draw distance
 `r.PostProcessAAQuality` | `0` - `6` | changes AA quality (FXAA / TAA)
+`r.Depthoffieldquality` | `0` - `6` | changes the depth of field quality (from 0: off to 6: max)
+`r.SceneColorFringeQuality` | `0` - `1` | toggles CA off (0) or on (1).
+`r.Motionblurquality` | `0` - `4` | changes the motion blur quality (from 0: off to 4: max)
 `sg.PostProcessQuality` | `0` - `4` | changes post-processing quality
 `sg.ShadowQuality` | `0` - `4` | changes shadow quality 
 `sg.TextureQuality` | `0` - `4` | changes texture quality 
 `sg.EffectsQuality` | `0` - `4` | changes effects quality 
+`r.customdepth 0` | `0` - `3` | changes the visibility of outlines, other elements like focus circles
 
 *Commands are not case-sensitive!*
 
@@ -131,7 +135,12 @@ r.ViewDistanceScale=2
 
 This forces the game to always render at 150% native resolution, with draw distance doubled from its native settings. You can also add the same `r.` commands from the scalability groups to enforce them by default.
 
-For a full list of `r.` commands, [click here](https://digilander.libero.it/ZioYuri78/). 
+## All UE4 console commands and variables
+
+To know more about which commands are available and which variables you can set through the console you can use the following search engine: [https://digilander.libero.it/ZioYuri78/](https://digilander.libero.it/ZioYuri78/). 
+
+This search engine allows you to search on both description and command/variable so it's easy to find the command or variable you're after. The engine gives the variables of the
+latest public UE4 build, so it might be the game you're using the UUU with is of an earlier version and doesn't support the variable.
 
 @alert tip
 Use the console to test out these commands and find the appropriate values in-game before adding them to the .ini. It'll save time!
@@ -152,7 +161,7 @@ The following examples are ready to use. You can just copy / paste the contents 
 sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096
 @end
 @tab Normal gameplay
-sg.ShadowQuality 4|sg.FoliageQuality 4|sg.ViewDistanceQuality 4|sg.PostProcessQuality 4|sg.EffectsQuality 4|sg.TextureQuality 4|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 1|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.StaticMeshLODDistanceScale 1|r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
+sg.ShadowQuality 4|sg.FoliageQuality 4|sg.ViewDistanceQuality 4|sg.PostProcessQuality 4|sg.EffectsQuality 4|sg.TextureQuality 4|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 1|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
 @end
 @tab High end screenshots
 sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 0|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096 | r.Shadow.MaxResolution 8192 | r.Shadow.MaxCSMResolution 8192

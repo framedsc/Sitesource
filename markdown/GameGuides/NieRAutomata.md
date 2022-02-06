@@ -5,7 +5,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | No
+Hotsampling | Yes, with tools
 DSR | Yes
 Custom Aspect Ratios | Yes, with tools 
 Reshade | Yes
@@ -14,6 +14,8 @@ DirectX versions | DirectX 11
  
 ##Tools
 
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, post-processing toggles, invulnerability toggle
 * [CE table by IDK31 and Smithfield](..\CheatTables\nier_automata_121.ct)  
 **Features**: Camera control, FoV, Speed control, HUD/Vignette/Banding/Character halo removal, Tonemap
 

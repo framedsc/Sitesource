@@ -14,7 +14,7 @@ Rendering API | DirectX 11
 
 ## Tools
 
-* [Camera tools by Otis_Inf](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/Greedfall)  
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Full camera control, FoV, Timestop, Time of Day, Fog, No Head Bob
 
 * [HUD Toggle by Otis_Inf](https://mega.nz/#!ZYZ0RApB!NBhLBq6--OB-cbvyT4a2sigTuioLUSLs3Fz35liic6o)  
