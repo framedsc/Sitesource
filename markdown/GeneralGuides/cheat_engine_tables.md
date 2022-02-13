@@ -1,5 +1,4 @@
-How to use Cheat Engine Tables
-=============
+![Using CE Tables](Images\usingce_header.png){.shadowed}
 
 ## 1. Download and install Cheat Engine
 [This is the Cheat Engine website](https://www.cheatengine.org/). The download link is at the very top of the page. It's hard to miss.

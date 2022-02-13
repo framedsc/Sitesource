@@ -49,7 +49,11 @@ Once set up, screenshot it with your favourite screenshotting tool.
 
 ## High-range Depth Export
 
-This last method gets you as close as we can to the full-range, raw depth buffer Reshade depth effects work with. By capturing depth that's been packed into all three RGB channels, it can be unpacked and merged into a 24-bit channel that has many more depth layers than the 8-bit alternative. This relies on [BlueSkyDefender](https://github.com/BlueSkyDefender)'s `Depth_Tool.fx` and a tool written by [seven](https://twitter.com/7MinutesToEight) to convert the capture into a 32-bit EXR file, both of which can be downloaded [here](https://github.com/stillseven/depth_converter). 
+@alert important
+This method has mostly been deprecated with the release of ReShade 5.0 and [murchalloo's Frame Capture](https://github.com/murchalloo/reshade-addons) addon. The addon captures and processes 32-bit depth .EXRs with `F10`, also capturing color and normal buffers in the process.
+@end
+
+This last method gets you as close as we can to the full-range, raw depth buffer Reshade depth effects work with. By capturing depth that's been packed into all three RGB channels, it can be unpacked and merged into a 24-bit channel that has many more depth layers than the 8-bit alternative. This relies on [BlueSkyDefender](https://github.com/BlueSkyDefender)'s `Depth_Tool.fx` and a tool written by [murchalloo](https://twitter.com/murchalloo) to convert the capture into a 32-bit EXR file, both of which can be downloaded [here](https://github.com/stillseven/depth_converter). 
 
 After adding `Depth_Tool.fx` to your shaders folder and setting up a shot, all you have to do is enable the shader and ensure Reshade is set to capture BMPs. The shader does not need to be adjusted.
 

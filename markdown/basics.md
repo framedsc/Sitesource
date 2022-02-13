@@ -1,6 +1,6 @@
 <div class="figure">
 <img src="Images/basics_header.png" alt="The Basics of Taking Screenshots" title="Wanna learn how you can take a shot like this?" class="autosize" />
-<p><i>Assassin's Creed: Valhalla</i>, <a href="https://framedsc.github.io/HallOfFramed/?imageId=1612674582" target="_blank">shot</a> by Otis_Inf</p>
+<p><i>Days Gone</i>, <a href="https://framedsc.com/HallOfFramed/?imageId=1622040794" target="_blank">shot</a> by Jim2point0</p>
 </div>
 
 Welcome to [framedsc.com](https://framedsc.com/) - a site run by members of the FRAMED community, dedicated to compiling all the ways we know to take better in-game screenshots and more. This page serves as an introduction to the crazy methods we use to push games to their limits and capture the shots we want. Let's start by getting familiar with some terms.

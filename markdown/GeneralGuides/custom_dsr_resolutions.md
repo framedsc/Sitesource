@@ -1,5 +1,4 @@
-How to get 10 custom resolutions in any aspect ratio you want
-=============
+![DSR](Images\dsr_header.png){.shadowed}
 
 You can now create any resolution you want by directly editing the Nvidia DSR registry settings, and you are not restricted to your native aspect ratio. Here is a guide on how to set that up.
 

@@ -1,5 +1,4 @@
-Revert Game Update using Steam Console
-=============
+![Reverting Steam Updates](Images\steamupdates_header.png){.shadowed}
 
 ## 1. Install or open Steam Console
 Install steamcmd.exe from [here](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip) and login to your Steam account with 
