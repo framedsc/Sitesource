@@ -71,7 +71,7 @@ Key	| Command
 `PgUp` / `PgDn` / D-pad Up/Down | Increase / decrease FoV ²
 
 ¹ - Blocking input to game allows WASD + Mouselook.  
-² - To enable custom FoV, set `Override FOV` to `-1`.
+² - To enable custom FoV, set `Override FOV` to `1`.
 
 The GUI is not only the preferred way of tweaking the camera, but it is also the only way to access different environment controls such as setting up additional lights. These can be found in the tabs present alongside `Camera`. Note that all the values including the camera's speed can be lower than 1, for more precise movement or intensities.
 
