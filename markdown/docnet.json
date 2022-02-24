@@ -159,6 +159,7 @@
 			"LUT Generation": "ReshadeGuides\\lutgenguide.md",
 			"Injecting ReShade in UWP games": "ReshadeGuides\\reshadeuwp.md",
 			"Exporting Depth Buffers with Reshade": "ReshadeGuides\\depthguide.md",
+			"Using RLE to hide temporal issues": "ReshadeGuides\\RealLongExposure.md",
 			"Shader guides":
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
