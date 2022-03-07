@@ -31,18 +31,19 @@ When you feel like taking a shot, press `ESC`, change the game's Display Mode to
 
 ## Tips and Tricks
 
-* **Administrator Mode**
-In its default state, it might not be possible to run the game in administrator mode from launchers such as Steam, EGS etc. You have to manually run the game's executable as adminstrator. However, when you do this, the launcher doesn't detect that the game is running and as such, it does not track things such as the hours you spent in-game, etc. If you think this is an issue or feel that manually launching the game as administrator everytime is a hassle, you can follow the steps below: 
+* **Administrator Mode**:
+    In its default state, it might not be possible to run the game in administrator mode from launchers such as Steam, EGS etc. You have to manually run the game's executable as adminstrator. However, when you do this, the launcher doesn't detect that the game is running and as such, it does not track things such as the hours you spent in-game, etc. If you think this is an issue or feel that manually launching the game as administrator everytime is a hassle, you can follow the steps below:
+      1. Go to Control's installation directory.
+      2. Right-click on `Control.exe`, go to the Compatibility tab, and check the `Run this program as administrator` box.
+      3. Similarly, right-click on `Control_DX11.exe` or `Control_DX12.exe` (depending on which version of the game you want to play), go to the Compatibility tab, and check the `Run this program as administrator` box.
+      4. Go to the launcher's installation directory, right-click on its .exe, go to the Compatibility tab, and check the `Run this program as administrator` box.
+      5. Open the launcher and start the game.
+    
+    <br/>    
+    Steps 2 and 4 are necessary (and not just 3) because when you start the game using the launcher, it runs `Control.exe` and from there, you choose which version (and thus which .exe) you want to play. If `Control_DX11.exe` or `Control_DX12.exe` has administrator status, `Control.exe` needs to have it as well to be able to run them and in turn, the launcher needs to have the elevated status as well.
 
-    1. Go to Control's installation directory.
-    2. Right-click on `Control.exe`, go to the Compatibility tab, and check the `Run this program as administrator` box.
-    3. Similarly, right-click on `Control_DX11.exe` or `Control_DX12.exe` (depending on which version of the game you want to play), go to the Compatibility tab, and check the `Run this program as administrator` box.
-    4. Go to the launcher's installation directory, right-click on its .exe, go to the Compatibility tab, and check the `Run this program as administrator` box.
-    5. Open the launcher and start the game.
-
-Steps 2 and 4 are necessary (and not just 3) because when you start the game using the launcher, it runs `Control.exe` and from there, you choose which version (and thus which .exe) you want to play. If `Control_DX11.exe` or `Control_DX12.exe` has administrator status, `Control.exe` needs to have it as well to be able to run them and in turn, the launcher needs to have the elevated status as well.
-
-* **Hotsampling and SRWE**: If you directly hotsample to a high resolution, you might experience crashes even though theoretically your GPU can handle that particular resolution. So, the best practice is, before you set your hotsample resolution, switch to a lower one, like 1 Megapixel in SRWE. Only after that, set the resolution you want to shoot in.
+* **Hotsampling and SRWE**: 
+    If you directly hotsample to a high resolution, you might experience crashes even though theoretically your GPU can handle that particular resolution. So, the best practice is, before you set your hotsample resolution, switch to a lower one, like 1 Megapixel in SRWE. Only after that, set the resolution you want to shoot in.
 
     Setting a low resolution first everytime you switch it prevents the game from bugging out. The game might take a few seconds to readjust. (Afterburner overlay can help you monitor that)
 
