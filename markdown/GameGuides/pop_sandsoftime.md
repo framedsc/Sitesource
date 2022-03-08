@@ -1,5 +1,7 @@
 ![Prince of Persia - The Sands of Time](\Images\pop_header.png "Shot by random ork")
 
+## Summary
+
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
