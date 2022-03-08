@@ -1,5 +1,16 @@
 How to install and use the Universal Unity Freecam
 =========
+
+**Update:** VTVRVXIV made a new video explaining how to use the `Unity Explorer` alongside the [FreeMoveInjector mod](https://github.com/vtvrv/FreeMoveInjector/releases) to get a freecam. It is supposed to be easier to use than his Universal Unity Freecam, so watch the video and follow it until we can write about it in this guide. Otherwise, follow the rest of the guide and use the Universal Unity Freecam.
+
+<p align="center">
+<a href="https://www.youtube.com/watch?v=qufWSNPyeYQ" target="_blank">
+  <img src="https://img.youtube.com/vi/qufWSNPyeYQ/hqdefault.jpg">
+</a>
+</p>
+
+---
+
  
 The [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) (UUF) project by [VTVRVXIV](https://twitter.com/vtvrvxiv) adds a freecam to most Unity games. It's a plugin designed to be installed using Unity plugin loaders like MelonLoader and BepInEx, and works in both Unity backends: Mono and IL2CPP.
  
@@ -10,17 +21,24 @@ The [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) (UUF) project by [VT
   <img src="https://img.youtube.com/vi/I6igj-u1qlk/hqdefault.jpg">
 </a>
 </p>
- 
-## Installation
+
+# Installation
  
 Before installing you would want to check if your game is Mono or IL2CPP.
 Somewhere in the installation directory, Mono has a folder called `Managed`. While IL2CPP has `l2cpp_data`.
  
-If the game is on steam you can check the file structure before downloading by going to the [SteamDB](https://steamdb.info) page of the game, `Depots` section and from the table in there click the ID number on the games depot (usually the one with the bigger file size).
+If the game is on steam you can check the file structure before downloading by going to the [SteamDB](https://steamdb.info) page of the game, `Depots` section, and from the table in there click the ID number on the games depot (usually the one with the bigger file size).
  
-Once you identified the type of unity backend the game uses, go to the video linked above, download the file according to the backend type from the links in the video description and follow the section of the corresponding type.
- 
+Once you identified the type of unity backend the game uses, go to the video linked above, download the file according to the backend type from the links in the video description and follow the section of the corresponding type. 
+
 ## Installation - Mono: BepInEx
+
+### Needed Plugins
+
+- [BepInEx plugins for Mono games](https://mega.nz/file/OcZ0WTxY#zw3M3ShhqBQAjVwt-xgGElIfbWlEH6k1LSoor5115Zg)
+
+- [No watermark freecam plugin for Mono games](https://mega.nz/file/7dgkSQoR#7wIHoh3QXq6DwRLCQS6BE4vpb4ji9IxdpN984liahXA)
+
  
 [BepInEx](https://github.com/BepInEx/BepInEx) doesn't come with an installer and you will need to check what version you need to install. This process is for Unity Mono games.
  
@@ -45,9 +63,11 @@ Once you identified the type of unity backend the game uses, go to the video lin
     Unity 2017 and above | `Type = MonoBehaviour`
     Unity 5 | `Type = MonoBehaviour` <br /> or <br /> `Type = Camera`
     Unity 4 | `Type = MonoBehaviour`
+
+    If you are having problems with this please visit the [bepenix troubleshooting page](https://docs.bepinex.dev/master/articles/user_guide/troubleshooting.html).
  
     @alert important
-    For Unity 4 games, `System.dll` and `System.Core.dll` must be present in `<Game Name>_Data/ Managed`. If not, you will have to download an old Unity 5 build as a middle ground and export   the 2 files from the Unity Editor.
+    For Unity 4 games, `System.dll` and `System.Core.dll` must be present in `<Game Name>_Data/ Managed`. If not, you will have to download an old Unity 5 build as a middle ground and export the 2 files from the Unity Editor.
     @end
     @alert info
     While you are editing the `BepInEx.cfg` file you can also enable console logging under `    [Logging.Console]` by changing `Enabled` to `true`.
@@ -75,15 +95,18 @@ Once you identified the type of unity backend the game uses, go to the video lin
         - Generally if the gameData/Managed folder contains a "UnityEngine.ScreenCaptureModule.dll" file use the normal version of the plugin, otherwise try using the "_obsolete" version of the plugin.
         - Screenshots will be saved in the game's "GameName_Data" folder located in the same folder as the exe.
         - Be aware that high resolutions might break some game elements, like postprocessing effects.
-        - Keep in mind that postprocessing effects like ReShade won't be shown in shots taken with this plugin. Do however take in mind that almost all unity games can be hotsampled to custom aspect ratios, so you can hotsample the game instead of using this plugin, specially if you want to use reshade in your shots.
+        - Keep in mind that postprocessing effects like ReShade won't be shown in shots taken with this plugin. Do however take in mind that almost all unity games can be hotsampled to custom aspect ratios, so you can hotsample the game instead of using this plugin, especially if you want to use reshade in your shots.
        
     - **vtrvrxiv.sceneselect.dll**
         - Loads Unity game scenes found in the scene manager. Scenes usually aren't meant to load this way so it's common for problems to occur.
         - Will likely cause crashes on older games released before the scene management was implemented in Unity.
  
     - [**Configuration manager**](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases)
-        - Optional but useful plugin for configuring others plugins hotkeys and options without restarting the game. The menu to do so can be opened by pressing `F1`.
-        - As explained below, if you run into troubles like black screen at startup try deleting this plugin from the plugins folder.
+        - Optional but useful plugin for configuring other plugins' hotkeys and options without restarting the game. The menu to do so can be opened by pressing `F1`.
+        - As explained below, if you run into troubles like a black screen at startup try deleting this plugin from the plugins folder.
+    
+    - [**EnableIsDebugBuild.Mono**](https://github.com/vtvrv/EnableIsDebugBuild/releases)
+        - Tries to turn on debug build capabilities in the game. These can be useful to get a freecam working but they probably contain other dev options that can come in handy for screenshotting.
  
     If there are multiple versions of a plugin only use one at a time. The `_obsolete` plugins are for games running on older versions of Unity.
  
@@ -95,9 +118,13 @@ Once you identified the type of unity backend the game uses, go to the video lin
  
 #### Configuring the plugin
  
-Each DLL installed has its own CFG file that can be found in `BepInEx/Config`, allowing you to change the hotkeys to your own needs. Alternatively you can use the `Configuration Manager` plugin to configure plugins in real time.
+Each DLL installed has its own CFG file that can be found in `BepInEx/Config`, allowing you to change the hotkeys to your own needs. Alternatively, you can use the `Configuration Manager` plugin to configure plugins in real time.
  
 ## Installation - IL2CPP: MelonLoader
+
+### Needed Plugins
+
+- [MelonLoader freecam plugin for IL2CPP games](https://mega.nz/file/nZAxEaiI#hOw484JaufTzP5ukX5HKTGttSEWn14wM4QpZChrz6Mk)
  
 Unfortunately at the time of writing the IL2CPP version of the freecam is limited compared to its mono counterpart (for example, it doesn't have FoV control). You might be able to find alternatives for these missing features with the Unity Explorer, more on that later.
  
@@ -120,6 +147,7 @@ Unfortunately at the time of writing the IL2CPP version of the freecam is limite
 * Start the game and the freecam should be successfully loaded in!  
 ![LoaderMods01](../Images/UUFGuide/MelonLoaderMods01.png){.shadowed .autosize}  
  
+ **Extra**: As with mono games, you can try the [**EnableIsDebugBuild.IL2CPP**](https://github.com/vtvrv/EnableIsDebugBuild/releases) plugin.
  
 ## Mono Default Camera Controls
  
@@ -146,7 +174,7 @@ Keybind | Description
 When in the camera menu, and before activating the free camera, it's important to disable the Cinemachine one! Without that, you won't be able to use the freecam.
 @end
  
-As an extra, if you install the `vtrvrxiv.TimeScaleController.dll` plugin, the default hotkey for pausing would be the `Pause` key, above the `Page up` key. Alternatively you can also pause in the Configuration Menu if you have that plugin installed or pause it with an Unity inspector plugin, more on that in the [HUD toggle and more](universal_unity_freecam.htm#hud-toggle-and-more) section.
+As an extra, if you install the `vtrvrxiv.TimeScaleController.dll` plugin, the default hotkey for pausing would be the `Pause` key, above the `Page up` key. Alternatively, you can also pause in the Configuration Menu if you have that plugin installed or pause it with a Unity inspector plugin, more on that in the [HUD toggle and more](universal_unity_freecam.htm#hud-toggle-and-more) section.
  
  
 ## IL2CPP Default Camera Controls
@@ -174,7 +202,7 @@ Supports keybinds, mouse axis inverting, and specify when mouse look on the free
    
 When changing keybinds look at the `keycodes.txt` file in the freecam .zip for a list of working key strings. Case sensitive.
    
-By default mouseLookEnabler is set to `Always` so mouse look is always on when the freecam is enabled. This can be changed to look on when a mouse button is held by changing the setting to `Left`, `Right`, or `Middle`. Case sensitive.
+By default, mouseLookEnabler is set to `Always` so mouse look is always on when the freecam is enabled. This can be changed to look on when a mouse button is held by changing the setting to `Left`, `Right`, or `Middle`. Case sensitive.
    
 These settings must be changed manually with a text editor. The game must be relaunched after the cfg file is edited.
  
@@ -182,9 +210,9 @@ These settings must be changed manually with a text editor. The game must be rel
  
 ## HUD toggle and more
  
-The UUF does not come with a way to hide HUDs. The best way is through a Unity inspector like [Runtime Unity Editor](https://github.com/ManlyMarco/RuntimeUnityEditor) (Mono) or [Unity Explorer](https://github.com/sinai-dev/UnityExplorer) (Mono/IL2CPP).
+The UUF does not come with a way to hide HUDs. The best way is through a Unity inspector like [Unity Explorer](https://github.com/sinai-dev/UnityExplorer) (Mono/IL2CPP) or [Runtime Unity Editor](https://github.com/ManlyMarco/RuntimeUnityEditor) (Mono). We recommend the `Unity explorer` over the `Runtime Unity Editor` because it's "easier" to use.
  
-Besides being able to toggle HUDs these inspectors would allow you to modify a lot of the game objects properties, like moving the position of light sources, turning off postprocessing effects or hiding characters entirely. You may also find the camera in some cases, which is useful when FoV control (or the whole freecamera) isn't supported. This will be expanded in the Advanced section in the future.
+Besides being able to toggle HUDs these inspectors would allow you to modify a lot of the game objects' properties, like moving the position of light sources, turning off postprocessing effects, or hiding characters entirely. You may also find the camera in some cases, which is useful when FoV control (or the whole freecamera) isn't supported. This will be expanded in the Advanced section in the future.
  
 These unity inspectors also come with a button to change the game's velocity, like the mono plugin explained in the `Mono: BepInEx` section, so it's very handy for IL2CPP games.
  
@@ -202,7 +230,7 @@ These unity inspectors also come with a button to change the game's velocity, li
  
 ## Troubleshooting
  
-* If the cursor is still locked and/or missing after using the `vtrvrxiv.CursorMode.dll` (or `vtrvrxiv.CursorMode_obsolete.dll`) plugin then your last resort is to open the `GAME_Data\Managed\Assembly-CSharp.dll` file with DNSPY and deleting all the lines of code that refer to the cursor. In most games you want to look for lines that have `Cursor.lockState` and `Cursor.visible`, and if the game is old you could try looking for the lines that have `Screen.showCursor` and `Screen.lockCursor` on them.
+* If the cursor is still locked and/or missing after using the `vtrvrxiv.CursorMode.dll` (or `vtrvrxiv.CursorMode_obsolete.dll`) plugin then your last resort is to open the `GAME_Data\Managed\Assembly-CSharp.dll` file with DNSPY and delete all the lines of code that refer to the cursor. In most games you want to look for lines that have `Cursor.lockState` and `Cursor.visible`, and if the game is old you could try looking for the lines that have `Screen.showCursor` and `Screen.lockCursor` on them.
  
 * If you can point the camera upwards, try rotating it 90° and then changing its orientation "to a side" to make it point upwards.
  
@@ -211,9 +239,70 @@ These unity inspectors also come with a button to change the game's velocity, li
 * Is it right that it's "technically possible" in some IL2CPP games to find and control the fov with a unity inspector? If not then we should delete what I wrote in the "HUD toggle and more" section.
  
 * [RuntimeGraphicsSettings](https://github.com/knah/ML-UniversalMods#runtimegraphicssettings): Could be useful for increasing graphic fidelity in some games.
- 
+
+
+# Usage
+
+In this part of the guide, we will be using Death Door as a baseline to explain the workflow on how to use both the Universal Unity Freecam and the Unity Explorer to shoot games. We will try to expand and generalize the steps in the future. Take in mind that Death Door is a `Mono` game, so the process might (will) be different for `IL2CPP` games.
+
+## Unlocking the camera
+
+When you want to get the camera press the backspace key to open the Universal Unity Freecam menu. There you will want to click on the light blue box to display a list of unity objects. Here you will need to disable any object that controls the camera of the game so we can control it ourselves. In this case, we will be disabling the Cinemachine.Brain object.
+
+Additional note: You can also disable other unity objects here if you like, to turn off an undesired postprocessing effect for example.
+
+![Unlocking the camera](../Images/UUFGuide/unlocking_the_camera.png){.shadowed .autosize}  
+
+After doing so click on the light blue box again to hide the objects list and activate each of the boxes (except maybe the FOV one). After doing that we will have full control of the camera!
+
+When you are done using the freecam activate the unity object you disabled and uncheck the boxes to make sure the game doesn't run into weird behaviors later while playing.
+
+
+## Changing the FOV
+
+Sadly changing the FOV is not as straightforward as unlocking the camera. You will need to first find the camera that the game uses in the object explorer. To do so we will open the unity explorer with F2, click on the first tab that says "Object Explorer", and click the "Object Explorer" tab in the new window that spawned. Here you will search for objects of the class "UnityEngine.Camera". After picking the first one open it by clicking on them. This will open a new window with a bunch of values. Scroll down in this new window to find the FOV. Usually, there are two values, one for far and one for near FOV. You will want to edit the near FOV value to the FOV value you want to use, and that's it!
+
+![Unlocking the camera](../Images/UUFGuide/changing_the_fov.png){.shadowed .autosize}  
+
+If you don't find a FOV value pick another object of class "UnityEngine.Camera" and try again (in the case of Death Door said object is the one called "Cam_Main").
+
+After you are done shooting you won't need to return to the original FOV; activating again the camera object you disabled in the first step (in our case Cinemachine.Brain) will take care of changing the FOV back to the gameplay one.
+
+### Additional notes: 
+
+- Make sure to disable the "Cinemachine.Brain" object (or the equivalent in your game) before attempting to edit the FOV. Otherwise, it probably won't work.
+
+- The unity explorer interface doesn't behave well with vertical aspect ratios, for example, so if you are working on a composition and would need to change the FOV while you move the camera I recommend using the AspectRatioComposition shader in reshade to get a glimpse of what the composition would look like in that AR when you change definitions.
+
+## Pause
+
+The pause is pretty straightforward, you just need to press the `Pause` button on your keyboard, you don't need to look up anything. The key is near the print screen key, but it's possible it isn't on some keyboards. If that's the case open the configuration manager with `F1` and change the key.
+
+Alternatively, you can also pause by clicking on the top right button on the Unity Explorer UI, but it's not very advisable since it might prove difficult to get the pause at the right time in certain situations.
+
+## HUD toggle
+
+This will depend very much on the game and you will need to turn off objects in the scene explorer until you find the HUD. In the case of Death Door, the HUD is in the "Canvas" object, so disabling that will get off the HUD.
+
+![Unlocking the camera](../Images/UUFGuide/hud_toggle.png){.shadowed .autosize}  
+
+If you can't find the right hud toggle in the Scene Explorer, go at the bottom of the window and change the scene you are inspecting to another until you find it eventually.
+
+## Vignette, lights, and other stuff.
+
+Given that we are basically obtaining access to most (every?) unity object in the scene/game, we can then use that to our advantage to modify the game and scene as we please. For example, in Death Door, one can edit the Vignette object (which is found inside the CAM_MAIN object) properties to disable it (it's not enough to turn the object off in this case).
+
+Depending on the game, one can disable chromatic aberration, hide enemies on screen or even have access to light positions, so if used correctly can prove to be a very useful tool. Just be careful when playing around with it to not break anything that might crash the game, if you can't afford to lose the composition or game progress.
+
+## Tips and tricks:
+
+Unity explorer doesn't block input from the game when interacting with its menu, so I recommend first pausing the game before attempting to unlock the camera or doing something else. I also recommend using the mouse to do stuff whenever possible. For example, in Death Door, when searching for the "cam_main" in the object explorer, if you press enter instead of clicking on the "search" button a game menu will pop up, and pressing enter again will close the menu and unpause the game, so be careful.
+A specific tip for Death Door: After you finish the composition and are ready to take the shot press any of the d-pad buttons on a controller to hide the mouse thing that shows up when aiming with a mouse.
+Please don't hesitate on expanding this guide to generalize the steps or include more specific info on how to shoot a game in the table below.
+
  
 ## More links
- 
+
+- [PCGamingWiki Unity page](https://www.pcgamingwiki.com/wiki/Engine:Unity) 
 - [BepInEx Documentation](https://docs.bepinex.dev/master/articles/user_guide/installation/index.html) - Extensive installation, configuration and troubleshooting site
 - [MelonLoader Documentation](https://melonwiki.xyz/#/README) - Info about installation, configuration and more
