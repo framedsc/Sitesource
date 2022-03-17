@@ -5,7 +5,7 @@
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
     "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed"],
-    "Footer" : "&copy 2019-2021 FRAMED. All rights reserved.",
+    "Footer" : "&copy 2019-2022 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
     "Pages" : 
