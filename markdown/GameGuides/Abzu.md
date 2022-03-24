@@ -1,4 +1,4 @@
-![Game Title](Images\abzu_header.png "Shot by SammirLlm"){.shadowed} 
+![Abzu](Images\abzu_header.png "Shot by SammirLlm"){.shadowed}
 
 ## Summary
 
@@ -29,8 +29,8 @@ Increase/decrese FoV | Num +/-
 Camera Rotation | PageUp and PageDown
 
 ## Hotsampling
-Hotsampling works with the game, the only problem comes after rezising the window altabing to the game which it rezise again to the previous resolution. For taking shoots i suggest using MSI Afterburner (and install RivaTurner that comes with the installation) wich will allow you to take photos without 
-being in the window of the game (be sure to config the desire hotkey in the configs of MSI Afterburner).
+
+Hotsampling works with the game, however there is an issue where alt-tabbing back to the game after hotsampling will reset it to its previous resolution. A workaround is to use MSI Afterburner / RTSS, which can capture the game without needing to alt-tab back.
 
 ## Useful Links
 

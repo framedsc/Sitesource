@@ -13,11 +13,11 @@ Welcome to [framedsc.com](https://framedsc.com/) - a site run by members of the 
 
 Freecams come in multiple forms: cheat tables, dedicated camera tools and if we're lucky, debug modes. 
 
-Cheat Engine tables directly manipulate game memory to give you more control over the in-game camera. They can be rudimentary, but they get the job done. Our [game guides](./Gameguides.htm) usually link to these tables, and if a game doesn't have a table or a guide, it might be in our [Cheat Table Archive](./cheattablearchive.htm).
+**Cheat Engine tables** directly manipulate game memory to give you more control over the in-game camera. They can be rudimentary, but they get the job done. Our [game guides](./Gameguides.htm) usually link to these tables, and if a game doesn't have a table or a guide, it might be in our [Cheat Table Archive](./cheattablearchive.htm).
 
-Dedicated camera tools take it a step further and package all that into a sophisticated, user-friendly DLL. These are much more streamlined than cheat tables ever will be, however are hard to come by as they can be difficult to make. Our very own [Otis_Inf](https://www.patreon.com/Otis_Inf) is currently the most prominent author of these, having written many camera tools as part of his Injectable Generic Camera System (IGCS). 
+**Dedicated camera tools** take it a step further and package all that into a sophisticated, user-friendly DLL. These are much more streamlined than cheat tables ever will be, however are hard to come by as they can be difficult to make. Our very own [Otis_Inf](https://www.patreon.com/Otis_Inf) is currently the most prominent author of these, having written many camera tools as part of his Injectable Generic Camera System (IGCS). 
 
-On occasion, a game's debug mode can be accessed, whether through mods or a certain key combo. These debug modes can have debug cameras (or "noclipping") which can be used in the same way as standard freecams in the absence of the tools above.
+On occasion, a game's **debug mode** can be accessed, whether through mods or a certain key combo. These debug modes can have debug cameras (or "noclipping") which can be used in the same way as standard freecams in the absence of the tools above.
 
 ### Universal Cameras
 
@@ -45,17 +45,17 @@ The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also inclu
 
 **Hotsampling** refers to briefly running a game in a much higher resolution than your monitor supports, allowing you to capture screenshots with incredible detail, then bringing it back down to a native playable resolution. 
 
-One of the benefits of hotsampling is arbitrary window sizes. In other words: custom aspect ratios. With hotsampling, it's possible to render your game at aspect ratios like 4:5 or 2:1 to take some stunning portraits and ultrawide landscapes without having to crop from 16:9 or hurt your neck looking at your monitor sideways.
-
-Hotsampling works by resizing the game window past the bounds of your monitor, using programs like [Simple Runtime Window Editor](https://github.com/dtgDTGdtg/SRWE) (SRWE) or [Windowed Borderless Gaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/) (WBG). This resizing forces the game to render at the new resolution set by those programs. A game has to be running in windowed or borderless windowed for hotsampling to work. 
+Hotsampling works by resizing the game window past the bounds of your monitor, using programs like [Simple Runtime Window Editor](https://github.com/dtgDTGdtg/SRWE) (SRWE) or [Windowed Borderless Gaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/) (WBG). This resizing forces the game to render at the new resolution set by those programs, which will be larger than what fits on your screen. If your image looks "very zoomed in", that's a sign that hotsampling has worked. A game has to be running in **windowed** or **borderless windowed** for hotsampling to work. 
 
 SRWE is the preferred program, however there are cases like with some Ubisoft games (*Steep*, *Ghost Recon Breakpoint*) where WBG will have to be used instead. It is trickier and more frustrating than SRWE, so be sure to follow the guide we have linked below.
 
-To hotsample with WBG open it, right click on the program in the task bar and select "Add Window F3". ALT-TAB back to the game and press F3 (This may take some tries until the program initialize the game)
+To hotsample with WBG, open it, right click on the program in the taskbar, and select "Add Window F3". ALT-TAB back to the game and press F3. This may take some tries as the program initialises the game.
 
 Keep in mind that not every game is able to hotsample. Do consult our [game guides](./Gameguides.htm) to check if your game supports it. Occasionally, the ability to hotsample can be enabled through certain cheat tables, tools and/or mods, so check if those exist too. Certain games may also only hotsample to multiples of 16:9, i.e. no custom aspect ratios.
 
 ### Composing for custom aspect ratios
+
+One of the benefits of hotsampling is arbitrary window sizes. In other words: custom aspect ratios. With hotsampling, it's possible to render your game at aspect ratios like 4:5 or 2:1 to take some stunning portraits and ultrawide landscapes without having to crop from 16:9 or hurt your neck looking at your monitor sideways.
 
 Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how to compose it. Cropping from 16:9 wastes a lot of pixels, and hotsampling makes the shot too large to fit on your screen. You could use [hotsampling helper shaders](./ReshadeGuides/shaderscatalogue.htm#hotsampling) for Reshade, they can scale down a duplicate of your hotsampled window to fit in your monitor. That still comes at the cost of running your game at a very high resolution i.e. low framerate, so instead we'll use SRWE to help us out here.
 
@@ -113,19 +113,25 @@ For AMD users, Virtual Super Resolution (VSR) is the equivalent tech.
 
 ## ReShade
 
-**Reshade** is a post-processing injector for games, allowing you to add many post-processing effects to games such as ambient occlusion, depth of field, colour grading and so much more. It's commonly used in many of our shots as it helps to get the shot looking just the way we want.
+**ReShade** is a post-processing injector for games, allowing you to add many post-processing effects to games such as bloom, ambient occlusion, depth of field, colour grading and so much more.
 
-### Why use reshade instead (besides) of Lightroom or Photoshop?
+While it is incredibly popular for 'dressing up' a game's looks to a user's taste, it's since become very useful for the PC screenshotting community as an extremely flexible editor that provides an in-game, real-time preview.
 
-Basically, reshade is applying shaders over a game, so you can add effects such as bloom that don't really exist in image processing software because is more of a game-orientated thing, like adding bloom to a game scene makes sense.
+### The depth buffer
 
-But what makes reshade really the most powerful for us is the game's depth buffer, which is basically a map of values that tell reshade if a pixel is far or close. That info can be used for a whole lot of things. The most popular probably being depth of field, something that would take ages to do in stuff like photoshop (with the right plugin and knowledge) takes seconds in reshade. You can also lighten up or darken subjects based on depth, so no need to carefully mask stuff that you want to edit.
+A 2D representation of how far or close objects are as seen from the camera, the depth buffer is what makes ReShade so powerful. It can be used to generate highly sophisticated effects such as [cinematic depth of field](./ReshadeGuides/Shaders/cinematicdof.htm) and raytraced lighting. It can even add [faux volumetric fog](https://twitter.com/FransBouma/status/1506372102835822599) to a scene, or even just be used for gorgeous [silhouette effects](https://framedsc.com/HallOfFramed/?imageId=1631466300).
 
-Another area of utility is ambient occlusion or ray tracing shaders, which add "shadows" and lighting to the game depending on the scene geometry.
+ReShade's ability to grab a game's depth buffer may also be useful for those that know how to work with it in a compositor like Photoshop, After Effects, or Nuke. We have a guide that covers the process of capturing this depth buffer for use externally **[here](./ReshadeGuides/depthguide.htm)**.
 
-These are just a couple of examples of using reshade, even if you intend to edit the shot in Lightroom later. Of course, doing color grading and edits that you could do on Lightrom in-game is also valuable, but you do have to take in mind the longer the time you spend on a shot, the chances of something happening that ruins your shot (ex: the game crashing) increases.
+### Why ReShade?
 
-For more use-cases and explanations on why reshade is useful to us check out our [guide to setting Reshade up](./ReshadeGuides/setupreshade.htm) as well as a [catalogue](./ReshadeGuides/shaderscatalogue.htm) of almost every Reshade shader out there.
+...instead of more conventional photo editors like Photoshop or Lightroom?
+
+A lot of the depth effects written for ReShade are typically quite difficult if not near impossible to replicate in an external editor without some serious plugins or knowledge on how to recreate them. Many also choose ReShade because it's convenient - it's right there always alongside your game, easy to access and use at any time, and it's *free*.
+
+That's not to say it doesn't come with downsides, ReShade can be a major performance hit, not to mention it gets increasingly unstable the more complex your effects get. Some do prefer the experience of working in an external editor just for the peace of mind that their game won't crash on them after a couple hours of work.
+
+For more use cases for ReShade, check out our [guide to setting Reshade up](./ReshadeGuides/setupreshade.htm) as well as our [catalogue](./ReshadeGuides/shaderscatalogue.htm) of almost every Reshade shader out there.
 
 ### More links
 - [Official page](https://reshade.me/)
@@ -145,13 +151,13 @@ There are many ways of doing so, and none of them through a game's built-in capt
 
 Here are some typical methods:
 
-- **[Reshade](https://reshade.me)**  
+- **[ReShade](https://reshade.me)**  
 Reshade comes with its own capture function and is typically the chosen option for many that have it installed. It can have issues detecting keypresses at high resolutions / low framerates, as it runs in the same process as the game (which has already slowed down). Switching to BMP capture alleviates this issue at the cost of larger files, or you could try using:
 - **[MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)**  
 Favored by quite a few, Afterburner is a graphics card utility that happens to be able to hook into games and take screen captures of them, even when the game isn't in focus (so it's useful if after hotsampling a game you want to come back to its windows to take the screenshot and the camera moves or it goes back to the original definition). As it runs as its own process, it's able to capture and save files quicker than Reshade at high resolutions (you don't have to keep pressing the screenshot button hoping for reshade to register it and take the shot). However, it's been known to conflict with certain games and their tools, causing crashes. You will also need to install RTSS when the installer asks you to be able to take screenshots with afterburner.
 - **[Nvidia GeForce Experience](https://www.nvidia.com/en-sg/geforce/geforce-experience/)**  
 Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Same with Afterburner, it can capture faster than Reshade. Be sure you have *Desktop capture* disabled, otherwise it will just save whatever's on your monitor at the moment of capture.
-- **Steam**  
+- **[Steam](https://screenshot.help/steam)**  
 If you're playing a Steam game and are used to hitting F12, Steam Overlay works just fine for capturing too. Just be sure to enable *Save an uncompressed copy* under Steam Settings > In-Game to save proper PNGs, Steam JPGs can be very low quality.
 
 These methods above have been proven to work well with hotsampling and Reshade, but if you run into issues with them, try switching them up.

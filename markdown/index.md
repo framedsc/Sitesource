@@ -10,5 +10,5 @@ Contact:<br>
 <i class="fa fa-twitter"></i> <a href="https://twitter.com/moyevka" target="_blank">moyevka</a> |
 <i class="fa fa-twitter"></i> <a href="https://twitter.com/originalnicodr" target="_blank">originalnicodr</a>.
 <br><br>
-<a href="https://github.com/framedsc/Sitesource" target="_blank"><i class="fa fa-github"></i>This site's markdown source</a>
+<i class="fa fa-github"></i> <a href="https://github.com/framedsc/Sitesource" target="_blank">This site's markdown source</a>
 </p>

@@ -14,7 +14,7 @@ DirectX versions | DirectX 9
  
 ## Tools
  
-* [Cheat Table by IPG Xapek](..\CheatTables\METAL_GEAR_RISING_REVENGEANCE-FreeCam-Fov-NoHUD-StopTime.CT) 
+* [Cheat Table by IPG Xapek](..\CheatTables\METAL_GEAR_RISING_REVENGEANCE-FreeCam-Fov-NoHUD-StopTime.CT)   
 **Features**: Freecam, Timestop, UI Toggle, FOV Control 
 
 ## Tips and Tricks

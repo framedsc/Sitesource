@@ -4,32 +4,32 @@
 	css file after this file in the page template.
 */
 a {
-	color: #2980B9;
+	color: #56B6FB;
 }
 
 a:hover, a:visited:hover {
-	color: #65bffa;
+	color: #CDEAFE;
 }
 
 a:visited {
-	color: #2980B9;
+	color: #56B6FB;
 }
 
 body {
-	color: #222;
+	color: #dcdfd8;
 }
 
 code, pre.nocode {
-	background: #fff;
-	border: solid 1px #e1e4e5;
+	background: #272727;
+	border: solid 1px #222;
 }
 
 footer {
-	color: #999;
+	color: #8a8a8a;
 }
 
 hr {
-	border-top-color: #e1e4e5;
+	border-top-color: #8a8a8a;
 }
 
 input[type="text"] {
@@ -64,7 +64,11 @@ mark {
 
 /* #region Alert boxes*/
 .alert {
-	background: #e7f2fa;
+	background: #fff;
+}
+
+.alert p {
+	color:#fff;
 }
 
 .alert-title {
@@ -73,36 +77,35 @@ mark {
 }
 
 .alert.alert-danger {
-	background: #fdf3f2;
+	background: #593d3a;
 }
 
 .alert.alert-danger .alert-title {
-	background: #f29f97;
+	background: linear-gradient(330deg, #f29f97, #db786e, #ba594f);
 }
 
 .alert.alert-warning {
-	background: #ffedcc;
+	background: #59473a;
 }
 
 .alert.alert-warning .alert-title {
-	background: #f0b37e;
+	background: linear-gradient(330deg, #f0b37e, #e69d5d, #d9873f);
 }
 
 .alert.alert-info {
-	background: #e7f2fa;
+	background: #36434d;
 }
 
 .alert.alert-info .alert-title {
-	background: #6ab0de;
+	background: linear-gradient(330deg, #6ab0de, #3f94cf, #2e74a6);
 }
 
 .alert.alert-neutral {
-	background: #f3f6f6;
+	background: #424242;
 }
 
 .alert.alert-neutral .alert-title {
-	color: #404040;
-	background: #e1e4e5;
+	background: linear-gradient(330deg, #2d2d2d, #272727);
 }
 
 .alert.alert-neutral a {
@@ -110,26 +113,26 @@ mark {
 }
 
 .alert.alert-tip {
-	background:#dbfaf4;
+	background:#364d48;
 }
 
 .alert.alert-tip .alert-title {
-	background:#1abc9c;
+	background: linear-gradient(330deg, #6adec7, #3fcfb2, #2ea68e);
 }
 
 /* #endregion*/
 
 /* #region Tables*/
 .table caption {
-	color: #000;
+	color: #dcdfd8;
 }
 
 .table thead {
-	color: #000;
+	color: #dcdfd8;
 }
 
 .table thead th {
-	border-bottom-color: #e1e4e5;
+	border-bottom-color: #272727;
 }
 
 .table-secondary {
@@ -149,24 +152,24 @@ mark {
 }
 
 .table-bordered-all {
-	border-color: #e1e4e5;
+	border-color: #272727;
 }
 
 .table-bordered-all td {
-	border-bottom-color: #e1e4e5;
-	border-left-color: #e1e4e5;
+	border-bottom-color: #272727;
+	border-left-color: #272727;
 }
 
 .table-bordered {
-	border-color: #e1e4e5;
+	border-color: #272727;
 }
 
 .table-bordered-rows td {
-	border-bottom-color: #e1e4e5;
+	border-bottom-color: #272727;
 }
 
 .table-horizontal td, .table-horizontal th {
-	border-bottom-color: #e1e4e5;
+	border-bottom-color: #272727;
 }
 /* #endregion*/
 
@@ -182,43 +185,47 @@ mark {
 }
 
 .menu-vertical ul.currentrelative {
-	background-color: #fcfcfc;
+	background-color: #333333;
 }
 
 .menu-vertical li.current {
-	background-color: #fcfcfc;
+	background-color: #333333;
 }
 
 .menu-vertical ul.current {
-	background-color: #fcfcfc;
+	background-color: #333333;
 }
 
 .menu-vertical li.current a {
-	color: #6b6b6b;
+	color: #fff;
 }
 
 .menu-vertical li.current.tocentry > a, .menu-vertical li.current > a {
-	color: #6b6b6b;
+	color: #fff;
 }
 
 .menu-vertical li.current.tocentry ul li > a {
-	color: #6b6b6b;
+	color: #dcdfd8;
+}
+
+.menu-vertical li.current.tocentry ul li > a:hover {
+	color: #fff;
 }
 
 .menu-vertical a {
-	color: #6b6b6b;
+	color: #dcdfd8;
 }
 
 .menu-vertical a:hover, .menu-vertical li.on a:hover {
-	color: #999;
+	color: #fff;
 }
 
 .menu-vertical span, .menu-vertical span > a {
-    color: #6b6b6b;
+    color: #dcdfd8;
 }
 
 .nav-side {
-	background: #eee;
+	background: #272727;
 }
 
 .nav-top {
@@ -235,11 +242,11 @@ mark {
 }
 
 .nav-content-wrap {
-	background: #fcfcfc;
+	background: #333333;
 }
 
 .side-nav-search {
-	background-color: #2980B9;
+	background: linear-gradient(330deg, #203a4e, #2d4d64, #3b607b, #497492);
 	color: #fcfcfc;
 }
 
@@ -256,7 +263,7 @@ mark {
 }
 
 .side-nav-search > a:hover, .side-nav-search .dropdown > a:hover {
-	background: rgba(255,255,255,0.1);
+	color: #ddd;
 }
 
 .nav .menu-vertical a {
@@ -272,20 +279,20 @@ mark {
 */
 
 .tab-wrap {
-	background-color: #fff;
+	background-color: #2d2d2d;
 }
 
 .tab:checked + label {
-	background-color: #fff;
+	background-color: #2d2d2d;
 }
 
 .tab + label {
-	color: #222;
-	background-color: #f2f2f2;
+	color: #dcdfd8;
+	background-color: #272727;
 }
 
 .tab + label:hover {
-	background-color: #f9f9f9;
+	background-color: #333;
 }
 /* #endregion*/
 
@@ -294,13 +301,13 @@ mark {
 /* #region media queries*/
 @media screen and (max-width: 768px) {
 	.body-for-nav {
-		background: #fcfcfc;
+		background: #333333;
 	}
 }
 
 @media screen and (min-width: 1400px) {
 	.nav-content {
-		background: #fcfcfc;
+		background: #333333;
 	}
 }
 
