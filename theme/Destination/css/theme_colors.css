@@ -229,8 +229,8 @@ mark {
 }
 
 .nav-top {
-	background: #2980B9;
-	color: #fff;
+	background: linear-gradient(330deg, #497492, #3b607b, #2d4d64, #203a4e);
+	color: #fcfcfc;
 }
 
 .nav-top a {

@@ -131,7 +131,7 @@ A lot of the depth effects written for ReShade are typically quite difficult if 
 
 That's not to say it doesn't come with downsides, ReShade can be a major performance hit, not to mention it gets increasingly unstable the more complex your effects get. Some do prefer the experience of working in an external editor just for the peace of mind that their game won't crash on them after a couple hours of work.
 
-For more use cases for ReShade, check out our [guide to setting Reshade up](./ReshadeGuides/setupreshade.htm) as well as our [catalogue](./ReshadeGuides/shaderscatalogue.htm) of almost every Reshade shader out there.
+For more use cases for ReShade, check out our [guide to setting ReShade up](./ReshadeGuides/setupreshade.htm) as well as our [catalogue](./ReshadeGuides/shaderscatalogue.htm) of almost every ReShade shader out there.
 
 ### More links
 - [Official page](https://reshade.me/)
@@ -152,9 +152,9 @@ There are many ways of doing so, and none of them through a game's built-in capt
 Here are some typical methods:
 
 - **[ReShade](https://reshade.me)**  
-Reshade comes with its own capture function and is typically the chosen option for many that have it installed. It can have issues detecting keypresses at high resolutions / low framerates, as it runs in the same process as the game (which has already slowed down). Switching to BMP capture alleviates this issue at the cost of larger files, or you could try using:
+Reshade comes with its own capture function and is typically the chosen option for many that have it installed. It should no longer have issues capturing higher resolutions as its PNG capture was rewritten for its 5.0 update. If you continue to use an older version of ReShade and need faster captures, you could also try:
 - **[MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)**  
-Favored by quite a few, Afterburner is a graphics card utility that happens to be able to hook into games and take screen captures of them, even when the game isn't in focus (so it's useful if after hotsampling a game you want to come back to its windows to take the screenshot and the camera moves or it goes back to the original definition). As it runs as its own process, it's able to capture and save files quicker than Reshade at high resolutions (you don't have to keep pressing the screenshot button hoping for reshade to register it and take the shot). However, it's been known to conflict with certain games and their tools, causing crashes. You will also need to install RTSS when the installer asks you to be able to take screenshots with afterburner.
+Favored by quite a few, Afterburner is a graphics card utility that happens to be able to hook into games and take screen captures of them, even when the game isn't in focus. This makes it useful for games that might resize its window or move the camera after alt-tabbing back into the game. However, it's been known to conflict with certain games and their tools, causing crashes. You will also need to install RTSS, bundled with the installer, to be able to take screenshots with Afterburner.
 - **[Nvidia GeForce Experience](https://www.nvidia.com/en-sg/geforce/geforce-experience/)**  
 Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Same with Afterburner, it can capture faster than Reshade. Be sure you have *Desktop capture* disabled, otherwise it will just save whatever's on your monitor at the moment of capture.
 - **[Steam](https://screenshot.help/steam)**  

@@ -19,7 +19,8 @@
     font-weight: normal;
     font-style: italic;
     font-display: swap;
-	unicode-range: U+30-39;
+	unicode-range: U+30-39; /* affects only 0-9 */
+	ascent-override: 50%; /* necessary for line-height matching, not necessary to be 50% - not supported on safari! */
 }
 
 @font-face {
@@ -30,6 +31,7 @@
     font-style: normal;
     font-display: swap;
 	unicode-range: U+30-39;
+	ascent-override: 50%;
 }
 
 @font-face {
@@ -40,6 +42,7 @@
     font-style: normal;
     font-display: swap;
 	unicode-range: U+30-39;
+	ascent-override: 50%;
 }
 
 @font-face {
@@ -50,6 +53,7 @@
     font-style: italic;
     font-display: swap;
 	unicode-range: U+30-39;
+	ascent-override: 50%;
 }
 
 @font-face {
@@ -322,14 +326,14 @@ form {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
-	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif
+	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif;
+	line-height: 100%;
 }
 
 h1 {
 	font-size: 220%;
 	margin-bottom:25px;
 	font-weight: 500;
-	line-height: 100%;
 }
 
 h2 {
@@ -1194,6 +1198,7 @@ div.figure p {
 	text-align: center;
 	font-size: 100%;
 	*zoom: 1;
+	font-family: 'Galano Grotesque Alt', 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif
 }
 
 .nav-top > .fa {
