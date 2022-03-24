@@ -102,6 +102,6 @@ It's highly recommended to have separate gameplay and screenshot setting presets
 
 ## Useful Links
 
-* [[PC Gaming Wiki]](https://www.pcgamingwiki.com/wiki/Assetto_Corsa)
+* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Assetto_Corsa)
 * [Girellu Repository](https://github.com/archibaldmilton/Girellu)
 * [How to use Assetto Corsa's hidden photo mode video](https://www.youtube.com/watch?v=FIitR0SCoxQ)

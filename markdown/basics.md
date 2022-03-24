@@ -51,6 +51,8 @@ Hotsampling works by resizing the game window past the bounds of your monitor, u
 
 SRWE is the preferred program, however there are cases like with some Ubisoft games (*Steep*, *Ghost Recon Breakpoint*) where WBG will have to be used instead. It is trickier and more frustrating than SRWE, so be sure to follow the guide we have linked below.
 
+To hotsample with WBG open it, right click on the program in the task bar and select "Add Window F3". ALT-TAB back to the game and press F3 (This may take some tries until the program initialize the game)
+
 Keep in mind that not every game is able to hotsample. Do consult our [game guides](./Gameguides.htm) to check if your game supports it. Occasionally, the ability to hotsample can be enabled through certain cheat tables, tools and/or mods, so check if those exist too. Certain games may also only hotsample to multiples of 16:9, i.e. no custom aspect ratios.
 
 ### Composing for custom aspect ratios
@@ -111,9 +113,19 @@ For AMD users, Virtual Super Resolution (VSR) is the equivalent tech.
 
 ## ReShade
 
-**Reshade** is a post-processing injector for games, allowing you to add many post-processing effects to games such as ambient occlusion, depth of field, colour grading and so much more. It's commonly used in many of our shots as it helps to get the shot looking just the way we want. 
+**Reshade** is a post-processing injector for games, allowing you to add many post-processing effects to games such as ambient occlusion, depth of field, colour grading and so much more. It's commonly used in many of our shots as it helps to get the shot looking just the way we want.
 
-Check out our [guide to setting Reshade up](./ReshadeGuides/setupreshade.htm) as well as a [catalogue](./ReshadeGuides/shaderscatalogue.htm) of almost every Reshade shader out there.
+### Why use reshade instead (besides) of Lightroom or Photoshop?
+
+Basically, reshade is applying shaders over a game, so you can add effects such as bloom that don't really exist in image processing software because is more of a game-orientated thing, like adding bloom to a game scene makes sense.
+
+But what makes reshade really the most powerful for us is the game's depth buffer, which is basically a map of values that tell reshade if a pixel is far or close. That info can be used for a whole lot of things. The most popular probably being depth of field, something that would take ages to do in stuff like photoshop (with the right plugin and knowledge) takes seconds in reshade. You can also lighten up or darken subjects based on depth, so no need to carefully mask stuff that you want to edit.
+
+Another area of utility is ambient occlusion or ray tracing shaders, which add "shadows" and lighting to the game depending on the scene geometry.
+
+These are just a couple of examples of using reshade, even if you intend to edit the shot in Lightroom later. Of course, doing color grading and edits that you could do on Lightrom in-game is also valuable, but you do have to take in mind the longer the time you spend on a shot, the chances of something happening that ruins your shot (ex: the game crashing) increases.
+
+For more use-cases and explanations on why reshade is useful to us check out our [guide to setting Reshade up](./ReshadeGuides/setupreshade.htm) as well as a [catalogue](./ReshadeGuides/shaderscatalogue.htm) of almost every Reshade shader out there.
 
 ### More links
 - [Official page](https://reshade.me/)

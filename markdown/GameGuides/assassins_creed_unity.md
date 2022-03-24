@@ -20,7 +20,7 @@ __Features__: Camera control (gamepad support), FOV Control, Camera/Rotation Spe
 __Features__:  Requires Varia 3.2 Anti-Cheat Table to function - LOD improvements, remove chromatic aberration, remove Depth of Field, remove Fog
 * [Toggle HUD Mod](https://www.nexusmods.com/assassinscreedunity/mods/2)  
 __Features__: Configurable HUD toggle key (edit d3dx.ini) - works as a timestop when pausing the game and hiding the HUD. Supports gamepad bindings.
-* [Varia 3.2 Anti-Cheat Table from FearlessRevolution by Paul44](https://fearlessrevolution.com/download/file.php?id=25921)  
+* [Varia 3.2 Anti-Cheat Table from FearlessRevolution by Paul44 (Password: Fearless)](https://fearlessrevolution.com/download/file.php?id=25921)  
 __Features__: (Disables the game's anti-cheat) God Mode, Invisibility, Increase Inventory supplies. Works for the latest game version 1.5.0 (Uplay and Steam).
 
 
