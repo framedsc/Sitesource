@@ -28,15 +28,17 @@ Required by many mods.
 * [Appearance Menu Mod](https://www.nexusmods.com/cyberpunk2077/mods/790) / [Discord](https://discord.com/invite/47jV2rNdgn)  
 **Features**: Spawn, move and remove characters and objects. Save and teleport to locations. Enables look at for any pose. Removes many limits of photo mode. And much, much more.
 * [Object Spawner](https://www.nexusmods.com/cyberpunk2077/mods/2833)   
- **Features**: Spawn over 16k different items. 
+**Features**: Spawn over 16k different items. 
 * [Freefly](https://www.nexusmods.com/cyberpunk2077/mods/780)  
 **Features**: Enable noclip to fly V to places you wouldn't normally be able to reach.
-* [Appearance Change unlocker](https://www.nexusmods.com/cyberpunk2077/mods/3850) with [Character Customization Anywhere](https://www.nexusmods.com/cyberpunk2077/mods/3930). With Cybercat Save Editor currently out of date and not compatible, this is the best alternative for fast character customisation. The first mod enhances the new character editor when activated at a mirror and the second mod enables that feature to be activated anywhere with a hotkey.  
+* [Appearance Change Unlocker](https://www.nexusmods.com/cyberpunk2077/mods/3850) with [Character Customization Anywhere](https://www.nexusmods.com/cyberpunk2077/mods/3930)  
+**Features**: allows editing of your V while in-game. The first mod unlocks full character customisation at apartment mirrors and the second mod enables that feature to be activated anywhere with a hotkey. This replaces the CyberCAT save editor.
 
-## Graphical Tweaks
+## Graphical Tweaks  
+
 * [Cinematic RTX](https://www.tomshardware.com/uk/news/how-to-unlock-cyberpunk-2077-cinematic-rtx-mode)   
- Add an extra level of ray tracing.
- * [Settings Manager](https://www.nexusmods.com/cyberpunk2077/mods/2332)   
+**Features**: Boosts raytracing quality.
+* [Settings Manager](https://www.nexusmods.com/cyberpunk2077/mods/2332)   
 **Features**: Save your games graphics settings to presets, and switch between them anytime.  
 NOTE: If you have a preset from an older version of the game, you may need to create new presets to avoid crashes.
 
