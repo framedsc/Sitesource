@@ -114,7 +114,7 @@ As they sound, bloom shaders are used to imitate bloom in a scene.
 - [**PPFX_Godrays**](https://github.com/Mortalitas/GShade/blob/master/Shaders/PPFX_Godrays.fx): If you want to add godrays to a scene then this shader can help you with that.
 - [**TrackingRays**](https://github.com/luluco250/FXShaders/blob/master/Shaders/TrackingRays.fx): Similar to the previous shader but the orientation of the rays are automatic.
 
-### Fun effects
+## Fun effects
 If the shaders in the "graphics improvement" section were situational, these ones are even more. They would probably require some fiddling, but use them if you are going for a *very* specific look. In some of them, instead of explaining what they do I will be dropping screenshots because it would be easier to see than read about them.
  
 - [**AdaptiveFog**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/AdaptiveFog.fx): Used most for creating a color background, or putting a subject in shadows. It also has some bloom settings for when the fog starts.
@@ -156,11 +156,11 @@ It can also be used when you have a jitter depth buffer (sometimes caused by TAA
 - [**qUINT_frametool**](https://github.com/martymcmodding/qUINT/blob/experimental/Shaders/qUINT_frametool.fx): If you want to hotsample with a background blur similar to the one "DirectionalDepthBlur" makes then this one does the job.
 - [**ZigZag**](https://github.com/Radegast-FFXIV/reshade-shaders/blob/master/Shaders/ZigZag.fx): It distorts the image around a point, useful for creating abstract shapes. And since it has an animation opinion, you can get some interesting results in combination with reallongexposure.
 
-### Painty shaders
+## Painty shaders
 - [**Oilify**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/Oilify.fx): Applies a Kuwahara painty filter using an optimized method for extracting the image mean and variance separably.
 - [**pkd_kuwahara**](https://github.com/Mortalitas/GShade/blob/master/Shaders/pkd_Kuwahara.fx)
  
-### Outlines
+## Outlines
 
 - [**BilateralComic**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/BilateralComic.fx): Cel-shading shader that uses a combination of bilateral filtering, posterization and edge detection to create a comic book style effect.
 - [**Cartoon**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Cartoon.fx): Creates an outline-effect that makes the image look more cartoonish.
@@ -169,26 +169,27 @@ It can also be used when you have a jitter depth buffer (sometimes caused by TAA
 - [**MeshEdges**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MeshEdges.fx): More outlines with some color regarding the outlines themselves and the possibility to use a plain color with the outlines on top.
 - [**LumaLines**](https://github.com/EDCVBNM/ED-shaders/blob/main/Shaders/LumaLines.fx): Draws an outline depending on the difference in luma between the pixels.
  
-### Lens Flare
+## Lens Flare
  
 - [**Flair**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/Flair.fx): Adds lens flares.
 - [**HexLensFlare**](https://github.com/luluco250/FXShaders/blob/master/Shaders/HexLensFlare.fx): More lens flares.
 - [**UnrealLens**](https://github.com/luluco250/FXShaders/blob/master/Shaders/UnrealLens.fx)
  
-### Screenshot with alpha pixels
+## Screenshot with alpha pixels
 Used to screenshot using pixels with alpha value of 0 depending on the depth of the shot. You will probably need to use the latest version of reshade for these ones.
 
 - [**DepthAlpha**](https://github.com/luluco250/FXShaders/blob/master/Shaders/DepthAlpha.fx)
 - [**CuttingTool_Depth**](https://github.com/Mortalitas/GShade/blob/master/Shaders/CuttingTool_Depth.fx)
  
-### Images
+## Images
 Shaders used for rendering an image in game (like changing the sky). Can be used in combination with shaders like DepthAlpha and CuttingTool_Depth very well.
 
 - [**Image**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/Image.fx)
 - [**StageDepth**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Recommended/StageDepth.fx)
 - [**StageDepthPlus**](https://github.com/originalnicodr/CorgiFX/blob/master/Shaders/StageDepthPlus.fx): Allows manipulating an image, letting you resize it independently from the x and y axis, positioning it, rotating it, using depth for masking and the ability of using different blending modes. You can also use a depth map alongside the texture image to interact with the game's depth.
  
-### Styles
+## Styles
+
 - **Posterize**: You can only get this shader in the [pack provided by nvidia](https://international-gfe.download.nvidia.com/GFE/GFEClient/ReShadeFilters/v1.0/Curated_ReShade_Filters.zip)
 
 ![](../Images/ShadersCatalog_Posterize.png){.shadowed}
@@ -209,7 +210,7 @@ Shaders used for rendering an image in game (like changing the sky). Can be used
 
 ![](../Images/ShadersCatalog_Sketch.png){.shadowed}
 
-### Masking
+## Masking
 If you are familiar with photoshop or lightroom you probably know what masking is. If not, masking is referred to the act of selecting what parts of the screen you want some editing to take effect, often represented by white and black pixels for (white = the effects in between the CanvasMask shaders will be visible there, black= those effect won't be visible). The shaders that are in between the "Before" and "After" techniques of each mask shader will be masked out of the scene.
  
 - [**Cobra Mask**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/Cobra_Mask.fx): A color masking shader designed to be used with the ColorSort and Gravity shader, to apply a Mask with similar settings to the scene.
