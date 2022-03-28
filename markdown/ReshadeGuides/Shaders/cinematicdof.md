@@ -14,7 +14,7 @@ left or right to resp. decrease and increase the value. By holding `shift` while
 `ctrl` while clicking gives you the ability to type in the value you want. 
 
 @alert info
-The screenshots below are taken with Cinematic DOF v1.2.4, released on March 15th, 2022.
+The screenshots below are taken with Cinematic DOF v1.2.5, released on March 28th, 2022.
 @end
 
 ## Focusing
@@ -60,24 +60,24 @@ a 100mm lens on a modern camera with aperture 2.8 you'd get nice portrait shots 
 
 Here's the default setting in action:
 
-![100mm/2.8](../../Images/ShaderGuides/CinematicDOF/focus_100mm_2_8.jpg "100mm with 2.8 aperture"){.shadowed .autosize}
+![100mm/2.8](../../Images/ShaderGuides/CinematicDOF/100mm.jpg "100mm with 2.8 aperture"){.shadowed .autosize}
 
 Look carefully at the blurring on the wings of the statue, and the thick blurring in the background. 
 
 If we change the lens and aperture to the values of a lens that's often sold with a modern camera, a 50mm lens with aperture 5.6, the results are a bit different:
 
-![50mm/5.6](../../Images/ShaderGuides/CinematicDOF/focus_50mm_5_6.jpg "50mm with 5.6 aperture"){.shadowed .autosize}
+![50mm/5.6](../../Images/ShaderGuides/CinematicDOF/50mm.jpg "50mm with 5.6 aperture"){.shadowed .autosize}
 
 You can clearly see there's way less blur in the background. The focus is still on the statue, camera is still on the same distance. Also the blurring on the wings is gone, 
 they're cleanly in focus.
 
 Here's the same scene with a lens of 100mm and aperture of 5.6:
 
-![100mm/5.6](../../Images/ShaderGuides/CinematicDOF/focus_100mm_5_6.jpg "100mm with 5.6 aperture"){.shadowed .autosize}
+![100mm/5.6](../../Images/ShaderGuides/CinematicDOF/100mm56.jpg "100mm with 5.6 aperture"){.shadowed .autosize}
 
 And with a 50mm lens with aperture 2.8:
 
-![50mm/5.6](../../Images/ShaderGuides/CinematicDOF/focus_50mm_2_8.jpg "50mm with 2.8 aperture"){.shadowed .autosize}
+![50mm/5.6](../../Images/ShaderGuides/CinematicDOF/50mm28.jpg "50mm with 2.8 aperture"){.shadowed .autosize}
 
 There's subtle more blur than with a 5.6 aperture. You're free to choose what will give you the right blur factor. It's often only necessary to change one the 
 two, either lens length *or* aperture, but not both. To get started, leave the aperture on 2.8 for now and only change the lens length to a lower value for less blur 
@@ -100,11 +100,11 @@ blurring as seen in the shot below.
 
 Far plane max blur set to 3.0:
 
-![far plane blur 3.0](../../Images/ShaderGuides/CinematicDOF/blur_fp_3_0.jpg "Far plane blur with blur set to 3.0"){.shadowed .autosize}
+![far plane blur 3.0](../../Images/ShaderGuides/CinematicDOF/100mm_fp30.jpg "Far plane blur with blur set to 3.0"){.shadowed .autosize}
 
 If we change the blur to a lower value, e.g. 0.5, we'll get the result below:
 
-![far plane blur 0.5](../../Images/ShaderGuides/CinematicDOF/blur_fp_0_5.jpg "Far plane blur with blur set to 0.5"){.shadowed .autosize}
+![far plane blur 0.5](../../Images/ShaderGuides/CinematicDOF/100mm_fp05.jpg "Far plane blur with blur set to 0.5"){.shadowed .autosize}
 
 This might look the same as using a shorter lens, like 50mm, but that's not the case: with a 50mm lens the blur starts later, deeper into the 3D world, farther away from 
 the focus plane. With 100mm the blur starts already on the wings of the statue. Because the blur factor is set to a lower value, the blur is very subtle. 
@@ -115,7 +115,7 @@ for the far plane blur: setting it to 0 switches it off, setting it to a high va
 
 Below an example shot where the focus is on the statue and far blur has been disabled, using the default near plane blur factor of 1.0.
 
-![near plane blur 1.0](../../Images/ShaderGuides/CinematicDOF/blur_np_1_0.jpg "Near plane blur with blur set to 1.0"){.shadowed .autosize}
+![near plane blur 1.0](../../Images/ShaderGuides/CinematicDOF/100mm_np.jpg "Near plane blur with blur set to 1.0"){.shadowed .autosize}
 
 ### Overall blur quality and smoothing factor.
 The overall blur quality is by default set to 5. This is the # of rings the shader will use per pixel to produce the disc-based blur. The higher the number, the more
@@ -123,80 +123,49 @@ rings and therefore the more samples it will take per pixel to blur the areas in
 but if you want higher quality, you can, the range goes to 12. The higher the number, the more performance the shader will take. 
 
 A high quality number is in general only needed for highlights. In normal blurred areas without *bokeh* highlights, you won't notice much difference between e.g. 4 or 9.
-However with a scene with a lot of bokeh highlights, you'll notice *dots* with low quality settings in highlights, if the blur factor is high enough. 
+However with a scene with a lot of bokeh highlights, you'll notice *dots* with low quality settings in highlights, if the blur factor is high enough. This is a side effect
+from a phenomenon that's called *undersampling*. 
 
 See the following scene: 
 
-![Blur quality 5](../../Images/ShaderGuides/CinematicDOF/blur_q5.jpg "Blur quality set to 5"){.shadowed .autosize}
+![Blur quality 5](../../Images/ShaderGuides/CinematicDOF/100mm_us1.jpg "Blur quality set to 5"){.shadowed .autosize}
 
-It has the quality set to the default, 5, and a high blur factor. The focus is on the stone fence in the front. You can see some dots in the bokeh highlights. If
-we increase the quality to 8, as seen in the shot below, the dots are gone and we have smooth bokehs. 
+It has the quality set to the default, 5, and a high blur factor and no undersampling mitigation. The focus is on the metal pillar in the from right. 
+You can see some dots in the bokeh highlights in the middle-left, so the highlights are *undersampled* here. 
+We can increase the blur quality to a higher value to get rid of this side effect, or check the 'Mitigate undersampling' checkbox in the *Advanced* section. 
 
-![Blur quality 8](../../Images/ShaderGuides/CinematicDOF/blur_q8.jpg "Blur quality set to 8"){.shadowed .autosize}
+![Blur quality 5 with undersampling mitigation enabled](../../Images/ShaderGuides/CinematicDOF/100mm_us2.jpg "Blur quality set to 5 with undersampling mitigation enabled"){.shadowed .autosize}
 
 We can also achieve that with another option, the **Post-blur smoothing factor**. This setting applies a gaussian blur on the near and far plane to smooth out the 
 highlights. It's a less subtle option than the quality setting, but the performance is better. 
 
-In the shot below the quality is back to the default, 5, but the smoothing factor is used to get rid of the undersampling artifacts instead.
+In the shot below the undersampling mitigation is switched off, and the smoothing factor is used to get rid of the undersampling artifacts instead.
 
-![Blur quality 5 smooth](../../Images/ShaderGuides/CinematicDOF/blur_q5_s.jpg "Blur quality set to 5 with smoothing"){.shadowed .autosize}
+![Blur quality 5 smooth](../../Images/ShaderGuides/CinematicDOF/100mm_us3.jpg "Blur quality set to 5 with smoothing enabled"){.shadowed .autosize}
 
 Not all artifacts are gone though: bokehs with low brightness are skipped to avoid blurring non-highlight areas. It's a trade-off and it's up to you what to use
 in a particular scene.
 
 ## Highlight tweaking
-A depth of field effect creates *bokeh* highlights, of which we've seen an example of in the previous section. Reshade is an SDR system, which means all rendering
-it does is typically standard definition and not HDR. The downside of this is that with blurring highlights in the foreground and background, the energy isn't preserved
-as much as with HDR systems. To help the shader get proper bokeh highlights, Cinematic DOF has a variety of settings which can help you create the bokehs you want. 
+A depth of field effect creates *bokeh* highlights, of which we've seen an example of in the previous section. 
+To help the shader get proper bokeh highlights, Cinematic DOF has a variety of settings which can help you create the bokehs you want. 
 
-### Edge bias
+### Busy Bokeh factor
 A bokeh highlight is a typical round highlight with an even color. However you can change the round highlight to be a circle which is more transparent in the center
-than it is on the edges. To do this, increase the **Highlight edge bias** to a value bigger than 0. The example below shows the highlights with an edge bias of 0.5.
+than it is on the edges. To do this, increase the **Busy bokeh factor** to a value bigger than 0. The example below shows the highlights with a factor of 0.5.
 
-![Highlight edge bias 0.5](../../Images/ShaderGuides/CinematicDOF/ht_edgebias.jpg "Highlight edge bias of 0.5"){.shadowed .autosize}
+![Busy bokey factor 0.5](../../Images/ShaderGuides/CinematicDOF/100mm_bf.jpg "Busy bokey factor of 0.5"){.shadowed .autosize}
 
-### Highlight type
-There are different types of highlights: Bloom burn and Twinkle circlets. The latter gives more prominent round colored highlight bokehs, Bloom burn keeps things more subtle.
-An example of each is below.
+### Highlight boost factor
+There's a **Highlight boost factor** setting for boosting the highlights a bit. 
 
-![Bloom blur](../../Images/ShaderGuides/CinematicDOF/ht_bloomblur.jpg "Bloom burn highlight type"){.shadowed .autosize}
+![Highlight boost factor off](../../Images/ShaderGuides/CinematicDOF/100mm_hg0.jpg "Highlight boost factor of 0.0"){.shadowed .autosize}
 
-![Twinkle circlets](../../Images/ShaderGuides/CinematicDOF/ht_twinklecirclets.jpg "Twinkle circlets highlight type"){.shadowed .autosize}
+However if we crank the Highlight boost factor to 1.0, we get a totally different scene:
 
-### Highlight gain
-Both near and far plane have their own **Highlight gain**. This value controls how much of a boost the highlights get. Below you'll see a shot with some 
-far and near highlights, and by default they still look quite weak:
+![Highlight gain 1.0](../../Images/ShaderGuides/CinematicDOF/100mm_hg1.jpg "Highlight boost factor of 1.0"){.shadowed .autosize}
 
-![Highlight gain off](../../Images/ShaderGuides/CinematicDOF/ht_gain_off.jpg "Highlight gain of 0.0"){.shadowed .autosize}
-
-However if we crank the Highlight gain of the near and far plane up to 0.5, we get a totally different scene:
-
-![Highlight gain 0.5](../../Images/ShaderGuides/CinematicDOF/ht_gain_0_5.jpg "Highlight gain of 0.5"){.shadowed .autosize}
-
-This might be a bit much however. There's another control you can use in tandem with the highlight gain, which is described in the next paragraph
-
-### Highlight treshold
-
-By default all highlights are boosted when you crank up the highlight gain of either near or far plane. This might be what you want, but it likely is a bit much. Also
-in case of TAA/SMAA artifacts it might be you get highlight edges on your focused element because the framebuffer doesn't perfectly align with the depth buffer. 
-
-To tell the shader to only crank up the highlights above a certain luminosity, you can use the **Highlight treshold** for both near plane and far plane. If it's set
-to e.g. 0.3, all pixels which have a luminosity of 0.3 or higher (0.0 being black, 1.0 being bright white) will be boosted. Below is an example shot with the same gain as above
-but now also paired with a threshold of 0.5. All pixels which are brighter than 0.5 will get the gain applied, all other pixels are left alone. The highlights
-in front of the fire in the back are dimmed a bit, only the brightest ones are visible.
-
-![Highlight threshold](../../Images/ShaderGuides/CinematicDOF/ht_threshold.jpg "Highlight threshold of 0.5 with gain of 0.8"){.shadowed .autosize}
-
-### Highlight normalization for far plane
-The way the highlights are calculated depends on luminosity and the blur factor. This can lead to a loss in *light energy* around the edges of a bokeh highlight as 
-things are calculated in SDR, not HDR. To make it look like everything was done in HDR and you get the well known circle highlights from photographs/cinema, the
-shader comes with a normalization factor, which can correct this.
-
-In the shot below we use little gain, a small threshold value and a normalization factor. This leads to nice circular bokehs in the far plane. 
-
-![Highlight normalization](../../Images/ShaderGuides/CinematicDOF/ht_normalized.jpg "Highlight normalization of 0.26"){.shadowed .autosize}
-
-The near plane doesn't have normalization as it doesn't need it: the blur system of the near plane works differently so highlights don't need normalization.
+There's also a gamma factor which boosts all pixels a bit. In general you should leave it at its default value, 2.2, but it could help in dark scenes. 
 
 ## Anamorphism control
 
@@ -210,14 +179,14 @@ The first factor is the factor to control the amount of the anamorphism of the b
 fine round circles. Moving the value down to 0.0 will make them appear more and more like elipses. Below is an example of a scene with an anamorphic factor of 0.7. 
 It shows slight deformation around the edges, but close to the center the shapes are still round. This can be used to mimic edge distortion in fisheye lenses.
 
-![Anamorphic factor](../../Images/ShaderGuides/CinematicDOF/ana_factor.jpg "Anamorphic factor of 0.7"){.shadowed .autosize}
+![Anamorphic factor](../../Images/ShaderGuides/CinematicDOF/100mm_ana07.jpg "Anamorphic factor of 0.7"){.shadowed .autosize}
 
 ### Anamorphic spread factor
 
 The default spread factor makes the anamorphism appear to the edges, not in the center. To make it show up evenly everywhere, you can increase the **Anamorphic spread factor**
 to a value higher than 0.0, with 1.0 being the factor where the anamorphism is applied everywhere evenly. An example of that is given below.
 
-![Anamorphic spread factor](../../Images/ShaderGuides/CinematicDOF/ana_spreadfactor.jpg "Anamorphic factor of 0.7 with spread factor of 1.0"){.shadowed .autosize}
+![Anamorphic spread factor](../../Images/ShaderGuides/CinematicDOF/100mm_ana07sp1.jpg "Anamorphic factor of 0.7 with spread factor of 1.0"){.shadowed .autosize}
 
 ### Anamorphic alignment factor
 
@@ -226,12 +195,12 @@ vertically like with a classic anamorphic lens. If you use a value lower than 1.
 with a value of 0.0 being the alignment we've seen in the previous shots. An example of having the setting set to 1.0 to get the classic anamorphic lens behavior 
 can be seen below.
 
-![Anamorphic spread factor](../../Images/ShaderGuides/CinematicDOF/ana_alignmentfactor.jpg "Anamorphic factor of 0.6 with spread factor of 1.0 and alignment factor of 1.0"){.shadowed .autosize}
+![Anamorphic spread factor](../../Images/ShaderGuides/CinematicDOF/100mm_ana06sp1al1.jpg "Anamorphic factor of 0.6 with spread factor of 1.0 and alignment factor of 1.0"){.shadowed .autosize}
 
 
 ### Go wild
 
 You can get vortex swirlies if you want:
 
-![Go wild](../../Images/ShaderGuides/CinematicDOF/ana_gowild.jpg "Anamorphic factor of 0.01 with spread factor of 1.0"){.shadowed .autosize}
+![Go wild](../../Images/ShaderGuides/CinematicDOF/100mm_ana01sp1.jpg "Anamorphic factor of 0.01 with spread factor of 1.0"){.shadowed .autosize}
 
