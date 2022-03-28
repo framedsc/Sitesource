@@ -1,8 +1,7 @@
 Cinematic Depth of Field
 =========================
 
-Cinematic Depth of Field, or 'Cinematic DOF' is a *state of the art* Depth of Field shader for Reshade and is either available in the 
-[official Reshade repository](https://github.com/crosire/reshade-shaders) or in the 
+Cinematic Depth of Field, or 'Cinematic DOF' is a *state of the art* Depth of Field shader for Reshade and is available in the 
 [OtisFX](https://github.com/FransBouma/OtisFX) repository. The OtisFX repository always contains the latest version. 
 
 This guide assumes you have [properly set up the depth buffer in Reshade](../setupreshade.htm#checking-depth-buffer-access).

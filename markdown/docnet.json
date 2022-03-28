@@ -169,6 +169,7 @@
 			"Shader guides":
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
+				"Height fog": "ReshadeGuides\\Shaders\\heightfog.md",
 			}
 		},
 		"Cheat Table Archive": "cheattablearchive.md",
