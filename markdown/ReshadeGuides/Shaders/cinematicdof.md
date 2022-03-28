@@ -14,7 +14,7 @@ left or right to resp. decrease and increase the value. By holding `shift` while
 `ctrl` while clicking gives you the ability to type in the value you want. 
 
 @alert info
-The screenshots below are taken with Cinematic DOF v1.1.10, released on May 25th, 2019.
+The screenshots below are taken with Cinematic DOF v1.2.4, released on March 15th, 2022.
 @end
 
 ## Focusing
