@@ -110,7 +110,7 @@ Lastly, we can return to our Fog folder and adjust our adjustment layers until w
 
 ![final](../Images/depthguide/fog_final.png){.shadowed .autosize}
 
-[Download the PSD](../Images/depthguide/L4D2_humveeFog.psd). 
+[Download the PSD](https://mega.nz/file/2BdySBSD#TIColc7HtPNfYg-pcSRrxeguH9VyagZlRaY11Mvqr5Y). 
 
 The point of this tutorial is to provide you with a starting point for all that can be done with an image and its depth map. I hope this has given you some ideas!
 

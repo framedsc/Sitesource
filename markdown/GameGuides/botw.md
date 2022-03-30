@@ -24,15 +24,13 @@ DirectX versions | Unknown (what ever works with CEMU)
 
 Key | Action
 --|--
-F2 / L2 + Circle / RT + B | Photo Mode Activation
+F2 / <font face="Controller">} + b</font> | Photo Mode Activation
 WASD + Arrow keys / Sticks | Camera Movement
-Q - E / Square - Triangle / X - Y | Camera Height
-F5 - F6 / R2 - L2 / RT - LT | FoV Control
-PgUp - PgDown / R1 - L1 / RB - LB | Camera Rotation
-F3 - F4 / dpad left - dpad right | Change Camera movement Speed
-Shift / X / A | Accelerates Camera movement temporarily
-
-
+Q - E / <font face="Controller">x / y</font> | Camera Height
+F5 - F6 / <font face="Controller">{ / }</font> | FoV Control
+PgUp - PgDown / <font face="Controller">[ / ]</font> | Camera Rotation
+F3 - F4 / <font face="Controller">A / D</font> | Change Camera movement Speed
+Shift / <font face="Controller">a</font> | Accelerates Camera movement temporarily
 
 ## Tips and Tricks
 
@@ -75,6 +73,6 @@ Shadows to Ultra (300%)
 Resolution, depends how far you Hardware let you go here. In my case i can run and play the Game with stable 30FPS at 5K (5120x2880).
 
 **Capturing High Resolution Screenshots**  
-The only way i was able to capture my Screenshots in the actual rendered Resolution, was by setting my Desktop Resolution with Nvidia DSR, to the same Resolution i had chosen in the CEMU Graphics Settings. Desktop 5K & In-Game 5K.
-Additionally neither Reshade, MSI Afterburner or Print Screen are able to Capture and Save my Screenshots including all Reshade Effects.
-If it does work for you, thats great! :) The last option in my case was/is the Snipping Tool from Windows.
+The only way I was able to capture my screenshots in the actual rendered resolution, was by setting my Desktop Resolution with [Nvidia DSR](../GeneralGuides/custom_dsr_resolutions.htm), to the same resolution I had chosen in the CEMU Graphics Settings. Desktop 5K & In-Game 5K.
+Additionally neither Reshade, MSI Afterburner or Print Screen were able to capture and save my screenshots including Reshade effects.
+If it does work for you, that's great! :) The last option in my case was/is the Snipping Tool in Windows.
