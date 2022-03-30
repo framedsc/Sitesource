@@ -1119,6 +1119,21 @@ div.figure p {
 	padding-bottom: 12px;
 }
 
+.menu-vertical ul li.tocentry:last-child {
+	margin-top: 18px;
+	font-weight: bold;   
+}
+
+.menu-vertical ul:first-child li.tocentry li.tocentry {
+	margin-top: 0;
+	font-weight: normal;   
+}
+
+.menu-vertical br + ul li.tocentry:last-child {
+	margin-top: 0;
+	font-weight: normal;   
+}
+
 .menu-vertical li {
 	list-style: none;
 	line-height: 18px;
