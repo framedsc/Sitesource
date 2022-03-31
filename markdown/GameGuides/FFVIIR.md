@@ -7,7 +7,7 @@ Feature | Supported
 Vanilla Photo Mode | Yes (lol)
 Ansel | No
 Hotsampling | No
-DSR | No
+DSR | Yes*
 Custom Aspect Ratios | No
 Reshade | Yes
 DirectX versions | DirectX 11 and DirectX 12
@@ -54,4 +54,13 @@ To pause the game to take shots, always try to use `PageDown` first. This only g
 - No console input. While the UUU does activate the UE4 dev console, keyboard input isn't reaching the console if the key is used by the game, e.g. enter. 
 - No hud toggle. The hud is made with a 3rd party library and the UUU can't hide it. To hide the hud, use the cheat table's Hud toggle. 
 
+## DSR
 
+**Borderless Fullscreen DSR only** - with an option to set resolution scaling as a percentage of the current screen resolution. Use this option to increase image quality of screenshots (this will not affect the final size of the screenshot).
+
+You cannot save screenshots any higher than your current desktop resolution, regardless of the resolution set in the in-game options. Make sure your desktop resolution matches the size you wish your screenshots to be.
+
+### Useful Links
+
+* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Final_Fantasy_VII_Remake_Intergrade)
+* [Change or summon non-mainline characters](https://www.nexusmods.com/finalfantasy7remake/mods/92)
