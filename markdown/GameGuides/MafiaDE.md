@@ -23,6 +23,15 @@ Note: You need to download Mafia 3: Definitive Edition tools, they work for Mafi
 * [Scripthook](https://db.nomad-group.net/page/MDE_ScriptHook:_Instructions): Player model swap, no clip movement, spawn and edit vehicles, weather controls. 
 * [Scripthook Revamped](https://www.nexusmods.com/mafiadefinitiveedition/mods/58): Adds more options to Scripthook such as the ability to play character animations, change time of day, add in character props. 
 
+### Reshade Depth Buffer
+Because this game always runs in online mode you will not be able to use the depth buffer with the common reshade installer, you will need to use a custom build that doesn't block the use of reshade in online games. Find out more [here](https://framedsc.com/ReshadeGuides/setupreshade.htm#depth-buffer-on-online-games).
+
+@alert info
+Note that the game uses a reversed depth buffer. You will need to go to the global processor definitions and change `RESHADE_DEPTH_INPUT_IS_REVERSED` from `0` to `1`. This is essential and otherwise depth shaders will not work properly.
+@end
+
+### Scripthook and Reshade
+If you are using Reshade alongside Scripthook, your game may no longer launch as Reshade hooks into the Scriphook launcher and interfers with the game. To fix this, edit `Mafia - Definitive Edition\ScriptHook\data\config.json` and change line 20 `"showStartupMenu"` from `true` to `false`.
 
 
 
