@@ -72,10 +72,10 @@ Using all 3 of them at the highest values will either crash your game, or in the
 You only need to have one "iteration" value active to have a good result, you can always just put "1" or deactivate the effect when you don't use it.
 @end
 
-* I want to take a static photo with no effects (no DOF or motion blur): AA iterations at 80 
-* I want to take a photo with DOF and no motion blur: AA iterations at 1, DOF iterations at 1000 
-* I want to take a photo with motion blur only: AA and DOF iterations at 1 (or deactivated), motion blur iterations at 400 
-* I want to take a photo with everything: AA iterations at 1, either DOF or motion blur iterations at their normal value (1000 for DOF or 400 for motion blur), the other one will stay at 1
+* I want to take a static photo with no effects (no DOF or motion blur) `AA iterations at 80 `
+* I want to take a photo with DOF and no motion blur `AA iterations at 1, DOF iterations at 1000 `
+* I want to take a photo with motion blur only `AA and DOF iterations at 1 (or deactivated), motion blur iterations at 400 `
+* I want to take a photo with everything `AA iterations at 1, either DOF or motion blur iterations at their normal value (1000 for DOF or 400 for motion blur), the other one will stay at 1`
 
 @alert info
 You can use a lower iteration but you will end up with a worse quality DOF/AA/motion blur, try and see what you have, lower values will also take less time to render.
@@ -95,6 +95,10 @@ Selecting filters is done from the CSP Photo Mode app or the separate Post Proce
 From Content Manager in Assetto Corsa's System settings tick `Allow free camera`, untick `Orbit mode for F5 camera`, and select PNG in `Screenshots format`.
 
 Note: For Sol and CSP installation use their provided guides.
+
+@alert info
+For Reshade shaders to work in your Nice Screenshots extension photo exports, you need to have FXAA disabled in AC's video settings.
+@end
 
 @alert tip
 It's highly recommended to have separate gameplay and screenshot setting presets for high FPS and high graphics. You can switch between both with a right click anywhere in Content Manager, a menu will appear with the settings you saved.
