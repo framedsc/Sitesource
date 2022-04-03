@@ -18,6 +18,21 @@ Vulkan | Yes
 * [Photomode enhancements by Otis_Inf](..\CheatTables\RDR2_PhotomodeEnhancements_Otis.CT)  
 **Features**: Range/limit removal of photomode, removal of black bars in cutscenes and photomode, FoV control, Hotsampling support (dx12 only),
 Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hour) support
+* [jedijosh920's RDR2Trainer](http://discord.gg/wdNC5hn)
+* [Rampage Trainer](https://www.nexusmods.com/reddeadredemption2/mods/233)
+* [RDR2 Outfit Changer](https://www.rdr2mods.com/downloads/rdr2/scripts/12-rdr-2-outfit-changer/)
+* [Photo Mode Enhancer](https://www.rdr2mods.com/downloads/rdr2/scripts/8-photo-mode-enhancer/) if you choose not to use the CE table
+
+##Essentials
+
+* [ScripthookRDR2](https://www.dev-c.com/rdr2/scripthookrdr2/)
+* [Lenny's Mod Loader](https://www.rdr2mods.com/downloads/rdr2/tools/76-lennys-mod-loader-rdr/)
+
+##Texture/Graphic Mods
+* [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)
+* [Visual Redemption](https://discord.gg/ADfQxWSv6J)
+* [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)
+* [No Vignette](https://www.nexusmods.com/reddeadredemption2/mods/724)
 
 ### Vulkan or DX12?
 If you're using Windows 7 or 8.x, the only option you have is Vulkan. If you use Windows 10, you can use DX12 as well. There are reports
@@ -25,7 +40,6 @@ of higher performance under Vulkan, but also lower-res textures and less stabili
 game is highly unstable, and you have to prepare for crashes during your gameplay session.
 
 ### Weather control
-
 The cheat table offers two ways to control the weather: one option is to set the weather type, another is to define a combination
 between two weathers. 
 
@@ -76,7 +90,7 @@ To go back to the other weather option, simply disable the 'Enable weather inter
 
 ## Tweaks
 
-In de file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
+In the file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
 
 - search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
 - search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
@@ -84,3 +98,4 @@ In de file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xm
 ##Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Red_Dead_Redemption_2)
+* [How to install and use Lenny's Mod Loader](https://www.youtube.com/watch?v=E-OIFFcIKDs)
