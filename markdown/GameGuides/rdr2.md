@@ -13,8 +13,7 @@ Ansel | No
 DirectX versions | DirectX 12
 Vulkan | Yes
  
-##Tools
-
+## Tools
 * [Photomode enhancements by Otis_Inf](..\CheatTables\RDR2_PhotomodeEnhancements_Otis.CT)  
 **Features**: Range/limit removal of photomode, removal of black bars in cutscenes and photomode, FoV control, Hotsampling support (dx12 only),
 Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hour) support
@@ -23,12 +22,11 @@ Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hou
 * [RDR2 Outfit Changer](https://www.rdr2mods.com/downloads/rdr2/scripts/12-rdr-2-outfit-changer/)
 * [Photo Mode Enhancer](https://www.rdr2mods.com/downloads/rdr2/scripts/8-photo-mode-enhancer/) if you choose not to use the CE table
 
-##Essentials
-
+## Essentials
 * [ScripthookRDR2](https://www.dev-c.com/rdr2/scripthookrdr2/)
 * [Lenny's Mod Loader](https://www.rdr2mods.com/downloads/rdr2/tools/76-lennys-mod-loader-rdr/)
 
-##Texture/Graphic Mods
+## Texture/Graphic Mods
 * [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)
 * [Visual Redemption](https://discord.gg/ADfQxWSv6J)
 * [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)
@@ -94,6 +92,15 @@ In the file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.x
 
 - search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
 - search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
+
+### Hotsampling
+While it's possible to hotsample with Vulkan, it is very unstable and has a crash rate of about 70% and the tool used for hotsampling loses track of which window to handle (To fix you have to Refresh Window Tree and you will be able to edit the resolution again)
+
+@alert info
+Hotsampling to a 32:9 aspect ratio and going back to the original one will break every trainer menu, with some losing the text, and some having the text way off the screen.
+@end
+
+
 
 ##Useful Links
 
