@@ -21,6 +21,7 @@ Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hou
 * [Rampage Trainer](https://www.nexusmods.com/reddeadredemption2/mods/233)
 * [RDR2 Outfit Changer](https://www.rdr2mods.com/downloads/rdr2/scripts/12-rdr-2-outfit-changer/)
 * [Photo Mode Enhancer](https://www.rdr2mods.com/downloads/rdr2/scripts/8-photo-mode-enhancer/) if you choose not to use the CE table
+* [Cutscene Freecam](https://www.nexusmods.com/reddeadredemption2/mods/1209)
 
 ## Essentials
 * [ScripthookRDR2](https://www.dev-c.com/rdr2/scripthookrdr2/)
@@ -28,9 +29,11 @@ Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hou
 
 ## Texture/Graphic Mods
 * [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)
-* [Visual Redemption](https://discord.gg/ADfQxWSv6J)
 * [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)
+* [Visual Redemption](https://discord.gg/ADfQxWSv6J)
 * [No Vignette](https://www.nexusmods.com/reddeadredemption2/mods/724)
+* [The Perfect TAA](https://www.nexusmods.com/reddeadredemption2/mods/1222) 
+**Feature**: Attempts to fix ugly TAA blurring, (Good for 1080p, however hotsampling to 4K and up defeats its' purpose).
 
 ### Vulkan or DX12?
 If you're using Windows 7 or 8.x, the only option you have is Vulkan. If you use Windows 10, you can use DX12 as well. There are reports
@@ -95,14 +98,13 @@ In the file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.x
 
 ### Hotsampling
 While it's possible to hotsample with Vulkan, it is very unstable and has a crash rate of about 70% and the tool used for hotsampling loses track of which window to handle (To fix you have to Refresh Window Tree and you will be able to edit the resolution again)
+* DirectX 12 API hotsamples with the tool without any problems
 
 @alert info
 Hotsampling to a 32:9 aspect ratio and going back to the original one will break every trainer menu, with some losing the text, and some having the text way off the screen.
 @end
 
-
-
-##Useful Links
+## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Red_Dead_Redemption_2)
 * [How to install and use Lenny's Mod Loader](https://www.youtube.com/watch?v=E-OIFFcIKDs)
