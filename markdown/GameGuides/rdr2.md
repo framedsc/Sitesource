@@ -13,11 +13,27 @@ Ansel | No
 DirectX versions | DirectX 12
 Vulkan | Yes
  
-##Tools
-
+## Tools
 * [Photomode enhancements by Otis_Inf](..\CheatTables\RDR2_PhotomodeEnhancements_Otis.CT)  
 **Features**: Range/limit removal of photomode, removal of black bars in cutscenes and photomode, FoV control, Hotsampling support (dx12 only),
 Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hour) support
+* [jedijosh920's RDR2Trainer](http://discord.gg/wdNC5hn)
+* [Rampage Trainer](https://www.nexusmods.com/reddeadredemption2/mods/233)
+* [RDR2 Outfit Changer](https://www.rdr2mods.com/downloads/rdr2/scripts/12-rdr-2-outfit-changer/)
+* [Photo Mode Enhancer](https://www.rdr2mods.com/downloads/rdr2/scripts/8-photo-mode-enhancer/) if you choose not to use the CE table
+* [Cutscene Freecam](https://www.nexusmods.com/reddeadredemption2/mods/1209)
+
+## Essentials
+* [ScripthookRDR2](https://www.dev-c.com/rdr2/scripthookrdr2/)
+* [Lenny's Mod Loader](https://www.rdr2mods.com/downloads/rdr2/tools/76-lennys-mod-loader-rdr/)
+
+## Texture/Graphic Mods
+* [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)
+* [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)
+* [Visual Redemption](https://discord.gg/ADfQxWSv6J)
+* [No Vignette](https://www.nexusmods.com/reddeadredemption2/mods/724)
+* [The Perfect TAA](https://www.nexusmods.com/reddeadredemption2/mods/1222) 
+**Feature**: Attempts to fix ugly TAA blurring, (Good for 1080p, however hotsampling to 4K and up defeats its' purpose).
 
 ### Vulkan or DX12?
 If you're using Windows 7 or 8.x, the only option you have is Vulkan. If you use Windows 10, you can use DX12 as well. There are reports
@@ -25,7 +41,6 @@ of higher performance under Vulkan, but also lower-res textures and less stabili
 game is highly unstable, and you have to prepare for crashes during your gameplay session.
 
 ### Weather control
-
 The cheat table offers two ways to control the weather: one option is to set the weather type, another is to define a combination
 between two weathers. 
 
@@ -76,11 +91,20 @@ To go back to the other weather option, simply disable the 'Enable weather inter
 
 ## Tweaks
 
-In de file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
+In the file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
 
 - search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
 - search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
 
-##Useful Links
+### Hotsampling
+While it's possible to hotsample with Vulkan, it is very unstable and has a crash rate of about 70% and the tool used for hotsampling loses track of which window to handle (To fix you have to Refresh Window Tree and you will be able to edit the resolution again)
+* DirectX 12 API hotsamples with the tool without any problems
+
+@alert info
+Hotsampling to a 32:9 aspect ratio and going back to the original one will break every trainer menu, with some losing the text, and some having the text way off the screen.
+@end
+
+## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Red_Dead_Redemption_2)
+* [How to install and use Lenny's Mod Loader](https://www.youtube.com/watch?v=E-OIFFcIKDs)
