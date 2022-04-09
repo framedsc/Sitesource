@@ -27,13 +27,13 @@ The site also supports HTML in Markdown if you want the formatting of your guide
 
 When making a header for your guide, you may use any shot from the game, including your own. We recommend picking one that allows for good readability of text.
 
-Here are two examples of great headers. The text lies wholly in a dark left side of the shot, contrasting and reading well.  
+Here are two examples of great headers. The text lies wholly in the dark left side of the shot, contrasting and reading well.  
 ![good header eg1](Images\alienisolation_header.png){.shadowed .autosize}
 ![good header eg2](Images\nioh2_header.png){.shadowed .autosize}
 
-After you've picked your shot, place it above the Base layer and ensure it's clipped to the Base layer. If it isn't, alt-click between the two layers. You should see a small down-arrow next to the layer. Arrange the shot as you see fit.
+After you've picked your shot, place it above the Base layer and ensure it's clipped to it. If it isn't, alt-click on the divider between the two layers. You should see a small down-arrow appear. Arrange the shot as you see fit.
 
-Once the shot has been arranged, duplicate it by alt-clicking and dragging the layer below the Base layer. You can also `Ctrl + J` and move it below. Go up to `Filter > Blur > Gaussian Blur...` and add a 26.3 radius blur to this duplicated layer to create the blurred border.
+Once the shot has been arranged, duplicate it by alt-clicking and dragging the layer below the Base layer. You can also `Ctrl + J` to duplicate and move it below. Go up to `Filter > Blur > Gaussian Blur...` and add a 26.3 radius blur to this duplicated layer to create the blurred border.
 
 Your Photoshop layers should look like so:  
 ![photoshop layers](Images\contribute_pslayers.png){.shadowed .autosize}
