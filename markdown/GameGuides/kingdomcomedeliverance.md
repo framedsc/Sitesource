@@ -1,4 +1,4 @@
-![Kingdom Come: Deliverance](Images\kdc_header.jpg "Shot by Otis_Inf"){.shadowed}
+![Kingdom Come: Deliverance](Images\kdc_header.png "Shot by Otis_Inf"){.shadowed}
 ## Summary
 Feature | Supported
 --|--
@@ -21,7 +21,7 @@ The game has its console enabled, so you can tweak the game through console comm
 can change any cvar in the game's engine. The engine is a modified CryEngine so you can use the custom cfg files and keybinds to enhance the graphics
 and other game aspects. See below how to do that.
 
-### custom config files
+### Custom config files
 In the game's folder, first of all create a file called `user.cfg`. There's already a system.cfg file, leave that alone. Your
 own `user.cfg` file should have the following enhancements:
 

@@ -1,4 +1,4 @@
-![Dark Souls 3](Images\DarkSouls3.jpg "Shot by Natty Dread"){.shadowed}
+![Dark Souls 3](Images\DarkSouls3.png "Shot by Natty Dread"){.shadowed}
 
 ## Summary
 

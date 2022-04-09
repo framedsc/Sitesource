@@ -105,7 +105,7 @@ When textures are set to Epic, this makes them look the same as they would on Lo
 @endtabs 
 
 @alert info
-For a full reference to what's capable, check the [Scalability Reference](https://docs.unrealengine.com/en-US/Engine/Performance/Scalability/ScalabilityReference/index.html). Note that these are default settings by Unreal developers, your game is likely to have these already changed.
+For a full reference to what's capable, check the [Scalability Reference](https://docs.unrealengine.com/4.27/en-US/TestingAndOptimization/PerformanceAndProfiling/Scalability/ScalabilityReference/). Note that these are default settings by Unreal developers, your game is likely to have these already changed.
 @end 
 
 **Scalability levels and groups have to be separated with an empty line!**  
@@ -158,13 +158,13 @@ The following examples are ready to use. You can just copy / paste the contents 
 
 @tabs
 @tab High end gameplay
-sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096
+sg.ShadowQuality 5 | sg.FoliageQuality 5 | sg.ViewDistanceQuality 5 | sg.PostProcessQuality 5 | sg.EffectsQuality 5 | sg.TextureQuality 5 | r.DepthOfFieldQuality 5 | r.motionblurquality 0 | r.Shadow.DistanceScale 4 | r.Streaming.LimitPoolSizeToVRAM 0 | r.Streaming.PoolSize 4096 | r.Streaming.MaxTempMemoryAllowed 256 | r.SSR.Quality 4 | r.MaxQualityMode 1 | r.StaticMeshLODDistanceScale 0.001 | r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096
 @end
 @tab Normal gameplay
-sg.ShadowQuality 4|sg.FoliageQuality 4|sg.ViewDistanceQuality 4|sg.PostProcessQuality 4|sg.EffectsQuality 4|sg.TextureQuality 4|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 1|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
+sg.ShadowQuality 4 | sg.FoliageQuality 4 | sg.ViewDistanceQuality 4 | sg.PostProcessQuality 4 | sg.EffectsQuality 4 | sg.TextureQuality 4 | r.DepthOfFieldQuality 5 | r.motionblurquality 0 | r.Shadow.DistanceScale 1 | r.Streaming.LimitPoolSizeToVRAM 0 | r.Streaming.PoolSize 4096 | r.Streaming.MaxTempMemoryAllowed 256 | r.SSR.Quality 4 | r.StaticMeshLODDistanceScale 0.001 | r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
 @end
 @tab High end screenshots
-sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 0|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096 | r.Shadow.MaxResolution 8192 | r.Shadow.MaxCSMResolution 8192
+sg.ShadowQuality 5 | sg.FoliageQuality 5 | sg.ViewDistanceQuality 5 | sg.PostProcessQuality 5 | sg.EffectsQuality 5 | sg.TextureQuality 5 | r.DepthOfFieldQuality 0 | r.motionblurquality 0 | r.Shadow.DistanceScale 4 | r.Streaming.LimitPoolSizeToVRAM 0 | r.Streaming.PoolSize 4096 | r.Streaming.MaxTempMemoryAllowed 256 | r.SSR.Quality 4 | r.MaxQualityMode 1 | r.StaticMeshLODDistanceScale 0.001 | r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096 | r.Shadow.MaxResolution 8192 | r.Shadow.MaxCSMResolution 8192
 @end
 @endtabs
 
@@ -183,13 +183,13 @@ r.Shadow.MaxResolution | 16384 | Your game will crash
 ## Fixing issues
 
 ### Shadow striping with low fov
-Sometimes you can run into shadow striping with low fov. To fix this you have to set the Depth Bias for the light that causes this. This can be a pointlight, directional light or spotlight. The commands to try are:
+You can sometimes run into shadow striping with low FoV. To fix this, you have to set the Depth Bias for the light that causes this. This can be a pointlight, directional light or spotlight. The commands to try are:
 
 * `r.Shadow.PointLightDepthBias`
 * `r.Shadow.CSMDepthBias`
 * `r.Shadow.PerObjectDirectionalDepthBias`
 * `r.Shadow.SpotLightDepthBias`
 
-Usually a value around 0.15 should fix it. Below is an example. Left the default value right the fixed value
+Usually, a value of around 0.15 should fix it.
 
 ![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed}

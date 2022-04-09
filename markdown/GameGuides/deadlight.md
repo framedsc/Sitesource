@@ -31,6 +31,8 @@ Bindings=(Name="F4",Command="togglehud",Control=False,Shift=False,Alt=False,bIgn
 Bindings=(Name="F5",Command="SET MATERIALEFFECT bShowInGame FALSE | show camfrustums",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
 ```
 
+Set this file to **Read-only** once done.
+
 Key/button | Description
 --|--
 F1 | Toggles game pause

@@ -1,3 +1,8 @@
+@alert neutral  
+**This guide is being considered for deletion.**  
+*"The Mass Effect games have more or less been superseded by Mass Effect Legendary Edition. We'd like to see these guides [replaced by a MELE guide](https://github.com/framedsc/Sitesource/issues/92)."*  
+@end
+
 ## Summary
 
 Feature | Supported

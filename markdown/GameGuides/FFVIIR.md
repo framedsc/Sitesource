@@ -1,4 +1,4 @@
-![Final Fantasy VII Remake](Images\ffviir_header.jpg "Shot by Otis_Inf"){.shadowed}
+![Final Fantasy VII Remake](Images\ffviir_header.png "Shot by Otis_Inf"){.shadowed}
 
 ## Summary
 

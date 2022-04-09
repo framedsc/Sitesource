@@ -1,4 +1,4 @@
-![RiME](Images\Rime_header.jpg "Shot by One3rd"){.shadowed}
+![RiME](Images\Rime_header.png "Shot by One3rd"){.shadowed}
 
 ##Feature summary
 

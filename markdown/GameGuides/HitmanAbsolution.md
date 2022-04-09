@@ -1,4 +1,4 @@
-<!-- ![Hitman: Absolution](Images\Hitman_Abs_header.jpg "Shot by unknown"){.shadowed}-->
+![Hitman Absolution](Images/hitmanabsolution_header.png "Shot by One3rd"){.shadowed}
 
 ##Feature summary
 

@@ -1,4 +1,4 @@
-![MetroExodus](Images\MetroExodusHeader.jpg "Shot by Midhras")
+![MetroExodus](Images\MetroExodusHeader.png "Shot by Midhras")
 
 ##Summary
 

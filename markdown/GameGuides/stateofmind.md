@@ -1,4 +1,4 @@
-![State Of Mind](Images/state_of_mind.jpg "Shot by pino44io"){.shadowed}
+![State Of Mind](Images/state_of_mind.png "Shot by pino44io"){.shadowed}
 
 ## Summary
 

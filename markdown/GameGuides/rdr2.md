@@ -1,4 +1,4 @@
-![Red Dead Redemption 2](Images\rdr2_header.jpg "Shot by Otis_Inf"){.shadowed}
+![Red Dead Redemption 2](Images\rdr2_header.png "Shot by Otis_Inf"){.shadowed}
 
 ##Feature summary
 

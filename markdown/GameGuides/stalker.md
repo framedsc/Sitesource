@@ -1,4 +1,4 @@
-![S.T.A.L.K.E.R](Images/stalker_header.jpg "Shot by Sonozaki"){.shadowed}
+![S.T.A.L.K.E.R](Images/stalker_header.png "Shot by Sonozaki"){.shadowed}
 
 ## Summary
 

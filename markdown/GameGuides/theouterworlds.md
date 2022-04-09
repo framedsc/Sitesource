@@ -1,4 +1,4 @@
-![The Outer Worlds](Images\theouterworlds_header.jpg "Shot by Otis_Inf"){.shadowed}
+![The Outer Worlds](Images\theouterworlds_header.png "Shot by Otis_Inf"){.shadowed}
 
 ## Summary
 

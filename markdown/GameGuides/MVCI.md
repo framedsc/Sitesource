@@ -1,4 +1,4 @@
-![Marvel vs. Capcom: Infinite](Images\MVCI.jpg "Shot by One3rd"){.shadowed}
+![Marvel vs. Capcom: Infinite](Images\MVCI.png "Shot by One3rd"){.shadowed}
 
 ##Feature summary
 

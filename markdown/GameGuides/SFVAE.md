@@ -1,4 +1,4 @@
-![Street Fighter V](Images\SFVAE-header.jpg "Shot by Langgli")
+![Street Fighter V](Images\SFVAE-header.png "Shot by Langgi")
 
 ##Feature summary
 

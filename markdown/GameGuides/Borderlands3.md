@@ -1,4 +1,4 @@
-![Borderlands 3](Images\borderlands3_header.jpg "Shot by Otis_Inf"){.shadowed}
+![Borderlands 3](Images\borderlands3_header.png "Shot by Otis_Inf"){.shadowed}
 
 ##Summary
 

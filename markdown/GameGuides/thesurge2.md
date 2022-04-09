@@ -1,4 +1,4 @@
-![Game Title](Images\thesurge2_header.jpg "Shot by Skall"){.shadowed}
+![Game Title](Images\thesurge2_header.png "Shot by Skall"){.shadowed}
 
 ## Summary
 
