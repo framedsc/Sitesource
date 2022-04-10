@@ -283,7 +283,6 @@ code, pre.nocode {
 	font-family: Consolas, "Andale Mono WT","Andale Mono","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
 	overflow-x: auto;
 	white-space: pre-wrap;
-	word-break: break-all;
 }
 
 code.code-large {
@@ -521,6 +520,7 @@ pre.nocode {
 	box-shadow: 0px 0px 8px rgba(10,10,10,0.1);
 	margin-bottom: 20px;
 	padding: 4px 4px;
+	word-break: break-word;
 }
 
 
