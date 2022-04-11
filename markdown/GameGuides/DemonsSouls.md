@@ -53,7 +53,7 @@ Whenever you die in Demon's Souls, your character will enter <b>Soul Form</b>, a
 
 2. There is an issue which results in depth of field not being correctly applied around your character (see below).
 
-![ugly dof](https://i.imgur.com/9zoDMyv.png){.shadowed .autosize .center}
+![ugly dof](https://i.imgur.com/9zoDMyv.png){.shadowed .autosize .center .smaller}
 
 If you do not wish to be in Soul Form, there are various ways to revert back to "Body Form";
 

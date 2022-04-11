@@ -12,7 +12,7 @@
 
 ## Writing guides
 
-If you're interested in writing a guide for the site, please [download this template](https://mega.nz/file/vBlhxTrL#f91WEfYmJMOXS5nDOyQtd7MKEWQ6fWorOMTVoTOcNl4). It contains everything you need to get started - a Markdown template for a game guide and a .PSD + font file to generate a header.
+If you're interested in writing a guide for the site, please [download this template](https://mega.nz/file/6MkxjLoK#hkyoIYsTcQVxLuxnLoWC71FbUM-eFNOEcQsS_oZyx_A). It contains everything you need to get started - a Markdown template for a game guide and a .PSD + font file to generate a header.
 
 We recommend writing with [Visual Studio Code](https://vscode.dev/) as it has a Markdown preview similar to how the site looks. The site is built with DocNet, however, which includes Markdown extensions not found in the VS Code preview. Learn more about DocNet's additional features [**here**](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm).
 
