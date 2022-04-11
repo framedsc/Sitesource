@@ -1,5 +1,5 @@
 <div class="figure">
-<img src="Images/contribute_header.png" alt="Contribute to the site!" title="Help us out!" class="autosize" />
+<img src="Images/contribute_header.png" alt="Contribute to the site!" title="Help us out!" class="autosize shadowed" />
 <p><i>Industria</i>, <a href="https://framedsc.com/HallOfFramed/?imageId=1633772229" target="_blank">shot</a> by nyxikri</p>
 </div>
 
@@ -23,7 +23,31 @@ The site also supports HTML in Markdown if you want the formatting of your guide
 <i>Don't know what to write? Check our</i> <a href="LINK" target="_blank"><b>issue tracker</b></a> <i>for anything you could help out with.</i> </center>
 ```
 
-### Making headers
+### Hosting files
+
+We don't host any tools or utilities in the repository itself. If you would like to contribute any tool or utility, we recommend using a filehost like [mega.nz](https://mega.nz). If the tool is hosted publicly on say a modding site or forum, please link to the post instead.
+
+An exception to this is cheat tables. We prefer to archive those internally, provided that you are the author or have been given permission by the author to have them archived on the site. Include them alongside your submitted files.
+
+### Updating guides
+
+If you notice an error in a guide or you simply want to extend an existing guide, you may access the site source [**here**](https://github.com/framedsc/Sitesource). From there, open the markdown folder and navigate to the .md file of the guide you wish to edit. 
+
+### Etiquette
+
+We're generally not too concerned with how you write and format a guide, so long as the information is coherent and presentable. A site admin will help to clean up any incorrect syntax before publishing.
+
+When it comes to updating game guides, headers will not be updated.
+
+Unless all download pages are dead and the author is uncontactable, we will not rehost files without the author's permission.
+
+#### Crediting yourself
+
+You may credit yourself at the end of your non-game guides if you feel like it. Game guides don't have credits, but more often than not the headers used are from the guide authors themselves.
+
+---
+
+## Making headers
 
 When making a header for your guide, you may use any shot from the game, including your own. We recommend picking one that allows for good readability of text.
 
@@ -44,18 +68,32 @@ The header template includes a network of guides that can be enabled and disable
 
 ![long game title](Images\contribute_nnk2header.png "Font size had to be reduced to 31"){.shadowed}
 
-### Images
+---
+
+## Images
 
 If your guide has images, use this line to embed them:
 ```Markdown
 ![title](Images\image.png "subtitle"){.shadowed .autosize}
 ```
 Images will be sorted into the Images folder by the site admins. You may place them in a subfolder if you'd like to organise them.  
+
+There are a few CSS classes you can use in the Markdown line above to further format your images.
+
+Class | Description
+-- | --
+`.shadowed` | Adds a drop shadow to the image. **Please include this class.**
+`.autosize` | Resizes the image if it's too large. **Please include this class.**
+`.center` | Centers an image.
+`.smaller` | Reduces the width of an image. Useful if including long vertical images.
+
+These are added at the end of the Markdown line, in between `{}`.
+
 You can also use HTML to embed them instead, if you want a bit more formatting.
 
 ```HTML
 <div class="figure">
-<img src="Images/image.png" alt="title" title="Tooltip that appears when you hover" class="autosize" />
+<img src="Images/image.png" alt="title" title="Tooltip that appears when you hover" class="autosize shadowed" />
 <p>subtitle</p>
 </div>
 ```
@@ -66,15 +104,11 @@ Images on the site should be in a .PNG / high-quality .JPG format, under 1MB. Wh
 
 For excessively large images (say you want to include a full-res screenshot for some reason), they may be hosted externally. Use a trusted, reliable imagehost like [Imgur](https://imgur.com/upload).
 
-### Hosting files
+---
 
-We don't host any tools or utilities in the repository itself. If you would like to contribute any tool or utility, we recommend using a filehost like [mega.nz](https://mega.nz). If the tool is hosted publicly on say a modding site or forum, please link to the post instead.
+## Controller buttons
 
-An exception to this is cheat tables. We prefer to archive those internally, provided that you are the author or have been given permission by the author to have them archived on the site. Include them alongside your submitted files.
-
-### Controller buttons
-
-The site supports display of controller buttons through a font. You can use these to embellish a controls table like so:
+The site supports display of Xbox buttons through a font. You can use these to embellish a controls table like so:
 
 Gamepad | Command
 --|--
@@ -89,35 +123,21 @@ The syntax for this is a little messy as it involves wrapping the specific glyph
 <font face="Controller">W / X</font> | Zoom in / out
 ```
 
+The site also supports PlayStation buttons, if you'd like to use <font face="ControllerPS">[ ] { }</font> instead of <font face="Controller">[ ] { }</font>. To switch to them, use `"ControllerPS"` instead of `"Controller"`.
+
 This feature is unique to the site and not supported by Markdown previews. You may generate previews of the site following our [readme](https://github.com/framedsc/Sitesource) if you'd like to see how they look.
 
-Input | Output
--- | --
-`7 8 9` <br> `4 5 6` <br> `1 2 3` | <font face="Controller">7 8 9 <br> 4 5 6 <br> 1 2 3</font>
-`< >` | <font face="Controller">< ></font>
-`Q W E` <br> `A S D` <br> `Z X C` | <font face="Controller">Q W E <br> A S D <br> Z X C</font>
-`x y` <br> `a b` | <font face="Controller">x y <br> a b </font>
-`[ ]` <br> `{ }` | <font face="Controller">[ ] <br> { }</font>
-`v g m` | <font face="Controller">v g m</font>
+Input | Output | Input | Output
+-- | -- | -- | --
+`7 8 9` <br> `4 5 6` <br> `1 2 3` | <font face="Controller">7 8 9 <br> 4 5 6 <br> 1 2 3</font> | `7 8 9` <br> `4 5 6` <br> `1 2 3` | <font face="ControllerPS">7 8 9 <br> 4 5 6 <br> 1 2 3</font>
+`< >` | <font face="Controller">< ></font> | `< >` | <font face="ControllerPS">< ></font>
+`Q W E` <br> `A S D` <br> `Z X C` | <font face="Controller">Q W E <br> A S D <br> Z X C</font> | `Q W E` <br> `A S D` <br> `Z X C` | <font face="ControllerPS">Q W E <br> A S D <br> Z X C</font>
+`x y` <br> `a b` | <font face="Controller">x y <br> a b </font> | `s t` <br> `x c` | <font face="ControllerPS">s t <br> x c </font>
+`[ ]` <br> `{ }` | <font face="Controller">[ ] <br> { }</font> | `[ ]` <br> `{ }` | <font face="ControllerPS">[ ] <br> { }</font>
+`v g m` | <font face="Controller">v g m</font> | `o h r` | <font face="ControllerPS">o h r</font>
 
 *Inputs are **case-sensitive**!*  
 *Controller Font by [Dean Tersigni](http://www.thealmightyguru.com/Wiki/index.php?title=Controller_Font)*
-
-### Updating guides
-
-If you notice an error in a guide or you simply want to extend an existing guide, you may access the site source [**here**](https://github.com/framedsc/Sitesource). From there, open the markdown folder and navigate to the .md file of the guide you wish to edit. 
-
-### Etiquette
-
-We're generally not too concerned with how you write and format a guide, so long as the information is coherent and presentable. A site admin will help to clean up any incorrect syntax before publishing.
-
-When it comes to updating game guides, headers will not be updated.
-
-Unless all download pages are dead and the author is uncontactable, we will not rehost files without the author's permission.
-
-#### Crediting yourself
-
-You may credit yourself at the end of your non-game guides if you feel like it. Game guides don't have credits, but more often than not the headers used are from the guide authors themselves.
 
 ---
 

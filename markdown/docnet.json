@@ -109,6 +109,7 @@
 				"The Outer Worlds" : "GameGuides\\theouterworlds.md",
 				"Persona 5 Strikers" : "GameGuides\\persona5strikers.md",
 				"Portal": "GameGuides\\portal.md",
+				"Portal 2": "GameGuides\\portal2.md",
 				"Prince of Persia: The Sands of Time": "GameGuides\\pop_sandsoftime.md",
 				"Quantum Break" : "GameGuides\\Quantum_Break.md",
 				"Red Dead Redemption 2": "GameGuides\\rdr2.md",
@@ -140,6 +141,13 @@
 				"Yakuza 0": "GameGuides\\Yakuza_0.md",
 				"Yakuza Kiwami 2": "GameGuides\\Yakuza_Kiwami_2.md",
 				"Yakuza: Like a Dragon": "GameGuides\\Yakuza_Like_a_Dragon.md",
+			},
+			"Console guides" :
+			{
+				"Demon's Souls": "GameGuides\\DemonsSouls.md",
+				"Ghost of Tsushima": "GameGuides\\GhostofTsushima.md",
+				"Ratchet & Clank: Rift Apart": "GameGuides\\RiftApart.md",
+				"Returnal": "GameGuides\\Returnal.md",
 			},
         },
 		"General guides" :

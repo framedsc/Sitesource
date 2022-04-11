@@ -148,7 +148,7 @@
 }
 
 @font-face {
-    font-family: 'Controller'; /* font for controller buttons */
+    font-family: 'Controller'; /* font for xbox buttons */
     src: url('../fonts/ControllerMicrosoftXboxOne.woff2') format('woff2'),
         url('../fonts/ControllerMicrosoftXboxOne.woff') format('woff');
     font-weight: normal;
@@ -159,6 +159,17 @@
 	unicode-range: U+31-39,U+3C,U+3E,U+41,U+43-45,U+51,U+53,U+57,U+58,U+5A,U+5B,U+5D,U+61,U+62,U+67,U+6D,U+76,U+78,U+79,U+7B,U+7D; /* affect only relevant ranges */
 }
 
+@font-face {
+    font-family: 'ControllerPS'; /* font for playstation buttons */
+    src: url('../fonts/ControllerSonyPlayStation4.woff2') format('woff2'),
+        url('../fonts/ControllerSonyPlayStation4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+	size-adjust: 125%; /* adjust button size */
+	line-gap-override: -33%; /* fix line-height */
+	unicode-range: U+31-39,U+3C,U+3E,U+41,U+43-45,U+51,U+53,U+57,U+58,U+5A,U+5B,U+5D,U+63,U+68,U+6F,U+72-74,U+78,U+7B,U+7D; /* affect only relevant ranges */
+}
 
 /* #endregion */
 
@@ -217,7 +228,7 @@ blockquote {
 	border-left: 10px solid #ccc;
 	margin: 1.5em 10px;
 	padding: 0.5em 10px;
-	quotes: "\201C""\201D""\2018""\2019";
+	quotes: "\201C","\201D","\2018","\2019";
 }
 
 blockquote:before {
@@ -594,6 +605,10 @@ div.figure {
 img.shadowed, div.figure img {
 	margin: 0 auto;
 	box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+}
+
+img.smaller {
+	max-width: 50%;
 }
 
 img.resizable {
