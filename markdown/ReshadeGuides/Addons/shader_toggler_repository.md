@@ -17,10 +17,10 @@ Game | Features | Controls | Extra Description
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle | Caps Lock
 [CONTROL](../../ShaderTogglers/control.ini) | Hud Toggle
 [Elden Ring](../../ShaderTogglers/elden_ring.ini) | - Hides Sites Of Grace <br>- Hides rain, floaty leaves(?) and (SPOILER) end game ash<br> - Hides gold and grey fog walls<br> - HUD | - Caps Lock <br> - F2 <br> - F3 <br> - K | Hiding Sites Of Grace also hides some other light sources such as candles and torches, cant be avoided.
-[Dying Light 2](../../ShaderTogglers/dying_light_2.ini) | Lens Flare and Screen dirt toggle | Caps Lock
+[Dying Light 2](../../ShaderTogglers/dying_light_2.ini) | - Lens flare and screen dirt <br> - Hides air vents and floaty debris (but also inadvertently hides some other smoke and fire sources) <br> - Hides Distant Birds <br> - Hides HUD <br> - Just floaty debris | - Caps Lock <br> - F2 <br> - F3 <br> - F4 <br> - F5
 [Ghostwire: Tokyo](../../ShaderTogglers/ghostwire_tokyo.ini) | Hud and DOF toggle
 [God Of War](../../ShaderTogglers/god_of_war.ini) | Snow toggle | Caps Lock
-[LEGO Star Wars The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | Hud Toggle + other stuff | Pre-hotkeys shader toggler. Check the comments in the file to turn on and off stuff.
+[LEGO Star Wars The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD <br> - Object outlines (may hide some tiny cubemaps) <br>  - Coins & their shadows (may hide other shadows) <br> - Lens flares <br> - Hide characters (WIP due to massive variety | - K <br> - L <br> - ; <br> - Num_7 <br> - Shift + 2
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | Hud Toggle | Caps Lock | Hide the speedo whilst driving
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | Hud Toggle
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | Hud and DOF toggle
