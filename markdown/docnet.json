@@ -4,7 +4,7 @@
     "Destination" : "..\\site",
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
-    "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed"],
+    "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed", "ShaderTogglers"],
     "Footer" : "&copy 2019-2022 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
@@ -181,6 +181,10 @@
 			{
 				"Cinematic DOF" : "ReshadeGuides\\Shaders\\cinematicdof.md",
 				"Height Fog": "ReshadeGuides\\Shaders\\heightfog.md",
+			},
+			"Addon guides":
+			{
+				"Shader Toggler Repository" : "ReshadeGuides\\Addons\\shader_toggler_repository.md",
 			}
 		},
 		"Cheat Table Archive": "cheattablearchive.md",
