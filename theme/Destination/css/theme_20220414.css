@@ -1502,4 +1502,91 @@ div.figure p {
 	border-radius: 50px;
 	padding: 6px 12px;
 }
+
+/* image slider components - modified from https://www.w3schools.com/howto/howto_js_image_comparison.asp */
+.img-comp-container {
+	position: relative;
+	height: auto;
+	top: 0;
+	bottom: 0;
+  }
+
+  .img-comp-text {
+	position: absolute;
+	font-size: 90%;
+	bottom: 20px;
+	right: 20px;
+	text-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+	padding: 10px;
+	text-align: right;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: 0.1s ease;
+	opacity: 0;
+  }
+
+  .img-comp-aft {
+	position: absolute;
+	overflow: hidden;
+	box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+	display: block;
+	max-width: 896px; /* can't autosize!! have to hardcode :( */
+    height: auto;
+  }
+
+  .img-comp-bef > .img-comp-text {
+	right: auto;
+	left: 20px;
+	text-align: left;
+  }
+
+  .img-comp-bef {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	max-width: 896px; /* can't autosize!! have to hardcode :( */
+    height: auto;
+  }
+
+  .img-comp-slider {
+	position: absolute;
+	z-index: 9;
+	cursor: ew-resize;
+	top: 0;
+	bottom: 0;
+	/* set the appearance of the slider */
+	width: 2px;
+	height: inherit;
+	background-color: #dcdfd8;
+	opacity: 1;
+	transition: background-color,opacity 0.1s ease;
+  }
+
+  .img-comp-divider {
+	position: absolute;
+	z-index: 9;
+	cursor: ew-resize;
+	top: calc(50% - 15px);
+	left: -9px;
+	/* set the appearance of the button */
+	width: 20px;
+	height: 75px;
+	background-color: #dcdfd8;
+	border-radius: 10%;
+	opacity: 0%;
+	transition: background-color,opacity 0.1s ease;
+  }
+
+  .img-comp-container:hover .img-comp-divider {
+	background-color: #fff;
+	opacity: 1;
+	box-shadow: 0px 0px 8px rgba(10,10,10,0.5);
+	transition: 0.1s ease;
+  }
+
+  .img-comp-container:hover .img-comp-text {
+	opacity: 1;
+	transition: 0.1s ease;
+  }
+
 /* #endregion */

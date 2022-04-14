@@ -74,8 +74,11 @@ The header template includes a network of guides that can be enabled and disable
 
 If your guide has images, use this line to embed them:
 ```Markdown
-![title](Images\image.png "subtitle"){.shadowed .autosize}
+![alt text](Images\image.png "This is the subtitle"){.shadowed .autosize}
 ```
+
+For the subtitle to show, there has to be an empty line above this line.
+
 Images will be sorted into the Images folder by the site admins. You may place them in a subfolder if you'd like to organise them.  
 
 There are a few CSS classes you can use in the Markdown line above to further format your images.
@@ -103,6 +106,41 @@ You can also use HTML to embed them instead, if you want a bit more formatting.
 Images on the site should be in a .PNG / high-quality .JPG format, under 1MB. While there are no current size limits, images on the site are resized to 896px width (with the .autosize tag, which should be added to all images). They don't have to be resized to that width, but we would prefer it if you kept image sizes reasonable.
 
 For excessively large images (say you want to include a full-res screenshot for some reason), they may be hosted externally. Use a trusted, reliable imagehost like [Imgur](https://imgur.com/upload).
+
+---
+
+## Image comparisons
+
+The site supports sliders to compare two images, if you'd like to show off a before/after or anything similar.
+
+<div class="img-comp-container">
+  <div class="img-comp-aft">
+      <div class="img-comp-text">after ReShade</div>
+    <img src="Images/basics_doom2.jpg">
+  </div>
+  <div class="img-comp-bef img-comp-overlay">
+        <div class="img-comp-text">before ReShade</div>
+    <img src="Images/basics_doom1.jpg">
+  </div>
+</div>
+<div class="figure"><p>Subtitle. Shots by ItsYFP</p></div>
+
+This is done wholly through HTML in your Markdown file:
+```HTML
+<div class="img-comp-container">
+  <div class="img-comp-aft">
+      <div class="img-comp-text">This is the after text</div>
+    <img src="Images/after.png">
+  </div>
+  <div class="img-comp-bef img-comp-overlay">
+        <div class="img-comp-text">This is the before text</div>
+    <img src="Images/before.png">
+  </div>
+</div>
+<div class="figure"><p>This is the subtitle text.</p></div>
+```
+
+The 'before' image does come after the 'after' image. Please make sure the two images are of the same height. 
 
 ---
 

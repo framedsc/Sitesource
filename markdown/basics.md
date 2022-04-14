@@ -45,6 +45,11 @@ The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also inclu
 
 **Hotsampling** refers to briefly running a game in a much higher resolution than your monitor supports, allowing you to capture screenshots with incredible detail, then bringing it back down to a native playable resolution. 
 
+<div class="figure">
+<a href="https://live.staticflickr.com/65535/51870619317_08953f9a1d_o.png" target="_blank"><img src="Images/basics_hotsampling-eg.jpg" alt="hotsampling" title="Click to view full-res" class="autosize" /></a>
+<p>This was captured at <b>7558x3240</b> with no stitching or overpriced GPU needed. Just SRWE. (<i>wintermute</i>)</p>
+</div>
+
 Hotsampling works by resizing the game window past the bounds of your monitor, using programs like [Simple Runtime Window Editor](https://github.com/dtgDTGdtg/SRWE) (SRWE) or [Windowed Borderless Gaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/) (WBG). This resizing forces the game to render at the new resolution set by those programs, which will be larger than what fits on your screen. If your image looks "very zoomed in", that's a sign that hotsampling has worked. A game has to be running in **windowed** or **borderless windowed** for hotsampling to work. 
 
 SRWE is the preferred program, however there are cases like with some Ubisoft games (*Steep*, *Ghost Recon Breakpoint*) where WBG will have to be used instead. It is trickier and more frustrating than SRWE, so be sure to follow the guide we have linked below.
@@ -57,7 +62,7 @@ Keep in mind that not every game is able to hotsample. Do consult our [game guid
 
 One of the benefits of hotsampling is arbitrary window sizes. In other words: custom aspect ratios. With hotsampling, it's possible to render your game at aspect ratios like 4:5 or 2:1 to take some stunning portraits and ultrawide landscapes without having to crop from 16:9 or hurt your neck looking at your monitor sideways.
 
-Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how to compose it. Cropping from 16:9 wastes a lot of pixels, and hotsampling makes the shot too large to fit on your screen. You could use [hotsampling helper shaders](./ReshadeGuides/shaderscatalogue.htm#hotsampling) for Reshade, they can scale down a duplicate of your hotsampled window to fit in your monitor. That still comes at the cost of running your game at a very high resolution i.e. low framerate, so instead we'll use SRWE to help us out here.
+Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how to compose it. Cropping from 16:9 wastes a lot of pixels, and hotsampling makes the shot too large to fit on your screen. You could use [hotsampling helper shaders](./ReshadeGuides/shaderscatalogue.htm#hotsampling) for ReShade, they can scale down a duplicate of your hotsampled window to fit in your monitor. That still comes at the cost of running your game at a very high resolution i.e. low framerate, so instead we'll use SRWE to help us out here.
 
 We can use SRWE to set our game window to 3:4 but *within* our monitor's limits. Since we're shooting a portrait, we'll take our monitor's height as our bounds. We can then find out the width from some simple math. So, at 1080p, we'd set the game window to **810x1080**. 1440p would be **1080x1440**, and 4K would be **1620x2160**. This gives us a 3:4 preview of our shot fit perfectly in our monitor where we can now compose in.
 
@@ -115,6 +120,18 @@ For AMD users, Virtual Super Resolution (VSR) is the equivalent tech.
 
 **ReShade** is a post-processing injector for games, allowing you to add many post-processing effects to games such as bloom, ambient occlusion, depth of field, colour grading and so much more.
 
+<div class="img-comp-container">
+  <div class="img-comp-aft">
+      <div class="img-comp-text">after ReShade</div>
+    <img src="Images/basics_doom2.jpg">
+  </div>
+  <div class="img-comp-bef img-comp-overlay">
+        <div class="img-comp-text">before ReShade</div>
+    <img src="Images/basics_doom1.jpg">
+  </div>
+</div>
+<div class="figure"><p><i><a href="./GameGuides/doometernal.htm">DOOM Eternal</a></i>, with MXAO, RTGI, SSR, Retrofog and Cinematic DoF. (<i>ItsYFP</i>)</p></div>
+
 While it is incredibly popular for 'dressing up' a game's looks to a user's taste, it's since become very useful for the PC screenshotting community as an extremely flexible editor that provides an in-game, real-time preview.
 
 ### The depth buffer
@@ -137,7 +154,7 @@ For more use cases for ReShade, check out our [guide to setting ReShade up](./Re
 - [Official page](https://reshade.me/)
 - [List of repositories](https://www.pcgamingwiki.com/wiki/ReShade#List_of_known_shader_repositories) (PCGamingWiki)
 - [Game compatibility list](https://www.pcgamingwiki.com/wiki/ReShade#Game_compatibility) (PCGamingWiki)
-- [Easy Troubleshooting](https://reshade.me/forum/troubleshooting/5227) (Reshade)
+- [Easy Troubleshooting](https://reshade.me/forum/troubleshooting/5227) (ReShade)
 - [How to fix most of your problems with ReShade](https://www.youtube.com/watch?v=hYUiWfvyafQ) (YouTube)
 - [How to Fix a Misaligned Depth Buffer on ReShade](https://www.youtube.com/watch?v=1z3VyU_4GQY) (YouTube)
 
@@ -147,20 +164,20 @@ For more use cases for ReShade, check out our [guide to setting ReShade up](./Re
  
 All the info above should have been enough for you to go out and compose a gorgeous shot in your favourite game. Now the question is: *How do you actually save the image?*
 
-There are many ways of doing so, and none of them through a game's built-in capture function. Many games typically save their screenshots as compressed JPGs and don't capture any overlays (i.e. Reshade effects). We want to be able to save a full resolution image, preferably as a lossless PNG, and with all the Reshade effects we've added.
+There are many ways of doing so, and none of them through a game's built-in capture function. Many games typically save their screenshots as compressed JPGs and don't capture any overlays (i.e. ReShade effects). We want to be able to save a full resolution image, preferably as a lossless PNG, and with all the ReShade effects we've added.
 
 Here are some typical methods:
 
 - **[ReShade](https://reshade.me)**  
-Reshade comes with its own capture function and is typically the chosen option for many that have it installed. It should no longer have issues capturing higher resolutions as its PNG capture was rewritten for its 5.0 update. If you continue to use an older version of ReShade and need faster captures, you could also try:
+ReShade comes with its own capture function and is typically the chosen option for many that have it installed. It should no longer have issues capturing higher resolutions as its PNG capture was rewritten for its 5.0 update. If you continue to use an older version of ReShade and need faster captures, you could also try:
 - **[MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)**  
 Favored by quite a few, Afterburner is a graphics card utility that happens to be able to hook into games and take screen captures of them, even when the game isn't in focus. This makes it useful for games that might resize its window or move the camera after alt-tabbing back into the game. However, it's been known to conflict with certain games and their tools, causing crashes. You will also need to install RTSS, bundled with the installer, to be able to take screenshots with Afterburner.
 - **[Nvidia GeForce Experience](https://www.nvidia.com/en-sg/geforce/geforce-experience/)**  
-Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Same with Afterburner, it can capture faster than Reshade. Be sure you have *Desktop capture* disabled, otherwise it will just save whatever's on your monitor at the moment of capture.
+Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Same with Afterburner, it can capture faster than ReShade. Be sure you have *Desktop capture* disabled, otherwise it will just save whatever's on your monitor at the moment of capture.
 - **[Steam](https://screenshot.help/steam)**  
 If you're playing a Steam game and are used to hitting F12, Steam Overlay works just fine for capturing too. Just be sure to enable *Save an uncompressed copy* under Steam Settings > In-Game to save proper PNGs, Steam JPGs can be very low quality.
 
-These methods above have been proven to work well with hotsampling and Reshade, but if you run into issues with them, try switching them up.
+These methods above have been proven to work well with hotsampling and ReShade, but if you run into issues with them, try switching them up.
 
 ---
  
