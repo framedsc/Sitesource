@@ -433,6 +433,7 @@ img {
 	border: 0;
 	-ms-interpolation-mode: bicubic;
 	vertical-align: middle;
+	image-rendering: -webkit-optimize-contrast;
 }
 
 img.autosize {
