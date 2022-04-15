@@ -24,6 +24,7 @@ Game | Features | Controls | Extra Description
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | Hud Toggle | Caps Lock | Hide the speedo whilst driving
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | Hud Toggle | Caps Lock | 
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | Hud and DOF toggle | Caps Lock | 
+[Submerged: Hidden Depths](../../ShaderTogglers/submerged_hidden_depths.ini) | Rain and raindrops | Caps Lock | 
 [The Vanishing of Ethan Carter Redux](../../ShaderTogglers/vanishing_ethan_carter_redux.ini) | - Hide blue mist<br> - Hide floating texts<br> - Hide fog<br> - Hide main menu | - Y<br> - X<br> - V<br> - Del | 
 
 *Have a shader toggler that you want to include? Head up to the [issue site page](https://github.com/framedsc/Sitesource/issues) and create an issue with your shader toggler, or [contact one of the mods](https://framedsc.com/index.htm).*
