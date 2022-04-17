@@ -16,7 +16,9 @@ Game | Features | Controls | Extra Description
 [Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - Hud <br> - Eivor, NPCs and animals <br> - Vertical line markers in the world <br> - Rain | - Caps Lock<br>- Shift + F4<br>- Shift + F5<br>- Shift + F6
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle | Caps Lock
 [CONTROL](../../ShaderTogglers/control.ini) | Hud Toggle | Caps Lock | 
+[Cyberpunk 2077](../../ShaderTogglers/cyberpunk_2077.ini) | HUD  (and some advertisement displays) | +
 [Elden Ring](../../ShaderTogglers/elden_ring.ini) | - Hides Sites Of Grace <br>- Hides rain, floaty leaves(?) and (SPOILER) end game ash<br> - Hides gold and grey fog walls<br> - HUD | - Caps Lock <br> - F2 <br> - F3 <br> - K | Hiding Sites Of Grace also hides some other light sources such as candles and torches, cant be avoided.
+[Elden Ring](../../ShaderTogglers/elden_ring_1.ini) | - Fog <br> - Bloom <br> - Direct lighting/character back lighting | - Caps lock <br> - + <br> - ´
 [Dying Light 2](../../ShaderTogglers/dying_light_2.ini) | - Lens flare and screen dirt <br> - Hides air vents and floaty debris (but also inadvertently hides some other smoke and fire sources) <br> - Hides Distant Birds <br> - Hides HUD <br> - Just floaty debris | - Caps Lock <br> - F2 <br> - F3 <br> - F4 <br> - F5
 [Ghostwire: Tokyo](../../ShaderTogglers/ghostwire_tokyo.ini) | Hud and DOF toggle | Caps Lock | 
 [God Of War](../../ShaderTogglers/god_of_war.ini) | Snow toggle | Caps Lock
