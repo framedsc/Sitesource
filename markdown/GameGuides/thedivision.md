@@ -1,4 +1,4 @@
-![The Division](Images\thedivision_header.png "Shot by SammirLlm"){.shadowed}
+![The Division](Images\thedivision_header.png "Shot by SammirLlm"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (read below)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
  
 ## Tools

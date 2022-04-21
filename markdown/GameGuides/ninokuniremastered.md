@@ -1,4 +1,4 @@
-![Ni No Kuni: Remastered](Images\nnkrm.png "Shot by Ghostinthecamera"){.shadowed}
+![Ni No Kuni: Remastered](Images\nnkrm.png "Shot by Ghostinthecamera"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

@@ -1,4 +1,4 @@
-![Prince of Persia - The Sands of Time](\Images\pop_header.png "Shot by random ork")
+![Prince of Persia - The Sands of Time](\Images\pop_header.png "Shot by random ork"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes (see step 2)
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

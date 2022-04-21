@@ -1,4 +1,4 @@
-![Limbo](Images\limbo_header.png "Shot by cHota gAbbar")
+![Limbo](Images\limbo_header.png "Shot by cHota gAbbar"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes (through Desktop)
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
 
 ## Workflow
 

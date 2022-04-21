@@ -1,4 +1,4 @@
-![Battlefield 3](Images\bf3.png "Shot by Smithy"){.shadowed}
+![Battlefield 3](Images\bf3.png "Shot by Smithy"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 10.1/11
+Graphics API | DirectX 10.1/11
  
 ## Tools
  

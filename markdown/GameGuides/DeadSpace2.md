@@ -1,4 +1,4 @@
-![Dead Space 2](../Images/DeadSpace2_header.png "Shot by Jim2point0"){.shadowed}
+![Dead Space 2](../Images/DeadSpace2_header.png "Shot by Jim2point0"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | 9
+Graphics API | 9
 
 Resolution can be changed in configuration file. GeDoSaTo is supported according to [whitelist](https://github.com/PeterTh/gedosato/blob/master/pack/config/whitelist.txt#L52). 
 Configuration is similar to [DS1.](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024) 

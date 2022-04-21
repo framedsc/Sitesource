@@ -1,4 +1,4 @@
-![Mafia: Definitive Edition](Images\MDE_header.png "Shot by Jack Heisenburg"){.shadowed}
+![Mafia: Definitive Edition](Images\MDE_header.png "Shot by Jack Heisenburg"){.shadowed .autosize}
 
 ## Summary
 

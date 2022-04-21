@@ -1,4 +1,4 @@
-![DOOM](Images\doomheader.png "Shot by Philos"){.shadowed}
+![DOOM](Images\doomheader.png "Shot by Philos"){.shadowed .autosize}
 
 ## Summary
 

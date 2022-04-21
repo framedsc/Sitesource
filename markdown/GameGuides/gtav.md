@@ -1,4 +1,4 @@
-![Grand Theft Auto V](Images\gtav_header.png "Shot by SammirLlm"){.shadowed}
+![Grand Theft Auto V](Images\gtav_header.png "Shot by SammirLlm"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 10, DirectX 11
+Graphics API | DirectX 10, DirectX 11
  
 
 

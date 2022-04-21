@@ -1,4 +1,4 @@
-![Tom Clancy's Splinter Cell Blacklist](Images\SplinterCellBlacklist_header.png "Shot by One3rd"){.shadowed}
+![Tom Clancy's Splinter Cell Blacklist](Images\SplinterCellBlacklist_header.png "Shot by One3rd"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No 
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 * [CE table by One3rd](..\CheatTables\Blacklist_DX11_v2.CT)  

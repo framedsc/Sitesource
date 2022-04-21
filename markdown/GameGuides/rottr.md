@@ -1,6 +1,6 @@
-![Rise of the Tomb Raider](Images\rottr.png "Shot by Otis_Inf"){.shadowed}
+![Rise of the Tomb Raider](Images\rottr.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

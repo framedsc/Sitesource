@@ -1,4 +1,4 @@
-![Final Fantasy VII Remake](Images\ffviir_header.png "Shot by Otis_Inf"){.shadowed}
+![Final Fantasy VII Remake](Images\ffviir_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ Hotsampling | No
 DSR | Yes*
 Custom Aspect Ratios | No
 Reshade | Yes
-DirectX versions | DirectX 11 and DirectX 12
+Graphics API | DirectX 11 and DirectX 12
  
 ## Tools
 

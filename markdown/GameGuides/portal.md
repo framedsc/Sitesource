@@ -1,4 +1,4 @@
-![Portal](Images\portal_header.png "Shot by cHota gAbbar")
+![Portal](Images\portal_header.png "Shot by cHota gAbbar"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
 
 ## Workflow
 

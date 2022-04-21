@@ -1,4 +1,4 @@
-![Remember Me](\Images\remember_me.png "Shot by Otis_Inf")
+![Remember Me](\Images\remember_me.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ## Summary
 

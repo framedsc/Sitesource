@@ -1,4 +1,4 @@
-![Quantum Break](\Images\Quantum_Break.png "Shot by Phoenix")
+![Quantum Break](\Images\Quantum_Break.png "Shot by Phoenix"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes (With tools)
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

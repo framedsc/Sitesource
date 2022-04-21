@@ -1,6 +1,6 @@
-![Batman Arkham Knight](Images\batman_ak_header.png "Shot by Otis_Inf"){.shadowed}
+![Batman Arkham Knight](Images\batman_ak_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  

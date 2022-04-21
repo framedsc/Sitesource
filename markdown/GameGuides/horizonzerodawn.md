@@ -1,4 +1,4 @@
-![Game Title](Images\hzd_header.png "Shot by Svid"){.shadowed}
+![Game Title](Images\hzd_header.png "Shot by Svid"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes, See note
 Reshade | Yes (DX12)
 Ansel | No
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
  
 ## Tools
 

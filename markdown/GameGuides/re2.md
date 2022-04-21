@@ -1,4 +1,4 @@
-![Resident Evil 2 : Biohazard 2](Images\re2_header.png "Shot by Langgi"){.shadowed}
+![Resident Evil 2 : Biohazard 2](Images\re2_header.png "Shot by Langgi"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes (DirectX 11)
 Ansel | No
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
  
 ## Tools
 

@@ -1,4 +1,4 @@
-![Ace Combat 7](Images\ac7header.png "Shot by Ghostinthecamera"){.shadowed}
+![Ace Combat 7](Images\ac7header.png "Shot by Ghostinthecamera"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes - See Tips
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 ## Tips
 

@@ -1,4 +1,4 @@
-![Mirror's Edge Catalyst](Images\mecatalyst_header.png "Shot by ItsYFP"){.shadowed}
+![Mirror's Edge Catalyst](Images\mecatalyst_header.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

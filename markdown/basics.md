@@ -25,7 +25,7 @@ As more and more games are powered by the same game engines like Unreal or Unity
 
 For Unreal Engine 4, the [Universal Unreal Unlocker](./GeneralGuides/universal_ue4_consoleunlocker.htm) by [Otis_Inf](https://www.patreon.com/Otis_Inf) has become the go-to tool for many UE4 games. It includes a freecam with all the common controls, as well as extra features like access to the console and many more.
 
-For Unity, the [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) project by [VTVRVXIV](https://twitter.com/vtvrvxiv) adds a freecam that works in most Unity games. It relies on plugin loaders like BepInEx and MelonLoader, and does require a bit more setup than the UUU to be feature-complete as a camera tool. We have a guide covering the process [here](./GeneralGuides/universal_unity_freecam.htm).
+For Unity, the [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) project by [VTVRVXIV](https://twitter.com/vtvrvxiv) adds a freecam that works in most Unity games. It relies on plugin loaders like BepInEx and MelonLoader, and does require a bit more setup than the UUU to be feature-complete as a camera tool. We have a [guide to UUF](./GeneralGuides/universal_unity_freecam.htm) covering the rough process.
 
 The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also includes a built-in freecam known as [Free Look](https://wiki.dolphin-emu.org/index.php?title=Free_Look).
 
@@ -138,7 +138,7 @@ While it is incredibly popular for 'dressing up' a game's looks to a user's tast
 
 A 2D representation of how far or close objects are as seen from the camera, the depth buffer is what makes ReShade so powerful. It can be used to generate highly sophisticated effects such as [cinematic depth of field](./ReshadeGuides/Shaders/cinematicdof.htm) and raytraced lighting. It can even add [faux volumetric fog](https://twitter.com/FransBouma/status/1506372102835822599) to a scene, or just be used for gorgeous [silhouette effects](https://framedsc.com/HallOfFramed/?imageId=1631466300).
 
-ReShade's ability to grab a game's depth buffer may also be useful for those that know how to work with it in a compositor like Photoshop, After Effects, or Nuke. We have a guide that covers the process of capturing this depth buffer for use externally **[here](./ReshadeGuides/depthguide.htm)**.
+ReShade's ability to grab a game's depth buffer may also be useful for those that know how to work with it in a compositor like Photoshop, After Effects, or Nuke. Our [guide to exporting depth buffers](./ReshadeGuides/depthguide.htm) covers this process.
 
 ### Why ReShade?
 

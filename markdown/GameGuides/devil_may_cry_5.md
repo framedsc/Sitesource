@@ -1,4 +1,4 @@
-![Devil May Cry 5](Images\dmc5_header.png "Shot by Langgi"){.shadowed}
+![Devil May Cry 5](Images\dmc5_header.png "Shot by Langgi"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (With tools)
 Reshade | Yes (With DirectX11)
 Ansel | No
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
 
  
 ## Tools

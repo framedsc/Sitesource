@@ -1,6 +1,6 @@
-![Assassin's Creed Origins](Images\acorigins_header.png "Shot by Otis_Inf"){.shadowed}
+![Assassin's Creed Origins](Images\acorigins_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 

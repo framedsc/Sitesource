@@ -1,4 +1,4 @@
-![The Outer Worlds](Images\theouterworlds_header.png "Shot by Otis_Inf"){.shadowed}
+![The Outer Worlds](Images\theouterworlds_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | unknown
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

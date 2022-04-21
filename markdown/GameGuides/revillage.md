@@ -1,4 +1,4 @@
-![Resident Evil Village](Images\revillage_header.png "Shot by ItsYFP"){.shadowed}
+![Resident Evil Village](Images\revillage_header.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
  
 ## Tools
 

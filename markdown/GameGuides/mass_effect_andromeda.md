@@ -1,4 +1,4 @@
-![Mass Effect: Andromeda](Images\mass_effect_andromeda.png "Shot by Originalnicodr")
+![Mass Effect: Andromeda](Images\mass_effect_andromeda.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes ([limited](mass_effect_andromeda.htm#custom-aspect-ratios))
 Reshade | Yes
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
  

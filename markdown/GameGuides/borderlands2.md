@@ -1,4 +1,4 @@
-![Borderlands 2](Images\borderlands2_header.png "Shot by Jim2point0")
+![Borderlands 2](Images\borderlands2_header.png "Shot by Jim2point0"){.shadowed .autosize}
 
 ##Summary
 
@@ -10,7 +10,7 @@ Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

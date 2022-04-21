@@ -1,4 +1,4 @@
-![Metal Gear Solid V: The Phantom Pain](\Images\phantom_pain.png "Shot by Originalnicodr")
+![Metal Gear Solid V: The Phantom Pain](\Images\phantom_pain.png "Shot by Originalnicodr"){.shadowed .autosize}
 
 [//]: #\Images\phantom_pain.png
 
@@ -12,7 +12,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes (read description)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

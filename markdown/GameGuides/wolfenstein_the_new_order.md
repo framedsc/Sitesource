@@ -1,4 +1,4 @@
-![Wolfenstein: The New Order](\Images\wolfenstein_the_new_order.png "Shot by Originalnicodr")
+![Wolfenstein: The New Order](\Images\wolfenstein_the_new_order.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  

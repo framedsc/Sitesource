@@ -1,4 +1,4 @@
-![Far Cry 5](Images\fc5_header.png "Shot by Otis_Inf"){.shadowed}
+![Far Cry 5](Images\fc5_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes in Windowed Mode
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

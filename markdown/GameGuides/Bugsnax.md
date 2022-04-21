@@ -1,4 +1,4 @@
-![Bugsnax!](Images\bugsnax_header.png "Shot by moyevka"){.shadowed}
+![Bugsnax!](Images\bugsnax_header.png "Shot by moyevka"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes¹
 Custom Aspect Ratios | Yes¹
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 *¹ - you have to set your desktop to the desired AR/resolution and play in fullscreen*
  

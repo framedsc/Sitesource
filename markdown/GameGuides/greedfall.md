@@ -1,4 +1,4 @@
-![Control](..\Images\greedfall.png "Shot by Jim2point0")
+![Control](..\Images\greedfall.png "Shot by Jim2point0"){.shadowed .autosize}
 
 ## Summary
 

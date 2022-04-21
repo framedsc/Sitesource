@@ -1,4 +1,4 @@
-![Assassin's Creed Unity](Images\acunity_header.png "Shot by TeoTave"){.shadowed}
+![Assassin's Creed Unity](Images\acunity_header.png "Shot by TeoTave"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

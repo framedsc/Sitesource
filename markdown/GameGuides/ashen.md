@@ -1,4 +1,4 @@
-![Ashen](Images\ashen_header.png "Shot by Natty Dread"){.shadowed}
+![Ashen](Images\ashen_header.png "Shot by Natty Dread"){.shadowed .autosize}
 
 ##Summary
 
@@ -10,7 +10,7 @@ Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

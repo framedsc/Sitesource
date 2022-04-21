@@ -1,4 +1,4 @@
-![What Remains of Edith Finch](Images\edithfinch.png "Shot by Originalnicodr")
+![What Remains of Edith Finch](Images\edithfinch.png "Shot by Originalnicodr"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | No
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

@@ -1,4 +1,4 @@
-![World of Tanks](Images\WorldOfTanks.png "Shot by Skramp"){.shadowed}
+![World of Tanks](Images\WorldOfTanks.png "Shot by Skramp"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (Tips)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 ## Tools
 

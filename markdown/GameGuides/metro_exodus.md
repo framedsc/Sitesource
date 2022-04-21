@@ -1,4 +1,4 @@
-![MetroExodus](Images\MetroExodusHeader.png "Shot by Midhras")
+![MetroExodus](Images\MetroExodusHeader.png "Shot by Midhras"){.shadowed .autosize}
 
 ##Summary
 
@@ -10,7 +10,7 @@ Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes, with DirectX 11
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
  
 ## Tools
 

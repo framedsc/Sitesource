@@ -1,4 +1,4 @@
-![Microsoft Flight Simulator](Images\microsoft_flight_sim.png "Shot by Smithy"){.shadowed}
+![Microsoft Flight Simulator](Images\microsoft_flight_sim.png "Shot by Smithy"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 ## Tips and Tricks
 

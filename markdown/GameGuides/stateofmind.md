@@ -1,4 +1,4 @@
-![State Of Mind](Images/state_of_mind.png "Shot by pino44io"){.shadowed}
+![State Of Mind](Images/state_of_mind.png "Shot by pino44io"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

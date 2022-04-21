@@ -1,4 +1,4 @@
-![Assassin's Creed Syndicate](Images\acsyndicate_header.png "Shot by Vikster"){.shadowed}
+![Assassin's Creed Syndicate](Images\acsyndicate_header.png "Shot by Vikster"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

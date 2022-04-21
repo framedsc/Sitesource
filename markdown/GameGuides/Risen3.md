@@ -1,4 +1,4 @@
-![Risen 3](Images\risen3_header.png "Shot by Eggo"){.shadowed}
+![Risen 3](Images\risen3_header.png "Shot by Eggo"){.shadowed .autosize}
 
 ## Summary
 
@@ -12,7 +12,7 @@ Custom Aspect Ratios | Yes ([with tweaking](#defining-custom-resolutions))
 FOV | No
 Reshade | Yes (DX9)
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

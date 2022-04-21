@@ -1,4 +1,4 @@
-![Dark Souls: Remastered](Images\dark_souls_remastered.png "Shot by Rike"){.shadowed}
+![Dark Souls: Remastered](Images\dark_souls_remastered.png "Shot by Rike"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes 
 Ansel | Partial, no free camera
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

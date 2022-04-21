@@ -1,4 +1,4 @@
-![GRIS](Images\gris_header.png "Shot by cHota gAbbar")
+![GRIS](Images\gris_header.png "Shot by cHota gAbbar"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes (through Desktop)
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 ## Tools
 

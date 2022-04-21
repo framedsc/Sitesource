@@ -1,4 +1,4 @@
-![Yakuza Like a Dragon](Images\yakuza_lad.png "Shot by ItsYFP"){.shadowed}
+![Yakuza Like a Dragon](Images\yakuza_lad.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Unknown
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

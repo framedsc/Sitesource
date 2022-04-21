@@ -1,6 +1,6 @@
-![Street Fighter V](Images\SFVAE-header.png "Shot by Langgi")
+![Street Fighter V](Images\SFVAE-header.png "Shot by Langgi"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes, with tools 
 Reshade | Yes
 Ansel | Partial, no freecamera
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 

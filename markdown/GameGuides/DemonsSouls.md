@@ -1,4 +1,4 @@
-![Demon's Souls](Images\demonssouls_header.png "Shot by Wulfgaardian"){.shadowed}
+![Demon's Souls](Images\demonssouls_header.png "Shot by Wulfgaardian"){.shadowed .autosize}
 
 ## Summary
 

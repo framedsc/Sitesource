@@ -1,6 +1,6 @@
-![Mutant Year Zero: Road to Eden](Images\mutantyearzero_rte_header.png "Shot by Pino44io")
+![Mutant Year Zero: Road to Eden](Images\mutantyearzero_rte_header.png "Shot by Pino44io"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes, with hotsampling 
 Reshade | Yes, v4.1.1 or higher is known to work with HUD Toggle
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 

@@ -1,4 +1,4 @@
-![Blur](Images\blur.png "Shot by Draven Redgrave"){.shadowed}
+![Blur](Images\blur.png "Shot by Draven Redgrave"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
  

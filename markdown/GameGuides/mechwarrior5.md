@@ -1,4 +1,4 @@
-![MechWarrior 5](Images\mw5.png "Shot by ghostinthecamera"){.shadowed}
+![MechWarrior 5](Images\mw5.png "Shot by ghostinthecamera"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
  
 ## Tools
 

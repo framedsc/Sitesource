@@ -1,6 +1,6 @@
-![Sleeping Dogs: Definitive Edition](Images\SleepingDogsDE_header.png "Shot by One3rd")
+![Sleeping Dogs: Definitive Edition](Images\SleepingDogsDE_header.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes 
 Reshade | Yes (see notes about depth buffer)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 * [Camera Tools](https://mega.nz/file/vQgDRKxK#rWJDBAyjb_dXX5WowRPI43n8YKGOeLI9vyK_jmQbfuo)  

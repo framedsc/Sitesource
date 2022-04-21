@@ -1,4 +1,4 @@
-![Portal 2](Images\portal2_header.png "Shot by EchoSmoker"){.shadowed}
+![Portal 2](Images\portal2_header.png "Shot by EchoSmoker"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes¹
 Custom Aspect Ratios | Yes²
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9, Vulkan
+Graphics API | DirectX 9, Vulkan
 
 *¹ - Changing resolutions too often can cause a game hang, recommended to play at your shooting resolution  
 ² - Aspect Ratio might have to be tweaked to see all your custom resolutions*

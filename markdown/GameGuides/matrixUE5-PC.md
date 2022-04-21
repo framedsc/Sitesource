@@ -1,4 +1,4 @@
-![City Sample](Images\matrixUE5-PC_header.png "Shot by barkar-b"){.shadowed}
+![City Sample](Images\matrixUE5-PC_header.png "Shot by barkar-b"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (DX12)
 Ansel | No
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
 
 @alert neutral  
 This guide covers the compiled [City Sample project](https://unrealengine.com/marketplace/en-US/learn/city-sample) for PC, not the released demo for consoles.  

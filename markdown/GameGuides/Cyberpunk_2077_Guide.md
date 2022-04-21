@@ -1,4 +1,4 @@
-![Cyberpunk 2077](Images\cyberpunk2077_header.png "Shot by Lazaro"){.shadowed}
+![Cyberpunk 2077](Images\cyberpunk2077_header.png "Shot by Lazaro"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (4.9.1+)
 Ansel | No
-DirectX versions |  DirectX 12
+Graphics API |  DirectX 12
 Guide Updated For Game Version | 1.52
  
 ## Tools

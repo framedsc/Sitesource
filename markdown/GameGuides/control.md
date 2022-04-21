@@ -1,4 +1,4 @@
-![Control](Images\control_header.png "Shot by Jim2point0")
+![Control](Images\control_header.png "Shot by Jim2point0"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes (not all resolutions are supported)
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
 
 ## Mods
 

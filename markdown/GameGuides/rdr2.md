@@ -1,6 +1,6 @@
-![Red Dead Redemption 2](Images\rdr2_header.png "Shot by Otis_Inf"){.shadowed}
+![Red Dead Redemption 2](Images\rdr2_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes (v4.4+)
 Ansel | No
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
 Vulkan | Yes
  
 ## Tools

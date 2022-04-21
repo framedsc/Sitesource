@@ -1,6 +1,6 @@
-![Marvel vs. Capcom: Infinite](Images\MVCI.png "Shot by One3rd"){.shadowed}
+![Marvel vs. Capcom: Infinite](Images\MVCI.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 * [CE table - Camera by One3rd](..\CheatTables\MVCI_One3rd.CT)  

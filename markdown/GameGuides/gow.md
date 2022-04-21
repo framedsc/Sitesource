@@ -1,4 +1,4 @@
-![God Of War](Images\gow_header.png "Shot by Otis_Inf"){.shadowed}
+![God Of War](Images\gow_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

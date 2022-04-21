@@ -1,6 +1,6 @@
-![Shadow of the Tomb Raider](Images\sottr.png "Shot by Otis_Inf"){.shadowed}
+![Shadow of the Tomb Raider](Images\sottr.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes, with DirectX 11
 Ansel | Yes
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
  
 ##Tools
 

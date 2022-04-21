@@ -1,4 +1,4 @@
-![Borderlands 3](Images\borderlands3_header.png "Shot by Otis_Inf"){.shadowed}
+![Borderlands 3](Images\borderlands3_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ##Summary
 
@@ -10,7 +10,7 @@ Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
-DirectX versions | DirectX 11 / 12
+Graphics API | DirectX 11 / 12
  
 ## Tools
 

@@ -1,6 +1,6 @@
 # Sitesource
 
-The source files used to generate the official site. (c) 2022 All rights reserved. 
+The source files used to generate [the official site](https://framedsc.com). (c) 2022 All rights reserved. 
 
 ## How to generate the main site?
 

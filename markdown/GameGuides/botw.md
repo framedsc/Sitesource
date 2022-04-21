@@ -1,4 +1,4 @@
-![The Legend of Zelda: Breath of the Wild](Images\botw.png "Shot by ItsYFP"){.shadowed}
+![The Legend of Zelda: Breath of the Wild](Images\botw.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (CEMU Graphic Settings)
 Reshade | Yes (OpenGL & Vulkan)
 Ansel | No
-DirectX versions | Unknown (what ever works with CEMU)
+Graphics API | Unknown (what ever works with CEMU)
  
 ## Tools
 

@@ -1,4 +1,4 @@
-![Monster Hunter Rise](Images\mhrise.png "Shot by Originalnicodr"){.shadowed}
+![Monster Hunter Rise](Images\mhrise.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | No
 Custom Aspect Ratios | Yes*
 Reshade | Yes*
 Ansel | No
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
  
 ## Tools
  

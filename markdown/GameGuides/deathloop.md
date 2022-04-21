@@ -1,4 +1,4 @@
-![Deathloop](Images\deathloop_header.png "Shot by Jack Heisenburg"){.shadowed}
+![Deathloop](Images\deathloop_header.png "Shot by Jack Heisenburg"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes, Gameplay Only
 Custom Aspect Ratios | No
 Reshade | Yes , Gameplay Only
 Ansel | Yes
-DirectX versions | DirectX 12
+Graphics API | DirectX 12
  
 ## Tools
 

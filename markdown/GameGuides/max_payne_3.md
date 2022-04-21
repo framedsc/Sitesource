@@ -1,4 +1,4 @@
-![MaxPayne3](Images\max_payne_3.png "Shot by Antic Owl")
+![MaxPayne3](Images\max_payne_3.png "Shot by Antic Owl"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9, 10, 10.1, 11
+Graphics API | DirectX 9, 10, 10.1, 11
  
 ## Tools
 

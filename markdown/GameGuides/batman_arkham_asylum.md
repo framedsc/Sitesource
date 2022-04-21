@@ -1,6 +1,6 @@
-![Batman Arkham Asylum GOTY](Images\BatmanAA_header.png "Shot by One3rd"){.shadowed}
+![Batman Arkham Asylum GOTY](Images\BatmanAA_header.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes, see note
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ##Tools
 * [CE table - Camera by One3rd, Cheats by SunBeam](..\CheatTables\BatmanAA_One3rd_Camera_Merged.CT)  

@@ -1,4 +1,4 @@
-![Metal Gear Rising: Revengeance](Images\metalgearrising.png "Shot by Stellasin"){.shadowed}
+![Metal Gear Rising: Revengeance](Images\metalgearrising.png "Shot by Stellasin"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR/Custom Resolution | Yes (Read Below)
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
  

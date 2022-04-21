@@ -1,4 +1,4 @@
-![Dirt Rally 2.0](Images\dirtrally2header.png "Shot by Ghostinthecamera"){.shadowed}
+![Dirt Rally 2.0](Images\dirtrally2header.png "Shot by Ghostinthecamera"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 Compatible with | Current (1.3.0)
 
 ## Tips

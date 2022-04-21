@@ -1,4 +1,4 @@
-![Assassin's Creed: Rogue](Images\ac_rogue.png "Shot by Originalnicodr"){.shadowed}
+![Assassin's Creed: Rogue](Images\ac_rogue.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
  

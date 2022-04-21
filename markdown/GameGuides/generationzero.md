@@ -1,4 +1,4 @@
-![Generation Zero](Images\gz_Header.png "Shot by pino44io"){.shadowed}
+![Generation Zero](Images\gz_Header.png "Shot by pino44io"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

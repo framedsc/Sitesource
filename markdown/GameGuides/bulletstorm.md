@@ -1,4 +1,4 @@
-![Bulletstorm: Full Clip Edition](Images/bulletstorm.png "Shot by Originalnicodr"){.shadowed}
+![Bulletstorm: Full Clip Edition](Images/bulletstorm.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
  

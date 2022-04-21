@@ -1,4 +1,4 @@
-![Kingdom Come: Deliverance](Images\kdc_header.png "Shot by Otis_Inf"){.shadowed}
+![Kingdom Come: Deliverance](Images\kdc_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 ## Summary
 Feature | Supported
 --|--
@@ -8,7 +8,7 @@ DSR | Yes
 Custom Aspect Ratios | No  
 Reshade | Yes (DX11)
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

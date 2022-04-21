@@ -1,6 +1,6 @@
-![RiME](Images\Rime_header.png "Shot by One3rd"){.shadowed}
+![RiME](Images\Rime_header.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 * [CE table - Camera by One3rd and IDK31](..\CheatTables\RiME.CT)  

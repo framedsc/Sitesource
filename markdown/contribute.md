@@ -12,9 +12,9 @@
 
 ## Writing guides
 
-If you're interested in writing a guide for the site, please [download this template](https://mega.nz/file/6MkxjLoK#hkyoIYsTcQVxLuxnLoWC71FbUM-eFNOEcQsS_oZyx_A). It contains everything you need to get started - a Markdown template for a game guide and a .PSD + font file to generate a header.
+If you're interested in writing a guide for the site, please [download this template](https://mega.nz/file/ycMhECrB#tm7cvWr7SIsJf2XeeFwEkKHrMTJUnYOUDyCnkD87zmo). It contains everything you need to get started - a Markdown template for a game guide and a .PSD + font file to generate a header. There are two versions of guide templates, one for [PC guides](./Gameguides.htm) and one for [Console guides](./Consoleguides.htm).
 
-We recommend writing with [Visual Studio Code](https://vscode.dev/) as it has a Markdown preview similar to how the site looks. The site is built with DocNet, however, which includes Markdown extensions not found in the VS Code preview. Learn more about DocNet's additional features [**here**](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm).
+We recommend writing with [Visual Studio Code](https://vscode.dev/) as it has a Markdown preview similar to how the site looks. The site is built with DocNet, however, which includes Markdown extensions not found in the VS Code preview. Learn more about [DocNet's additional features](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm).
 
 The site also supports HTML in Markdown if you want the formatting of your guides to be a little fancier. The centred text above was written in the .MD like so:
 
@@ -31,7 +31,7 @@ An exception to this is cheat tables. We prefer to archive those internally, pro
 
 ### Updating guides
 
-If you notice an error in a guide or you simply want to extend an existing guide, you may access the site source [**here**](https://github.com/framedsc/Sitesource). From there, open the markdown folder and navigate to the .md file of the guide you wish to edit. 
+If you notice an error in a guide or you simply want to extend an existing guide, you may access the [site source](https://github.com/framedsc/Sitesource). From there, open the markdown folder and navigate to the .md file of the guide you wish to edit. 
 
 ### Etiquette
 
@@ -66,7 +66,7 @@ Export it as a .PNG and rename appropriately.
 
 The header template includes a network of guides that can be enabled and disabled with `Ctrl + ;`. These can be used to help you compose a header or as safety margins. In the rare case that a game title is so long it doesn't fit in the header, decrease the font size until it fits in the rightmost margin.
 
-![long game title](Images\contribute_nnk2header.png "Font size had to be reduced to 31"){.shadowed}
+![long game title](Images\contribute_nnk2header.png "Font size had to be reduced to 31"){.shadowed .autosize}
 
 ---
 

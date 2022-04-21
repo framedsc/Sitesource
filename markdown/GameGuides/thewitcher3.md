@@ -1,4 +1,4 @@
-![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by jim2point0"){.shadowed}
+![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by jim2point0"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 Essential mods
 --

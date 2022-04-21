@@ -1,6 +1,6 @@
-![DEAD RISING 4](Images\deadrising4.png "Shot by One3rd"){.shadowed}
+![DEAD RISING 4](Images\deadrising4.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Partial (16:9 and 21:9 worked, 1:1 and 3:4 did not) 
 Reshade | Yes, v4.1.1 or higher is known to work with HUD Toggle
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 

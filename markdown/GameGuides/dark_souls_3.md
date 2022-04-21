@@ -1,4 +1,4 @@
-![Dark Souls 3](Images\DarkSouls3.png "Shot by Natty Dread"){.shadowed}
+![Dark Souls 3](Images\DarkSouls3.png "Shot by Natty Dread"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

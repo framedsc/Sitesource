@@ -1,4 +1,4 @@
-![A Plague Tale: Innocence](Images\aplaguetale_header.png "Shot by VicenteProD"){.shadowed}
+![A Plague Tale: Innocence](Images\aplaguetale_header.png "Shot by VicenteProD"){.shadowed .autosize}
 ## Summary
 Feature | Supported
 --|--
@@ -8,7 +8,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes  
 Reshade | Yes (DX11)
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

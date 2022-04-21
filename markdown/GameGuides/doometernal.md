@@ -1,4 +1,4 @@
-![DOOM Eternal](Images\doometernal_header.png "Shot by ItsYFP"){.shadowed}
+![DOOM Eternal](Images\doometernal_header.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 

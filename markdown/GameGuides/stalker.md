@@ -1,4 +1,4 @@
-![S.T.A.L.K.E.R](Images/stalker_header.png "Shot by Sonozaki"){.shadowed}
+![S.T.A.L.K.E.R](Images/stalker_header.png "Shot by Sonozaki"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with Hotsampling)
 Reshade | Yes (DX10/11)
 Ansel | No
-DirectX versions | DirectX 11 (i think)
+Graphics API | DirectX 11 (i think)
  
 ## Tools
 

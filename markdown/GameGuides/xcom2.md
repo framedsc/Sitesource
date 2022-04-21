@@ -1,6 +1,6 @@
-![XCOM2](Images\xcom2_header.png "Shot by Philos"){.shadowed}
+![XCOM2](Images\xcom2_header.png "Shot by Philos"){.shadowed .autosize}
 
-## Feature summary
+## Summary
 
 Feature | Supported
 --|--

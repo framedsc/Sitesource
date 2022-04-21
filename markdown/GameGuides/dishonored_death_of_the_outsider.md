@@ -1,4 +1,4 @@
-![DishonoredDeathoftheOutsider](Images\DishonoredDeathoftheOutsider.png "Shot by Originalnicodr")
+![DishonoredDeathoftheOutsider](Images\DishonoredDeathoftheOutsider.png "Shot by Originalnicodr"){.shadowed .autosize}
 
 
 ## Summary
@@ -11,7 +11,7 @@ DSR | No
 Custom Aspect Ratios | No
 Reshade | Yes 
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

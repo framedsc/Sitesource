@@ -1,4 +1,4 @@
-![Deadlight Director`s Cut](Images\deadlight_header.png "Shot by pino44io"){.shadowed}
+![Deadlight Director`s Cut](Images\deadlight_header.png "Shot by pino44io"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 
