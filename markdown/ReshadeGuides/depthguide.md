@@ -19,8 +19,22 @@ With your scene turned black, make sure Depth Slicer is placed **below** Lightro
 Your scene should now be white, with maybe a slice of black visible. The only settings you need to adjust now are *Depth Position* and *Depth Near Plane*. Adjust *Depth Position* until all of your subject is in black, with the background entirely white. Next, reduce *Depth Near Plane* until any foreground objects are now white too. I recommend using the arrows to make these adjustments as the sliders can get difficult to work with at such small values.
 
 If set up right, you should get something like this.  
-![2](../Images/depthguide/ds_example.png){.shadowed .autosize}  
-*Bugsnax*
+
+<div class="slider container" style="aspect-ratio: 64/27">
+  <div class="slider__img slider__img-after">
+    <p></p>
+    <img src="../Images/depthguide/ds-depthslice.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p></p>
+    <img src="../Images/depthguide/ds-original.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p><i><a href="./GameGuides/Bugsnax.htm">Bugsnax</a></i></p></div>  
 
 You can now capture this and use it as a mask in your image editor of choice. This method is very similar to what you can achieve with `Chromakey.fx`. A matte is likely to produce a cleaner result than a greenscreen key and is best for still images. 
 
@@ -32,8 +46,10 @@ This method exports a specific range of the depth buffer. Given the 8-bit greysc
 
 With `DisplayDepth.fx` active, set *Present type* to *Depth map* and enter the Advanced settings. The two settings that are relevant here are *Far Plane* and *Multiplier*. *Far Plane* brings the far plane, the white point, closer to the camera. *Multiplier* acts sort of like the near plane, bringing the black point further from the camera.
 
-![example](../Images/depthguide/gdr_grading.png){.shadowed .autosize}  
-*Cyberpunk 2077*
+<div class="figure">
+<img src="../Images/depthguide/gdr_grading.png" class="autosize" />
+<p><i><a href="./GameGuides/Cyberpunk_2077_Guide.htm">Cyberpunk 2077</a></i></p>
+</div>
 
 Above is an example of a graded depth map following the above. *Far Plane* was set to a very small number, 1.0, and *Multiplier* was increased until the subject (in black) was well separated from the background. 
 
@@ -81,23 +97,51 @@ You'll want Photoshop CS4 or higher to follow along, but this tutorial can be ea
 **Step 1**  
 With your image loaded in Photoshop, unlock it as a background and duplicate it (CTRL+J). This will be the layer we'll work with. Create a new folder/group and place this duplicated layer in it. Rename the folder as "Fog" to keep things organised.
 
-![start](../Images/depthguide/fog_start.png){.shadowed .autosize}
+![start](../Images/depthguide/fog_1.png){.shadowed .autosize}
 
 **Step 2**  
 Going over to the Adjustments tab, add a Levels adjustment layer. This will control the bulk of the effect. Drag the left arrow on the second slider towards the middle, this washes out the image considerably but is what we're looking for since we want that grey, foggy look. Next, we can take the middle arrow of the first slider and drag it towards the right. This further flattens out our image. Our last colour adjustment to make is taking the right arrow of the second slider and moving it slightly left. This mimics light falling off in intensity as it travels through the fog.
 
-![levels](../Images/depthguide/fog_levelsadjust.png){.shadowed .autosize}
+![levels](../Images/depthguide/fog_2.png){.shadowed .autosize}
 
 **Step 3**  
 Create a mask on your Fog folder. We'll now import the depth map so that we can use it for the fog effect. Ctrl+Click on the depth map layer to select all its contents and copy (CTRL+C) it. Alt+click on the *mask* of the Fog folder to enter it. We can then paste (CTRL+V) the depth map into the mask. Clicking on another layer, we should now see a gradual transition to the fog. It's not as intense as I'd like it, so now we'll emphasise the fog by grading the mask. 
 
 Alt+clicking back into the mask, we can now use Levels (CTRL+L) to grade it. Levels has some handy eyedroppers we'll be using to simplify this process, they're the three buttons above the Preview tickbox. With the leftmost eyedropper selected, we'll set our black point. This determines where fog isn't visible. In my case, I want Coach to be visible, so I'll click on him. The rightmost eyedropper sets our white point, where fog will be strongest. I'll click somewhere in the trees.
 
-![levels again](../Images/depthguide/fog_depthgrade.png){.shadowed .autosize}
+<div class="slider container" style="aspect-ratio: 8/3">
+  <div class="slider__img slider__img-after">
+    <p></p>
+    <img src="../Images/depthguide/fog_3a-after.png" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p></p>
+    <img src="../Images/depthguide/fog_3a-before.png" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p></p></div> 
 
 Unfortunately, as masks don't do adjustment layers, **this grade will be permanent**. Click out of the mask, undo and retry until you get the result you're looking for. 
 
-![comparison](../Images/depthguide/fog_foggrades.png){.shadowed .autosize}
+<div class="slider container" style="aspect-ratio: 8/3">
+  <div class="slider__img slider__img-after">
+    <p>Graded</p>
+    <img src="../Images/depthguide/fog_3b-after.png" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>Ungraded</p>
+    <img src="../Images/depthguide/fog_3b-before.png" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p></p></div> 
 
 @alert tip
 A high-range depth map is highly recommended for this process. A regular capture of `DisplayDepth.fx` will definitely introduce banding when you try to grade it like the above. Alternatively, you can grade the depth map before exporting it (Graded Depth Range), but that won't have the full flexibility of grading in post.
@@ -106,11 +150,23 @@ A high-range depth map is highly recommended for this process. A regular capture
 **Step 4**  
 Lastly, we can return to our Fog folder and adjust our adjustment layers until we get the look we want. I've tweaked my Layers adjustment to darken the fog more, and added a Color Balance adjustment on the midtones to tint the fog. 
 
-![comparison again](../Images/depthguide/fog_finalising.png){.shadowed .autosize}
+<div class="slider container" style="aspect-ratio: 8/3">
+  <div class="slider__img slider__img-after">
+    <p>Tinted</p>
+    <img src="../Images/depthguide/fog_4-after.png" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>Untinted</p>
+    <img src="../Images/depthguide/fog_4-before.png" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p></p></div> 
 
-![final](../Images/depthguide/fog_final.png){.shadowed .autosize}
-
-[Download the PSD](https://mega.nz/file/2BdySBSD#TIColc7HtPNfYg-pcSRrxeguH9VyagZlRaY11Mvqr5Y). 
+[Download the PSD](https://mega.nz/file/zVlA1QgJ#nFBFGrkauSs8_tOJVbYeidsCbFk_aQuHcILMVRlrjgA). 
 
 The point of this tutorial is to provide you with a starting point for all that can be done with an image and its depth map. I hope this has given you some ideas!
 

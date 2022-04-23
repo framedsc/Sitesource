@@ -26,7 +26,6 @@ Key | Description
 F1 | toggle HUD
 F2 | <abbr title="Saves to C:\Users\user\AppData\Roaming\.minecraft\screenshots. Does not save ReShade effects."> capture screenshot</abbr>
 F3 | toggle <abbr title="Displays mostly performance information.">debug overlay</abbr>
-F5 | toggle perspectives
 
 ### Commands  
 
@@ -34,10 +33,14 @@ Opening chat with `t` allows you to type in a myriad of commands. Here are some 
 
 Command | Description
 -- | --
-/gamemode creative | puts you in creative mode
-/gamerule doDaylightCycle false | disables sun/moon movement
-/time set [number] | sets <abbr title="0 for sunrise, 6000 for noon, 12000 for sunset, 16000 for night">time of day</abbr>
-/kill @e[type=!player] | kills all mobs
+`/gamemode creative` | puts you in creative mode
+`/gamemode spectator` | puts you in spectator mode
+`/gamerule doDaylightCycle false` | disables sun/moon movement
+`/gamerule doWeatherCycle false` | disables weather changes
+`/time set [number]` | sets <abbr title="0 for sunrise, 6000 for noon, 12000 for sunset, 16000 for night">time of day</abbr>
+`/kill @e[type=!player]` | kills all mobs
+
+Spectator mode can be very helpful as you can noclip through blocks and change fly speed with the scrollwheel. 
 
 Some worlds you download may not come with cheats enabled, preventing the use of these commands. You'll need a save editor like [NBTExplorer](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/1262665-nbtexplorer-nbt-editor-for-windows-and-mac) to edit the world file and enable cheats. NBTExplorer should find your save files by default. Open the downloaded map's folder, open `level.dat` and look for `allowCommands`. Change that to `1`, then *Save All Modified Tags* (third icon in the top row).
 
@@ -55,7 +58,7 @@ The magic sauce that makes Minecraft not look like Minecraft, shaders overhaul t
 
 ### Shader Hosts
 
-These mods are **required** for shaders.
+These mods are **required** for shaders. Pick and install only one.
 
 - [**OptiFine**](https://optifine.net/home)  
 OptiFine is an optimisation mod that adds a large number of visual features while improving performance. It is currently the mod shaders are written around, which makes it the obvious choice when you want to play with shaders. However, it is notoriously closed-source, which has spurred on development of alternative mods.
@@ -258,4 +261,5 @@ A depth buffer can be exported with [the help of a shader](https://www.youtube.c
 ## Useful Links
 
 * [Console commands](https://minecraft.fandom.com/wiki/Commands) (Minecraft Wiki)
+* [Command generator](https://mcstacker.net/) (MCStacker)
 * [Minecraft maps](https://www.planetminecraft.com/projects/?order=order_popularity) (Planet Minecraft)

@@ -66,6 +66,11 @@ Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how t
 
 We can use SRWE to set our game window to 3:4 but *within* our monitor's limits. Since we're shooting a portrait, we'll take our monitor's height as our bounds. We can then find out the width from some simple math. So, at 1080p, we'd set the game window to **810x1080**. 1440p would be **1080x1440**, and 4K would be **1620x2160**. This gives us a 3:4 preview of our shot fit perfectly in our monitor where we can now compose in.
 
+<div class="figure">
+<img src="Images/basics_hotsampling-AR.png" alt="The Basics of Taking Screenshots" title="Wanna learn how you can take a shot like this?" class="autosize" />
+<p>Composing a 3:4 <i><a href="./GameGuides/MinecraftJE.htm">Minecraft</a></i> shot in a 810x1080 window.</p>
+</div>
+
 This of course works with other aspect ratios, 21:9 would roughly be 1920x810 and so on. I would recommend saving this "preview" resolution as well as your final hotsampling resolution as SRWE profiles for ease of use, or you can download a profile pack below.
 
 Additionally, you can use this for thumbnail testing - viewing your composition as a small image to see if elements are well defined. Instead of going to the bounds of your monitor, you could simply go down to something tiny like 300x400 and compose from there. 
