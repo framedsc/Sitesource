@@ -11,7 +11,7 @@ Custom Aspect Ratios | Yes (see notes)
 Reshade | Yes (see notes)
 Reshade DoF | Yes (see notes)
 Ansel | No
-API versions | OpenGL, Vulkan (see notes)
+Graphics API | OpenGL, Vulkan (see notes)
 Compatible with | Current (6.66) (see notes)
 See notes | Yes
 

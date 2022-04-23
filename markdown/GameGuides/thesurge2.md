@@ -10,7 +10,7 @@ DSR | Unknown
 Custom Aspect Ratios | Unknown
 Reshade | No
 Ansel | No
-API versions | Vulkan
+Graphics API | Vulkan
  
 ## Tools
 

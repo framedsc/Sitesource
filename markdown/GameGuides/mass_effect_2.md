@@ -13,7 +13,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-Rendering API | DX9
+Graphics API | DX9
 
 \* resolutions can be set to hotkeys which give an advantage similar to hotsampling
 

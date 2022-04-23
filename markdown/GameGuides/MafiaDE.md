@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes 
 Ansel | No
-DirectX version |  DirectX 11
+Graphics API | DirectX 11
 
  
 ## Tools

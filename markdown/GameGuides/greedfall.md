@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 ReShade | Yes (dxgi.dll)
 Ansel | No
-Rendering API | DirectX 11
+Graphics API | DirectX 11
 
 ## Tools
 

@@ -3,8 +3,8 @@
 <p><i>Industria</i>, <a href="https://framedsc.com/HallOfFramed/?imageId=1633772229" target="_blank">shot</a> by nyxikri</p>
 </div>
 
-<center> <b><font size=+3 face="Galano Grotesque Alt">We're looking for authors!</font></b> <br>
-<i>Don't know what to write? Check our</i> <a href="https://github.com/framedsc/Sitesource/issues?q=is%3Aissue+is%3Aopen+label%3A%22needs+author%22" target="_blank"><b>issue tracker</b></a> <i>for anything you could help out with.</i> </center>
+<center> <b><font size=+3 face="Galano Grotesque Alt">We want you!</font></b> <br>
+<i>We're looking for authors! Don't know what to write? Check our</i> <a href="https://github.com/framedsc/Sitesource/issues?q=is%3Aissue+is%3Aopen+label%3A%22needs+author%22" target="_blank"><b>issue tracker</b></a>. </center>
 
 [framedsc.com](https://framedsc.com/) is an open-collaboration project, written and maintained by a community of volunteers. We welcome anyone willing to contribute their own knowledge and expertise on anything relevant, be it to [our game guides](./Gameguides.htm), a [cool technique you know of](./GeneralGuides/tinyplanetsguide.htm), or anything you think could be useful to someone!
 
@@ -19,8 +19,8 @@ We recommend writing with [Visual Studio Code](https://vscode.dev/) as it has a 
 The site also supports HTML in Markdown if you want the formatting of your guides to be a little fancier. The centred text above was written in the .MD like so:
 
 ```HTML
-<center> <b><font size=+3 face="Galano Grotesque Alt">We're looking for authors!</font></b> <br>
-<i>Don't know what to write? Check our</i> <a href="LINK" target="_blank"><b>issue tracker</b></a> <i>for anything you could help out with.</i> </center>
+<center> <b><font size=+3 face="Galano Grotesque Alt">We want you!</font></b> <br>
+<i>We're looking for authors! Don't know what to write? Check our</i> <a href="<URL>" target="_blank"><b>issue tracker</b></a>. </center>
 ```
 
 ### Hosting files
@@ -113,34 +113,42 @@ For excessively large images (say you want to include a full-res screenshot for 
 
 The site supports sliders to compare two images, if you'd like to show off a before/after or anything similar.
 
-<div class="img-comp-container">
-  <div class="img-comp-aft">
-      <div class="img-comp-text">after ReShade</div>
-    <img src="Images/basics_doom2.jpg">
+<div class="slider container" style="aspect-ratio: 64/27">
+  <div class="slider__img slider__img-after">
+    <p>after ReShade</p>
+    <img src="Images/basics_doom2.jpg" />
   </div>
-  <div class="img-comp-bef img-comp-overlay">
-        <div class="img-comp-text">before ReShade</div>
-    <img src="Images/basics_doom1.jpg">
+  <div class="slider__img slider__img-before">
+    <p>before ReShade</p>
+    <img src="Images/basics_doom1.jpg" />
   </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
 </div>
 <div class="figure"><p>Subtitle. Shots by ItsYFP</p></div>
 
 This is done wholly through HTML in your Markdown file:
 ```HTML
-<div class="img-comp-container">
-  <div class="img-comp-aft">
-      <div class="img-comp-text">This is the after text</div>
-    <img src="Images/after.png">
+<div class="slider container" style="aspect-ratio: 64/27">
+  <div class="slider__img slider__img-after">
+    <p>This is the after text.</p>
+    <img src="Images/after.jpg" />
   </div>
-  <div class="img-comp-bef img-comp-overlay">
-        <div class="img-comp-text">This is the before text</div>
-    <img src="Images/before.png">
+  <div class="slider__img slider__img-before">
+    <p>This is the before text.</p>
+    <img src="Images/before.jpg" />
   </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
 </div>
 <div class="figure"><p>This is the subtitle text.</p></div>
 ```
 
-The 'before' image does come after the 'after' image. Please make sure the two images are of the same height. 
+The 'before' image does come after the 'after' image. **Ensure both images are of the same aspect ratio and change `aspect-ratio` in the first line to match.**
 
 ---
 

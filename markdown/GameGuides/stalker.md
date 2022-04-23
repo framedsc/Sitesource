@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with Hotsampling)
 Reshade | Yes (DX10/11)
 Ansel | No
-Graphics API | DirectX 11 (i think)
+Graphics API | DirectX 11
  
 ## Tools
 

@@ -120,15 +120,19 @@ For AMD users, Virtual Super Resolution (VSR) is the equivalent tech.
 
 **ReShade** is a post-processing injector for games, allowing you to add many post-processing effects to games such as bloom, ambient occlusion, depth of field, colour grading and so much more.
 
-<div class="img-comp-container">
-  <div class="img-comp-aft">
-      <div class="img-comp-text">after ReShade</div>
-    <img src="Images/basics_doom2.jpg">
+<div class="slider container" style="aspect-ratio: 64/27">
+  <div class="slider__img slider__img-after">
+    <p>after ReShade</p>
+    <img src="Images/basics_doom2.jpg" />
   </div>
-  <div class="img-comp-bef img-comp-overlay">
-        <div class="img-comp-text">before ReShade</div>
-    <img src="Images/basics_doom1.jpg">
+  <div class="slider__img slider__img-before">
+    <p>before ReShade</p>
+    <img src="Images/basics_doom1.jpg" />
   </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
 </div>
 <div class="figure"><p><i><a href="./GameGuides/doometernal.htm">DOOM Eternal</a></i>, with MXAO, RTGI, SSR, Retrofog and Cinematic DoF. (<i>ItsYFP</i>)</p></div>
 

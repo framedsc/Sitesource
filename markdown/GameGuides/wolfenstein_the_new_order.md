@@ -10,7 +10,7 @@ DSR | Yes (desktop DSR)
 Custom Aspect Ratios | No (see notes)
 Reshade | Yes (see notes)
 Ansel | No
-Graphic API version | OpenGL
+Graphics API | OpenGL
  
 ## Tools
  

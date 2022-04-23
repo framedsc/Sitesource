@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (d3d9.dll)
 Ansel | No
-Rendering API | DX9
+Graphics API | DX9
 
 ## Tools
 

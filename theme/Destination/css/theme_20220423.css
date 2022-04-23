@@ -620,6 +620,8 @@ img.resizable {
 div.figure p {
 	font-size: smaller;
 	text-align: left;
+	line-height: 125%;
+    margin-top: 0.33em;
 }
 
 .float-left {
@@ -724,6 +726,7 @@ div.figure p {
 
 /* #region Tables*/
 .table {
+	display: inline-block;
 	border-collapse: collapse;
 	border-spacing: 0;
 	empty-cells: show;
@@ -1504,88 +1507,127 @@ div.figure p {
 	padding: 6px 12px;
 }
 
-/* image slider components - modified from https://www.w3schools.com/howto/howto_js_image_comparison.asp */
-.img-comp-container {
+/**
+ * .slider
+ * ----------
+ * Slider Container - thanks Disparate!
+ * NOTE:
+ * You need to set a fixed aspect ratio to the HTML element itself, because when the children are position absolute,
+ * the parent has no context for how the size should be set and would screw with the slider.
+ */
+ .slider {
 	position: relative;
-	height: auto;
-	top: 0;
-	bottom: 0;
+	overflow: hidden;
   }
-
-  .img-comp-text {
+  
+  /* text overlays */
+  .slider p {
 	position: absolute;
-	font-size: 90%;
-	bottom: 20px;
-	right: 20px;
-	text-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+	font-size: smaller;
+	bottom: 0;
+	margin-bottom: 10px;
+	text-shadow: 0px 0px 10px rgb(0 0 0);
 	padding: 10px;
-	text-align: right;
 	overflow: hidden;
 	white-space: nowrap;
-	transition: 0.1s ease;
-	opacity: 0;
-  }
-
-  .img-comp-aft {
-	position: absolute;
-	overflow: hidden;
-	box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
-	display: block;
-	max-width: 896px; /* can't autosize!! have to hardcode :( */
-    height: auto;
-  }
-
-  .img-comp-bef > .img-comp-text {
-	right: auto;
-	left: 20px;
 	text-align: left;
+	left: 15px;
+	opacity: 0%;
   }
-
-  .img-comp-bef {
+  .slider__img-after p {
+	left: auto;
+	right: 15px;
+	text-align: right;
+  }
+  
+  /**
+   * img
+   * .slider__img
+   * ----------
+   * Images
+   * NOTE: They're absolute to lay on top of each other, and with needs to fill the fixed size set to the container.
+   */
+  .slider__img {
+	max-width: 100%;
+	position: absolute;
+  }
+  img {
+	max-width: 100%;
+  }
+  
+  /**
+   * .slider__img-before
+   * ----------
+   * Images
+   * NOTE: We set a clip-path for masking:
+   * "Specifies a clipping path where everything inside the path is visible and everything outside is clipped out."
+   */
+  .slider__img-before {
+	clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  }
+  
+  /**
+   * .slider__input
+   * ----------
+   * The slider itself; we use an input because we can query direct values for our
+   * polygon/
+   */
+  .slider__input {
 	position: relative;
-	overflow: hidden;
-	display: block;
-	max-width: 896px; /* can't autosize!! have to hardcode :( */
-    height: auto;
+	-webkit-appearance: none;
+	width: calc(100% + 20px);
+	height: 100%;
+	margin-left: -10px;
+	background-color: transparent;
+	outline: none;
   }
 
-  .img-comp-slider {
-	position: absolute;
-	z-index: 9;
-	cursor: ew-resize;
-	top: 0;
-	bottom: 0;
-	/* set the appearance of the slider */
-	width: 2px;
-	height: inherit;
-	background-color: #dcdfd8;
-	opacity: 1;
-	transition: background-color,opacity 0.1s ease;
-  }
-
-  .img-comp-divider {
-	position: absolute;
-	z-index: 9;
-	cursor: ew-resize;
-	top: calc(50% - 15px);
-	left: -9px;
-	/* set the appearance of the button */
+  /* sets appearance of sliders */
+  .slider__input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
 	width: 20px;
 	height: 75px;
-	background-color: #dcdfd8;
-	border-radius: 10%;
+	background: #dcdfd8;
+	border-radius: 5px;
 	opacity: 0%;
-	transition: background-color,opacity 0.1s ease;
+	transition: 0.1s ease;
+	cursor: ew-resize;
+  }
+  
+  /* firefox special :) */
+  .slider__input::-moz-range-thumb {
+	width: 20px;
+	height: 75px;
+	background: #dcdfd8;
+	border-radius: 5px;
+	opacity: 0%;
+	transition: 0.1s ease;
+	cursor: ew-resize;
   }
 
-  .img-comp-container:hover .img-comp-divider {
-	background-color: #fff;
+  /* sets appearance of divider */
+  .slider__divider {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	width: 2px;
+	left: 50%;
+	background-color: #dcdfd8;
+  }
+
+  /* hover animations - chromium browsers don't like it when comma :( */
+  .slider:hover p {
 	opacity: 1;
-	box-shadow: 0px 0px 8px rgba(10,10,10,0.5);
 	transition: 0.1s ease;
   }
 
-  .img-comp-container:hover .img-comp-text {
+  .slider:hover .slider__input::-moz-range-thumb {
+	opacity: 1;
+	transition: 0.1s ease;
+  }
+
+  .slider:hover .slider__input::-webkit-slider-thumb {
 	opacity: 1;
 	transition: 0.1s ease;
   }
