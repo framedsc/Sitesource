@@ -13,15 +13,18 @@ To use these shader togglers make sure to rename the `.ini` file you are going t
 
 Game | Features | Extra Description
 --|--|--
-[Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - Hud (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift + F4`)<br> - Vertical line markers in the world (`Shift + F5`)<br> - Rain (`Shift + F6`)
+[Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - Hud (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift` + `F4`)<br> - Vertical line markers in the world (`Shift` + `F5`)<br> - Rain (`Shift` + `F6`)
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle (`Caps Lock`)
+[Call of Juarez: Gunslinger](../../ShaderTogglers/call_of_juarez_gunslinger.ini) |  - Hud/Border (`F2`) <br> - Collor Correction (`F3`) <br> - Cell Shading Toggle (`F4`)
 [CONTROL](../../ShaderTogglers/control.ini) | Hud Toggle (`Caps Lock`)
 [Cyberpunk 2077](../../ShaderTogglers/cyberpunk_2077.ini) | HUD  (and some advertisement displays) (`Caps Lock`)
+[Death Stranding: Director's Cut](../../ShaderTogglers/death_stranding_directors_cut.ini) | Screen dirt, HUD, Odradek ping effects, Chiral Network boundary lines, Lost parcel glow, location lines, destination guide lines and footsteps (`F3`) | Player added icons dont hide for some reason
 [Elden Ring](../../ShaderTogglers/elden_ring.ini) | - Hides Sites Of Grace (`Caps Lock`)<br>- Hides rain, floaty leaves(?) and (SPOILER) end game ash (`F2`)<br> - Hides gold and grey fog walls (`F3`)<br> - HUD (`K`) <br> - Fog (`Caps Lock`)<br> - Bloom (`[`) <br> - Direct lighting/character back lighting (`]`) | Hiding Sites Of Grace also hides some other light sources such as candles and torches, cant be avoided.
 [Dying Light 2](../../ShaderTogglers/dying_light_2.ini) | - Lens flare and screen dirt (`Caps Lock`)<br> - Hides air vents and floaty debris (but also inadvertently hides some other smoke and fire sources) (`F2`) <br> - Hides Distant Birds (`F3`) <br> - Hides HUD (`F4`) <br> - Just floaty debris (`F5`)
 [Ghostwire: Tokyo](../../ShaderTogglers/ghostwire_tokyo.ini) | Hud and DOF toggle (`Caps Lock`)
 [God Of War](../../ShaderTogglers/god_of_war.ini) | Snow toggle (`Caps Lock`)
-[LEGO Star Wars The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift + 2`)
+[Horizon Zero Dawn](../../ShaderTogglers/horizon_zero_dawn.ini) | - Rain: (`Caps Lock`) <br> - Bloom (`Shift` + `X`) <br> - HUD (`Shift` + `Q`) | - Rain: Could not find and remove the raindrops bouncing off of the ground <br> - Bloom: Both from fire sources and machines <br> - HUD: Both the main game ones and also the item drops / loot HUD popups 
+[LEGO Star Wars The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift` + `2`)
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | Hud Toggle (`Caps Lock`) | Hide the speedo whilst driving
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | Hud Toggle (`Caps Lock`)
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | Hud and DOF toggle (`Caps Lock`)
