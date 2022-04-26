@@ -47,7 +47,7 @@ The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also inclu
 
 <div class="figure">
 <a href="https://live.staticflickr.com/65535/51870619317_08953f9a1d_o.png" target="_blank"><img src="Images/basics_hotsampling-eg.jpg" alt="hotsampling" title="Click to view full-res" class="autosize" /></a>
-<p>This was captured at <b>7558x3240</b> with no stitching or overpriced GPU needed. Just SRWE. (<i>wintermute</i>)</p>
+<p>This <i><a href="./GameGuides/gow.htm">God of War</a></i> screenshot was captured at <b>7558x3240</b> with no stitching or overpriced GPU needed. Just SRWE. (<i>wintermute</i>)</p>
 </div>
 
 Hotsampling works by resizing the game window past the bounds of your monitor, using programs like [Simple Runtime Window Editor](https://github.com/dtgDTGdtg/SRWE) (SRWE) or [Windowed Borderless Gaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/) (WBG). This resizing forces the game to render at the new resolution set by those programs, which will be larger than what fits on your screen. If your image looks "very zoomed in", that's a sign that hotsampling has worked. A game has to be running in **windowed** or **borderless windowed** for hotsampling to work. 
@@ -67,7 +67,7 @@ Let's say you want to take a 3:4 portrait at 3000x4000 but you're not sure how t
 We can use SRWE to set our game window to 3:4 but *within* our monitor's limits. Since we're shooting a portrait, we'll take our monitor's height as our bounds. We can then find out the width from some simple math. So, at 1080p, we'd set the game window to **810x1080**. 1440p would be **1080x1440**, and 4K would be **1620x2160**. This gives us a 3:4 preview of our shot fit perfectly in our monitor where we can now compose in.
 
 <div class="figure">
-<img src="Images/basics_hotsampling-AR.png" alt="The Basics of Taking Screenshots" title="Wanna learn how you can take a shot like this?" class="autosize" />
+<img src="Images/basics_hotsampling-AR.png" alt="hotsampling 2" title="What hotsampling looks like on a standard 1080p display" class="autosize" />
 <p>Composing a 3:4 <i><a href="./GameGuides/MinecraftJE.htm">Minecraft</a></i> shot in a 810x1080 window.</p>
 </div>
 
@@ -111,13 +111,13 @@ While vanilla DSR only supports multiples of your native res, the [Custom DSR gu
 
 Most games support DSR, even to custom aspect ratios. When a game doesn't, your custom resolutions won't show in your game settings. In that case, a possible workaround is to set your *desktop* to that custom resolution and play and shoot that way. 
 
-For AMD users, Virtual Super Resolution (VSR) is the equivalent tech. 
+For AMD users, Virtual Super Resolution (VSR) is the equivalent tech. As far as we know though, the process of VSR is more complicated than it is for DSR. [We are currently looking for someone who can document the process for us](https://github.com/framedsc/Sitesource/issues/89).  
 
 ### More links
 - [Nvidia's page on DSR](https://www.nvidia.com/en-us/geforce/technologies/dsr/technology/)
 - [An alternative DSR tool](https://www.forum-3dcenter.org/vbulletin/showthread.php?t=593534) (3DCenter)
 - [DSR tutorial](https://www.neogaf.com/threads/downsampling-a-simple-method-for-making-your-pc-games-look-better.509076/) (NeoGAF)
-- [AMD VSR tutorial](https://www.neogaf.com/threads/downsampling-for-amd-cards-is-now-possible.472941/) (NeoGAF)
+- [AMD VSR tutorial](https://www.neogaf.com/threads/downsampling-for-amd-cards-is-now-possible.472941/) (NeoGAF, likely outdated)
 
 ---
 
@@ -182,7 +182,7 @@ ReShade comes with its own capture function and is typically the chosen option f
 - **[MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)**  
 Favored by quite a few, Afterburner is a graphics card utility that happens to be able to hook into games and take screen captures of them, even when the game isn't in focus. This makes it useful for games that might resize its window or move the camera after alt-tabbing back into the game. However, it's been known to conflict with certain games and their tools, causing crashes. You will also need to install RTSS, bundled with the installer, to be able to take screenshots with Afterburner.
 - **[Nvidia GeForce Experience](https://www.nvidia.com/en-sg/geforce/geforce-experience/)**  
-Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Same with Afterburner, it can capture faster than ReShade. Be sure you have *Desktop capture* disabled, otherwise it will just save whatever's on your monitor at the moment of capture.
+Nvidia's game overlay for anyone with an Nvidia GPU, GeForce Experience lets you record videos, livestream, do all sorts of stuff, but most importantly: capture screenshots. Be sure you have *Desktop capture* disabled under *Privacy control*, otherwise it will just save whatever's on your monitor at the moment of capture.
 - **[Steam](https://screenshot.help/steam)**  
 If you're playing a Steam game and are used to hitting F12, Steam Overlay works just fine for capturing too. Just be sure to enable *Save an uncompressed copy* under Steam Settings > In-Game to save proper PNGs, Steam JPGs can be very low quality.
 

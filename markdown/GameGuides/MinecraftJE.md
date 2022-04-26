@@ -14,7 +14,7 @@ Graphics API | OpenGL
 Game version | 1.18.2
 
 @alert neutral
-This guide is for the **Java Edition** of Minecraft.
+This guide is for the **[Java Edition](https://minecraft.fandom.com/wiki/Java_Edition)** of Minecraft. Not to be confused with [*Bedrock Edition*](https://minecraft.fandom.com/wiki/Bedrock_Edition), an entirely different multi-platform version of the game.
 @end
 
 ## Setup
@@ -40,7 +40,7 @@ Command | Description
 `/time set [number]` | sets <abbr title="0 for sunrise, 6000 for noon, 12000 for sunset, 16000 for night">time of day</abbr>
 `/kill @e[type=!player]` | kills all mobs
 
-Spectator mode can be very helpful as you can noclip through blocks and change fly speed with the scrollwheel. 
+Spectator mode can be very helpful as you can noclip through blocks and change fly speed with the scrollwheel. It also stops shaderpacks from rendering your shadow.
 
 Some worlds you download may not come with cheats enabled, preventing the use of these commands. You'll need a save editor like [NBTExplorer](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/1262665-nbtexplorer-nbt-editor-for-windows-and-mac) to edit the world file and enable cheats. NBTExplorer should find your save files by default. Open the downloaded map's folder, open `level.dat` and look for `allowCommands`. Change that to `1`, then *Save All Modified Tags* (third icon in the top row).
 
@@ -54,7 +54,7 @@ Mods such as [OptiFine](https://optifine.net/home) and [Sodium](https://github.c
 
 ## Shaders
 
-The magic sauce that makes Minecraft not look like Minecraft, shaders overhaul the game's look entirely, giving it everything from shadows to path-traced lighting.
+The magic sauce that makes Minecraft not look like Minecraft, shaders overhaul the game's look entirely, giving it everything from dynamic shadows to path-traced lighting.
 
 ### Shader Hosts
 
@@ -246,13 +246,15 @@ Minecraft should now launch with ReShade properly installed. Do note that **ReSh
 
 The depth buffer requires a bit of setup before it can be used by depth shaders. In the OpenGL tab (4.9.1 and below) / Add-ons > Generic Depth (5.0+), *Copy depth buffer before clear operations* has to be ticked. Under *Edit global preprocessor definitions*, change `RESHADE_DEPTH_INPUT_IS_UPSIDE_DOWN` to `1`. 
 
-The depth buffer has to be "refreshed" on resolution change. You can do this by unticking and reticking *Copy depth buffer [...]*.
+@alert important  
+It seems ReShade cannot reliably grab the right depth buffer upon resolution changes, i.e. hotsampling. It may need to be refreshed by unticking and reticking *Copy depth buffer [...]* or may even be upside down, forcing you to change `RESHADE_DEPTH_INPUT_IS_UPSIDE_DOWN` back to `0`.  
+@end
 
 ## Tips and Tricks
 
 ### Quick-lower FoV
 
-FoV has to be changed in the game menu, but you can quickly lower it with a [spyglass](https://minecraft.fandom.com/wiki/Spyglass). The OptiFine mod also includes a 'punch-in' function bound to `c` by default.
+The OptiFine mod includes a 'punch-in' function bound to `c` by default. You can also use an in-game [spyglass](https://minecraft.fandom.com/wiki/Spyglass), however that drops your FoV by 10x, which may be a bit too much of a zoom.
 
 ### Exporting a depth buffer
 
