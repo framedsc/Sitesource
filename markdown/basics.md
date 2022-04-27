@@ -145,7 +145,7 @@ While it is incredibly popular for 'dressing up' a game's looks to a user's tast
 
 ### The depth buffer
 
-A 2D representation of how far or close objects are as seen from the camera, the depth buffer is what makes ReShade so powerful. It can be used to generate highly sophisticated effects such as [cinematic depth of field](./ReshadeGuides/Shaders/cinematicdof.htm) and raytraced lighting. It can even add [faux volumetric fog](https://twitter.com/FransBouma/status/1506372102835822599) to a scene, or just be used for gorgeous [silhouette effects](https://framedsc.com/HallOfFramed/?imageId=1631466300).
+A 2D representation of how far or close objects are as seen from the camera, the depth buffer is what makes ReShade so powerful. It can be used to generate highly sophisticated effects such as [cinematic depth of field](./ReshadeGuides/Shaders/cinematicdof.htm) and raytraced lighting. It can even add [faux volumetric fog](./ReshadeGuides/Shaders/heightfog.htm) to a scene, or just be used for gorgeous [silhouette effects](https://framedsc.com/HallOfFramed/?imageId=1631466300).
 
 ReShade's ability to grab a game's depth buffer may also be useful for those that know how to work with it in a compositor like Photoshop, After Effects, or Nuke. Our [guide to exporting depth buffers](./ReshadeGuides/depthguide.htm) covers this process.
 
