@@ -25,7 +25,8 @@ As more and more games are powered by the same game engines like Unreal or Unity
 
 For Unreal Engine 4, the [Universal Unreal Unlocker](./GeneralGuides/universal_ue4_consoleunlocker.htm) by [Otis_Inf](https://www.patreon.com/Otis_Inf) has become the go-to tool for many UE4 games. It includes a freecam with all the common controls, as well as extra features like access to the console and many more.
 
-For Unity, the [Universal Unity Freecam](https://youtu.be/I6igj-u1qlk) project by [VTVRVXIV](https://twitter.com/vtvrvxiv) adds a freecam that works in most Unity games. It relies on plugin loaders like BepInEx and MelonLoader, and does require a bit more setup than the UUU to be feature-complete as a camera tool. We have a [guide to UUF](./GeneralGuides/universal_unity_freecam.htm) covering the rough process.
+For Unity, the [UnityExplorer](https://github.com/sinai-dev/UnityExplorer) project by sinai-dev adds a freecam and much more to most Unity games. Please visit the
+github repo of [UnityExplorer](https://github.com/sinai-dev/UnityExplorer) for more information how to use it.
 
 The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also includes a built-in freecam known as [Free Look](https://wiki.dolphin-emu.org/index.php?title=Free_Look).
 
