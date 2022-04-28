@@ -8,7 +8,7 @@ Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Yes (OpenGL)
+Reshade | Yes (OpenGL, [see notes](#reshade))
 Ansel | No
 Graphics API | OpenGL
 Game version | 1.18.2
@@ -29,7 +29,7 @@ F3 | toggle <abbr title="Displays mostly performance information.">debug overlay
 
 ### Commands  
 
-Opening chat with `t` allows you to type in a myriad of commands. Here are some useful ones:
+Opening chat with `t` allows you to type in all kinds of commands. Here are some useful ones:
 
 Command | Description
 -- | --
@@ -125,67 +125,16 @@ These are the shaders themselves. They are typically installed to `C:\Users\user
 </div>
 <div class="figure"><p>BSL Shaders by capttatsu is a stylised shaderpack offering a wide range of customisations and optimisations. One of the most popular shaders. (<i>Shot on v8.1.02.2</i>)</p></div>
 
-#### [Vanilla Plus](https://rre36.com/vanilla-plus)
-<div class="slider container" style="aspect-ratio: 64/27">
-  <div class="slider__img slider__img-after">
-    <p>Vanilla Plus</p>
-    <img src="../Images/MinecraftGuide/scomp_vplus.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Vanilla</p>
-    <img src="../Images/MinecraftGuide/scomp_vanilla.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Vanilla Plus by RRE36 is a vanilla-styled shaderpack that aims to stay faithful to the vanilla aesthetic while adding dynamic shadows and better clouds. (<i>Shot on v3.0b</i>)</p></div>
-
 *[Project Orian](https://www.planetminecraft.com/project/the-city-of-meria-8-medieval-world-project-download/), using Vanilla Normals Renewed, OptiFine 1.18.2 HD U H7.*  
 Visit [Shaderlabs](https://wiki.shaderlabs.org/wiki/Shaderpacks) for a full, maintained list of all shaderpacks in active development.
 
-@alert info  
+@alert tip  
 Some shaderpacks don't work well with hotsampling past a certain resolution. Always check your captures for artifacts.
 @end
 
 ### Resource Packs
 
 Previously known as texture packs, these replace in-game textures (and sounds, hence the new name). Most shaderpacks support <abbr title="physically-based rendering">PBR</abbr> and these resource packs provide the textures to make use of the PBR. Here are some recommendations:
-
-#### [Vanilla Normals Renewed](https://github.com/Poudingue/Vanilla-Normals-Renewed/releases/)
-<div class="slider container" style="aspect-ratio: 64/27">
-  <div class="slider__img slider__img-after">
-    <p>Vanilla Normals Renewed</p>
-    <img src="../Images/MinecraftGuide/tcomp_vnr.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Vanilla</p>
-    <img src="../Images/MinecraftGuide/tcomp_vanilla.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Vanilla Normals Renewed is a direct PBR upgrade to the vanilla textures. (<i>Shot on 1.0.4</i>)</p></div>
-
-#### [Patrix](https://www.patreon.com/posts/free-1-18-32x-59407009)
-<div class="slider container" style="aspect-ratio: 64/27">
-  <div class="slider__img slider__img-after">
-    <p>Patrix</p>
-    <img src="../Images/MinecraftGuide/tcomp_patrix.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Vanilla</p>
-    <img src="../Images/MinecraftGuide/tcomp_vanilla.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Patrix is a fantasy texturepack created with PBR in mind. (<i>Shot on Update 45 32x</i>)</p></div>
 
 #### [UltimaCraft](https://www.curseforge.com/minecraft/texture-packs/ultimacraft) + [PBR Expansion](https://www.curseforge.com/minecraft/texture-packs/ultimacraft-pbr)
 <div class="slider container" style="aspect-ratio: 64/27">
@@ -204,11 +153,11 @@ Previously known as texture packs, these replace in-game textures (and sounds, h
 </div>
 <div class="figure"><p>UltimaCraft is an expanded vanilla texturepack with additional PBR support. (<i>Shot on v.1.2</i>)</p></div>
 
-#### [Misa's Realistic Texture Pack](https://www.curseforge.com/minecraft/texture-packs/misas-realistic)
+#### [Patrix](https://www.patreon.com/posts/free-1-18-32x-59407009)
 <div class="slider container" style="aspect-ratio: 64/27">
   <div class="slider__img slider__img-after">
-    <p>Misa's Realistic</p>
-    <img src="../Images/MinecraftGuide/tcomp_misa.jpg" />
+    <p>Patrix</p>
+    <img src="../Images/MinecraftGuide/tcomp_patrix.jpg" />
   </div>
   <div class="slider__img slider__img-before">
     <p>Vanilla</p>
@@ -219,12 +168,60 @@ Previously known as texture packs, these replace in-game textures (and sounds, h
     autocomplete="off" onwheel="this.blur()" 
   />
 </div>
-<div class="figure"><p>Misa's Realistic is a realistic texturepack with robust PBR support. (<i>Shot on 1.18e</i>)</p></div>
+<div class="figure"><p>Patrix is a fantasy texturepack created with PBR in mind. (<i>Shot on Update 45 32x</i>)</p></div>
 
-*[City of Estellida](https://www.planetminecraft.com/project/city-of-estellida-download/), using Kappa v4.2, OptiFine 1.18.2 HD U H7.*  
+#### [Vanilla Normals Renewed](https://github.com/Poudingue/Vanilla-Normals-Renewed/releases/)
+<div class="slider container" style="aspect-ratio: 64/27">
+  <div class="slider__img slider__img-after">
+    <p>Vanilla Normals Renewed</p>
+    <img src="../Images/MinecraftGuide/tcomp_vnr.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>Vanilla</p>
+    <img src="../Images/MinecraftGuide/tcomp_vanilla.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p>Vanilla Normals Renewed is a direct PBR upgrade to the vanilla textures. (<i>Shot on 1.0.4</i>)</p></div>
+
+*using Kappa v4.2, OptiFine 1.18.2 HD U H7.*  
 [Browse more resource packs](https://www.curseforge.com/minecraft/texture-packs?filter-sort=2).
 
+#### Setting up shaders for resource packs
+
+Kappa requires a bit of additional setup to get the resource packs to produce the results above.  
+
+With Kappa running, from <i>Shader Options</i> > <i>Terrain</i> > <i>Reflections</i>:  
+<i>Resourcepack Reflections</i>: <b>ON</b>  
+<i>Reflection Capture</i>: <b>ON</b>  
+<i>Roughness Threshold</i>: <b>0.95</b>  
+
+Do check shader options for other shader packs to see if they need any additional configuration to make full use of PBR textures. Their modpages typically will guide you through the additional setup.
+
 ## ReShade
+
+@alert danger
+Do note that **ReShade causes some pretty major visual artifacts** in the game as of ReShade 5.1.0+. Use it at your own risk. <details><summary><i>How bad could it be?</i></summary>
+<div class="slider container" style="aspect-ratio: 16/9">
+  <div class="slider__img slider__img-after">
+    <p>with ReShade installed</p>
+    <img src="../Images/MinecraftGuide/rs-awful.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>Base game</p>
+    <img src="../Images/MinecraftGuide/rs-clean.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p>pretty bad :(</p></div>
+</details>   
+@end
 
 Setting up ReShade for Minecraft is unique, since it uses a runtime executable that isn't immediately obvious and also deletes ReShade files on launch.
 
@@ -240,7 +237,7 @@ Install ReShade as per normal to this new, duplicated folder. Minecraft uses Ope
 4. **Getting Minecraft to use the new executable**  
 In the Minecraft Launcher, head to the *Installations* tab, hover over the `...` and edit your install. Under *More Options*, paste in the path to your duplicated runtime folder. End the path with `\javaw.exe`, the executable Minecraft uses.
 
-Minecraft should now launch with ReShade properly installed. Do note that **ReShade causes some visual artifacts** in the game. It may also affect how some render mods (OptiFine, Sodium) and shaderpacks render the game. SEUS PTGI and BSL, for example, have major artifacts with ReShade installed.
+Minecraft should now launch with ReShade properly installed. 
 
 ### Depth Buffer
 
@@ -252,9 +249,15 @@ It seems ReShade cannot reliably grab the right depth buffer upon resolution cha
 
 ## Tips and Tricks
 
+### Hotsampling
+
+Minecraft hotsamples normally with SRWE. Look for `javaw.exe` under *Process Name*.
+
+If using a large render distance (>32 chunks, possible with OptiFine and other mods), it's recommended to run the game in a smaller resolution to let the chunks load before hotsampling to full resolution. It's also recommended to allocate even more memory to the game (8GB+) when using such a large render distance.
+
 ### Quick-lower FoV
 
-The OptiFine mod includes a 'punch-in' function bound to `c` by default. You can also use an in-game [spyglass](https://minecraft.fandom.com/wiki/Spyglass), however that drops your FoV by 10x, which may be a bit too much of a zoom.
+The OptiFine mod includes a zoom function bound to `c` by default. You can also use an in-game [spyglass](https://minecraft.fandom.com/wiki/Spyglass), however that drops your FoV by 10x, which may be a bit too much of a zoom.
 
 ### Exporting a depth buffer
 
