@@ -92,14 +92,13 @@ To remove the ingame vignette effect edit the `settings.ini` file in the game fo
 ### Using Video Capture Mode for Motion Blur
 The built-in Photo Mode has a Video Mode feature that is enabled when two controllers are connected. The second controller is then used to control the in-game camera while the first controller (or KB and Mouse) control the car and Max. This [video](https://youtu.be/uOFPcWvuXSA?t=290) can help describe the feature further.
 
-The workflow for this was to:
-1. Set Timeflow to 0.01 (press `F5` twice)
-2. Go into `Photo Mode` (`X`+`C` or <font face="Controller">< + ></font>), set the filter, position the camera where you want it anchored
-3. Go into `Video Mode` (`R` or <font face="Controller">Y</font>) then Begin Session (`ENTER` or <font face="Controller">A</font>)
-4. Review the Capture Video notes and buttons. Press `ENTER` again.
-5. As soon as you are in Video Capture Mode press <font face="Controller">A</font> on the second controller to anchor the camera in it's current position. The camera will follow the car or Max.
-6. Set Timeflow to 0.1 (`F7`), start long exposure, wait 1s - 2s or longer and stop the long exposure. Take screenshot.
-7. Set Timeflow back to 0.01 (`F5`) to freeze things in place in case you need to redo the shot.
+1. Set Timeflow to 0.01 (press `F5` twice)  
+2. Go into `Photo Mode` (`X`+`C` or <font face="Controller">< + ></font>), set the filter, position the camera where you want it anchored  
+3. Go into `Video Mode` (`R` or <font face="Controller">y</font>) then Begin Session (`ENTER` or <font face="Controller">A</font>)  
+4. Review the Capture Video notes and buttons. Press `ENTER` again.  
+5. As soon as you are in Video Capture Mode press <font face="Controller">A</font> on the second controller to anchor the camera in it's current position. The camera will follow the car or Max.  
+6. Set Timeflow to 0.1 (`F7`), start long exposure, wait 1s - 2s or longer and stop the long exposure. Take screenshot.  
+7. Set Timeflow back to 0.01 (`F5`) to freeze things in place in case you need to redo the shot.  
 
 ![Video Capture Mode](Images\MadMax_CaptureVideo.png "The controls for Video Capture Mode when using a controller"){.shadowed .autosize}
 
