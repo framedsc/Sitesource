@@ -204,7 +204,7 @@ Do check shader options for other shader packs to see if they need any additiona
 ## ReShade
 
 @alert danger
-Do note that **ReShade causes some pretty major visual artifacts** in the game as of ReShade 5.1.0+. Use it at your own risk. <details><summary><i>How bad could it be?</i></summary>
+Do note that **ReShade causes some pretty major visual artifacts** in the game as of ReShade 5.1.0 and below. Use it at your own risk. <details><summary><i>How bad could it be?</i></summary>
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
     <p>with ReShade installed</p>
