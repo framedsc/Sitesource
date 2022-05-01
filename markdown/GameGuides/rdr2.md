@@ -24,7 +24,8 @@ Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hou
 * [Cutscene Freecam](https://www.nexusmods.com/reddeadredemption2/mods/1209)
 
 ## Essentials
-* [ScripthookRDR2](https://www.dev-c.com/rdr2/scripthookrdr2/)
+* [ScripthookRDR2](https://www.nexusmods.com/reddeadredemption2/mods/1472) The original source is: <https://www.dev-c.com/rdr2/scripthookrdr2/>
+however this version might be outdated. The nexus mods variant is likely more recent.
 * [Lenny's Mod Loader](https://www.rdr2mods.com/downloads/rdr2/tools/76-lennys-mod-loader-rdr/)
 
 ## Texture/Graphic Mods
