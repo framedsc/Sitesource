@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="34">
+<CheatTable CheatEngineTableVersion="41">
   <CheatEntries>
     <CheatEntry>
       <ID>8</ID>
       <Description>"Enable hotsampling. Leave enabled. Use Borderless Windowed in settings"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -131,7 +130,6 @@ RDR2.exe+25CC1FB - C3                    - ret
     <CheatEntry>
       <ID>7</ID>
       <Description>"Remove photomode freecam range / rotation limits / black bars (leave enabled!)"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -143,7 +141,7 @@ RDR2.exe+25CC1FB - C3                    - ret
 [ENABLE]
 aobscanmodule(RemovePMCoordRange,RDR2.exe,E8 ?? ?? ?? ?? 45 33 C0 48 8D 55 B0 48 8D 4B 20) // should be unique
 aobscanmodule(RemovePMRotationRange,RDR2.exe,E8 ?? ?? ?? ?? F3 0F 10 4D 30 48 8D 55 F0) // should be unique
-aobscanmodule(RemovePMBlackBars,RDR2.exe, 0F 86 ?? ?? 00 00 41 0F 2F F9 0F 92 C0 40 0F 97 C6)
+aobscanmodule(RemovePMBlackBars,RDR2.exe, 0F 86 ?? ?? ?? ?? 0F 2F F7 0F 92 C0 40 0F 97 C6)
 
 RemovePMCoordRange:
   nop
@@ -228,7 +226,6 @@ RDR2.exe+11D821 - F3 0F10 55 48         - movss xmm2,[rbp+48]
     <CheatEntry>
       <ID>16</ID>
       <Description>"Remove black bars in cinematic parts"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -273,7 +270,6 @@ RDR2.exe+2C742A - 40 38 3D 049B5403     - cmp [RDR2.exe+3810F35],dil
     <CheatEntry>
       <ID>14</ID>
       <Description>"Override photomode freecam FOV (Toggle: F7. Zoom in: Numpad+ Zoom out: Numpad-)"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -378,7 +374,6 @@ RDR2.exe+12A4E9 - C3                    - ret
     <CheatEntry>
       <ID>22</ID>
       <Description>"Weather control (leave enabled)"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -484,7 +479,6 @@ dealloc(newmem)
         <CheatEntry>
           <ID>55</ID>
           <Description>"Enable weather interpolation"</Description>
-          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -575,7 +569,6 @@ dealloc(newmem)
     <CheatEntry>
       <ID>61</ID>
       <Description>"Obtain Time of Day/pause addresses (leave enabled)"</Description>
-      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{$STRICT}
 
@@ -704,7 +697,6 @@ unregisterSymbol("g_pauseByte")
     <CheatEntry>
       <ID>24</ID>
       <Description>"Toggle HUD  (Ctrl-Del)"</Description>
-      <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>/////////////////////////
 // By Otis_Inf. All rights reserved.
@@ -774,174 +766,146 @@ dealloc(newmem)
     <CheatEntry>
       <ID>10</ID>
       <Description>"--------------------------------------------------------------------------------------"</Description>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
       <ID>11</ID>
-      <Description>"By Otis_Inf. v0.16. 24-jul-2021. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
-      <LastState Value="" RealAddress="00000000"/>
+      <Description>"By Otis_Inf. v0.17. 01-may-2022. Thanks to Hattiwatti for hotsampling &amp; weather locations"</Description>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
       <ID>48</ID>
       <Description>"Re-using information from this table is prohibited. (c) All rights reserved"</Description>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>8000FF</Color>
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
       <ID>12</ID>
       <Description>"FRAMED. Screenshot Community. https://framedsc.github.io"</Description>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
       <ID>49</ID>
       <Description>"--------------------------------------------------------------------------------------"</Description>
-      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
       <ID>25</ID>
       <Description>"Available weather types: (in hex values)"</Description>
       <Options moManualExpandCollapse="1"/>
-      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
           <ID>26</ID>
           <Description>"0:  High pressure"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>27</ID>
           <Description>"1:  Sunny"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>28</ID>
           <Description>"2:  Misty"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>29</ID>
           <Description>"3:  Fog"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>30</ID>
           <Description>"4: Clouds"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>31</ID>
           <Description>"5: Overcast"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>32</ID>
           <Description>"6: Overcast dark"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>33</ID>
           <Description>"7:  Drizzle"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>34</ID>
           <Description>"8:  Rain"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>35</ID>
           <Description>"9:  Thunder"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>36</ID>
           <Description>"10: Thunderstorm"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>37</ID>
           <Description>"11: Hurricane"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>38</ID>
           <Description>"12: Shower"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>39</ID>
           <Description>"13: Hail"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>40</ID>
           <Description>"14: Sleet"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>41</ID>
           <Description>"15: Snow clearing"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>42</ID>
           <Description>"16: Snow light"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>43</ID>
           <Description>"17: Snow"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>44</ID>
           <Description>"18: Blizzard"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>45</ID>
           <Description>"19: Ground blizzard"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>46</ID>
           <Description>"20: White-out"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
           <ID>47</ID>
           <Description>"21: Sandstorm"</Description>
-          <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
       </CheatEntries>
