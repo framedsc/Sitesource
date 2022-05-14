@@ -26,7 +26,7 @@ ReShade and the Real Long Exposure shader. Below are the steps how to achieve th
     * Set `Total play time` to a large number, suggested 50s or more depending on how long your exposue is going to be.
     * Enable `Playback is relative to the player character's location`
     * Enable `Playback has a constant speed`   
-![CameraPath](images\MiscGuides\CamPath01.png) 
+![CameraPath](Images\MiscGuides\CamPath01.png) 
 9. Add a new camera path by clicking on the `+` next to *Current path*. 
 10. Add 2 nodes at the same place by clicking twice on `+` next to `Current node in path`
 11. Start the playback by pressing on the `Play` button or `F7` and move the player. The camera will follow.
