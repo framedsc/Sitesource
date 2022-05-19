@@ -35,10 +35,10 @@ The Unity Engine version number can be found by opening the <code>globalgamemana
 
 Download the appropriate version of each software.
 
-- [BepinEx v5](https://steamdb.info/) (For Mono games)
-- [BepinEx v6](https://builds.bepis.io/projects/bepinex_be) (For IL2CPP games)
-- [UnityExplorer](https://github.com/sinai-dev/UnityExplorer)
-- [FreeMoveInjector](https://github.com/sinai-dev/BepInExConfigManager)
+- [BepinEx v5](https://github.com/BepInEx/BepInEx/releases) (For Mono games)
+- [BepinEx v6](https://builds.bepinex.dev/projects/bepinex_be) (For IL2CPP games)
+- [UnityExplorer](https://github.com/sinai-dev/UnityExplorer/releases)
+- [FreeMoveInjector](https://github.com/vtvrv/FreeMoveInjector/releases)
 - [BepInExConfigManager](https://github.com/sinai-dev/BepInExConfigManager) (optional)
 
 ## Installation
