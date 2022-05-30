@@ -1,4 +1,4 @@
-![Using CE Tables](Images\usingce_header.png){.shadowed}
+![Using CE Tables](Images\usingce_header.png){.shadowed .autosize}
 
 ## 1. Download and install Cheat Engine
 [This is the Cheat Engine website](https://www.cheatengine.org/). The download link is at the very top of the page. It's hard to miss.
@@ -14,7 +14,7 @@ If you've downloaded a cheat engine table and are looking at one for the first t
 
 Now let's look at an example table.
 
-![CE Table](https://i.imgur.com/oWovr3P.png)
+![CE Table](https://i.imgur.com/oWovr3P.png){.shadowed .autosize}
 
 This is the Sekiro photo mode table. The top section in cheat engine is only useful if you're **making** a table. If you're just using one that you've downloaded, you're only interested in the section outlined in red.
 
@@ -24,7 +24,7 @@ It's always a good idea to have a CE table open on a 2nd monitor (if you have on
 
 If you don't like the hotkeys for a script or a value, you can change them. And it's very easy. If you want to change the hotkey to toggle the Sekiro free camera, right click on the "camera" script and click "Set/Change hotkeys."
 
-![Hotkeys](https://i.imgur.com/lzSofVW.png)
+![Hotkeys](https://i.imgur.com/lzSofVW.png){.shadowed .autosize}
 
 From there you can delete or edit existing hotkeys. Or create new ones. It's pretty straight forward.
 

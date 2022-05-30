@@ -1,7 +1,7 @@
 Universal Unreal Engine 4 Unlocker
 =============
 
-![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed }
+![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed .autosize}
 
 **Engine versions supported**: Unreal Engine 4.15 - 4.26 
 
@@ -31,11 +31,11 @@ After downloading the zip linked below, unpack it in an empty folder.
 ### Injecting the DLL
 Now you first start the game and when the game has opened its main menu, you start the UuuClient.exe application to inject the UniversalUE4Unlocker.dll into the game's process and control its features. To do so, on the *General* tab you click the **Select...** button and select the game's process. You can leave the 'DLL to inject' as-is as it should already refer to the `UniversalUE4Unlocker.dll`. 
 
-![The general tab before selecting a game](Images\UUU\GeneralTab.jpg){.shadowed}
+![The general tab before selecting a game](Images\UUU\GeneralTab.jpg){.shadowed .autosize}
 
 After you've select the game's process, you click the **Inject DLL** button. The UUU dll is now injected and the General tab switches to the following screen: here, the UUU is injected into the Darksiders III game process.
 
-![The general tab after injecting](Images\UUU\GeneralTab2.jpg){.shadowed}
+![The general tab after injecting](Images\UUU\GeneralTab2.jpg){.shadowed .autosize}
 
 @alert tip
 If you click **Select** and the game process isn't shown, even though you know it's running, it's likely the game runs as administator and you therefore have to run the UuuClient.exe also as administrator: right-click the UuuClient.exe and select 'Run as Administrator' or create a shortcut to the 
@@ -45,7 +45,7 @@ exe on your desktop, right-click it, select *Properties* and on the *Shortcut* t
 ### After injecting the DLL
 After you've successfully injected the dll, you'll get a series of notification windows in the top left corner of your game window which some info regarding what the UUU is doing. You can now switch to the *Available features* tab to see which features of the UUU are available with the game you're using it with. 
 
-![The available features tab](Images\UUU\AvailablefeaturesTab.jpg){.shadowed}
+![The available features tab](Images\UUU\AvailablefeaturesTab.jpg){.shadowed .autosize}
 
 Here, with Darksiders III as example game, all features are available. 
 
@@ -60,7 +60,7 @@ happens try to inject the DLL at moment after you've loaded the level or after t
 The UUU has various settings you can configure, which you'll do on the *Configuration* tab. Additionally you can define the key-shortcuts for various functionality on the *Key bindings* tab. These are discussed below
 
 ### Configuration tab
-![The configuration tab](Images\UUU\ConfigurationTab.jpg){.shadowed}
+![The configuration tab](Images\UUU\ConfigurationTab.jpg){.shadowed .autosize}
 
 Most settings are for the built-in free camera and are self explanatory. The *Game control device* allows you to select which device to use for controlling the built-in free camera. By default it's both 'keyboard+mouse' and 'gamepad'. The device that's chosen is blocked by default to send its input to the game (as much as possible, sometimes this is unavoidable). 
 
@@ -70,7 +70,7 @@ It might be the `~` key doesn't do anything, even though the console was created
 To correct this, on the *Configuration* tab, the setting **Key to open in-game console** allows you to select from a small set of keys what to use to open the console. By default this is 'Tilde' (`~`). Please select a key that's on your keyboard and which doesn't need Shift to be selected. E.g. on a French (Azerty) keyboard, the '$' key is a good choice, so choose in the drop down `Dollar ($)` as console key. 
 
 ### Keybindings tab
-![The Keybindings tab](Images\UUU\KeybindingsTab.jpg){.shadowed}
+![The Keybindings tab](Images\UUU\KeybindingsTab.jpg){.shadowed .autosize}
 
 To change a key binding, click in the textbox and press the key combination you want to use, then click the **OK** button that appeared next to the textbox when you clicked it. If you changed your mind, just click **Cancel**. You can use the same key combination for multiple features. This allows you to e.g. use `Insert` for enabling the free camera, stopping time and hiding the HUD at the same time. 
 
@@ -139,7 +139,7 @@ The camera will move / rotate slower when you lower the fov.
 For hotsampling, or better: dynamically resize the game window to a higher resolution, the usual tool to use is [SRWE](https://github.com/dtgDTGdtg/SRWE). 
 The UUU has the same functionality SRWE offers now built-in and has a handy pre-selection of resolutions generated from your monitor's native resolution, using a variety of aspect ratios. 
 
-![The hotsampling tab](Images\UUU\HotsamplingTab.jpg){.shadowed}
+![The hotsampling tab](Images\UUU\HotsamplingTab.jpg){.shadowed .autosize}
 
 Unreal Engine 4 games by default support hotsampling, as long as you run the game in Windowed mode (in DX12, borderless might also help, but usually, it's
 Windowed). If you run your game as full screen, hotsampling might just stretch the game window's content but not set the game's rendering resolution to a higher resolution. 

@@ -1,4 +1,4 @@
-![DSR](Images\dsr_header.png){.shadowed}
+![DSR](Images\dsr_header.png){.shadowed .autosize}
 
 You can now create any resolution you want by directly editing the Nvidia DSR registry settings, and you are not restricted to your native aspect ratio. Here is a guide on how to set that up.
 

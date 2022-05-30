@@ -1,4 +1,4 @@
-![ue4guide](Images\ue4_header.png){.shadowed}
+![ue4guide](Images\ue4_header.png){.shadowed .autosize}
 
 Games using Unreal Engine 4 can be tweaked in many ways to better your experience in-game or while shooting. This guide covers the basics of what you can do, with or without UUU and the console.
 
@@ -192,4 +192,4 @@ You can sometimes run into shadow striping with low FoV. To fix this, you have t
 
 Usually, a value of around 0.15 should fix it.
 
-![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed}
+![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed .autosize}

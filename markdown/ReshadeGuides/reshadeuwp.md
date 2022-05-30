@@ -1,4 +1,4 @@
-![Header](..\Images\MiscGuides\uwp_reshade_header.png){.shadowed}
+![Header](..\Images\MiscGuides\uwp_reshade_header.png){.shadowed .autosize}
  
 # Injecting ReShade in UWP games (Universal Windows Platform aka. Windows Store and XBOX Game Pass PC)
 
@@ -110,7 +110,7 @@ As you cannot install or copy file into an UWP game folder here is how we manage
 EffectSearchPaths=.\,D:\ReShade UWP\Shaders,D:\ReShade UWP\Shaders\OtisFX
 TextureSearchPaths=.\,D:\ReShade UWP\Textures`
 
-This is how it looks on my side ![alt text](..\Images\MiscGuides\uwp_reshade_folder01.png){.shadowed}
+This is how it looks on my side ![alt text](..\Images\MiscGuides\uwp_reshade_folder01.png){.shadowed .autosize}
 
 @alert tip
 To update the ReShade version, just download the installer from [reshade.me](https://reshade.me/).

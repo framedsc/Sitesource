@@ -209,23 +209,23 @@ Shaders used for rendering an image in-game (like changing the sky). Can be used
 
 - **Posterize**: You can only get this shader in the [pack provided by nvidia](https://international-gfe.download.nvidia.com/GFE/GFEClient/ReShadeFilters/v1.0/Curated_ReShade_Filters.zip)
 
-![](../Images/ShadersCatalog_Posterize.png){.shadowed}
+![](../Images/ShadersCatalog_Posterize.png){.shadowed .autosize}
 
 - [**Colorful Poster**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/ColorfulPoster.fx)
 
-![](../Images/ShadersCatalog_ColorfulPoster.png){.shadowed}
+![](../Images/ShadersCatalog_ColorfulPoster.png){.shadowed .autosize}
  
 - [**MultiTonePoster**](https://github.com/Daodan317081/reshade-shaders/blob/master/Shaders/MultiTonePoster.fx)
 
-![](../Images/ShadersCatalog_MultiTonePoster.png){.shadowed}
+![](../Images/ShadersCatalog_MultiTonePoster.png){.shadowed .autosize}
 
 - [**Nostalgia**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Nostalgia.fx): Tries to mimic the look of very old computers or console systems.
 
-![](../Images/ShadersCatalog_Nostalgia.png){.shadowed}
+![](../Images/ShadersCatalog_Nostalgia.png){.shadowed .autosize}
 
 - [**Sketch**](https://github.com/luluco250/FXShaders/blob/master/Shaders/Sketch.fx)
 
-![](../Images/ShadersCatalog_Sketch.png){.shadowed}
+![](../Images/ShadersCatalog_Sketch.png){.shadowed .autosize}
 
 ## Masking
 If you are familiar with photoshop or lightroom you probably know what masking is. If not, masking is referred to as the act of selecting what parts of the screen you want some editing to take effect, often represented by white and black pixels for (white = the effects in between the CanvasMask shaders will be visible there, black= those effects won't be visible). The shaders that are in between the "Before" and "After" techniques of each mask shader will be masked out of the scene.
