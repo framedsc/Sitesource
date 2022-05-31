@@ -1,4 +1,4 @@
-![Using UUU for Motion Blur](Images\MiscGuides\uuu_motionblur_header.png "Shot by Antic Owl"){.shadowed .autosize}
+![Using UUU for Motion Blur](Images\UUUMotionBlur\uuu_motionblur_header.png "Shot by Antic Owl"){.shadowed .autosize}
  
 ## Tools
 
@@ -26,7 +26,7 @@ ReShade and the Real Long Exposure shader. Below are the steps how to achieve th
     * Set `Total play time` to a large number, suggested 50s or more depending on how long your exposue is going to be.
     * Enable `Playback is relative to the player character's location`
     * Enable `Playback has a constant speed`   
-![CameraPath](Images\MiscGuides\CamPath01.png) 
+![CameraPath](Images\UUUMotionBlur\CamPath01.png) 
 9. Add a new camera path by clicking on the `+` next to *Current path*. 
 10. Add 2 nodes at the same place by clicking twice on `+` next to `Current node in path`
 11. Start the playback by pressing on the `Play` button or `F7` and move the player. The camera will follow.
@@ -35,7 +35,36 @@ ReShade and the Real Long Exposure shader. Below are the steps how to achieve th
 
 ### Examples 
 
-Below are two examples with a Before and After shot
+Below are two examples with a before and after shot:
 
-* [Example 1](https://imgsli.com/MTA3Nzgz)
-* [Example 2](https://imgsli.com/MTA3Nzg5)
+<div class="slider container" style="aspect-ratio: 16/9">
+  <div class="slider__img slider__img-after">
+    <p>After</p>
+    <img src="..\Images\UUUMotionBlur\after1.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>Before</p>
+    <img src="..\Images\UUUMotionBlur\before1.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p><i>Example in Batman: Arkham Knight. This method works (or it should) with other Otis_inf cameras that have camera paths.</i></p></div>
+
+<div class="slider container" style="aspect-ratio: 1920/823">
+  <div class="slider__img slider__img-after">
+    <p>After</p>
+    <img src="..\Images\UUUMotionBlur\after2.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>Before</p>
+    <img src="..\Images\UUUMotionBlur\before2.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p><i>Example in Days Gone.</i></p></div>
