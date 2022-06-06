@@ -99,9 +99,9 @@ Some game-specific adjustments have to be made as well. You may browse this list
 
 Game | Additional notes  
 --|--
-[Cyberpunk 2077](../../MSADOF/Cyberpunk2077.ini) | Might require raytracing / a low framerate under vsync targets
+[Cyberpunk 2077](../../MSADOF/Cyberpunk2077.ini) | Might require raytracing / a low framerate under vsync targets. Use: Frames to skip: `4`
 [Days Gone](../../MSADOF/DaysGone.ini) |
-[The Witcher 3](../../MSADOF/Witcher3.ini) | For some reason placed one folder higher in `/bin/`
+[The Witcher 3](../../MSADOF/Witcher3.ini) | For some reason placed one folder higher in `/bin/`. *Camera near plane* changes to 0.4 in cutscenes. It may rarely change to 0.02 as well.
 
 *Do remember to rename the INI file to `MSADOF.ini`!*  
 </details>
@@ -221,6 +221,9 @@ This process acts as calibration of the focus helper plane to the actual focus p
 ---
 
 ## Tips & Tricks
+
+### Preview bokeh size  
+You can perform a quick preview of how large your bokeh shape size will be by doing a render with a very low *Number of rings*.
 
 ### Best-case scenario
 
