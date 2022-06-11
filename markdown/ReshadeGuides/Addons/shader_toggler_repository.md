@@ -15,6 +15,7 @@ Game | Features | Extra Description
 --|--|--
 [Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - Hud (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift` + `F4`)<br> - Vertical line markers in the world (`Shift` + `F5`)<br> - Rain (`Shift` + `F6`)
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle (`Caps Lock`)
+[Bayonetta](../../ShaderTogglers/bayonetta.ini) | Pause menu + In Game UI + Effects (`Caps Lock`)
 [Call of Juarez: Gunslinger](../../ShaderTogglers/call_of_juarez_gunslinger.ini) |  - Hud/Border (`F2`) <br> - Collor Correction (`F3`) <br> - Cell Shading Toggle (`F4`)
 [CONTROL](../../ShaderTogglers/control.ini) | Hud Toggle (`Caps Lock`)
 [Cyberpunk 2077](../../ShaderTogglers/cyberpunk_2077.ini) | HUD  (and some advertisement displays) (`Caps Lock`)
