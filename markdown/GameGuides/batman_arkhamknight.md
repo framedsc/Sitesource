@@ -25,14 +25,16 @@ settings of the game, it might be the game crashes when these are on screen. A n
 @end
 
 #Resolutions
-DSR fullscreen works well-ish. Different than 16:9 AR's may have issues, noticed a strange line down the left side in `3:4` AR.
+Using DSR fullscreen works ok. If you use an aspect ratio (AR) other than what the game natively support for your monitor (21:9 or 16:9), 
+you might run into issues, e.g. there's a strange line down the left side in `3:4` AR.
 
 #### Changing resolution while game is paused
+
 Pause the game with `playersonly` (this is `F5` if you use the bindings below, see next section) then go into the graphics menu and change your resolution. 
 Exit main menu and game should still be paused. Enable camera, take shot, disable camera then disable `playersonly`. Camera Tool 
 pause and playersonly with stack so if you enable both, remember to disable both.
 
-## Enabling console key and adding keybinds:
+## Enabling console key and adding keybinds
 This is what you need for adding a specific file for keybinds instead of editing any of the core game files. 
 
 1. Create folder `<game installation folder>\DLC\356474\Content\BmGame\ScreenshootingBinds`
@@ -92,7 +94,7 @@ TypeKey=Backslash
 .Bindings=(Name="F12", Command="set BmGame.RPawnVillain bShouldPreventFinalBlowCam 1",Alt=True)
 ```
 
-##Running console commands from script with a keybind:
+##Running console commands from script with a keybind
 
 If you want to use the exec console command to execute other console commands you will need to create text files under 
 `<game installation folder>\Binaries` and add the commands you want to execute in those text files. 
