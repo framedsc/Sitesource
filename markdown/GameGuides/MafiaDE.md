@@ -16,7 +16,8 @@ Graphics API | DirectX 11
 ## Tools
 * [Camera Tools by Otis_Inf](https://patreon.com/Otis_Inf)   
 **Features**: Freecam in gameplay (doesn't work in cutscenes), FOV Control, time stop.  
-Note: You need to download Mafia 3: Definitive Edition tools, they work for Mafia: Definitive Edition, minus the hud toggle.
+Note: You need to download the Mafia 3 tools (so the tools for the original Mafia 3, not the tools for the Mafia 3 Definitive Edition), 
+they work for Mafia: Definitive Edition, minus the hud toggle. 
 * [Hud Toggle by Geon](https://nohud.fandom.com/wiki/Mafia:_Definitive_Edition_No_Hud)
 
 ## Extras
