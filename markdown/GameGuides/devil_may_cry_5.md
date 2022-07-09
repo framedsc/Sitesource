@@ -17,6 +17,9 @@ Graphics API | DirectX 11, DirectX 12
 
 * [Camera tools by Otis_Inf, Jim2Point0, Hattiwatti and K-putt](https://www.patreon.com/Otis_Inf)  
 **Features**: Camera control, Fov, timestop, Hud toggle, Aspect ratio selection, DoF removal, Vignette removal and Lens distortion removal. For more info refear to the [tool docs](https://opm.fransbouma.com/Cameras/dmc5.htm).
+* [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
+**Features**: Lighting Control, turn off scene lights, exposure control.  
+Make sure to check out [the guide](GeneralGuides/relit.htm) on it.
 
 ## Contact Shadows
 

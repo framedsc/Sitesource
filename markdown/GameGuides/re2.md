@@ -20,6 +20,10 @@ Graphics API | DirectX 11, DirectX 12
 **Features**: Camera control, FOV Control, Time Stop
 * [RE2 Mod Framework by The Care Taker](https://www.nexusmods.com/residentevil22019/mods/11)  
 **Features**: Free Camera, Time Stop, Lock Camera Position, Hide Flashlight, Remove Vignette
+* [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
+**Features**: Lighting Control, turn off scene lights, exposure control.  
+Make sure to check out [the guide](GeneralGuides/relit.htm) on it. 
+
 
 The tools work with DirectX 11.
 
