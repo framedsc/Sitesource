@@ -91,20 +91,49 @@ Once installed, upon opening the ReShade GUI, you will now see a new window. Thi
 ### Initial Setup
 
 For the add-on to function as intended, it's typically necessary to enable v-sync in your game. Motion blur should also be disabled.
+Below, in the table, you will find the MSADOF values for games that have been tested. 
 
-Some game-specific adjustments have to be made as well. You may browse this list of prepared `MSADOF.ini` game adjustment files for various games.
+These values have to be added in the `Tweaking Mode` part of the addon. 
+For this, when loaded, click on `Switch Mode`. Scroll down, expand `Game Adjustements` and add the values. You may also have to change some in the `DOF Setting`
+Keep in mind that the `Skip Frame` value may differ on your system. 
 
-<details>
-  <summary> List of INIs</summary>
+![Example DOF Settings and Game Adjustements](../../Images/MSADOF/MSADOF_Addon_tweakingMode_01.png){.shadowed .autosize}
 
-Game | Additional notes  
---|--
-[Cyberpunk 2077](../../MSADOF/Cyberpunk2077.ini) | Might require raytracing / a low framerate under vsync targets. Use: Frames to skip: `4`
-[Days Gone](../../MSADOF/DaysGone.ini) |
-[The Witcher 3](../../MSADOF/Witcher3.ini) | For some reason placed one folder higher in `/bin/`. *Camera near plane* changes to 0.4 in cutscenes. It may rarely change to 0.02 as well.
+### List of values
 
-*Do remember to rename the INI file to `MSADOF.ini`!*  
-</details>
+| Game                          | Near Plane         | FOV | Variable</br> Near Plane |Skip</br>Frame | Camera</br>Multiplier | Flip X/Y |Comments|
+|-------------------------------|----------------------------------|-----|---------------------|--------------------------|-------------------|----------|--------|
+| Ace Combat 7                  | 1                                | 180 | Y                   | 2                        | 0.1               | X        ||
+| Alien: Fireteam Elite         | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| Assassin's Creed Odyssey      | 0.0995                           | 180 | N                   | 2                        | 0.001             | X        ||
+| Assassin's Creed Origins      | 0.0995                           | 180 | N                   | 2                        | 0.001             | X        ||
+| Batman: Arkham Knight         | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| Beyond a Steel Sky            | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| Borderlands 3                 | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| Blind Fate: Edo no Yami       | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| Code Vein                     | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| Cyberpunk 2077                | 0.02                             | 180 | N                   | 4                        | 0.001             | X        ||
+| Days Gone                     | 9.95                             | 320 | N                   | 1                        | 0.1               | X        |Might require raytracing / a low framerate under vsync targets.|
+| Draugen                       | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| ECHO                          | 0.56                             | 180 | N                   | 2                        | 0.1               | X        |No custom AR possible|
+| Elden Ring					| 0.0500						   | 180 | N				   | 2						  | 0.001 - 0.01	  | X        |In some areas the camera multiplier may have to be changed|
+| Hellblade                     | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| Kena: Bridge of Spirits       | 9.9965                           | 180 | Y                   | 4                        | 0.1               | X        ||
+| Life is Strange: True Colors  | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| Mortal Shell                  | 9.9965                           | 180 | Y                   | 4                        | 0.1               | X        ||
+| MotoGP 19                     | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+| Resident Evil 2			    | 0.01                             | 180 | Y                   | 1                        | 0.001             | X        ||
+| Resident Evil 3			    | 0.01                             | 180 | Y                   | 1                        | 0.001             | X        ||
+| Scarlet Nexus                 | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| Star Wars - Jedi Fallen Order | 9.9995                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| Stray						    | 0.5625                           | 180 | N                   | 1                        | 0.1               | X        ||
+| Tell Me Why                   | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| The Ascent                    | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| The Medium                    | 2                                | 180 | Y                   | 3                        | 0.1               | X        ||
+| The Shore                     | 9.9965                           | 180 | Y                   | 1                        | 0.1               | X        ||
+| The Witcher 3 : Wild Hunt     | gameplay : 0.2 - Cutscene : 0.4  | 180 | N                   | 0                        | 0.001             | X        ||
+| Twin Mirror                   | 9.9965                           | 180 | Y                   | 2                        | 0.1               | X        ||
+
 
 If you have to adjust for your game, follow the [advanced setup section](#adjusting-for-a-new-game) further below.
 
