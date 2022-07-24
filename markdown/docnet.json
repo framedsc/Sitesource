@@ -4,7 +4,7 @@
     "Destination" : "..\\site",
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
-    "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed", "ShaderTogglers", "MSADOF"],
+    "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed", "ShaderTogglers"],
     "Footer" : "&copy 2019-2022 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
