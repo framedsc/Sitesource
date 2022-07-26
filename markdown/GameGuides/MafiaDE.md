@@ -23,6 +23,7 @@ they work for Mafia: Definitive Edition, minus the hud toggle.
 ## Extras
 * [Scripthook](https://db.nomad-group.net/page/MDE_ScriptHook:_Instructions): Player model swap, no clip movement, spawn and edit vehicles, weather controls. 
 * [Scripthook Revamped](https://www.nexusmods.com/mafiadefinitiveedition/mods/58): Adds more options to Scripthook such as the ability to play character animations, change time of day, add in character props. 
+* [Free Ride Deluxe](https://www.nexusmods.com/mafiadefinitiveedition/mods/51): Complete overhaul of Free ride mode.
 
 ### Reshade Depth Buffer
 Because this game always runs in online mode you will not be able to use the depth buffer with the common reshade installer, you will need to use a custom build that doesn't block the use of reshade in online games. Find out more [here](https://framedsc.com/ReshadeGuides/setupreshade.htm#depth-buffer-on-online-games).
