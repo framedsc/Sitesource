@@ -171,11 +171,11 @@ The add-on also supports hotsampling! Simply start the render after hotsampling.
 
 ---
 
-### Photography Mode
+## Photography Mode  
 
 This is the mode for controlling the add-on in a simplified manner. The controls are similar to that of a real camera. Values set in `Tweaking Mode` override those set in this mode.
 
-#### Camera/Lens Settings
+### Camera/Lens Settings
 
 **Focal Length**  
 The add-on translates the FOV it receives from the camera tool to focal length in mm. Useful for approximating real life focal lengths.
@@ -203,15 +203,31 @@ This sets the focal plane. The arrows on the right change the step size of the s
 This sets how many samples are taken by the add-on, drastically affecting render times. Increase it if you notice undersampling (each point is clearly visible), decrease it if render times are taking too long. Translates to *Number of rings* in `Tweaking Mode`.
 
 **Lens Imperfections**  
-Toggles for some lens imperfections. Fringing introduces a bright ring around bokeh circles.
+Toggles for some lens imperfections. Fringing introduces a bright ring around bokeh circles and its properties can be adjusted in `Tweaking Mode`.
+
+<div class="slider container" style="aspect-ratio: 43/18">
+  <div class="slider__img slider__img-after">
+    <p>Scale: 0.6</br>Power: 6.0</p>
+    <img src="../../Images/MSADOF/comp_fringingOn.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>No fringing</p>
+    <img src="../../Images/MSADOF/comp_fringingOff.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p>Note the slight difference in brightness. This is due to fringing process, which brightens the last few accumulations for the effect.</p></div>  
 
 ---
 
-### Tweaking Mode
+## Tweaking Mode
 
 This is the mode for controlling the add-on in an advanced manner. 
 
-#### DOF Settings
+### DOF Settings
 
 **Shape size**  
 This controls how large your bokeh will be. 
@@ -223,7 +239,9 @@ This sets the focal plane. The arrows on the right change the step size of the s
 This changes the scaling of the focus distance slider. Higher values mean that the focus distance slider can operate in even smaller steps.
 
 **HDR Log Whitepoint**  
-Affects how bright pixels stack atop each other during the accumulation process.
+Affects how bright pixels stack atop each other during the accumulation process. The default value of 2.0 provides the most natural highlighting.
+
+![HDR Log Whitepoint](../../Images/MSADOF/MSADOF_Addon_Whitepoint-01.jpg){.shadowed .autosize}
 
 **Frames to skip**  
 Skips camera movement of every few frames to make accumulation more consistent. Depending on the performance of your game, this value might have to be changed. If you notice that the add-on is drawing rings/donuts on your focus plane, this value likely has to be changed.
@@ -238,9 +256,25 @@ Overlays a plane on screen. Where the plane intersects the scene is where your f
 Displays a progress bar.
 
 **Save 32-bit EXR**  
-As the accumulation process can introduce banding, this option stacks the accumulated frames into a higher-precision buffer, alleviating the banding. The saved EXR requires [further post-processing](#processing-saved-exrs) to produce the intended result.
+As the accumulation process can introduce banding, this option stacks the accumulated frames into a higher-precision buffer. This buffer is saved into a high bit-depth (32-bit) EXR, which is able to store 65,536x more colours than the standard BMP. This results in much smoother gradients with zero banding, and comes with the added benefit of having much more colour data for colour grading in post. The saved EXR requires [further post-processing](#processing-saved-exrs) to produce the intended result.
 
-#### Shape settings
+<div class="slider container" style="aspect-ratio: 43/15">
+  <div class="slider__img slider__img-after">
+    <p>Processed EXR</p>
+    <img src="../../Images/MSADOF/comp_capture-EXR.png" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>BMP capture</p>
+    <img src="../../Images/MSADOF/comp_capture-BMP.png" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p>Note that <b>exposure has been pushed by 3 stops</b> to highlight banding as well as show how much these 32-bit EXRs can be edited.</p></div>  
+
+### Shape settings
 
 These controls configure the shape of the bokeh circles. A preview of the shape can be seen in the UI.
 
@@ -269,11 +303,11 @@ Modifies how much the inner rings are darkened to introduce fringing to the boke
 **Fringing power**  
 Modifies the falloff of the darkening to sharpen the fringing.
 
-#### Additional info
+### Additional info
 
 This category displays useful as well as debug information. 
 
-#### Game Adjustments
+### Game Adjustments
 
 This category is to be left alone, as it is for first time configuration of a new game. See the section directly below on how to tweak it.
 
@@ -289,7 +323,15 @@ Before adjusting anything, do a quick render to judge the shape of the bokeh. Yo
 
 If the shape of the rendered bokeh is not perfectly circular, the **Flip X** and **Flip Y** checkboxes have to be configured. Mess around with them until the rendered result is circular.
 
-#### 2. Calibrating the focus plane
+#### 2. Max FOV Value
+
+Set your game to run in a 1:1 aspect ratio. Switch the add-on UI to `Tweaking Mode` and expand *Additional info*, keeping your eye on FOV. With the tool's free camera active, zoom out until the image flips. Note the FOV value at which this occurs, that will be the **Max FOV Value**.
+
+@alert neutral
+This value can typically be left at 180 for the majority of games.
+@end
+
+#### 3. Calibrating the focus plane
 
 This step requires quite a bit of trial & error, as it involves messing with *Focus distance* until the focus plane is found. A high amount of blur (large *Shape size* / *Camera movement multiplier*) is recommended to help pinpoint the focus point.
 
@@ -301,14 +343,6 @@ Once you've managed to find the focus plane, adjust **Camera near plane** with *
 
 @alert tip
 Motion blur (and some TAA implementations) can interfere with this part, causing your results to be blurry no matter what. Be sure to disable them if you're still having trouble.
-@end
-
-#### 3. Max FOV Value
-
-Set your game to run in a 1:1 aspect ratio. Switch the add-on UI to `Tweaking Mode` and expand *Additional info*, keeping your eye on FOV. With the tool's free camera active, zoom out until the image flips. Note the FOV value at which this occurs, that will be the **Max FOV Value**.
-
-@alert neutral
-This value can typically be left at 180 for the majority of games.
 @end
 
 #### 4. Variable Near Plane
@@ -364,6 +398,6 @@ The saved EXRs require gamma correction to look as they did on your screen, inst
 
 The EXRs are saved in linear gamma (gamma 1.0), so a simple gamma correction of 0.454545... (repeating) returns an image at the proper sRGB gamma of 2.2.
 
-This can be done with *Image* > *Adjustments* > *Exposure...* or with the Exposure adjusment layer in Photoshop.
+This can be done with *Image* > *Adjustments* > *Exposure...* or with the Exposure adjustment layer in Photoshop.
 
 ![Aspect Ratio](../../Images/MSADOF/MSADOF_Addon_EXR-Processing.jpg){.shadowed .autosize}
