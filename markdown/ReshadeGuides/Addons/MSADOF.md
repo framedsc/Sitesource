@@ -101,7 +101,7 @@ MSADOF works by manipulating the game camera around a certain plane in space and
 
 ## Installation & initial setup
 
-MSADOF comprises of two files, `IgcsConnector.addon` and `MSADOF.fx`. The first of which is a ReShade add-on, and the second a ReShade shader. The ADDON file is installed in the same directory as your game EXE, while the FX file is installed to your reshade-shaders\Shaders folder.
+MSADOF comprises of two files, `IgcsConnector.addon` and `MSADOF.fx`. The first of which is a ReShade add-on, and the second a ReShade shader. The ADDON file is installed in the same directory as your game EXE, while the FX file is installed to your `reshade-shaders\Shaders` folder.
 
 Once installed, upon opening the ReShade GUI, you will now see a new window. This is where you will control the bulk of MSADOF. You must also enable `MSADOF_ADDON` and drag it all the way to the bottom of your shaders list. Depth buffer access is necessary for the full functionality of the add-on.
 
@@ -111,7 +111,7 @@ For the add-on to function as intended, it's typically necessary to enable vsync
 
 ## List of preconfigured values
 
-As setting MSADOF up from scratch can be tricky, this is a compilation of known MSADOF values for games that have been tested. With the GUI open, click on `Switch Mode` to switch from `Photography Mode` to `Tweaking Mode`. Scroll down and expand `Game Adjustments` to add these values. You may also have to change some values in `DOF Settings`.
+As setting MSADOF up from scratch can be tricky, this is a compilation of known MSADOF values for games that have been tested. With the GUI open, click on **Switch Mode** to switch from `Photography Mode` to `Tweaking Mode`. Scroll down and expand **Game Adjustments** to add these values. You may also have to change some values in **DOF Settings**.
 
 ![Example of DOF Settings and Game Adjustments](../../Images/MSADOF/MSADOF_Addon_tweakingMode_01.png){.shadowed .autosize}
 
@@ -219,7 +219,7 @@ Toggles for some lens imperfections. Fringing introduces a bright ring around bo
     autocomplete="off" onwheel="this.blur()" 
   />
 </div>
-<div class="figure"><p>Note the slight difference in brightness. This is due to fringing process, which brightens the last few accumulations for the effect.</p></div>  
+<div class="figure"><p>Note the slight difference in brightness. This is due to the fringing process brightening the last few accumulations to produce the effect.</p></div>  
 
 ---
 
@@ -250,13 +250,13 @@ Skips camera movement of every few frames to make accumulation more consistent. 
 Similar to above, this value should only be changed if you notice that the focus plane isn't properly sharp.
 
 **Show focus plane**  
-Overlays a plane on screen. Where the plane intersects the scene is where your focus distance is.
+Overlays a plane on screen. Where the plane cuts the scene is where the focus distance is set.
 
 **Show rendering progress**  
 Displays a progress bar.
 
 **Save 32-bit EXR**  
-As the accumulation process can introduce banding, this option stacks the accumulated frames into a higher-precision buffer. This buffer is saved into a high bit-depth (32-bit) EXR, which is able to store 65,536x more colours than the standard BMP. This results in much smoother gradients with zero banding, and comes with the added benefit of having much more colour data for colour grading in post. The saved EXR requires [further post-processing](#processing-saved-exrs) to produce the intended result.
+As the accumulation process can introduce banding, this option stacks the accumulated frames into a higher-precision buffer. This buffer is saved into a high bit-depth (32-bit) EXR, which is able to store 65536x more colours than the standard BMP. This results in much smoother gradients with zero banding, and comes with the added benefit of having much more colour data for colour grading in post. The saved EXR requires [further post-processing](#processing-saved-exrs) to produce the intended result.
 
 <div class="slider container" style="aspect-ratio: 43/15">
   <div class="slider__img slider__img-after">
@@ -295,10 +295,10 @@ Affects the alignment of every point relative to the previous ring. Tweak if the
 
 **Swirl scale**  
 Introduces swirl to bokeh, useful for Helios-style swirly bokeh.  
-*This feature is currently not working as intended.*
+*This feature is not currently working as intended.*
 
 **Fringing scale**  
-Modifies how much the inner rings are darkened to introduce fringing to the bokeh.
+Modifies how much the outer rings are brightened to introduce fringing to the bokeh.
 
 **Fringing power**  
 Modifies the falloff of the darkening to sharpen the fringing.
@@ -382,7 +382,7 @@ A DOF shader can be used as a blurring pass before rendering to help and smooth 
 
 The camera-based nature of the shader means it does its own antialiasing! AA can be entirely disabled in your game to get a sharper image. 
 
-In titles where TAA is integral to shading (Cyberpunk 2077 and its hair, for example), it can be left enabled at the cost of a slightly softer image. 
+In titles where TAA is integral to shading (*Cyberpunk 2077* and its hair, for example), it can be left enabled at the cost of a slightly softer image. 
 
 It is **not** recommended to have a sharpening pass prior to the render. Sharpening halos may become exaggerated and/or show up in the accumulation process.
 
