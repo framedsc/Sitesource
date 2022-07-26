@@ -32,7 +32,7 @@ The game has two free camera modes. F5 camera links the camera to the car, F7 ca
 
 Turn on the app in-game from right side GUI to be able to control FOV, DOF, aspect ratio, shutter speed, change time and sun angle, turn on/off lights, hide driver.
 
-![](Images\assetto_photomode.png "Photomode"){.shadowed .autosize}
+![](Images\assettocorsa\assetto_photomode.png "Photomode"){.shadowed .autosize}
 
 @alert important
 Do not use Assetto's built-in camera mode, use CSP Photo Mode app.
@@ -59,7 +59,7 @@ Take Shot | F8 | F8
 
 Possible with CSP Nice Screenshots extension.
 
-![](Images\assetto_hotsample.png "Hotsampling"){.shadowed .autosize}
+![](Images\assettocorsa\assetto_hotsample.png "Hotsampling"){.shadowed .autosize}
 
 @alert info
 Checkerboarding effect visible with "Resolution Multiply", any value over **2x** will ruin your shot.
@@ -96,7 +96,7 @@ Most Post Processing filters have support for drag & drop installation with Cont
 
 Selecting filters is done from the CSP Photo Mode app or the separate Post Process Filter app.
 
-![](Images\assetto_ppf.png "PPF"){.shadowed .autosize}
+![](Images\assettocorsa\assetto_ppf.png "PPF"){.shadowed .autosize}
 
 ### Motion screenshots
 
@@ -104,7 +104,7 @@ After setting everything up, the easiest way to take motion screenshots is by us
 
 To take more experimental motion screenshots, the CSP Photo mode app has a separate button for Motion Shot (only available with "FXAA" **enabled**)
 
-![](Images\assetto_motionshot.png "Motion Shot"){.shadowed .autosize}
+![](Images\assettocorsa\assetto_motionshot.png "Motion Shot"){.shadowed .autosize}
 
 After done composing your shot, click the green Make Shot button.
 
@@ -116,7 +116,7 @@ It is possible to do long exposures using the Make Shot feature by turning up th
 
 The basic essential settings to change are these
 
-![](Images\assetto_setup.png "Setup"){.shadowed .autosize}
+![](Images\assettocorsa\assetto_setup.png "Setup"){.shadowed .autosize}
 
 Your "assetto_corsa.ini" may have to be set to read-only to prevent Content Manager from reverting to old settings.
 
