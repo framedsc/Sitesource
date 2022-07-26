@@ -32,7 +32,7 @@ however this version might be outdated. The nexus mods variant is likely more re
 * [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)
 * [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)
 * [Visual Redemption](https://discord.gg/ADfQxWSv6J)
-* [No Vignette](https://www.nexusmods.com/reddeadredemption2/mods/724)
+* [Vignette Disabler](https://www.nexusmods.com/reddeadredemption2/mods/1569)
 * [The Perfect TAA](https://www.nexusmods.com/reddeadredemption2/mods/1222) 
 **Feature**: Attempts to fix ugly TAA blurring, (Good for 1080p, however hotsampling to 4K and up defeats its' purpose).
 
