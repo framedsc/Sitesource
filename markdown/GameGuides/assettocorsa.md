@@ -1,4 +1,4 @@
-![Game Title](Images\assettoheader.png "Shot by tripps"){.shadowed .autosize}
+![Assetto Corsa](Images\assettoheader.png "Shot by tripps"){.shadowed .autosize}
 
 ## Summary
 
