@@ -31,7 +31,8 @@ CSP and Sol are meant to be used together.
 The game has two free camera modes. F5 camera links the camera to the car, F7 camera is unlinked from the car. Both cameras have different controls.
 
 Turn on the app in-game from right side GUI to be able to control FOV, DOF, aspect ratio, shutter speed, change time and sun angle, turn on/off lights, hide driver.
-![](Images\assetto_photomode.png "Photomode"){.shadowed .autosize}
+
+![](Images\assettocorsa\assetto_photomode.png "Photomode"){.shadowed .autosize}
 
 @alert important
 Do not use Assetto's built-in camera mode, use CSP Photo Mode app.
@@ -57,10 +58,11 @@ Take Shot | F8 | F8
 ### Hotsampling
 
 Possible with CSP Nice Screenshots extension.
-![](Images\assetto_hotsample.png "Hotsampling"){.shadowed .autosize}
+
+![](Images\assettocorsa\assetto_hotsample.png "Hotsampling"){.shadowed .autosize}
 
 @alert info
-Checkerboarding effect visible with "Resolution Multiply", any value over 2x will ruin your shot.
+Checkerboarding effect visible with "Resolution Multiply", any value over **2x** will ruin your shot.
 @end
 
 ### Nice Screenshots extension
@@ -73,7 +75,7 @@ They all do the same effect: take multiple photos and stitch them together, to s
 Using all 3 of them at the highest values will either crash your game, or in the best case scenario, take 3 months to render.
 
 @alert tip
-You only need to have one "iteration" value active to have a good result, you can always just put "1" or deactivate the effect when you don't use it.
+You only need to have one "iteration" value active to have a good result, you can always just put **1** or deactivate the effect when you don't use it.
 @end
 
 * I want to take a static photo with no effects (no DOF or motion blur): AA iterations at 80 
@@ -93,34 +95,39 @@ Most Post Processing filters have support for drag & drop installation with Cont
 `\assettocorsa\system\cfg\ppfilters`
 
 Selecting filters is done from the CSP Photo Mode app or the separate Post Process Filter app.
-![](Images\assetto_ppf.png "PPF"){.shadowed .autosize}
+
+![](Images\assettocorsa\assetto_ppf.png "PPF"){.shadowed .autosize}
 
 ### Motion screenshots
 
 After setting everything up, the easiest way to take motion screenshots is by using the F5 camera in Replay mode, composing and taking your shot using F8 (Changing the amount of motion blur is done by changing the Shutter Speed in the Photo mode app). It is possible to switch the car being linked to the F5 camera by changing the Car value in the Replay menu.
 
-To take more experimental motion screenshots, the CSP Photo mode app has a separate button for Motion Shot (only available with FXAA enabled)
-![](Images\assetto_motionshot.png "Motion Shot"){.shadowed .autosize}
+To take more experimental motion screenshots, the CSP Photo mode app has a separate button for Motion Shot (only available with "FXAA" **enabled**)
+
+![](Images\assettocorsa\assetto_motionshot.png "Motion Shot"){.shadowed .autosize}
+
 After done composing your shot, click the green Make Shot button.
 
 @alert info
-It is possible to do long exposures using the Make Shot feature by turning up the "Brightness Boost" to 1000x in the Nice Screenshots extension settings, however the shot may very well take over 40 minutes to render.
+It is possible to do long exposures using the Make Shot feature by turning up the "Brightness Boost" to **1000x** in the Nice Screenshots extension settings, however the shot may very well take over 40 minutes to render.
 @end
 
 ## Game setup 
 
 The basic essential settings to change are these
-![](Images\assetto_setup.png "Setup"){.shadowed .autosize}
+
+![](Images\assettocorsa\assetto_setup.png "Setup"){.shadowed .autosize}
+
 Your "assetto_corsa.ini" may have to be set to read-only to prevent Content Manager from reverting to old settings.
 
-Go to `\assettocorsa\system\cfg`, open "assetto_corsa.ini" and change these values: `[SCREENSHOT] FORMAT=PNG` and `[CAMERA] ALLOW FREE CAMERA=1`
+Go to `\assettocorsa\system\cfg`, open "assetto_corsa.ini" and change these values: **[SCREENSHOT] FORMAT=PNG** and **[CAMERA] ALLOW FREE CAMERA=1**
 
 @alert neutral
 For Sol and CSP installation use their provided guides.
 @end
 
 @alert info
-For Reshade shaders to work in your Nice Screenshots extension photo exports, you need to have "FXAA" disabled in AC's video settings.
+For Reshade shaders to work in your Nice Screenshots extension photo exports, you need to have "FXAA" **disabled** in AC's video settings.
 @end
 
 @alert tip
