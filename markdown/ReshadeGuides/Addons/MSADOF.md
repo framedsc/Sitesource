@@ -155,6 +155,8 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | The Witcher 3: Wild Hunt      | 0.2000     | 180 | N                       | 0                  | 0.001                 | X        |Near plane may switch to 0.4 in cutscenes.| 
 | Twin Mirror                   | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 
+
+*Have some game adjustments values that you want to include? Head up to the [issue site page](https://github.com/framedsc/Sitesource/issues) and create an issue with the values, or [contact one of the mods](https://framedsc.com/index.htm).*
 </details>
 
 If you have to setup & adjust for a new game, follow the [advanced setup section](#adjusting-for-a-new-game) further below.

@@ -31,6 +31,7 @@ Game | Features | Extra Description
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | Hud Toggle (`Caps Lock`) | Hide the speedo whilst driving
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | Hud Toggle (`Caps Lock`)
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | Hud and DOF toggle (`Caps Lock`)
+[Singularity](../../ShaderTogglers/singularity.ini) | - Hud toggle (`Capslock`)<br> - Rain toggle (`Ctrl`+`1`)
 [Submerged: Hidden Depths](../../ShaderTogglers/submerged_hidden_depths.ini) | Rain and raindrops (`Caps Lock`)
 [The Quarry](../../ShaderTogglers/thequarry.ini) | Toggles only the glowing shader pillar and sprite at the top, the mouse icon is handled by UUU Hud Toggle. (`F1`) | Remember to turn it back on otherwise it's easy to miss key items.
 [The Vanishing of Ethan Carter Redux](../../ShaderTogglers/vanishing_ethan_carter_redux.ini) | - Hide blue mist (`Y`)<br> - Hide floating texts (`X`)<br> - Hide fog (`V`)<br> - Hide main menu (`Del`)
