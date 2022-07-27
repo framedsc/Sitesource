@@ -5,10 +5,10 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes
+Hotsampling | Yes, [see notes](#hotsampling)
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Yes
+Reshade | Yes (DX11)
 Ansel | No
 Graphics API | DirectX 10.1/11
  
@@ -62,7 +62,7 @@ Possible with CSP Nice Screenshots extension.
 ![](Images\assettocorsa\assetto_hotsample.png "Hotsampling"){.shadowed .autosize}
 
 @alert info
-Checkerboarding effect visible with "Resolution Multiply", any value over **2x** will ruin your shot.
+A checkerboarding effect will become visible with "Resolution Multiply", any value over **2x** will ruin your shot.
 @end
 
 ### Nice Screenshots extension
