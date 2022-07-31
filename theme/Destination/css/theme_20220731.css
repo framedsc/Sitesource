@@ -564,6 +564,20 @@ sub {
 	bottom: -0.25em;
 }
 
+summary.important {
+	margin-top: 0;
+	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif;
+	line-height: 100%;
+	font-size: 130%;
+	margin-bottom: 13px;
+	font-weight: 500;
+}
+
+summary.important:hover {
+	outline: 0;
+	transition: 0.1s ease;
+}
+
 svg:not(:root) {
 	overflow: hidden;
 }

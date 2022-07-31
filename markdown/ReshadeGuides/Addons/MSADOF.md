@@ -113,10 +113,7 @@ For the add-on to function as intended, it's typically necessary to enable vsync
 
 As setting MSADOF up from scratch can be tricky, this is a compilation of known MSADOF values for games that have been tested. With the GUI open, click on **Switch Mode** to switch from `Photography Mode` to `Tweaking Mode`. Scroll down and expand **Game Adjustments** to add these values. You may also have to change some values in **DOF Settings**.
 
-![Example of DOF Settings and Game Adjustments](../../Images/MSADOF/MSADOF_Addon_tweakingMode_01.png){.shadowed .autosize}
-
-<details>
-  <summary><b>View list</b></summary>
+<details><summary class=important>View list</summary>
 
 @alert info
 The *Frames to skip* parameter is dependent on your own hardware and the current performance of the game. Do tweak the value if you notice that the image isn't sharp or if there are [visible rings](#calibrating-the-focus-plane) forming.
@@ -133,7 +130,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Borderlands 3                 | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Blind Fate: Edo no Yami       | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | Code Vein                     | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
-| Cyberpunk 2077                | 0.0200     | 180 | N                       | 4                  | 0.001                 | X        |Might require raytracing / a low framerate under vsync targets.|
+| Cyberpunk 2077                | 0.0200     | 180 | N                       | 4                  | 0.001                 | X        |Might require raytracing / a low framerate under vsync targets. Focus precision of 8 is recommended for portraits.|
 | Days Gone                     | 9.9500     | 320 | N                       | 1                  | 0.100                 | X        ||
 | Draugen                       | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | ECHO                          | 0.5600     | 180 | N                       | 2                  | 0.100                 | X        |No custom AR possible.|
@@ -179,6 +176,8 @@ This is the mode for controlling the add-on in a simplified manner. The controls
 
 ### Camera/Lens Settings
 
+![Screenshot of the Camera/Lens UI](../../Images/MSADOF/MSADOF_Addon_Settings_CameraLens.png){.shadowed .autosize}
+
 **Focal Length**  
 The add-on translates the FOV it receives from the camera tool to focal length in mm. Useful for approximating real life focal lengths.
 
@@ -223,6 +222,14 @@ Toggles for some lens imperfections. Fringing introduces a bright ring around bo
 </div>
 <div class="figure"><p>Note the slight difference in brightness. This is due to the fringing process brightening the last few accumulations to produce the effect.</p></div>  
 
+### Helpers Settings
+
+**Show focus plane**  
+Overlays a plane on screen. Where the plane cuts the scene is where the focus distance is set.
+
+**Show rendering progress**  
+Displays a progress bar.
+
 ---
 
 ## Tweaking Mode
@@ -231,6 +238,8 @@ This is the mode for controlling the add-on in an advanced manner.
 
 ### DOF Settings
 
+![Screenshot of the DOF UI](../../Images/MSADOF/MSADOF_Addon_Settings_DOF.png){.shadowed .autosize}
+
 **Shape size**  
 This controls how large your bokeh will be. 
 
@@ -238,7 +247,7 @@ This controls how large your bokeh will be.
 This sets the focal plane. The arrows on the right change the step size of the slider.
 
 **Increase focus precise at close range**  
-This changes the scaling of the focus distance slider. Higher values mean that the focus distance slider can operate in even smaller steps.
+This changes the scaling of the focus distance slider. Higher values mean that the focus distance slider can operate in even smaller steps. This is useful for portraits, where extra focus precision is desired.
 
 **HDR Log Whitepoint**  
 Affects how bright pixels stack atop each other during the accumulation process. The default value of 2.0 provides the most natural highlighting.
@@ -278,6 +287,8 @@ As the accumulation process can introduce banding, this option stacks the accumu
 
 ### Shape settings
 
+![Screenshot of the Shape UI](../../Images/MSADOF/MSADOF_Addon_Settings_ShapeSettings.png){.shadowed .autosize}
+
 These controls configure the shape of the bokeh circles. A preview of the shape can be seen in the UI.
 
 **Preview size**  
@@ -307,6 +318,8 @@ Modifies the falloff of the darkening to sharpen the fringing.
 
 ### Additional info
 
+![Screenshot of the Additional Info UI](../../Images/MSADOF/MSADOF_Addon_Settings_AddInfo.png){.shadowed .autosize}
+
 This category displays useful as well as debug information. 
 
 ### Game Adjustments
@@ -316,6 +329,8 @@ This category is to be left alone, as it is for first time configuration of a ne
 ---
 
 ## Adjusting for a new game
+
+![Screenshot of the Game Adjustments UI](../../Images/MSADOF/MSADOF_Addon_Settings_GameAdjustments.png){.shadowed .autosize}
 
 If you're playing a game that does not have known values yet or the values produce wrong results on your end, this is the process of setting up the *Game Adjustments* tab.
 

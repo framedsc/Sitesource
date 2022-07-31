@@ -3,11 +3,11 @@
 	To adjust a color, you can change it below or opt for a separate css file to overwrite the color definition. Include that
 	css file after this file in the page template.
 */
-a {
+a, summary {
 	color: #56B6FB;
 }
 
-a:hover, a:visited:hover {
+a:hover, a:visited:hover, summary:hover {
 	color: #CDEAFE;
 }
 
@@ -50,6 +50,7 @@ mark {
 	background: #ff0;
 	color: #000;
 }
+
 /* #endregion*/
 
 /* #region general classes */

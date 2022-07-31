@@ -19,7 +19,7 @@ Game version |
 **Features**: Free Camera Control within the Photomode
 * [ME3 Tweaks Mod Manager](https://www.nexusmods.com/masseffectlegendaryedition/mods/2?tab=files&file_id=4619)  
 **Features**: Unlocks the Command-Console, allows to unpack/pack coalesced files, HUD-Toggle via Console  
-* [Wenched Coalesced Editor](https://www.nexusmods.com/masseffect3/mods/76)
+* [Wenched Coalesced Editor](https://www.nexusmods.com/masseffect3/mods/76)  
 **Features**: Allowing you to edit ME's Coalesced File without unpacking it to access the BIOInput.ini
 
 We will be using the photomode for gameplay shots and the FlyCam/DebugCam for cutscene shots.
@@ -28,26 +28,25 @@ We will be using the photomode for gameplay shots and the FlyCam/DebugCam for cu
 You can set keybinds in the Cheat Table for the no boundaries functionality.
 
 ## Access to the ingame console and Editing .ini + Coalesced Files
-If you want to use additional keybinds you need to unpack - edit - repack the Coalesced Files for Mass Effect 2 and Mass Effect 3. The following informations are taken from a older source which isn't available anymore.
+If you want to use additional keybinds, you need to unpack - edit - repack the Coalesced Files for Mass Effect 2 and Mass Effect 3. The following information is taken from a older source which isn't available anymore.
 
 ## Enabling the Console
-To gain access to the console within the game download the ME3 Tweaks Mod Manager. 
-I didn't get around to test the feature myself but I suspect that you simply start the game trough the Mod Manager, according to online sources this will enable the ingame console by default in any of the games. 
+To gain access to the console within the game, download the ME3 Tweaks Mod Manager. Starting the game through the mod manager should enable the in-game console in all three games.
 
-To change the keybind head to the `Tools` section in the Mod Manager and choose 
+To change the keybind, head to the `Tools` section in the Mod Manager and choose 
 `Console Key Keybinder`. Set the bind to your likeing. 
 
 Additional Information can be found here: 
-- http://www.nightsolo.net/games/mele/cheats.html
-- https://www.nexusmods.com/masseffectlegendaryedition/mods/2?tab=description
-- https://github.com/ME3Tweaks/ME3TweaksModManager
+- [List of console commands](http://www.nightsolo.net/games/mele/cheats.html) (Nightsolo)
+- [ME3Tweaks Mod Manager](https://www.nexusmods.com/masseffectlegendaryedition/mods/2?tab=description) (Nexus Mods)
+- [ME3Tweaks Mod Manager Source](https://github.com/ME3Tweaks/ME3TweaksModManager) (Github)
 
 ## Custom Resolutions
-Via console it is possible to change the game resoltion on the fly with the `setres` command. 
+Through the console, it is possible to change the game resolution on the fly with the `setres` command. 
 
 Typing in `setres 2560x1440` will set the game to the desired resolution. 
 
-It's also possible to add this command to the BIOInput to exchange between resolutions even quicker. 
+These commands can also be added to the BioInput to change between resolutions even quicker.
 
 Example:
 
@@ -55,7 +54,7 @@ Example:
 Bindings=(Name="U",Command="setres 5120x2880",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
 ```
 
-By using the `Ctrl` / `Alt` / `Shift` modifiers you can set multiple resolutions to one key: 
+By using the `Ctrl` / `Alt` / `Shift` modifiers, you can set multiple resolutions to one key: 
 
 ```
 Bindings=(Name="U",Command="setres 1920x1080",Control=False,Shift=False,Alt=True,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
@@ -63,7 +62,7 @@ Bindings=(Name="U",Command="setres 1920x1080",Control=False,Shift=False,Alt=True
 
 It is important that the resolutions that you want to use are either supported by your default and/or custom DSR settings. It's also possible to use the outdated downsample & post-processing tool GeDoSato for the same matter.
 
-Either way the resolution you bind via key or type into the console need to be mirrored in your DSR settings or GeDoSaTo config.
+Either way, the resolution you bind via key or type into the console need to be mirrored in your DSR settings or GeDoSaTo config.
 
 ## Hud Removal
 1. To remove the hud you can either disable it completely within the Photomode. 
@@ -87,15 +86,15 @@ Bindings=(Name="Multiply",Command="PlayersOnly")
 ```
 
 ## Mass Effect 2
-This is where things will get a bit more tricky, thanks to the updated Mod Manager the process got a lot easier though. 
+This is where things will get a bit more tricky, but thanks to the updated Mod Manager, the process has become a lot easier. 
 
-To unpack the Mass Effect 2 Coalesced head to `Mass Effect 2\BIOGame\CookedPCConsole` in your installation location of ME 2. 
+To unpack the Mass Effect 2 Coalesced, head to `Mass Effect 2\BIOGame\CookedPCConsole` in your installation location of ME 2. 
 
-Search for `Coalesced_Language.bin` or simply choose `Coalesced_INT.bin` - Do a back-up!
+Search for `Coalesced_Language.bin` or simply choose `Coalesced_INT.bin` - **Do a back-up!**
 
 Drag the file into the ME3TweaksModManager, in the left bottom are of the program window you'll get the following message: "Decompiled Coalesced file"
 
-If you head into the location of your choosen Coalesced File there will be a folder called the same name. Within that folder search for `BIOInput.ini`. Within that ini you need to perform multiple edits.
+If you head into the location of your choosen Coalesced File, there will be a folder called the same name. Within that folder search for `BIOInput.ini`. Within that ini you need to perform multiple edits.
 
 ```
 [SFXGameModeBase]
@@ -164,24 +163,21 @@ If you head into the location of your choosen Coalesced File there will be a fol
 ```
 
 
-When you finished adding the commands, save the file and close it.
-Now search within the prior mentioned folder (where you grabbed the .ini from) and locate the follwing file `mele.extractedbin`.
-Drag that file into the ME3TweaksModManager and in the bottom left the following message should appear [Compiled Coalesced File].
-Within the folder you should find the new Coalesced. Drag this one into the `Mass Effect 2\BIOGame\CookedPCConsole`.
+When you finished adding the commands, save the file and close it. Now, search within the previously mentioned folder (where you grabbed the .ini from) and locate the following file: `mele.extractedbin`. Drag that file into the ME3TweaksModManager and in the bottom left, the following message should appear [Compiled Coalesced File]. Within the folder you should find the new Coalesced. Drag this one into the `Mass Effect 2\BIOGame\CookedPCConsole`.
 
 ## Mass Effect 3
 
-For Mass Effect 3 the process is a bit more straight forward, however it's up to you if you want to perform the edits by hand in Notepad etc. according to the prior mentioned process for ME2 or if you want to use the Wenched Coalesced Editor which allows you to directly edit the file without unpacking it first.
+For Mass Effect 3, the process is a bit more straightforward, however it's up to you if you want to perform the edits by hand in Notepad etc. according to the previously mentioned process for ME2 or if you want to use the Wenched Coalesced Editor which allows you to directly edit the file without unpacking it first.
 
-Either way you need to perform the same steps.
+Either way, the initial steps are the same.
 
 1. Navigate to `Mass Effect 3\BIOGame\CookedPCConsole`
 2. Locate the `Coalesced.bin` file
 
-Perform the unpacking steps mentioned above or open up the file with the Coalesced Editor.
+Perform the unpacking steps mentioned above, or open up the file with the Coalesced Editor.
 If you choose the Editor: open it up, load the file and head to the `SFXGAME` tab.
 
-Add the follwing commands under each named section:
+Add the following commands under each named section:
 
 ```
 [SFXGameModeCinematic]
@@ -281,7 +277,7 @@ Add the follwing commands under each named section:
 ```
 
 ## Fix Shadow Banding in the Trilogy
-In `BioEngine.ini` locate `SystemSettings` and add or change the follwing lines:
+In `BioEngine.ini` locate `SystemSettings` and add or change the following lines:
 ```
 bEnableVSMShadows=True
 bEnableBranchingPCFShadows=False
@@ -290,8 +286,8 @@ ShadowDepthBias=0.100
 ```
 
 ## Tips and Tricks
-Obviously you can change the keys for the above mentioned keys to your likeing, but keep in mind that they need to look the same under every section.
-It's also possible to use the majority - if not all - binds via the console. 
+Obviously, you can change the keys for the above mentioned keys to your liking, but keep in mind that they need to look the same under every section.
+It's also possible to use the majority - if not all - of the binds via the console. 
 
 ### Additional-Commands
 Command | Description
@@ -307,8 +303,8 @@ You can find more commands in the [UE3 Console Commands List](https://docs.unrea
 
 ### Combination of Console Commands
 
-For even more freedom you can combine the command ghost with teleport. By using that "trick" you can access area's which are locked behind cutscenes.
-Shoutout to my man ItsYfP for digging this one up.
+For even more freedom, you can combine the command ghost with teleport. By using that "trick", you can access areas locked behind cutscenes.
+*Shoutout to my man ItsYFP for digging this one up.*
 
 ## Useful Links
 
