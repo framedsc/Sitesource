@@ -14,7 +14,7 @@
 
 If you're interested in writing a guide for the site, please [download this template](https://mega.nz/file/rU8znZLT#gf0ifHl5hH3m8Hg44FVQQZkx8Cr4lGZB-yX8pZWJvPk). It contains everything you need to get started - a Markdown template for a game guide and a .PSD + font file to generate a header. There are two versions of guide templates, one for [PC guides](./Gameguides.htm) and one for [Console guides](./Consoleguides.htm).
 
-We recommend writing with [Visual Studio Code](https://vscode.dev/) as it has a Markdown preview similar to how the site looks. The site is built with DocNet, however, which includes Markdown extensions not found in the VS Code preview. Learn more about [DocNet's additional features](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm).
+We recommend writing with [Visual Studio Code](https://vscode.dev/) as it has a Markdown preview similar to how the site looks. The site is built with DocNet, however, which includes Markdown extensions not found in the VS Code preview. Learn more about [DocNet's additional features](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm), or continue reading to learn about some handy formatting features.
 
 The site also supports HTML in Markdown if you want the formatting of your guides to be a little fancier. The centred text above was written in the .MD like so:
 
@@ -106,6 +106,71 @@ You can also use HTML to embed them instead, if you want a bit more formatting.
 Images on the site should be in a .PNG / high-quality .JPG format, under 1MB. While there are no current size limits, images on the site are resized to 896px width (with the .autosize tag, which should be added to all images). They don't have to be resized to that width, but we would prefer it if you kept image sizes reasonable.
 
 For excessively large images (say you want to include a full-res screenshot for some reason), they may be hosted externally. Use a trusted, reliable imagehost like [Imgur](https://imgur.com/upload).
+
+---
+
+## Alert boxes  
+
+@alert neutral
+You may have noticed that the site has a bunch of these alert boxes!
+@end
+
+@alert tip
+They're handy for highlighting certain pieces of information!
+@end
+
+@alert info
+Whether you want to break off a part of your guide to talk about it more in detail...
+@end
+
+@alert warning
+...or if you want to warn users about something that could happen...
+@end
+
+@alert important
+Alert boxes are a useful addition to your guide!
+@end
+
+@alert danger
+FAILURE TO READ THE README WILL RESULT IN PROSECUTION.
+@end
+
+Alert boxes can be added by wrapping text around `@alert [box type]` and `@end`, like so:
+```
+@alert neutral
+You may have noticed that the site has a bunch of these alert boxes!
+@end
+```
+
+The box types mostly correspond to their title above, `@alert tip` produces a green alert box, `@alert info` produces a blue alert box, so on and so forth. The exception is `@alert neutral`, which produces the black alert boxes.
+
+---
+
+## Summaries
+
+Some parts of your guides can be hidden away by a dropdown if necessary.
+
+<details>
+<summary>Click me!</summary>
+Hello! I'm some text that's been hidden away because I don't want to be visible all the time!
+</details>
+
+These can be used to hide tables, images, or anything else that you feel might break the flow of the guide.
+
+```HTML
+<details>
+<summary>Click me!</summary>
+Hello! I'm some text that's been hidden away because I don't want to be visible all the time!
+</details>
+```
+
+These summaries also support an `important` class, if you need the dropdown to stand out. Use `<summary class=important>` to add one.
+<details>
+<summary class=important>Now you really have to click me!</summary>
+Hello! I'm even more text that's been hidden away, but my author really wanted you to read me. Maybe I'm supposed to be hiding a super long table that would interrupt the guide, but it's still an important table for you to be referencing at some point.  
+
+While we're here, it's a good time to should mention that these summary dropdowns <b>don't support punctuation formatting.</b> You need to use HTML to bold, italicise, and further format your text in these.
+</details>
 
 ---
 
