@@ -19,7 +19,7 @@ Game version |
 **Features**: Free Camera Control within the Photomode
 * [ME3 Tweaks Mod Manager](https://www.nexusmods.com/masseffectlegendaryedition/mods/2?tab=files&file_id=4619)  
 **Features**: Unlocks the Command-Console, allows to unpack/pack coalesced files, HUD-Toggle via Console  
-* [Wenched Coalesced Editor](https://www.nexusmods.com/masseffect3/mods/76)  
+* [Wench Coalesced Editor](https://www.nexusmods.com/masseffect3/mods/76)  
 **Features**: Allowing you to edit ME's Coalesced File without unpacking it to access the BIOInput.ini
 
 We will be using the photomode for gameplay shots and the FlyCam/DebugCam for cutscene shots.
@@ -175,7 +175,7 @@ Either way, the initial steps are the same.
 2. Locate the `Coalesced.bin` file
 
 Perform the unpacking steps mentioned above, or open up the file with the Coalesced Editor.
-If you choose the Editor: open it up, load the file and head to the `SFXGAME` tab.
+If you choose the Editor: open it up, head for load the file head to `Bioinput.ini'  and within that file to the `SFXGAME` tab.
 
 Add the following commands under each named section:
 
