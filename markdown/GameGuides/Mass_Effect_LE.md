@@ -33,7 +33,7 @@ If you want to use additional keybinds, you need to unpack - edit - repack the C
 ## Enabling the Console
 To gain access to the console within the game, download the ME3 Tweaks Mod Manager. Starting the game through the mod manager should enable the in-game console in all three games.
 
-To change the keybind, head to the `Tools` section in the Mod Manager and choose 
+To change the keybind, go to the `Tools` section in the Mod Manager and choose 
 `Console Key Keybinder`. Set the bind to your likeing. 
 
 Additional Information can be found here: 
@@ -88,7 +88,7 @@ Bindings=(Name="Multiply",Command="PlayersOnly")
 ## Mass Effect 2
 This is where things will get a bit more tricky, but thanks to the updated Mod Manager, the process has become a lot easier. 
 
-To unpack the Mass Effect 2 Coalesced, head to `Mass Effect 2\BIOGame\CookedPCConsole` in your installation location of ME 2. 
+To unpack the Mass Effect 2 Coalesced, go to the folder `Mass Effect 2\BIOGame\CookedPCConsole` in your installation location of ME 2. 
 
 Search for `Coalesced_Language.bin` or simply choose `Coalesced_INT.bin` - **Do a back-up!**
 
@@ -175,7 +175,7 @@ Either way, the initial steps are the same.
 2. Locate the `Coalesced.bin` file
 
 Perform the unpacking steps mentioned above, or open up the file with the Coalesced Editor.
-If you choose the Editor: open it up, head for load the file head to `Bioinput.ini'  and within that file to the `SFXGAME` tab.
+If you choose the Editor: start it and then load the file `Bioinput.ini` and within that file go to the `SFXGAME` tab.
 
 Add the following commands under each named section:
 
