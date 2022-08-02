@@ -306,6 +306,12 @@ You can find more commands in the [UE3 Console Commands List](https://docs.unrea
 For even more freedom, you can combine the command ghost with teleport. By using that "trick", you can access areas locked behind cutscenes.
 *Shoutout to my man ItsYFP for digging this one up.*
 
+## Alternative to Cheat Table useage: Photomode Enhancement Mods
+Check the mods on Nexus for further installing instructions.
+* [Photomode Enhancement MOD for LE1](https://www.nexusmods.com/masseffectlegendaryedition/mods/421?tab=description)
+* [Photomode Enhancement MOD for LE2](https://www.nexusmods.com/masseffectlegendaryedition/mods/332?tab=description)
+* [Photomode Enhancement MOD for LE3](https://www.nexusmods.com/masseffectlegendaryedition/mods/424?tab=description)
+
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Mass_Effect_Legendary_Edition)
@@ -316,3 +322,4 @@ For even more freedom, you can combine the command ghost with teleport. By using
 * [Community-Patch](https://www.nexusmods.com/masseffectlegendaryedition/mods/13)
 * [ME2-No-Weapon-Restrictions](https://www.nexusmods.com/masseffectlegendaryedition/mods/41)
 * [Cool-Armor](https://www.nexusmods.com/masseffectlegendaryedition/mods/1371)
+
