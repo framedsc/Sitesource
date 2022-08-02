@@ -3,7 +3,7 @@
 **Multi-sampled Accumulated Depth of Field** (**MSADOF**) is an advanced DOF add-on for ReShade developed by murchalloo. It renders depth of field without using a depth buffer for the blurring process, greatly increasing the possibilities of defocused captures. This is an advanced guide that aims to cover the usage of MSADOF, as well as its setup process for you and other users.
 
 @alert important
-MSADOF requires **ReShade 5.2+ with full add-on support** and supported [Otis_Inf camera tools](https://patreon.com/Otis_Inf). *All cameras newer than the 31st of May 2022 should have support for MSADOF, look for "interpolation factors" in the camera changelogs.*
+MSADOF requires **ReShade 5.2+ with full add-on support** and supported [Otis_Inf camera tools](https://patreon.com/Otis_Inf). *All cameras newer than the 31st of May 2022 should have support for MSADOF, look for "Supports IGCS Connector" in the "Versions and compatibility" table of each [game](https://opm.fransbouma.com/Gamespecificfunctionality.htm).*
 @end
 
 @alert neutral
@@ -129,9 +129,10 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Beyond a Steel Sky            | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | Borderlands 3                 | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Blind Fate: Edo no Yami       | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
+| Chernobylite                  | 1.0000     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Code Vein                     | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Cyberpunk 2077                | 0.0200     | 180 | N                       | 4                  | 0.001                 | X        |Might require raytracing / a low framerate under vsync targets. Focus precision of 8 is recommended for portraits.|
-| Days Gone                     | 9.9500     | 320 | N                       | 1                  | 0.100                 | X        ||
+| Days Gone                     | 9.9500     | 320 | N                       | 1                  | 0.100                 | X        |Setting AA to 0 will result in a loss of HUD and console access|
 | Draugen                       | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | ECHO                          | 0.5600     | 180 | N                       | 2                  | 0.100                 | X        |No custom AR possible.|
 | Elden Ring					          | 0.0500		 | 180 | N				               | 2				          | 0.001            	    | X        |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
@@ -140,6 +141,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Life is Strange: True Colors  | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | Mortal Shell                  | 9.9965     | 180 | Y                       | 4                  | 0.100                 | X        ||
 | MotoGP 19                     | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
+| Omno                          | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Resident Evil 2	(DX12)        | 0.0100     | 180 | Y                       | 1                  | 0.001                 | X        ||
 | Resident Evil 3	(DX12)        | 0.0100     | 180 | Y                       | 1                  | 0.001                 | X        ||
 | Scarlet Nexus                 | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
