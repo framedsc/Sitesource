@@ -74,7 +74,7 @@ As of the Blood Money (Version 1.25. July 13th, 2021) update, some graphics sett
 @end
 
 @alert info
-If you have visual artifacts that look similar to GPU VRAM artifacts (green, purple, white noise) in the game (usually noticed in the main menu), turn `off` "Triple Buffering".
+If you have visual artifacts that look similar to GPU VRAM artifacts (green, purple, white noise) in the game (usually noticed in the main menu), turn `off` "Triple Buffering". It is currently not possible to change them in any way.
 
 @alert neutral
 Bypassing the in-game VRAM limit can only be done by changing the values through the `system.xml` file.
