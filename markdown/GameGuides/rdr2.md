@@ -5,9 +5,9 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes (with tools, dx12 only)
+Hotsampling | Yes [see notes](#hotsampling)
 DSR | Yes
-Custom Aspect Ratios | Yes (with tools)
+Custom Aspect Ratios | Yes [with tools](https://framedsc.com/basics.htm#composing-for-custom-aspect-ratios)
 Reshade | Yes (v4.4+)
 Ansel | No
 Graphics API | DirectX 12
@@ -24,24 +24,63 @@ Weather control, HUD toggle, Pause/Unpause (also in photomode), Time of day (hou
 * [Cutscene Freecam](https://www.nexusmods.com/reddeadredemption2/mods/1209)
 
 ## Essentials
-* [ScripthookRDR2](https://www.nexusmods.com/reddeadredemption2/mods/1472) The original source is: <https://www.dev-c.com/rdr2/scripthookrdr2/>
+* [ScripthookRDR2](https://www.nexusmods.com/reddeadredemption2/mods/1472) The original source is this <https://www.dev-c.com/rdr2/scripthookrdr2/>,
 however this version might be outdated. The nexus mods variant is likely more recent.
 * [Lenny's Mod Loader](https://www.rdr2mods.com/downloads/rdr2/tools/76-lennys-mod-loader-rdr/)
 
 ## Texture/Graphic Mods
-* [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)
-* [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)
-* [Visual Redemption](https://discord.gg/ADfQxWSv6J)
-* [Vignette Disabler](https://www.nexusmods.com/reddeadredemption2/mods/1569)
-* [The Perfect TAA](https://www.nexusmods.com/reddeadredemption2/mods/1222) 
+* [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)  
+**Feature**: Upscales the gun textures. (DX12 only)
+* [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)  
+**Feature**: Updates the look of the in-game guns' metal finish.
+* [Higher Resolution Vegetation](https://www.nexusmods.com/reddeadredemption2/mods/1553)  
+**Feature**: Uses unused 1024x1024 resolution textures for some of the game's vegetation. (DX12 only)
+* [Visual Redemption](https://discord.gg/ADfQxWSv6J)  
+**Feature**: Slight graphical overhaul to not change too much of original game's visuals.
+* [Vignette Disabler](https://www.nexusmods.com/reddeadredemption2/mods/1569)  
+**Feature**: Disables the vignette visible in-game.
+* [The Perfect TAA](https://www.nexusmods.com/reddeadredemption2/mods/1222)  
 **Feature**: Attempts to fix ugly TAA blurring, (Good for 1080p, however hotsampling to 4K and up defeats its' purpose).
+
+### Hotsampling
+While it's possible to hotsample with Vulkan, it is very unstable and has a crash rate of about 70% and the [tool used for hotsampling](https://framedsc.com/basics.htm#hotsampling) loses track of which window to handle (Fixing this is done by `Refreshing` the `Window Tree`, which will allow you to select the game and edit the resolution again).
+
+@alert info
+DirectX 12 API hotsamples with the SRWE tool without any problems.
+@end
+
+@alert important
+Hotsampling to a 32:9 aspect ratio and going back to your original one will break every trainer menu, with some losing the text, and some having the text way off the screen.
+@end
 
 ### Vulkan or DX12?
 If you're using Windows 7 or 8.x, the only option you have is Vulkan. If you use Windows 10, you can use DX12 as well. There are reports
 of higher performance under Vulkan, but also lower-res textures and less stability. The cheat table should work with both. Regardless, the 
 game is highly unstable, and you have to prepare for crashes during your gameplay session.
 
-### Weather control
+@alert important
+Most texture mods do not work in DX12, making it a trade-off if you are willing to modify the game textures.
+@end
+
+## Tweaks & tips
+
+In the file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
+
+- search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
+- search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
+
+@alert info
+As of the Blood Money (Version 1.25. July 13th, 2021) update, some graphics settings revert back to their default values. The graphics settings are: "Resolution Scaling" `off`, "TAA" `high`, "MSAA" `off`.
+@end
+
+@alert info
+If you have visual artifacts that look similar to GPU VRAM artifacts (green, purple, white noise) in the game (usually noticed in the main menu), turn `off` "Triple Buffering".
+
+@alert neutral
+Bypassing the in-game VRAM limit can only be done by changing the values through the `system.xml` file.
+@end
+
+### CT Weather control
 The cheat table offers two ways to control the weather: one option is to set the weather type, another is to define a combination
 between two weathers. 
 
@@ -78,6 +117,10 @@ To set the active weather, first enable the 'Weather control' entry in the table
 value in the 'Weather type' entry on the right. By default it'll show 'FFFFFFFF'. Double clicking it allows you to type a new weather, e.g. 4 for cloudy
 weather. The weather change will be instantly, also in photomode.
 
+@alert neutral
+You are not required to use the Cheat Table to change the weather, you may also use an in-game trainer to do it.
+@end
+
 #### How to set a combination of two weather types
 If you want to create your own unique weather, you can create a combination of two weather types. 
 After you've enabled 'Weather control' you also have to enable 'Enable weather interpolation'. After that, you double click the value in the 
@@ -90,22 +133,8 @@ weather and 30% the 'To weather'.
 
 To go back to the other weather option, simply disable the 'Enable weather interpolation' entry.
 
-## Tweaks
-
-In the file `My Documents\Rockstar Games\Red Dead Redemption 2\Settings\system.xml`:
-
-- search for `<lodScale value="...." />` and `<pedLodBias value="...." />`, set these to 1.0, by default they're set to 0.0
-- search for `<deepsurfaceQuality>...</deepsurfaceQuality>`, set the value to kSettingLevel_Ultra.
-
-### Hotsampling
-While it's possible to hotsample with Vulkan, it is very unstable and has a crash rate of about 70% and the tool used for hotsampling loses track of which window to handle (To fix you have to Refresh Window Tree and you will be able to edit the resolution again)
-* DirectX 12 API hotsamples with the tool without any problems
-
-@alert info
-Hotsampling to a 32:9 aspect ratio and going back to the original one will break every trainer menu, with some losing the text, and some having the text way off the screen.
-@end
-
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Red_Dead_Redemption_2)
 * [How to install and use Lenny's Mod Loader](https://www.youtube.com/watch?v=E-OIFFcIKDs)
+* [Using Cheat Engine Tables](https://framedsc.com/GeneralGuides/cheat_engine_tables.htm)
