@@ -156,9 +156,14 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Tell Me Why                   | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | The Ascent                    | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | The Medium                    | 2.0000     | 180 | Y                       | 3                  | 0.100                 | X        ||
+| The Pathless                  | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | The Shore                     | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
+| The Sojurn                    | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | The Witcher 3: Wild Hunt      | 0.2000     | 180 | N                       | 0                  | 0.001                 | X        |Near plane may switch to 0.4 in cutscenes.| 
 | Twin Mirror                   | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
+| Vampire - The Masquerade - Swansong | 1.0000 | 180 | Y                       | 2                  | 0.100                 | X  ||
+| Visage                        | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
+
 
 
 *Have some game adjustments values that you want to include? Head up to the [issue site page](https://github.com/framedsc/Sitesource/issues) and create an issue with the values, or [contact one of the mods](https://framedsc.com/index.htm).*
