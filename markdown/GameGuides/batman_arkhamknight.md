@@ -14,8 +14,8 @@ Graphics API | DirectX 11
 
 ##Tools
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV control, HUD toggle, timestop, depth blur removal.
-* [Console unlocker by Sunbeam (mr. Jag video with DLL)](https://www.youtube.com/watch?v=NcvzZl5vXng)
+**[Features](https://opm.fransbouma.com/Cameras/batmanak.htm)**: Camera control, FoV control, HUD toggle, timestop, depth blur removal.
+* [Console unlocker by Sunbeam (mr. Jag video with DLL)](https://www.youtube.com/watch?v=NcvzZl5vXng)  
 **Features**: Allows you to open the dev console using a command
 
 @alert Important
@@ -24,7 +24,7 @@ settings of the game, it might be the game crashes when these are on screen. A n
 [Sunbeam's patreon](https://www.patreon.com/sunbeam906) which fixes this.
 @end
 
-#Resolutions
+## Resolutions
 Using DSR fullscreen works ok. If you use an aspect ratio (AR) other than what the game natively support for your monitor (21:9 or 16:9), 
 you might run into issues, e.g. there's a strange line down the left side in `3:4` AR.
 

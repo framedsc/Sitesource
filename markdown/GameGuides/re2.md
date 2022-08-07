@@ -8,14 +8,14 @@ Vanilla Photo Mode | No
 Hotsampling | Yes (with tools)
 DSR | Yes
 Custom Aspect Ratios | Yes (with tools)
-Reshade | Yes (DirectX 11)
+Reshade | Yes
 Ansel | No
 Graphics API | DirectX 11, DirectX 12
  
 ## Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FOV control, Time stop, vignette removal, DOF removal in cutscenes, resolution scaling, hotsampling enable, HUD toggle
+**[Features](https://opm.fransbouma.com/Cameras/re2.htm)**: Camera control, FOV control, Time stop, vignette removal, DOF removal in cutscenes, resolution scaling, hotsampling enable, HUD toggle
 * [CE Table by Jim2point0](..\CheatTables\re2_new.ct)  
 **Features**: Camera control, FOV Control, Time Stop
 * [RE2 Mod Framework by The Care Taker](https://www.nexusmods.com/residentevil22019/mods/11)  

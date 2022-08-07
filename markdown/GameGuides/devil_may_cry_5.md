@@ -7,8 +7,8 @@ Feature | Supported
 Vanilla Photo Mode | Yes (lol)
 Hotsampling | Yes
 DSR | Yes
-Custom Aspect Ratios | Yes (With tools)
-Reshade | Yes (With DirectX11)
+Custom Aspect Ratios | Yes (with tools)
+Reshade | Yes
 Ansel | No
 Graphics API | DirectX 11, DirectX 12
 
@@ -16,7 +16,7 @@ Graphics API | DirectX 11, DirectX 12
 ## Tools
 
 * [Camera tools by Otis_Inf, Jim2Point0, Hattiwatti and K-putt](https://www.patreon.com/Otis_Inf)  
-**Features**: Camera control, Fov, timestop, Hud toggle, Aspect ratio selection, DoF removal, Vignette removal and Lens distortion removal. For more info refear to the [tool docs](https://opm.fransbouma.com/Cameras/dmc5.htm).
+**[Features](https://opm.fransbouma.com/Cameras/dmc5.htm)**: Camera control, Fov, timestop, Hud toggle, Aspect ratio selection, DoF removal, Vignette removal and Lens distortion removal.
 * [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
 **Features**: Lighting Control, turn off scene lights, exposure control.  
 Make sure to check out [the guide](GeneralGuides/relit.htm) on it.

@@ -5,9 +5,9 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes, with tools
+Hotsampling | Yes (with tools)
 DSR | Yes
-Custom Aspect Ratios | Yes, with tools 
+Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | No
 Graphics API | DirectX 11
@@ -27,7 +27,7 @@ For the most part, Otis tools work. The only thing that's unreliable is hotsampl
 ##Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, post-processing toggles, invulnerability toggle
+**[Features](https://opm.fransbouma.com/Cameras/nierautomata.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, post-processing toggles, invulnerability toggle
 * [CE table by IDK31 and Smithfield](..\CheatTables\nier_automata_121.ct)  
 **Features**: Camera control, FoV, Speed control, HUD/Vignette/Banding/Character halo removal, Tonemap
 

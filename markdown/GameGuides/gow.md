@@ -15,13 +15,11 @@ Graphics API | DirectX 11
 ## Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, level of detail enhancements, camera paths
-
-
+**[Features](https://opm.fransbouma.com/Cameras/gow.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, level of detail enhancements, camera paths
 
 ## Tips and Tricks
 
-* When hotsampling or alt-tabbing out of the game, stop the inventory screen showing up by going to settings > gameplay and disable 'Pause On Focus Lock'.
+When hotsampling or alt-tabbing out of the game, stop the inventory screen showing up by going to settings > gameplay and disable 'Pause On Focus Lock'.
 
 ## Useful Links
 

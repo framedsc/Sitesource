@@ -5,7 +5,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes, with tools
+Hotsampling | Yes (with tools)
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (4.9.1+)
@@ -16,7 +16,7 @@ Guide Updated For Game Version | 1.52
 ## Tools
 
 * [Camera Tools with Cyberlit by Otis_Inf](https://patreon.com/Otis_Inf)   
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, time of day, camera paths, photomode posing tools and custom lights.  
+**[Features](https://opm.fransbouma.com/Cameras/cyberpunk2077.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, time of day, camera paths, photomode posing tools and custom lights.  
 
 ## Essential Mods
 

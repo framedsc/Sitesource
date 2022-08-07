@@ -5,19 +5,17 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes, See note
+Hotsampling | Yes ([see notes](#additional-notes))
 DSR | Yes
-Custom Aspect Ratios | Yes, See note
-Reshade | Yes (DX12)
+Custom Aspect Ratios | Yes ([see notes](#additional-notes))
+Reshade | Yes
 Ansel | No
 Graphics API | DirectX 12
  
 ## Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, Weather control, Pose fine tuning in photomode.
-
-
+**[Features](https://opm.fransbouma.com/Cameras/hzd.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, Weather control, Pose fine tuning in photomode.
 
 ## Tips and Tricks
 

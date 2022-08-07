@@ -15,7 +15,7 @@ Graphics API | DirectX 11
 ## Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV, timestop, hud toggle, higher LODs selector.
+**[Features](https://opm.fransbouma.com/Cameras/rottr.htm)**: Camera control, FoV, timestop, hud toggle, higher LODs selector.
 
 ## Depth buffer access
 Recent Reshade versions (3.4.3 and up) have solid depth buffer detection code but sometimes can still make the wrong choice. In Rise of the Tomb Raider especially
