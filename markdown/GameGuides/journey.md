@@ -1,4 +1,4 @@
-![Journey](Images\journey_header.png "Shot by Smithy"){.shadowed .autosize}
+![Journey](Images/journey_header.png "Shot by Smithy"){.shadowed .autosize}
 
 ## Summary
 
