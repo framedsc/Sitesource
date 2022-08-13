@@ -131,7 +131,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Borderlands 3                 | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Blind Fate: Edo no Yami       | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
 | Chernobylite                  | 1.0000     | 180 | Y                       | 2                  | 0.100                 | X        ||
-| CHORUS                        | 56.5000    | 180 | Y                       | 2                  | 0.100                 | X        ||
+| CHORVS                        | 56.5000    | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Close to the Sun              | 1.0000     | 180 | Y                       | 2                  | 0.001                 | X        ||
 | Code Vein                     | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Cyberpunk 2077                | 0.0200     | 180 | N                       | 4                  | 0.001                 | X        |Might require raytracing / a low framerate under vsync targets. Focus precision of 8 is recommended for portraits.|
@@ -139,6 +139,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Draugen                       | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | ECHO                          | 0.5600     | 180 | N                       | 2                  | 0.100                 | X        |No custom AR possible.|
 | Elden Ring					          | 0.0500		 | 180 | N				               | 2				          | 0.001            	    | X        |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
+| Final Fantasy VII Remake      | 5.6250     | 180 | N                       | 2                  | 0.100                 | X        ||
 | Hellblade                     | 9.9965     | 180 | Y                       | 2                  | 0.100                 | X        ||
 | Kena: Bridge of Spirits       | 9.9965     | 180 | Y                       | 4                  | 0.100                 | X        ||
 | Life is Strange: True Colors  | 9.9965     | 180 | Y                       | 1                  | 0.100                 | X        ||
