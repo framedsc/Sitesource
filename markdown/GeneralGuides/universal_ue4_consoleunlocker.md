@@ -1,7 +1,7 @@
 Universal Unreal Engine 4 Unlocker
 =============
 
-![UUU Logo by Ichisake](Images\UUU\UUULogo.jpg){.shadowed .autosize}
+![UUU Logo by Ichisake](Images\UUU\UUULogo.png){.shadowed .autosize}
 
 **Engine versions supported**: Unreal Engine 4.15 - 4.26 
 

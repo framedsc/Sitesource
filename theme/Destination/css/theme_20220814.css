@@ -564,6 +564,15 @@ sub {
 	bottom: -0.25em;
 }
 
+summary {
+	transition: 0.1s ease;
+}
+
+summary:hover {
+	transition: 0.1s ease;
+	cursor: pointer;
+}
+
 summary.important {
 	margin-top: 0;
 	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif;
@@ -571,11 +580,6 @@ summary.important {
 	font-size: 130%;
 	margin-bottom: 13px;
 	font-weight: 500;
-}
-
-summary.important:hover {
-	outline: 0;
-	transition: 0.1s ease;
 }
 
 svg:not(:root) {
@@ -619,7 +623,8 @@ div.figure {
 
 img.shadowed, div.figure img {
 	margin: 0 auto;
-	box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+    -webkit-filter: drop-shadow(0px 0px 10px #0a0a0a4d);
+	filter: drop-shadow(0px 0px 10px #0a0a0a4d);
 }
 
 img.smaller {

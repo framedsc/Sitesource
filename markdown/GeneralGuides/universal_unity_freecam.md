@@ -1,11 +1,12 @@
-![toplogo](../Images/UUFGuide/toplogo.jpg){.shadowed .autosize}
+![toplogo](../Images/UUFGuide/toplogo.png){.shadowed .autosize}
 
+@alert neutral
 **Engine versions supported:** UnityExplorer supports most Unity versions from 5.2 to 2021+ (IL2CPP and Mono)
-
+@end
 
 <p align="center">
 <a href="https://www.youtube.com/watch?v=qufWSNPyeYQ" target="_blank">
-  <img src="https://img.youtube.com/vi/qufWSNPyeYQ/hqdefault.jpg">
+  <img src="https://i.ytimg.com/vi_webp/qufWSNPyeYQ/maxresdefault.webp">
 </a>
 </p>
 
@@ -16,7 +17,8 @@
 
 ## Identifying the type of Unity game
  
-Launch the game and use the Task Manager to check if your game is 32-bit or 64-bit (if it is 32-bit it will have "32 bit" next to the program name).  
+Launch the game and use the Task Manager to check if your game is 32-bit or 64-bit (if it is 32-bit, it will have "32 bit" next to the program name).  
+
 ![TaskManager01](../Images/UUFGuide/TaskManager01.png){.shadowed .autosize}
 
 Open the game folder to determine if it is Mono or IL2CPP based
@@ -24,41 +26,41 @@ Open the game folder to determine if it is Mono or IL2CPP based
 - IL2CPP games have a <code>GameAssembly.dll</code> in the game folder and an <code>il2cpp_data</code> folder in the gamedata folder.
  
 @alert tip
-If the game is on steam you can check the file structure before downloading by going to the [SteamDB](https://steamdb.info) page of the game, `Depots` section, and from the table in there click the ID number on the games depot (usually the one with the bigger file size).
+If the game is on Steam, you can check the file structure before downloading by going to the [SteamDB](https://steamdb.info) page of the game, `Depots` section, and from the table in there, click the ID number on the game's depot (usually the one with the bigger file size).
 @end
 
 The Unity Engine version number can be found by opening the <code>globalgamemanagers</code> file found in the game's data folder.
 
 ![globalgamemanagers](../Images/UUFGuide/globalgamemanagers.jpg){.shadowed .autosize}
 
-## Downloading BepinEx and Unity Explorer
+## Downloading BepInEx and Unity Explorer
 
 Download the appropriate version of each software.
 
-- [BepinEx v5](https://github.com/BepInEx/BepInEx/releases) (For Mono games)
-- [BepinEx v6](https://builds.bepinex.dev/projects/bepinex_be) (For IL2CPP games)
+- [BepInEx v5](https://github.com/BepInEx/BepInEx/releases) (For Mono games)
+- [BepInEx v6](https://builds.bepinex.dev/projects/bepinex_be) (For IL2CPP games)
 - [UnityExplorer](https://github.com/sinai-dev/UnityExplorer/releases)
 - [FreeMoveInjector](https://github.com/vtvrv/FreeMoveInjector/releases)
 - [BepInExConfigManager](https://github.com/sinai-dev/BepInExConfigManager) (optional)
 
 ## Installation
 
-- Extract the contents of the BepinEx zip into the game folder.
-- Extract UnityExplorer and BepinExConfigManager's <code>plugins</code> and <code>patchers</code> folders into the game's BepinEx folder.
-- Place <code>FreeMoveInjector.dll</code> in the <code>/BepinEx/plugins/</code> subfolder.
+- Extract the contents of the BepInEx zip into the game folder.
+- Extract UnityExplorer and BepInExConfigManager's <code>plugins</code> and <code>patchers</code> folders into the game's BepInEx folder.
+- Place <code>FreeMoveInjector.dll</code> in the <code>/BepInEx/plugins/</code> subfolder.
 
 ## Starting Unity Explorer
 
 @alert important
-IL2CPP based games require Internet access the first time they are launched with BepinEx.
+IL2CPP-based games require Internet access for their first launch with BepInEx.
 @end
  
-Launch the game and BepinEx will complete the installation process. If everything is working a UnityExplorer window will appear.
+Launch the game and BepInEx will complete the installation process. If everything is working, a UnityExplorer window will appear.
 
 ![firstlaunch](../Images/UUFGuide/firstlaunch.jpg){.shadowed .autosize}
  
 @alert important
-Follow the [BepinEx Troubleshooting Guide](https://github.com/sinai-dev/BepInExConfigManager) to get broken game working.
+Follow the [BepInEx Troubleshooting Guide](https://github.com/sinai-dev/BepInExConfigManager) to get a broken game working.
 The most common issue is a bad entrypoint.
 @end
 
@@ -99,12 +101,13 @@ The inspector window can be used to modify camera features such as FOV, draw dis
 
 ## Camera Locking
 
-* Many game cameras will have existing behaviours that will prevent free movement (e.g. CineMachine). Disabling these behaviours will solve this issue.
-* Mouse look may not work if the game is locking the cursor to the center of the screen. To solve this keep the UnityExplorer window open as this plugin will unlock the cursor.
+Many game cameras have existing behaviours that can prevent free movement (e.g. CineMachine). Disabling these behaviours will solve this issue.
+
+Mouse look may not work if the game is locking the cursor to the center of the screen. To solve this, keep the UnityExplorer window open as the plugin will unlock the cursor.
 
 ## Disabling HUD
 
-The scene explorer window can disable any game object including HUD graphics. Alternatively, the inspector window's mouse inspection tool can easily select specific HUD graphics.
+The scene explorer window can disable any game object, including HUD graphics. Alternatively, the inspector window's mouse inspection tool can easily select specific HUD graphics.
  
   ![demonturfhud](../Images/UUFGuide/demonturfhud.jpg){.shadowed .autosize}
 

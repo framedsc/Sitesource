@@ -6,7 +6,7 @@ Feature | Supported
 --|--
 Vanilla Photo Mode | No
 Hotsampling | No
-DSR | Yes
+DSR | Yes ([see notes](#dsr))
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
@@ -35,15 +35,17 @@ Arrow keys | Rotate camera
 
 ### Camera Control
 
-NOTE: You will need to toggle the camera on then off at least once before all the controls work.
+@alert important
+You will need to toggle the camera on then off at least once before all the controls work.
+@end
 
-When activated, the camera faces 180° from the player's direction. Camera movement is tied to the world space, i.e. the directions are relative to what the game world thinks is North, South, East, and West. When turning the camera these directions will reverse. This is expected behavior. Camera rotation controls reamain constant.
+When activated, the camera faces 180° from the player's direction. Camera movement is tied to the world space, i.e. the directions are relative to what the game world thinks is North, South, East, and West. When turning the camera, these directions will reverse. This is expected behavior. Camera rotation controls remain constant.
 
 A gamepad can be used to control the freecam, but a keyboard can be more precise.
 
 ### Disabling Barrel Distortion and Vignette
 
-The game uses a barrell distortion effect that prevents the depth buffer from aligning correctly. Download and install this [3D Vision Fix](https://helixmod.blogspot.com/2021/04/journey.html) to disable that effect as well as the vignette effects used in some scenes.
+The game uses a barrel distortion effect that causes the depth buffer to be out of alignment. Download and install this [3D Vision Fix](https://helixmod.blogspot.com/2021/04/journey.html) to disable that effect as well as the vignette effects used in some scenes.
 
 ### RealLongExposure.fx
 
@@ -51,7 +53,7 @@ Since the character’s clothes and certain visual effects (such as dust particl
 
 ### DSR 
 
-The game supports DSR resolutions but the final image on your display may look jaggy or pixelated. It's recommended to set your desktop resolution to the same DSR value you use in-game to avoid this.
+While the game supports DSR resolutions, the final image on your display may look jaggy or pixelated. It's recommended to set your desktop resolution to the same DSR value you use in-game to avoid this.
 
 ### Online Connectivity
 
