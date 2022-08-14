@@ -51,6 +51,12 @@ mark {
 	color: #000;
 }
 
+/* firefox scrollbar styling */
+.scroll-styled-h, .scroll-styled-v, html {
+    scrollbar-color: #333 #272727;
+    scrollbar-width: thin;
+}
+
 /* #endregion*/
 
 /* #region general classes */
