@@ -47,7 +47,7 @@ The UUU has two pause functions: `Numpad 0` (UWorld pause) and `PageDown` (Slowm
 
 ### Pausing the game
 
-To pause the game to take shots, always try to use `PageDown` first. This only goes wrong when you move your character in some situations, like in combat. In that case, the `Numpad 0` pause works better. 
+To pause the game to take shots, always try to use `PageDown` first. This works well in cutscenes. However, in gameplay, if you try to pause while moving / in combat, you'll observe that your character starts to slide around. In those cases, the `Numpad 0` pause works better. 
 
 ## Features of the UUU that aren't supported
 
@@ -66,9 +66,13 @@ The UUU can enable ultrawide support in UE4 games, however this doesn't work as 
 
 It is possible to force exclusive fullscreen with FFVIIHook, the game set to run in DX11 mode, and a modified `Engine.ini` with this line: `r.SetRes=3840x2160f`. Appending `f`, `wf` or `w` at the end of the specified resolution forces fullscreen, borderless fullscreen and windowed modes respectively.
 
-Additionally, launching the game with `r.SetRes=3840x2160` causes the game to start at 3840x2160, no matter your current desktop resolution. You can then use a tool like SRWE and downscale the window to fit within your monitor. This allows you to capture 4K shots without needing to DSR your entire desktop. 
-
 Despite `r.ScreenPercentage` being exposed by the cheat table and FFVIIHook, it seems that setting it higher than an internal resolution of 4096 causes bright green artifacts to appear.
+
+### Non-native 4K captures
+
+Previously, you had to DSR your desktop itself in order to get the game to run in 4K and fit on a lower-than-4K screen. This method allows you to capture 4K screenshots without needing to do that.
+
+Similar to above, add `r.SetRes=3840x2160f` to your `Engine.ini`. However, don't run the game in DX11. This causes the game to launch in a windowed, but locked, 4K state. You can then use a tool like SRWE to resize the window to fit on your screen, while enjoying full 4K capture. The game may resize itself back to its larger 4K window state upon focus if you've tried to move the window with SRWE, so leave it aligned to the top left (X:0, Y:0). Placing an `f` at the end of the resolution is important, otherwise the game will redraw upon window resize and you will lose the resolution entirely.
 
 ## Useful Links
 
