@@ -21,7 +21,7 @@ Graphics API | DirectX 11 and DirectX 12
 **Features**: HUD toggle, DoF control, Wider FoV during gameplay, control over some CVars. This table is available on Otis_Inf's patreon. 
 
 * [FFVIIHook by emoose](https://www.nexusmods.com/finalfantasy7remake/mods/74)  
-**Features**: Enables console and [use of WindowsNoEditor .ini files](./GeneralGuides/ue4guide.htm#engine-renderer-settings).
+**Features**: Enables console and [use of WindowsNoEditor .ini files](./../GeneralGuides/ue4guide.htm#engine-renderer-settings).
 
 ## Characteristics
 
@@ -53,7 +53,7 @@ To pause the game to take shots, always try to use `PageDown` first. This only g
 
 - No hotsampling. None at all. You can only DSR up to 4K.
 - No console input. While the UUU does activate the UE4 dev console, keyboard input isn't reaching the console if the key is used by the game, e.g. enter. This is solved with FFVIIHook, which allows you to use the console normally.
-- No HUD toggle. The HUD is made with a 3rd party library and the UUU can't hide it. To hide the HUD, use the cheat table's HUD toggle or [ShaderToggler](./ReshadeGuides/Addons/shader_toggler_repository.htm). 
+- No HUD toggle. The HUD is made with a 3rd party library and the UUU can't hide it. To hide the HUD, use the cheat table's HUD toggle or [ShaderToggler](./../ReshadeGuides/Addons/shader_toggler_repository.htm). 
 - (*v4.4.0 and above*) Limited control over in-game post-processing using the *Post-processing* tab.
 
 #### UUU Ultrawide
