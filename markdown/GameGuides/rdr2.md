@@ -87,6 +87,7 @@ The cheat table offers two ways to control the weather: one option is to set the
 Weathers are defined using a number. -1 (or in hexadecimal: `FFFFFFFF`) means that no weather is set and the default weather is used. 
 
 <details><summary>List of weather types</summary>
+
 Value | Weather name
 --|--
 0 | High pressure
@@ -111,6 +112,7 @@ Value | Weather name
 19| Ground blizzard
 20| Whiteout
 21| Sandstorm
+
 </details>
 
 #### How to set the weather
