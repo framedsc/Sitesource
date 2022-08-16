@@ -1,15 +1,71 @@
-Shader Toggler Repository
-=====
+![ShaderToggler](../../Images/ShaderToggler/ShaderToggler_header.png){.shadowed .autosize}
 
-The [Shader Toggler](https://github.com/FransBouma/ShaderToggler) is a ReShade addon created by Otis_inf that lets you turn off and on in-game shaders, like [3DMigoto](https://nohud.fandom.com/wiki/Creation_of_Hudtoggle_Mods) let you do in DX9 games. For more information about the addon itself head up to the `README.md` on the repo linked above.
+[**ShaderToggler**](https://github.com/FransBouma/ShaderToggler) is an add-on for ReShade written by Otis_Inf. It allows you turn off and on in-game shaders, like [3DMigoto](https://nohud.fandom.com/wiki/Creation_of_Hudtoggle_Mods). This page is a brief guide on how you can use it to toggle shaders, and is also a repository for the toggle groups that people have contributed for various games.
 
-This page functions as a repository for peoples created shader togglers using the mentioned addon.
-
-@alert IMPORTANT
-To use these shader togglers make sure to rename the `.ini` file you are going to use to `ShaderToggler.ini` and drop it in the same folder as `ShaderToggler.addon` so the addon can pick them up.
+@alert info
+ShaderToggler requires **Reshade 5.1+ with full add-on support**.
 @end
 
+---
+
+## Installation
+
+[On the releases page](https://github.com/FransBouma/ShaderToggler/releases), there are two relevant files available for download.
+
+* `ShaderToggler_v101.zip` is for 64-bit games, i.e. the majority of modern releases.
+* `ShaderToggler_x86_101.zip` is for 32-bit games, typically older titles running in DX9 for example.
+
+Download the appropriate file and unzip it. Copy over `ShaderToggler.addon` to the same folder as your game's ReShade DLL for ReShade to be able to use it.
+
+Launch your game, open the ReShade GUI, and head to the *Add-ons* tab. You should now see *Shader Toggler* in the list of installed add-ons.
+
+![Screenshot of the UI](../../Images/ShaderToggler/ShaderTogglerUI.png){.shadowed .autosize}
+
+---
+
+## Example usage: HUD removal
+
+While ShaderToggler can be used to hide many parts and elements of a game scene (including geometry!), it is probably most useful in removing the HUDs of games.
+
+In this example, we'll be using the add-on to remove the HUD from *The Witcher 3*.
+
+#### Step 1: Creating a new toggle group
+
+![New toggle group](../../Images/ShaderToggler/Usage-New-toggle-group.png){.shadowed .autosize}
+
+Start by clicking the *New* button under *List of toggle groups*. This should create a new entry with a number next to it. Click on the *Edit* button and edit it to your liking. This group will be named "HUD", since we're removing the HUD, and it'll be bound to `Delete`, the common keybind for hiding the HUD in tools.
+
+#### Step 2: Marking shaders
+
+With our new toggle group set up, it's time to start marking shaders. These shaders will be added to the toggle group, and on activation, will be hidden from the scene.
+
+Click on *Change shaders* and wait for the frame collection process (that should appear in the top left) to complete.
+
+Once the frames are collected, use `Numpad 1` and `Numpad 2` to step through the available pixel shaders. These tend to be what HUDs are. As you step through the pixel shaders, note which of them cause the HUD to disappear. Mark these with `Numpad 3`.
+
+![Marking shaders](../../Images/ShaderToggler/ShaderMarking.webp){.shadowed .autosize}
+
+Once you've marked all the shaders, click on *Done* to register the toggle group. If done right, when you use your key shortcut, it should now hide all the marked shaders at once, giving you a perfect HUD hide!
+
+@alert important  
+**Save all Toggle Groups!**   
+Or suffer the pain of having to do everything over again on next launch!  
+This creates a `ShaderToggler.ini` file in the same directory as the ADDON file. We encourage contributing this to our repository below.
+@end
+
+### Doing even more!
+
+HUD hiding is only one thing possible with ShaderToggler. The process above can easily be used to hide so much more, from various post-processing effects to whole render passes with pixel shader toggles, and even characters or foilage from a scene with vertex shader toggles.
+
+Do note that the add-on does not intercept compute shaders. This is why some effects, like some UE4 DOF implementations, can't be removed with ShaderToggler.
+
+---
+
 ## Repository
+
+@alert important
+These files need to be renamed to `ShaderToggler.ini` and placed in the same folder as `ShaderToggler.addon` for the add-on to pick them up correctly.
+@end
 
 Game | Features | Extra Description
 --|--|--
@@ -17,7 +73,7 @@ Game | Features | Extra Description
 [Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - HUD (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift` + `F4`)<br> - Vertical line markers in the world (`Shift` + `F5`)<br> - Rain (`Shift` + `F6`)
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle (`Caps Lock`)
 [Bayonetta](../../ShaderTogglers/bayonetta.ini) | Pause menu + In Game UI + Effects (`Caps Lock`)
-[Call of Juarez: Gunslinger](../../ShaderTogglers/call_of_juarez_gunslinger.ini) |  - HUD/Border (`F2`) <br> - Collor Correction (`F3`) <br> - Cell Shading Toggle (`F4`)
+[Call of Juarez: Gunslinger](../../ShaderTogglers/call_of_juarez_gunslinger.ini) |  - HUD/Border (`F2`) <br> - Color Correction (`F3`) <br> - Cell Shading Toggle (`F4`)
 [CONTROL](../../ShaderTogglers/control.ini) | HUD Toggle (`Caps Lock`)
 [Cyberpunk 2077](../../ShaderTogglers/cyberpunk_2077.ini) | HUD  (and some advertisement displays) (`Caps Lock`)
 [Death Stranding: Director's Cut](../../ShaderTogglers/death_stranding_directors_cut.ini) | Screen dirt, HUD, Odradek ping effects, Chiral Network boundary lines, Lost parcel glow, location lines, destination guide lines and footsteps (`F3`) | Player added icons dont hide for some reason

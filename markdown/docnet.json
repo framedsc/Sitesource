@@ -189,7 +189,7 @@
 			},
 			"Addon guides":
 			{
-				"Shader Toggler Repository" : "ReshadeGuides\\Addons\\shader_toggler_repository.md",
+				"ShaderToggler" : "ReshadeGuides\\Addons\\shader_toggler_repository.md",
 				"MSADOF" : "ReshadeGuides\\Addons\\MSADOF.md",
 			}
 		},
