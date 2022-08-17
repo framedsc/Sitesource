@@ -63,6 +63,7 @@ Do note that the add-on does not intercept compute shaders. This is why some eff
 
 <div class="figure">
 <a href="https://youtu.be/DjXn2kIxFjc" target="_blank"><img src="https://i.ytimg.com/vi_webp/DjXn2kIxFjc/maxresdefault.webp" alt="Shader Toggler Addon Video" /></a>
+</div>
 
 ---
 
