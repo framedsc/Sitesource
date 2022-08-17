@@ -10,8 +10,8 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (4.9.1+)
 Ansel | No
-Graphics API |  DirectX 12
-Guide Updated For Game Version | 1.52
+Graphics API | DirectX 12
+Game version | 1.52
  
 ## Tools
 
@@ -21,7 +21,7 @@ Guide Updated For Game Version | 1.52
 ## Essential Mods
 
 * [Cyber Engine Tweaks](https://www.nexusmods.com/cyberpunk2077/mods/107) / [Wiki](https://wiki.redmodding.org/cyber-engine-tweaks/)  
-Required by many mods.
+*Required by many mods.*
 
 ##  Mods for Setting Up Screenshots
 
@@ -97,7 +97,7 @@ An older version of this guide referenced photomode posing through a cheat table
 Additionally, posing using AMM is possible too.
 
 @alert tip
-You may also follow this fantastic [guide](https://docs.google.com/document/d/1Cj4vsnsX5MU7NnlbZakMjKsybXPUeA-h9oogRqmIhcM/edit) by Wench to better learn about using Photomode and setting up custom poses.
+You may also want to follow [this fantastic guide](https://docs.google.com/document/d/1Cj4vsnsX5MU7NnlbZakMjKsybXPUeA-h9oogRqmIhcM/edit) by Wench to learn about using Photomode and setting up custom poses in better detail.
 @end
 
 ## Useful Links

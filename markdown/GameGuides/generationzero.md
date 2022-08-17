@@ -11,6 +11,10 @@ Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
 Graphics API | DirectX 11
+
+@alert neutral  
+This guide and its tools are **outdated**. Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information. *(April 2019)* 
+@end
  
 ## Tools
 
@@ -27,7 +31,7 @@ Graphics API | DirectX 11
 ##Useful Links
 
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Generation_Zero)
-* [Rysefox Ce table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=2&t=8953)
-* [Pigeon Ce table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=4&t=8996&p=85100#p85100)
+* [Rysefox CE table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=2&t=8953)
+* [Pigeon CE table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=4&t=8996&p=85100#p85100)
 
 

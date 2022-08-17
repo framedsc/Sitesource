@@ -10,7 +10,11 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-Graphics API | DirectX 11
+Graphics API | Vulkan
+
+@alert neutral  
+This guide and its tools are **outdated**. Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information. *(September 2020)* 
+@end
 
 ## Tools
 

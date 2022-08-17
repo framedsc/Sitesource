@@ -8,7 +8,7 @@ Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes 
 Custom Aspect Ratios | Yes 
-Reshade | Yes (see notes about depth buffer)
+Reshade | Yes ([see notes](#hotsampling-and-depth-buffer-notes))
 Ansel | No
 Graphics API | DirectX 11
  
@@ -22,19 +22,19 @@ Graphics API | DirectX 11
 
 Key	| Command
 --|--
-HOME | Toggle menu
-INSERT | Toggle camera
-DELETE | Freeze time
-WASD / Left thumb | Move camera
-Q / Left trigger | Move up
-E / Right trigger | Move down
-Arrow keys / Right thumb | Rotate camera
-NUMPAD1 / Left shoulder | Roll left
-NUMPAD3 / Right shoulder | Roll right
-PAGE DOWN / Press LT | Zoom in
-PAGE UP / Press RT | Zoom out
+`HOME` | Toggle menu
+`INSERT` | Toggle camera
+`DELETE` | Freeze time
+`WASD` / <font face="Controller"><</font> | Move camera
+`Q` / <font face="Controller">{</font> | Move up
+`E` / <font face="Controller">}</font> | Move down
+Arrow keys / <font face="Controller">></font> | Rotate camera
+`Num 1` / <font face="Controller">[</font> | Roll left
+`Num 3` / <font face="Controller">]</font> | Roll right
+`PgDn` / Press LT | Zoom in
+`PgUp` / Press RT | Zoom out
 
-Hold roll left and right down for a second to reset roll  
+Hold roll left and right down for a second to reset roll.  
 
 Options for hi-def model spawning and camera based LOD. These work but after a while may cause model and level glitches. Can be fixed by disabling the options and restarting the level or game.
 
@@ -67,21 +67,21 @@ Timeflow can be used in conjunction with the Camera Tool TIMESTOP. For Slomo pre
 
 Key	| Command
 --|--
-F9 | activates script and sets time a mellow 0.3 
-SHIFT + F9 | sets time back to default 1.0 normal time.
-F5-F8 | almost stopped increasing to slow (useful for long exposure shots)
+`F9` | activates script and sets time a mellow 0.3 
+`SHIFT` + `F9` | sets time back to default 1.0 normal time.
+`F5` - `F8` | almost stopped increasing to slow (useful for long exposure shots)
 
 ## Car Chase Camera and HUD Contol
 This only works in vehicles and only when they are moving or have recently been moving.
 
 Key	| Command
 --|--
-NUMPAD_0 | activates vehicle chase camera. This will disable the camera rotation and allow these to be manually set.
-NUMPAD keys 4, 6, 8 and 5 | control pitch and yaw.
-NUMPAD keys 7 and 9 | decrease/increase camera distance to vehicle.
-NUMPAD_PLUS + 7 and NUMPAD_PLUS + 9 | decrease/increase camera FOV.  
-[ | disable the game HUD 
-] | re-enable the game HUD.
+`Num 0` | activates vehicle chase camera. This will disable the camera rotation and allow these to be manually set.
+`Num 4`, `Num 6` / `Num 5`, `Num 8` | control pitch and yaw.
+`Num 7` / `Num 9` | decrease/increase camera distance to vehicle.
+`Num +` + `Num 7` / `Num +` + `Num 9` | decrease/increase camera FOV.  
+`[` | disable the game HUD 
+`]` | re-enable the game HUD.
 
 ## Cheats
 
@@ -89,8 +89,8 @@ Manually enable Qi POWER AND HEAT script. Heat can be disabled by setting the NO
 
 Key	| Command
 --|--
-P | enables Qi power cheat
-Shift+P | disables cheat
+`P` | enables Qi power cheat
+`SHIFT`+`P` | disables cheat
 
 ## Hotsampling and Depth Buffer Notes
 

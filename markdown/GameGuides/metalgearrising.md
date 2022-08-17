@@ -6,7 +6,7 @@ Feature | Supported
 --|--
 Vanilla Photo Mode | No
 Hotsampling | No
-DSR/Custom Resolution | Yes (Read Below)
+DSR | Yes ([see notes](#dsrcustom-resolution))
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
@@ -35,7 +35,9 @@ The game supports only until 1080p by default. The 1080p option will look normal
 
 4. Ingame, go to Options> Graphic Options and set the resolution to 800x600. This is the new resolution that you created.
 
-**Note:** The game will change the resolution back to 1080p on launch, so you have to manually change it everytime you play. 
+@alert info
+The game will change the resolution back to 1080p on launch, so you have to manually change it everytime you play. 
+@end
 
 ### DSR/Custom Resolution 
 
@@ -49,7 +51,9 @@ If you want to increase the resolution beyond your monitor's native resolution, 
 
 4. Launch the game and once ingame set the resolution to 800x600. This method works both with windowed mode and fullscreen.
 
-**Note:**  The reason for changing resolution in windows settings is because the game switches back to 1080p once you go fullscreen, and windowed mode is overscaled with no way to resize the window. The game only supports 16:9 resolutions. Trying a resolution with a different aspect ratio stretches the image (This was tested on a 16:9 monitor, so it might behave different on ultrawide monitors).
+@alert info 
+The reason for changing resolution in windows settings is because the game switches back to 1080p once you go fullscreen, and windowed mode is overscaled with no way to resize the window. The game only supports 16:9 resolutions. Trying a resolution with a different aspect ratio stretches the image (This was tested on a 16:9 monitor, so it might behave different on ultrawide monitors).
+@end
 
 ### ReShade Support
 

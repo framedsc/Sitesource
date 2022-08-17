@@ -5,7 +5,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes*
+Hotsampling | Yes (with tools)
 DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
@@ -19,10 +19,9 @@ Graphics API | DirectX 11
 * [Hud Removal Tool by Otis_inf](https://mega.nz/#!FQQShJyS!Ipg4CycflblD2LvZdlfQMgl29ptx_yqPX_HA03u5hoU)  
 **Features**: Toggle for the in-game HUD
 
-### Additional Notes
-
-* In order to use camera tools you need to desable anti-cheat by launching the game with the **-eac_launcher** command line argument
-* Game support hotsampling only with camera tools (see discription in archive)
+@alert important
+In order to use the camera tools, you need to disable anti-cheat by launching the game with the **-eac_launcher** command line argument.
+@end
 
 ## Useful Links
 

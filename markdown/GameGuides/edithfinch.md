@@ -5,12 +5,16 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes (read Hotsampling section)
+Hotsampling | Yes ([see notes](#hotsampling))
 DSR | No
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
 Graphics API | DirectX 11
+
+@alert neutral  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+@end
  
 ## Tools
 
@@ -34,9 +38,9 @@ Graphics API | DirectX 11
     - Num 1: Tilt the camera left
     - Num 3: Tilt the camera right
 
-Keep in mind that in order to use any of the buttoms above you will have to freeze said values so the games doesnt change them back. You will see a "fov stop","xy stop", etc. boxes in the cheat engine table that need to be ticked in order to change the values correctly with the controls. I would suggest you to make a hotkey with all "stop" boxes so you can activate them all at once (dont freeze rot stop or you wont be able to move the camera direction with the mouse).
+Keep in mind that in order to use any of the buttons above, you will have to freeze said values so the games doesn't change them back. You will see a "fov stop","xy stop", etc. boxes in the cheat engine table that need to be ticked in order to change the values correctly with the controls. I would suggest making a hotkey with all "stop" boxes so you can activate them all at once (don't freeze rot stop or you won't be able to look around with the mouse).
 
-If you need to move faster you can edit the table or modify the values directly in the table.
+If you need to move faster, you can edit the table or modify the values directly in the table.
 
 ## Disable chromatic aberration
 
@@ -49,7 +53,7 @@ r.SceneColorFringe.Max=0
 
 ## Hotsampling
 
-Hotsampling works with the game, the only problem comes after rezising the window altabing to the game which it rezise again to the previous resolution. For taking shoots i suggest using MSI Afterburner (and install RivaTurner that comes with the installation) wich will allow you to take photos without being in the window of the game (be sure to config the desire hotkey in the configs of MSI Afterburner).
+Hotsampling works with the game, the only problem comes after resizing the window and alt-tabing back to the game, which causes it to resize again to the previous resolution. For taking shots, I suggest using MSI Afterburner (and installing RivaTurner that comes with the installation) which will allow you to take photos without being focused on the game (be sure to configure the desired hotkey in MSI Afterburner).
 
 ## Custom Resolution
 

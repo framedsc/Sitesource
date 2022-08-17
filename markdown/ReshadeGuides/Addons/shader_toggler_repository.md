@@ -55,9 +55,14 @@ This creates a `ShaderToggler.ini` file in the same directory as the ADDON file.
 
 ### Doing even more!
 
-HUD hiding is only one thing possible with ShaderToggler. The process above can easily be used to hide so much more, from various post-processing effects to whole render passes with pixel shader toggles, and even characters or foilage from a scene with vertex shader toggles.
+HUD hiding is only one thing possible with ShaderToggler. The process above can easily be used to hide so much more, from various post-processing effects to whole render passes with pixel shader toggles, and even characters or foliage from a scene with vertex shader toggles.
 
 Do note that the add-on does not intercept compute shaders. This is why some effects, like some UE4 DOF implementations, can't be removed with ShaderToggler.
+
+### Video example
+
+<div class="figure">
+<a href="https://youtu.be/DjXn2kIxFjc" target="_blank"><img src="https://i.ytimg.com/vi_webp/DjXn2kIxFjc/maxresdefault.webp" alt="Shader Toggler Addon Video" /></a>
 
 ---
 

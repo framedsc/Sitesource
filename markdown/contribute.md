@@ -31,7 +31,38 @@ An exception to this is cheat tables. We prefer to archive those internally, pro
 
 ### Updating guides
 
-If you notice an error in a guide or you simply want to extend an existing guide, you may access the [site source](https://github.com/framedsc/Sitesource). From there, open the markdown folder and navigate to the .md file of the guide you wish to edit. 
+If you notice an error in a guide or you simply want to extend an existing guide, you may access the [site source](https://github.com/framedsc/Sitesource). From there, open the markdown folder and navigate to the .md file of the guide you wish to edit. You may download the .md file and edit it offline, or you can use GitHub's editing tool to make a quick edit that will request a pull to the site immediately.
+
+![edit guide](Images/contribute_edit-example.png){.shadowed .autosize}
+
+#### Marking outdated guides
+
+There are some outdated tools and guides on the site that we haven't been able to catch! If you notice any of them, do alert the site admins or create a pull request adding the following [alert box](#alert-boxes) underneath the summary table.
+
+@alert neutral  
+This guide and its tools are **outdated**. Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information. *(September 2020)* 
+@end
+
+```
+[...]
+Game version | 1.19.0
+
+@alert neutral  
+This guide and its tools are **outdated**. Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information. *([estimate the last month the information was relevant])* 
+@end
+```
+
+Similarly, there are some guides for UE4 games that were written before the UUU was released, referencing cheat tables that are no longer necessary. *Alternatively, they may be unique UE4 games that require additional game-specific info.* These guides can be marked using this alert box.
+
+@alert neutral  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+@end
+
+```
+@alert neutral  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+@end
+```
 
 ### Etiquette
 

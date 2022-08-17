@@ -15,7 +15,7 @@ Graphics API | DirectX 11, DirectX 12
 ##Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV, AR correction
+**[Features](https://opm.fransbouma.com/Cameras/sottr.htm)**: Camera control, FoV, AR correction
 
 @alert Important
 The camera tools work together with the photomode in the game. Please read the enclosed readme.txt for details about that.

@@ -8,7 +8,7 @@ Vanilla Photo Mode | No
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Yes (read below)
+Reshade | Yes ([see notes](#reshade))
 Ansel | No
 Graphics API | DirectX 11
  
@@ -19,20 +19,20 @@ Graphics API | DirectX 11
  
 Key | Function
 --|--|
-Insert | Toggle Camera
-Delete | Freeze Time
-Home | Toggle Game's UI
-F5 | Toggle Tool's UI
-WASD | Move Camera
-Mouse, Arrow Keys | Rotate Camera
-Numpad 1/Numpad 3 | Tilt camera left/right
-PageUp/PageDown | Increase/Decrease FoV
-Inside Tool's UI | Whater control
-Inside Tool's UI | Time of day control
-Inside Tool's UI | Depth of Field
+`INS` | Toggle camera
+`DEL` | Freeze time
+`HOME` | Toggle game UI
+`F5` | Toggle tool UI
+WASD | Move camera
+Mouse, Arrow Keys | Rotate camera
+`Num 1` / `Num 3` | Tilt camera left / right
+`PgUp` / `PgDn` | Increase / Decrease FoV
+*Inside tool UI* | Weather control
+*Inside tool UI* | Time of day control
+*Inside tool UI* | Depth of field control
  
 @alert tip 
-Tool won't work with DirectX 12, so make sure it's not enabled on your video settings.
+Tools won't work with DirectX 12, so make sure it's not enabled on your video settings.
 @end
  
 ## Troubleshooting
@@ -47,19 +47,19 @@ You should be fine with running both the game and the tools as admin, you might 
 If nothing above worked, which is unlikely, *try restarting your PC* or just *be patient and keep trying*.
  
 @alert important
-Use the tools at your own risk! Even though the game hasn't received an update in a long time, there still chance for you to get banned, I'd recommend to not spend much time with the tools on the PvP areas known as Dark Zones.
+**Use the tools at your own risk!** Even though the game hasn't received an update in a long time, there still chance for you to get banned, I'd recommend to not spend much time with the tools on the PvP areas known as Dark Zones.
 @end
  
 ## Reshade
  
-Since the game is always online you won't be able to use the depth buffer with the common reshade installer, you will need to use a custom reshade build that doesn't block the use of reshade if the game is connected to the internet. You can find more about it [here](https://framedsc.github.io/ReshadeGuides/setupreshade.htm#depth-buffer-on-online-games).
+Since the game is always online, you won't be able to use the depth buffer with the common Reshade installer, you will need to use a custom Reshade build that doesn't block the use of Reshade if the game is connected to the internet. You can find more about it [here](https://framedsc.github.io/ReshadeGuides/setupreshade.htm#depth-buffer-on-online-games).
  
  
 ## Hotsampling
  
-Since you are running the game as admin you would also need to run SRWE as admin for the game process to show up. 
+Since you are running the game as admin, you would also need to run SRWE as admin for the game process to show up. 
  
-Additionally, when hotsampling some tools configurations get reseted, like the blending between wheaters, so beware of that.
+Additionally, when hotsampling some tool configurations get reseted, like the blending between weathers, so beware of that.
  
 ## Useful Link
  
