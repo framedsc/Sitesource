@@ -96,7 +96,7 @@ bind "F4" "timescale 1"
 bind "F6" "toggle g_freecam"
 bind "F7" "cvarRandom g_stopTime 1 1"
 bind "F8" "cvarRandom g_stopTime 0 0"
-bind "KP_ADD" "cvaradd g_fov 1, "
+bind "KP_PLUS" "cvaradd g_fov 1, "
 bind "KP_MINUS" "cvaradd g_fov -1"
 bind "F12" "devgui 1"
 ```
