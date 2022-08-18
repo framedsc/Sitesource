@@ -131,12 +131,3 @@ Bind a key to execute your custom configuration. This will avoid having to type 
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Wolfenstein:_The_Old_Blood)
-
-
-## *do not include*
-Please rename `game_header.png` and the name of this .MD file appropriately!  
-The included font file, Galano Grotesque Alt Bold, is used in the .PSD headers.  
-
-https://framedsc.com/ is generated with DocNet and features extended Markdown formatting not displayed in typical previews. Learn about writing Markdown with DocNet [here](http://fransbouma.github.io/DocNet/WritingcontentusingMarkdown.htm).
-
-Thanks for contributing to FRAMED!
