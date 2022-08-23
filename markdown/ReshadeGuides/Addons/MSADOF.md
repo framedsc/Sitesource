@@ -138,7 +138,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Days Gone                           | 9.9500     | 320 | ✖                       | 1                  | 0.100                 | X        |Setting AA to 0 will result in a loss of HUD and console access.|
 | Draugen                             | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | ECHO                                | 0.5600     | 180 | ✖                       | 2                  | 0.100                 | X        |No custom AR possible.|
-| Elden Ring					                | 0.0500		 | 180 | ✖ 				               | 2				          | 0.001             	  | X        |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
+| Elden Ring                          | 0.0500     | 180 | ✖                       | 2                  | 0.001                 | X        |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
 | Final Fantasy VII Remake Intergrade | 5.6250     | 180 | ✖                       | 2                  | 0.100                 | X        ||
 | Hellblade: Senua's Sacrifice        | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Kena: Bridge of Spirits             | 9.9965     | 180 | ✔                       | 4                  | 0.100                 | X        ||
@@ -148,12 +148,12 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | MotoGP 19                           | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Observer: System Redux              | 9.9965     | 180 | ✔                       | 3                  | 0.100                 | X        ||
 | Omno                                | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
-| Resident Evil 2	(DX12)              | 0.0100     | 180 | ✔                       | 1                  | 0.001                 | X        ||
-| Resident Evil 3	(DX12)              | 0.0100     | 180 | ✔                       | 1                  | 0.001                 | X        ||
+| Resident Evil 2	(DX12)            | 0.0100     | 180 | ✔                       | 1                  | 0.001                 | X        ||
+| Resident Evil 3	(DX12)            | 0.0100     | 180 | ✔                       | 1                  | 0.001                 | X        ||
 | SCARLET NEXUS                       | 9.9965     | 180 | ✔                       | 1                  | 0.100                 | X        ||
 | Sifu                                | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Star Wars Jedi: Fallen Order        | 9.9995     | 180 | ✖                       | 1                  | 0.100                 | X        ||
-| Stray						                    | 0.5625     | 180 | ✖                       | 1                  | 0.100                 | X        ||
+| Stray                               | 0.5625     | 180 | ✖                       | 1                  | 0.100                 | X        ||
 | Tales of Arise                      | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Tell Me Why                         | 9.9965     | 180 | ✔                       | 1                  | 0.100                 | X        ||
 | The Ascent                          | 9.9965     | 180 | ✔                       | 1                  | 0.100                 | X        ||
