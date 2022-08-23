@@ -143,6 +143,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Hellblade: Senua's Sacrifice        | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Kena: Bridge of Spirits             | 9.9965     | 180 | ✔                       | 4                  | 0.100                 | X        ||
 | Life is Strange: True Colors        | 9.9965     | 180 | ✔                       | 1                  | 0.100                 | X        ||
+| Marvel's Spider-Man Remastered      | 0.0775     | 140 | ✔                       | 2                  | 0.001                 | X        ||
 | Mortal Shell                        | 9.9965     | 180 | ✔                       | 4                  | 0.100                 | X        ||
 | MotoGP 19                           | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Observer: System Redux              | 9.9965     | 180 | ✔                       | 3                  | 0.100                 | X        ||
@@ -164,6 +165,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Twin Mirror                         | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Vampire: The Masquerade - Swansong  | 1.0000     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 | Visage                              | 9.9965     | 180 | ✔                       | 2                  | 0.100                 | X        ||
+| Way of the Hunter                   | 1.0000     | 180 | ✔                       | 2                  | 0.100                 | X        ||
 
 
 
