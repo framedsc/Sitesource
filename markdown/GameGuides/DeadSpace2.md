@@ -28,46 +28,39 @@ Customize hotkeys and their functions by selecting entry and pressing `Ctrl+H`. 
 
 ## [Cheat Table](../CheatTables/deadspace2_v2a.CT) Features:
 
-DETACHED FREE CAMERA
+### Detached Free Camera
   1. Ctrl+NUMPAD_0 activates camera, detaching it from Isaac. Press again to deactivate.
   2. Also detaches the camera from the mouse. Do not move the mouse if you want the flashlight and lasers. 
   3. Use the classic aiming HUD as the centered HUD is always in the center of the screen. 
-  4. FLY - No modifier
-      (Below, NUMPAD keys...)
-      MOVE: Forward, backward, left, right - 8, 5, 4, 6
-      FLY: Up, down - 9, 7
-  5. AIM - Hold down PLUS
-      (Below, NUMPAD keys...) 
-      PAN: Up, down, left, right - 8, 5, 4, 6
-      ZOOM: In, out - 9, 7 (reset to default: Ctrl+NUMPAD *)
-      TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)
+  4. FLY - No modifier  
+      (Below, NUMPAD keys...)  
+      MOVE: Forward, backward, left, right - 8, 5, 4, 6  
+      FLY: Up, down - 9, 7  
+  5. AIM - Hold down PLUS  
+      (Below, NUMPAD keys...)  
+      PAN: Up, down, left, right - 8, 5, 4, 6  
+      ZOOM: In, out - 9, 7 (reset to default: Ctrl+NUMPAD *)  
+      TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)  
 
-TIME CONTROL
+### Time Control
   1. Activate the script manually, press Ctrl+0 to toggle pause time.
-  2. Game Speed  keybinds - [Ctrl + 9 - slomo 0.3]
+  2. Game Speed  keybinds - [Ctrl + 9 - slomo 0.3]  
+The game speed multiplier: 1.00 - default, >1 faster, 0 (and lower) pauses the game, while still able to control the camera.  
 
-NOTES
+### Notes
   1. Hotsampling does not seem to work when CE is running. Set game to desired DSR resolution before starting CE. (it runs well at large resolutions)
   2. Run Dead Space 2, set resolution to desired screenshooting resolution, open table in CE and enable the Attach to game process "deadspace2.exe" script.
   3. Time control and camera work during in-game cutscenes.
 
 ### Extra Cheats
 
-- Timescale
-
-Timescale is game speed multiplier. 1.00 - default, >1 faster, 0 (and lower) pauses the game, while still able to control the camera. 
-
-Controls|CTRL +
---|--
-Timefreeze|0
-Slomo (0.3)|9
-
 - Invisible - enemies don't see you.
 - Disable Gravity - 0g anywhere.
 - New Game Checkpoint & Suit Changer
-- ...
+- Other
 
 ### Other scripts
+(see previous [Cheat Table](../CheatTables/DeadSpace2_camera.CT) version)
 
 #### Relative Camera Control (RCC)
 Control the camera position, relative to player. Limited by walls. 
