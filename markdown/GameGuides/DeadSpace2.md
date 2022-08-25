@@ -27,6 +27,7 @@ Change the selected value by pressing `Enter` or double clicking on it.
 Customize hotkeys and their functions by selecting entry and pressing `Ctrl+H`. Hotkeys work even if game window is minimized, so it's better to use unusual combinations.
 
 ## [Cheat Table](../CheatTables/deadspace2_v2a.CT) Features:
+(credits: [GhostInTheCamera](https://github.com/ghostinthecamera/), [r3sus](https://github.com/r3sus/), [One3rd](https://github.com/One3rd/))
 
 ### Detached Free Camera
   1. Ctrl+NUMPAD_0 activates camera, detaching it from Isaac. Press again to deactivate.
@@ -108,7 +109,7 @@ Y|Num +/-
 
 Controls are not handy, as they move camera in absolute coordinate system. Recommended to use after RCC.
 
-Credits: [Notes by GhostInTheCamera.](https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space%202/notes.txt)
+Credits: Notes by [GhostInTheCamera](https://github.com/ghostinthecamera/).
 
 ## Useful Links
 
