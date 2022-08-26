@@ -3,24 +3,12 @@
   <CheatEntries>
     <CheatEntry>
       <ID>303</ID>
-      <Description>"Attach to game process "deadspace2.exe""</Description>
+      <Description>"Attach to game process "deadspace...""</Description>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 {$Lua}
-openProcess("deadspace2.exe")
-[DISABLE]
-
-</AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82667</ID>
-      <Description>"Deattach (test)"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-{$Lua}
-openProcess("cheatengine")
+openProcess("deadspace")
 [DISABLE]
 
 </AssemblerScript>
@@ -39,6 +27,44 @@ LuaCall(cycleFullCompact(nil,false))
     </CheatEntry>
     <CheatEntry>
       <ID>82665</ID>
+      <Description>"Credits"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FFFFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>82669</ID>
+          <Description>"GhostInTheCamera"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C08000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82670</ID>
+          <Description>"One3rd"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82671</ID>
+          <Description>"r3sus"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82675</ID>
+          <Description>"Jim2point0"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82668</ID>
       <Description>"Adjust the hotkeys to your liking by selecting entry and pressing `Ctrl+H`"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <Color>FF0000</Color>
@@ -51,113 +77,30 @@ LuaCall(cycleFullCompact(nil,false))
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
-      <ID>13954</ID>
+      <ID>82672</ID>
       <Description>"DETACHED FREE CAMERA"</Description>
       <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13959</ID>
-      <Description>"  1. Ctrl+NUMPAD_0 activates camera, detaching it from Isaac. Press again to deactivate."</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13997</ID>
-      <Description>"  2. Also detaches the camera from the mouse. Do not move the mouse if you want the flashlight and lasers. "</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82659</ID>
-      <Description>"  3. Use the classic aiming HUD as the centered HUD is always in the center of the screen. "</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13296</ID>
-      <Description>"  4. FLY - No modifier"</Description>
-      <LastState Value="" RealAddress="00000000"/>
       <Color>000000</Color>
       <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13290</ID>
-      <Description>"      (Below, NUMPAD keys...)"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13298</ID>
-      <Description>"      MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13297</ID>
-      <Description>"      FLY: Up, down - 9, 7"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13292</ID>
-      <Description>"  5. AIM - Hold down PLUS"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13339</ID>
-      <Description>"      (Below, NUMPAD keys...)"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13244</ID>
-      <Description>"      PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13246</ID>
-      <Description>"      ZOOM: In, out - 9, 7 (reset to default: Ctrl + NUMPAD *)"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13242</ID>
-      <Description>"      TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>000000</Color>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13962</ID>
-      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>483</ID>
-      <Description>"Free Camera"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <Color>0000FF</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+      <CheatEntries>
+        <CheatEntry>
+          <ID>483</ID>
+          <Description>"Free Camera (ds2/3)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(FreeCam,$process,E8 ? ? ? ? 8B 4D 0C 0F 28 00 0F 29 01 ??) // 8B for ds2, 5D for ds3, ds1 - not found
+define(FreeCam,FreeCam+8)
+aobscanmodule(CameraWrite,$process,E8 ?? ?? ?? ?? 8B CE E8 ?? ?? ?? ?? 8B CE C6 86 ?? ?? ?? ?? ?? E8)  // should be unique
+define(CameraWrite,CameraWrite+5)
 
-aobscanmodule(FreeCam,deadspace2.exe,0C 0F 28 00 0F 29 01 8B)
-aobscanmodule(CameraWrite,deadspace2.exe,E8 ?? ?? ?? ?? 8B CE E8 ?? ?? ?? ?? 8B CE C6 86 ?? ?? ?? ?? ?? E8)  // should be unique
 alloc(newmem,$1000)
 registersymbol(FreeCam)
 registersymbol(CameraWrite)
 registersymbol(camAddress)
+
 label(camAddress)
 label(return)
 
@@ -172,24 +115,24 @@ camAddress:
   dq 0
 //
 
-FreeCam+01:
+FreeCam:
   jmp newmem
   nop
 return:
 
 // call to code that writes to mouse/light position
-CameraWrite+7:
-//alt: deadspace2.exe+44D651: // - E8 0AECFFFF           - call deadspace2.exe+44C260
-  db 90 90 90 90 90
+CameraWrite:
+  db EB 05 // jump 5 bytes over call
 
 [DISABLE]
 
-FreeCam+01:
-  db 0F 28 00 0F 29 01
+FreeCam:
+  movaps xmm0,[eax]
+  movaps [ecx],xmm0
+//  db 0F 28 00 0F 29 01
 
-CameraWrite+7:
-// alt: deadspace2.exe+44D651: // - E8 0AECFFFF           -
-  call deadspace2.exe+44C260
+CameraWrite:
+  mov ecx,esi // db 8B CE
 
 unregistersymbol(FreeCam)
 unregistersymbol(CameraWrite)
@@ -216,12 +159,12 @@ deadspace2.exe+393331: 0F 29 01              - movaps [ecx],xmm0
 deadspace2.exe+393334: 8B E5                 - mov esp,ebp
 deadspace2.exe+393336: 5D                    - pop ebp
 deadspace2.exe+393337: C2 08 00              - ret 0008
-deadspace2.exe+39333A: CC                    - int 3 
-deadspace2.exe+39333B: CC                    - int 3 
-deadspace2.exe+39333C: CC                    - int 3 
-deadspace2.exe+39333D: CC                    - int 3 
-deadspace2.exe+39333E: CC                    - int 3 
-deadspace2.exe+39333F: CC                    - int 3 
+deadspace2.exe+39333A: CC                    - int 3
+deadspace2.exe+39333B: CC                    - int 3
+deadspace2.exe+39333C: CC                    - int 3
+deadspace2.exe+39333D: CC                    - int 3
+deadspace2.exe+39333E: CC                    - int 3
+deadspace2.exe+39333F: CC                    - int 3
 }
 
 {
@@ -259,482 +202,563 @@ deadspace2.exe+44D67B: 76 0A                 - jna deadspace2.exe+44D687
 }
 
 </AssemblerScript>
-      <Hotkeys>
-        <Hotkey>
-          <Action>Toggle Activation</Action>
-          <Keys>
-            <Key>96</Key>
-            <Key>17</Key>
-          </Keys>
-          <ID>0</ID>
-        </Hotkey>
-      </Hotkeys>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>13231</ID>
-          <Description>"X"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>0</Offset>
-          </Offsets>
           <Hotkeys>
             <Hotkey>
-              <Action>Decrease Value</Action>
+              <Action>Toggle Activation</Action>
               <Keys>
-                <Key>100</Key>
-              </Keys>
-              <Value>0.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>102</Key>
-              </Keys>
-              <Value>0.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>102</Key>
-              </Keys>
-              <Value>0.5</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>100</Key>
-              </Keys>
-              <Value>0.5</Value>
-              <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>102</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>100</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>5</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13233</ID>
-          <Description>"Z"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>4</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>105</Key>
-              </Keys>
-              <Value>0.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>103</Key>
-              </Keys>
-              <Value>0.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>105</Key>
-              </Keys>
-              <Value>0.5</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>103</Key>
-              </Keys>
-              <Value>0.5</Value>
-              <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>105</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>103</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>5</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13232</ID>
-          <Description>"Y"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>8</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>104</Key>
-              </Keys>
-              <Value>0.1</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>101</Key>
-              </Keys>
-              <Value>0.1</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>104</Key>
-              </Keys>
-              <Value>0.5</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>101</Key>
-              </Keys>
-              <Value>0.5</Value>
-              <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>104</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>101</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>5</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13234</ID>
-          <Description>"Y - Pitch - ↑↓"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>20</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>104</Key>
-              </Keys>
-              <Value>0.05</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>101</Key>
-              </Keys>
-              <Value>0.05</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>107</Key>
-                <Key>104</Key>
-              </Keys>
-              <Value>0.2</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>107</Key>
-                <Key>101</Key>
-              </Keys>
-              <Value>0.2</Value>
-              <ID>5</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>107</Key>
-                <Key>104</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>107</Key>
-                <Key>101</Key>
-              </Keys>
-              <Value>0.01</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13235</ID>
-          <Description>"X -Yaw ↔"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>24</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>102</Key>
-              </Keys>
-              <Value>.05</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>100</Key>
-              </Keys>
-              <Value>.05</Value>
-              <ID>3</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>107</Key>
-                <Key>102</Key>
-              </Keys>
-              <Value>0.2</Value>
-              <ID>4</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>107</Key>
-                <Key>100</Key>
-              </Keys>
-              <Value>0.2</Value>
-              <ID>5</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>107</Key>
-                <Key>102</Key>
-              </Keys>
-              <Value>.01</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>18</Key>
-                <Key>107</Key>
-                <Key>100</Key>
-              </Keys>
-              <Value>.01</Value>
-              <ID>1</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13236</ID>
-          <Description>"Tilt  - Roll"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>28</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>99</Key>
-              </Keys>
-              <Value>.02</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>97</Key>
-              </Keys>
-              <Value>0.02</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Set Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>98</Key>
-              </Keys>
-              <Value>0</Value>
-              <ID>2</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Set Value</Action>
-              <Keys>
-                <Key>107</Key>
                 <Key>96</Key>
-              </Keys>
-              <Value>1.5</Value>
-              <ID>3</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>13237</ID>
-          <Description>"FOV"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>camAddress</Address>
-          <Offsets>
-            <Offset>30</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Decrease Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>105</Key>
-              </Keys>
-              <Value>0.08</Value>
-              <ID>0</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Increase Value</Action>
-              <Keys>
-                <Key>107</Key>
-                <Key>103</Key>
-              </Keys>
-              <Value>0.08</Value>
-              <ID>1</ID>
-            </Hotkey>
-            <Hotkey>
-              <Action>Set Value</Action>
-              <Keys>
-                <Key>106</Key>
                 <Key>17</Key>
               </Keys>
-              <Value>1.221730471</Value>
-              <ID>2</ID>
+              <ID>0</ID>
             </Hotkey>
           </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13231</ID>
+              <Description>"X"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>camAddress</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13233</ID>
+                  <Description>"Z"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13232</ID>
+                  <Description>"Y"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13234</ID>
+                  <Description>"Y - Pitch - ↑↓"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13235</ID>
+                  <Description>"X -Yaw ↔"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+00000024</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>.05</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>.05</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13236</ID>
+                  <Description>"Tilt  - Roll"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+00000028</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>99</Key>
+                      </Keys>
+                      <Value>.02</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>97</Key>
+                      </Keys>
+                      <Value>0.02</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>98</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>96</Key>
+                      </Keys>
+                      <Value>1.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13237</ID>
+                  <Description>"FOV"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+00000030</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.08</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.08</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>106</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>1.221730471</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13954</ID>
+          <Description>"Description"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13959</ID>
+              <Description>"  1. Ctrl+NUMPAD_0 activates camera, detaching it from Isaac. Press again to deactivate."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13997</ID>
+              <Description>"  2. Also detaches the camera from the mouse. Do not move the mouse if you want the flashlight and lasers. "</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82659</ID>
+              <Description>"  3. Use the classic aiming HUD as the centered HUD is always in the center of the screen. "</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13296</ID>
+              <Description>"  4. FLY - No modifier"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13290</ID>
+              <Description>"      (Below, NUMPAD keys...)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13298</ID>
+              <Description>"      MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13297</ID>
+              <Description>"      FLY: Up, down - 9, 7"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13292</ID>
+              <Description>"  5. AIM - Hold down PLUS"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13339</ID>
+              <Description>"      (Below, NUMPAD keys...)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13244</ID>
+              <Description>"      PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13246</ID>
+              <Description>"      ZOOM: In, out - 9, 7 (reset to default: Ctrl + NUMPAD *)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13242</ID>
+              <Description>"      TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>13995</ID>
+      <ID>82674</ID>
       <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
     </CheatEntry>
     <CheatEntry>
-      <ID>13956</ID>
+      <ID>82673</ID>
       <Description>"TIME CONTROL"</Description>
       <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
       <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13961</ID>
-      <Description>"  1. Activate the script manually, press Ctrl+0 to toggle pause time."</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82666</ID>
-      <Description>"  2. Press Ctrl+0 to toggle pause time."</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13994</ID>
-      <Description>"  3. Game Speed  keybinds - [Ctrl+9 - slomo 0.3]"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>13957</ID>
-      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>304</ID>
-      <Description>"Time Master"</Description>
-      <Options moHideChildren="1"/>
-      <LastState Activated="1"/>
-      <Color>0000FF</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : deadspace2.exe
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13956</ID>
+          <Description>"Description"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13961</ID>
+              <Description>"  1. Activate the script manually."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82666</ID>
+              <Description>"  2. Press Ctrl+0 to toggle pause time."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13994</ID>
+              <Description>"  3. Game Speed  keybinds - [Ctrl+9 - slomo 0.3]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>304</ID>
+          <Description>"Time Master"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : deadspace2.exe
   Version: 
   Date   : 2021-08-27
   Author : user
@@ -798,34 +822,35 @@ deadspace2.exe+36F39D: D9 C0                    - fld st(0)
 deadspace2.exe+36F39F: DD 05 28 7B AE 01        - fld qword ptr [deadspace2.exe+16E7B28]
 }
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>305</ID>
-          <Description>"Game Speed [value from 0.0 - 1.0]"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <Color>FF0000</Color>
-          <VariableType>Float</VariableType>
-          <Address>time</Address>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Set Value</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>57</Key>
-              </Keys>
-              <Value>0.3</Value>
-              <ID>0</ID>
-            </Hotkey>
-          </Hotkeys>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>82661</ID>
-          <Description>"timeStop (Ctrl + 0)"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <Color>0000FF</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
+          <CheatEntries>
+            <CheatEntry>
+              <ID>305</ID>
+              <Description>"Game Speed [value from 0.0 - 1.0]"</Description>
+              <LastState Value="-4.121455698E-32" RealAddress="7578F708"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>time</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>57</Key>
+                  </Keys>
+                  <Value>0.3</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82661</ID>
+              <Description>"timeStop (Ctrl + 0)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>0000FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
 
 {$Lua}
 
@@ -837,25 +862,28 @@ timeStop()
 
 timeStop()
 </AssemblerScript>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Toggle Activation</Action>
-              <Keys>
-                <Key>48</Key>
-                <Key>17</Key>
-              </Keys>
-              <ID>0</ID>
-            </Hotkey>
-          </Hotkeys>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>48</Key>
+                    <Key>17</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82650</ID>
+          <Description>"Time (static)"</Description>
+          <LastState Value="0" RealAddress="01EC51F0"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>01EC51F0</Address>
         </CheatEntry>
       </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82650</ID>
-      <Description>"Time (static)"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <VariableType>Float</VariableType>
-      <Address>01EC51F0</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>13952</ID>
@@ -868,27 +896,15 @@ timeStop()
       <Description>"CHEATS"</Description>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82641</ID>
-      <Description>"  1. Manually enable cheat scripts to use."</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82642</ID>
-      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>292</ID>
-      <Description>"Invisible - enemies don't see you"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <Color>0000FF</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+      <CheatEntries>
+        <CheatEntry>
+          <ID>292</ID>
+          <Description>"Invisible - enemies don't see you"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 aobscanmodule(ghostModeHook,deadspace2.exe,8D 9B 00 00 00 00 8B 4C 24 20 8B 54 24 24) // should be unique
 
 registersymbol(ghostModeHook)
@@ -925,25 +941,25 @@ deadspace2.exe+B81C50: E8 EB FB FF FF     - call deadspace2.exe+B81840
 deadspace2.exe+B81C55: 8B 76 04           - mov esi,[esi+04]
 }
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>293</ID>
-          <Description>"Toggle with (Ctrl+')"</Description>
-          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">74:disabled
+          <CheatEntries>
+            <CheatEntry>
+              <ID>293</ID>
+              <Description>"Toggle with (Ctrl+')"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">74:disabled
 EB:enabled
 </DropDownList>
-          <ShowAsHex>1</ShowAsHex>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Byte</VariableType>
-          <Address>ghostModeHook</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>419</ID>
-          <Description>"Invisibility"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>ghostModeHook</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>419</ID>
+              <Description>"Invisibility"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
  
 ghostModeHook:
 db EB
@@ -953,27 +969,27 @@ db EB
 ghostModeHook:
 db 74
 </AssemblerScript>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Toggle Activation</Action>
-              <Keys>
-                <Key>222</Key>
-                <Key>17</Key>
-              </Keys>
-              <ID>0</ID>
-            </Hotkey>
-          </Hotkeys>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>222</Key>
+                    <Key>17</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>417</ID>
-      <Description>"Disable Gravity - 0g"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <Color>0000FF</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : deadspace2.exe
+        <CheatEntry>
+          <ID>417</ID>
+          <Description>"Disable Gravity - 0g"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : deadspace2.exe
   Version: 
   Date   : 2021-08-28
   Author : user
@@ -1032,25 +1048,25 @@ deadspace2.exe+B7286A: 83 C8 04                 - or eax,04
 deadspace2.exe+B7286D: EB 5D                    - jmp deadspace2.exe+B728CC
 }
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>420</ID>
-          <Description>" "</Description>
-          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">01:disabled
+          <CheatEntries>
+            <CheatEntry>
+              <ID>420</ID>
+              <Description>" "</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">01:disabled
 00:enabled
 </DropDownList>
-          <ShowAsHex>1</ShowAsHex>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Byte</VariableType>
-          <Address>0g</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>421</ID>
-          <Description>"toggle"</Description>
-          <Options moHideChildren="1"/>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>0g</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>421</ID>
+              <Description>"toggle"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
  
 0g:
 db 00
@@ -1060,26 +1076,26 @@ db 00
 0g:
 db 01
 </AssemblerScript>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Toggle Activation</Action>
-              <Keys>
-                <Key>17</Key>
-                <Key>57</Key>
-              </Keys>
-              <ID>0</ID>
-            </Hotkey>
-          </Hotkeys>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>57</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82648</ID>
-      <Description>"Nodes- enable script then enter equipment menu"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+        <CheatEntry>
+          <ID>82648</ID>
+          <Description>"Nodes- enable script then enter equipment menu"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
 alloc(newmem,2048)
 label(returnhere)
@@ -1109,25 +1125,25 @@ mov eax,[ecx+0000042C]
 dealloc(newmem)
 unregistersymbol(cores)
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>82649</ID>
-          <Description>"Nodes"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
-          <Address>cores</Address>
-          <Offsets>
-            <Offset>42C</Offset>
-          </Offsets>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82649</ID>
+              <Description>"Nodes"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>cores</Address>
+              <Offsets>
+                <Offset>42C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82657</ID>
-      <Description>"Undying (everyone)"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+        <CheatEntry>
+          <ID>82657</ID>
+          <Description>"Undying (everyone)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 // writes to to health..and a bunch of other stuff
 deadspace2.exe+B84D5C: // - F3 0F 11 87 E8 00 00 00   - movss [edi+000000E8],xmm0
 db 90 90 90 90 90 90 90 90
@@ -1137,14 +1153,14 @@ db 90 90 90 90 90 90 90 90
 deadspace2.exe+B84D5C: // - F3 0F 11 87 E8 00 00 00   -
 movss [edi+000000E8],xmm0
 </AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>82658</ID>
-      <Description>"Player Health"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82658</ID>
+          <Description>"Player Health"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 
 aobscanmodule(health,deadspace2.exe,D9 80 E8 00 00 00 C3 CC CC CC CC E8) // should be unique
 alloc(newmem,$1000)
@@ -1208,35 +1224,35 @@ deadspace2.exe+4A78CC: CC                 - int 3
 deadspace2.exe+4A78CD: CC                 - int 3
 }
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>82656</ID>
-          <Description>"Health Freeze"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>Float</VariableType>
-          <Address>healthAddress</Address>
-          <Offsets>
-            <Offset>e8</Offset>
-          </Offsets>
-          <Hotkeys>
-            <Hotkey>
-              <Action>Toggle Activation Allow Increase</Action>
-              <Keys>
-                <Key>186</Key>
-              </Keys>
-              <ID>0</ID>
-            </Hotkey>
-          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82656</ID>
+              <Description>"Health Freeze"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>healthAddress</Address>
+              <Offsets>
+                <Offset>e8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation Allow Increase</Action>
+                  <Keys>
+                    <Key>186</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>274</ID>
-      <Description>"New Game Checkpoint"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+        <CheatEntry>
+          <ID>274</ID>
+          <Description>"New Game Checkpoint"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
 
 aobscan(cp,00 00 00 11 00 00 00 64 73 5F 32 2E 73 74 72 00 00 00 00 29 ) // should be unique
@@ -1246,22 +1262,22 @@ registersymbol(cp)
 unregistersymbol(cp)
 //code from here till the end of the code will be used to disable the cheat
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>275</ID>
-          <Description>"string"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>336</ID>
-          <Description>"list"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">:ch01_hos
+          <CheatEntries>
+            <CheatEntry>
+              <ID>275</ID>
+              <Description>"string"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>336</ID>
+              <Description>"list"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">:ch01_hos
 XCENTKOWSK_C9C50BC_08B592A_v3:initial
 XPATEL1026_CB19946_663E415_v3:psych_hall
 XWREDE1485_CABCA9C_BD02F4C_v3:saferoom
@@ -1875,18 +1891,18 @@ XPITTS1020_C9BF8FE_1BF11FA_v3:initial
 XWORCH0111_CB664B3_86AB869_v3:initial
 :wb_props
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>384</ID>
-          <Description>"ch1"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XCENTKOWSK_C9C50BC_08B592A_v3:initial
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>384</ID>
+              <Description>"ch1"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XCENTKOWSK_C9C50BC_08B592A_v3:initial
 XPATEL1026_CB19946_663E415_v3:psych_hall
 XWREDE1485_CABCA9C_BD02F4C_v3:saferoom
 XPATEL1026_CAF3AE0_2277089_v3:observation_hall
@@ -1902,18 +1918,18 @@ XWREDE1485_CABCACE_EE9C9E0_v3:decompression
 XPATEL1026_CAFEC9A_3766035_v3:storage_suit_room
 XPATEL1026_CB23B4F_6ADCC74_v3:boss_room
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>385</ID>
-          <Description>"ch2"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>385</ID>
+              <Description>"ch2"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
 XWORCH0111_CABBCA9_1FBC885_v3:initial
 XPATEL1026_CA72E6D_682629F_v3:public_sector_01
 XWORCH0111_CABC023_65BE0B0_v3:public_sector_laundry
@@ -1931,18 +1947,18 @@ XWORCH1597_CAA5204_D8DC8E3_v3:infrastructure
 XWORCH1597_CA75275_379471B_v3:public_sector03
 XWORCH0111_CB2DB97_91B4B57_v3:public_sector03_courtyard
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>386</ID>
-          <Description>"ch3"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>386</ID>
+              <Description>"ch3"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
 XKATZ6792X_CA3E024_C467BF3_v3:initial_debug
 XWALKER429_CB06AC7_B670492_v3:Parish_Hall
 XCOTTS0634_CAF1FDB_4F274D1_v3:interrogation_room
@@ -1961,18 +1977,18 @@ XWALKER429_CAD5CAB_1FC723F_v3:Kong_Phase_one
 XWALKER429_CAE58B2_CB76F80_v3:Saferoom_Kong_tease
 XWALKER429_CAE57A0_095A203_v3:Consumer_Demo
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>82662</ID>
-          <Description>"ch6+7"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82662</ID>
+              <Description>"ch6+7"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
 XWREDE1485_C9CDD76_ECA8B4C_v3:initial
 XPATEL1026_C9BC646_49ED0DB_v3:admin
 XWREDE1485_C9BD282_2BE14EB_v3:admin_2
@@ -1993,18 +2009,18 @@ XWREDE1485_C9CDDBE_9C4F705_v3:boss_arena
 XPATEL1026_CADCC7A_D8D59BE_v3:transition_1
 XFITZGIBBO_CB28543_41839AD_v3:transition_2
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>390</ID>
-          <Description>"ch8"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>390</ID>
+              <Description>"ch8"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CB33557_40F0370_v3:/UNIFORM
 XPATEL1026_CAA5053_B2D0210_v3:initial
 XA1019863X_CAF8505_935401E_v3:Lounge
 XPATEL1026_CAA5053_B2D0213_v3:Workshop
@@ -2022,18 +2038,18 @@ XPATEL1026_CAA920B_A5C3AE0_v3:Brg_Tramstation
 XCALHOUN17_CB40B2E_06212B8_v3:Gravity_Tethers_Debug
 XA1019863X_CAF1E44_3AF26FF_v3:Capt_Nest
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>392</ID>
-          <Description>"ch9"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>392</ID>
+              <Description>"ch9"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CB33557_40F0370_v3:/UNIFORM
 XPATEL1026_C9B3BC9_4AB30E9_v3:Initial_debug
 XRODRIGUEZ_C9DB204_D6AD7EB_v3:Post_Moonquake_debug
 XRODRIGUEZ_C9BA2F2_45AF030_v3:Mining_Camp_Entrance_debug
@@ -2064,18 +2080,18 @@ XCOTTS0634_CAD9039_107BAA3_v3:IGC_9.01_Coming_To
 XCOTTS0634_CAD903C_918B745_v3:IGC_9.03_Drag_Tentacle
 XCOTTS0634_CAD9044_A5F692B_v3:IGC_9.04_Death_Of_A_Patient
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>388</ID>
-          <Description>"ch10"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>388</ID>
+              <Description>"ch10"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
 XRODRIGUEZ_CA9DF43_B576568_v3:initial
 XRODRIGUEZ_CAB748C_DF22FA0_v3:foyer_lower_debug
 XRODRIGUEZ_CAB5B99_D6D4980_v3:security_entry_debug
@@ -2091,18 +2107,18 @@ XRODRIGUEZ_CAB0F79_B0A8043_v3:security_checkpoint_3_debug
 XRODRIGUEZ_CABCB82_1902283_v3:moat_hallway_debug
 XRODRIGUEZ_CAB0C8E_E1C1D36_v3:mtb_foyer_debug
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>387</ID>
-          <Description>"ch11"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>387</ID>
+              <Description>"ch11"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
 XPATEL1026_CABF04E_B19D1CC_v3:initial_debug
 XMARINELLO_CB329BA_6B79796_v3:antechamber_pre_eyepoke_debug
 XMARINELLO_CB498E5_7E390DE_v3:chamber_eyepoke_debug
@@ -2120,23 +2136,23 @@ XMARINELLO_CB34C61_32DD84D_v3:marker_test_bed_insider_debug
 XMARINELLO_CB56026_842439A_v3:dementia_land_debug
 XRODRIGUEZ_CAE7CAE_1C2F11E_v3:marker_test_bed_escape_debug
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>29</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cp</Address>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>348</ID>
-      <Description>"New Game Suit Changer"</Description>
-      <Options moHideChildren="1"/>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
+        <CheatEntry>
+          <ID>348</ID>
+          <Description>"New Game Suit Changer"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
 
 aobscanmodule(cSuit,deadspace2.exe,F6 C1 01 74 ?? 53 68) // should be unique
@@ -2149,11 +2165,11 @@ cSuit+3:
   db 74
 unregistersymbol(cSuit)
 </AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>351</ID>
-          <Description>"list (embed, nums)"</Description>
-          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9FF4E4_4D00498_v3:PatientSuit
+          <CheatEntries>
+            <CheatEntry>
+              <ID>351</ID>
+              <Description>"list (embed, nums)"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9FF4E4_4D00498_v3:PatientSuit
 XPITTS1020_C9B946E_243D95F_v3:EngineeringSuit
 XBROWN1019_CA8FDF9_7CF9234_v3:SecuritySuit
 XHUANG1489_CB33557_40F0370_v3:VintageSuit
@@ -2189,30 +2205,32 @@ XBERTRAM18_CB77B64_121C6B2_v3:wMil
 XBERTRAM18_CB77B64_AC6AFA2_v3:wEngGray
 XBERTRAM18_CB77B65_466D468_v3:wBlVint
 </DropDownList>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>42</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cSuit+A-4+1</Address>
-          <Offsets>
-            <Offset>0</Offset>
-          </Offsets>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>349</ID>
-          <Description>"string"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>String</VariableType>
-          <Length>42</Length>
-          <Unicode>0</Unicode>
-          <CodePage>0</CodePage>
-          <ZeroTerminate>1</ZeroTerminate>
-          <Address>cSuit+A-4+1</Address>
-          <Offsets>
-            <Offset>0</Offset>
-          </Offsets>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>42</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cSuit+A-4+1</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>349</ID>
+              <Description>"string"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>42</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cSuit+A-4+1</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -2763,7 +2781,7 @@ dealloc(newmem)
 
  
  
-aobscanmodule(ptrBase,deadspace2.exe,83 C4 04 C7 87 ? ? ? ? 00 00 00 00 8B 87 ? ? ? ? 85 C0 0F 84) // should be unique
+aobscanmodule(ptrBase,$process,83 C4 04 C7 87 ? ? ? ? 00 00 00 00 8B 87 ? ? ? ? 85 C0 0F 84) // should be unique
 
 define(ptrBase,[ptrBase+1D])
 
@@ -3252,6 +3270,83 @@ db 0
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of call "Dead Space.exe"+7295E0</Description>
+      <AddressString>Dead Space.exe+73B17A</AddressString>
+      <Before>
+        <Byte>BD</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>61</Byte>
+        <Byte>E4</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>E8</Byte>
+        <Byte>6A</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call "Dead Space.exe"+4E8900</Description>
+      <AddressString>Dead Space.exe+4E8BE2</AddressString>
+      <Before>
+        <Byte>E9</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>19</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>E8</Byte>
+        <Byte>C2</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call "Dead Space.exe"+6D49C0</Description>
+      <AddressString>Dead Space.exe+742471</AddressString>
+      <Before>
+        <Byte>34</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>4A</Byte>
+        <Byte>25</Byte>
+        <Byte>F9</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>8B</Byte>
+        <Byte>D8</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols/>
   <Structures StructVersion="2">
     <Structure Name="camera" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
@@ -3273,6 +3368,6 @@ db 0
   1. Hotsampling does not seem to work when CE is running. Set game to desired DSR resolution before starting CE. (it runs well at large resolutions)
   2. Run Dead Space 2, set resolution to desired screenshooting resolution, open table in CE and enable the ``Attach to game process "deadspace2.exe"`` script.
   3. Time control and camera work during in-game cutscenes.
-Credits: ghostinthecamera, r3sus, One3rd
+Credits: ghostinthecamera, One3rd, Jim2point0, r3sus
 </Comments>
 </CheatTable>

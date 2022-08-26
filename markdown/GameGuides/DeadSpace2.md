@@ -18,7 +18,7 @@ Configuration is similar to [DS1.](https://steamcommunity.com/sharedfiles/filede
 ## Common Info
 
 **Easing attaching to process**  
-In settings, set auto-attach to `deadspace2.exe` or `dead` for short and tick `Even`.  
+In settings, set auto-attach to `deadspace` or `dead` for short and tick `Even`.  
 Alternatively, set and use hotkey `Attach to current foreground process`.  
 Otherwise, use script `Attach to game` or do it manually.
 
@@ -26,20 +26,24 @@ Change the selected value by pressing `Enter` or double clicking on it.
 
 Customize hotkeys and their functions by selecting entry and pressing `Ctrl+H`. Hotkeys work even if game window is minimized, so it's better to use unusual combinations.
 
-## [Cheat Table](../CheatTables/deadspace2_v2a.CT) Features:
-(credits: [GhostInTheCamera](https://github.com/ghostinthecamera/), [r3sus](https://github.com/r3sus/), [One3rd](https://github.com/One3rd/))
+## [Cheat Table](../CheatTables/deadspace2_v2b.CT) Features:
+credits: 
+[GhostInTheCamera](https://github.com/ghostinthecamera/)
+[One3rd](https://github.com/One3rd/)
+[r3sus](https://github.com/r3sus/) 
 
-### Detached Free Camera
+### Detached Free Camera 
+Supports both DS2 and DS3.  
   1. Ctrl+numpad_0 activates camera, detaching it from isaac. Press again to deactivate.
   2. Also detaches the camera from the mouse. Do not move the mouse if you want the flashlight and lasers. 
   3. Use the classic aiming hud as the centered hud is always in the center of the screen. 
   4. Position controls:   
 
-Name | Function | Numpad  
+DOF | Direction | Numpad  
 --|--|--
 Plane | forward, backward, left, right | 8, 5, 4, 6  
 Height | up, down | 9, 7  
-Aim | Angles | hold down Num+  
+Aim | Angles | hold down Num+ and ...  
 Pan | up, down, left, right | 8, 5, 4, 6  
 Zoom | in, out | 9, 7 (reset to default: ctrl+numpad*)  
 Tilt | left, right | 1, 3 (reset: 2, set to 90 degrees: 0)  
@@ -53,8 +57,8 @@ The game speed multiplier is 1.00 - default, >1 faster, 0 (and lower) pauses the
 
 ### Notes
   1. Hotsampling does not seem to work when CE is running. Set game to desired DSR resolution before starting CE. (it runs well at large resolutions)
-  2. Run Dead Space 2, set resolution to desired screenshooting resolution, open table in CE and enable the Attach to game process "deadspace2.exe" script. 
-  3. Time control and camera work during in-game cutscenes.
+  2. Run Dead Space 2, set the desired screenshooting resolution, open table in CE and enable the `Attach to game process` script. 
+  3. Time control and camera work during in-game cutscenes and in main menu.
 
 ### Extra Cheats
 
@@ -96,7 +100,7 @@ Char Size|PgUp/Dn
 
 Technical info: 
 
-This is the port of Jim2Point0's DS1 table. See [original description.](https://web.archive.org/web/20141021190640/flickr.com/groups/deadendthrills/discuss/72157631765632995/) Altho code differs, the same camera values with similar structure were found using CE's 'Group search'. The table only modifies values, without changes to code.
+This is the port of [Jim2Point0](https://github.com/jim2point0)'s DS1 table. See [original description.](https://web.archive.org/web/20141021190640/flickr.com/groups/deadendthrills/discuss/72157631765632995/) Altho code differs, the same camera values with similar structure were found using CE's 'Group search'. The table only modifies values, without changes to code.
 
 #### Free Camera
 Detaches camera from character. 
