@@ -15,9 +15,62 @@ Graphics API | 9
 Resolution can be changed in configuration file. GeDoSaTo is supported according to [whitelist](https://github.com/PeterTh/gedosato/blob/master/pack/config/whitelist.txt#L52). 
 Configuration is similar to [DS1.](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024) 
 
-## [Cheat Table](../CheatTables/DeadSpace2_camera.CT) Features:
+## Common Info
 
-### Relative Camera Control (RCC)
+**Easing attaching to process**  
+In settings, set auto-attach to `deadspace` or `dead` for short and tick `Even`.  
+Alternatively, set and use hotkey `Attach to current foreground process`.  
+Otherwise, use script `Attach to game` or do it manually.
+
+Change the selected value by pressing `Enter` or double clicking on it.
+
+Customize hotkeys and their functions by selecting entry and pressing `Ctrl+H`. Hotkeys work even if game window is minimized, so it's better to use unusual combinations.
+
+## [Cheat Table](../CheatTables/deadspace2_v2b.CT) Features:
+credits: 
+[GhostInTheCamera](https://github.com/ghostinthecamera/)
+[One3rd](https://github.com/One3rd/)
+[r3sus](https://github.com/r3sus/) 
+
+### Detached Free Camera 
+Supports both DS2 and DS3.  
+  1. Ctrl+numpad_0 activates camera, detaching it from isaac. Press again to deactivate.
+  2. Also detaches the camera from the mouse. Do not move the mouse if you want the flashlight and lasers. 
+  3. Use the classic aiming hud as the centered hud is always in the center of the screen. 
+  4. Position controls:   
+
+DOF | Direction | Numpad  
+--|--|--
+Plane | forward, backward, left, right | 8, 5, 4, 6  
+Height | up, down | 9, 7  
+Aim | Angles | hold down Num+ and ...  
+Pan | up, down, left, right | 8, 5, 4, 6  
+Zoom | in, out | 9, 7 (reset to default: ctrl+numpad*)  
+Tilt | left, right | 1, 3 (reset: 2, set to 90 degrees: 0)  
+
+### Time Control
+  1. Activate the script manually.
+  1. Press Ctrl+0 to toggle pause time.
+  2. Game Speed  keybinds - [Ctrl + 9 - slomo 0.3]  
+
+The game speed multiplier is 1.00 - default, >1 faster, 0 (and lower) pauses the game, while still able to control the camera.  
+
+### Notes
+  1. Hotsampling does not seem to work when CE is running. Set game to desired DSR resolution before starting CE. (it runs well at large resolutions)
+  2. Run Dead Space 2, set the desired screenshooting resolution, open table in CE and enable the `Attach to game process` script. 
+  3. Time control and camera work during in-game cutscenes and in main menu.
+
+### Extra Cheats
+
+- Invisible - enemies don't see you.
+- Disable Gravity - 0g anywhere.
+- New Game Checkpoint & Suit Changer
+- Other
+
+### Other scripts
+(see previous [Cheat Table](../CheatTables/DeadSpace2_camera.CT) version)
+
+#### Relative Camera Control (RCC)
 Control the camera position, relative to player. Limited by walls. 
 
 Description:
@@ -47,9 +100,9 @@ Char Size|PgUp/Dn
 
 Technical info: 
 
-This is the port of Jim2Point0's DS1 table. See [original description.](https://web.archive.org/web/20141021190640/flickr.com/groups/deadendthrills/discuss/72157631765632995/) Altho code differs, the same camera values with similar structure were found using CE's 'Group search'. The table only modifies values, without changes to code.
+This is the port of [Jim2Point0](https://github.com/jim2point0)'s DS1 table. See [original description.](https://web.archive.org/web/20141021190640/flickr.com/groups/deadendthrills/discuss/72157631765632995/) Altho code differs, the same camera values with similar structure were found using CE's 'Group search'. The table only modifies values, without changes to code.
 
-### Free Camera
+#### Free Camera
 Detaches camera from character. 
 
 Control your camera by modifying 3 values. In-game rotating still works and you still control the character. 
@@ -63,32 +116,7 @@ Y|Num +/-
 
 Controls are not handy, as they move camera in absolute coordinate system. Recommended to use after RCC.
 
-Credits: [Notes by GhostInTheCamera.](https://github.com/ghostinthecamera/PhotomodeCheatTables/blob/master/WIP/Dead%20Space%202/notes.txt)
-
-### Extra
-
-- Timescale
-
-Timescale is game speed multiplier. 1.00 - default, >1 faster, 0 (and lower) pauses the game, while still able to control the camera. 
-
-Controls|CTRL +
---|--
-Timefreeze|0
-Timescale|7/8
-
-- Enemies don't see you.
-- 0g anywhere (Ctrl+9)
-
-## Common Info
-
-**Easing attaching to process**  
-In settings, set auto-attach to `deadspace2.exe` or `dead` for short and tick `Even`.  
-Alternatively, set and use hotkey `Attach to current foreground process`.  
-Otherwise, use script `Attach to game` or do it manually.
-
-Change the selected value by pressing `Enter` or double clicking on it.
-
-Customize hotkeys and their functions by pressing `Ctrl+H` on selected entry. Hotkeys work even if game window is minimized, so it's better to use unusual combinations.
+Credits: Notes by [GhostInTheCamera](https://github.com/ghostinthecamera/).
 
 ## Useful Links
 
