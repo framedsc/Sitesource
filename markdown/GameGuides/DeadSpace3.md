@@ -1,4 +1,4 @@
-![Dead Space 3](../Images/DeadSpace3_header.png "Shot by $$$"){.shadowed .autosize}
+![Dead Space 3](../Images/DeadSpace3_header.png "Shot by K-Putt"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-Graphics API | 9
+Graphics API | DirectX 9
 
 Resolution can be changed in configuration file. 
 Configuration is similar to [DS1.](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024) 
