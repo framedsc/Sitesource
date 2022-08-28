@@ -15,13 +15,40 @@ to achieve a shot that will likely be pleasing to the eye of your viewer.
 Let's look at an example of two shots. The first has the subject spot on in the middle of the shot. As you can see, it's not on one of the lines of the overlay
 provided with the Golden Ratio shader. While it might look 'ok', there's some friction. 
 
-![rule of thirds, wrong](../Images/PhotographyGuides/rot1.jpg "Shot not in line with Rule of Thirds"){.shadowed .autosize}
+<div class="slider container" style="aspect-ratio: 16/9">
+  <div class="slider__img slider__img-after">
+    <p>Final shot</p>
+    <img src="../Images/PhotographyGuides/rot1_1.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>With grid overlay</p>
+    <img src="../Images/PhotographyGuides/rot1_2.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p>Shot not in line with the Rule of Thirds</p></div>
 
-![rule of thirds, correct](../Images/PhotographyGuides/rot2.jpg "Shot in line with Rule of Thirds"){.shadowed .autosize}
+<div class="slider container" style="aspect-ratio: 16/9">
+  <div class="slider__img slider__img-after">
+    <p>Final shot</p>
+    <img src="../Images/PhotographyGuides/rot2_1.jpg" />
+  </div>
+  <div class="slider__img slider__img-before">
+    <p>With grid overlay</p>
+    <img src="../Images/PhotographyGuides/rot2_2.jpg" />
+  </div>
+  <input type="range" min="0" max="100" value="50" step="0.01" 
+    id="slider" class="slider__input" 
+    autocomplete="off" onwheel="this.blur()" 
+  />
+</div>
+<div class="figure"><p>Shot in line with the Rule of Thirds</p></div>
 
 The bottom shot has the subject, the character on the horse, at one-third of the shot from the right side and also one third of the shot from the bottom. Together
-with the small house in the background which is close to one-third from the left side of the shot, it balances things out better. 
-
+with the mountain in the background which is close to one-third from the left side of the shot, it balances things out better. 
 
 ## Useful Links
 
