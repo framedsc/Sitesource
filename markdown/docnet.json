@@ -175,6 +175,11 @@
 				"Using RTTI info in a game exe": "GeneralGuides\\using_rtti.md",
 			},
 		}, 
+		"Photography guides" : 
+		{
+			"__index": "PhotographyGuides\\index.md",
+			"Rule of Thirds": "PhotographyGuides\\ruleofthirds.md",
+		},
 		"Reshade guides" :
 		{
 			"__index": "ReshadeGuides\\index.md",
