@@ -178,6 +178,7 @@
 		"Photography guides" : 
 		{
 			"__index": "PhotographyGuides\\index.md",
+			"The basics": "PhotographyGuides\\basics.md",
 			"Rule of Thirds": "PhotographyGuides\\ruleofthirds.md",
 		},
 		"Reshade guides" :

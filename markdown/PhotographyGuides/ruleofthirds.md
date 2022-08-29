@@ -1,16 +1,17 @@
 Rule of Thirds
 ================================
 
+@alert Important
+This is, like all other photography guides on this site, a *guideline*, not an absolute rule of 'do this or your shot will be bad'. In photography there
+are no rules, just guidelines which can help you avoid pitfalls. These guides are meant to explain why certain aspects work and once you know why these
+work, it's up to you to use them to achieve what you're after, or go against them if you want to achieve the opposite. 
+@end
+
 In photography, one of the first basic 'rules' about composition is the *Rule of Thirds*. The rule of thirds is about placing your subject at 
 one-third of the image, be it vertically or horizontally. It doesn't matter if it's one-third from the left side or from the right side. This guide will have pictures using the Golden Ratio shader for reshade from [OtisFX](https://github.com/FransBouma/OtisFX), which can be a handy helper with respect to finding the location of 
 where the one-third of your image is. 
 
-WHy does this work? The Rule of Thirds affirms that putting the subjects slightly off the centre will make the image more dynamic. Some argue that better results can be achieved when using the golden ratio (1.618), rather than 1/3, but this is subjective to who you talk to. In the pictures below the golden ratio swirl is visible too. 
-
-@alert Info
-As with all 'rules' in photography, this rule isn't an absolute, which means if you don't want to obey them, it's OK! See these 'rules' more as guidelines
-to achieve a shot that will likely be pleasing to the eye of your viewer. 
-@end
+Why does this work? The Rule of Thirds affirms that putting the subjects slightly off the centre will make the image more dynamic. Some argue that better results can be achieved when using the golden ratio (1.618), rather than 1/3, but this is subjective to who you talk to. In the pictures below the golden ratio swirl is visible too. 
 
 Let's look at an example of two shots. The first has the subject spot on in the middle of the shot. As you can see, it's not on one of the lines of the overlay
 provided with the Golden Ratio shader. While it might look 'ok', there's some friction. 
