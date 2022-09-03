@@ -17,6 +17,7 @@ Graphics API | DirectX 11
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **[Features](https://opm.fransbouma.com/Cameras/witcher3.htm)**: Camera control, FoV, timestop, HUD toggle, NPC animation speed control, camera paths support, Time of Day control, hotsampling, higher LODs selector, optional no pause when alt-tabbing.  
 *The no pause when alt-tabbing feature is best ticked while in a loading screen.*
+* [Lighting tools by etra0](https://github.com/etra0/litcher)  
 
 Essential mods
 --

@@ -46,8 +46,9 @@ If you use R editor, don't install NVE motion blur, since it will be captured by
 
 A custom `gameconfig.xml` is highly recommended if you plan to mod the game and add elements like cars, maps, peds etc. There are a lot of custom Gameconfigs, if you purchase Natural Vision Evolved just install the one that comes with it, otherwise [this](https://www.gta5-mods.com/misc/gta-5-gameconfig-300-cars) one is frequently used.
 
-**Caution**: It’s highly recommended that you create a “mods” folder inside your GTA V main directory in which you have to copy all the folders that are going to be modified before you start modding the game, specifically the “update” folder and the “X64” folder; Open IV will ask you and do this automatically the first time you launch it and everytime you try to edit a file outside of the “mods” folder. 
-
+@alert neutral
+It’s highly recommended that you create a “mods” folder inside your GTA V main directory in which you have to copy all the folders that are going to be modified before you start modding the game, specifically the “update” folder and the “X64” folder; Open IV will ask you and do this automatically the first time you launch it and everytime you try to edit a file outside of the “mods” folder. 
+@end
 
 
 ## Optionals
@@ -59,19 +60,18 @@ A custom `gameconfig.xml` is highly recommended if you plan to mod the game and 
 
 ## Graphic mods (pick one)
 
-- [NaturalVision Evolved](https://www.patreon.com/razedmods)
-- [QuantV 3.0](https://www.patreon.com/QuantV)
-- (*Free*) [QuantV 2.0](https://www.gtainside.com/en/gta5/mods/119996-quantv-2-1-4/)  
-*Includes a trainer with a cam tool.*
-- (*Free*) [NaturalVision Remastered (2018)](https://www.youtube.com/watch?v=sctUtDoFLms)  
+- [NaturalVision Evolved](https://www.razedmods.com/gta-v)
+- [NaturalVision Remastered (2018)](https://www.youtube.com/watch?v=sctUtDoFLms)  
 *DL link in the description.*
-- (*Free*) [Visual V](https://www.gta5-mods.com/misc/visualv)
+- [Visual V](https://www.gta5-mods.com/misc/visualv)
 
 ## Textures/LOD Stuff
 
 [GTA V Remastered](https://gta5-mods.com/maps/grand-theft-auto-v-remastered-add-on)
 
-ATTENTION: If you are using Nve and install GTA V remastered or any other similar mod that adds props/custom maps as this will eat up the game's memory and its not really necessary since Nve does add a lot of stuff already. Could lead to vehicles no loading textures correctly among other problems.
+@alert warning
+If you are using Nve and install GTA V remastered or any other similar mod that adds props/custom maps as this will eat up the game's memory and its not really necessary since Nve does add a lot of stuff already. Could lead to vehicles no loading textures correctly among other problems.
+@end
 
 
 ## ENB (Optional, tanks performances)
@@ -79,7 +79,9 @@ ATTENTION: If you are using Nve and install GTA V remastered or any other simila
 - Default presets Included with NVE
 [Personal preset choice](https://www.mediafire.com/file/x0f18rkv6zj470n/MONSTER_KILLER00K%27s_ENB.rar/file) by Monster Killer00k
 
-Attention: If you want to use this ENB preset, or any other custom preset with NVE, always Install the NVE preset first, then open up the third parties' preset folder and drag/drop these three files only into your GTA V main folder: enbseries folder, enbseries.ini and enblocal.ini, overwrite when asked.
+@alert warning
+If you want to use this ENB preset, or any other custom preset with NVE, always Install the NVE preset first, then open up the third parties' preset folder and drag/drop these three files only into your GTA V main folder: enbseries folder, enbseries.ini and enblocal.ini, overwrite when asked.
+@end
 
 - [Suggested](https://nl.gta5-mods.com/scripts/disable-input-on-enb-editor): Disable Input on ENB Editor (No game inputs while ENB editor is open) 
 
