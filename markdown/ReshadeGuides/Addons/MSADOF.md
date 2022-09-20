@@ -140,6 +140,7 @@ For all games tested you have to check `Flip X` and uncheck `Flip Y`.
 | Code Vein                           | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Cyberpunk 2077                      | 0.0200     | 180 |                          | 4                  | 0.001                 |Might require raytracing / a low framerate under vsync targets. Focus precision of 8+ is recommended for portraits.|
 | Days Gone                           | 9.9500     | 320 |                          | 1                  | 0.100                 |Setting AA to 0 will result in a loss of HUD and console access.|
+| Death Stranding: Director's Cut     | 0.1123    | 180 | ✔                       | 2                  | 0.001                 |The game will crash after a render in photomode, near plane changes constantly in cutscenes and its recommended to turn on the 30fps cap.|
 | Draugen                             | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | ECHO                                | 0.5600     | 180 |                          | 2                  | 0.100                 |No custom AR possible.|
 | Elden Ring                          | 0.0500     | 180 |                          | 2                  | 0.001                 |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
@@ -156,6 +157,7 @@ For all games tested you have to check `Flip X` and uncheck `Flip Y`.
 | Resident Evil 3	(DX12)            | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
 | SCARLET NEXUS                       | 9.9965     | 180 | ✔                       | 1                  | 0.100                 ||
 | Sifu                                | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
+| Spirit of the North                 | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Star Wars Jedi: Fallen Order        | 9.9995     | 180 |                          | 1                  | 0.100                 ||
 | Stray                               | 0.5625     | 180 |                          | 1                  | 0.100                 ||
 | Tales of Arise                      | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
