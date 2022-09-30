@@ -1,13 +1,14 @@
 ![MSADOF](../../Images/MSADOF/MSADOF_header.png){.shadowed .autosize}
 
-**Multi-sampled Accumulated Depth of Field** (**MSADOF**) is an advanced DOF add-on for ReShade developed by murchalloo. It renders depth of field without using a depth buffer for the blurring process, greatly increasing the possibilities of defocused captures. This is an advanced guide that aims to cover the usage of MSADOF, as well as its setup process for you and other users.
+**Multi-sampled Accumulated Depth of Field** (**MSADOF**) is an advanced DOF add-on for ReShade developed by [murchalloo](https://twitter.com/murchalloo). It renders depth of field without using a depth buffer for the blurring process, greatly increasing the possibilities of defocused captures. This is an advanced guide that aims to cover the usage of MSADOF, as well as its setup process for you and other users.
 
 @alert important
-MSADOF requires **ReShade 5.2+ with full add-on support** and supported [Otis_Inf camera tools](https://patreon.com/Otis_Inf). *All cameras newer than the 31st of May 2022 should have support for MSADOF, look for "Supports IGCS Connector" in the "Versions and compatibility" table of each [game](https://opm.fransbouma.com/Gamespecificfunctionality.htm).*
+MSADOF requires **ReShade 5.2+ with [full add-on support](../../Images/reshade_FullAddonSupport.png)** and supported [Otis_Inf camera tools](https://patreon.com/Otis_Inf). *All cameras newer than the 31st of May 2022 should have support for MSADOF, look for "Supports IGCS Connector" in the "Versions and compatibility" table of each [game](https://opm.fransbouma.com/Gamespecificfunctionality.htm).*
 @end
 
 @alert neutral
-The add-on is currently in closed beta and is unavailable for public download.
+The add-on is currently in closed beta and is unavailable for public download.  
+<font size=-1>*Are you a FRAMED Discord member? Try out the add-on from [this message](https://discord.com/channels/549986543650078722/982157397541937152/984446941775687680)*.</font>
 @end
 
 ---
@@ -101,11 +102,13 @@ MSADOF works by manipulating the game camera around a certain plane in space and
 
 ## Installation & initial setup
 
-MSADOF comprises of two files, `IgcsConnector.addon` and `MSADOF.fx`. The first of which is a ReShade add-on, and the second a ReShade shader. The ADDON file is installed in the same directory as your game EXE, while the FX file is installed to your `reshade-shaders\Shaders` folder.
+MSADOF comprises of two files, `IgcsConnector.addon` and `MSADOF.fx`. The first of which is a ReShade add-on, and the second a ReShade shader. Copy over `IgcsConnector.addon` to the same folder as your game's ReShade DLL for ReShade to be able to use it. `MSADOF.fx` is installed as a normal shader, placed in your `reshade-shaders\Shaders` folder.
 
-Once installed, upon opening the ReShade GUI, you will now see a new window. This is where you will control the bulk of MSADOF. You must also enable `MSADOF_ADDON` and drag it all the way to the bottom of your shaders list. Depth buffer access is necessary for the full functionality of the add-on.
+Once installed, upon opening the ReShade GUI, you will now see a new window. This is where you will control the bulk of MSADOF. You must also enable `MSADOF_ADDON` in your shaders list and drag it all the way to the bottom of the list. Depth buffer access is necessary for the full functionality of the add-on.
 
-For the add-on to function as intended, it's typically necessary to enable vsync in your game. This ensures a more consistent frame pacing for better results. Motion blur should also be disabled.
+The add-on should also show up under the *Add-ons* tab of the ReShade GUI.
+
+For the add-on to function as intended, it's typically necessary to enable vsync or an FPS cap of around 30 in your game. This ensures consistent frame pacing for clean results. Motion blur should also be disabled.
 
 ---
 
@@ -120,7 +123,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 @end
 
 @alert important
-For all games tested you have to check `Flip X` and uncheck `Flip Y`. 
+For all games tested so far, `Flip X` should be checked. Leave `Flip Y` unchecked. 
 @end
 
 | Game                                | Near Plane | FOV | Variable</br>Near Plane | Frames</br>to skip | Camera</br>Multiplier |Comments|
@@ -140,7 +143,7 @@ For all games tested you have to check `Flip X` and uncheck `Flip Y`.
 | Code Vein                           | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Cyberpunk 2077                      | 0.0200     | 180 |                          | 4                  | 0.001                 |Might require raytracing / a low framerate under vsync targets. Focus precision of 8+ is recommended for portraits.|
 | Days Gone                           | 9.9500     | 320 |                          | 1                  | 0.100                 |Setting AA to 0 will result in a loss of HUD and console access.|
-| Death Stranding: Director's Cut     | 0.1123    | 180 | ✔                       | 2                  | 0.001                 |The game will crash after a render in photomode, near plane changes constantly in cutscenes and its recommended to turn on the 30fps cap.|
+| Death Stranding: Director's Cut     | 0.1123     | 180 |                          | 2                  | 0.001                 |The game will crash after a render in photomode, near plane changes constantly in cutscenes and its recommended to turn on the 30fps cap.|
 | Draugen                             | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | ECHO                                | 0.5600     | 180 |                          | 2                  | 0.100                 |No custom AR possible.|
 | Elden Ring                          | 0.0500     | 180 |                          | 2                  | 0.001                 |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
@@ -153,8 +156,8 @@ For all games tested you have to check `Flip X` and uncheck `Flip Y`.
 | MotoGP 19                           | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Observer: System Redux              | 9.9965     | 180 | ✔                       | 3                  | 0.100                 ||
 | Omno                                | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
-| Resident Evil 2	(DX12)            | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
-| Resident Evil 3	(DX12)            | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
+| Resident Evil 2	(DX12)              | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
+| Resident Evil 3	(DX12)              | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
 | SCARLET NEXUS                       | 9.9965     | 180 | ✔                       | 1                  | 0.100                 ||
 | Sifu                                | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Spirit of the North                 | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
@@ -186,9 +189,11 @@ If you have to setup & adjust for a new game, follow the [advanced setup section
 
 The add-on has two modes, `Photography Mode` and `Tweaking Mode`. `Photography Mode` offers a simple UI for controlling all the necessary values once the add-on is configured, while `Tweaking Mode` is a more advanced set of controls for configuration and tweaking.
 
-Once the add-on is set up, press `Ctrl+B` to begin the render. The final image is automatically saved to the same folder where your game EXE is located.
+Once the add-on is configured and with the freecam active, press `Ctrl+B` to begin a render. The final image is automatically saved to the same folder where your game EXE is located. *The add-on does not currently support saving the final image to another directory.*
 
+@alert tip
 The add-on also supports hotsampling! Simply start the render after hotsampling.
+@end
 
 ---
 
@@ -413,10 +418,6 @@ Raytracing / specular highlight noise is often the cause of 'dirty' bokeh circle
 
 You can perform a quick preview of how large your bokeh shape size will be by doing a render with a very low *Number of rings* or at a lower resolution.
 
-### Undersampling
-
-A DOF shader can be used as a blurring pass before rendering to help and smooth out undersampling artifacts. Simply align the DOF shader's focus point to that of the add-on's and make the DOF strength very subtle. **Do not** use autofocus here, as the autofocus point will slip due to the camera movements.
-
 ### Antialiasing & image sharpness
 
 The camera-based nature of the shader means it does its own antialiasing! AA can be entirely disabled in your game to get a sharper image. 
@@ -427,16 +428,17 @@ It is **not** recommended to have a sharpening pass prior to the render. Sharpen
 
 ### Have fun with shaders!
 
-This add-on works great with ReShade shaders too! In fact, using a LUT prior to the render and saving the result in EXR can reduce colour banding, thanks to the stacking process. 
+This add-on works great with ReShade shaders too! In fact, using a LUT prior to the render and saving the result in EXR can reduce colour banding, thanks to the stacking process. Lens distortion effects like the fantastic [`PerfectPerspective.fx`](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/PerfectPerspective.fx) can also be captured by placing them below `MSADOF.fx` in the shaders list.
 
 ---
 
 ## Processing saved EXRs
 
-The saved EXRs require gamma correction to look as they did on your screen, instead of a washed-out image. This is easiest done with Adobe Photoshop, however any editor that can open EXRs and perform gamma correction would also work.
+Saved EXRs are in linear gamma (gamma 1.0). This causes them to look 'washed-out' when viewed with an image viewer. Most image viewers & converters will perform gamma correction for you when compressing them to an 8/16-bit format (e.g. opening it in Photoshop then immediately saving it as a PNG), resulting in an image with the expected colours. 
 
-The EXRs are saved in linear gamma (gamma 1.0), so a simple gamma correction of 0.454545... (repeating) returns an image at the proper sRGB gamma of 2.2.
+If you would like to edit these 32-bit colours, a simple gamma correction of 0.454545... (repeating) returns an image at the proper sRGB gamma of 2.2. This can be done with *Image* > *Adjustments* > *Exposure...* or with the Exposure adjustment layer in Photoshop, for example.
 
-This can be done with *Image* > *Adjustments* > *Exposure...* or with the Exposure adjustment layer in Photoshop.
+![Aspect Ratio](../../Images/MSADOF/MSADOF_Addon_EXR-Processing.jpg "Some advanced editors like Nuke have viewport display gamma sliders that can be used instead."){.shadowed .autosize}
 
-![Aspect Ratio](../../Images/MSADOF/MSADOF_Addon_EXR-Processing.jpg){.shadowed .autosize}
+You can then perform your edits atop this correction layer. Remember to disable it before exporting your final result to prevent an overdarkened image.
+

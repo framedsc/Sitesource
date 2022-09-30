@@ -2,8 +2,8 @@
 
 [**ShaderToggler**](https://github.com/FransBouma/ShaderToggler) is an add-on for ReShade written by Otis_Inf. It allows you turn off and on in-game shaders, like [3DMigoto](https://nohud.fandom.com/wiki/Creation_of_Hudtoggle_Mods). This page is a brief guide on how you can use it to toggle shaders, and is also a repository for the toggle groups that people have contributed for various games.
 
-@alert info
-ShaderToggler requires **Reshade 5.1+ with full add-on support**.
+@alert important
+ShaderToggler requires **Reshade 5.1+ with [full add-on support](../../Images/reshade_FullAddonSupport.png)**.
 @end
 
 ---
