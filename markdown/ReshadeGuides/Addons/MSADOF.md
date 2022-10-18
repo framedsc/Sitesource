@@ -128,6 +128,7 @@ For all games tested so far, `Flip X` should be checked. Leave `Flip Y` unchecke
 
 | Game                                | Near Plane | FOV | Variable</br>Near Plane | Frames</br>to skip | Camera</br>Multiplier |Comments|
 |-------------------------------------|------------|-----|-------------------------|--------------------|-----------------------|--------|
+| A Plague Tale: Requiem              | 0.0590     | 180 |                         | 3                  | 0.001                 ||
 | Ace Combat 7: Skies Unknown         | 1.0000     | 180 | ✔                       | 2                  | 0.100                 ||
 | Aliens: Fireteam Elite              | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Assassin's Creed Odyssey            | 0.0995     | 180 |                          | 2                  | 0.001                 ||
@@ -149,7 +150,7 @@ For all games tested so far, `Flip X` should be checked. Leave `Flip Y` unchecke
 | Elden Ring                          | 0.0500     | 180 |                          | 2                  | 0.001                 |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
 | Final Fantasy VII Remake Intergrade | 5.6250     | 180 |                          | 2                  | 0.100                 ||
 | Hellblade: Senua's Sacrifice        | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
-| Kena: Bridge of Spirits             | 9.9965     | 180 | ✔                       | 4                  | 0.100                 ||
+| Kena: Bridge of Spirits             | 9.9965     | 180 | ✔                       | 4                  | 0.100                 |The values listed here only work in the photomode and not outside of it.|
 | Life is Strange: True Colors        | 9.9965     | 180 | ✔                       | 1                  | 0.100                 ||
 | Marvel's Spider-Man Remastered      | 0.0775     | 140 | ✔                       | 2                  | 0.001                 ||
 | Mortal Shell                        | 9.9965     | 180 | ✔                       | 4                  | 0.100                 ||
@@ -159,6 +160,7 @@ For all games tested so far, `Flip X` should be checked. Leave `Flip Y` unchecke
 | Resident Evil 2	(DX12)              | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
 | Resident Evil 3	(DX12)              | 0.0100     | 180 | ✔                       | 1                  | 0.001                 ||
 | SCARLET NEXUS                       | 9.9965     | 180 | ✔                       | 1                  | 0.100                 ||
+| Scorn                               | 3          | 180 | ✔                       | 2                  | 0.010                 ||
 | Sifu                                | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Spirit of the North                 | 9.9965     | 180 | ✔                       | 2                  | 0.100                 ||
 | Star Wars Jedi: Fallen Order        | 9.9995     | 180 |                          | 1                  | 0.100                 ||
