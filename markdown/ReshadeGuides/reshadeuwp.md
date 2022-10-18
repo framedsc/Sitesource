@@ -6,9 +6,33 @@ This guide will help you to inject ReShade into most Universal Windows Platform 
  
 You will need [crosire's DLL injector](https://reshade.me/downloads/inject64.exe).
 
+OR
+
+You can use the [Reshade installer from the official site](https://reshade.me/).
+
+### Using Reshade with Xbox App/Game Pass Installs
+In the past getting Reshade and UWP to cooperate has required multiple steps of varying difficulty, however Microsoft has since changed their processes to allow direct access to game files for all users by default. As a result, the steps required to get Reshade working on Game Pass games is much less complicated.
+
+The steps may vary slightly but the basics remain consistent:
+
+1. Define your install path. You can set this by clicking on the profile icon in the top left of the xbox app> Settings > General, Under the section _Game Install Options_ you can set the game folder destination. Install as normal.
+2. Depending on which method you intend to use, the next step will either be:
+   * Manual Install - Place the files in the same folder as the game's .exe
+   * Reshade Installer - launch the installer guide and browse to the game folders, from here you will need to locate ```gamelaunchhelper.exe``` as trying to use the game's own .exe will most likely produce an error.
+
+Once you've successfully situated Reshade, launch the game and you should be able to use it as normal.
+
+@alert warning
+Be advised that there are some minor compatibility issues with Reshade on UWP games. The most notable is that inputs into the Reshade UI will duplicate (Clicks registering twice, typing into entry fields enters the value multiple times etc). These issues are minor and easily worked aroud, but they are known to occur.
+@end
+
 ### ReshadeForUWP tool
 Alternatively, [this tool with a GUI](https://github.com/MilkyDeveloper/ReshadeForUWP) can help to inject Reshade into UWP / PC Game Pass games with little manual intervention. It asks you for the package name (and the custom process name, if any) and gets the metadata of the game through the `appxmanifest.xml` file. It then generates a BAT file to inject Reshade into the game and then launch it. Optionally, it also bootstraps a working Reshade install by downloading / extracting all of the FX files and generates the Reshade.ini file.
- 
+
+@alert info
+The content below may still be valid in certain instances but is largely considered out of date. We recommend you follow the instructions above when trying to configure Reshade for UWP games. We have left the guidance below in case an alternate method is required
+@end.
+
 ## How to inject ReShade into an UWP game
  
 * Extract the zip containing the UWP Injector in a folder on your desktop or drive (e.g.: ReShadeUWP).
