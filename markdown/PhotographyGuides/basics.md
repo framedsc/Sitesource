@@ -16,7 +16,7 @@ Keep in mind that these are guidelines. You don't have to match each and every o
 
 ### The subject
 Define a main subject
-:	One key aspect of interesting shots is that they usually have a main subject (only shots where the absence of a subject is the goal don't have one obviously). If you can't answer the question "what is the main subject", you might want to introduce one, as the subject is what the shot is all about.
+:	One key aspect of interesting shots is that they usually have a main subject (only shots where the absence of a subject is the goal don't have one obviously). If you can't answer the question "**what is the main subject?**", you might want to introduce one, as the subject is what the shot is all about.
 
 Avoid multiple subjects
 :	In general the viewer should have a clear idea what the subject is of your shot. If you have multiple subjects, the shot might get confusing to look at: if a shot 
@@ -24,7 +24,7 @@ as two subjects, is the shot about the first subject or about the second subject
 
 Frame the subject properly
 :	If the subject isn't properly visible in your shot, the viewer might have a hard time figuring out what the shot is all about as the subject isn't really 
-prominent
+prominent.
 
 Make sure the subject is well lit
 :	Look for light in your scene to place the subject so it's well lit and visible. Having your main subject in the dark while other areas are better lit will
@@ -85,12 +85,20 @@ Use the aspect ratio that fits your subject
 :	If your subject is a tall person and you want to have it completely in-view, usually an aspect ratio that's more higher than wide (e.g. 2:3) is preferable over
 an aspect ratio that's very wide (e.g. 21:9). On the other hand a wide vista of a landscape is better served with a wide aspect ratio than a narrow one.
 
+Tilt
+:   There are just a handful of situations where tilting the camera benefits the shot. The reason is that we don't normally tilt our heads, nor see the world like that. As a rule of thumb, avoid tilting with landscapes. Tilted portraits might work in some situations, but it tends to be somewhat disorienting. The cases where tilting tends to work are with action shots, because it brings some "dynamism" to the composition, but beware of not overdoing it.
+
 ## Tricks
 
-Use alt-tab for checking your shot before taking it
-:	Using alt-tab in windows will usually give you a smaller view of the game window, and this smaller view on your shot will instantly reveal if you made a mistake
+### Thumbnail Check
+Looking up your shot in a smaller size (like the one you would see on social media, like Twitter) is a great way to not only see your shot like most people will, but also to check how "readable" it is.
+You can do this by alt-tabbing in windows, since it will usually give you a smaller view of the game window, and this smaller view on your shot will instantly reveal if you made a mistake
 placing your subject; i.e. if the subject is barely visible in the smaller view, chances are the subject 'drowns' in the shot and it'll be confusing what the
-subject really is
+subject really is.
+You can also achieve this with shaders like [HotsamplingHelper or FreezeShot](../ReshadeGuides/shaderscatalogue.htm#hotsampling).
 
-Take the shot at a higher resolution
-:	Even though image quality shouldn't be more important than composition, it really helps if your image is sharp and doesn't show a lot of rendering artifacts.
+### Take the shot at a higher resolution
+Even though image quality shouldn't be more important than composition, it really helps if your image is sharp and doesn't show a lot of rendering artifacts.
+
+### Tourist spot
+Common term often used to refer to places or vistas in games where the player would normally see a landscape, level, architecture, object, etc. in a specific angle handpicked/constructed by artists to be seen from there. There is nothing inherently wrong with shots from tourist spots, but we would encourage people to make their own spin on the composition the game artist made to not only add variety to what's already been done, but to also stamp the screenshotter own creativity into it.
