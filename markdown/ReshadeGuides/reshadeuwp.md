@@ -31,7 +31,7 @@ Alternatively, [this tool with a GUI](https://github.com/MilkyDeveloper/ReshadeF
 
 @alert info
 The content below may still be valid in certain instances but is largely considered out of date. We recommend you follow the instructions above when trying to configure Reshade for UWP games. We have left the guidance below in case an alternate method is required
-@end.
+@end
 
 ## How to inject ReShade into an UWP game
  
