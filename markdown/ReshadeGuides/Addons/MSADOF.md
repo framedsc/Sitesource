@@ -308,7 +308,7 @@ Affects the alignment of every point relative to the previous ring. Tweak if the
 **Use custom shape image**  
 Checking this allows MSADOF to sample custom images that can be used to drive fringing and bokeh shape, allowing you to mimic bladed apertures or other more creative effects.
 
-![hexagonal bokeh](../../Images/MSADOF/MSADOF_Addon_Bokeh_Hex.jpg "6-bladed aperture shape input."){.shadowed .autosize}MSADOF_Addon_Bokeh_Hex.jpg
+![hexagonal bokeh](../../Images/MSADOF/MSADOF_Addon_Bokeh_Hex.jpg "6-bladed aperture shape input."){.shadowed .autosize}
 
 ![heart bokeh!](../../Images/MSADOF/MSADOF_Addon_Bokeh_Hearts.jpg "Custom heart shape input."){.shadowed .autosize}
 
