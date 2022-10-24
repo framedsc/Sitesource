@@ -52,11 +52,11 @@ The open-source emulator [Dolphin](https://dolphin-emu.org/download/) also inclu
 
 Hotsampling works by resizing the game window past the bounds of your monitor, using programs like [Simple Runtime Window Editor](https://github.com/dtgDTGdtg/SRWE) (SRWE) or [Windowed Borderless Gaming](https://westechsolutions.net/sites/WindowedBorderlessGaming/) (WBG). This resizing forces the game to render at the new resolution set by those programs, which will be larger than what fits on your screen. If your image looks "very zoomed in", that's a sign that hotsampling has worked. A game has to be running in **windowed** or **borderless windowed** for hotsampling to work. 
 
-SRWE is the preferred program, however there are cases like with some Ubisoft games (*Steep*, *Ghost Recon Breakpoint*) where WBG will have to be used instead. It is trickier and more frustrating than SRWE, so be sure to follow the guide we have linked below.
-
-To hotsample with WBG, open it, right click on the program in the taskbar, and select "Add Window F3". ALT-TAB back to the game and press F3. This may take some tries as the program initialises the game.
+SRWE is the preferred program, however there are cases like with some Ubisoft games (*Steep*, *Ghost Recon Breakpoint*) where WBG will have to be used instead. To hotsample with WBG, open it, right click on the program in the taskbar, and select "Add Window F3". ALT-TAB back to the game and press F3. This may take some tries as the program initialises the game.
 
 Keep in mind that not every game is able to hotsample. Do consult our [game guides](./Gameguides.htm) to check if your game supports it. Occasionally, the ability to hotsample can be enabled through certain cheat tables, tools and/or mods, so check if those exist too. Certain games may also only hotsample to multiples of 16:9, i.e. no custom aspect ratios.
+
+[Most of the camera tools made by Otis_Inf](https://opm.fransbouma.com/Gamespecificfunctionality.htm) come with built-in hotsampling functionality available in the tool's window. While some of the supported games already hotsample with SRWE, the camera tools add the support for titles that don't, such as *[Cyberpunk 2077](./GameGuides/Cyberpunk_2077.htm)*, *[The Witcher 3](./GameGuides/thewitcher3.htm)*, *Death Stranding*, and many more.
 
 ### Composing for custom aspect ratios
 
