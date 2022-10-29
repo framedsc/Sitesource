@@ -278,13 +278,13 @@ This is the tab for controlling the add-on in an advanced manner.
 This controls how large your bokeh will be. 
 
 **Random point rendering**  
-Instead of a progressive spiral render, this causes the add-on sample randomly. This can be useful for previewing how large the resulting bokeh will be, or can be used to mitigate animating background elements interrupting the render.  
-*This feature is not currently working as intended and will produce ghosts of the focus plane.*
+Instead of a progressive spiral sampling path, this causes the add-on sample randomly. This can be useful for previewing how large the resulting bokeh will be, or can be used to mitigate animating background elements interrupting the render.  
+*This feature is not currently working as intended and occasionally produces ghosts of the focus plane.*
 
 ![Animated image of the difference between the two sampling methods](../../Images/MSADOF/MSADOF_Addon_Sampling.webp "This example has been sped up by 8x."){.shadowed .autosize}
 
 **Focus precise at close range**  
-This changes the scaling of the focus distance slider. Higher values mean that the focus distance slider can operate in even smaller steps. This is useful for portraits, where extra focus precision is desired.
+This changes the scaling of the focus distance slider. Higher values mean that the focus distance slider can operate in even smaller steps closer to the camera. This is useful for portraits, where extra focus precision is desired.
 
 **Frames to skip**  
 Skips camera movement of every few frames to make accumulation more consistent. Depending on the performance of your game, this value might have to be changed. If you notice that the add-on is drawing rings/donuts on your focus plane, this value likely has to be changed.
@@ -296,7 +296,7 @@ Similar to above, this value should only be changed if you notice that the focus
 
 ![Screenshot of the Game Adjustments UI](../../Images/MSADOF/MSADOF_Addon_Settings_GameAdjustments.png){.shadowed .autosize}
 
-This category is to be left alone, as it is for first time configuration of a new game. [See the section below](#adjusting-for-a-new-game) on how to tweak it.
+This category can mostly be left alone, as it is for first time configuration of a new game. [See the section below](#adjusting-for-a-new-game) on how to tweak it.
 
 **Camera movement multiplier**  
 Sets how fast the camera will move based on a multiplier applied to camera coordinate scale. Turn this up to exaggerate shape size, or turn it down to reduce it.
@@ -305,7 +305,7 @@ Sets how fast the camera will move based on a multiplier applied to camera coord
 The maximum FOV value that MSADOF will use for its calculations.
 
 **Variable near plane**  
-Changes how *Camera near plane* is calculated if a change in aspect ratio causes camera near plane to change as well.
+Changes how *Camera near plane* is calculated if a change in aspect ratio causes *Camera near plane* to change as well.
 
 **Camera near plane**  
 Offsets the distance of the near plane from the in-game camera. This is primarily used in aligning the focus plane to a known focus distance.
@@ -315,7 +315,10 @@ Writes the current near plane value to `MSADOF_CACHE.ini` and displays the cache
 
 #### Unused settings
 
-This category has nothing that needs to be touched.
+This category does not need to be tweaked.
+
+**Flip X / Y**  
+Fixes bokeh shape based on camera movement axes. The default setting of flipped X and unflipped Y appears to be standard across all games.
 
 ---
 
@@ -505,10 +508,10 @@ If you're playing a game that does not have known values yet or the values produ
 
 #### 1. Max FOV Value
 
-Set your game to run in a 1:1 aspect ratio. Switch the add-on UI to `Tweaking Mode` and expand *Additional info*, keeping your eye on FOV. With the tool's free camera active, zoom out until the image flips. Note the FOV value at which this occurs, that will be the **Max FOV Value**.
+Set your game to run in a 1:1 aspect ratio. With *Additional info* expanded, keep your eye on *FOV*. With the tool's free camera active, zoom out until the image flips. Note the FOV value at which the flip occurs - this is the **Max FOV Value**.
 
 @alert neutral
-This value is typically 180 and shouldn't need to be tweaked unless you think something's up.
+This value is typically 180 and shouldn't need to be tweaked unless you figure something's wrong.
 @end
 
 #### 2. Calibrating the focus plane
@@ -552,11 +555,11 @@ Raytracing / specular highlight noise is often the cause of 'dirty' bokeh circle
 
 ### Preview bokeh size  
 
-You can perform a quick preview of how large your bokeh shape size will be by doing a render with a very low *Number of rings* or at a lower resolution.
+You can perform a quick preview of how large your bokeh shape size will be by doing a render with a very low *Number of rings* or at a lower resolution. *Random point rendering* is also very useful for this.
 
 ### Antialiasing & image sharpness
 
-The camera-based nature of the shader means it does its own antialiasing! AA can be entirely disabled in your game to get a sharper image. 
+The camera-based nature of the shader means it does its own antialiasing! AA can be entirely disabled in your game to get a sharper image. This also works great with games that have temporally-dependent shaders too, like *Cyberpunk 2077's* hair shading, as MSADOF is technically a temporal technique as well.
 
 It is **not** recommended to have a sharpening pass prior to the render. Sharpening halos may become exaggerated and/or show up in the accumulation process.
 
@@ -578,9 +581,9 @@ You can then perform your edits atop this correction layer. Remember to disable 
 
 @alert neutral  
 Nerd stuff: This isn't really an accurate process. Dividing gamma by 0.454545... only approximates the sRGB gamma curve, which is a little more complicated than gamma 2.2. If you really wanted an accurate conversion back to sRGB, you'd need to apply a colorspace transform from linear to sRGB. More advanced editors that deal in colorspaces will have a featureset to handle this. A profile can also be assigned to the image, such that it's always interpreted as an sRGB image. For the most part though, unless you *really need* the original authentic colours, I wouldn't go through all this hassle and do my colour grading work atop this basic gamma math.  
-<font size=-1>This is based off my rough understanding of the hell that is colorspaces :) it could potentially be wrong, and if you happen to be a nerd that knows about this stuff, I'd gladly be corrected.</font>
+<font size=-1>this is based off my rough understanding of the hell that is colorspaces :) if you think this is all wrong, i'd gladly be corrected.</font>
 @end
 
 ---
-*last updated 24th October 2022*  
+*last updated 29th October 2022*  
 *images provided and written by [moyevka](https://twitter.com/moyevka)*  
