@@ -19,7 +19,7 @@ Graphics API | DirectX 11, DirectX 12
 **[Features](https://opm.fransbouma.com/Cameras/dmc5.htm)**: Camera control, Fov, timestop, Hud toggle, Aspect ratio selection, DoF removal, Vignette removal and Lens distortion removal.
 * [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
 **Features**: Lighting Control, turn off scene lights, exposure control.  
-Make sure to check out [the guide](GeneralGuides/relit.htm) on it.
+Make sure to check out [the guide](https://framedsc.com/GeneralGuides/relit.htm) on it.
 
 ## Contact Shadows
 
