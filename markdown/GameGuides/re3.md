@@ -18,7 +18,7 @@ Graphics API | DirectX 11, DirectX 12
 **[Features](https://opm.fransbouma.com/Cameras/re3.htm)**: Camera control, FOV control, Time stop, Vignette removal, DOF removal, HUD toggle
 * [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
 **Features**: Lighting Control, turn off scene lights, exposure control.  
-Make sure to check out [the guide](GeneralGuides/relit.htm) on it. 
+Make sure to check out [the guide](../GeneralGuides/relit.htm) on it. 
 
 
 ##Useful Links

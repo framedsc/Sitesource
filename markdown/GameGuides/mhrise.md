@@ -22,7 +22,7 @@ Graphics API | DirectX 12
 **Features**: Custome AR and resolution scale (for cutscenes).
 * [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
 **Features**: Lighting Control, turn off scene lights, exposure control.  
-Make sure to check out [the guide](GeneralGuides/relit.htm) on it.
+Make sure to check out [the guide](../GeneralGuides/relit.htm) on it.
 
 ## Installation
 First, install REFramework by dropping its files into the game folder. Then, to install the other mods drop their files into the new `reframework\autorun` folder.
