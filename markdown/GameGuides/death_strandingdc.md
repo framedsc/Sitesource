@@ -1,5 +1,4 @@
-![
-Death Stranding: Director's Cut](Images\death_stranding.png "Shot by Tokenass"){.shadowed .autosize}
+![Death Stranding: Director's Cut](../Images/death_strandingdc.png "Shot by Tokenass"){.shadowed .autosize}
 
 ## Summary
 
@@ -19,8 +18,6 @@ Game version | 1.00.00
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera Control, Camera Paths, FOV control, HUD toggle, timestop/gamespeed, Frameskip, Higher LODs, Hotsampling
 
-
-
 ## Tips and Tricks
 
 ### Hotsampling
@@ -30,5 +27,5 @@ Hotsampling at higher than 3x resolution can cause the textures to glitch someti
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Death_Stranding:_Director%27s_Cut)
-* [Suggested Mod](https://www.nexusmods.com/deathstranding) (Nexus Mods)
+* [Suggested Mods](https://www.nexusmods.com/deathstranding)
 
