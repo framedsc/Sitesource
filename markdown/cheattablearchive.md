@@ -296,9 +296,6 @@ Some of the listed games below have received proper camera tools, and you should
 - [HITMAN_2016_Final.CT](CheatTables/Archive/HITMAN_2016_Final.CT)
 - [Hitman_2016_Final_SmoothCamera.CT](CheatTables/Archive/Hitman_2016_Final_SmoothCamera.CT)
 
-###Hitman 3
-- [Hitman_3_3.100.0_1.3.CT](CheatTables/Hitman_3_3.100.0_1.3.CT)
-
 ###Hitman: Absolution
 - [hitman_abs.CT](CheatTables/Archive/hitman_abs.CT)
 - [hitman_abs_cheats.CT](CheatTables/Archive/hitman_abs_cheats.CT)
