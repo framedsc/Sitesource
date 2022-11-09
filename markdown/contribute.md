@@ -302,14 +302,14 @@ Once again, this feature is unique to the site and not supported by Markdown pre
 
 Store | Input | Output
 -- | -- | --
-Battle.net | `B` | <font face="Stores"> B </font>
-EA Desktop | `D` | <font face="Stores"> D </font>
-Epic Games Store | `E` | <font face="Stores"> E </font>
-GOG Galaxy | `G` | <font face="Stores"> G </font>
-Microsoft Store | `M` | <font face="Stores"> M </font>
-Rockstar Launcher | `R` | <font face="Stores"> R </font>
-Steam | `S` | <font face="Stores"> S </font>
-Ubisoft Connect | `U` | <font face="Stores"> U </font>
+Battle.net | `<font face="Stores"> B </font>` | <font face="Stores"> B </font>
+EA Desktop | `<font face="Stores"> D </font>` | <font face="Stores"> D </font>
+Epic Games Store | `<font face="Stores"> E </font>` | <font face="Stores"> E </font>
+GOG Galaxy | `<font face="Stores"> G </font>` | <font face="Stores"> G </font>
+Microsoft Store | `<font face="Stores"> M </font>` | <font face="Stores"> M </font>
+Rockstar Launcher | `<font face="Stores"> R </font>` | <font face="Stores"> R </font>
+Steam | `<font face="Stores"> S </font>` | <font face="Stores"> S </font>
+Ubisoft Connect | `<font face="Stores"> U </font>` | <font face="Stores"> U </font>
 
 *As with the controller fonts, inputs are **case-sensitive**!*  
 *The store icons belong to their respective owners.*  
