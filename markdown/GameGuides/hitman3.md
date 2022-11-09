@@ -64,7 +64,7 @@ Once you have lined up the shot you can lock the camera by quickly unfreezing an
 
 ## Freecam Controls
 
-Action | Keyboard | Controlle
+Action | Keyboard | Controller
 --|--|--
 Toggle freecam | `P` | 
 Toggle camera lock 47 input | `F3` |
