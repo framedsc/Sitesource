@@ -1,4 +1,4 @@
-![Hitman 3](..\Images\hitman3.png "Shot by Tokenass"){.shadowed .autosize}
+![Hitman 3](..\Images\Hitman3.png "Shot by Tokenass"){.shadowed .autosize}
 
 ## Summary
 
