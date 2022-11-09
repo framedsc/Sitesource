@@ -11,8 +11,7 @@ Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | Yes
 Graphics API | DirectX 12
-Store | Epic Games
-Game version | 3.130.0
+Game version | <font face="Stores">E</font> 3.130.0
  
 ## Tools
 * [ZHMModSDK](https://github.com/OrfeasZ/ZHMModSDK/releases/tag/v1.6.0)  
@@ -65,28 +64,18 @@ Once you have lined up the shot you can lock the camera by quickly unfreezing an
 
 ## Freecam Controls
 
-### Keyboard
-Keys	| Action
---|--
-`P` | Toggle freecam
-`F3` | Toggle camera lock 47 input
-`Ctrl + W/S` | Change FOV
-`Ctrl + A/D` | Roll camera
-`Alt + W/S` | Change camera speed
-`Space + Q/E` | Change camera height
-`Space + W/S` | Move camera forward/backward on axis
-`Shift` | Increase speed while holding
-
-### Controller
-Keys	| Action
---|--
-<font face="Controller">y + <</font> | Change FOV
-<font face="Controller">a + <</font> | Roll camera
-<font face="Controller">a + **<**</font> (L3) | Reset rotation
-<font face="Controller">b + ></font> | Change camera speed
-<font face="Controller">{ + ></font> | Change camera height
-<font face="Controller">}</font> | Increase speed while holding
-<font face="Controller">[</font> | Keep camera still while you control 47
+Action | Keyboard | Controlle
+--|--|--
+Toggle freecam | `P` | 
+Toggle camera lock 47 input | `F3` |
+Change FOV | `Ctrl + W/S` | <font face="Controller">y + <</font> 
+Change camera height | `Space + Q/E` | <font face="Controller">{ + ></font>
+Roll camera | `Ctrl + A/D` | <font face="Controller">a + <</font>
+Change camera speed | `Alt + W/S` | <font face="Controller">b + ></font>
+Move camera forward/backward on axis | `Space + W/S` | 
+Increase speed while holding | `Shift` | <font face="Controller">}</font>
+Reset rotation | | <font face="Controller">a + **<**</font> (L3)
+Keep camera still while you control 47 | | <font face="Controller">[</font> 
 
 ## Hotsampling
 The game hotsamples with SRWE.

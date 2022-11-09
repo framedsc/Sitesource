@@ -283,6 +283,39 @@ Input | Output | Input | Output
 
 ---
 
+## Game stores
+
+The site also supports game store icons to specify in which store the game has to be in order for the tools to work (or in which ones it was tested) alongside the game version. You can use these like the following:
+
+Feature	| Supported
+--|--
+... | ...
+Game version	| <font face="Stores">S E M</font> 1.42
+
+With the syntaxis for this being:
+
+```Markdown
+Game version	| <font face="Stores">S E M</font> 1.42 
+```
+
+Once again, this feature is unique to the site and not supported by Markdown previews. You may generate previews of the site following our [readme](https://github.com/framedsc/Sitesource) if you'd like to see how they look.
+
+Store | Input | Output
+-- | -- | --
+Battle.net | `B` | <font face="Stores"> B </font>
+EA Desktop | `D` | <font face="Stores"> D </font>
+Epic Games Store | `E` | <font face="Stores"> E </font>
+GOG Galaxy | `G` | <font face="Stores"> G </font>
+Microsoft Store | `M` | <font face="Stores"> M </font>
+Rockstar Launcher | `R` | <font face="Stores"> R </font>
+Steam | `S` | <font face="Stores"> S </font>
+Ubisoft Connect | `U` | <font face="Stores"> U </font>
+
+*As with the controller fonts, inputs are **case-sensitive**!*  
+*The store icons belong to their respective owners.*  
+
+---
+
 ## Publishing guides
 
 Once you're done writing a guide, you may contact one of the site admins (listed on the [homepage](./index.htm)) to get it added. Please zip up your guide and all relevant assets into one compressed folder. Alternatively, you may submit a [pull request](https://github.com/framedsc/Sitesource/pulls) to the GitHub repository. 

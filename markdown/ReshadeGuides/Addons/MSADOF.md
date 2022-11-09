@@ -161,6 +161,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | ECHO                                | 0.5600     | 180 |                         | 0.100                 |No custom AR possible.|
 | Elden Ring                          | 0.0500     | 180 |                         | 0.001                 |Camera multiplier can change from area to area. **In-game antialiasing can cause blurry results**.|
 | Final Fantasy VII Remake Intergrade | 5.6250     | 180 |                         | 0.100                 ||
+| Harvestella                         | 9.9965     | 180 | ✔                       | 0.1-1                 ||
 | Hellblade: Senua's Sacrifice        | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Kena: Bridge of Spirits             | 9.9965     | 180 | ✔                       | 0.100                 |The near plane value only works reliably in photomode.|
 | Life is Strange: True Colors        | 9.9965     | 180 | ✔                       | 0.100                 ||
@@ -169,6 +170,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | MotoGP 19                           | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Observer: System Redux              | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Omno                                | 9.9965     | 180 | ✔                       | 0.100                 ||
+| OverDrift Festival                  | 5.624      | 180 | ✔                       | 0.100                 ||
 | Resident Evil 2	(DX12)              | 0.0100     | 180 | ✔                       | 0.001                 ||
 | Resident Evil 3	(DX12)              | 0.0100     | 180 | ✔                       | 0.001                 ||
 | SCARLET NEXUS                       | 9.9965     | 180 | ✔                       | 0.100                 ||
