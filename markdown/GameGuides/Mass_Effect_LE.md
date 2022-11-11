@@ -84,6 +84,77 @@ Bindings=(Name="NumPadEight",Command="walk")
 Bindings=(Name="NumPadNine",Command="ToggleFlyCam")
 Bindings=(Name="Multiply",Command="PlayersOnly")
 ```
+I got notified recently that the method mentioned above doesn't seem to work anymore. However there is a workaround by munchfly [https://hackmd.io/@munchyfly/ByiK4X5dc]. To get the FlyCam working you need to perform the following steps: You'll need the `ME3TweaksManager`
+1. Locate the `Coalesced_INT.bin` file under `ME1/BioGame/CookedPCConsole` and create backup. Copy it over somewhere else to work with a seperate copy.
+2. Drag the `Coalesced_INT.bin` into the `ME3TweaksManager`and head to the location of the `Coalesced_INT.bin`
+3. Open up the folder `Coalesced_INT` and locate the `BIOInput.ini
+4. Perform the following edits:
+ Above the line `[SFXGame.SFXGameModeDefault]` add the following lines
+ ```
+ [SFXGame.SFXGameModeFlycam]
+Bindings=(Name="Add",Command="PlayersOnly | ToggleFlycam | Show Scaleform" )
+Bindings=(Name="MoveUp",Command="Axis aUp Speed=0.2")
+Bindings=(Name="MoveDown",Command="Axis aUp Speed=-0.2")
+Bindings=(Name="MoveForward",Command="Axis aBaseY Speed=0.2")
+Bindings=(Name="MoveBackward",Command="Axis aBaseY Speed=-0.2")
+Bindings=(Name="StrafeLeft",Command="Axis aStrafe Speed=-1.0")
+Bindings=(Name="StrafeRight",Command="Axis aStrafe Speed=+1.0")
+Bindings=(Name="Q",Command="MoveDown")
+Bindings=(Name="E",Command="MoveUp")
+Bindings=(Name="W",Command="MoveForward")
+Bindings=(Name="S",Command="MoveBackward")
+Bindings=(Name="S",Command="MoveBackward")
+Bindings=(Name="A",Command="StrafeLeft")
+Bindings=(Name="D",Command="StrafeRight")
+Bindings=(Name="MouseX",Command="Count bXAxis | Axis aMouseX")
+Bindings=(Name="MouseY",Command="Count bYAxis | Axis aMouseY")
+```
+Inside `[SFXGame.SFXGameModeDefault]` place the lines
+```
+Bindings=(Name="Add",Command="PlayersOnly | ToggleFlycam | Show Scaleform" )
+Bindings=(Name="MoveUp",Command="Axis aUp Speed=0.2")
+Bindings=(Name="MoveDown",Command="Axis aUp Speed=-0.2")
+Bindings=(Name="MoveForward",Command="Axis aBaseY Speed=0.2")
+Bindings=(Name="MoveBackward",Command="Axis aBaseY Speed=-0.2")
+Bindings=(Name="StrafeLeft",Command="Axis aStrafe Speed=-1.0")
+Bindings=(Name="StrafeRight",Command="Axis aStrafe Speed=+1.0")
+Bindings=(Name="Q",Command="MoveDown")
+Bindings=(Name="E",Command="MoveUp")
+Bindings=(Name="W",Command="MoveForward")
+Bindings=(Name="S",Command="MoveBackward")
+Bindings=(Name="S",Command="MoveBackward")
+Bindings=(Name="A",Command="StrafeLeft")
+Bindings=(Name="D",Command="StrafeRight")
+Bindings=(Name="MouseX",Command="Count bXAxis | Axis aMouseX")
+Bindings=(Name="MouseY",Command="Count bYAxis | Axis aMouseY")
+```
+Inside `[SFXGame.SFXGameModeVehicle]` place the lines
+```
+Bindings=(Name="Add",Command="PlayersOnly | ToggleFlycam | Show Scaleform" )
+```
+Within the section `[SFXGame.SFXGameModeConversation]` add
+```
+Bindings=(Name="Add",Command="PlayersOnly | ToggleFlycam | Show Scaleform" )
+Bindings=(Name="MoveUp",Command="Axis aUp Speed=0.2")
+Bindings=(Name="MoveDown",Command="Axis aUp Speed=-0.2")
+Bindings=(Name="MoveForward",Command="Axis aBaseY Speed=0.2")
+Bindings=(Name="MoveBackward",Command="Axis aBaseY Speed=-0.2")
+Bindings=(Name="StrafeLeft",Command="Axis aStrafe Speed=-1.0")
+Bindings=(Name="StrafeRight",Command="Axis aStrafe Speed=+1.0")
+Bindings=(Name="Q",Command="MoveDown")
+Bindings=(Name="E",Command="MoveUp")
+Bindings=(Name="W",Command="MoveForward")
+Bindings=(Name="S",Command="MoveBackward")
+Bindings=(Name="S",Command="MoveBackward")
+Bindings=(Name="A",Command="StrafeLeft")
+Bindings=(Name="D",Command="StrafeRight")
+Bindings=(Name="MouseX",Command="Count bXAxis | Axis aMouseX")
+Bindings=(Name="MouseY",Command="Count bYAxis | Axis aMouseY")
+```
+Save the file `BIOInput.ini` and drag the file `mele.extractedbin` within the `Coalesced_INT` folder back into the `ME3TweaksManager`
+Place the newly created `Coalesced_INT.bin` under `ME1/BioGame/CookedPCConsole`. If asked replace the existing file.
+
+The FlyCam should work now.
 
 ## Mass Effect 2
 This is where things will get a bit more tricky, but thanks to the updated Mod Manager, the process has become a lot easier. 
