@@ -17,7 +17,7 @@ copy /y theme\destination\favicon.ico .\site
 robocopy .\site ..\framedsc.github.io /s /e
 pushd.
 cd ..\framedsc.github.io
-rem git add -A
-rem git commit -m %1
-rem git push
+git add -A
+git commit -m %1
+git push
 popd
