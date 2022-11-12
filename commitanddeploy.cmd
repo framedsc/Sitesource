@@ -6,8 +6,8 @@ REM Pass a string for the commit message
 git add -A
 git commit -m %1
 git push
-rem start cmd.exe /c generatesite.cmd
-.\tools\docnet -c markdown
+echo Executing pre-generate-site hooks scripts
+PowerShell -ExecutionPolicy Bypass -File "tools\generate-site-hooks\generatebannerspage.ps1"
 
 del /q ..\framedsc.github.io\*.*
 for /d %%i in (..\framedsc.github.io\*.*) do @rd /s /q "%%i"
