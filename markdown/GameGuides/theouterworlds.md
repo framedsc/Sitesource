@@ -24,11 +24,9 @@ Graphics API | DirectX 11
 The following set of commands can be used to tweak the engine to a high level and get rid of e.g. the CA in this game and other lens distortion. Copy the
 string below as a whole and paste it in the in-game console once you've enabled the Universal Unreal Engine 4 Unlocker on it. You have to do this once.
 
-@tabs
-@tab
+```
 sg.ShadowQuality 5| r.Shadow.DistanceScale 4 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 1024 | r.Shadow.TransitionScale 1024 | sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5| r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 5 |r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 50 |r.SkeletalMeshLODBias -1 | r.SceneColorFringeQuality 0 | r.lensflarequality 0 | r.motionblurquality 0| r.SSS.Checkerboard 0 | r.MipMapLODBias -2
-@end
-@endtabs
+```
 
 ### Toggle HUD
 
