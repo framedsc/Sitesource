@@ -71,20 +71,8 @@ Either way, the resolution you bind via key or type into the console need to be 
 
 
 ## Mass Effect 1
-Locate the `BioInput.ini` under `Your Documents\Bioware\Mass Effect\Config` or under `\Steam\steamapps\common\Mass Effect Legendary Edition\Game\ME1\BioGame\Config` and add the following command lines under the section `BIOC_Base.Bio.PlayerInput`:
+To get the FlyCam working you need need the `ME3TweaksManager`and perform the following steps:  
 
-```
-Bindings=(Name="NumPadOne",Command="show scaleform")
-Bindings=(Name="NumPadTwo",Command="FOV 0")
-Bindings=(Name="NumPadThree",Command="FOV 70")
-Bindings=(Name="NumPadFour",Command="SloMo 0.5")
-Bindings=(Name="NumPadFive",Command="SloMo 1")
-Bindings=(Name="NumPadSeven",Command="ghost")
-Bindings=(Name="NumPadEight",Command="walk")
-Bindings=(Name="NumPadNine",Command="ToggleFlyCam")
-Bindings=(Name="Multiply",Command="PlayersOnly")
-```
-I got notified recently that the method mentioned above doesn't seem to work anymore. However there is a workaround by munchfly [https://hackmd.io/@munchyfly/ByiK4X5dc]. To get the FlyCam working you need to perform the following steps: You'll need the `ME3TweaksManager`
 1. Locate the `Coalesced_INT.bin` file under `ME1/BioGame/CookedPCConsole` and create backup. Copy it over somewhere else to work with a seperate copy.
 2. Drag the `Coalesced_INT.bin` into the `ME3TweaksManager`and head to the location of the `Coalesced_INT.bin`
 3. Open up the folder `Coalesced_INT` and locate the `BIOInput.ini
@@ -151,10 +139,10 @@ Bindings=(Name="D",Command="StrafeRight")
 Bindings=(Name="MouseX",Command="Count bXAxis | Axis aMouseX")
 Bindings=(Name="MouseY",Command="Count bYAxis | Axis aMouseY")
 ```
-Save the file `BIOInput.ini` and drag the file `mele.extractedbin` within the `Coalesced_INT` folder back into the `ME3TweaksManager`
-Place the newly created `Coalesced_INT.bin` under `ME1/BioGame/CookedPCConsole`. If asked replace the existing file.
+5. Save the file `BIOInput.ini` and drag the file `mele.extractedbin` within the `Coalesced_INT` folder back into the `ME3TweaksManager`
+6. Place the newly created `Coalesced_INT.bin` under `ME1/BioGame/CookedPCConsole`. If asked replace the existing file.
 
-The FlyCam should work now.
+The FlyCam should work now. Method by munchyfly found here: [https://hackmd.io/@munchyfly/ByiK4X5dc]
 
 ## Mass Effect 2
 This is where things will get a bit more tricky, but thanks to the updated Mod Manager, the process has become a lot easier. 
