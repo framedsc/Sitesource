@@ -23,6 +23,10 @@ The steps may vary slightly but the basics remain consistent:
 Once you've successfully situated Reshade, launch the game and you should be able to use it as normal.
 
 @alert warning
+You will probably have to do a manual installation, since there is the chance Windows won't let you select the games .exe when installing Reshade. To do so, open the Reshade installer with WinRAR, grab ReShade64.dll, rename it to something that can be injected into games exes (like dxgi.dll), and drop it on the games folder (specifically, the same path where the game .exe is).
+@end
+
+@alert warning
 Be advised that there are some minor compatibility issues with Reshade on UWP games. The most notable is that inputs into the Reshade UI will duplicate (Clicks registering twice, typing into entry fields enters the value multiple times etc). These issues are minor and easily worked aroud, but they are known to occur.
 @end
 
