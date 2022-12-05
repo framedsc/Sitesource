@@ -76,6 +76,7 @@ These files need to be renamed to `ShaderToggler.ini` and placed in the same fol
 Game | Features | Extra Description
 --|--|--
 [Assassin's Creed Origins](../../ShaderTogglers/assassins_creed_origins.ini) | - Remove head distortion (`Shift` + `6`)<br> - Chromatic aberration (`Shift` + `7`)
+[Assassin's Creed: Syndicate](../../ShaderTogglers/assassins_creed_syndicate.ini)  | - Ingame HUD toggle (`Caps Lock`) <br> - Jack the Ripper DLC CA toggle (`numpad .`)
 [Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - HUD (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift` + `F4`)<br> - Vertical line markers in the world (`Shift` + `F5`)<br> - Rain (`Shift` + `F6`)
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle (`Caps Lock`)
 [Bayonetta](../../ShaderTogglers/bayonetta.ini) | Pause menu + In Game UI + Effects (`Caps Lock`)
@@ -92,9 +93,11 @@ Game | Features | Extra Description
 [Horizon Zero Dawn](../../ShaderTogglers/horizon_zero_dawn.ini) | - Rain: (`Caps Lock`) <br> - Bloom (`Shift` + `X`) <br> - HUD (`Shift` + `Q`) | - Rain: Could not find and remove the raindrops bouncing off of the ground <br> - Bloom: Both from fire sources and machines <br> - HUD: Both the main game ones and also the item drops / loot HUD popups 
 [LEGO Star Wars: The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift` + `2`)
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | HUD Toggle (`Caps Lock`) | Hide the speedo whilst driving
+[Need for Speed Unbound](../../ShaderTogglers/nfs_unbound.ini) | - HUD toggle (`Caps lock`)<br> - Cartoon effects toggle (`numpad *`) | The cartoon effects toggle doesn't turn off all the effects, but it gets most of them.
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | HUD Toggle (`Caps Lock`)
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | HUD and DOF toggle (`Caps Lock`)
 [Singularity](../../ShaderTogglers/singularity.ini) | - HUD toggle (`Capslock`)<br> - Rain toggle (`Ctrl`+`1`)
+[Somerville](../../ShaderTogglers/somerville.ini) | - Hide menu and black bars (while free camera is enabled) (`Caps Lock`) <br> - Hide text from menu (`ALT`+`0`) | For the game to render where the black bars used to be you have to use [unity explorer freecam](../../GeneralGuides/universal_unity_freecam.md).
 [Spider-Man Remastered](../../ShaderTogglers/spider_man_remastered.ini) | Complete HUD Toggle (`Delete`)
 [Submerged: Hidden Depths](../../ShaderTogglers/submerged_hidden_depths.ini) | Rain and raindrops (`Caps Lock`)
 [The Quarry](../../ShaderTogglers/thequarry.ini) | Toggles only the glowing shader pillar and sprite at the top, the mouse icon is handled by UUU HUD Toggle. (`F1`) | Remember to turn it back on otherwise it's easy to miss key items.
