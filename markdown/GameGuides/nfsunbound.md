@@ -15,7 +15,7 @@ Game version | 1.00
 
 ## Tools
 
-* [HUD toggle and Cartoon Effect disable](../ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [ShaderToggler add-on](../ReshadeGuides/Addons/shader_toggler_repository.md).
+* [HUD toggle and Cartoon Effect disable](../ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [ShaderToggler add-on](../ReshadeGuides/Addons/shader_toggler_repository.htm).
 
 ## Photo mode controls 
 
