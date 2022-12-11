@@ -104,7 +104,7 @@ To do so, after checking the "Use Game Camera?" (and "Begin Freecam") click on t
 
 There might be a way of adding the gameplay postprocessing effects camera to the one created by Unity Explorer, but I haven't tested it myself yet, and probably depends on the game.
 
-### Controls
+### Controls (for both types of cameras)
 
 Description | Keybind
 -- | --
@@ -122,7 +122,7 @@ Also, whenever you have to use this freecam again without the "Use Game Camera?"
 Even if this method is pretty straightforward, it has the problem which you can't move the camera position when the game is paused (with UnityExplorer's Time value or the TimeScaleController plugin). If you want to avoid this problem refer to the next section.
 @end
 
-## Use FreeMoveInjector freecam
+## 2 - Use FreeMoveInjector freecam
 
 If you want to be able to move the camera while the game is paused follow the steps below.
 
@@ -139,6 +139,8 @@ If you want to be able to move the camera while the game is paused follow the st
 * To get out of the freecam just disable the FreeMove component (and click on "End Freecamera" in the Freecamera window if you enabled that) and enable the `Cinemachine` parameter again.
 
 ![Using the FreeMoveInjector freecam](../Images/UUFGuide/free_move.webp){.shadowed .autosize}
+
+### Controls
 
 Description | Keybind 
 -- | --
