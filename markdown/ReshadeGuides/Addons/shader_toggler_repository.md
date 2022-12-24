@@ -81,6 +81,7 @@ Game | Features | Extra Description
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle (`Caps Lock`)
 [Bayonetta](../../ShaderTogglers/bayonetta.ini) | Pause menu + In Game UI + Effects (`Caps Lock`)
 [Call of Juarez: Gunslinger](../../ShaderTogglers/call_of_juarez_gunslinger.ini) |  - HUD/Border (`F2`) <br> - Color Correction (`F3`) <br> - Cell Shading Toggle (`F4`)
+[Century: Age of Ashes](../../ShaderTogglers/century_age_of_ashes.ini) |  -HUD (`Caps Lock`)<br> - Various effects/pickup icons (`Numpad 1` and `Numpad 2`)
 [CONTROL](../../ShaderTogglers/control.ini) | HUD Toggle (`Caps Lock`)
 [Cyberpunk 2077](../../ShaderTogglers/cyberpunk_2077.ini) | HUD  (and some advertisement displays) (`Caps Lock`)
 [Death Stranding: Director's Cut](../../ShaderTogglers/death_stranding_directors_cut.ini) | Screen dirt, HUD, Odradek ping effects, Chiral Network boundary lines, Lost parcel glow, location lines, destination guide lines and footsteps (`F3`) | Player added icons dont hide for some reason
