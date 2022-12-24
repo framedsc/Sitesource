@@ -150,6 +150,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Beyond a Steel Sky                  | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Borderlands 3                       | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Blind Fate: Edo no Yami             | 9.9965     | 180 | ✔                       | 0.100                 ||
+| Century: Age of Ashes               | 5.625      | 180 |                         | 0.1                   ||
 | Chernobylite                        | 1.0000     | 180 | ✔                       | 0.100                 ||
 | CHORVS                              | 56.500     | 180 | ✔                       | 0.100                 ||
 | Close to the Sun                    | 1.0000     | 180 | ✔                       | 0.001                 ||
