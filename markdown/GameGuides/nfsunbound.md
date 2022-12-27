@@ -10,28 +10,37 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-Graphics API | DirectX 12
-Game version | 1.00
+Graphics API | DirectX 11
 
 ## Tools
 
-* [HUD toggle and Cartoon Effect disable](../ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [ShaderToggler add-on](../ReshadeGuides/Addons/shader_toggler_repository.htm).
+* [Camera tools by Archie](https://nfsmods.xyz/mod/4364)  
+**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, Dof Control
 
-## Photo mode controls 
+* [Hud toggle and Carton Effect Disable](https://framedsc.com/ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [Shader Toggler](https://framedsc.com/ReshadeGuides/Addons/shader_toggler_repository.htm)
+
+## Controls 
 
 Key	| Command
 --|--
-`TAB menu option` | Toggle camera
-`Q` / `E` | Move up / down
-`R` / `F` | Zoom in / out
-`WASD` | Move camera around
-`Shift` | Camera effects
-`U` | Hide UI
+`F1` | Toggle UI
+`F2` | Toggle Camera
+`Caps Lock` | Toggle Hud
+`F5` | Pause Game
+`Y` | Camera Up
+`H` | Camera Down
+`J` | Camera Left
+`L` | Camera Right
+`I` | Camera Forward
+`K` | Camera Backward
 
-@alert info
-The Photo Mode uses a different depth-buffer compared to in-game, you may have to pick it manually for depth shaders to work properly, this is done in the Add-ons (ReShade 5+) tab.
-@end
+## Tips and Tricks
 
+### Change Normal Keybinds
+
+You can change the normal keybinds by finding the keycodes of the keys you want to use [here]( https://www.toptal.com/developers/keycode) and changing them inside "CameraToolKit.ini".
+
+## Reshade
 @alert important
 When hotsampling your depth-buffer might change which will require you to manually reselect the correct depth-buffer.
 @end
@@ -39,3 +48,5 @@ When hotsampling your depth-buffer might change which will require you to manual
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Need_for_Speed_Unbound)
+* [Nexus Mods](https://www.nexusmods.com/needforspeedunbound?tab=popular+%28all+time%29) 
+* [NFS Mods](https://nfsmods.xyz/search?search=NFS&game=18)
