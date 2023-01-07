@@ -170,6 +170,10 @@ If you want to avoid using this mod when the game is paused, another alternative
 
 * Changing the orientation of the camera may not work if the game is locking the cursor to the center of the screen. To solve this, keep the UnityExplorer menu open as the plugin will unlock the cursor.
 
+# Tilt
+
+You can tilt the camera by going to the camera game object sliders and moving the "Rotation" Z slider, as shown in the picture above.
+
 # FoV
 ---
 To modify the field of view to open the `Freecam` window by pressing the top bar button of the Unity Explore, click on "Inspect Free Camera" (no matter if you have "Use Game Camera?" enabled or not, it will always return the cam being used for the freecam) and in the window that appears search for "fieldOfView" to change it.

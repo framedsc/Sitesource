@@ -25,6 +25,10 @@ and then press the key you want to use, e.g. scroll lock, to open the REFramewor
 When the REFramework GUI is open, click on `Script Generated UI`, and you'll see the `Show RELit UI` checkbox. Checking it will open the 
 RELit window. It has an initial width and height, you can resize it which will be remembered for the next sessions.
 
+@alert Important!
+If the spawned lights don't show up in cutscenes, enable the REFramework freecam first.
+@end
+
 ---
 # Usage
 
