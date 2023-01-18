@@ -88,6 +88,7 @@ Game | Features | Extra Description
 [Destroy All Humans!](../../ShaderTogglers/destroyallhumans.ini) | Full HUD Toggle (`Caps Lock`)
 [Dying Light 2](../../ShaderTogglers/dying_light_2.ini) | - Lens flare and screen dirt (`Caps Lock`)<br> - Hides air vents and floaty debris (but also inadvertently hides some other smoke and fire sources) (`F2`) <br> - Hides Distant Birds (`F3`) <br> - Hides HUD (`F4`) <br> - Just floaty debris (`F5`)
 [Elden Ring](../../ShaderTogglers/elden_ring.ini) | - Hides Sites Of Grace (`Caps Lock`)<br>- Hides rain, floaty leaves(?) and (SPOILER) end game ash (`F2`)<br> - Hides gold and grey fog walls (`F3`)<br> - HUD (`K`) <br> - Fog (`Caps Lock`)<br> - Bloom (`[`) <br> - Direct lighting/character back lighting (`]`) | Hiding Sites Of Grace also hides some other light sources such as candles and torches, cant be avoided.
+[Far Cry 3](../../ShaderTogglers/FFVIIR.ini) | Map, ammunition, mission information, enemy marks, enemy silhouette trough walls, and enemy attention indicator toggles. (`Caps Lock`)
 [Final Fantasy VII Remake](../../ShaderTogglers/FFVIIR.ini) | HUD (`Del`)
 [Ghostwire: Tokyo](../../ShaderTogglers/ghostwire_tokyo.ini) | HUD and DOF toggle (`Caps Lock`)
 [God of War](../../ShaderTogglers/god_of_war.ini) | Snow toggle (`Caps Lock`)

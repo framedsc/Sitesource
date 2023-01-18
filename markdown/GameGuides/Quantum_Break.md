@@ -1,4 +1,4 @@
-![Quantum Break](\Images\Quantum_Break.png "Shot by Phoenix"){.shadowed .autosize}
+![Quantum Break](\Images\quantum_break.png "Shot by barkar-b"){.shadowed .autosize}
 
 ## Summary
 
