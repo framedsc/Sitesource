@@ -5,9 +5,9 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | Yes
-Hotsampling | Yes [see notes](#hotsampling)
+Hotsampling | Yes, [see notes](#hotsampling)
 DSR | Yes
-Custom Aspect Ratios | Yes [with tools](https://framedsc.com/basics.htm#composing-for-custom-aspect-ratios)
+Custom Aspect Ratios | Yes, [with tools](https://framedsc.com/basics.htm#composing-for-custom-aspect-ratios)
 Reshade | Yes (v4.4+)
 Ansel | No
 Graphics API | DirectX 12
@@ -135,3 +135,4 @@ To go back to the other weather option, simply disable the 'Enable weather inter
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Red_Dead_Redemption_2)
 * [How to install and use Lenny's Mod Loader](https://www.youtube.com/watch?v=E-OIFFcIKDs) (YouTube)
 * [Using Cheat Engine Tables](../GeneralGuides/cheat_engine_tables.htm)
+* [system.xml Settings Parser](https://rdr2.forceflow.be/)
