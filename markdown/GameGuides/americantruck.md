@@ -11,7 +11,7 @@ Custom Aspect Ratios | Yes
 Reshade | Yes (DX11)
 Ansel | No
 Graphics API | DirectX 11
-Game version | 1.45
+Game version | 1.46
 
 @alert neutral
 Everything in this guide applies to *Euro Truck Simulator 2* as well!
@@ -19,8 +19,8 @@ Everything in this guide applies to *Euro Truck Simulator 2* as well!
  
 ## Tools
 
-* [Photo Mode Unlock by tripps](https://mega.nz/file/wNU0CbCb#UyrcytyubnV69z4FNCM93R8mVwKZXtl4OC-vmfVxJmQ)  
-**Features**: Unlocks camera distance limitations, increases FOV distance, removes viewfinder overlay
+* [Photo Mode Unlock by tripps](https://mega.nz/file/cAMQwSxR#CJGqIOVh3BoJE7dzSU9Vpft6RWwFji8ElBOUK4O82bg)  
+**Features**: Unlocks camera distance limitations, increases FOV distance, removes viewfinder overlay (included HUD toggle version)
 
 ## Photo Mode
 
@@ -30,10 +30,12 @@ Key | Command
 --|--|
 W, A, S, D | Move Camera
 Q, E | Up/Down
-Z, C | Tilt Camera Left/Right 
+Z, C | Roll Camera Left/Right 
 Scroll Wheel | Change FOV
+Space | Photo Settings
+H | Hide HUD
 R | Reset Camera 
-L | Lights Menu
+M | Gallery
 
 @alert important
 The Photo Mode export does not render Reshade shaders, use Reshade's built-in screenshot feature.
