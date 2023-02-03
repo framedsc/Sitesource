@@ -63,6 +63,8 @@ Command | Arguments | Description
 `g_show_game_elements` | `0` - `1` | Disables or enables in-game elements like the gas station/repair icons and such.
 `g_minicon` | `0` - `1` | Turns on in-game mini console.
 
+For the full console command list, go [here](https://modding.scssoft.com/wiki/Documentation/Engine/Console/Commands)
+
 ### Reshade
 
 Note that the game uses an upside-down depth buffer. You will need to go to the global processor definitions and change `RESHADE_DEPTH_INPUT_IS_UPSIDE_DOWN` from 0 to 1. This is essential and otherwise depth shaders will not work properly.
