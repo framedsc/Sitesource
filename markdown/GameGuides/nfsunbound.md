@@ -1,4 +1,4 @@
-![Need For Speed Unbound](Images\nfsunbound.png "Shot by tripps"){.shadowed .autosize}
+![Need For Speed Unbound](Images\nfsunbound.png "Shot by pvp"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,35 +10,44 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-Graphics API | DirectX 11
+Graphics API | DirectX 12
 
 ## Tools
 
-* [Camera tools by Archie](https://nfsmods.xyz/mod/4364)  
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, Dof Control
+* [Camera toolkit by ARCHIE](https://nfsmods.xyz/mod/4364)  
+**Features**: Tool to control in-game camera and its various features.
 
-* [Hud toggle and Carton Effect Disable](https://framedsc.com/ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [Shader Toggler](https://framedsc.com/ReshadeGuides/Addons/shader_toggler_repository.htm)
+* [Hud toggle and Cartoon Effect disable](https://framedsc.com/ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [Shader Toggler](../ReshadeGuides/Addons/shader_toggler_repository.htm)
 
-## Controls 
+## Photo mode controls 
+
+Key	| Command
+--|--
+`TAB menu option` | Toggle camera
+`Q` / `E` | Move up / down
+`R` / `F` | Zoom in / out
+`WASD` | Move camera around
+`Shift` | Camera effects
+`U` | Hide UI
+
+@alert info
+The Photo Mode uses a different depth-buffer compared to in-game, you may have to pick it manually for depth shaders to work properly, this is done in the Add-ons (ReShade 5+) tab.
+@end
+
+## Camtool controls
 
 Key	| Command
 --|--
 `F1` | Toggle UI
 `F2` | Toggle Camera
-`Caps Lock` | Toggle Hud
+`Caps Lock` | Toggle HUD
 `F5` | Pause Game
-`Y` | Camera Up
-`H` | Camera Down
-`J` | Camera Left
-`L` | Camera Right
-`I` | Camera Forward
-`K` | Camera Backward
+`Y, H` | Camera Up / Down
+`J, L` | Camera Left / Right
+`I, K` | Camera Forward / Backward
 
-## Tips and Tricks
-
-### Change Normal Keybinds
-
-You can change the normal keybinds by finding the keycodes of the keys you want to use [here]( https://www.toptal.com/developers/keycode) and changing them inside "CameraToolKit.ini".
+@alert info You can change the default camera tool keybinds by finding the keycodes of the keys you want to use [here]( https://www.toptal.com/developers/keycode) and changing them inside the included "CameraToolKit.ini" file.
+@end
 
 ## Reshade
 @alert important
@@ -48,5 +57,5 @@ When hotsampling your depth-buffer might change which will require you to manual
 ## Useful Links
 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Need_for_Speed_Unbound)
-* [Nexus Mods](https://www.nexusmods.com/needforspeedunbound?tab=popular+%28all+time%29) 
+* [Nexus Mods](https://www.nexusmods.com/needforspeedunbound) 
 * [NFS Mods](https://nfsmods.xyz/search?search=NFS&game=18)
