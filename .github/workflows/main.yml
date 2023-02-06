@@ -24,6 +24,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build site
+        shell: cmd
         run: |
           git clone git@github.com:framedsc/framedsc.github.io.git $GITHUB_WORKSPACE/../framedsc.github.io
           git config --global user.email "no-reply@github.com"
