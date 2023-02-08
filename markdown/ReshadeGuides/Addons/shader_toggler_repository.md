@@ -92,6 +92,7 @@ Game | Features | Extra Description
 [Final Fantasy VII Remake](../../ShaderTogglers/FFVIIR.ini) | HUD (`Del`)
 [Ghostwire: Tokyo](../../ShaderTogglers/ghostwire_tokyo.ini) | HUD and DOF toggle (`Caps Lock`)
 [God of War](../../ShaderTogglers/god_of_war.ini) | Snow toggle (`Caps Lock`)
+[Hi-Fi Rush](../../ShaderTogglers/hi-fi-rush.ini) | - HUD and Menu DOF toggle (`Caps Lock`) <br> - Some hit effects (`Tab`)<br> - Allows some pattern to be drawn in characters and objects (`P`)<br> - Character comic lines (`C`) | I recommend using the pause menu for shooting cutscenes, otherwise the audio doesn't stop.
 [Horizon Zero Dawn](../../ShaderTogglers/horizon_zero_dawn.ini) | - Rain: (`Caps Lock`) <br> - Bloom (`Shift` + `X`) <br> - HUD (`Shift` + `Q`) | - Rain: Could not find and remove the raindrops bouncing off of the ground <br> - Bloom: Both from fire sources and machines <br> - HUD: Both the main game ones and also the item drops / loot HUD popups 
 [LEGO Star Wars: The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift` + `2`)
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | HUD Toggle (`Caps Lock`) | Hide the speedo whilst driving
