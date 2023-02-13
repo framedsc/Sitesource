@@ -143,7 +143,7 @@ Ambient occlusion aims to simulate shadows based on the scene geometry. As with 
 - [**MC_SSAO**](https://github.com/ConstantineRudenko/Shaders/blob/master/reshade/Shaders/MC_SSAO.fx)
 - [**MXAO**](https://github.com/cyrie/Stormshade/blob/master/reshade-shaders/Shaders/MXAO.fx)
 - [**SSAO (HBAO, RayAO, HBAO, SSGI, AO_SAO, SSAO)**](https://github.com/Mortalitas/GShade/blob/master/Shaders/SSAO.fx): The SSAO shader has all the ambient occlusion techniques in parenthesis.
-- [**PPFX_SSDO**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/PPFX_SSDO.fx)
+- [**PPFX_SSDO**](https://github.com/dddfault/reshade-shaders/blob/master/Shaders/PPFX_SSDO.fx)
 
 ### Reflections
 
@@ -156,22 +156,22 @@ As they sound, bloom shaders are used to imitate bloom in a scene.
 
 - [**AmbientLight**](https://pastebin.com/Lnmrmb3v): Bloom mixed with eye adaptation and lens dirt. The linked version of the shader has a toggle for using dither, since having it turned on can produce artifacts. It's highly recommended to turn off the dither. If the shader gets updated you won't find the latest version in this link.
 - [**BesselBloom**](https://github.com/LordOfLunacy/Insane-Shaders/blob/master/Shaders/Bessel_Bloom.fx): Instead of using the typical Gaussian filter used by bloom, an approximate is implemented instead of using a 2nd order Bessel IIR filter.
-- [**MagicBloom**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/MagicBloom.fx)
+- [**MagicBloom**](https://github.com/Otakumouse/stormshade/blob/master/v4.X/reshade-shaders/Shader%20Library/Recommended/MagicBloom.fx)
 - [**NeoBloom**](https://github.com/luluco250/FXShaders/blob/master/Shaders/NeoBloom.fx)
 - [**PD80_02_Bloom**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_02_Bloom.fx):  Bloom shader based on scene luminosity. It uses a Gaussian blur applied on the fly. It blends the bloom with the rest using the Screen blending method.
 - [**qUINT_bloom**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_bloom.fx): Filter that adds a glow around bright screen areas, adapting to the current scene brightness.
 - [**ArcaneBloom**](https://github.com/luluco250/FXShaders/blob/master/Shaders/ArcaneBloom.fx)
 - [**BloomingHDR**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/BloomingHDR.fx)
 - [**Pirate_Bloom**](https://github.com/Heathen/Pirate-Shaders/blob/master/reshade-shaders/Shaders/Pirate_Bloom.fx)
-- [**PPFX_Bloom**](https://github.com/Mortalitas/GShade/blob/master/Shaders/PPFX_Bloom.fx)
-- [**SimpleBloom**](https://github.com/Mortalitas/GShade/blob/8f52311f29608456d3db94fa56b6a36522904d02/Shaders/SimpleBloom.fx)
+- [**PPFX_Bloom**](https://github.com/dddfault/reshade-shaders/blob/master/Shaders/PPFX_Bloom.fx)
+- [**SimpleBloom**](https://github.com/Fubaxiusz/fubax-shaders-dev)
 - [**KinoBloom**](https://github.com/papadanku/CShade/blob/master/shaders/cBloom.fx)
 
 
  
 ### Light Rays
 
-- [**PPFX_Godrays**](https://github.com/Mortalitas/GShade/blob/master/Shaders/PPFX_Godrays.fx): If you want to add godrays to a scene then this shader can help you with that.
+- [**PPFX_Godrays**](https://github.com/dddfault/reshade-shaders/blob/master/Shaders/PPFX_Godrays.fx): If you want to add godrays to a scene then this shader can help you with that.
 - [**TrackingRays**](https://github.com/luluco250/FXShaders/blob/master/Shaders/TrackingRays.fx): Similar to the previous shader but the orientation of the rays is automatic.
 
 ## Fun effects
@@ -209,7 +209,7 @@ fog layer, which is fully configurable. See [the guide on this site](Shaders/hei
 - [**PD80_06_Depth_Slicer**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Depth_Slicer.fx): Similar to AdaptiveFog but with blending mods and other a couple more options.
 - [**RealLongExposure**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/RealLongExposure.fx): Enables you to capture changes over time, like in long-exposure photography. If you filter by brightness, it will have the most similar effect to real-world photography, but try Freeze on a static scene with the brightness turned off and not moving the camera to receive the most interesting results. Keep in mind that having low fps (that being because of hotsampling or using expensive shaders for example) would decrease the number of samples the shader makes, thus resulting in a low-quality result. If the tools that you are using to shoot a game allow you to control the velocity of the game then slow down said velocity for better results.
 It can also be used when you have a jitter depth buffer (sometimes caused by TAA or other noisy effects like SSR or raytracing) to accumulate and produce a cleaner image.
-- [**Retrofog**](https://github.com/luluco250/FXShaders/blob/master/Shaders/RetroFog.fx)
+- [**Retrofog**](https://github.com/luluco250/FXShaders)
 - [**Retrofog2**](https://github.com/Mortalitas/GShade/blob/master/Shaders/RetroFog2.fx)
 - [**Rim**](https://github.com/mj-ehsan/NiceGuy-Shaders/blob/main/Shaders/Rim.fx): Aims to reproduce a Rim Light effect using the game's depth buffer.
 - [**ThinFilm**](https://github.com/Mortalitas/GShade/blob/master/Shaders/ThinFilm.fx)
@@ -337,10 +337,10 @@ If you want a detailed explanation about what most of prods shaders do make sure
 ### Tonemapping and color grading
 
 - [**DPX**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/DPX.fx): Makes the image look like it was converted from film to Cineon DPX. Can be used to create a "sunny" look.
-- [**FilmicPass**](https://github.com/Mortalitas/GShade/blob/master/Shaders/FilmicPass.fx): Applies some common color adjustments to mimic a more cinema-like look.
+- [**FilmicPass**](https://github.com/byxor/thug-pro-reshade/blob/master/THUG%20Pro/reshade-shaders/Shaders/FilmicPass.fx): Applies some common color adjustments to mimic a more cinema-like look.
 - [**PD80_01_Filmic_Adaptation**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_03_Filmic_Adaptation.fx)
 - [**PD80_04_Technicolor**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_04_Technicolor.fx)
-- [**Reinhard**](https://github.com/Mortalitas/GShade/blob/master/Shaders/Reinhard.fx)
+- [**Reinhard**](https://github.com/Zackin5/Filmic-Tonemapping-ReShade/blob/master/Reinhard.fx)
 - [**Technicolor**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Technicolor.fx): Makes the image look like it was processed using a three-strip Technicolor process - see http://en.wikipedia.org/wiki/Technicolor
 - [**Technicolor2**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/Technicolor.fx)
 - [**WatchDogsTonemapping**](https://github.com/Mortalitas/GShade/blob/master/Shaders/WatchDogs.fx)
@@ -349,7 +349,7 @@ If you want a detailed explanation about what most of prods shaders do make sure
 
 - [**cFilmGrain**](https://github.com/papadanku/CShade/blob/main/shaders/cFilmGrain.fx): Film grain without copying texture.
 - [**FilmGrain**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/FilmGrain.fx)
-- [**FilmGrain2**](https://github.com/Mortalitas/GShade/blob/master/Shaders/FilmGrain2.fx)
+- [**FilmGrain2**](https://github.com/byxor/thug-pro-reshade/blob/master/THUG%20Pro/reshade-shaders/Shaders/FilmGrain2.fx)
 - [**PD80_06_Film_Grain**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Film_Grain.fx)
 - [**SimpleGrain**](https://github.com/Fubaxiusz/fubax-shaders/blob/master/Shaders/SimpleGrain.fx)
 
