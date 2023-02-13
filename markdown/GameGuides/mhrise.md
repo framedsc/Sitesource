@@ -4,7 +4,7 @@
  
 Feature | Supported
 --|--
-Vanilla Photo Mode | No
+Vanilla Photo Mode | Yes (lol)
 Hotsampling | Yes
 DSR | No
 Custom Aspect Ratios | Yes*
