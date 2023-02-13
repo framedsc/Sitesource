@@ -209,7 +209,7 @@ fog layer, which is fully configurable. See [the guide on this site](Shaders/hei
 - [**PD80_06_Depth_Slicer**](https://github.com/prod80/prod80-ReShade-Repository/blob/master/Shaders/PD80_06_Depth_Slicer.fx): Similar to AdaptiveFog but with blending mods and other a couple more options.
 - [**RealLongExposure**](https://github.com/LordKobra/CobraFX/blob/master/Shaders/RealLongExposure.fx): Enables you to capture changes over time, like in long-exposure photography. If you filter by brightness, it will have the most similar effect to real-world photography, but try Freeze on a static scene with the brightness turned off and not moving the camera to receive the most interesting results. Keep in mind that having low fps (that being because of hotsampling or using expensive shaders for example) would decrease the number of samples the shader makes, thus resulting in a low-quality result. If the tools that you are using to shoot a game allow you to control the velocity of the game then slow down said velocity for better results.
 It can also be used when you have a jitter depth buffer (sometimes caused by TAA or other noisy effects like SSR or raytracing) to accumulate and produce a cleaner image.
-- [**Retrofog**](https://github.com/luluco250/FXShaders)
+- [**Retrofog**](https://github.com/luluco250/FXShaders/blob/master/Shaders/RetroFog.fx)
 - [**Retrofog2**](https://github.com/Mortalitas/GShade/blob/master/Shaders/RetroFog2.fx)
 - [**Rim**](https://github.com/mj-ehsan/NiceGuy-Shaders/blob/main/Shaders/Rim.fx): Aims to reproduce a Rim Light effect using the game's depth buffer.
 - [**ThinFilm**](https://github.com/Mortalitas/GShade/blob/master/Shaders/ThinFilm.fx)
