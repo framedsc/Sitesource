@@ -78,6 +78,7 @@ Game | Features | Extra Description
 [Assassin's Creed Origins](../../ShaderTogglers/assassins_creed_origins.ini) | - Remove head distortion (`Shift` + `6`)<br> - Chromatic aberration (`Shift` + `7`)
 [Assassin's Creed: Syndicate](../../ShaderTogglers/assassins_creed_syndicate.ini)  | - Ingame HUD toggle (`Caps Lock`) <br> - Jack the Ripper DLC CA toggle (`numpad .`)
 [Assassin's Creed Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - HUD (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift` + `F4`)<br> - Vertical line markers in the world (`Shift` + `F5`)<br> - Rain (`Shift` + `F6`)
+[Atomic Heart](../../ShaderTogglers/atomic_heart.ini)  | - Ingame HUD toggle (`Caps Lock`)
 [Batman: Arkham Knight](../../ShaderTogglers/batman_arkham_knight.ini) | Rain and rain bounce toggle (`Caps Lock`)
 [Bayonetta](../../ShaderTogglers/bayonetta.ini) | Pause menu + In Game UI + Effects (`Caps Lock`)
 [Call of Juarez: Gunslinger](../../ShaderTogglers/call_of_juarez_gunslinger.ini) |  - HUD/Border (`F2`) <br> - Color Correction (`F3`) <br> - Cell Shading Toggle (`F4`)
