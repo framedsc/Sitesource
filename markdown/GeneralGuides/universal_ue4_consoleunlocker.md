@@ -487,6 +487,7 @@ Weakless |
 Werewolf The Apocalypse Earthblood | 
 Withstand: Survival | 
 What Happened | 
+What Remains of Edith Finch | No free-camera functionality. Only timestop works.
 The Works of Mercy | 
 WWE Battlegrounds | 
 XING The Land Beyond | 

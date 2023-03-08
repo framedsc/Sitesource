@@ -13,7 +13,7 @@ Ansel | No
 Graphics API | DirectX 11
 
 @alert neutral  
-This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm). Do keep in mind that only the 3.x version of the unlocker works (4.x crashes the game upon injection). Moreover, no free-camera functionality is available, only the timestop works.
 @end
  
 ## Tools
