@@ -15,6 +15,29 @@ Game version | <font face="Stores"> E </font> <font face="Stores"> S </font> 5.0
 
 ## Tools
 
+You can use two tools to unlock the camera in this game. Even though both are mostly similar, each does offer some unique camera movement options that the other does not.
+
+* [Camera unlocker by IDK31 and One3rd](..\CheatTables\INSIDE_Epic_Store_V1.0.CT)  
+  This Cheat Engine table works with both the **Steam** <font face="Stores"> S </font> and the **Epic Games Store** <font face="Stores"> E </font> versions. Compared to the second tool, this one has finer camera control and even allows the player to pause the game and disable the Main Menu HUD. A basic summary of the flow is:-
+
+  1. Open the CET and attach it to the game's executable process.
+  2. In the CET, click on *Activate Mono Features* in the *Mono* tab.
+  3. While in-game, toggle the Main Menu once. Then press `Caps Lock` and wait for the script to be enabled. Now upon pressing `ESC`, the Main Menu is no longer visible and the game will be paused.
+  4. Enable the freecam script (you may add a hotkey to toggle this) and use the following keys to move the camera:
+      * `Numpad 2/8`: Y axis
+      * `Numpad 4/6`: X axis
+      * `Numpad 3/9`: Z axis
+      * `Arrow keys`: X/Y axis rotation
+  5. Pressing `ESC` again will unpause the game and bring the camera back to its original position.
+
+@alert warning
+Keeping the freecam script enabled during gameplay will result in the camera being jittery.
+@end
+
+@alert info
+The game has to be paused in order to move the camera while using the tool. That is, you cannot move the character with the camera unlocked, unlike the second tool.
+@end
+
 * [Free cam by Abarichello](https://github.com/abarichello/inside-noclip)  
   This Cheat Engine table works with the **Steam** <font face="Stores"> S </font> version. It unlocks the camera and allows it to move freely in the game's 2.5D space. Clone the repository or zip and extract to download the files. Follow the instructions on the Github page to use the tool. Below is a basic summary of the flow:-
 
@@ -34,21 +57,8 @@ Game version | <font face="Stores"> E </font> <font face="Stores"> S </font> 5.0
 Although the camera movement is quite smooth, it has a bit of inertia and continues to move slightly even after the key is no longer being pressed. As a result, it lacks the finegrain control of the CET below.
 @end
 
-* [Camera unlocker by IDK31 and One3rd](..\CheatTables\INSIDE_Epic_Store_V1.0.CT)  
-  This Cheat Engine table works with both the **Steam** <font face="Stores"> S </font> and the **Epic Games Store** <font face="Stores"> E </font> versions. Compared to the previous table, this one has finer camera control and even allows the player to pause the game and disable the Main Menu HUD. A basic summary of the flow is:-
-
-  1. Open the CET and attach it to the game's executable process.
-  2. In the CET, click on *Activate Mono Features* in the *Mono* tab.
-  3. While in-game, toggle the Main Menu once. Then press `Caps Lock` and wait for the script to be enabled. Now upon pressing `ESC`, the Main Menu is no longer visible and the game will be paused.
-  4. Enable the freecam script (you may add a hotkey to toggle this) and use the following keys to move the camera:
-      * `Numpad 2/8`: Y axis
-      * `Numpad 4/6`: X axis
-      * `Numpad 3/9`: Z axis
-      * `Arrow keys`: X/Y axis rotation
-  5. Pressing `ESC` again will unpause the game and bring the camera back to its original position.
-
-@alert warning
-Keeping the freecam script enabled during gameplay will result in the camera being jittery.
+@alert info
+Unlike the first tool, you can move the character while having the camera unlocked. Since the game does not need to be paused to move the camera, you can take long exposure shots with this tool.
 @end
 
 ## Notes

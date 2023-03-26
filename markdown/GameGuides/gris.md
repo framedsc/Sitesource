@@ -21,7 +21,7 @@ Graphics API | DirectX 11
 This tool unlocks the camera. Download the `Assembly-CSharp.dll` file from the Releases tab, and place it inside `(Gris Installation Directory)/GRIS_Data/Managed` to overwrite the existing file. You can backup the original one or verify the game's integrity if you want it back.
 
 ## Notes
-The in-game resolution settings caps out at your desktop resolution. If you want to play at higher resolutions (like 4K), set your desktop resolution to the corresponding value; only then the in-game settings show the higher resolutions. 
+The in-game resolution settings caps out at your desktop resolution. If you want to play at higher resolutions (like 4K), set your desktop resolution to the corresponding value; only then the in-game settings show the higher resolutions.
 
 The game needs to be run in windowed mode for SRWE to hotsample properly.
 
