@@ -137,7 +137,8 @@ This forces the game to always render at 150% native resolution, with draw dista
 
 ## All UE4 console commands and variables
 
-To know more about which commands are available and which variables you can set through the console you can use the following search engine: [https://digilander.libero.it/ZioYuri78/](https://digilander.libero.it/ZioYuri78/). 
+To know more about which commands are available and which variables you can set through the console you can use the [list of all Unreal Engine 4.27 commands](ue4_commands.htm). For
+Unreal Engine 5 commands, please use the [list of all Unreal Engine 5.1 commands](ue5_commands.htm). 
 
 This search engine allows you to search on both description and command/variable so it's easy to find the command or variable you're after. The engine gives the variables of the
 latest public UE4 build, so it might be the game you're using the UUU with is of an earlier version and doesn't support the variable.
