@@ -31,8 +31,8 @@ Key	| Command
 Arrow keys / <font face="Controller">></font> | Rotate camera
 `Num 1` / <font face="Controller">[</font> | Roll left
 `Num 3` / <font face="Controller">]</font> | Roll right
-`PgDn` / Press LT | Zoom in
-`PgUp` / Press RT | Zoom out
+`PgDn` / Press L3 | Zoom in
+`PgUp` / Press R3 | Zoom out
 
 Hold roll left and right down for a second to reset roll.  
 

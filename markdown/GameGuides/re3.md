@@ -23,4 +23,4 @@ Make sure to check out [the guide](../GeneralGuides/relit.htm) on it.
 
 ##Useful Links
 
-* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Resident_Evil_3_\(2020)
+* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Resident_Evil_3_(2020))
