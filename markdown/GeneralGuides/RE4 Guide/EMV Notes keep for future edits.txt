@@ -1,0 +1,142 @@
+Plugins not covered in this Guide are "Console, Enemy Spawner, Enhanced Model Viewer, RE Engine Resource Editor"
+EMV Engine likely covers some basic access to each of them. What currently does not work at all is the Enhanced Model Viewer, which should also allow us to play out cutscenes and manipulate them as you like. As well as skiping back and forth.
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+#EMV Engine for Resident Evil 4 Remake
+
+Requirements: 
+
+REFramework for Resident Evil 4 Remake (https://github.com/praydog/REFramework-nightly/releases)
+Drop the main folder named "reframework" and the "dinput8.dll" into your main RE4Remake Folder, installation path usually is C\Programm Files(x86)\Steam\steamapps\common\RESIDENT EVIL 4  BIOHAZARD RE4
+
+EMV Engine (https://github.com/alphazolam/EMV-Engine)
+It is recommend that you install all Plugins available. (Console, Enemy Spawner, Enhanced Model Viewer, Gravity Gun, RE Engine Resource Editor)
+Open the EMV-Engine-main.zip, open EMV-Engine-main. 
+The following steps have to be repeated for each individual folder inside of EMV-Engine-main. 
+
+Image1
+
+Open up your folder and copy the folder named "reframework" into your main RE4Remake Folder, installation path usually is C\Programm Files(x86)\Steam\steamapps\common\RESIDENT EVIL 4  BIOHAZARD RE4
+
+Enemy Spawner and Enhanced Model Viewer also contain a folder named "natives", this one also goes into your main RE4Remake Folder, installation path usually is C\Programm Files(x86)\Steam\steamapps\common\RESIDENT EVIL 4  BIOHAZARD RE4
+
+Start up your Game.
+A Error will pop up, connected to Enhanced Model Viewer, which currently is not supportet. Ignore it and press ok.
+
+REFrameworks Main Window should now pop up in game, looking like this.
+
+Image2
+
+I recommend clicking on the Configuration Tab once and enable "Remember Menu Open/Closed State", you might as well bind your Menu Hotkey to something you easily remember. In my case "120" which is F9.
+
+Image 3
+
+Now, lets get you into the 2 Plugins that have most use for us.
+As mentioned the Enhanced Model Viewer Plugin currently does not work.
+So we rely on the Gravity Gun/Collection Plugin.
+
+
+
+#The Gravity Gun Plugin
+
+I highly recommend using a Free Camera for the use of it, if you use the integrated REFramework FreeCam or Frans Bouma's IGCS Photomode is up to you. For this Guide i am using Frans Bouma's IGCS Photomode. Having the game paused and hud hidden (by pressing ESC and Delete), will help you a lot if you plan to stage specific scenes, otherwise it is not necessary.
+
+Open up your REFramework overlay and click on the "Script Generated UI" Tab and then on the "Gravity Gun Settings" Tab, activate the "Show transform" function and keep the other ones deactivated.
+
+Image4
+
+The use of Gravity Gun, yeah what does it even do?
+The Gravity Gun lets you grab and modify various objects in the game. Not everything works.
+Here is a simple example:
+
+There is a locked door in front of me which is a shortcut from another path and i would like to skip ahead.
+
+Screenshot1
+
+I switch into Free Camera, fly over to the door and aim at it, hold down the middle mouse button and since we have activated the "Show transform" function, now appears small wall of text telling me which object i am trying to grab.
+In this scenario it is the door in front of me.
+
+Image5
+
+Now i release the middle mouse button and the object is attached to my camera, i am free to move it around and place it in the room ahead of me. I do that by simply pressing the middle mouse button again when i have decided where i want it to be.
+Important note: While a object is attached to you, scrolling your mouse wheel will move the object back and forth, if you hold down F and scroll your mouse wheel, you are also able to change the size of it. Objects can be placed anywhere, they clip through everything.
+
+Screenshot2
+
+With the door being out of my way, i can just proceed through the opening without any issue. That being said, i recommend you save your game before messing with the game, moving freely past certain story parts might mess up your progress completely.
+
+Screenshot3
+
+Now what we just learned can also be applied to any NPC and the player character as well.
+It follows the same rules, switch into Free Camera, fly over to the target, aim at it and hold down the middle mouse button.
+Here again a small wall of text telling me what i am looking at. Indicating that it is a character model.
+
+Image6
+
+Unlike the door, character models can not be move through walls and other physical objects.
+It is worth to mention, if you have either Ashley or Luis following you around and you decide to move them far away from Leon, they will always try run back to him. 
+
+That pretty much covers the functionality of the Gravity Gun.
+
+
+
+
+
+
+#The Collection
+
+The Collection is a simple way to search for NPCs nearby, including the player character.
+Open up your REFramework overlay and click on the "Script Generated UI" Tab and then on the "Collection" Tab and simply press "Search". 
+A bit futher down you will now have a list of collected game objects.
+
+Image7
+
+The objects listed here can usually be modified in one way or another, you can even attach them to your gravity gun and move them around if you want to. But mainly we use this for posing in and out of cutscenes, without being forced to use the gravity gun and aim at your desired target. (Unfortunately the gravity gun's aim function has issues during cutscenes)
+
+
+Lets try it out on Leon.
+Look at the your list of collected game objects, look for "ch0a0z0_body" and click on the small arrow pointing to the right. It will open up more options, first you will notice there are two checkmarks, one for update, one for enabled, you can click on enabled once and Leon will disappear, click it again and he is back. This is important to remember for cutscenes, if you for example would like to hide another NPC in the scene. There is also a button that says "grab", clicking it will attach Leon to the Gravity Gun, we don't need this though.
+
+Image8
+
+You may have noticed on tab here is called "poser".
+Open it up, you will get a list of bone structures that is specific for this character. 
+As it would simply be too much to cover a specific pose for this guide there are still a few things i would like to point out.
+Most of the bones can be freely adjusted, certain NPCs such as Bosses may offer you a even longer list with even more options to adjust their pose. I would heavily recommend to use this only when the game is paused.
+
+A bit futher down is the "action monitor. It allows you to force certain animations.
+If you open it up make sure to activate the "puppet mode", now click on the motion tab (as highlighted in the image below).
+
+Image9
+
+Here is another long list of options available to use. As for the poser, i would recommend you just play around and see what each of these does. For some of them you have to click on the arrow next to it and open up the children tab as well, then select certain actions from there. Some may even crash your game.
+
+Image10
+
+If you want to adjust additional NPCs that are exclusive for cutscenes, such as Ramon during the castle region of the game, simply click on "search settings", remove the checkmark next to "Must have this Component:" and press search. Now you can look through each individual object available. 
+
+Image11
+
+Here is a small list of NPCs and their ID's.
+
+ch0a0z0_body - Leon
+ch2a1z0_body - Ashley
+ch2a3z0_body - Luis
+ch2a200_puppet - Ada
+ch2b600_00 - Ramon (Human Midget Form)
+ch1f6z0_00 - Ramon (Mutation)
+ch1b7z0_00 - Krauser (Human Form) 
+ch1f7z0_body - Krauser (Mutation) 
+ch1b5z1_00 - Village Chief (Human Form)
+ch1f4z1_body - Village Chief (First Mutation)
+ch1f5z1_body - Village Chief (Second Mutation)
+ch2b8z0_00 - Saddler (Human Form)
+ch1f8z0_00 - Saddler (Mutation)
+gm84_623_00_0_????.cha700_10 - Trader (shared model with the table)
+*Bosses usually have multiple listings, seperated for cutscenes and for gameplay.

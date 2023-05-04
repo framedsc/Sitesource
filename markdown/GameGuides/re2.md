@@ -22,7 +22,10 @@ Graphics API | DirectX 11, DirectX 12
 **Features**: Free Camera, Time Stop, Lock Camera Position, Hide Flashlight, Remove Vignette
 * [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
 **Features**: Lighting Control, turn off scene lights, exposure control.  
-Make sure to check out [the guide](../GeneralGuides/relit.htm) on it. 
+Make sure to check out [the guide](../GeneralGuides/relit.htm) on it.
+* [EMV Engine](https://github.com/alphazolam/EMV-Engine)  
+**Features**: Console, Enemy Spawner, Character Poser, Gravity Gun, and more.
+Make sure to check out the [guide](../GeneralGuides/emv_engine.htm) on it.
 
 
 The tools work with DirectX 11.
