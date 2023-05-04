@@ -108,6 +108,7 @@ But before listing the shaders I will first introduce you to one that can be use
 ### Anti Aliasing
 You are probably familiar with the term, if not Anti Aliasing helps reduce the "sawtooth" you see in games. Even if the game has an anti-aliasing option, these shaders can help you in situations where the game anti aliasing breaks the depth buffer (MSAA for example) or where said anti-aliasing implementations are old. These shaders use different implementations of different types of Anti Alisings; SMAA tends to give great results, but feel free to try them and see which one suits you best.
  
+- [**iMMERSE Anti Aliasing**](https://github.com/martymcmodding/iMMERSE/blob/main/Shaders/MartysMods_SMAA.fx): Modified SMAA with many optimizations for current-gen hardware. It is designed to not alter the visual output compared to regular SMAA, i.e. these optimizations do not come at the cost of reduced visual quality.
 - [**SMAA**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/SMAA.fx): Anti-aliases the image using the SMAA technique - see http://www.iryoku.com/smaa/. Be sure to download the .fxh file as well.
 - [**DLLA_plus**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/DLAA_Plus.fx): Directionally Localized Anti Aliasing plus.
 - [**NFAA**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/NFAA.fx): Normal Filter Anti Aliasing.
@@ -127,7 +128,7 @@ You are probably familiar with the term, if not Anti Aliasing helps reduce the "
 
 ### Raytracing
 You probably stumbled across the term. Raytracing technology aims to simulate light and shadows more precisely. Even tho a game implementation of this kind of technology would be more accurate than a reshade implementation, most games don't do ray tracing within them and so these shaders can be useful, especially in old titles.
-
+- [**DH_UBER_RT**](https://github.com/AlucardDH/dh-reshade-shaders/blob/master/Shaders/dh_uber_rt.fx): All-in-one RT shader (GI, AO and SSR).
 - [**dh_rtgi**](https://github.com/AlucardDH/dh-reshade-shaders/blob/master/Shaders/dh_rtgi.fx)
 - [**Marty's RTGI**](https://www.patreon.com/mcflypg): With a lot of work put into it, Marty's RTGI is the way to go. You might need to learn how to configure it.
 - [**RadiantGI**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/RadiantGI.fx): BlueSky implementation of global illumination plus subsurface scattering. Can be used in conjunction with Marty's RTGI, but it also works very well on its own. It would require you to learn [how to use it](https://www.youtube.com/watch?v=soXozWWV7e0).
@@ -136,6 +137,7 @@ You probably stumbled across the term. Raytracing technology aims to simulate li
 ### Ambient Occlusion
 Ambient occlusion aims to simulate shadows based on the scene geometry. As with ray tracing, it's often very useful with old titles.
  
+- [**iMMERSE MXAO**](https://github.com/martymcmodding/iMMERSE/blob/main/Shaders/MartysMods_MXAO.fx): Marty's latest ambient occlusion shader. Successor of the qUINT MXAO effect. Should be one of the most advanced SSAO implementations that exist.
 - [**GloomAO**](https://github.com/BlueSkyDefender/AstrayFX/blob/master/Shaders/GloomAO.fx): Screen Space Directional Occlusion.
 - [**qUINT_MXAO**](https://github.com/martymcmodding/qUINT/blob/master/Shaders/qUINT_mxao.fx): Algorithmically similar to latest-gen techs like GTAO and CACAO, although it features some relatively unique features such as indirect illumination, smoothing filter for depth-derived normal maps, double-layer option at no additional cost and others. Highly configurable, easily tweakable.
 - [**qUINT_MXGI**](https://www.patreon.com/mcflypg): Basically MXAO with added GI, or RTGI without the raytracing. Planned to be merged with MXAO v2 at some point, currently, they're separate shaders.
@@ -319,7 +321,7 @@ If you want a detailed explanation about what most of prods shaders do make sure
     
  
 ### Sharpening and texture
-
+- [**iMMERSE Sharpen**](https://github.com/martymcmodding/iMMERSE/blob/main/Shaders/MartysMods_SHARPEN.fx): iMMERSE Sharpen is a depth-aware sharpening filter that leverages both depth and color to increase local contrast in desired areas, while avoiding many common artifacts usually found in sharpen algorithms, such as haloing around objects.
 - [**AdaptiveSharpen**](https://github.com/Mortalitas/GShade/blob/master/Shaders/AdaptiveSharpen.fx)
 - [**BilateralCS**](https://raw.githubusercontent.com/LordOfLunacy/Insane-Shaders/master/Shaders/BilateralCS.fx): Adaptive IIR filter for sharpening and blurring.
 - [**CAS (ContrastAdaptiveSharpen)**](https://github.com/CeeJayDK/SweetFX/blob/master/Shaders/CAS.fx): AMD FidelityFX Contrast Adaptive Sharpening. Sharpens the image, making details easier to see.
@@ -377,7 +379,8 @@ If you want a detailed explanation about what most of prods shaders do make sure
 - [**Glamayre_Fast_Effects**](https://github.com/rj200/Glamarye_Fast_Effects_for_ReShade/blob/main/Shaders/Glamayre_Fast_Effects.fx)
 Implements fast FXAA, intelligent sharpening, fast ambient occlusion, subtle depth of field, fake global illumination, and bounce lighting in a single shader. For more info, comparison shots, and troubleshooting check the readme file on the shaders repository.
 - [**LensDiffusion**](https://discord.com/channels/217504282109411330/805488617643835402/958093194820739132): To download it head out to [TreyM discord server](https://discord.treym.us).
- 
+- [**vort_MegaShader**](https://discord.com/channels/586242553746030596/804451693853016085/1103197689576968262): Single technique which uses multiple different passes to accomplish different effects performantly, but with good quality. To download it head out to the [Reshade Discord server](https://discord.gg/PrwndfH).
+
 ## LUTs
 LUTs are a very important part of doing post-processing, that being for screenshotting or just playing. For a more detailed look at what LUTs are and how to make your own go to [this guide](https://framedsc.github.io/ReshadeGuides/lutgenguide.htm). If you want a great source of LUTs head over to [gordinho MLUT shader repo](https://github.com/TheGordinho/MLUT). Below I would list some of my favorites.
 
