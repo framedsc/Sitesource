@@ -1,6 +1,6 @@
 ![EMV Engine](../Images/emv_engine.png){.shadowed .autosize}
 
-EMV Engine (and the many scripts that come with it) is a large mod containing many useful features, such as spawning enemies, controlling bones in npcs, and moving objects around, among other things. In this guide, we will focus on the features that can be useful for taking shots, but do be aware that the mod was not made specifically for that and has many, many more features and tools.
+EMV Engine (and the many scripts that come with it) is a large mod made by [alphaZomega](https://github.com/alphazolam) containing many useful features, such as spawning enemies, controlling bones in npcs, and moving objects around, among other things. In this guide, we will focus on the features that can be useful for taking shots, but do be aware that the mod was not made specifically for that and has many, many more features and tools.
 
 As of the time of writing, this guide only covers how to use the Gravity Gun plugin and the Collection plugin for screenshotting purposes. There are, however, more features that can be useful for us:
 
@@ -160,6 +160,10 @@ ch1f8z0_00 - Saddler (Mutation)
 ch1b5z1_00 - Village Chief (Human Form)
 ch1f4z1_body - Village Chief (First Mutation)
 ch1f5z1_body - Village Chief (Second Mutation)
+ch2b600_00 - Ramon (Human Midget Form)
+ch1f6z0_00 - Ramon (Mutation)
+ch1b7z0_00 - Krauser (Human Form) 
+ch1f7z0_body - Krauser (Mutation)
 ```
 *Bosses usually have multiple listings, separated for cutscenes and gameplay.*
 
