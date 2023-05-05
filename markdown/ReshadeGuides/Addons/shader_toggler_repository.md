@@ -110,7 +110,7 @@ Game | Features | Extra Description
 [Somerville](../../ShaderTogglers/somerville.ini) | - Hide menu and black bars (while free camera is enabled) (`Caps Lock`) <br> - Hide text from menu (`ALT`+`0`) | For the game to render where the black bars used to be you have to use [unity explorer freecam](../../GeneralGuides/universal_unity_freecam.md).
 [Space Hulk: Deathwing](../../ShaderTogglers/space_hulk_deathwing.ini) | HUD + Party Markers (`Caps Lock`)
 [Spider-Man Remastered](../../ShaderTogglers/spider_man_remastered.ini) | Complete HUD Toggle (`Delete`)
-[Star Wars Jedi: Survivor](../../ShaderTogglers/star_wars_jedi_survivor.ini) | - HUD (`F2`)<br> - Lens flare (`Caps Lock`)
+[Star Wars Jedi: Survivor](../../ShaderTogglers/star_wars_jedi_survivor.ini) | - HUD, force outlines, other distracting elements (`Caps Lock`)
 [Submerged: Hidden Depths](../../ShaderTogglers/submerged_hidden_depths.ini) | Rain and raindrops (`Caps Lock`)
 [The Quarry](../../ShaderTogglers/thequarry.ini) | Toggles only the glowing shader pillar and sprite at the top, the mouse icon is handled by UUU HUD Toggle. (`F1`) | Remember to turn it back on otherwise it's easy to miss key items.
 [The Vanishing of Ethan Carter Redux](../../ShaderTogglers/vanishing_ethan_carter_redux.ini) | - Hide blue mist (`Y`)<br> - Hide floating texts (`X`)<br> - Hide fog (`V`)<br> - Hide main menu (`Del`)
