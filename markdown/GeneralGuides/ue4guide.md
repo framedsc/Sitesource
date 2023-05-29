@@ -6,23 +6,26 @@ Games using Unreal Engine 4 can be tweaked in many ways to better your experienc
 
 ## Console Commands
 
+Some examples of common Unreal Engine console commands: 
+
 Command | Arguments| Description
 -- | -- | --
 `EnableCheats` | `0` - `1` | enables cheats (needed for most games)
-`toggledebugcamera` | - | enables freecam (WASD + mouselook)
 `fov` | `1` - `180` | changes field of view (in degrees)
 `pause` | - | toggles game timestop
+`r.Depthoffieldquality` | `0` - `6` | changes the depth of field quality (from 0: off to 6: max)
+`r.Motionblurquality` | `0` - `4` | changes the motion blur quality (from 0: off to 4: max)
+`r.PostProcessAAQuality` | `0` - `6` | changes AA quality (FXAA / TAA)
+`r.SceneColorFringeQuality` | `0` - `1` | toggles CA off (0) or on (1).
 `r.ScreenPercentage` | `10` - ?? | sets resolution scale (in %)
 `r.ViewDistanceScale` | `0.0` - ?? | sets draw distance
-`r.PostProcessAAQuality` | `0` - `6` | changes AA quality (FXAA / TAA)
-`r.Depthoffieldquality` | `0` - `6` | changes the depth of field quality (from 0: off to 6: max)
-`r.SceneColorFringeQuality` | `0` - `1` | toggles CA off (0) or on (1).
-`r.Motionblurquality` | `0` - `4` | changes the motion blur quality (from 0: off to 4: max)
+`r.customdepth 0` | `0` - `3` | changes the visibility of outlines, other elements like focus circles
+`r.postprocessing.disablematerials` | `0` or `1` | Specify `1` to disable on-screen effects like blurred stripes or other effects usually added by games. Specify `0` to go back to the game's default. 
+`sg.EffectsQuality` | `0` - `4` | changes effects quality 
 `sg.PostProcessQuality` | `0` - `4` | changes post-processing quality
 `sg.ShadowQuality` | `0` - `4` | changes shadow quality 
 `sg.TextureQuality` | `0` - `4` | changes texture quality 
-`sg.EffectsQuality` | `0` - `4` | changes effects quality 
-`r.customdepth 0` | `0` - `3` | changes the visibility of outlines, other elements like focus circles
+`toggledebugcamera` | - | enables freecam (WASD + mouselook)
 
 *Commands are not case-sensitive!*
 
