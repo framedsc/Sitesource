@@ -115,5 +115,6 @@ Game | Features | Extra Description
 [The Quarry](../../ShaderTogglers/thequarry.ini) | Toggles only the glowing shader pillar and sprite at the top, the mouse icon is handled by UUU HUD Toggle. (`F1`) | Remember to turn it back on otherwise it's easy to miss key items.
 [V Rising](../../ShaderTogglers/v_rising.ini) | HUD (`Del`)
 [The Vanishing of Ethan Carter Redux](../../ShaderTogglers/vanishing_ethan_carter_redux.ini) | - Hide blue mist (`Y`)<br> - Hide floating texts (`X`)<br> - Hide fog (`V`)<br> - Hide main menu (`Del`)
+[Yakuza Kiwami](../../ShaderTogglers/yakuza_kiwami.ini) | HUD (`Del`)
 
 *Have a shader toggler that you want to include? Head up to the [issue site page](https://github.com/framedsc/Sitesource/issues) and create an issue with your shader toggler, or [contact one of the mods](https://framedsc.com/index.htm).*
