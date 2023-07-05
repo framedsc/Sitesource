@@ -14,7 +14,7 @@ Some of the listed games below have received proper camera tools, and you should
 
 ## Tables
 
-### ABZU
+### ABZÛ
 - [AbzuGame-Win64-Shipping_det.CT](CheatTables/Archive/AbzuGame-Win64-Shipping_det.CT)
 
 ###ADR1FT ([DET forums archive guide with HUD toggle](https://web.archive.org/web/20180212020403/http://www.deadendthrills.com/forum/discussion/515/guide-adr1ft))
