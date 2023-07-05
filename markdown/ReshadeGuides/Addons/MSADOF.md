@@ -144,6 +144,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Ace Combat 7: Skies Unknown         | 1.0000     | 180 | ✔                       | 0.100                 ||
 | Aliens: Fireteam Elite              | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Assassin's Creed Odyssey            | 0.0995     | 180 |                         | 0.001                 ||
+| Atomic Heart                        | 2.0000     | 180 | ✔                       | 0.100                 ||
 | Assassin's Creed Origins            | 0.0995     | 180 |                         | 0.001                 ||
 | Assassin's Creed Valhalla           | 0.0995     | 180 |                         | 0.001                 |TAA can only be disabled via [HxD](https://www.pcgamingwiki.com/wiki/Assassin%27s_Creed_Valhalla#Anti-aliasing_.28AA.29).|
 | Batman: Arkham Knight               | 9.9965     | 180 | ✔                       | 0.100                 ||
@@ -155,8 +156,11 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | CHORVS                              | 56.500     | 180 | ✔                       | 0.100                 ||
 | Close to the Sun                    | 1.0000     | 180 | ✔                       | 0.001                 ||
 | Code Vein                           | 9.9965     | 180 | ✔                       | 0.100                 ||
+| CRISIS CORE –FINAL FANTASY VII– REUNION                          | <details><summary class=important> <font size="-1">View values by chapter</font></summary>Prologue cutscenes: 10 <br>Prologue gameplay: 0.65248 <br>Chapter 1 cutscenes: 27.95 <br>Chapter 2 cutscenes: 16.9 <br>Chapter 2 gameplay: 0.562970 <br>Chapter 3 cutscenes city: 22.7 <br>Chapter 3 Mako reactor: 84.5 / 16.76</details>     | <details><summary class=important> <font size="-1">View values by chapter</font></summary>Prologue cutscenes: 130 <br>Prologue gameplay: 180 </details> | ✔                       | 0.100                 |The near plane value (as well as the fov value) changes between chapters and between gameplay and cutscenes, so change the values accordingly. Also, chapter 2 has a higher chance of crashing when hotsampling.|
 | Cyberpunk 2077                      | 0.0200     | 180 |                         | 0.001                 |Might require raytracing / a low framerate under VSync targets.|
 | Days Gone                           | 9.9500     | 320 |                         | 0.100                 |Setting AA to 0 will result in a loss of HUD and console access.|
+| Dead Island 2                       | 9.9950     | 180 | ✔                      | 0.100                 ||
+| Dead Space Remake                   | 0.055168   | 180 |                         | 0.001                 |The Frames to Skip can vary a bit but usually its 1 - 3.|
 | Death Stranding: Director's Cut     | 0.1123     | 180 |                         | 0.001                 |The game will crash after a render in photomode, near plane changes constantly in cutscenes and its recommended to turn on the 30fps cap.|
 | Draugen                             | 9.9965     | 180 | ✔                       | 0.100                 ||
 | ECHO                                | 0.5600     | 180 |                         | 0.100                 |No custom AR possible.|
@@ -164,6 +168,7 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | Final Fantasy VII Remake Intergrade | 5.6250     | 180 |                         | 0.100                 ||
 | Harvestella                         | 9.9965     | 180 | ✔                       | 0.1-1                 ||
 | Hellblade: Senua's Sacrifice        | 9.9965     | 180 | ✔                       | 0.100                 ||
+| Hogwarts Legacy                     | 9.9950     | 180 | ✔                       | 0.101                 |It is recommended to turn off VSync.|
 | Kena: Bridge of Spirits             | 9.9965     | 180 | ✔                       | 0.100                 |The near plane value only works reliably in photomode.|
 | Life is Strange: True Colors        | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Marvel's Spider-Man Remastered      | 0.0775     | 140 | ✔                       | 0.001                 ||
@@ -174,21 +179,27 @@ The *Frames to skip* parameter is dependent on your own hardware and the current
 | OverDrift Festival                  | 5.624      | 180 | ✔                       | 0.100                 ||
 | Resident Evil 2	(DX12)              | 0.0100     | 180 | ✔                       | 0.001                 ||
 | Resident Evil 3	(DX12)              | 0.0100     | 180 | ✔                       | 0.001                 ||
+| Resident Evil 4                     | 0.0100     | 180 | ✔                       | 0.001                 ||
+| Returnal                            | 9.9950     | 180 | ✔                       | 0.100                 |Works at 16:9, different AR's need different frameskips.|
 | SCARLET NEXUS                       | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Scorn                               | 3.0000     | 180 | ✔                       | 0.010                 ||
 | Sifu                                | 9.9965     | 180 | ✔                       | 0.100                 ||
+| Space Hulk: Deathwing               | 5.0        | 180 |                         | 0.100                 |May need to play with the FramesToSkip value per situation. I found that setting of 1 worked most times but 0 was sometimes required to stop the fuzzy donuts.|
 | Spirit of the North                 | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Star Wars Jedi: Fallen Order        | 9.9995     | 180 |                         | 0.100                 ||
 | Stray                               | 0.5625     | 180 |                         | 0.100                 ||
 | Tales of Arise                      | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Tell Me Why                         | 9.9965     | 180 | ✔                       | 0.100                 ||
 | The Ascent                          | 9.9965     | 180 | ✔                       | 0.100                 ||
+| The Last of Us Part I               | 0.135000   | 180 |                         | 0.001                 |For cutscenes and photomode you might want to use 0.121500 as a near plane value. Also make sure to disable TAA.|
 | The Medium                          | 2.0000     | 180 | ✔                       | 0.100                 ||
+| The Outer Worlds                    | 1.2700     | 180 |                         | 0.100                 ||
 | The Pathless                        | 9.9965     | 180 | ✔                       | 0.100                 ||
 | The Shore                           | 9.9965     | 180 | ✔                       | 0.100                 ||
 | The Sojourn                         | 9.9965     | 180 | ✔                       | 0.100                 ||
 | The Witcher 3: Wild Hunt            | 0.2000     | 180 |                         | 0.001                 |Near plane may switch to 0.4 in cutscenes.| 
 | Twin Mirror                         | 9.9965     | 180 | ✔                       | 0.100                 ||
+| Uncharted 4                         | <details><summary class=important> <font size="-1">View values by chapter</font></summary>Chapter 1: 0.2385 <br>Chapter 2: 0.2400 <br>Chapter 3: 0.1000 <br>Chapter 4: 0.2400 <br>Chapter 5: 0.2400 <br>Chapter 6: 0.2400 <br>Chapter 7: 0.2400 <br>Chapter 15: 0.2400 <br>Chapter 16: 0.2400 <br>Chapter 17: 0.27-0.29 <br>Chapter 18: 0.235-0.24 <br>Chapter 20: 0.235-0.24 <br>Chapter 22: 0.20 <br>Epilogue: 0.20</details>     | 180 | ✔                | 0.100                 | The near plane values change between chapters (and sometimes even so within the same chapter), so change the value accordingly. Also, the value might change when using different aspect ratios. If the results are blurry when changing AR, make sure to uncheck and recheck the variable near plane box, and then refocus. If that doesn't fix it then start playing with the near plane value itself.|
 | Vampire: The Masquerade - Swansong  | 1.0000     | 180 | ✔                       | 0.100                 ||
 | Visage                              | 9.9965     | 180 | ✔                       | 0.100                 ||
 | Way of the Hunter                   | 1.0000     | 180 | ✔                       | 0.100                 ||
