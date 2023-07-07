@@ -20,7 +20,7 @@ Game version | </font> <font face="Stores"> E </font> 4.12.5
     **Features**: Camera control, FoV control.
 
     @alert tip
-    If you want to take a stillshot, pause the game by pressing the `ESC` key and hide the HUD using the ShaderToggler as described below.
+    If you want to take a stillshot, pause the game by pressing the `ESC` key and hide the HUD using the ShaderToggler as described below. Then press `INS` to enable freecam.
     @end
     
     @alert tip
@@ -29,6 +29,7 @@ Game version | </font> <font face="Stores"> E </font> 4.12.5
 
     Function | Key
     --|--
+    Toggle Freecam | Insert
     Camera Movement (X axis) | Num 4 / Num 6
     Camera Movement (Y axis) | Num 7 / Num 9
     Camera Movement (Z axis) | Num 5 / Num 8
@@ -53,7 +54,7 @@ Game version | </font> <font face="Stores"> E </font> 4.12.5
 
 ## Hide Hud
 
-You may use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. You may find the ShaderToggler.ini file of the game [here](../../ShaderTogglers/abzû.ini) or in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.md). Press the `Caps Lock` to hide/unhide the HUD.
+You may use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. You may find the ShaderToggler.ini file of the game [here](../ShaderTogglers/abzû.ini) or in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.md). Press the `Caps Lock` to hide/unhide the HUD.
 
 ## Hotsampling
 
