@@ -11,18 +11,20 @@ Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
 Graphics API | DirectX 11
+Game version | </font> <font face="Stores"> E </font> 4.12.5
 
-@alert neutral  
-This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
-@end
 
 ## Tools
 
 * [Cheat Table by Skall](..\CheatTables\AbzuGame-Win64-Shipping_Skall.CT)  
     **Features**: Camera control, FoV control.
+
+    @alert tip
+    If you want to take a stillshot, pause the game by pressing the `ESC` key and hide the HUD using the ShaderToggler as described below.
+    @end
     
     @alert tip
-    This Cheat Table allows you to toggle freecam without pausing the game. You can thus take long exposure shots with this tool
+    This Cheat Table allows you to toggle freecam without pausing the game. You can thus take long exposure shots with this tool.
     @end
 
     Function | Key
@@ -39,7 +41,7 @@ This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unl
     **Features**: Camera control, FoV control, Hide Menu.
 
     @alert tip
-    For Timestop, pause the game (`ESC`) and hide the menu using the HUD toggle inside the table.
+    Pause the game (`ESC`) and hide the menu using the HUD toggle inside the table or the ShaderToggler as described below. Then take the shot.
     @end
 
     Function | Key
@@ -49,9 +51,9 @@ This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unl
     Increase/decrease FoV | Num +/-
     Camera Rotation | PageUp and PageDown
 
-## Pause Game and Hide Hud
+## Hide Hud
 
-You may also use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. This way, you can pause the game by pressing `ESC` and toggle off the shader group to hide the HUD. You may find the ShaderToggler.ini file of the game in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.md).
+You may use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. You may find the ShaderToggler.ini file of the game [here](../../ShaderTogglers/abzû.ini) or in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.md). Press the `Caps Lock` to hide/unhide the HUD.
 
 ## Hotsampling
 

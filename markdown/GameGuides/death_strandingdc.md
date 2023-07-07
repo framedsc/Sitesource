@@ -11,7 +11,7 @@ Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
 Graphics API | DirectX 12
-Game version | 1.08 (Regular)
+Game version | </font> <font face="Stores"> E </font> 1.08 (Regular)
  
 ## Tools
 
