@@ -17,7 +17,7 @@ Graphics API | DirectX 11
 * [Hatti's Camera Tools (Password: CinematicTools)](https://www.mediafire.com/file/e74f8n4f0p59fe3/AC-f043a6.rar/file)  
 __Features__: Camera control (gamepad support), FOV Control, Camera/Rotation Speed, UI toggle (also includes Extreme Injector within downloaded folder).
 * [Shader toggler](../ShaderTogglers/assassins_creed_syndicate.ini)  
-__Features__: HUD toggle and CA toggle for the DLC. Requires Reshade 5+ with [ShaderToggler add-on](../ReshadeGuides/Addons/shader_toggler_repository.md).
+__Features__: HUD toggle and CA toggle for the DLC. Requires Reshade 5+ with [ShaderToggler add-on](../ReshadeGuides/Addons/shader_toggler_repository.htm).
 * [Merged Anti-Cheat Table by Paul44 and One3rd](..\CheatTables\ACS_Varia_v3.4_Released_stoptime_resolution.CT)  
 **Features**: Disables the game's anti-cheat, timestop and fullscreen resolution selector.
 

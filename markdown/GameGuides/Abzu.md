@@ -1,4 +1,4 @@
-![Abzû](Images\abzû_header.png "Shot by SammirLlm"){.shadowed .autosize}
+![Abzû](Images\abzu_header.png "Shot by SammirLlm"){.shadowed .autosize}
 
 ## Summary
 
@@ -54,7 +54,7 @@ Game version | </font> <font face="Stores"> E </font> 4.12.5
 
 ## Hide Hud
 
-You may use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. You may find the ShaderToggler.ini file of the game [here](../ShaderTogglers/abzû.ini) or in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.md). Press the `Caps Lock` to hide/unhide the HUD.
+You may use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. You may find the ShaderToggler.ini file of the game [here](../ShaderTogglers/abzu.ini) or in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.htm). Press the `Caps Lock` to hide/unhide the HUD.
 
 ## Hotsampling
 

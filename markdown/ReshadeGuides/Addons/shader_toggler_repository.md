@@ -75,7 +75,7 @@ These files need to be renamed to `ShaderToggler.ini` and placed in the same fol
 
 Game | Features | Extra Description
 --|--|--
-[Abzû](../../ShaderTogglers/abzû.ini) | - Toggle HUD Elements (`Caps Lock`)
+[Abzû](../../ShaderTogglers/abzu.ini) | - Toggle HUD Elements (`Caps Lock`)
 [Assassin's Creed: Origins](../../ShaderTogglers/assassins_creed_origins.ini) | - Remove head distortion (`Shift` + `6`)<br> - Chromatic aberration (`Shift` + `7`)
 [Assassin's Creed: Syndicate](../../ShaderTogglers/assassins_creed_syndicate.ini)  | - Ingame HUD toggle (`Caps Lock`) <br> - Jack the Ripper DLC CA toggle (`Numpad .`)
 [Assassin's Creed: Valhalla](../../ShaderTogglers/assassins_creed_valhalla.ini) | - HUD (`Caps Lock`)<br> - Eivor, NPCs and animals (`Shift` + `F4`)<br> - Vertical line markers in the world (`Shift` + `F5`)<br> - Rain (`Shift` + `F6`)
