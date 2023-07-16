@@ -13,6 +13,7 @@ Ansel | No
 Graphics API | DirectX 11
 Game version | <font face="Stores"> E </font> <font face="Stores"> S </font> 5.0.4
 
+
 ## Tools
 
 You can use two tools to unlock the camera in this game. Even though both are mostly similar, each does offer some unique camera movement options that the other does not.
