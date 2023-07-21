@@ -105,6 +105,7 @@ Game | Features | Extra Description
 [LEGO Star Wars: The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift` + `2`)
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | HUD Toggle (`Caps Lock`) | Hide the speedo whilst driving
 [Need for Speed Unbound](../../ShaderTogglers/nfs_unbound.ini) | - HUD toggle (`Caps lock`)<br> - Cartoon effects toggle (`Numpad *`) | The cartoon effects toggle doesn't turn off all the effects, but it gets most of them.
+[Sekiro: Shadows Die Twice](../../ShaderTogglers/sekiro_shadows_die_twice.ini) | HUD (`Del`)
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | HUD Toggle (`Caps Lock`)
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | HUD and DOF toggle (`Caps Lock`)
 [Singularity](../../ShaderTogglers/singularity.ini) | - HUD toggle (`Capslock`)<br> - Rain toggle (`Ctrl`+`1`)
