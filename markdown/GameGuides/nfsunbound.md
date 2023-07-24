@@ -1,4 +1,4 @@
-![Need For Speed Unbound](Images\nfsunbound.png "Shot by pvp"){.shadowed .autosize}
+![Need For Speed Unbound](Images\nfsunbound.png "Shot by tripps"){.shadowed .autosize}
 
 ## Summary
 
@@ -11,13 +11,31 @@ Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
 Graphics API | DirectX 12
+Game version | Vol.3
 
-## Tools
+## Tools  
 
 * [Camera toolkit by ARCHIE](https://nfsmods.xyz/mod/4364)  
 **Features**: Tool to control in-game camera and its various features.
+* [Frosty Mod Manager 1.0.7](https://github.com/CadeEvs/FrostyToolsuite/tree/1.0.7)
+**Feature**: Utility program that allows you to organize and manage mods.
+* [DatapathFix](https://github.com/Dyvinia/DatapathFixPlugin/releases)
+**Feature**: Plugin for FMM to fix an issue with modding the game.
 
-* [Hud toggle and Cartoon Effect disable](https://framedsc.com/ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [Shader Toggler](../ReshadeGuides/Addons/shader_toggler_repository.htm)
+## Modifications
+
+* [Unbound Remix](https://www.nexusmods.com/needforspeedunbound/mods/29)  
+**Features**: Game enhancement mod for enhancing the customization and gameplay experience.
+* [Unlock Everything](https://nfsmods.xyz/mod/4801)  
+**Features**: Unlocks every in-game item.
+* [Ultimate Customization](https://www.nexusmods.com/needforspeedunbound/mods/3)  
+**Features**: Adds hidden parts and improves other customization options.
+
+* [Hud Toggle and Cartoon Effect disable](https://framedsc.com/ShaderTogglers/nfs_unbound.ini) requires Reshade 5+ with [Shader Toggler](../ReshadeGuides/Addons/shader_toggler_repository.htm)
+
+@alert important
+The game requires you to use 1.0.7+ version of Frosty Mod Manager otherwise it's an instant crash during loading.
+@end
 
 ## Photo mode controls 
 
@@ -34,7 +52,7 @@ Key	| Command
 The Photo Mode uses a different depth-buffer compared to in-game, you may have to pick it manually for depth shaders to work properly, this is done in the Add-ons (ReShade 5+) tab.
 @end
 
-## Camtool controls
+## Camtool default controls
 
 Key	| Command
 --|--
@@ -42,16 +60,18 @@ Key	| Command
 `F2` | Toggle Camera
 `Caps Lock` | Toggle HUD
 `F5` | Pause Game
-`Y, H` | Camera Up / Down
-`J, L` | Camera Left / Right
-`I, K` | Camera Forward / Backward
+`Y` / `H` | Camera Up / Down
+`J` / `L` | Camera Left / Right
+`I` / `K` | Camera Forward / Backward
 
-@alert info You can change the default camera tool keybinds by finding the keycodes of the keys you want to use [here]( https://www.toptal.com/developers/keycode) and changing them inside the included "CameraToolKit.ini" file.
+@alert info 
+All of the keybinds can be rebound inside the Cam Toolkit.
 @end
 
 ## Reshade
+
 @alert important
-When hotsampling your depth-buffer might change which will require you to manually reselect the correct depth-buffer.
+When hotsampling in built-in photo mode your depth-buffer might change which will require you to manually reselect the correct depth-buffer.
 @end
 
 ## Useful Links
