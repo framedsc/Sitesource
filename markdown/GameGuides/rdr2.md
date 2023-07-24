@@ -30,6 +30,8 @@ Vulkan | Yes
 ## Texture/Graphic Mods
 * [Weapon Texture Upscale](https://www.nexusmods.com/reddeadredemption2/mods/928)  
 **Feature**: Upscaled gun textures. (*Vulkan only*)
+* [Terrain Textures Overhaul](https://www.nexusmods.com/reddeadredemption2/mods/2189)  
+**Feature**: Overhauls most of story mode location terrain textures (*Vulkan only*)
 * [Gun Metal Rework](https://www.nexusmods.com/reddeadredemption2/mods/648)  
 **Feature**: Updates the look of the in-game guns' metal finishes.
 * [Higher Resolution Vegetation](https://www.nexusmods.com/reddeadredemption2/mods/1553)  
