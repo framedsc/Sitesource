@@ -21,6 +21,8 @@ Game version | 1.07
 **Features**: A modpack combining the best mods that improve your game drastically.
 * [Frosty Mod Manager](https://github.com/CadeEvs/FrostyToolsuite/releases)  
 **Feature**: Utility program that allows you to organize and manage mods.
+* [DatapathFix](https://github.com/Dyvinia/DatapathFixPlugin/releases)
+**Feature**: Plugin for FMM to fix an issue with modding the game.
 * [NFS Heat key for FMM](https://www.nexusmods.com/needforspeedheat/mods/74)  
 **Feature**: Key file needed to run Frosty Mod Manager and Editor.
 
