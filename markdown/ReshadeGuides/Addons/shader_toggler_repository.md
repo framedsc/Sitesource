@@ -105,7 +105,7 @@ Game | Features | Extra Description
 [LEGO Star Wars: The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift` + `2`)
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | HUD Toggle (`Caps Lock`) | Hide the speedo whilst driving
 [Need for Speed Unbound](../../ShaderTogglers/nfs_unbound.ini) | - HUD toggle (`Caps lock`)<br> - Cartoon effects toggle (`Numpad *`) | The cartoon effects toggle doesn't turn off all the effects, but it gets most of them.
-[Sekiro: Shadows Die Twice](../../ShaderTogglers/sekiro_shadows_die_twice.ini) | HUD (`Del`)
+[Sekiro: Shadows Die Twice](../../ShaderTogglers/sekiro_shadows_die_twice.ini) | HUD (`Del`) | As a side effect, the menu is also hidden, which can be useful when needing to pause animations. Unfortunately, these don't work with ReshadeEffectShaderToggler. For reasons unknown to me, it either kills or prevents shaders from taking effect. Help in this regard would be appreciated.
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | HUD Toggle (`Caps Lock`)
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | HUD and DOF toggle (`Caps Lock`)
 [Singularity](../../ShaderTogglers/singularity.ini) | - HUD toggle (`Capslock`)<br> - Rain toggle (`Ctrl`+`1`)
@@ -117,7 +117,7 @@ Game | Features | Extra Description
 [The Quarry](../../ShaderTogglers/thequarry.ini) | Toggles only the glowing shader pillar and sprite at the top, the mouse icon is handled by UUU HUD Toggle. (`F1`) | Remember to turn it back on otherwise it's easy to miss key items.
 [V Rising](../../ShaderTogglers/v_rising.ini) | HUD (`Del`)
 [The Vanishing of Ethan Carter Redux](../../ShaderTogglers/vanishing_ethan_carter_redux.ini) | - Hide blue mist (`Y`)<br> - Hide floating texts (`X`)<br> - Hide fog (`V`)<br> - Hide main menu (`Del`)
-[Yakuza 0](../../ShaderTogglers/yakuza_0.ini) | HUD (`Del`)  | Turns off HUD elements during free roam. Minigames are not included yet.
-[Yakuza Kiwami](../../ShaderTogglers/yakuza_kiwami.ini) | HUD (`Del`)
+[Yakuza 0](../../ShaderTogglers/yakuza_0.ini) | HUD (`Del`) | Turns off HUD elements during free roam. Minigames are not included yet.
+[Yakuza Kiwami](../../ShaderTogglers/yakuza_kiwami.ini) | HUD (`Del`) | Turns off HUD elements during free roam. Minigames are not included yet.
 
 *Have a shader toggler that you want to include? Head up to the [issue site page](https://github.com/framedsc/Sitesource/issues) and create an issue with your shader toggler, or [contact one of the mods](https://framedsc.com/index.htm).*
