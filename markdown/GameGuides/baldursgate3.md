@@ -33,8 +33,10 @@
 
 If you want to make use of the depth buffer, you need to make sure you do the following:
 
-- Run the game using DX11 mode (Vulkan currently does not support depth buffer).
-- Enable the option 'Copy depth buffer before clear operation' in the 'Generic Depth' ReShade add-on (Can be found in the Add-on tab of ReShade).
+- Run the game using DX11 mode
+  - Vulkan currently does not support depth buffer.
+- Enable the option 'Copy depth buffer before clear operation' in the 'Generic Depth' ReShade add-on.
+  - Can be found in the 'Add-on' tab of ReShade.
 
 ## Useful Links
 
