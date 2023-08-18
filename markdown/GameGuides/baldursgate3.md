@@ -14,7 +14,7 @@
 
 \* _[ReShade v5.9.1 or above](https://reshade.me/#download) is required to avoid crashing the game._
 
-\*\* _Vulkan works with ReShade, but does not have depth buffer support. DirectX 11 is recommended._
+\*\* _Vulkan works with ReShade, but does not have depth buffer support. DirectX 11 is recommended. Should be patched in ReShade v5.9.2 and above._
 
 ## In-game Controls
 
@@ -37,6 +37,9 @@ If you want to make use of the depth buffer, you need to make sure you do the fo
   - _Vulkan currently does not support depth buffer._
 - Enable 'Copy depth buffer before clear operation' in the 'Generic Depth' ReShade add-on.
   - _Can be found in the 'Add-on' tab of ReShade._
+  - _If using AMD FidelityFX™ Super Resolution (FSR), this does not need to be enabled._
+- Set the global preprocessor definition `RESHADE_DEPTH_INPUT_IS_REVERSED` to `1`.
+  - _Can be found in the 'Home' tab of ReShade underneath the effects list._
 
 ## Useful Links
 
