@@ -2,17 +2,19 @@
 
 ## Summary
 
-| Feature              | Supported           |
-| -------------------- | ------------------- |
-| Vanilla Photo Mode   | No                  |
-| Hotsampling          | Yes                 |
-| DSR                  | ?                   |
-| Custom Aspect Ratios | No                  |
-| Reshade              | Yes                 |
-| Ansel                | Yes                 |
-| Graphics API         | DirectX 11/Vulkan\* |
+| Feature              | Supported             |
+| -------------------- | --------------------- |
+| Vanilla Photo Mode   | No                    |
+| Hotsampling          | Yes                   |
+| DSR                  | Unknown               |
+| Custom Aspect Ratios | No                    |
+| Reshade              | Yes\*                 |
+| Ansel                | Yes                   |
+| Graphics API         | DirectX 11/Vulkan\*\* |
 
-\* _Vulkan works with ReShade, but does not have depth buffer support._
+\* _[ReShade v5.9.1 or above](https://reshade.me/#download) is required to avoid crashing the game._
+
+\*\* _Vulkan works with ReShade, but does not have depth buffer support._
 
 ## In-game Controls
 
@@ -32,8 +34,7 @@
 If you want to make use of the depth buffer, you need to make sure you do the following:
 
 - Run the game using DX11 mode (Vulkan currently does not support depth buffer).
-- Use [ReShade v5.9.1](https://reshade.me/#download) or higher (v5.9.0 has a bug that will potentially crash the game).
-- Set the ReShade setting for the Generic Depth Addon to 'Clear before blah'.
+- Enable the option 'Copy depth buffer before clear operation' in the 'Generic Depth' ReShade add-on (Can be found in the Add-on tab of ReShade).
 
 ## Useful Links
 
