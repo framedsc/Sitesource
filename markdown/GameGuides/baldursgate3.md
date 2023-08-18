@@ -14,7 +14,7 @@
 
 \* _[ReShade v5.9.1 or above](https://reshade.me/#download) is required to avoid crashing the game._
 
-\*\* _Vulkan works with ReShade, but does not have depth buffer support._
+\*\* _Vulkan works with ReShade, but does not have depth buffer support. DirectX 11 is recommended._
 
 ## In-game Controls
 
