@@ -2,15 +2,15 @@
 
 ## Summary
 
-| Feature              | Supported             |
-| -------------------- | --------------------- |
-| Vanilla Photo Mode   | No                    |
-| Hotsampling          | Yes                   |
-| DSR                  | Unknown               |
-| Custom Aspect Ratios | No                    |
-| Reshade              | Yes\*                 |
-| Ansel                | Yes                   |
-| Graphics API         | DirectX 11/Vulkan\*\* |
+Feature | Supported
+--|--
+Vanilla Photo Mode   | No                   
+Hotsampling          | Yes                  
+DSR                  | Unknown              
+Custom Aspect Ratios | Yes (with tools)
+Reshade              | Yes\*                
+Ansel                | No
+Graphics API         | DirectX 11/Vulkan\*\*
 
 \* _[ReShade v5.9.1 or above](https://reshade.me/#download) is required to avoid crashing the game._
 
@@ -18,9 +18,9 @@
 
 ## In-game Controls
 
-| Name       | Keybind |
-| ---------- | ------- |
-| Toggle HUD | F10     |
+Name | Keybind
+--|--
+Toggle HUD | F10
 
 ## Tools
 
@@ -34,12 +34,12 @@
 If you want to make use of the depth buffer, you need to make sure you do the following:
 
 - Run the game using DX11 mode.
-  - _Vulkan currently does not support depth buffer._
+  - Vulkan currently does not support depth buffer.
 - Enable 'Copy depth buffer before clear operation' in the 'Generic Depth' ReShade add-on.
-  - _Can be found in the 'Add-on' tab of ReShade._
-  - _If using AMD FidelityFX™ Super Resolution (FSR), this does not need to be enabled._
+  - Can be found in the 'Add-on' tab of ReShade.
+  - If using AMD FidelityFX™ Super Resolution (FSR), this does not need to be enabled.
 - Set the global preprocessor definition `RESHADE_DEPTH_INPUT_IS_REVERSED` to `1`.
-  - _Can be found in the 'Home' tab of ReShade underneath the effects list._
+  - Can be found in the 'Home' tab of ReShade underneath the effects list.
 
 ## Useful Links
 
