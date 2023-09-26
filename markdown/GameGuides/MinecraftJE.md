@@ -14,7 +14,7 @@ Graphics API | OpenGL
 Game version | 1.18.2
 
 @alert neutral
-This guide is for the **[Java Edition](https://minecraft.fandom.com/wiki/Java_Edition)** of Minecraft. Not to be confused with [*Bedrock Edition*](https://minecraft.fandom.com/wiki/Bedrock_Edition), an entirely different multi-platform version of the game.
+This guide is for the **[Java Edition](https://minecraft.wiki/w/Java_Edition)** of Minecraft. Not to be confused with [*Bedrock Edition*](https://minecraft.wiki/w/Bedrock_Edition), an entirely different multi-platform version of the game.
 @end
 
 ## Setup
@@ -257,7 +257,7 @@ If using a large render distance (>32 chunks, possible with OptiFine and other m
 
 ### Quick-lower FoV
 
-The OptiFine mod includes a zoom function bound to `c` by default. You can also use an in-game [spyglass](https://minecraft.fandom.com/wiki/Spyglass), however that drops your FoV by 10x, which may be a bit too much of a zoom.
+The OptiFine mod includes a zoom function bound to `c` by default. You can also use an in-game [spyglass](https://minecraft.wiki/w/Spyglass), however that drops your FoV by 10x, which may be a bit too much of a zoom.
 
 ### Exporting a depth buffer
 
@@ -265,6 +265,6 @@ A depth buffer can be exported with [the help of a shader](https://www.youtube.c
 
 ## Useful Links
 
-* [Console commands](https://minecraft.fandom.com/wiki/Commands) (Minecraft Wiki)
+* [Console commands](https://minecraft.wiki/w/Commands) (Minecraft Wiki)
 * [Command generator](https://mcstacker.net/) (MCStacker)
 * [Minecraft maps](https://www.planetminecraft.com/projects/?order=order_popularity) (Planet Minecraft)
