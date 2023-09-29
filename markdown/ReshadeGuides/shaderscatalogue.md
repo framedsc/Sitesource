@@ -372,8 +372,7 @@ If you want a detailed explanation about what most of prods shaders do make sure
  
 ## Extra
 
-- [**Film Workshop**](https://discord.com/channels/217504282109411330/815409680590831686/850468467294601288): Emulates the process of real-world film capture, scanning & grading, and printing process workflow of traditional motion picture filmstock for cinema. For more info on the shader see the info displayed on the shader UI or [TreyM tutorial on how to use it](https://www.youtube.com/watch?v=VX_jMMccv5k). To download head out to [TreyM discord server](https://discord.treym.us). You may also want to download the [film workshop expansion](https://discord.com/channels/217504282109411330/805488441868812358/815651512671797269).
-- [**NativeEnhancer-FE**](https://github.com/dddfault/NativeEnhancer-FE/blob/master/Shaders/NativeEnhancer-FE.fx): A Film emulation using LUT with various overlays and textures to mimic an old film looks. A lot of stuff.
+- [**SHADERDECK**](https://github.com/TreyM/SHADERDECK): A film emulation suite that attempts to replicate the real world workflow of color grading cinema film, from the scanning of the negative, grading the scan, to the film print.
 - [**PandaFX**](https://github.com/FransBouma/OtisFX/blob/master/Shaders/PandaFX.fx): Applies cinematic lens effects and color grading, bloom for example.
 - [**FGFXLargeScalePerceptualObscuranceIrradiance**](https://github.com/AlexTuduran/FGFX/blob/main/Shaders/FGFXLargeScalePerceptualObscuranceIrradiance.fx): The Large Scale Perceptual Obscurance and Irradiance is a post-processing effect that attempts to inject obscurance and irradiance in the scene at a large scale (low frequency).
 - [**Glamayre_Fast_Effects**](https://github.com/rj200/Glamarye_Fast_Effects_for_ReShade/blob/main/Shaders/Glamayre_Fast_Effects.fx)
