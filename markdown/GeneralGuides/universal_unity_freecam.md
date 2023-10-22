@@ -1,5 +1,9 @@
 ![toplogo](../Images/UUFGuide/toplogo.png){.shadowed .autosize}
 
+@alert Important!
+This guide was written with the last main version of Unity Explorer in mind. Since then, the main developer has archived the project and originalnicodr has forked it to include more features that are useful for screenshoters (FOV hotkeys, being able to move the camera while the game is paused, light control, etc.). Therefore, it is advised to follow the installation steps with [his version instead](https://github.com/originalnicodr/UnityExplorer/releases). And be sure to check the [Fork Features section](https://github.com/originalnicodr/UnityExplorer#fork-features) of the repo's readme to see what parts of this guide have become obsolete regarding its usage.
+@end
+
 @alert neutral
 **Engine versions supported:** UnityExplorer supports most Unity versions from 5.2 to 2021+ (IL2CPP and Mono)
 @end
