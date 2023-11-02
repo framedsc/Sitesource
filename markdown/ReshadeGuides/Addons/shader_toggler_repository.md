@@ -104,6 +104,7 @@ Game | Features | Extra Description
 [Horizon Zero Dawn](../../ShaderTogglers/horizon_zero_dawn.ini) | - Rain: (`Caps Lock`) <br> - Bloom (`Shift` + `X`) <br> - HUD (`Shift` + `Q`) | - Rain: Could not find and remove the raindrops bouncing off of the ground <br> - Bloom: Both from fire sources and machines <br> - HUD: Both the main game ones and also the item drops / loot HUD popups 
 [LEGO Star Wars: The Skywalker Saga](../../ShaderTogglers/lego_star_wars_skywalker_saga.ini) | - HUD (`K`) <br> - Object outlines (may hide some tiny cubemaps) (`L`) <br>  - Coins & their shadows (may hide other shadows) (`;`) <br> - Lens flares (`Numpad 7`)<br> - Hide characters (WIP due to massive variety) (`Shift` + `2`)
 [Matrix Awakens](../../ShaderTogglers/matrix_awakens.ini) | HUD Toggle (`Caps Lock`) | Hide the speedo whilst driving
+[Need for Speed Hot Pursuit Remastered](../../ShaderTogglers/nfshotpursuitremastered.ini) | - Driver toggle (`D`) | The game has a lot of shaders (vignette, tonemapping, motion blur, lens flare) melted into a single shader, so turning it off might not be recommended.
 [Need for Speed Unbound](../../ShaderTogglers/nfs_unbound.ini) | - HUD toggle (`Caps lock`)<br> - Cartoon effects toggle (`Numpad *`) | The cartoon effects toggle doesn't turn off all the effects, but it gets most of them.
 [Prey](../../ShaderTogglers/prey.ini) | HUD Toggle (`Caps Lock`) | Also toggles the Chairloader menu windows.
 [Sekiro: Shadows Die Twice](../../ShaderTogglers/sekiro_shadows_die_twice.ini) | HUD (`Del`)
