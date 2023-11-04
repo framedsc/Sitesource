@@ -1,4 +1,4 @@
-![Hogwarts Legacy](Images\robocop_rogue_city_header.png "Shot by Dogmod"){.shadowed .autosize}
+![RoboCop: Rogue City](Images\robocop_rogue_city_header.png "Shot by Dogmod"){.shadowed .autosize}
 ## Summary
 Feature | Supported
 --|--
