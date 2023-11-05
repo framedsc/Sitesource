@@ -29,6 +29,10 @@ Generally, IGCS Depth of Field works great with RoboCop. However, achieving extr
 may not be enough in some cases. To input a bigger value, double click the **Max. bokeh size** number and input whatever
 value you need. 
 
+When using upscaling with IGCS Depth of Field, images may turn out blurry. To avoid this,
+set **Number of frames to wair per frame** to 5. This will increase the time it takes to complete a shot, but
+the focal poing will be correct.
+
 ## Known issues
 
 ### Arm rig visible when camera is active
