@@ -4,7 +4,7 @@ Feature | Supported
 --|--
 Vanilla Photo Mode | No
 Hotsampling | Yes (use windowed fullscreen)
-DSR | No
+DSR | Yes
 Custom Aspect Ratios | Yes  
 Reshade | Yes
 Ansel | No
