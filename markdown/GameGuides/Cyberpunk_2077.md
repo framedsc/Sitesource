@@ -8,15 +8,17 @@ Vanilla Photo Mode | Yes
 Hotsampling | Yes (with tools)
 DSR | Yes
 Custom Aspect Ratios | Yes
-Reshade | Yes (4.9.1+)
+Reshade | Yes 
 Ansel | No
 Graphics API | DirectX 12
-Game version | 1.52
- 
-## Tools
+Guide checked for Game version | 2.02
+ ## Tools
 
 * [Camera Tools with Cyberlit by Otis_Inf](https://patreon.com/Otis_Inf)   
-**[Features](https://opm.fransbouma.com/Cameras/cyberpunk2077.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, time of day, camera paths, photomode posing tools and custom lights.  
+**[Features](https://opm.fransbouma.com/Cameras/cyberpunk2077.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, time of day, camera paths, IGCSDOF support, photomode posing tools and custom lights.
+
+* [Photomode Unlocker2.0 XL](https://www.nexusmods.com/cyberpunk2077/mods/4319)
+  Removes most restrictions of photomode whilst adding support for pose packs-
 
 ## Essential Mods
 
@@ -32,15 +34,10 @@ Game version | 1.52
 * [Freefly](https://www.nexusmods.com/cyberpunk2077/mods/780)  
 **Features**: Enable noclip to fly V to places you wouldn't normally be able to reach.
 * [Appearance Change Unlocker](https://www.nexusmods.com/cyberpunk2077/mods/3850) with [Character Customization Anywhere](https://www.nexusmods.com/cyberpunk2077/mods/3930)  
-**Features**: allows editing of your V while in-game. The first mod unlocks full character customisation at apartment mirrors and the second mod enables that feature to be activated anywhere with a hotkey. This replaces the CyberCAT save editor.
+**Features**: allows editing of your V while in-game. The first mod unlocks full character customisation at apartment mirrors and the second mod enables that feature to be activated anywhere with a hotkey. 
+* [CharLi - Character Lighting Suite](https://www.nexusmods.com/cyberpunk2077/mods/8176) Spawn premade lighting setups 
 
-## Graphical Tweaks  
 
-* [Cinematic RTX](https://www.tomshardware.com/uk/news/how-to-unlock-cyberpunk-2077-cinematic-rtx-mode)   
-**Features**: Boosts raytracing quality.
-* [Settings Manager](https://www.nexusmods.com/cyberpunk2077/mods/2332)   
-**Features**: Save your games graphics settings to presets, and switch between them anytime.  
-NOTE: If you have a preset from an older version of the game, you may need to create new presets to avoid crashes.
 
 ### Writing custom .inis
 Cyberpunk 2077 allows further customisation of in-game settings through .ini tweaks. The .ini files can have any names so long as they are placed in `\Cyberpunk 2077\engine\config\platform\pc`.  
@@ -84,9 +81,9 @@ If you find Reshade is causing performance issues, enable `Copy depth buffer bef
 
 ### CyberLit
 
-Otis_Inf's tools for Cyberpunk include CyberLit, a powerful lighting tool that can be used to light scenes almost any way you want. A full guide to all its controls can be found [here](../GeneralGuides/cyberlit.htm).
+Otis_Inf's tools for Cyberpunk include CyberLit, a powerful reshade addon lighting tool that can be used to light scenes almost any way you want. A full guide to all its controls can be found [here](../GeneralGuides/cyberlit.htm).
 
-Camera positions can be saved using CyberLit. Create a 0 intensity light to use as your camera anchor point then use 'Move camera to light' to quickly get back to your shot angle. The same can be done by using ICGS camera paths to create multiple camera points.
+Camera positions can be saved using ICGS camera paths to create multiple camera points.
 
 ### Miscellaneous
 In the event of another game update breaking lots of mods, you can make a copy of your `Cyberpunk 2077` game folder before the update and play it outside of Steam/GOG whilst you wait for mod updates, or if you prefer to stick to a certain version of the game. 

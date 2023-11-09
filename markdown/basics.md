@@ -111,7 +111,15 @@ While vanilla DSR only supports multiples of your native res, the [Custom DSR gu
 
 Most games support DSR, even to custom aspect ratios. When a game doesn't, your custom resolutions won't show in your game settings. In that case, a possible workaround is to set your *desktop* to that custom resolution and play and shoot that way. 
 
-For AMD users, Virtual Super Resolution (VSR) is the equivalent tech. As far as we know though, the process of VSR is more complicated than it is for DSR. [We are currently looking for someone who can document the process for us](https://github.com/framedsc/Sitesource/issues/89).  
+For AMD users, Virtual Super Resolution (VSR) is the equivalent tech. As far as we know though, the process of VSR is more complicated than it is for DSR. [We are currently looking for someone who can document the process for us](https://github.com/framedsc/Sitesource/issues/89).
+
+### Alt + Enter trick
+
+When the game doesn't allow hotsampling, but does work with DSR, then there is still a chance that you won't need to play in your screenshoting resolution. That is because some games tie resolutions to "window modes". Meaning that you can switch between two resolutions by using fullscreen and windowed mode. 
+
+So, for instance, you could select 4K DSR resolution on fullscreen, and 1080p on "windowed mode". That way, you can just play in windowed mode and set up a shot. When it is time to actually take the screenshot, press `Alt` + `Enter` to enter fullscreen, which would be using the 4k DSR resolution you set up earlier. And when you finish taking the screenshot press `Alt` + `Enter` again to go back to windowed mode and a gameplay resolution. Similarly to how you would hotsample. 
+
+Please take in mind that this doesn't work in all games and it depends on the game settings remembering the resolution in each mode, but it is still worth trying out. Also, in the case that the game has commands that allow you to change resolutions (like Unreal Engine 3 games) you can use those to switch between DSR resolutions on the go if hotsampling isn't on the table.
 
 ### More links
 - [Nvidia's page on DSR](https://www.nvidia.com/en-us/geforce/technologies/dsr/technology/)
