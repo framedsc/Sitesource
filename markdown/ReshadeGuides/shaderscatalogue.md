@@ -1,5 +1,4 @@
-Shaders Catalogue
-=========
+![Shaders Catalogue](Images\shaders_catalogue_header.png){.shadowed .autosize}
  
 The purpose of this guide is to let you know about the different stuff you can do in [reshade](https://framedsc.github.io/GeneralGuides/basics.htm#reshade) and show you why to use it instead of doing post-processing in common editing software.
  
