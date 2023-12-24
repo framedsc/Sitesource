@@ -316,6 +316,8 @@ As an alternative, you can follow [this guide](https://docs.bepinex.dev/articles
  
 * If the game is using a DRM like steam make sure you are launching said game through steam and not opening the .exe. Some games won't start otherwise and this error might be confused with a problem created while trying to install the tools explained in this guide.
 
+* Some games (noticeably the ones published by EA) have encrypted game objects on runtime, or something along those lines. Therefore, to be able to use Unity Explorer on them you will have to use [MelonLoader](https://github.com/LavaGang/MelonLoader) instead of BepInEx.
+
 ## More links
 
 - [PCGamingWiki Unity page](https://www.pcgamingwiki.com/wiki/Engine:Unity) 
