@@ -5,7 +5,7 @@
     "Theme" : "theme",
 	"ThemeFolder" : "..\\",
     "SourceFoldersToCopy" : ["CheatTables", "Images", "HallOfFramed", "ShaderTogglers"],
-    "Footer" : "&copy 2019-2023 FRAMED. All rights reserved.",
+    "Footer" : "&copy 2019-2024 FRAMED. All rights reserved.",
     "StartingPageName" : "Home",
     "MaxLevelInToC" : "2",
     "Pages" : 
@@ -221,6 +221,7 @@
 			}
 		},
 		"Cheat Table Archive": "cheattablearchive.md",
+		"The Photomode Wishlist": "the_photomode_wishlist.md",
 		"Contribute to the site!": "contribute.md",
     }
 }
