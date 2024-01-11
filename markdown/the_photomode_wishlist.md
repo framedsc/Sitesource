@@ -121,7 +121,7 @@ A lot of real-time DOF solutions look great nowadays ([see Epic's Unreal Cinemat
 Ideally, an accumulation buffer based DOF solution like the one on Forza Horizon 4 and 5 would be the best approach to handling all of the problems mentioned above, as shown in [here](ReshadeGuides/Addons/MSADOF.htm#advantages).
 
 ## Adjustable shutter speed for long exposure
-Having the option to adjust the shutter speed, even in nonracing games, can be useful for many reasons, one of which is allowing the user to take long exposure photos (like trails of cars passing by). Keep in mind tho that you would also need an option to unpause the game while being inside the pm for this to make sense.
+Having the option to adjust the shutter speed, even in nonracing games, can be useful for many reasons, one of which is allowing the user to take long exposure photos (like trails of cars passing by). Keep in mind tho that you would also need an option to unpause the game while being inside the pm for this to make sense. Also consider introducing some kind of slow motion to have extra frames to work with. Otherwise, movement can look choppy.
 
 On another hand, decreasing shutter speed might have other benefits specific to games. Some of these can be read about in [here](ReshadeGuides/RealLongExposure.htm).
 
