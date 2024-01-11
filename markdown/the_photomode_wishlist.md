@@ -134,7 +134,7 @@ Ideally, an accumulation-buffer–based DoF solution like the one in Forza Horiz
 
 ### Adjustable shutter speed for long exposure
 
-Having the option to adjust the shutter speed, even in non-racing games, can be useful for many reasons, one of which is allowing the user to take long exposure photos (like trails of cars passing by). This may require an option to unpause the game while still being in photomode for this to work.
+Having the option to adjust the shutter speed, even in non-racing games, can be useful for many reasons, one of which is allowing the user to take long exposure photos (like trails of cars passing by). This may require an option to unpause the game while still being in photomode for this to work. Also consider introducing some kind of slow motion to have extra frames to work with. Otherwise, movement can look choppy.
 
 Decreasing shutter speed can have other benefits specific to games; see [our article on long exposure in ReShade](ReshadeGuides/RealLongExposure.htm) has more details.
 
