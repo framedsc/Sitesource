@@ -3,7 +3,7 @@
 <p><i>Alan Wake II</i>, shot by seymourglass</p>
 </div>
 
-This article is aimed at developers who are curious about what the "perfect" photomode looks like to players. Features cost resources, and the cost of implementing the ones listed in here can vary a lot, so this list is organized by priority.
+This article is aimed at developers who are curious about what the "perfect" photomode looks like to players. Features take resources, and the effort of implementing the ones listed in here can vary, so this list is organized by priority.
 
 Most of the suggestions below involve giving more freedom to the player regarding what and how they can change things. Such control can be overwhelming for some inexperienced users, especially if they have never come across similar things. Check out popular third-party tools such as [Otis_Inf's photomode mods](https://opm.fransbouma.com/) to see how these settings have evolved into pretty straightforward settings. More on that at the end.
 
@@ -80,7 +80,7 @@ Letting the player spawn their own lights to re-illuminate the characters and sc
 
 Besides letting the player spawn lights, it's almost equally important to let them turn off the in-game lights. That way they can start lighting the scene from scratch without having to deal with the other lights that don't benefit their composition.
 
-Of all of the features listed in this article, this one might be one of the most expensive ones to make. But, as the example below shows, being able to turn off the in-game lights and relit a scene by yourself might be one of the most transformative tools screenshoters have.
+Of all of the features listed in this article, this one likely requires more effort to implement. But, as the example below shows, being able to turn off the in-game lights and re-light a scene completely is one of the most transformative tools screenshotters have.
 
 <div class="slider container" style="aspect-ratio: 4/5">
   <div class="slider__img slider__img-after">
@@ -112,7 +112,7 @@ Besides the effects we mentioned above that we would like to get rid of (or at l
 
 Players may not be familiar with the concept of aspect ratios, nor how a 16:9 screen is not a common ratio in photography, and are therefore restricted by what games have to offer. Other aspect ratios such as 3:4 or 2:1 can be incredibly beneficial to what they are trying to achieve.
 
-Ideally, these could be achieved by rendering the final image in the desired ratio, rather than with black bar overlays like [how we do it on PC](basics.htm#composing-for-custom-aspect-ratios). But understanding the limitations consoles have, black bar overlays might still be useful.
+Ideally, these could be achieved by rendering the final image in the desired ratio — like [how it's done on PC](basics.htm#composing-for-custom-aspect-ratios) — rather than with black bar overlays. But understanding the limitations consoles have, black bar overlays might still be useful.
 
 ## Extra credit
 ----
@@ -140,7 +140,7 @@ Ideally, an accumulation-buffer–based DoF solution like the one in Forza Horiz
 
 Having the option to adjust the shutter speed, even in non-racing games, can be useful for many reasons, one of which is allowing the user to take long exposure photos (like trails of cars passing by). This may require an option to unpause the game while still being in photomode for this to work. Also consider introducing some kind of slow motion to have extra frames to work with. Otherwise, movement can look choppy.
 
-Decreasing shutter speed can have other benefits specific to games; see [our article on long exposure in ReShade](ReshadeGuides/RealLongExposure.htm) as it has more details.
+Decreasing shutter speed can have other benefits specific to games; see [our article on long exposure in ReShade](ReshadeGuides/RealLongExposure.htm) for more details.
 
 ## Final notes
 ----
