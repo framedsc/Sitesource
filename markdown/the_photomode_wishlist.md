@@ -8,7 +8,7 @@ This article is aimed at developers who are curious about what the "perfect" pho
 Most of the suggestions below involve giving more freedom to the player regarding what and how they can change things. Such control can be overwhelming for some inexperienced users, especially if they have never come across similar things. Check out popular third-party tools such as [Otis_Inf's photomode mods](https://opm.fransbouma.com/) to see how these settings have evolved into pretty straightforward settings. More on that at the end.
 
 ## Essentials
-
+----
 These are the features that are a must for any photomode. Some may seem obvious, but many games fail to include them.
 
 ### Free camera movement and orientation
@@ -44,7 +44,7 @@ Being able to pause the game at any given moment to catch the right frame or sce
 For action shots the gamespeed/time dilation control can turn out to be crucial: having the action flow in slow motion gives the ability to the player to pause the game at the right moment.
 
 ## Recommended
-
+----
 ### Dynamic resolution in window mode
 
 This is PC-specific, but being able to [hotsample](basics.htm#hotsampling) is very important for a lot of players to show games at their best. Rendering the shot at a higher resolution leads to a higher image quality and mitigates artifacts. For consoles, rendering the final shot at a higher resolution might be a nice addition.
@@ -73,7 +73,7 @@ Other effects that players tend to want to turn off (or have control over) are:
 Letting the player disable depth of field (that being from a cutscene or gameplay) can also be incredibly beneficial. More so if you let the player handle the DoF, but more on that later.
 
 ## Nice to have
-
+----
 ### Custom lighting
 
 Letting the player spawn their own lights to re-illuminate the characters and scene can be a game changer. The controls and UI can be tricky to get right, but we suggest looking at what Insomniac has done with the Spider-Man games and Ratchet & Clank: Rift Apart. And, of course, what Frans has been doing with the [UUU](https://opm.fransbouma.com/uuuv5.htm#lights).
@@ -115,7 +115,7 @@ Players may not be familiar with the concept of aspect ratios, nor how a 16:9 sc
 Ideally, these could be achieved by rendering the final image in the desired ratio, rather than with black bar overlays like [how we do it on PC](basics.htm#composing-for-custom-aspect-ratios). But understanding the limitations consoles have, black bar overlays might still be useful.
 
 ## Extra credit
-
+----
 ### Poses and animations
 
 Being able to make the characters more expressive can go a long way in improving portraits and making games feel more alive through shots. Full body poses or animation triggers and different facial expressions are of course welcome.
@@ -143,7 +143,7 @@ Having the option to adjust the shutter speed, even in non-racing games, can be 
 Decreasing shutter speed can have other benefits specific to games; see [our article on long exposure in ReShade](ReshadeGuides/RealLongExposure.htm) as it has more details.
 
 ## Final notes
-
+----
 As you can see, the different mods and tools we use can be quite varied and complex, and getting the right control scheme and UI is definitely a challenge.
 Following real-word camera interfaces is a great place to start, particularly for things like field-of-view and depth-of-field. For more advanced functionality, Frans "Otis_Inf" Bouma has been [iterating on these interfaces](https://opm.fransbouma.com/generalconfiguration.htm#controls) for many years, and these controls are the de facto standard for PC photomode mods.
 
