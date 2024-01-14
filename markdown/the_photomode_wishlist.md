@@ -3,7 +3,7 @@
 <p><i>Alan Wake II</i>, shot by seymourglass</p>
 </div>
 
-This article is aimed at developers who are curious about what the "perfect" photomode looks like to players. Features cost resources so this list is organized by priority.
+This article is aimed at developers who are curious about what the "perfect" photomode looks like to players. Features cost resources, and the cost of implementing the ones listed in here can vary a lot, so this list is organized by priority.
 
 Most of the suggestions below involve giving more freedom to the player regarding what and how they can change things. Such control can be overwhelming for some inexperienced users, especially if they have never come across similar things. Check out popular third-party tools such as [Otis_Inf's photomode mods](https://opm.fransbouma.com/) to see how these settings have evolved into pretty straightforward settings. More on that at the end.
 
@@ -16,7 +16,7 @@ These are the features that are a must for any photomode. Some may seem obvious,
 The following aspects regarding camera movement and orientation are crucial:
 
 - Maximum range as big as possible
-  : Maybe your game or engine is not prepared to deal with the camera being far away from the player, but try to push this value as much as you can. Small range limits are one of the things that get modded first on PC, so players will certainly appreciate it. Some game designers may be worried about players moving the camera around to find secrets or look at what comes next in the level, but this is a decision that comes from the player and in a photomode context the advantages outweigh the downsides.
+  : Maybe your game or engine is not prepared to deal with the camera being far away from the player, but try to push this value as much as you can. Small range limits are one of the things that get modded first on PC, so players will certainly appreciate it. Some studios may be worried about players moving the camera around to find secrets or look at what comes next in the level, but this is a decision that comes from the player and in a photomode context the advantages outweigh the downsides.
 
 - No orbital free cam
   : Some popular console first-party titles like to have their photomodes centered around their characters, so they only let you move the camera around them. Not only is this less intuitive to control than a normal freecam, but it also emphasizes only a fraction of what the game has to offer visually with its characters, instead of letting the user move the camera across the entire environment to find beauty in it.
@@ -25,7 +25,7 @@ The following aspects regarding camera movement and orientation are crucial:
   : We are aware of how many tricks devs pull outside of the camera range in cutscenes, but being able to still use the photomode during them is crucial to have the most amount of variety when it comes to shooting scenes. Besides, players want to show how pretty your game is as much as you do, they won't focus on these imperfections happening around the scene.
 
 - Camera tilt
-  : It is often overlooked, but part of the complete movement of a free camera is being able to tilt it (also called roll depending on the bibliography). Such movement can help a lot in making compositions feel more dynamic or allow players to shoot in a vertical aspect ratio (although being able to [hotsample to the desired aspect ratio](basics.htm#composing-for-custom-aspect-ratios) is much preferred).
+  : It is often overlooked, but part of the complete movement of a free camera is being able to tilt it (also called roll depending on the bibliography). Such movement can help a lot in making compositions feel more dynamic or allow players to shoot in a vertical aspect ratio (although being able to [hotsample to the desired aspect ratio](basics.htm#composing-for-custom-aspect-ratios) is much preferred, more on that later).
 
 - No camera clipping
   : Having the camera be free to move through geometry can be very useful, as it allows the player to position the camera in those places where it makes the most sense for the shot instead of only in the areas where the photomode allows them to.
@@ -49,19 +49,19 @@ For action shots the gamespeed/time dilation control can turn out to be crucial:
 
 This is PC-specific, but being able to [hotsample](basics.htm#hotsampling) is very important for a lot of players to show games at their best. Rendering the shot at a higher resolution leads to a higher image quality and mitigates artifacts. For consoles, rendering the final shot at a higher resolution might be a nice addition.
 
-Don't forget to make sure that shaders such as bloom, ambient occlusion, and lightning scale well with increased resolution and different aspect ratio changes.
+Don't forget to make sure that shaders such as bloom, ambient occlusion, and lightning scale well with higher-than-average resolution and different aspect ratio changes.
 
 ### Time of day and weather controls
 
-If your game has a dynamic time of day, it's most natural to give the player the ability to change the time of day for the shot so the sunlight is just right for the composition they have in mind.
+If your game has a dynamic time of day, it's most natural to give the player the ability to change the in-game hour for the shot so the sunlight is just right for the composition they have in mind.
 
-If your game has a weather system, allowing the player to cycle between different weathers would give them even more control about the things they can do. Extra points if you add interpolation between different weathers.
+Also, if your game has a weather system, allowing the player to cycle between different weathers would give them even more tools to work with. Extra points if you add interpolation between different weathers.
 
 Additionally, control over world variables such as wind and fog can also be incredibly helpful.
 
 ### Toggle shader effects
 
-Although effects such as vignettes can give a distinct look to your game, real-life photography often tries to get rid of them, so there is no reason for virtual photographers to have to deal with them, especially on a visually ideal medium as games are. So being able to toggle such effects off is very important to players.
+Although effects such as vignettes can give a distinct look to your game, real-life photography often tries to get rid of them, so there is no reason for virtual photographers to have to deal with them, especially on a visually ideal medium such as games. So being able to toggle such effects off is very important to players.
 
 Other effects that players tend to want to turn off (or have control over) are:
 
@@ -78,7 +78,9 @@ Letting the player disable depth of field (that being from a cutscene or gamepla
 
 Letting the player spawn their own lights to re-illuminate the characters and scene can be a game changer. The controls and UI can be tricky to get right, but we suggest looking at what Insomniac has done with the Spider-Man games and Ratchet & Clank: Rift Apart. And, of course, what Frans has been doing with the [UUU](https://opm.fransbouma.com/uuuv5.htm#lights).
 
-Besides letting the player spawn lights, it's almost equally important to let them turn off the in-game lights. That way they can start lighting the scene from scratch without having to deal with the other lights that don't benefit their composition. An example of what being able to turn off the in-game lights and relit a scene by yourself can achieve:
+Besides letting the player spawn lights, it's almost equally important to let them turn off the in-game lights. That way they can start lighting the scene from scratch without having to deal with the other lights that don't benefit their composition.
+
+Of all of the features listed in this article, this one might be one of the most expensive ones to make. But, as the example below shows, being able to turn off the in-game lights and relit a scene by yourself might be one of the most transformative tools screenshoters have.
 
 <div class="slider container" style="aspect-ratio: 4/5">
   <div class="slider__img slider__img-after">
@@ -104,11 +106,13 @@ Since the game is paused in photomode and players don't need to engage with it i
 
 ### Post-processing
 
-Besides the effects we mentioned above that we would like to get rid of (or at least have control over), there are also other post-processing effects that we might not want to delete completely, such as bloom. Having control over engine-specific post-processing settings is also useful if the resources allow them.
+Besides the effects we mentioned above that we would like to get rid of (or at least have control over), there are also other post-processing effects that we might not want to delete completely, such as bloom or color correction. Having control over engine-specific post-processing settings is also useful if the resources allow them.
 
 ### Aspect ratio options
 
-Players may not be familiar with the concept of aspect ratios, nor how a 16:9 screen is not a common ratio in photography, and are therefore restricted by what games have to offer. Other aspect ratios such as 3:4 or 2:1 can be incredibly beneficial to what they are trying to achieve. Ideally these could be achieved by rendering the final image in the desired ratio, rather than with black bar overlays.
+Players may not be familiar with the concept of aspect ratios, nor how a 16:9 screen is not a common ratio in photography, and are therefore restricted by what games have to offer. Other aspect ratios such as 3:4 or 2:1 can be incredibly beneficial to what they are trying to achieve.
+
+Ideally, these could be achieved by rendering the final image in the desired ratio, rather than with black bar overlays like [how we do it on PC](basics.htm#composing-for-custom-aspect-ratios). But understanding the limitations consoles have, black bar overlays might still be useful.
 
 ## Extra credit
 
@@ -116,7 +120,7 @@ Players may not be familiar with the concept of aspect ratios, nor how a 16:9 sc
 
 Being able to make the characters more expressive can go a long way in improving portraits and making games feel more alive through shots. Full body poses or animation triggers and different facial expressions are of course welcome.
 
-More granularity and control here is appreciated, such as allowing the player to move the head or their eyes of the character into a specific direction. It helps with setting up a desired composition, as well as connecting with the character better.
+More granularity and control here is appreciated, such as allowing the player to move the head or the eyes of the character into a specific direction. It helps with setting up a desired composition, as well as connecting with the character better.
 
 ### Move characters/objects around
 
@@ -136,7 +140,7 @@ Ideally, an accumulation-buffer–based DoF solution like the one in Forza Horiz
 
 Having the option to adjust the shutter speed, even in non-racing games, can be useful for many reasons, one of which is allowing the user to take long exposure photos (like trails of cars passing by). This may require an option to unpause the game while still being in photomode for this to work. Also consider introducing some kind of slow motion to have extra frames to work with. Otherwise, movement can look choppy.
 
-Decreasing shutter speed can have other benefits specific to games; see [our article on long exposure in ReShade](ReshadeGuides/RealLongExposure.htm) has more details.
+Decreasing shutter speed can have other benefits specific to games; see [our article on long exposure in ReShade](ReshadeGuides/RealLongExposure.htm) as it has more details.
 
 ## Final notes
 
