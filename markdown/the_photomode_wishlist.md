@@ -35,7 +35,7 @@ The following aspects regarding camera movement and orientation are crucial:
 
 ### Field-of-view
 
-Being able to control the "angle of the lens" of the camera is very important, but sometimes these have annoying quirks. Try to allow the minimum and maximum field of view that the engine supports, and provide enough granularity in the user interface so the player can choose the right FoV for their shot. Consider the real-world analogue to this control too: smaller values should give a wider view, larger values should be more narrow.
+Being able to control the "angle of the lens" of the camera is very important, but sometimes these have annoying quirks. Try to allow the minimum and maximum field of view that the engine supports, and provide enough granularity in the user interface so the player can choose the right FoV for their shot.
 
 ### Pausing the game / gamespeed control
 
