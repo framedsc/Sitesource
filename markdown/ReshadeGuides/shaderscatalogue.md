@@ -1,5 +1,6 @@
-![Shaders Catalogue](Images\shaders_catalogue_header.png){.shadowed .autosize}
- 
+Shaders Catalogue
+=========
+
 The purpose of this guide is to let you know about the different stuff you can do in [reshade](https://framedsc.github.io/GeneralGuides/basics.htm#reshade) and show you why to use it instead of doing post-processing in common editing software.
  
 I have gone through all the effects of every repo I could find and made this list with some (hopefully understandable) explanations. I don't have in-depth knowledge of every shader, so if you think you can write a better explanation, trick, or go into more in detail on how it works, please feel free to make a pull request or contact someone from Framed to update this guide. The same goes if there is a shader in the list that is outdated, if the link is not the newest version or if you want to include more shaders.
