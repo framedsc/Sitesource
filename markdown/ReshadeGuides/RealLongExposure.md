@@ -1,4 +1,4 @@
-![RealLongExposure.fx](Images\reallongexposure_header.png){.shadowed .autosize}
+![RealLongExposure.fx](Images\reallongexposure_header.png "Shot by barkar_b"){.shadowed .autosize}
 
 # Using RealLongExposure.fx to hide temporal issues in games
 

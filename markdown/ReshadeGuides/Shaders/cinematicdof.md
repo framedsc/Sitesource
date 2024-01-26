@@ -1,4 +1,4 @@
-![Cinematic Depth of Field](..\Images\cinematicDOF_header.png){.shadowed .autosize}
+![Cinematic Depth of Field](..\Images\cinematicDOF_header.png "Shot by Jim2point0"){.shadowed .autosize}
 
 Cinematic Depth of Field, or 'Cinematic DOF' is a *state of the art* Depth of Field shader for Reshade and is available in the 
 [OtisFX](https://github.com/FransBouma/OtisFX) repository. The OtisFX repository always contains the latest version. 
