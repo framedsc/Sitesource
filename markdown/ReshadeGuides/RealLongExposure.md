@@ -1,3 +1,5 @@
+![RealLongExposure.fx](Images\reallongexposure_header.png "Shot by barkar_b"){.shadowed .autosize}
+
 # Using RealLongExposure.fx to hide temporal issues in games
 
 [RealLongExposure.fx](https://github.com/LordKobra/CobraFX/blob/master/Shaders/RealLongExposure.fx) (RLE) by LordKobra is a ReShade shader designed to create long exposure effects by blending frames together. However, it can also be used to blend out artifacts and issues caused by temporal "jitter" effects such as TAA (temporal antialiasing) and some modern hair shaders. It can also be used to hide other distractions, like particle effects (see example #3).

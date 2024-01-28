@@ -30,8 +30,8 @@ may not be enough in some cases. To input a bigger value, double click the **Max
 value you need. 
 
 When using upscaling with IGCS Depth of Field, images may turn out blurry. To avoid this,
-set **Number of frames to wair per frame** to 5. This will increase the time it takes to complete a shot, but
-the focal poing will be correct.
+set **Number of frames to wait per frame** to 5. This will increase the time it takes to complete a shot, but
+the focal point will be correct.
 
 ## Known issues
 
