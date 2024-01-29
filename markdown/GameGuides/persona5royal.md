@@ -11,6 +11,7 @@ Custom Aspect Ratios | Yes (with tools)*
 Reshade | Yes (DX11)
 Ansel | No
 Graphics API | DirectX 11
+Game Version | 1.03B
 
 \* Custom Aspect Ratios can be set in the mod menu, but may not rescale the image correctly.
 
