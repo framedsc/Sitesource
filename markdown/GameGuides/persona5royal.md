@@ -11,9 +11,9 @@ Custom Aspect Ratios | Yes (with tools)*
 Reshade | Yes (DX11)
 Ansel | No
 Graphics API | DirectX 11
-Game Version | 1.03B
+Game Version | 1.03B <font face="Stores"> S </font>
 
-\* Custom Aspect Ratios can be set in the mod menu, but may not rescale the image correctly.
+\* *Custom Aspect Ratios can be set in the mod menu, but may not rescale the image correctly.*
 
 ## Tools
 
@@ -21,7 +21,7 @@ Game Version | 1.03B
 - [ZMenu](https://zolika1351.pages.dev/mods/persona5menu)
 
 @alert warning
-Development on the mod menu has finished according to the author; as such, the guide may become outdated following a game update.
+Development on the mod menu has finished according to the author; as such, the guide may become outdated following a game update. If so, as an alternative, you can roll back to a previous version of the game following [this guide](../GeneralGuides/steam_update_guide.htm).
 @end
 ## Requirements for Depth Buffer support
 
