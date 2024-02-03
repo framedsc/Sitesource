@@ -223,6 +223,10 @@
 				"MSADOF" : "ReshadeGuides\\Addons\\MSADOF.md",
 			}
 		},
+		"Post-Processing guides" : 
+		{
+			"Simple techniques to battle the color banding, power of Grain, Noise, and Blur": "Post-ProcessingGuides\\SimpleTechniquesToFixColorBanding.md",
+		},
 		"Cheat Table Archive": "cheattablearchive.md",
 		"The Photomode Wishlist": "the_photomode_wishlist.md",
 		"Contribute to the site!": "contribute.md",
