@@ -2,29 +2,27 @@ Lets talk about the color banding, why it happens, how to remove the banding fro
 
 This guide will focus on post-processing with Adobe applications rather then in-game with ReShade. If you are interested for ReShade as well, then I recommend to also check the Deband ReShade [Shader](../ReshadeGuides/shaderscatalogue.htm#deband) if you want to try it out which can be helpful for banding as well.
 
-Guide examples bellow are zoomed [hotsampled](../basics.htm#hotsampling) 20MP shots <em>cropped</em> from 21:9/3:4 aspect ratios to inpect closely the sky for banding, or any other defects, and if there's any, this guide will show you how to solve it.
+Guide examples bellow are zoomed [hotsampled](../basics.htm#hotsampling) 20MP shots *cropped* from 21:9/3:4 aspect ratios to inpect closely the sky for banding, or any other defects, and if there's any, this guide will show you how to solve it.
 
 
 <br>
 
 
-
-<left> <b><font size=+2 face="Galano Grotesque Alt">BANDING AS OUR ENEMY</font></b> <br>
-
+<left> <b><font size=+2 face="Galano Grotesque Alt">BANDING AS OUR ENEMY</font></b>   
 
  Color banding is one of the most disturbing defects that you can find in your image. This phenomenon happens in smooth areas with similar shades, for example, a fading gradient (from light to dark), when the abrupt color change cannot be presented accurately. This results in certain colors appearing as bands rather than smoothly transitioning from one hue to another.
 
  For banding to occur, it doesn't need to be the image adjustments, but lets say that they are, the more adjustments you make to a screenshot the higher the chances are for banding to occur.
  
-<img src="../Images/beforesurblurandnoise.png" /><div class="figure"><p>Example of banding after applying curves adjustment layer on the gradient. You can see it in a form of straight vertical lines. <em>(image example created by me)</em></p></div><br>  
+<img src="../Images/FixColorBandingGuide/beforesurblurandnoise.png" /><div class="figure"><p>Example of banding after applying curves adjustment layer on the gradient. You can see it in a form of straight vertical lines. <em>(image example created by me)</em></p></div><br>  
 
-So what should appear as a smooth gradient, will instead show a straight vertical lines that don't appear to blend well at all. They can appear in different forms of shapes as well.
+So what should appear as a smooth gradient, will instead show a straight vertical lines that don't appear to blend well at all. They can appear in different forms of shapes as well.  
 
 Not to mention how this case became more evident duo to social media websites that apply heavy compression to the images, by further reducing the number of tones available which often results in a mess. 
 
 So lets focus now on how to fix this defect, and how I deal with this in general. 
 
-But before we get into it, it would be advisable to mention the shader toggle, a tool which allows you to turn off the in-game shaders, which can help you eliminate the present vanilla grain and other annoying effects that can <em>ruin</em> your shot before you even start to apply your own edits. If you are interested, please go [here](../ReshadeGuides/Addons/shader_toggler_repository.htm) to get to main release and to see an example of its usage.
+But before we get into it, it would be advisable to mention the shader toggle, a tool which allows you to turn off the in-game shaders, which can help you eliminate the present vanilla grain and other annoying effects that can *ruin* your shot before you even start to apply your own edits. If you are interested, please go [here](../ReshadeGuides/Addons/shader_toggler_repository.htm) to get to main release and to see an example of its usage.
 
 <br>
 
@@ -37,12 +35,14 @@ There are simple ways on how to eliminate the banding on a shot fast in Photosho
 
 @alert Important
 Since this is a post-processing guide which happens after you are finished with the in-game photo shooting session, you would need to have Adobe Photoshop and Lightroom installed on your computer.
-@end
-<br>  
+@end          
+
+
+
 
 ## Photoshop
 
-First off, drop your shot into Photoshop and duplicate the background layer by pressing Ctrl + J on PC, or by right clicking the Background layer > Duplicate layer. <b>Its very important</b> to make sure that you are in 16bit mod by checking Image menu > Mode, and make sure that 16Bits/Channel is [selected](https://i.imgur.com/DtjOh5s.png). Now go to Filters menu and choose Convert for Smart Filters. This way your duplicated layer becomes a Smart Object and you can work non-destructively. 
+First off, drop your shot into Photoshop and duplicate the background layer by pressing Ctrl + J on PC, or by right clicking the Background layer > Duplicate layer. **Its very important** to make sure that you are in 16bit mod by checking Image menu > Mode, and make sure that 16Bits/Channel is [selected](https://i.imgur.com/DtjOh5s.png). Now go to Filters menu and choose Convert for Smart Filters. This way your duplicated layer becomes a Smart Object and you can work non-destructively. 
 
 Go to Select menu > Sky and the AI will make the sky selection for you. You can then use Quick Selection Tool (W  button) for more precise selection if you are not happy with the result e.g. if AI did not made the selection the way you wanted (dont forget to zoom in while doing the precise manual selection by holding Alt+Scroll wheel). 
 
@@ -55,11 +55,11 @@ If you see some of the banding defects on the sides, or bellow the sky on the cl
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
     <p>AFTER EDIT</p>
-    <img src="../Images/witcher3psaftersurfblur.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3psaftersurfblur.jpg" />
   </div>
   <div class="slider__img slider__img-before">
     <p>BEFORE EDIT</p>
-    <img src="../Images/witcher3psbeforesurfblur.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3psbeforesurfblur.jpg" />
   </div>
   <input type="range" min="0" max="100" value="50" step="0.01" 
     id="slider" class="slider__input" 
@@ -68,17 +68,16 @@ If you see some of the banding defects on the sides, or bellow the sky on the cl
 </div>
 <div class="figure"><p>Example of banding in a sky, and result after the surface blur without blurring out rest of the image such as the moon, and other healthy parts of the sky.</p></div>
 
-
 Lets go further now with different example by adding some noise. So after the surface blur you can now apply some noise to it by going to Filter menu > Noise > Add Noise. The percentage of the added noise should be around 2% so you get the idea. Not too much. Leave the options Uniform, Monochromatic checked and go ok.
 
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
     <p>AFTER EDIT</p>
-    <img src="../Images/witcher3psaftersurfblurandnoise.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3psaftersurfblurandnoise.jpg" />
   </div>
   <div class="slider__img slider__img-before">
     <p>BEFORE EDIT</p>
-    <img src="../Images/witcher3psbeforesurfblurandnoise.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3psbeforesurfblurandnoise.jpg" />
   </div>
   <input type="range" min="0" max="100" value="50" step="0.01" 
     id="slider" class="slider__input" 
@@ -86,8 +85,6 @@ Lets go further now with different example by adding some noise. So after the su
   />
 </div>
 <div class="figure"><p>Sky comparison again, this time with added noise, surface blur with radius of 10-15, and treshold around 20. No banding.</p></div><br>  
-
-
 
 
 ## Lightroom 
@@ -99,17 +96,17 @@ Similar you can do in Lightroom. After you import a screenshot into Lightroom, p
 Hold Space + Left Click on the image to zoom in and out. If you want to zoom higher go to [navigator](https://i.imgur.com/y2uh0R0.png) and pick percentage, or hold  Ctrl +/- (plus/minus) on a PC to go through all existing magnification levels (hitting Z button takes you to the previously used zoom level, and by hitting Z a second time, it brings you back to the original zoom state). Control size of the brush with mouse wheel.
 </details>
 
-Once done, you can reduce sharpness, texture and a bit of clarity of sky, and then add a bit of grain. Just be carefull to control the other settings as well if you decide to take out a bit of clarity. <b>Reducing the clarity a lot</b> tends to create unexpected brightness, because you are removing some the contrast, and its quite noticeable.
+Once done, you can reduce sharpness, texture and a bit of clarity of sky, and then add a bit of grain. Just be carefull to control the other settings as well if you decide to take out a bit of clarity. **Reducing the clarity a lot** tends to create unexpected brightness, because you are removing some the contrast, and its quite noticeable.
 
 
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
     <p>AFTER EDIT</p>
-    <img src="../Images/witcher3lrcsurfblurgrain.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3lrcsurfblurgrain.jpg" />
   </div>
   <div class="slider__img slider__img-before">
     <p>BEFORE EDIT</p>
-    <img src="../Images/witcher3lrcbeforetext.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3lrcbeforetext.jpg" />
   </div>
   <input type="range" min="0" max="100" value="50" step="0.01" 
     id="slider" class="slider__input" 
@@ -121,11 +118,11 @@ Once done, you can reduce sharpness, texture and a bit of clarity of sky, and th
 <div class="figure"><p>Also we can see here that adding only grain didn't helped to eliminate the banding entirely, so minus texture did the trick.</p></div><div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
     <p>AFTER MINUS TEXTURE</p>
-    <img src="../Images/witcher3lrcsurfblurgrain.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3lrcsurfblurgrain.jpg" />
   </div>
   <div class="slider__img slider__img-before">
     <p>BEFORE MINUS TEXTURE</p>
-    <img src="../Images/witcher3lrcbeforesurfblurjustgrain.jpg" />
+    <img src="../Images/FixColorBandingGuide/witcher3lrcbeforesurfblurjustgrain.jpg" />
   </div>
   <input type="range" min="0" max="100" value="50" step="0.01" 
     id="slider" class="slider__input" 
@@ -154,7 +151,7 @@ Apply the surface blur and noise on duplicated layer as mentioned above, and the
 
 Now after creating a layer mask, click on it, and press Ctrl + I to invert that mask (layers should look like [this](https://i.imgur.com/ykrE66v.png)). What that will do is it will isolate the subject out of that effect. Lastly, grab a Brush by pressing B on a keyboard, or by picking up the Brush from the [left](https://i.imgur.com/sJWYYJ1.png) (make sure it’s a [black brush](https://i.imgur.com/YOhDeUQ.png)) with 100% opacity and 100% flow (by default it should be already), and paint around where you don’t want effects to be applied basically leaving the healthy areas of the image untouched by the surface blur and noise (if its the subject only that you want to be isolated then you don't have to use the brush, you can leave it). You can play with the opacity of the brush and flow to smooth out the transitions. 
 
-<img src="../Images/qbexampleofareas.jpg" /><div class="figure"><p>Here you can see an example how everything is setup. In the banding area there is noise, and surface blur applied to fight the banding while other areas are untouched by the effects.</p></div>
+<img src="../Images/FixColorBandingGuide/qbexampleofareas.jpg" /><div class="figure"><p>Here you can see an example how everything is setup. In the banding area there is noise, and surface blur applied to fight the banding while other areas are untouched by the effects.</p></div>
 
 <br>  
 
@@ -169,8 +166,6 @@ To break this down for Lightroom.
 
 <br>  
 
-
-
 If the banding occurs duo to some lightning that bleeds out behind the subject, you can use Quick Selection Tool from Photoshop to select the banding area. Selection example in Photoshop should look like this [this](https://i.imgur.com/LI6uogy.png). Apply edits as mentioned above to remove the banding and they will only cover selected area.
 
 
@@ -178,14 +173,12 @@ In Lightroom, go to Masking (Shift+W) and select a Subject so the AI makes the s
 Final selection example after doing the Subtract to Mask with a Brush in Lightroom looks like [this](https://i.imgur.com/Cu2SQYJ.png). Apply edits as mentioned above to remove the banding and they will only cover selected area.
 
 
-<img src="../Images/qbbeforeandafterexample.jpg" /><div class="figure"><p>Smoothing out the banding that comes from the lighting which bleeds out behind.</p></div><br> 
+<img src="../Images/FixColorBandingGuide/qbbeforeandafterexample.jpg" /><div class="figure"><p>Smoothing out the banding that comes from the lighting which bleeds out behind.</p></div><br> 
 
 
 ##Grain usage on shots in general, and why grain, noise and blur
-<p>&nbsp;</p>
 
-<left> <b><font size=+2 face="Galano Grotesque Alt">THEY CAN SOLVE COLOR BANDING</font></b> <br>
-
+<left> <b><font size=+2 face="Galano Grotesque Alt">THEY CAN SOLVE COLOR BANDING</font></b>
 
 
 @alert neutral
@@ -201,29 +194,23 @@ A small tip anyways would be to always inspect a shot before moving on.
 
 This is not about me convicing you what to do, because grain is a subjective thing, and its usage depends on what you're aiming for with your content, but its about how grain can help you against the banding, and how it can improve your shots in general. 
 
-The same I can say for the noise and the surface blur. For example, if the image that contains a paper and a pencil looks too smooth it might appear artificial to our eyes, but adding a bit of noise, it will look more sharper, and <em>natural</em> to our eyes.
+The same I can say for the noise and the surface blur. For example, if the image that contains a paper and a pencil looks too smooth it might appear artificial to our eyes, but adding a bit of noise, it will look more sharper, and _natural_ to our eyes.
 
 
- 
-If you need more <em>convincing</em>, no worries! Lets bring up now the final comparison on why I mentioned the grain, noise and surface blur, and why would you need to use them in fight against banding.<br>
+If you need more *convincing*, no worries! Lets bring up now the final comparison on why I mentioned the grain, noise and surface blur, and why would you need to use them in fight against banding.<br>
 <p>&nbsp;</p>
 Can you notice the difference in gradients bellow?
 
 
-
-<img src="../Images/Before_after adding noise_and after surface blur_ resized.png" /><div class="figure"><p>Top: banding example; Middle: 0.58% of added noise to reduce the banding; Bottom: how it looks with surface blur applied only image example created by me</em></p></div>
+<img src="../Images/FixColorBandingGuide/Before_after adding noise_and after surface blur_ resized.png" /><div class="figure"><p>Top: banding example; Middle: 0.58% of added noise to reduce the banding; Bottom: how it looks with surface blur applied only <em>(image example created by me)</em></p></div>
 <p>&nbsp;</p></div>
-
-
-
-
-
 
 
 
 
 *Written by*, StephenCalic(Defaltsiuncula)
 
+*Thanks to* [originalnicodr](can put your link for socials or something) for adding the AI part... something like that example :) 
 
 
 
