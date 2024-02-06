@@ -21,6 +21,7 @@ Command | Arguments| Description
 `r.ViewDistanceScale` | `0.0` - ?? | sets draw distance
 `r.customdepth 0` | `0` - `3` | changes the visibility of outlines, other elements like focus circles
 `r.postprocessing.disablematerials` | `0` or `1` | Specify `1` to disable on-screen effects like blurred stripes or other effects usually added by games. Specify `0` to go back to the game's default. 
+`r.Upscale.Panini.D` | `0` or `1` | Specify `0` to disable barrel distortion in some games if this upscaling method is at play.  
 `sg.EffectsQuality` | `0` - `4` | changes effects quality 
 `sg.PostProcessQuality` | `0` - `4` | changes post-processing quality
 `sg.ShadowQuality` | `0` - `4` | changes shadow quality 
