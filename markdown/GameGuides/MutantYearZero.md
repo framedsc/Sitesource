@@ -18,7 +18,7 @@ This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unl
  
 ## Tools
 
-* [Camera Tools by GHOSTINTHECAMERA](https://github.com/ghostinthecamera/IGCS-GITC/releases/tag/MYZv1.0)  
+* [Camera Tools by GHOSTINTHECAMERA](https://github.com/ghostinthecamera/IGCS-GITC/releases/tag/MYZv1.1)  
 **Features**: Camera control, FoV, Tilt, Timestop and HUD Toggle
 * [CE table by One3rd](..\CheatTables\MutantYearZero_One3rd.CT)  
 **Features**: Camera control, FoV, Tilt
