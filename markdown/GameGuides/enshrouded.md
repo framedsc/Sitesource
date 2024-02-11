@@ -37,7 +37,7 @@ All Hotkeys can be changed (see guide on using cheat engine tables)
   Numpad - to decrease FOV  
 * **F4** will enable time of day control. This allows you to manually change the normal day cycle with hotkeys.  
   [ ] keys = increase/decrease time of day  
-  hold CTRL to move slower
+  hold CTRL to move slower  
 * **F5** will enable sun position control. Allows you move the sun more freely (not bound to the usual time of day track)  
   Arrow keys to move the sun  
   ↑   move sun up  
