@@ -101,9 +101,8 @@ local asin = math.asin
 local floor = math.floor
 local atan2 = math.atan2
 
-local camera_move_speed = 500000000
-
 function moveCamera()
+  local camera_move_speed = 500000000
   local cam_address = getAddress("[camP]")
   local coord_address = cam_address+0x318
   local quat_address = cam_address+0x330
@@ -135,6 +134,10 @@ function moveCamera()
   -- X/Y movement
   --flipped for some reason!
 
+  if isKeyPressed(VK_LCONTROL) then
+     local camera_move_speed = 100000000
+  end
+
   if isKeyPressed(VK_NUMPAD8) then
      y_speed = -camera_move_speed
   end
@@ -149,12 +152,6 @@ function moveCamera()
 
   if isKeyPressed(VK_NUMPAD4) then
      x_speed = camera_move_speed
-  end
-
-  if pitch &gt; 1.57 then
-    pitch = 1.57
-  elseif pitch &lt; -1.57 then
-    pitch = -1.57
   end
 
   -- this works?
@@ -461,6 +458,13 @@ dealloc(newmemTOD)
           </Keys>
           <ID>0</ID>
         </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
       </Hotkeys>
       <CheatEntries>
         <CheatEntry>
@@ -588,6 +592,13 @@ dealloc(newmem)
             <Key>116</Key>
           </Keys>
           <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>1</ID>
         </Hotkey>
       </Hotkeys>
       <CheatEntries>
@@ -772,7 +783,6 @@ dealloc(newmem)
     </SymbolEntry>
   </UserdefinedSymbols>
   <Comments>Default Hotkeys
-
 Toggle Freecam = DEL
 Enable FOV Control = F3
   Change FOV = Numpad + and -
@@ -785,6 +795,6 @@ Enable Sun Position Control = F5
     →	move sun right
     ←	move sun left
 Toggle HUD = \
-
-All of these can be changed</Comments>
+All of these can be changed
+</Comments>
 </CheatTable>
