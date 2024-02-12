@@ -4,7 +4,7 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Ansel | No clue / who asked
+Ansel | No clue
 Hotsampling | No*
 DSR | Yes
 Custom Aspect Ratios | Yes
@@ -31,13 +31,17 @@ All Hotkeys can be changed (see guide on using cheat engine tables)
   Numpad 6 to move cam right  
   Numpad 9 to move cam up  
   Numpad 7 to move cam down  
+
+  Currently there is no controller support, though it is planned for the future. For now, You must use a mouse to look around.  
   
 * **F3** will enable FOV control. You can leave this on.  
   Numpad + to increase FOV  
   Numpad - to decrease FOV  
+
 * **F4** will enable time of day control. This allows you to manually change the normal day cycle with hotkeys.  
   [ ] keys = increase/decrease time of day  
   hold CTRL to move slower  
+
 * **F5** will enable sun position control. Allows you move the sun more freely (not bound to the usual time of day track)  
   Arrow keys to move the sun  
   ↑   move sun up  
