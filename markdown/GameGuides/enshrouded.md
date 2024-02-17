@@ -15,7 +15,7 @@ Graphics API | DirectX 12
  
 ## Tools
 
-* [CE Table by Jim2point0 and Skall](..\CheatTables\enshrouded_v1.CT)  
+* [CE Table by Jim2point0 and Skall](..\CheatTables\enshrouded_v2.CT)  
 **Features**: Free Camera, FOV, Hud Toggle, Time of Day, Sun Position
 
 ## Using The CE Table
@@ -24,6 +24,8 @@ Start out by clicking the box next to "Read Camera." This fetches the camera add
 
 All Hotkeys can be changed (see guide on using cheat engine tables)
 
+Currently there is no controller support, though it is planned for the future. For now, You must use a mouse to look around.  
+
 * **DEL** will toggle the free camera script.  
   Numpad 8 to move cam forward  
   Numpad 5 to move cam backwards  
@@ -31,8 +33,6 @@ All Hotkeys can be changed (see guide on using cheat engine tables)
   Numpad 6 to move cam right  
   Numpad 9 to move cam up  
   Numpad 7 to move cam down  
-
-  Currently there is no controller support, though it is planned for the future. For now, You must use a mouse to look around.  
   
 * **F3** will enable FOV control. You can leave this on.  
   Numpad + to increase FOV  
@@ -52,6 +52,10 @@ All Hotkeys can be changed (see guide on using cheat engine tables)
 
 ## Using higher resolutions
 
-Hotsampling seems out of the question. Using Nvidia DSR, you can enable higher resolutions to be selected in-game. That said, selecting higher resolutions in-game will scale the the resolution internally, but will not capture at the selected res. In order to capture higher resolutions, you'll need to set your desktop resolution to the DSR res first. The nice thing is that the game updates to include your new desktop res after you change it. After changing your desktop res, swap between windowed and fullscreen in-game to update to the new res. This will also work with custom aspect ratios.
+Hotsampling seems out of the question. 
+
+Using Nvidia DSR, you can enable higher resolutions to be selected in-game. That said, selecting higher resolutions in-game will scale the the resolution internally, but will not capture at the selected res. 
+
+In order to capture higher resolutions, you'll need to set your desktop resolution to the DSR res first. The nice thing is that the game updates to include your new desktop res after you change it. After changing your desktop res, swap between windowed and fullscreen in-game to update to the new res. This will also work with custom aspect ratios like 3:4.
 
 
