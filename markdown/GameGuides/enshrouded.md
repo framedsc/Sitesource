@@ -26,34 +26,38 @@ Some hotkeys can be changed (see guide on using cheat engine tables)
 
 Currently there is no controller support, though it is planned for the future. For now, You must use a mouse to look around.  
 
-* **Numpad 0** will toggle the photo mode. The game will pause and the freecam will be enabled. If you have an xbox controller turned on, you can use that. Otherwise it will fallback to keyboard controls.  
+### **Numpad 0**
+Toggles the photo mode. The game will pause and the freecam will be enabled. If you have an xbox controller turned on, you can use that. Otherwise it will fallback to keyboard controls.  
 
-  **Controller**  
-  Dpad up/down to change FOV  
-  Left/Right trigger to move up and down  
-  Y = fast movement  
-  A = slow movement  
+### Controller
+Dpad up/down to change FOV  
+Left/Right trigger to move up and down  
+Y = fast movement  
+A = slow movement  
 
-  **Keyboard**  
-  WASD to move the camera  
-  Space/Control to move up and down  
-  Left ALT for slow movement  
-  Arrow keys to rotate the camera  
-  Numpad + and - to increase/decrease FOV  
+### Keyboard  
+WASD to move the camera  
+Space/Control to move up and down  
+Left ALT for slow movement  
+Arrow keys to rotate the camera  
+Numpad + and - to increase/decrease FOV  
 
-* **DEL** toggle the HUD
+### **DELETE**
+Toggles the HUD
 
-* **F4** will enable time of day control. This allows you to manually change the normal day cycle with hotkeys.  
-  [ ] keys = increase/decrease time of day  
-  hold CTRL to move slower  
+### **F4**
+Enable time of day control. This allows you to manually change the normal day cycle with hotkeys.  
+  &nbsp;&nbsp;&nbsp;&nbsp; [ ] keys = increase/decrease time of day  
+  &nbsp;&nbsp;&nbsp;&nbsp; hold CTRL to move slower  
 
-* **F5** will enable sun position control. Allows you move the sun more freely (not bound to the usual time of day track)  
-  Arrow keys to move the sun  
-  ↑   move sun up  
-  ↓	move sun down  
-  →	move sun right  
-  ←	move sun left  
-  hold CTRL to move slower
+### **F5**
+Enables sun position control. Allows you move the sun more freely (not bound to the usual time of day track)  
+  &nbsp;&nbsp;&nbsp;&nbsp; Arrow keys to move the sun  
+  &nbsp;&nbsp;&nbsp;&nbsp; ↑   move sun up  
+  &nbsp;&nbsp;&nbsp;&nbsp; ↓	move sun down  
+  &nbsp;&nbsp;&nbsp;&nbsp; →	move sun right  
+  &nbsp;&nbsp;&nbsp;&nbsp; ←	move sun left  
+  &nbsp;&nbsp;&nbsp;&nbsp; hold CTRL to move slower
 
 ### Extras
 The old version of the camera and FOV script are still here in case you don't have a controller and want to be able to use the mouse. But this camera will not work with the new pause. 
