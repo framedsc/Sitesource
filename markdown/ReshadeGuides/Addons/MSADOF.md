@@ -3,6 +3,12 @@
 **Multi-sampled Accumulated Depth of Field** (**MSADOF**) is an advanced DOF add-on for ReShade developed by murchalloo. It renders depth of field without using a depth buffer for the blurring process, greatly increasing the possibilities of defocused captures. This is an advanced guide that aims to cover the usage of MSADOF, as well as its setup process for you and other users.
 
 @alert important
+Since the guide was written, Otis_inf has developed his own accumulated DOF, which works very similarly to MSADOF with a more user-friendly workflow (meaning that the [advantages](#advantages) also apply to it). However, differently from MSADOF, IGCSDOF has been released to the public.
+
+You can get it from [here](https://opm.fransbouma.com/igcsdof.htm), as well as read about how it works and how to use it.
+@end
+
+@alert important
 MSADOF requires **ReShade 5.4.2+ with [full add-on support](../../Images/reshade_FullAddonSupport.png)** and supported [Otis_Inf camera tools](https://patreon.com/Otis_Inf). *All cameras newer than the 31st of May 2022 should have support for MSADOF, look for "Supports IGCS Connector" in the "Versions and compatibility" table of each [game](https://opm.fransbouma.com/Gamespecificfunctionality.htm).*
 @end
 

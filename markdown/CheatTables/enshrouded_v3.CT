@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>31059</ID>
+      <Description>"Get Camera (leave on)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(cam_read,enshrouded.exe,0F 10 86 18 03 00 00 44 8B 8F 64 F6 FF FF)
+alloc(newmem,$1000)
+label(return)
+label(exit)
+
+label(camP)
+registersymbol(camP)
+
+newmem:
+mov [camP], rsi
+movups xmm0,[rsi+00000318]
+mov r9d,[rdi-0000099C]
+jmp exit
+
+exit:
+jmp return
+
+
+camP:
+dd 0
+
+
+cam_read:
+jmp newmem
+return:
+
+aobscanmodule(realFOV,enshrouded.exe,F3 44 0F 10 96 4C 06 00 00) // should be unique
+alloc(readFOV,$1000,realFOV)
+
+label(returnFOV)
+label(pfov)
+label(exitFOV)
+registersymbol(pfov)
+registersymbol(realFOV)
+
+readFOV:
+movss xmm10,[rsi+0000064C]
+mov [pfov],rsi
+jmp exitFOV
+
+exitFOV:
+jmp returnFOV
+
+pfov:
+dq 0
+
+realFOV:
+jmp readFOV
+nop 4
+returnFOV:
+
+////// DISABLE ///////
+
+[DISABLE]
+dealloc(newmem)
+cam_read:
+movups xmm0,[rsi+00000318]
+mov r9d,[rdi-0000099C]
+unregistersymbol(camP)
+
+realFOV:
+  db F3 44 0F 10 96 4C 06 00 00
+
+unregistersymbol(realFOV)
+unregistersymbol(pfov)
+dealloc(readFOV)
+
+{
+// ORIGINAL CODE - INJECTION POINT: enshrouded.exe+299FA1
+
+enshrouded.exe+299F6F: 89 8F 68 F6 FF FF        - mov [rdi-00000998],ecx
+enshrouded.exe+299F75: 41 8B 16                 - mov edx,[r14]
+enshrouded.exe+299F78: 48 8B 8E 08 03 00 00     - mov rcx,[rsi+00000308]
+enshrouded.exe+299F7F: E8 6C 5F 5F 00           - call enshrouded.exe+88FEF0
+enshrouded.exe+299F84: 8B 97 64 F6 FF FF        - mov edx,[rdi-0000099C]
+enshrouded.exe+299F8A: 48 89 07                 - mov [rdi],rax
+enshrouded.exe+299F8D: 40 88 6F 08              - mov [rdi+08],bpl
+enshrouded.exe+299F91: 44 88 6F 09              - mov [rdi+09],r13b
+enshrouded.exe+299F95: 48 8B 8E 60 03 00 00     - mov rcx,[rsi+00000360]
+enshrouded.exe+299F9C: E8 CF 8F F7 FF           - call enshrouded.exe+212F70
+// ---------- INJECTING HERE ----------
+enshrouded.exe+299FA1: 0F 10 86 18 03 00 00     - movups xmm0,[rsi+00000318]
+// ---------- DONE INJECTING  ----------
+enshrouded.exe+299FA8: 44 8B 8F 64 F6 FF FF     - mov r9d,[rdi-0000099C]
+enshrouded.exe+299FAF: 48 8D 4C 24 30           - lea rcx,[rsp+30]
+enshrouded.exe+299FB4: 0F 10 8E 28 03 00 00     - movups xmm1,[rsi+00000328]
+enshrouded.exe+299FBB: 44 8B 05 46 2F 61 01     - mov r8d,[enshrouded.exe+18ACF08]
+enshrouded.exe+299FC2: 48 8B 56 08              - mov rdx,[rsi+08]
+enshrouded.exe+299FC6: 0F 11 44 24 40           - movups [rsp+40],xmm0
+enshrouded.exe+299FCB: 0F 10 86 38 03 00 00     - movups xmm0,[rsi+00000338]
+enshrouded.exe+299FD2: 0F 11 4C 24 50           - movups [rsp+50],xmm1
+enshrouded.exe+299FD7: F2 0F 10 8E 48 03 00 00  - movsd xmm1,[rsi+00000348]
+enshrouded.exe+299FDF: 0F 11 44 24 60           - movups [rsp+60],xmm0
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31036</ID>
+          <Description>"Enable Photomode        [ Numpad 0 ]"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <GroupHeader>1</GroupHeader>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>96</Key>
+              </Keys>
+              <ID>0</ID>
+              <ActivateSound>Activate</ActivateSound>
+              <DeactivateSound>Deactivate</DeactivateSound>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>31086</ID>
+              <Description>"Free Camera"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$lua}
+local cos = math.cos
+local sin = math.sin
+local asin = math.asin
+local floor = math.floor
+local atan2 = math.atan2
+local first_enabled = true
+
+local camera_move_speed = 500000000
+local rotation_speed = 0.04
+local fovSpeed = 0.01
+local cam_address = getAddress("[camP]")
+
+local coord_address = cam_address+0x318
+local quat_address = cam_address+0x330
+
+local q = {readFloat(quat_address+0x0),
+        readFloat(quat_address+0x4),
+        readFloat(quat_address+0x8),
+        readFloat(quat_address+0xC)}
+
+local coords = {readQword(coord_address+0x0),
+            readQword(coord_address+0x8),
+            readQword(coord_address+0x10)}
+
+--https://stackoverflow.com/questions/5782658/extracting-yaw-from-a-quaternion
+local yaw = atan2(2.0*(q[4]*q[2] + q[1]*q[3]), q[1]*q[1] - q[3]*q[4] - q[4]*q[4] + q[2]*q[2])
+local pitch = asin(-2.0*(q[3]*q[2] - q[1]*q[4]))
+
+function calcQuaternion(rotMemory, yaw, pitch, roll)
+  --https://math.stackexchange.com/questions/2975109/how-to-convert-euler-angles-to-quaternions-and-get-the-same-euler-angles-back-fr
+  qx = sin(roll/2) * cos(pitch/2) * cos(yaw/2) - cos(roll/2) * sin(pitch/2) * sin(yaw/2)
+  qy = cos(roll/2) * sin(pitch/2) * cos(yaw/2) + sin(roll/2) * cos(pitch/2) * sin(yaw/2)
+  qz = cos(roll/2) * cos(pitch/2) * sin(yaw/2) - sin(roll/2) * sin(pitch/2) * cos(yaw/2)
+  qw = cos(roll/2) * cos(pitch/2) * cos(yaw/2) + sin(roll/2) * sin(pitch/2) * sin(yaw/2)
+
+  writeFloat(rotMemory+0x0, qy)
+  writeFloat(rotMemory+0x4, qz)
+  writeFloat(rotMemory+0x8, -qx)
+  writeFloat(rotMemory+0xC, -qw)
+end
+
+function moveCamera()
+  local move_speed = camera_move_speed
+  if first_enabled then
+    -- camera was flipped by default. this fixes it
+    yaw=yaw+math.pi
+    first_enabled = false
+  end
+
+  local x_speed = 0
+  local y_speed = 0
+  local rotation_x_speed = 0
+  local rotation_y_speed = 0
+  local move_speed = camera_move_speed
+  local fov = readFloat("[pfov] +64C")
+
+  local controller = getXBox360ControllerState(0)
+
+  if controller == nil then
+    --FOV
+
+    if isKeyPressed(VK_ADD) then
+      writeFloat("[pfov] +64C", fov + fovSpeed)
+    end
+
+    if isKeyPressed(VK_SUBTRACT) then
+      writeFloat("[pfov] +64C", fov - fovSpeed)
+    end
+
+    -- X/Y movement
+
+    if isKeyPressed(VK_LMENU) then
+        move_speed = camera_move_speed/2
+    end
+
+    if isKeyPressed(0x57) then
+        y_speed = move_speed
+    end
+
+    if isKeyPressed(0x53) then
+        y_speed = -move_speed
+    end
+
+    if isKeyPressed(0x44) then
+        x_speed = move_speed
+    end
+
+    if isKeyPressed(0x41) then
+        x_speed = -move_speed
+    end
+
+    if isKeyPressed(VK_UP) then
+        rotation_y_speed = rotation_speed/2
+    end
+
+    if isKeyPressed(VK_DOWN) then
+        rotation_y_speed = -rotation_speed/2
+    end
+
+    if isKeyPressed(VK_LEFT) then
+        rotation_x_speed = rotation_speed/2
+    end
+
+    if isKeyPressed(VK_RIGHT) then
+        rotation_x_speed = -rotation_speed/2
+    end
+
+    yaw = yaw + rotation_x_speed
+    pitch = pitch + rotation_y_speed
+
+    -- this works?
+    coords[1] = coords[1] + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
+    coords[2] = coords[2] + (y_speed * sin(pitch))
+    coords[3] = coords[3] + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
+
+    -- move up and down
+
+    if isKeyPressed(VK_SPACE) then
+      coords[2] = coords[2] + move_speed
+    end
+
+    if isKeyPressed(VK_LCONTROL) then
+      coords[2] = coords[2] - move_speed
+    end
+  end
+
+  if controller ~= nil then
+    --FOV
+
+    if controller.GAMEPAD_DPAD_UP then
+      writeFloat("[pfov] +64C", fov + fovSpeed)
+    end
+
+    if controller.GAMEPAD_DPAD_DOWN then
+      writeFloat("[pfov] +64C", fov - fovSpeed)
+    end
+
+    if controller.GAMEPAD_Y then
+      move_speed = camera_move_speed*10
+    end
+    if controller.GAMEPAD_A then
+      move_speed = camera_move_speed/2
+    end
+
+    local x_speed = (controller.ThumbLeftX/32767)*move_speed
+    local y_speed = (controller.ThumbLeftY/32767)*move_speed
+    local rotation_x_speed = (controller.ThumbRightX/32767)*rotation_speed*-1
+    local rotation_y_speed = (controller.ThumbRightY/32767)*rotation_speed
+
+    if math.abs(controller.ThumbLeftX/32767) &lt; .2 then
+      x_speed = 0
+    end
+    if math.abs(controller.ThumbLeftY/32767) &lt; .2 then
+      y_speed = 0
+    end
+    if math.abs(controller.ThumbRightX/32767) &lt; .2 then
+      rotation_x_speed = 0
+    end
+    if math.abs(controller.ThumbRightY/32767) &lt; .2 then
+      rotation_y_speed = 0
+    end
+
+    -- X/Y movement
+
+    yaw = yaw + rotation_x_speed
+    pitch = pitch + rotation_y_speed
+
+    -- this works?
+    coords[1] = coords[1] + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
+    coords[2] = coords[2] + (y_speed * sin(pitch))
+    coords[3] = coords[3] + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
+
+    -- move up and down
+
+    if controller.RightTrigger &gt; 50 then
+      coords[2] = coords[2] - move_speed
+    end
+
+    if controller.LeftTrigger &gt; 50 then
+      coords[2] = coords[2] + move_speed
+    end
+
+    if isKeyPressed(VK_SPACE) then
+        coords[2] = coords[2] + move_speed
+    end
+
+    if isKeyPressed(VK_LCONTROL) then
+        coords[2] = coords[2] - move_speed
+    end
+  end
+
+  -- update coordinates
+  -- floor to convert to integer since coords are 8-byte
+
+  writeQword(coord_address, floor(coords[1]))
+  writeQword(coord_address+0x8, floor(coords[2]))
+  writeQword(coord_address+0x10, floor(coords[3]))
+
+  calcQuaternion(quat_address, yaw, pitch, 0)
+end
+
+function camera_loop(thr_obj)
+  while camera_loop_running == true
+  do
+    moveCamera()
+    sleep(5)
+  end
+end
+
+if syntaxcheck then return end
+
+camera_loop_running = true
+camera_thread = createThread(camera_loop)
+{$asm}
+[DISABLE]
+{$lua}
+camera_loop_running = false
+camera_thread = nil
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>31077</ID>
+              <Description>"Timestop"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : enshrouded.exe
+  Version:
+  Date   : 2024-02-12
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(timestop,enshrouded.exe,FF 50 30 8B 44 24 40) // should be unique
+registersymbol(timestop)
+timestop:
+  db 90 90 90 8B 44 24 40
+
+[DISABLE]
+
+timestop:
+  db FF 50 30 8B 44 24 40
+
+unregistersymbol(timestop)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: enshrouded.exe+69E3C0
+
+enshrouded.exe+69E391: 48 8B 43 20              - mov rax,[rbx+20]
+enshrouded.exe+69E395: 48 8D 49 08              - lea rcx,[rcx+08]
+enshrouded.exe+69E399: 48 8D 14 C8              - lea rdx,[rax+rcx*8]
+enshrouded.exe+69E39D: 41 8B C4                 - mov eax,r12d
+enshrouded.exe+69E3A0: 48 89 85 48 06 00 00     - mov [rbp+00000648],rax
+enshrouded.exe+69E3A7: 48 8D 4C 24 38           - lea rcx,[rsp+38]
+enshrouded.exe+69E3AC: 48 8D 45 A0              - lea rax,[rbp-60]
+enshrouded.exe+69E3B0: 48 89 95 40 06 00 00     - mov [rbp+00000640],rdx
+enshrouded.exe+69E3B7: 48 89 44 24 38           - mov [rsp+38],rax
+enshrouded.exe+69E3BC: 48 8B 43 10              - mov rax,[rbx+10]
+// ---------- INJECTING HERE ----------
+enshrouded.exe+69E3C0: FF 50 30                 - call qword ptr [rax+30]
+// ---------- DONE INJECTING  ----------
+enshrouded.exe+69E3C3: 8B 44 24 40              - mov eax,[rsp+40]
+enshrouded.exe+69E3C7: 4C 8B BC 24 50 07 00 00  - mov r15,[rsp+00000750]
+enshrouded.exe+69E3CF: 4C 8B AC 24 60 07 00 00  - mov r13,[rsp+00000760]
+enshrouded.exe+69E3D7: 4C 8B A4 24 68 07 00 00  - mov r12,[rsp+00000768]
+enshrouded.exe+69E3DF: 48 8B 9C 24 80 07 00 00  - mov rbx,[rsp+00000780]
+enshrouded.exe+69E3E7: 85 C0                    - test eax,eax
+enshrouded.exe+69E3E9: 0F 84 BA 00 00 00        - je enshrouded.exe+69E4A9
+enshrouded.exe+69E3EF: 48 8B 4C 24 38           - mov rcx,[rsp+38]
+enshrouded.exe+69E3F4: 48 3B 81 A8 06 00 00     - cmp rax,[rcx+000006A8]
+enshrouded.exe+69E3FB: 0F 83 A8 00 00 00        - jae enshrouded.exe+69E4A9
+}
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>96</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4107</ID>
+      <Description>"Toggle HUD     [ DEL ]"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : enshrouded.exe
+  Version: 
+  Date   : 2024-01-30
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(HUD,enshrouded.exe,F3 0F 10 35 3E 79 26 00 44 0F 29 9C 24 F0 15 00 00) // should be unique
+alloc(newmem,$1000,HUD)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss xmm6,[enshrouded.exe+CE7FB4]
+  jmp return
+
+HUD:
+  jmp newmem
+  nop 3
+return:
+registersymbol(HUD)
+
+[DISABLE]
+
+HUD:
+  db F3 0F 10 35 3E 79 26 00
+
+unregistersymbol(HUD)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: enshrouded.exe+A80BBE
+
+enshrouded.exe+A80B7F: 48 89 BC 24 70 16 00 00     - mov [rsp+00001670],rdi
+enshrouded.exe+A80B87: 4C 8D 92 B0 11 00 00        - lea r10,[rdx+000011B0]
+enshrouded.exe+A80B8E: 4C 89 AC 24 68 16 00 00     - mov [rsp+00001668],r13
+enshrouded.exe+A80B96: 4C 8B E2                    - mov r12,rdx
+enshrouded.exe+A80B99: 4C 89 B4 24 60 16 00 00     - mov [rsp+00001660],r14
+enshrouded.exe+A80BA1: 4C 8D AA A0 92 01 00        - lea r13,[rdx+000192A0]
+enshrouded.exe+A80BA8: 4C 89 BC 24 58 16 00 00     - mov [rsp+00001658],r15
+enshrouded.exe+A80BB0: 4C 8B F1                    - mov r14,rcx
+enshrouded.exe+A80BB3: 0F 29 B4 24 40 16 00 00     - movaps [rsp+00001640],xmm6
+enshrouded.exe+A80BBB: 45 33 FF                    - xor r15d,r15d
+// ---------- INJECTING HERE ----------
+enshrouded.exe+A80BBE: F3 0F 10 35 EE 73 26 00     - movss xmm6,[enshrouded.exe+CE7FB4]
+// ---------- DONE INJECTING  ----------
+enshrouded.exe+A80BC6: 44 0F 29 9C 24 F0 15 00 00  - movaps [rsp+000015F0],xmm11
+enshrouded.exe+A80BCF: 45 0F 57 DB                 - xorps xmm11,xmm11
+enshrouded.exe+A80BD3: 4C 89 55 40                 - mov [rbp+40],r10
+enshrouded.exe+A80BD7: 4C 89 6D 48                 - mov [rbp+48],r13
+enshrouded.exe+A80BDB: 4C 39 BA B8 11 00 00        - cmp [rdx+000011B8],r15
+enshrouded.exe+A80BE2: 0F 86 D2 01 00 00           - jbe enshrouded.exe+A80DBA
+enshrouded.exe+A80BE8: 8B 5C 24 5C                 - mov ebx,[rsp+5C]
+enshrouded.exe+A80BEC: 45 33 F6                    - xor r14d,r14d
+enshrouded.exe+A80BEF: 90                          - nop 
+enshrouded.exe+A80BF0: 49 8B 32                    - mov rsi,[r10]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10350</ID>
+      <Description>"Time of Day     [ F4 ]"</Description>
+      <Options moHideChildren="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : enshrouded.exe
+  Version: 
+  Date   : 2024-02-03
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(timeOfDay,enshrouded.exe,CC CC CC CC CC CC F3 0F 10 41 38) // should be unique
+alloc(newmemTOD,$1000,timeOfDay)
+
+label(codeTOD)
+label(returnTOD)
+label(pToD)
+registersymbol(pToD)
+
+newmemTOD:
+  cmp rsi,08
+  jne codeTOD
+  cmp r11,246
+  jne codeTOD
+  movss xmm0,[rcx+38]
+  mov [pToD],rcx
+  jmp returnTOD
+codeTOD:
+  movss xmm0,[rcx+38]
+  jmp returnTOD
+
+pToD:
+dq 0
+
+timeOfDay+06:
+  jmp newmemTOD
+returnTOD:
+registersymbol(timeOfDay)
+
+[DISABLE]
+
+timeOfDay+06:
+  db F3 0F 10 41 38
+
+unregistersymbol(timeOfDay)
+unregistersymbol(pToD)
+dealloc(newmemTOD)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10351</ID>
+          <Description>"TOD { keys = [ ] }"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pToD</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>35</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>4</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10349</ID>
+      <Description>"Sun Position     [ F5 ]"</Description>
+      <Options moHideChildren="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : enshrouded.exe
+  Version: 
+  Date   : 2024-02-03
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(sunPosition,enshrouded.exe,F3 0F 10 41 50 C3) // should be unique
+alloc(newmem,$1000,sunPosition)
+
+label(code)
+label(return)
+label(pSun)
+registersymbol(pSun)
+
+newmem:
+  movss xmm0,[rcx+50]
+  mov [pSun],rcx
+  jmp return
+code:
+  movss xmm0,[rcx+50]
+  jmp return
+
+pSun:
+dq 0
+
+sunPosition:
+  jmp newmem
+return:
+registersymbol(sunPosition)
+aobscanmodule(breakSunPos,enshrouded.exe,F3 0F 11 49 04 E8) // should be unique
+registersymbol(breakSunPos)
+breakSunPos:
+  db 90 90 90 90 90
+aobscanmodule(breakSunPos2,enshrouded.exe,F3 0F 11 03 48 83 C4 20 5B C3 CC CC CC 48) // should be unique
+registersymbol(breakSunPos2)
+breakSunPos2:
+  db 90 90 90 90 48 83 C4 20
+
+[DISABLE]
+
+sunPosition:
+  db F3 0F 10 41 50
+breakSunPos:
+  db F3 0F 11 49 04
+breakSunPos2:
+  db F3 0F 11 03 48 83 C4 20
+
+unregistersymbol(breakSunPos2)
+unregistersymbol(breakSunPos)
+unregistersymbol(sunPosition)
+unregistersymbol(pSun)
+dealloc(newmem)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31073</ID>
+          <Description>"Arrow Keys"</Description>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31063</ID>
+          <Description>"pSun + 50"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pSun</Address>
+          <Offsets>
+            <Offset>50</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31064</ID>
+          <Description>"pSun + 54"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pSun</Address>
+          <Offsets>
+            <Offset>54</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31074</ID>
+      <Description>"------- VISUALS -----------"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4126</ID>
+      <Description>"more grass"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : enshrouded.exe
+  Version: 
+  Date   : 2024-01-30
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(grassEverywhere,enshrouded.exe,F3 0F 11 29 C3) // should be unique
+alloc(newmem,$1000,grassEverywhere)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rcx],xmm5
+  ret 
+  jmp return
+
+grassEverywhere:
+  jmp newmem
+return:
+registersymbol(grassEverywhere)
+
+[DISABLE]
+
+grassEverywhere:
+  db F3 0F 11 29 C3
+
+unregistersymbol(grassEverywhere)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: enshrouded.exe+5208D
+
+enshrouded.exe+52063: F3 0F 58 62 30  - addss xmm4,[rdx+30]
+enshrouded.exe+52068: F3 0F 5E D0     - divss xmm2,xmm0
+enshrouded.exe+5206C: F3 0F 58 4A 38  - addss xmm1,[rdx+38]
+enshrouded.exe+52071: 0F 57 C0        - xorps xmm0,xmm0
+enshrouded.exe+52074: F3 0F 59 E2     - mulss xmm4,xmm2
+enshrouded.exe+52078: F3 48 0F 2A C0  - cvtsi2ss xmm0,rax
+enshrouded.exe+5207D: F3 0F 59 CA     - mulss xmm1,xmm2
+enshrouded.exe+52081: F3 0F 5E E8     - divss xmm5,xmm0
+enshrouded.exe+52085: F3 0F 5E E1     - divss xmm4,xmm1
+enshrouded.exe+52089: F3 0F 59 EC     - mulss xmm5,xmm4
+// ---------- INJECTING HERE ----------
+enshrouded.exe+5208D: F3 0F 11 29     - movss [rcx],xmm5
+// ---------- DONE INJECTING  ----------
+enshrouded.exe+52091: C3              - ret 
+enshrouded.exe+52092: CC              - int 3 
+enshrouded.exe+52093: CC              - int 3 
+enshrouded.exe+52094: CC              - int 3 
+enshrouded.exe+52095: CC              - int 3 
+enshrouded.exe+52096: CC              - int 3 
+enshrouded.exe+52097: CC              - int 3 
+enshrouded.exe+52098: CC              - int 3 
+enshrouded.exe+52099: CC              - int 3 
+enshrouded.exe+5209A: CC              - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4119</ID>
+      <Description>"hide fog"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : enshrouded.exe
+  Version: 
+  Date   : 2024-01-30
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+
+aobscanmodule(hideFOG,enshrouded.exe,F3 0F 5E 82 8C 00 00 00) // should be unique
+alloc(newmem,$1000,hideFOG)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //divss xmm0,[rdx+0000008C]
+  jmp return
+
+hideFOG:
+  jmp newmem
+  nop 3
+return:
+registersymbol(hideFOG)
+
+[DISABLE]
+
+hideFOG:
+  db F3 0F 5E 82 8C 00 00 00
+
+unregistersymbol(hideFOG)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: enshrouded.exe+1A3D3
+
+enshrouded.exe+1A3A6: 0F 28 CA                 - movaps xmm1,xmm2
+enshrouded.exe+1A3A9: F3 0F 59 C3              - mulss xmm0,xmm3
+enshrouded.exe+1A3AD: 0F C6 C9 55              - shufps xmm1,xmm1,55
+enshrouded.exe+1A3B1: F3 0F 59 CB              - mulss xmm1,xmm3
+enshrouded.exe+1A3B5: F3 0F 59 D3              - mulss xmm2,xmm3
+enshrouded.exe+1A3B9: F3 0F 11 51 10           - movss [rcx+10],xmm2
+enshrouded.exe+1A3BE: F3 0F 11 49 14           - movss [rcx+14],xmm1
+enshrouded.exe+1A3C3: F3 0F 11 41 18           - movss [rcx+18],xmm0
+enshrouded.exe+1A3C8: F3 0F 10 3D E4 DB CC 00  - movss xmm7,[enshrouded.exe+CE7FB4]
+enshrouded.exe+1A3D0: 0F 28 C7                 - movaps xmm0,xmm7
+// ---------- INJECTING HERE ----------
+enshrouded.exe+1A3D3: F3 0F 5E 82 8C 00 00 00  - divss xmm0,[rdx+0000008C]
+// ---------- DONE INJECTING  ----------
+enshrouded.exe+1A3DB: F3 0F 11 41 1C           - movss [rcx+1C],xmm0
+enshrouded.exe+1A3E0: F3 0F 10 8A 88 00 00 00  - movss xmm1,[rdx+00000088]
+enshrouded.exe+1A3E8: F3 0F 10 52 78           - movss xmm2,[rdx+78]
+enshrouded.exe+1A3ED: F2 0F 10 72 7C           - movsd xmm6,[rdx+7C]
+enshrouded.exe+1A3F2: F3 0F 10 42 74           - movss xmm0,[rdx+74]
+enshrouded.exe+1A3F7: F3 0F 10 AA 80 00 00 00  - movss xmm5,[rdx+00000080]
+enshrouded.exe+1A3FF: F3 0F 10 A2 84 00 00 00  - movss xmm4,[rdx+00000084]
+enshrouded.exe+1A407: F2 0F 10 5A 6C           - movsd xmm3,[rdx+6C]
+enshrouded.exe+1A40C: F3 0F 59 F1              - mulss xmm6,xmm1
+enshrouded.exe+1A410: F3 0F 59 E1              - mulss xmm4,xmm1
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31075</ID>
+      <Description>"------- EXTRAS -----------"</Description>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18938</ID>
+      <Description>"Compact Mode (Hide Top Panel)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31105</ID>
+      <Description>"Offset Camera"</Description>
+      <Options moHideChildren="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule(offset_read,enshrouded.exe,F3 0F 11 5E 30 F3 0F 58 66 38 F3 0F 11 56 34)
+aobscanmodule(distance_nop,enshrouded.exe,F3 0F 11 46 40 48 8B 74 24 58 48 83 C4 40 5F)
+aobscanmodule(height_nop,enshrouded.exe,F3 0F 11 56 34 F3 0F 11)
+alloc(newmem,$1000,offset_read)
+
+label(code)
+label(return)
+label(offsetCam)
+registerSymbol(offsetCam)
+
+newmem:
+
+code:
+  //movss [rsi+30],xmm3
+  mov [offsetCam], rsi
+  jmp return
+
+offsetCam:
+dd 0
+
+offset_read:
+  jmp newmem
+return:
+
+distance_nop:
+db 90 90 90 90 90
+
+height_nop:
+db 90 90 90 90 90
+
+registersymbol(offset_read)
+registersymbol(distance_nop)
+registersymbol(height_nop)
+
+
+[DISABLE]
+
+offset_read:
+  db F3 0F 11 5E 30
+distance_nop:
+  db F3 0F 11 46 40
+height_nop:
+  db F3 0F 11 56 34
+
+unregistersymbol(offset_read)
+unregisterSymbol(offsetCam)
+unregisterSymbol(distance_nop)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: enshrouded.exe+8C2834
+
+enshrouded.exe+8C2809: 0F 28 74 24 30  - movaps xmm6,[rsp+30]
+enshrouded.exe+8C280E: F3 0F 5C D0     - subss xmm2,xmm0
+enshrouded.exe+8C2812: 0F C6 E4 AA     - shufps xmm4,xmm4,-56
+enshrouded.exe+8C2816: F3 0F 59 DF     - mulss xmm3,xmm7
+enshrouded.exe+8C281A: 0F C6 C9 AA     - shufps xmm1,xmm1,-56
+enshrouded.exe+8C281E: F3 0F 5C E1     - subss xmm4,xmm1
+enshrouded.exe+8C2822: F3 0F 59 D7     - mulss xmm2,xmm7
+enshrouded.exe+8C2826: F3 0F 58 5E 30  - addss xmm3,[rsi+30]
+enshrouded.exe+8C282B: F3 0F 58 56 34  - addss xmm2,[rsi+34]
+enshrouded.exe+8C2830: F3 0F 59 E7     - mulss xmm4,xmm7
+// ---------- INJECTING HERE ----------
+enshrouded.exe+8C2834: F3 0F 11 5E 30  - movss [rsi+30],xmm3
+// ---------- DONE INJECTING  ----------
+enshrouded.exe+8C2839: F3 0F 58 66 38  - addss xmm4,[rsi+38]
+enshrouded.exe+8C283E: F3 0F 11 56 34  - movss [rsi+34],xmm2
+enshrouded.exe+8C2843: F3 0F 11 66 38  - movss [rsi+38],xmm4
+enshrouded.exe+8C2848: F3 0F 10 43 40  - movss xmm0,[rbx+40]
+enshrouded.exe+8C284D: F3 0F 5C 47 40  - subss xmm0,[rdi+40]
+enshrouded.exe+8C2852: 48 8B 5C 24 50  - mov rbx,[rsp+50]
+enshrouded.exe+8C2857: F3 0F 59 C7     - mulss xmm0,xmm7
+enshrouded.exe+8C285B: 0F 28 7C 24 20  - movaps xmm7,[rsp+20]
+enshrouded.exe+8C2860: F3 0F 58 46 40  - addss xmm0,[rsi+40]
+enshrouded.exe+8C2865: F3 0F 11 46 40  - movss [rsi+40],xmm0
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31106</ID>
+          <Description>"Left\Right"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>offsetCam</Address>
+          <Offsets>
+            <Offset>30</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31107</ID>
+          <Description>"Distance"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>offsetCam</Address>
+          <Offsets>
+            <Offset>40</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31108</ID>
+          <Description>"Height"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>offsetCam</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31070</ID>
+      <Description>"Old Cam (uses numpad/mouse)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscanmodule(cameraWrite,enshrouded.exe,48 89 07 4C 89 4F 08 4C 89 47 10)
+registersymbol(cameraWrite)
+
+cameraWrite:
+db 90 90 90 90 90 90 90 90 90 90 90
+
+{$lua}
+local cos = math.cos
+local sin = math.sin
+local asin = math.asin
+local floor = math.floor
+local atan2 = math.atan2
+
+function moveCamera()
+  local camera_move_speed = 500000000
+  local cam_address = getAddress("[camP]")
+  local coord_address = cam_address+0x318
+  local quat_address = cam_address+0x330
+
+  local q = {readFloat(quat_address+0x0),
+        readFloat(quat_address+0x4),
+        readFloat(quat_address+0x8),
+        readFloat(quat_address+0xC)}
+
+  local coords = {readQword(coord_address+0x0),
+              readQword(coord_address+0x8),
+              readQword(coord_address+0x10)}
+
+  --https://stackoverflow.com/questions/5782658/extracting-yaw-from-a-quaternion
+  --var yaw = atan2(2.0*(q.y*q.z + q.w*q.x), q.w*q.w - q.x*q.x - q.y*q.y + q.z*q.z);
+  --var pitch = asin(-2.0*(q.x*q.z - q.w*q.y));
+
+  local yaw = atan2(2.0*(q[4]*q[2] + q[1]*q[3]), q[1]*q[1] - q[3]*q[4] - q[4]*q[4] + q[2]*q[2])
+  local pitch = asin(-2.0*(q[3]*q[2] - q[1]*q[4]))
+
+  local x_speed = 0
+  local y_speed = 0
+
+  -- X/Y movement
+
+  if isKeyPressed(VK_NUMPAD8) then
+     y_speed = -camera_move_speed
+  end
+
+  if isKeyPressed(VK_NUMPAD5) then
+     y_speed = camera_move_speed
+  end
+
+  if isKeyPressed(VK_NUMPAD6) then
+     x_speed = -camera_move_speed
+  end
+
+  if isKeyPressed(VK_NUMPAD4) then
+     x_speed = camera_move_speed
+  end
+
+  -- this works?
+  coords[1] = coords[1] + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
+  coords[2] = coords[2] + (y_speed * sin(pitch))
+  coords[3] = coords[3] + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
+
+  -- move up and down
+
+  if isKeyPressed(VK_NUMPAD9) then
+    coords[2] = coords[2] + camera_move_speed
+  end
+
+  if isKeyPressed(VK_NUMPAD7) then
+    coords[2] = coords[2] - camera_move_speed
+  end
+
+  -- update coordinates
+  -- floor to convert to integer since coords are 8-byte
+
+  writeQword(coord_address, floor(coords[1]))
+  writeQword(coord_address+0x8, floor(coords[2]))
+  writeQword(coord_address+0x10, floor(coords[3]))
+end
+
+
+function camera_loop(thr_obj)
+  while camera_loop_running == true
+  do
+    moveCamera()
+    sleep(5)
+  end
+end
+
+if syntaxcheck then return end
+
+camera_loop_running = true
+camera_thread = createThread(camera_loop)
+{$asm}
+[DISABLE]
+dealloc(newmem)
+cameraWrite:
+db 48 89 07 4C 89 4F 08 4C 89 47 10
+unregistersymbol(cameraWrite)
+{$lua}
+camera_loop_running = false
+camera_thread = nil
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10300</ID>
+      <Description>"Old FOV"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : enshrouded.exe
+  Version: 
+  Date   : 2024-02-03
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+aobscanmodule(fov,enshrouded.exe,F3 0F 10 46 14 F3 41 0F 5E C4 F3 0F 11 85 54 01 00 00) // should be unique
+alloc(newmemfov,$1000,fov)
+
+label(codefov)
+label(returnfov)
+label(pfov)
+registersymbol(pfov)
+
+newmemfov:
+
+codefov:
+  movss xmm0,[rsi+14]
+  mov [pfov],rsi
+  jmp returnfov
+
+pfov:
+dq 0
+
+fov:
+  jmp newmemfov
+returnfov:
+registersymbol(fov)
+
+{$lua}
+if syntaxcheck then return end
+
+function speedCheckFieldofview()
+    return isKeyPressed(VK_LCONTROL) and 1 or 0.5
+end
+function keyCheck()
+
+local fov = readFloat("[pfov] +14")
+
+--block input out of window
+  if not (getForegroundProcess() == getOpenedProcessID()) then return end -- Only run if in game
+
+----------------------------------------------------------------------------------------------------------------
+-- fov
+   if isKeyPressed(VK_ADD) then
+      writeFloat("[pfov] +14", fov + 0.5)
+   end
+
+   if isKeyPressed(VK_SUBTRACT) then
+      writeFloat("[pfov] +14", fov - 0.5)
+   end
+----------------------------------------------------------------------------------------------------------------
+  end
+
+--timer on start
+t=createTimer(nil)
+timer_setInterval(t, 35)
+timer_onTimer(t, keyCheck)
+timer_setEnabled(t, true)
+{$asm}
+
+[DISABLE]
+fov:
+  db F3 0F 10 46 14
+
+unregistersymbol(fov)
+unregistersymbol(pfov)
+dealloc(newmemfov)
+{$lua}
+timer_setEnabled(t, false)
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>114</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>46</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31062</ID>
+          <Description>"Degrees { keys = numpad -+ }"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pfov</Address>
+          <Offsets>
+            <Offset>14</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>cam_settings</Name>
+      <Address>17FB1B90000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
