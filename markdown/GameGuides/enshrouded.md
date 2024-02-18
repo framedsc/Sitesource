@@ -27,12 +27,12 @@ Some hotkeys can be changed (see guide on using cheat engine tables)
 Currently there is no controller support, though it is planned for the future. For now, You must use a mouse to look around.  
 
 * **Numpad 0** will toggle the photo mode. The game will pause and the freecam will be enabled. If you have an xbox controller turned on, you can use that. Otherwise it will fallback to keyboard controls.  
-  ### Controller
+  ## Controller
   Dpad up/down to change FOV  
   Left/Right trigger to move up and down  
   Y = fast movement  
   A = slow movement  
-  ### Keyboard
+  ## Keyboard
   WASD to move the camera  
   Space/Control to move up and down  
   Left ALT for slow movement  
