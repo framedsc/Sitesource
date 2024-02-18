@@ -315,14 +315,6 @@ function moveCamera()
     if controller.LeftTrigger &gt; 50 then
       coords[2] = coords[2] + move_speed
     end
-
-    if isKeyPressed(VK_SPACE) then
-        coords[2] = coords[2] + move_speed
-    end
-
-    if isKeyPressed(VK_LCONTROL) then
-        coords[2] = coords[2] - move_speed
-    end
   end
 
   -- update coordinates
