@@ -181,6 +181,7 @@
 		{
 			"__index": "GeneralGuides\\index.md",
 			"Ansel": "GeneralGuides\\anselguide.md",
+			"Cinematic Unity Explorer": "GeneralGuides\\cinematic-unity-explorer.md",
 			"Creating Motion Blur with UUU camera paths": "GeneralGuides\\uuu_motionblur.md",
 			"Creating Tiny Planets": "GeneralGuides\\tinyplanetsguide.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
@@ -189,7 +190,6 @@
 			"RELit for RE Engine games": "GeneralGuides\\relit.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
-			"UnityExplorer and Freecam": "GeneralGuides\\universal_unity_freecam.md",
 			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Using Cheat Engine Tables": "GeneralGuides\\cheat_engine_tables.md",
 			"Advanced" : 
