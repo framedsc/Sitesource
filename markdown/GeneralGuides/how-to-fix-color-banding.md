@@ -4,7 +4,7 @@ This guide will focus on post-processing with Adobe applications rather than in-
 
 Guide examples below are zoomed [hotsampled](../basics.htm#hotsampling) 20MP shots *cropped* from 21:9/3:4 aspect ratios to inspect closely the sky for banding, or any other defects, and if there are any, this guide will show you how to solve it.
 
-<p align="center"><b><font size=+2 face="Galano Grotesque Alt">BANDING AS OUR ENEMY</font></b></p>
+## Banding as our enemy
 
  Color banding is one of the most disturbing defects that you can find in your image. This phenomenon happens in smooth areas with similar shades, for example, a fading gradient (from light to dark), when the abrupt color change cannot be presented accurately. This results in certain colors appearing as bands rather than smoothly transitioning from one hue to another.
 
@@ -80,10 +80,9 @@ Let's go further now with a different example by adding some noise. So after the
 
 Similar you can do in Lightroom. After you import a screenshot into Lightroom, press `Shift + W` on PC or below the histogram click on the [circle](https://i.imgur.com/uqktFNI.png) to add a mask. Click on Select Sky and Lightroom will magically select the sky for you. If you are not happy with the AI selection then while the mask is selected click on Subtract (Subtract from mask With...) and select a brush (to avoid confusion sometimes subtract is only shown as minus, because your Masks window is smaller, and if that's the case, you can enlarge it by clicking the [arrows](https://i.imgur.com/NZTCyBS.png) at the top right of Masks window). Use the brush to remove the area of the effect where you don't want the blur to be applied. Make sure to play with brush settings to smooth out the transitions. 
 
-<details>
-<summary>Click for Lightroom tip!</summary>
+@alert Tip
 Hold `Space + Left Click` on the image to zoom in and out. If you want to zoom higher go to [navigator](https://i.imgur.com/y2uh0R0.png) and pick a percentage, or hold Ctrl +/- (plus/minus) on a PC to go through all existing magnification levels (hitting the Z button takes you to the previously used zoom level, and by hitting Z a second time, it brings you back to the original zoom state). Control the size of the brush with the mouse wheel.
-</details>
+@end
 
 Once done, you can reduce the sharpness, texture, and a bit of clarity of sky, and then add a bit of grain. Just be careful to control the other settings as well if you decide to take out a bit of clarity. **Reducing the clarity a lot** tends to create unexpected brightness, because you are removing some of the contrast, and it's quite noticeable.
 
@@ -142,7 +141,7 @@ What that will do is it will isolate the subject from that effect. Lastly, grab 
 
 <div class="figure" align="center"><img src="../Images/FixColorBanding/qbexampleofareas.jpg" /><p style="text-align: center;">Here you can see an example of how everything is set. In the banding area, there is noise, and surface blur applied to fight the banding while other areas are untouched by the effects.</p></div>
 
-The same goes for [Lightroom](../GeneralGuides/simple_techniques_to_fix_color_banding.htm#lightroom), just instead of sky select the background, and repeat the same steps as above with Subtract to Mask, and use brushes to smooth out transitions and play with its settings.
+The same goes for [Lightroom](how_to_fix_color_banding.htm#lightroom), just instead of sky select the background, and repeat the same steps as above with Subtract to Mask, and use brushes to smooth out transitions and play with its settings.
 
 To break this down for Lightroom. 
 
@@ -173,9 +172,7 @@ Apply edits as mentioned above to remove the banding and they will only cover th
 
 Besides the techniques explained until this point, one could also use "upscaling" models whose output resolution is the same (x1 models) but focus on fixing banding. You can find some of them [here](https://openmodeldb.info/?q=banding). Results may vary depending on the model and the shot, so be sure to experiment a bit by using and mixing different models. You may end up being able to fix very aggressive banding that is impossible to do on Lightroom without a ton of manual editing. However, until we can write a guide about upscaling, ESGRAN, and AI models in general you will have to look up how to use these models on your own.
 
-## Grain usage on shots in general, and why grain, noise, and blur
-
-<p align="center"><b><font size=+2 face="Galano Grotesque Alt">THEY CAN SOLVE COLOR BANDING</font></b></p>
+## Using grain, noise and blur to solve color banding
 
 @alert neutral
 Applying grain to a shot comes down to a personal choice. It is entirely your own individual preference, though I highly recommend it. Adding noise or grain can significantly improve your images.
@@ -197,5 +194,5 @@ Can you notice the difference in gradients below?
 
 <div class="figure" align="center"><img src="../Images/FixColorBanding/Before_after adding noise_and after surface blur_resized.png" /><p style="text-align: center;">Top: banding example; Middle: 0.58% of added noise to reduce the banding; Bottom: how it looks with surface blur applied only <i>(image example created by me)</i></p></div>
 
-*Written by*, StephenCalic(Defaltsiuncula)
+*Written by* StephenCalic(Defaltsiuncula)
 
