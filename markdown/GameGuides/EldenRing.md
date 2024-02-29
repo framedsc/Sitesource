@@ -28,9 +28,9 @@ Game version | 1.10.1
 Game doesn't support [hotsampling](../basics.htm#hotsampling), but there are other ways to take high-resolution shots in this game. 
 You can activate the DSR (Dynamic Super Resolution) from the Nvidia Control Panel, but that will let you go up to 4x multiplier only and you will be limited when it comes to custom aspect ratios.
 
-**Its highly recommended** going [here](../GeneralGuides/custom_dsr_resolutions.htm) to set up as many DSR resolutions as you want to take high-resolution shots in **different aspect ratios**. This is the best way, and it's really everything you need to setup the resolutions and ratios of your [choice](https://i.imgur.com/gfPhRCN.png). This is for Nvidia cards.
+**It's highly recommended** going [here](../GeneralGuides/custom_dsr_resolutions.htm) to set up as many DSR resolutions as you want to take high-resolution shots in **different aspect ratios**. This is the best way, and it's really everything you need to setup the resolutions and ratios of your [choice](https://i.imgur.com/gfPhRCN.png). This is for Nvidia cards.
 
-For AMD card users, you might want to tweak VSR (Virtual Super Resolution). I do not own an AMD card, but I will leave some useful links that can help you achieve this. [Activating VSR](https://www.amd.com/en/support/kb/faq/dh-010), and [AMD GPU Scaling](https://www.amd.com/en/support/kb/faq/dh2-019). You wanna go with Centered GPU scaling, because its description is similar to Nvidia's No Scaling. However, you will have to crop since there is no VSR guide for different aspect ratios for next generation of AMD cards like the one above for Nvidia. So this guide will focus more on Nvidia, with the same idea for the AMD as well.
+For AMD card users, you might want to tweak VSR (Virtual Super Resolution). Here are some useful links that can help you achieve this: [Activating VSR](https://www.amd.com/en/support/kb/faq/dh-010), and [AMD GPU Scaling](https://www.amd.com/en/support/kb/faq/dh2-019). You wanna go with Centered GPU scaling, because its description is similar to Nvidia's No Scaling. However, you will have to crop since there is no VSR guide for different aspect ratios for next generation of AMD cards like the one above for Nvidia. So this guide will focus more on Nvidia, with the same idea for the AMD as well.
 
 ___
 ### First Method
