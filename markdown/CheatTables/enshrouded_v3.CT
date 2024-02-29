@@ -101,15 +101,6 @@ enshrouded.exe+299FD7: F2 0F 10 8E 48 03 00 00  - movsd xmm1,[rsi+00000348]
 enshrouded.exe+299FDF: 0F 11 44 24 60           - movups [rsp+60],xmm0
 }
 </AssemblerScript>
-      <Hotkeys>
-        <Hotkey>
-          <Action>Activate</Action>
-          <Keys>
-            <Key>46</Key>
-          </Keys>
-          <ID>0</ID>
-        </Hotkey>
-      </Hotkeys>
       <CheatEntries>
         <CheatEntry>
           <ID>31036</ID>
@@ -129,7 +120,7 @@ enshrouded.exe+299FDF: 0F 11 44 24 60           - movups [rsp+60],xmm0
           </Hotkeys>
           <CheatEntries>
             <CheatEntry>
-              <ID>31086</ID>
+              <ID>31110</ID>
               <Description>"Free Camera"</Description>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
@@ -154,9 +145,9 @@ local q = {readFloat(quat_address+0x0),
         readFloat(quat_address+0x8),
         readFloat(quat_address+0xC)}
 
-local coords = {readQword(coord_address+0x0),
-            readQword(coord_address+0x8),
-            readQword(coord_address+0x10)}
+local camX = readQword(coord_address+0x0)
+local camZ = readQword(coord_address+0x8)
+local camY = readQword(coord_address+0x10)
 
 --https://stackoverflow.com/questions/5782658/extracting-yaw-from-a-quaternion
 local yaw = atan2(2.0*(q[4]*q[2] + q[1]*q[3]), q[1]*q[1] - q[3]*q[4] - q[4]*q[4] + q[2]*q[2])
@@ -245,18 +236,18 @@ function moveCamera()
     pitch = pitch + rotation_y_speed
 
     -- this works?
-    coords[1] = coords[1] + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
-    coords[2] = coords[2] + (y_speed * sin(pitch))
-    coords[3] = coords[3] + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
+    camX = camX + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
+    camZ = camZ + (y_speed * sin(pitch))
+    camY = camY + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
 
     -- move up and down
 
     if isKeyPressed(VK_SPACE) then
-      coords[2] = coords[2] + move_speed
+      camZ = camZ + move_speed
     end
 
     if isKeyPressed(VK_LCONTROL) then
-      coords[2] = coords[2] - move_speed
+      camZ = camZ - move_speed
     end
   end
 
@@ -302,27 +293,27 @@ function moveCamera()
     pitch = pitch + rotation_y_speed
 
     -- this works?
-    coords[1] = coords[1] + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
-    coords[2] = coords[2] + (y_speed * sin(pitch))
-    coords[3] = coords[3] + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
+    camX = camX + (y_speed * -sin(yaw) * cos(pitch) + x_speed * cos(yaw))
+    camZ = camZ + (y_speed * sin(pitch))
+    camY = camY + (y_speed * cos(yaw) * cos(pitch) + x_speed * sin(yaw))
 
     -- move up and down
 
     if controller.RightTrigger &gt; 50 then
-      coords[2] = coords[2] - move_speed
+      camZ = camZ - move_speed
     end
 
     if controller.LeftTrigger &gt; 50 then
-      coords[2] = coords[2] + move_speed
+      camZ = camZ + move_speed
     end
   end
 
   -- update coordinates
   -- floor to convert to integer since coords are 8-byte
 
-  writeQword(coord_address, floor(coords[1]))
-  writeQword(coord_address+0x8, floor(coords[2]))
-  writeQword(coord_address+0x10, floor(coords[3]))
+  writeQword(coord_address, camX)
+  writeQword(coord_address+0x8, camZ)
+  writeQword(coord_address+0x10, camY)
 
   calcQuaternion(quat_address, yaw, pitch, 0)
 end
@@ -429,8 +420,11 @@ enshrouded.exe+69E3FB: 0F 83 A8 00 00 00        - jae enshrouded.exe+69E4A9
 
 [ENABLE]
 
-aobscanmodule(HUD,enshrouded.exe,F3 0F 10 35 3E 79 26 00 44 0F 29 9C 24 F0 15 00 00) // should be unique
+aobscanmodule(HUD,enshrouded.exe,F3 0F 10 35 x x x x 44 0F 29 9C 24 F0 15 00 00) // should be unique
+alloc(hookreturn,8)
 alloc(newmem,$1000,HUD)
+registersymbol(HUD)
+registersymbol(hookreturn)
 
 label(code)
 label(return)
@@ -445,15 +439,19 @@ HUD:
   jmp newmem
   nop 3
 return:
-registersymbol(HUD)
+
+hookreturn:
+readmem(HUD,8)
 
 [DISABLE]
 
 HUD:
-  db F3 0F 10 35 3E 79 26 00
+readmem(hookreturn,8)
 
 unregistersymbol(HUD)
+unregistersymbol(hookreturn)
 dealloc(newmem)
+dealloc(hookreturn)
 
 {
 // ORIGINAL CODE - INJECTION POINT: enshrouded.exe+A80BBE
@@ -1278,7 +1276,45 @@ timer_setEnabled(t, false)
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
+    <CheatEntry>
+      <ID>31109</ID>
+      <Description>"No description"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>17</ByteLength>
+      <Address>enshrouded.exe+A8266E</Address>
+    </CheatEntry>
   </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :movss xmm6,[enshrouded.exe+CE9FB4]</Description>
+      <AddressString>enshrouded.exe+A8266E</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>45</Byte>
+        <Byte>33</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>35</Byte>
+        <Byte>3E</Byte>
+        <Byte>79</Byte>
+        <Byte>26</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>9C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
   <UserdefinedSymbols>
     <SymbolEntry>
       <Name>cam_settings</Name>
