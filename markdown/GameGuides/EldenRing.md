@@ -91,5 +91,4 @@ It would be wise to test a variety of custom DSR resolutions to determine which 
 * [More Armors](https://www.patreon.com/MaxTheMiracle)
 * [More Mounts](https://www.nexusmods.com/eldenring/mods/991) You can also type **Mount** in nexus search bar to check for more mounts.
 * [New Idle Animations](https://www.nexusmods.com/eldenring/mods/2397)
-* [Dynamic Shadows](https://www.nexusmods.com/eldenring/mods/991) 
 
