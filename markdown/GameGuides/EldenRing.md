@@ -22,7 +22,6 @@ Game version | 1.10.1
 * [Cheat Table](https://www.nexusmods.com/eldenring/mods/48?tab=files) Useful CT if you want to re-spawn certain bosses for shots etc.
 * [Cheat Engine Tables Guide](../GeneralGuides/cheat_engine_tables.htm)
 * [WeMod Trainer](https://www.wemod.com/cheats/elden-ring-trainers) Features Day Time +1 hour, Freeze Day Time, Freeze Enemies Position and more.
-* [Internal](https://github.com/NightFyre/ELDENRING-INTERNAL)
 
 ## Tips and Tricks
 
