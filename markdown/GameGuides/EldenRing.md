@@ -26,10 +26,10 @@ Game version | 1.10.1
 
 ## Tips and Tricks
 
-Game doesn't support [hotsampling](../basics.htm#hotsampling), but there are other ways to take high resolution shots in this game. 
+Game doesn't support [hotsampling](../basics.htm#hotsampling), but there are other ways to take high-resolution shots in this game. 
 You can activate the DSR (Dynamic Super Resolution) from the Nvidia Control Panel, but that will let you go up to 4x multiplier only and you will be limited when it comes to custom aspect ratios.
 
-**I highly recommend** going [here](../GeneralGuides/custom_dsr_resolutions.htm) to setup as many DSR resolutions as you want to take high resolution shots in **different aspect ratios**. This is the best way, and it's really everything you need to setup the resolutions and ratios of your [choice](https://i.imgur.com/gfPhRCN.png). This is for Nvidia cards.
+**Its highly recommended** going [here](../GeneralGuides/custom_dsr_resolutions.htm) to set up as many DSR resolutions as you want to take high-resolution shots in **different aspect ratios**. This is the best way, and it's really everything you need to setup the resolutions and ratios of your [choice](https://i.imgur.com/gfPhRCN.png). This is for Nvidia cards.
 
 For AMD card users, you might want to tweak VSR (Virtual Super Resolution). I do not own an AMD card, but I will leave some useful links that can help you achieve this. [Activating VSR](https://www.amd.com/en/support/kb/faq/dh-010), and [AMD GPU Scaling](https://www.amd.com/en/support/kb/faq/dh2-019). You wanna go with Centered GPU scaling, because its description is similar to Nvidia's No Scaling. However, you will have to crop since there is no VSR guide for different aspect ratios for next generation of AMD cards like the one above for Nvidia. So this guide will focus more on Nvidia, with the same idea for the AMD as well.
 
@@ -61,28 +61,26 @@ This method is good because you can see the entire shot in that particular aspec
 
 This method comes with a penalty though, which is needing to compose a shot on high-resolution. For instance, if you align your shot in 16:10 and then switch back to 3:4, you will need to make some adjustments in the 3:4 aspect ratio.
 
-Having the beefier card will make these things significantly much easier of course (you can even play the game in 5k), but as an example, to give you a general idea, I have GTX 1060 6GB and I am still able to take high-resolution shots from this game. 
+Having the beefier card will make these things significantly much easier of course (you can even play the game in 5k), but as an example, to give you a general idea, with cards such as the GTX 1060 6GB you are still able to take high-resolution shots from this game. 
 
-Its a bit slower progress of course with the first method because sometimes, if not always, I tweak FoV while I am running the game at high DSR res because if your monitor has a 16:9 ratio, and you want to take the shot in 21:9, you will need to compose a bit on that DSR res and if you turned on Higher LODs from the tools along with ReShade it can be quite laggy. But there is also the other way of taking the high-res shots in this game.
+Its a bit slower progress of course with the first method because sometimes, if not always, you will need to tweak FoV while running the game at high DSR res because if your monitor has a 16:9 ratio, and you want to take the shot in 21:9, you will need to compose a bit on that DSR res and if you turned on Higher LODs from the tools along with ReShade it can be quite laggy. But there is also the other way of taking the high-res shots in this game.
 
 ### Fullscreen Way
 @alert tip
 You can access the video settings even if your game is paused, while the free cam is on! This can be useful if you want to switch to different aspect ratios in fullscreen mode while not ruining your perfectly aligned shot. You just gotta do this with a keyboard and mouse if the camera control device is set to `Gamepad` in tools. If it's set to `KeyboardMouse`, then you can access the menu with the controller. If it's set to `Both` it will not work. Don't forget to turn the `HUD` back on otherwise you won't see the menu after pressing the `ESC`.
 @end
 
-Let's say that you are in 21:9, or 16:9, but you realised that 3:4 would suit you better for this moment, or 1:1, or you just want to experiment, so you press `ESC`, and navigate with a mouse (if the camera control device is set to `Gamepad` in tools) to video settings to pick the resolution of your choice and it will instantly switch to that DSR resolution! You can do this as many times as you want. Honestly, I never experienced crashes while doing this countless of times in one play session of 4 hours.
+Let's say you are in 21:9 or 16:9, but you decide that 3:4 or 1:1 would work better for you right now, or you want to try things out, press `ESC` and use a mouse (if the camera control device is set to `Gamepad` in tools) to navigate to the video settings and select the resolution of your choice, and it will switch to that DSR resolution instantly! You are free to repeat this as often as you like. It's rare to crash while playing for four hours straight and repeat this repeatedly.
 
-It's really rare to happen, but keep in mind that this method sometimes won't work if you press the `Alt`+`Enter` or the `Windows` key for some reason or by accident. You will see the menu, but you won't be able to access it. So pay attention to that if you want to use this method straight away, or reset to refresh if the menu bug out, combine. But like I said it's rare, and it will only happen if you `Alt`+`Tab` too much while you are in a custom aspect ratio.
+Be aware that this method may not function if you accidentally or for some reason press the `Windows` or `Alt+Enter` keys. The menu will be visible to you, but it will not be functional. Hence, if you want to use this method right away, pay attention to that; if the menu bugs out, reset to refresh, combine. This is uncommon and will only occur if you press `Alt+Tab` excessively when using a custom aspect ratio.
 
 ## Resembling Hotsampling
 
-If you are dedicated, you can generate lower custom DSR resolutions with the tool only for composing, then do the [fullscreen](../GameGuides/EldenRing.htm#fullscreen-way) menu trick to go to much higher res in that aspect ratio to take the shot and also the same way to return to lower one. Avoid setting custom DSR resolutions too low, because it will crash your game. Generated resolutions shouldn't have lower width/height than your monitor's native one. In my case, I went with x1.5 for 21:9, and x2.25 for 3:4. Any lower caused my game to crash.
+If you are dedicated, you can generate lower custom DSR resolutions with the tool only for composing, then do the [fullscreen](../GameGuides/EldenRing.htm#fullscreen-way) menu trick to go to much higher res in that aspect ratio to take the shot and also the same way to return to lower one. Avoid setting custom DSR resolutions too low, because it will crash your game. Generated resolutions shouldn't have lower width/height than your monitor's native one. In 16:10 case, x1.5 for 21:9, and x2.25 for 3:4 will work. Any lower will cause your game to crash.
 
-Another helpful tip is to check other [tools](https://i.imgur.com/dRk02S8.png) that support hotsampling. This way, you can find aspect ratio resolutions offered for your monitor that can be used with the DSR tool.
+Examining additional [tools](https://i.imgur.com/dRk02S8.png) that allow hotsampling is another useful suggestion. This way, you can find aspect ratio resolutions offered for your monitor that can be used with the DSR tool.
 
-I recommend testing lots of custom DSR resolutions to find the best ones for your card.
-
-If you have RTX 4090, *don't think too much*.
+It would be wise to test a variety of custom DSR resolutions to determine which suits best for your card.
 
 ## Useful Links
 
