@@ -86,7 +86,7 @@ It would be wise to test a variety of custom DSR resolutions to determine which 
 * [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Elden_Ring)
 * [Skip the intro logos and remove white startup screen](https://www.nexusmods.com/eldenring/mods/421)
 * [Elden Mod Loader](https://www.nexusmods.com/eldenring/mods/117)
-* [Metis Mod Launcher](https://www.nexusmods.com/eldenring/mods/117) 
+* [Metis Mod Launcher](https://www.nexusmods.com/eldenring/mods/3102)
 * [Mod Engine 2](https://github.com/soulsmods/ModEngine2/releases)
 * [More Armors](https://www.patreon.com/MaxTheMiracle)
 * [More Mounts](https://www.nexusmods.com/eldenring/mods/991) You can also type **Mount** in nexus search bar to check for more mounts.
