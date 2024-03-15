@@ -179,12 +179,14 @@ However, we would like this to be the case in some games if the gameplay camera 
 
 If you need these postprocessing effects you would need to check the "Use Game Camera?" checkbox in the Freecam panel. This will let you control the gameplay camera instead of creating a new one to control.
 
-When doing this, the Cinematic Unity Explorer will attempt to disable the component that controls this gameplay camera, but in the same cases, it won't be able to find the right component to disable and unlock the camera from the game. So if you cannot move or rotate the gameplay camera do the following:
+When doing this, the Cinematic Unity Explorer will attempt to disable the component that controls this gameplay camera, but in some cases, it won't be able to find the right component to disable and unlock the camera from the game. So if you cannot move or rotate the gameplay camera do the following:
 
 - Click on the "Inspect Free Camera" button at the end of the Freecam panel.
 - On the Inspector window click on the "Inspect GameObject" button.
 - Try disabling the components in the bottom right list by clicking on each component checkbox.
 - If disabling a component still doesn't let you move or rotate the camera, turn it on again and try the next component on the list. You will eventually reach the component that controls the camera.
+
+If the steps listed above fail, go to the camera parent game object (by clicking on "◄ View Parent" on the top left) and try the components there. If that doesn't work then you can try entering other children's gameobjects from this parent and disabling their components. As a last resource, you can try deleting the components instead of just disabling them, but beware since that might block you from returning to normal gameplay (and might even crash the game).
 
 Remember to enable it again when you have to return to gameplay, so the game can come back to properly handle it.
 
@@ -317,14 +319,15 @@ The way the animator works is that it will replace the animation the entity is d
 Setting a specific frame on an animation we like would look like the following.
 
 - Pause the entities you want to force animations on.
-- Reduce the timescale for slow motion.
-- Play animations on a specific entity until you find one you like.
+- Go to the Inspector tab, click on mouse inspector on the top right, and then click on "world".
+- Click over the character you want to change the animation from. Look at the top field next to the "◄ View Parent" button, it will describe all of the parent hierarchy. The first element on that name will probably have the same name as one inside the list in the animator's panel (these names are often the character names, or something like "enemy-5" or "enemy(Clone)").
+- Once you know which row in the Animators panel refers to the character you want to change the animation, select the animation you want to play from the dropdown and click on the "Play" button.
 - When you find the right frame pause the animator by clicking on the first checkbox of the entity row.
 - Make the entity animator ignore the master toggle.
 
 The Animator panel also allows you to freeze all characters in a scene all at once, alongside giving you control over which characters should ignore this master toggler, which is assigned to `Numpad 0` by default. That way you can make the playable character avoid getting frozen, or avoid un-freezing NPCs or enemies that already have the animations you want them to have.
 
-Once you are done with shooting tho, you should reset the animators of the entities that you manually played animations on. If you can't recall which entities you played animations on or you just forced animations on a lot of entities you can click on "Refresh Animators" and all of the non-deleted existing entities will get their animatiors reset.
+Once you are done with shooting tho, you should reset the animators of the entities that you manually played animations on. If you can't recall which entities you played animations on or you just forced animations on a lot of entities you can click on "Reset Animators" and all of the non-deleted existing entities will get their animatiors reset.
 
 Alongside all of this, you can also open each character game object by clicking on their names, so you can move, rotate, scale them around, disable them, or further edit their properties and child objects. More on this in the["How to modify a game object's spatial property"](#how-to-modify-a-game-objects-spatial-property) section.
 
@@ -397,7 +400,7 @@ Every object in the game world is what is called a "Game Object". Each game obje
 Think of these as two different bags in which you can play around with their elements, with a couple of differences:
 
 - The children's game objects can have, at the same time, their own children, generating a sort of hierarchical family tree.
-- Given a game object with a parent game object, if the latter moves then the former will move as well. Making it so that children's game objects move relatively to their father.
+- Given a game object with a parent game object, if the latter moves then the former will move as well. Making it so that children's game objects move relatively to their father. Also, disabling a game object will also disable all of their children's game objects.
 - You can see these hierarchical relationships in the scene itself on the Object Explorer, as well as in the bottom left section of a game object Inspector tab.
 - A group of children's game objects is necessary to always be of the same type, a Game Object, but components can be of different types.
 - These components can have variables and functions inside of them, but they always represent something, even if that something is abstract (e.g. a light is a Game Object that exists in the game world, which has a `Light` component that holds all of the properties of the light).
