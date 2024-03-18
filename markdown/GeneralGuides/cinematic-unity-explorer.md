@@ -186,9 +186,15 @@ When doing this, the Cinematic Unity Explorer will attempt to disable the compon
 - Try disabling the components in the bottom right list by clicking on each component checkbox.
 - If disabling a component still doesn't let you move or rotate the camera, turn it on again and try the next component on the list. You will eventually reach the component that controls the camera.
 
-If the steps listed above fail, go to the camera parent game object (by clicking on "◄ View Parent" on the top left) and try the components there. If that doesn't work then you can try entering other children's gameobjects from this parent and disabling their components. As a last resource, you can try deleting the components instead of just disabling them, but beware since that might block you from returning to normal gameplay (and might even crash the game).
+If the steps listed above fail, go to the camera parent game object (by clicking on "◄ View Parent" on the top left) and try the components there. If that doesn't work then you can try entering other children's game objects from this parent and disabling their components. You can also go up in the parent hierarchy until you find the right game object and component or don't have more parent game objects to go to.
 
-Remember to enable it again when you have to return to gameplay, so the game can come back to properly handle it.
+If all of that fails you can also try going to the Object Explorer panel and search for game objects with the word "cam", "controller" or "input" on their names (might need to test different scenes if the game has many) in the Scene Explorer. Alternatively, you can also look up these words on the Object Search tab, but expect to get a lot of unhelpful results.
+
+As a last resource, you can try deleting the components instead of just disabling them, but beware since that might block you from returning to normal gameplay (and might even crash the game).
+
+To understand better what a game object is, what a component is and their differences head over to the [playing around with game objects section](#playing-around-with-game-objects).
+
+Remember to enable whatever component or game object you disabled again when you have to return to gameplay, so the game can come back to properly handle the camera.
 
 The *CineMachine* component (a common Unity class used for controlling a gameplay camera) gets automatically disabled by Cinematic Unity Explorer, but some games (e.g. Haven) turn this *CineMachine* component back on whenever it gets disabled, and the only solution for dealing with it is to straight up delete the component. It's advised to go back to the menu or reload the level in some capacity to get this component back once you finish your shooting session.
 
@@ -202,6 +208,8 @@ Similarly, if you want to move the camera closer to an object and it gets cut ou
 
 It is also worth mentioning how there might be situations in which you would want to decrease the far clip plane or increase the near clip plane, like if there are things on the distance that you do not want to include on your shot, or there are things blocking your composition near the camera.
 
+As a side note, beware of bringing the near-clipping plane value below the default one provided by the mod (`0.1`). Doing so would cut the maximum far clipping value down (I imagine the engine can't handle having resolutions such as `0.001` while also having a high maximum clipping value such as `4000`). It probably won't be a problem since the effect would only be noticed very far away from the camera, but still good to keep in mind.
+
 ## Block input
 
 You can enable or disable the game input when the freecam is enabled by clicking the "Enable game input" checkbox on the Freecam panel or pressing the `Numpad .` hotkey by default. This is enabled by default to avoid moving the character when moving the freecam.
@@ -209,6 +217,8 @@ You can enable or disable the game input when the freecam is enabled by clicking
 This can be used in conjunction with the "Block freecam" to freeze the freecam in a specific, nongameplay place, while you move the character around.
 
 Do keep in mind tho that this feature only works if the developers use Unity's Legacy Input system for their game. If the game uses a custom solution or the latest Unity system then this won't work. Implementing this for Unity's new system is in the backlog, so if you find a game using it (should say `Initialized new InputSystem support.` on the logs) then please let me know on the [repository issues page](https://github.com/originalnicodr/CinematicUnityExplorer/issues) so I can implement it using that game!
+
+In the meantime, if you need to disable the game input and the mod isn't doing so automatically you can try looking for the right game object or component to disable. Follow the steps described in the [gameplay camera section](#gameplay-camera) to do so.
 
 ## Follow object
 
@@ -238,7 +248,9 @@ Even tho slow-motion can be useful for action scenes, you can also "skipframe" a
 
 # Cam paths
 ---
-The Camera path panel allows the user to set up camera nodes (which hold camera position, orientation, and FOV) all over a scene as keyframes, and make the camera move alongside the curve created by these nodes to record cinematics or promotional video. You can specify the amount of time it takes the camera to complete the current path, which would move alongside it at a constant speed.
+The Camera path panel allows the user to set up camera nodes (which hold camera position, orientation, and FOV) all over a scene as keyframes, and make the camera move alongside the curve created by these nodes to record cinematics or promotional video. You can specify the amount of time it takes the camera to complete the current path, which would move alongside it at a constant speed (make sure the game is running at capped 60fps by enabling VSync).
+
+![Camera paths](../Images/CinematicUnityExplorerGuide/camera-paths.png){.shadowed .autosize}
 
 Among the things the camera paths can currently do, there is:
 
@@ -278,8 +290,9 @@ If you want to move an already created light you can use the "Move to Camera" op
 
 There also is a default intensity input field on the panel. Since the way the intensity of a light works varies a lot from game to game you have to increase/decrease this property on a light until it looks right, and once you figure out a value that works for your game you can write it as the default intensity and don't have to edit it on the new lights you spawn from that point onwards.
 
-* [Light class](https://docs.unity3d.com/es/530/Manual/class-Light.html)  
-* [Lighting](https://docs.unity3d.com/Manual/Lighting.html)
+### Further reading
+* [Unity Light class](https://docs.unity3d.com/es/530/Manual/class-Light.html)  
+* [Unity Lighting](https://docs.unity3d.com/Manual/Lighting.html)
 
 ## Visualizer
 You can also draw an arrow or sphere representing the light source from spotlights and point lights respectively, to understand your light setups better. To do so click on the "Toggle visualizer" button on a light in the panel.
