@@ -32,7 +32,7 @@ If you stick around and follow the steps as explained below you shouldn't have a
 
 ## Identifying the type of Unity game
  
-To know what files you have to install you first need to understand if the game is a `Mono` or an `IL2CPP` game and if it's 32 or 64-bit.
+To know what files you have to install you first need to understand if the game is a `Mono` or an `IL2CPP` game.
 
 ### Mono or IL2CPP
 
@@ -47,7 +47,52 @@ If the game is on Steam, you can check the file structure before downloading by 
 
 If you happen to need it for something the Unity Engine version number can be found by going to the game's folder, right-click on `UnityPlayer.dll`, clicking on Properties, and heading over to the Details tab. But this info shouldn't be relevant to the guide.
 
-## Mono games
+## MelonLoader (for Mono and IL2CPP games)  
+
+Even tho you can technically use BepInEx as a mod loader for Mono games, we have had more luck getting MelonLoader to work instead, so we proceed to describe the download and installation process for it below.
+
+If you need to use other mods that are only compatible with BepInEx (or just couldn't make MelonLoader work for whatever reason) you can check out the [BepInEx section](#bepinex-for-mono-games).
+
+### Downloading MelonLoader and Cinematic Unity Explorer
+
+- Download [MelonLoader.Installer.exe](https://melonwiki.xyz/#/?id=automated-installation) (make sure you have the requirements described on the site installed).
+- [Cinematic Unity Explorer](https://github.com/originalnicodr/CinematicUnityExplorer/releases) (depending on the game, check [this section](#mono-or-il2cpp)):
+ - **Mono games**: CinematicUnityExplorer.MelonLoader.Mono
+ - **IL2CPP games**: CinematicUnityExplorer.MelonLoader.IL2CPP
+
+### Installation
+
+@alert tip
+If the game is using a DRM like Steam make sure you are launching said game through Steam and not opening the .exe directly. Some games won't start otherwise and this error might be confused with a problem created while trying to install the mod loader or another mod.
+@end
+
+@alert important
+Both MelonLoader and BepInEx download some necessary .dlls when first launched with an IL2CPP game, so make sure you have internet access when following the steps below.
+@end
+
+- Execute `MelonLoader.Installer.exe`. Select where the exe of the game is, uncheck the **LATEST** checkbox, choose v0.5.7 from the dropdown list instead, and click install. Start your game after installation.
+ - Leave the 'Game Arch' on auto. No need to change it. 
+ - It can take some time until the game is loaded due to the unhollowing process happening in the background. Your game can also automatically restart once back into the loader process. The process is logged on the console.
+ - In some games (e.g. Sable), starting them with MelonLoader installed might sometimes throw error windows about missing .dlls, which may or may not crash your game. If indeed the game crashes, try starting it again. If it doesn't then just continue with the game as usual.
+
+    If you don't see a MelonLoader splash screen when starting the game or any console then there might be a problem with the mod loader. To fix it try the steps described below one by one and start the game again after trying each of them:
+  - Rename `version.dll` in `winhttp.dll`
+
+
+
+- Extract the CinematicUnityExplorer zip inside the game's main folder. Launch the game. You should be able to see the Cinematic Unity Explorer menu pop up on startup.
+
+    If you don't see such a thing and want to verify you can go to the `Mods\CinematicUnityExplorer` folder. You should be able to see a `Logs` and `Scripts` folder in there. You can also check the mod loader logs generated inside the `MelonLoader\Logs` folder and try to read if there is any error in the latest one. If indeed the mod hasn't been loaded try deleting Cinematic Unity Explorer and downloading and installing [CinematicUnityExplorer.MelonLoader.IL2CPP.CoreCLR.zip](https://github.com/originalnicodr/CinematicUnityExplorer/releases). This is likely the cause as Unity seems to be shifting into CoreCLR for their latest versions.
+
+    Most games work with ML 0.5.7 by default and do not need any changes. Still, there might be a small chance some games (e.g. Tormented Souls) won't work once Cinematic Unity Explorer is installed, and it can lead to a crash. If that happens, we recommend giving [BepInEx 6](https://builds.bepinex.dev/projects/bepinex_be) for IL2CPP a try. If that's the case go to the linked page, scroll down to "Artifacts", and download `BepInEx Unity (IL2CPP) for Windows x86` or `x64` depending on the game (follow the [Mono section](#Mono) of this guide to know which one). If even that fails try so with `BepInEx NET (CoreCLR net6.0) for Windows`.
+
+@alert tip
+If you do not want MelonLoader splash screen every time you start the game go to `game_root\UserData\MelonStartScreen\Config.cfg` and under `[General]` change `Enabled` from `true` to `false`.
+@end
+
+## BepInEx (for Mono games)
+
+If you can't use MelonLoader or need to use BepInEx for whatever reason follow the steps below. However, if you already installed MelonLoader and Cinematic Unity Explorer with it then you can skip this section.
 
 @alert important
 Some games (noticeably the ones published by EA) have encrypted game objects on runtime or something along those lines. Fortunately, MelonLoader is able to get through this encryption, but BepInEx won't work.
@@ -55,7 +100,7 @@ Some games (noticeably the ones published by EA) have encrypted game objects on 
 
 ### 32-bit or 64-bit
 
-In Mono games, you have to make an extra distinction between 32 and 64 bits. To do so, launch the game and use the Task Manager to check if your game is 32-bit or 64-bit (if it is 32-bit, it will have "32-bit" next to the process name).  
+When using BepInEx, you have to make an extra distinction between 32 and 64 bits. To do so, launch the game and use the Task Manager to check if your game is 32-bit or 64-bit (if it is 32-bit, it will have "32-bit" next to the process name).  
 
 ![TaskManager01](../Images/CinematicUnityExplorerGuide/TaskManager01.png){.shadowed .autosize}
 
@@ -94,45 +139,6 @@ If the game is using a DRM like Steam make sure you are launching said game thro
     If you don't see such a thing and want to verify you can go to the `BepInEx\plugins\CinematicUnityExplorer` folder. You should be able to see a `Logs` and `Scripts` folder in there. You can also check the mod loader logs generated on `BepInEx\LogOutput.log` and try to read if there is any error. In either case, if the mod is not loading try the steps below one by one and try running the game after each one:
     - Change the preloader entry point (mostly for games running under Unity 5.X). Go to `BepInEx\config\BepInex.cfg`, and under `[Preloader.Entrypoint]` change `Type` from `Application` to `MonoBehaviour`.
     - [More troubleshooting tips](https://docs.bepinex.dev/articles/user_guide/troubleshooting.html).
-
-## IL2CPP
-
-For IL2CPP, even tho you can technically use BepInEx as a mod loader, we have had more luck getting MelonLoader to work instead, so we proceed to describe the download and installation process for it below.
-
-### Downloading MelonLoader and Cinematic Unity Explorer
-
-- Download [MelonLoader.Installer.exe](https://melonwiki.xyz/#/?id=automated-installation) (make sure you have the requirements described on the site installed).
-- [CinematicUnityExplorer.Standalone.IL2CPP](https://github.com/originalnicodr/CinematicUnityExplorer/releases)
-
-### Installation
-
-@alert tip
-If the game is using a DRM like Steam make sure you are launching said game through Steam and not opening the .exe directly. Some games won't start otherwise and this error might be confused with a problem created while trying to install the mod loader or another mod.
-@end
-
-@alert important
-Both MelonLoader and BepInEx download some necessary .dlls when first launched with an IL2CPP game, so make sure you have internet access when following the steps below.
-@end
-
-- Execute `MelonLoader.Installer.exe`. Select where the exe of the game is, uncheck the **LATEST** checkbox, choose v0.5.7 from the dropdown list instead, and click install. Start your game after installation.
- - Leave the 'Game Arch' on auto. No need to change it. 
- - It can take some time until the game is loaded due to the unhollowing process happening in the background. Your game can also automatically restart once back into the loader process. The process is logged on the console.
- - In some games (e.g. Sable), starting them with MelonLoader installed might sometimes throw error windows about missing .dlls, which may or may not crash your game. If indeed the game crashes, try starting it again. If it doesn't then just continue with the game as usual.
-
-    If you don't see a MelonLoader splash screen when starting the game or any console then there might be a problem with the mod loader. To fix it try the steps described below one by one and start the game again after trying each of them:
-  - Rename `version.dll` in `winhttp.dll`
-
-
-
-- Extract the CinematicUnityExplorer zip inside the game's main folder. Launch the game. You should be able to see the Cinematic Unity Explorer menu pop up on startup.
-
-    If you don't see such a thing and want to verify you can go to the `Mods\CinematicUnityExplorer` folder. You should be able to see a `Logs` and `Scripts` folder in there. You can also check the mod loader logs generated inside the `MelonLoader\Logs` folder and try to read if there is any error in the latest one. If indeed the mod hasn't been loaded try deleting Cinematic Unity Explorer and downloading and installing [CinematicUnityExplorer.MelonLoader.IL2CPP.CoreCLR.zip](https://github.com/originalnicodr/CinematicUnityExplorer/releases). This is likely the cause as Unity seems to be shifting into CoreCLR for their latest versions.
-
-    Most games work with ML 0.5.7 by default and do not need any changes. Still, there might be a small chance some games (e.g. Tormented Souls) won't work once Cinematic Unity Explorer is installed, and it can lead to a crash. If that happens, we recommend giving [BepInEx 6](https://builds.bepinex.dev/projects/bepinex_be) for IL2CPP a try. If that's the case go to the linked page, scroll down to "Artifacts", and download `BepInEx Unity (IL2CPP) for Windows x86` or `x64` depending on the game (follow the [Mono section](#Mono) of this guide to know which one). If even that fails try so with `BepInEx NET (CoreCLR net6.0) for Windows`.
-
-@alert tip
-If you do not want MelonLoader splash screen every time you start the game go to `game_root\UserData\MelonStartScreen\Config.cfg` and under `[General]` change `Enabled` from `true` to `false`.
-@end
 
 # Hotkeys
 ---
