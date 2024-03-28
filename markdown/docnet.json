@@ -40,6 +40,7 @@
 				"Blur" : "GameGuides\\blur.md",
 				"Borderlands 2" : "GameGuides\\borderlands2.md",
 				"Borderlands 3" : "GameGuides\\Borderlands3.md",
+				"Brothers in Arms: Road to Hill 30" : "GameGuides\\brothers_in_arms_rth30.md",
 				"Bugsnax" : "GameGuides\\Bugsnax.md",
 				"Bulletstorm: Full Clip Edition" : "GameGuides\\bulletstorm.md",
 				"Call of Duty 4- Modern Warfare (2007)": "GameGuides\\cod4_mw_2007.md",
@@ -69,6 +70,7 @@
 				"DOOM Eternal" : "GameGuides\\doometernal.md",
 				"Dragon Age: Inquisition": "GameGuides\\dai.md",
 				"Dragon Ball FighterZ": "GameGuides\\dragon_ball_figtherz.md",
+				"Elden Ring": "GameGuides\\EldenRing.md",
 				"ELEX": "GameGuides\\ELEX.md",
 				"The Evil Within 2": "GameGuides\\TEW2.md",
 				"Fallout 4": "GameGuides\\fallout_4.md",
@@ -180,6 +182,7 @@
 		{
 			"__index": "GeneralGuides\\index.md",
 			"Ansel": "GeneralGuides\\anselguide.md",
+			"Cinematic Unity Explorer": "GeneralGuides\\cinematic-unity-explorer.md",
 			"Creating Motion Blur with UUU camera paths": "GeneralGuides\\uuu_motionblur.md",
 			"Creating Tiny Planets": "GeneralGuides\\tinyplanetsguide.md",
 			"Custom DSR Resolutions": "GeneralGuides\\custom_dsr_resolutions.md",
@@ -187,8 +190,8 @@
 			"EMV Engine mods for RE Engine games": "GeneralGuides\\emv_engine.md",
 			"RELit for RE Engine games": "GeneralGuides\\relit.md",
 			"Revert Steam Game Updates": "GeneralGuides\\steam_update_guide.md",
+			"Simple Techniques to fix Color Banding": "GeneralGuides\\how-to-fix-color-banding.md",
 			"Tweaking Unreal Engine 4 Games":"GeneralGuides\\ue4guide.md",
-			"UnityExplorer and Freecam": "GeneralGuides\\universal_unity_freecam.md",
 			"Universal Unreal Engine 4 Unlocker": "GeneralGuides\\universal_ue4_consoleunlocker.md",
 			"Using Cheat Engine Tables": "GeneralGuides\\cheat_engine_tables.md",
 			"Advanced" : 

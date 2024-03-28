@@ -111,7 +111,7 @@ Game | Features | Extra Description
 [Shadow of the Tomb Raider](../../ShaderTogglers/SOTTR.ini) | HUD Toggle (`Caps Lock`)
 [Sherlock Holmes: The Devil's Daughter](../../ShaderTogglers/sherlock_holmes_devils_daughter.ini) | HUD and DOF toggle (`Caps Lock`)
 [Singularity](../../ShaderTogglers/singularity.ini) | - HUD toggle (`Capslock`)<br> - Rain toggle (`Ctrl`+`1`)
-[Somerville](../../ShaderTogglers/somerville.ini) | - Hide menu and black bars (while free camera is enabled) (`Caps Lock`) <br> - Hide text from menu (`ALT`+`0`) | For the game to render where the black bars used to be you have to use [unity explorer freecam](../../GeneralGuides/universal_unity_freecam.md).
+[Somerville](../../ShaderTogglers/somerville.ini) | - Hide menu and black bars (while free camera is enabled) (`Caps Lock`) <br> - Hide text from menu (`ALT`+`0`) | For the game to render where the black bars used to be you have to use [Cinematic Unity Explorer freecam](../../GeneralGuides/cinematic-unity-explorer.md).
 [Space Hulk: Deathwing](../../ShaderTogglers/space_hulk_deathwing.ini) | HUD + Party Markers (`Caps Lock`)
 [Spider-Man Remastered](../../ShaderTogglers/spider_man_remastered.ini) | Complete HUD Toggle (`Delete`)
 [Star Wars Jedi: Survivor](../../ShaderTogglers/star_wars_jedi_survivor.ini) | - HUD, force outlines, other distracting elements (`Caps Lock`)
