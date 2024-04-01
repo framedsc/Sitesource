@@ -358,7 +358,7 @@ It loads all the current vanilla post-processing effects being used when clickin
 
 For each effect the panel may offer multiple objects since the mod has no form of knowing which one of them is actually working, therefore, it gives you access to all of the enabled effects objects. However, the effect checkbox still turns off and on all of the effect objects from that row.
 
-The [Shader toggler](../ReshadeGuides/Addons/shader_toggler_repository.md) Reshade add-on would still be recommended over using this panel (especially as it will be able to catch custom effects that this mod can't), but this might still be useful for some.
+The [Shader toggler](../ReshadeGuides/Addons/shader_toggler_repository.htm) Reshade add-on would still be recommended over using this panel (especially as it will be able to catch custom effects that this mod can't), but this might still be useful for some.
 
 # Misc panel
 ---
@@ -369,7 +369,7 @@ You can toggle the HUD elements by going to the "Misc" panel and clicking on the
 
 Because of how it works, there might be situations in which HUD elements still pop up when you toggle all HUD elements off. This is because the HUD toggle works by disabling every existing HUD element, so if these weren't present when toggling them off, then the HUD toggle wouldn't have caught them and disabled them. This can easily be solved by pressing the HUD toggle twice to turn the HUD elements on and off again.
 
-If you find this annoying (or want more control over what UI elements to turn off with a hotkey) then I suggest also taking a look at [ShaderToggler Reshade addon](../ReshadeGuides/Addons/shader_toggler_repository.md).
+If you find this annoying (or want more control over what UI elements to turn off with a hotkey) then I suggest also taking a look at [ShaderToggler Reshade addon](../ReshadeGuides/Addons/shader_toggler_repository.htm).
 
 As a side note, you can look up individual UI elements by opening the Inspector panel, clicking on the "Mouse Inspector" dropdown on the top right, and selecting "UI". Then clicking on the UI element you want will result in a list of possible UI elements that you may want to open the inspector with.
 
@@ -380,9 +380,9 @@ It forces the highest models possible on all meshes no matter their distance fro
 ## Screenshot support
 Allows you to momentarily render the game at a higher resolution than the one being used and takes a screenshot. You can enter the multiplier of the current resolution at which the screenshot should render in the "Supersize" field.
 
-Please take in mind that using this function will not save the screenshot with [Reshade effects](../basics.md#reshade) if they are being used, as these get rendered outside of the engine.
+Please take in mind that using this function will not save the screenshot with [Reshade effects](../basics.htm#reshade) if they are being used, as these get rendered outside of the engine.
 
-Having said that, Unity games tend to be easily [hotsampeable](../basics.md#hotsampling), but the feature might still be useful for users who don't use Reshade effects on their work.
+Having said that, Unity games tend to be easily [hotsampeable](../basics.htm#hotsampling), but the feature might still be useful for users who don't use Reshade effects on their work.
 
 Screenshots are saved inside `BepInEx\plugins\CinematicUnityExplorer\Screenshots` by default, in png format.
 
@@ -461,9 +461,55 @@ As an alternative, you can follow [this guide](https://docs.bepinex.dev/articles
 
 As always, it might be worth looking up if there is a specific mod for the game that enables the debug menu.
 
+## Reshades Depth buffer
+
+Some Unity games run into a problem when hotsampling. When switching to a higher resolution than the one initially used, after you go back to the original resolution, the closest depth buffer to the current scene might be one that has the scene that was being rendered when you hotsampled frozen, and a little window on the bottom left displaying the current scene depth buffer. Sadly, at the time of writing, there isn't a way to properly fix this, but we have a couple of alternatives to mitigate its effects:
+
+- **Set up scene after hotsampling**: If you go back to the hotsampled resolution, the depth buffer will get "fixed", making it seem like returning to the highest resolution you rendered the game this session will have a working depth buffer. So, instead of trying to set up the scene DOF shader (and any other shader depending on the depth buffer) before hotsampling, do so after hotsampling to have a working depth buffer. Be sure to use a [hotsampling helper shader](../ReshadeGuides/shaderscatalogue.htm#hotsampling) to be able to see the whole window on your screen. This obviously only works for screenshoting, and it's not relevant if you want/need to fix the depth buffer for normal gameplay.
+- **Use DSR**: Unity games tend to be very lightweight to run, so running them on 4k or bigger resolutions with [DSR](../basics.htm#dynamic-super-resolution-dsr) shouldn't be a problem, meaning that you won't need to increase resolutions for taking pictures, since the screenshotting resolution would be the same as the gameplay resolution, avoiding the depth buffer to break in the process.
+
+## Running scripts
+
+The original Unity Explorer mod has a C# console that can be useful for doing custom things. If you have programming knowledge know that you can use most of [UnityEngine's Scripting API](https://docs.unity3d.com/ScriptReference/) to write your own scripts. Below I will include some scripts that I wrote. Make sure the console mode is on REPL.
+
+### Making objects parents from each other
+
+Making an object a parent from another means that, when the parent moves, so will the children. This can be useful in specific situations, like spawning custom lights on Outer Wilds. Since the planets are constantly moving in the engine space, you would need to make the spawned light a child of the planet. To do so inspect the planet object with the world object inspector and get the object ID. Then, go to the Lights Manager panel, click on the config button of the spawned light, and also copy the object ID. Then, paste the following script on the console, replace the `parentID` for the planet game object ID and the `sonId` for the light game object ID. Then, run the script.
+
+```C
+int parentID = 0;
+GameObject parentObj = null;
+int sonID = 0;
+GameObject sonObj = null;
+
+// Find objects
+var objects = RuntimeHelper.FindObjectsOfTypeAll<UnityEngine.GameObject>();
+foreach(GameObject obj in objects)
+{   
+    if (obj.GetInstanceID() == parentID){
+        parentObj = obj;
+        Log(parentObj);
+    }
+    if (obj.GetInstanceID() == sonID){
+        sonObj = obj;
+        Log(sonObj);
+    }
+}
+
+if (parentObj != null && sonObj != null){
+    sonObj.transform.SetParent(parentObj.transform);
+}
+else{
+    if (parentObj == null) Log("Couldn't find parent");
+    if (sonObj == null) Log("Couldn't find son");
+}
+```
+
+As a side note, know that messing with the game objects' vanilla hierarchy could mess with the logic of the game, so use this with precaution.
+
 ## Additional tips
 
-* Most Unity games (if not almost all of them) let you [hotsample](../basics.md#hotsampling), and even let you use custom ARs.
+* Most Unity games (if not almost all of them) let you [hotsample](../basics.htm#hotsampling), and even let you use custom ARs.
 * If the game is exclusively fullscreen and doesn't have the option to play windowed for hotsampling, press `Alt` + `Enter` to go out of fullscreen into windowed.
 * It's generally recommended to disable any overlays you have as they may conflict with the keybindings.
 
