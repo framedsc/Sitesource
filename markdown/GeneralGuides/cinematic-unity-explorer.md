@@ -10,11 +10,12 @@ The [Cinematic Unity Explorer](https://github.com/originalnicodr/CinematicUnityE
 
 This guide will focus on how to download and install this mod depending on the game, and how to use it to its full potential.
 
-@alert important
-The Cinematic Unity Explorer has not been officially released yet. Therefore, to grab the latest pre-release build head over to the [actions section in the project repository](https://github.com/originalnicodr/CinematicUnityExplorer/actions/workflows/dotnet.yml) to grab the needed .zip until a proper release happens.
-
-Be aware that you need a GitHub account to be able to download files from here.
-@end
+<p align="center">
+<a href="https://www.youtube.com/watch?v=--8DOKWzGJ4" target="_blank">
+  <img src="https://i.ytimg.com/vi_webp/--8DOKWzGJ4/maxresdefault.webp">
+</a>
+<i>Trailer showcasing the mods features</i>
+</p>
 
 # Setup
 ---
@@ -26,9 +27,8 @@ If you stick around and follow the steps as explained below you shouldn't have a
 <a href="https://www.youtube.com/watch?v=qufWSNPyeYQ" target="_blank">
   <img src="https://i.ytimg.com/vi_webp/qufWSNPyeYQ/maxresdefault.webp">
 </a>
+<i>If you ever get lost in this guide I suggest watching the video above for visual aid, even tho it's about installing the original Unity Explorer.</i>
 </p>
-
-*If you ever get lost in this guide I suggest watching the video above for visual aid, even tho it's about installing the original Unity Explorer.*
 
 ## Identifying the type of Unity game
  
@@ -57,8 +57,8 @@ If you need to use other mods that are only compatible with BepInEx (or just cou
 
 - Download [MelonLoader.Installer.exe](https://melonwiki.xyz/#/?id=automated-installation) (make sure you have the requirements described on the site installed).
 - [Cinematic Unity Explorer](https://github.com/originalnicodr/CinematicUnityExplorer/releases) (depending on the game, check [this section](#mono-or-il2cpp)):
- - **Mono games**: CinematicUnityExplorer.MelonLoader.Mono
- - **IL2CPP games**: CinematicUnityExplorer.MelonLoader.IL2CPP
+ - **Mono games**: [CinematicUnityExplorer.MelonLoader.Mono](https://github.com/originalnicodr/CinematicUnityExplorer/releases/latest/download/CinematicUnityExplorer.MelonLoader.Mono.zip)
+ - **IL2CPP games**: [CinematicUnityExplorer.MelonLoader.IL2CPP](https://github.com/originalnicodr/CinematicUnityExplorer/releases/latest/download/CinematicUnityExplorer.MelonLoader.IL2CPP.zip)
 
 ### Installation
 
@@ -114,7 +114,7 @@ Download the appropriate version of each, depending if the game is 32 or 64-bit.
 - [BepInEx 5](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.22)
  - **64 bit**: BepInEx_x64_5.X
  - **32 bit (x86)**: BepInEx_x86_5.X
-- [CinematicUnityExplorer.BepInEx5.Mono](https://github.com/originalnicodr/CinematicUnityExplorer/releases)
+- [CinematicUnityExplorer.BepInEx5.Mono](https://github.com/originalnicodr/CinematicUnityExplorer/releases/latest/download/CinematicUnityExplorer.BepInEx5.Mono.zip)
 
 Even tho there is a BepInEx v6 (which is a patcher/plug-in framework for Unity games) for Mono games, it is still recommended to use v5 since Mono support in v6 is still untested.
 
