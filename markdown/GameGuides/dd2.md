@@ -76,5 +76,5 @@ A good use of EMV's poser is to edit eye rotations so your subjects look a littl
 8. for Filter, type `eye`
 9. `L_Eye` and `R_Eye` are at the bottom of the results
 
-Useful Links
+## Useful Links
 - [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Dragon's_Dogma_II)
