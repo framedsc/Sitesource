@@ -30,6 +30,15 @@ If you stick around and follow the steps as explained below you shouldn't have a
 <i>If you ever get lost in this guide I suggest watching the video above for visual aid, even tho it's about installing the original Unity Explorer.</i>
 </p>
 
+## Thunderstore
+
+Depending on the game, there may be [Thunderstore Mod Manager](https://www.overwolf.com/app/thunderstore-thunderstore_mod_manager) support. If so, many of the steps below regarding selecting the right BepInEx/MelonLoader may be avoidable, providing a more streamlined process for installation.
+Most, if not all, games that can be managed through Thunderstore have their BepInEx version already chosen by other players, making installation of CUE as simple as installing BepInEx through the manager, and dragging CUE into the BepInEx folder.
+
+@alert important
+Please note, you still need to identify the type of Unity game so that you download the correct CUE version for your game.
+@end
+
 ## Identifying the type of Unity game
  
 To know what files you have to install you first need to understand if the game is a `Mono` or an `IL2CPP` game.
@@ -139,6 +148,24 @@ If the game is using a DRM like Steam make sure you are launching said game thro
     If you don't see such a thing and want to verify you can go to the `BepInEx\plugins\CinematicUnityExplorer` folder. You should be able to see a `Logs` and `Scripts` folder in there. You can also check the mod loader logs generated on `BepInEx\LogOutput.log` and try to read if there is any error. In either case, if the mod is not loading try the steps below one by one and try running the game after each one:
     - Change the preloader entry point (mostly for games running under Unity 5.X). Go to `BepInEx\config\BepInex.cfg`, and under `[Preloader.Entrypoint]` change `Type` from `Application` to `MonoBehaviour`.
     - [More troubleshooting tips](https://docs.bepinex.dev/articles/user_guide/troubleshooting.html).
+
+## Thunderstore Installation
+
+First, download and install [Thunderstore Mod Manager](https://www.overwolf.com/app/thunderstore-thunderstore_mod_manager).
+Once the manager is installed, find your game in the options available, and click 'Select Game'.
+In the profile screen, either select Default, or create your own if you'd prefer. Click 'Select Profile' to move on to the main section of the manager.
+On the left hand side, you will see a 'Get Mods' tab, open this and search for BepInEx. Select the BepInEx result, and click 'Download'. The mod manager will then automatically download and install the version required for your chosen game.
+
+@alert info
+Some games will have multiple results when searching for BepInEx, depending on their popularity. You can often find a 'Pinned' release when this is the case, which will be the main install option you need.
+@end
+
+Now that BepInEx is installed, boot up the game by clicking the 'Modded' play button in the top right of the window. If all has gone well, you should see a console load up. 
+You can now close the game, and move on to installing CUE.
+In Thunderstore, navigate to the Settings tab, and select 'Browse profile folder'. This will take you to the location Thunderstore keeps the mods you install.
+Open a separate explorer window and find your CUE download. Open the downloaded ZIP folder, and copy the 'Plugins' folder. 
+Move back to the window with the game profile, open the BepInEx folder, and paste the CUE plugin folder.
+Boot the game again, through the Modded play button. You should see an overlay when the game window appears, meaning CUE has installed correctly.
 
 # Hotkeys
 ---
