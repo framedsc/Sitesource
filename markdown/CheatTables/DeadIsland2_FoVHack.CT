@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>38DA8DD8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Fov Test"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : DeadIsland-Win64-Shipping.exe
+  Version: 
+  Date   : 2024-04-29
+  Author : Death
+
+  This script does blah blah blah
+}
+
+define(address,"DeadIsland-Win64-Shipping.exe"+174C19B)
+define(bytes,F3 0F 58 66 08)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"DeadIsland-Win64-Shipping.exe"+174C19B)
+
+label(code)
+label(return)
+label(fovAddress)
+registerSymbol(fovAddress)
+
+newmem:
+
+code:
+  addss xmm4,[rsi+08]
+  add rsi, 08
+  mov [fovAddress], rsi
+  sub rsi, 08
+  jmp return
+
+fovAddress:
+dq 0
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // addss xmm4,[rsi+08]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: DeadIsland-Win64-Shipping.exe+174C19B
+
+DeadIsland-Win64-Shipping.exe+174C16A: F3 0F 10 8F 58 36 00 00  - movss xmm1,[rdi+00003658]
+DeadIsland-Win64-Shipping.exe+174C172: F3 0F 58 E1              - addss xmm4,xmm1
+DeadIsland-Win64-Shipping.exe+174C176: F3 0F 59 E6              - mulss xmm4,xmm6
+DeadIsland-Win64-Shipping.exe+174C17A: 0F 28 C4                 - movaps xmm0,xmm4
+DeadIsland-Win64-Shipping.exe+174C17D: F3 0F 58 E2              - addss xmm4,xmm2
+DeadIsland-Win64-Shipping.exe+174C181: F3 0F 59 C3              - mulss xmm0,xmm3
+DeadIsland-Win64-Shipping.exe+174C185: F3 0F 5C C8              - subss xmm1,xmm0
+DeadIsland-Win64-Shipping.exe+174C189: F3 41 0F 59 E0           - mulss xmm4,xmm8
+DeadIsland-Win64-Shipping.exe+174C18E: F3 41 0F 59 C8           - mulss xmm1,xmm8
+DeadIsland-Win64-Shipping.exe+174C193: F3 0F 11 8F 58 36 00 00  - movss [rdi+00003658],xmm1
+// ---------- INJECTING HERE ----------
+DeadIsland-Win64-Shipping.exe+174C19B: F3 0F 58 66 08           - addss xmm4,[rsi+08]
+// ---------- DONE INJECTING  ----------
+DeadIsland-Win64-Shipping.exe+174C1A0: F3 0F 11 A7 60 36 00 00  - movss [rdi+00003660],xmm4
+DeadIsland-Win64-Shipping.exe+174C1A8: EB 3F                    - jmp DeadIsland-Win64-Shipping.exe+174C1E9
+DeadIsland-Win64-Shipping.exe+174C1AA: 0F 2F F7                 - comiss xmm6,xmm7
+DeadIsland-Win64-Shipping.exe+174C1AD: F3 0F 10 66 08           - movss xmm4,[rsi+08]
+DeadIsland-Win64-Shipping.exe+174C1B2: 76 23                    - jna DeadIsland-Win64-Shipping.exe+174C1D7
+DeadIsland-Win64-Shipping.exe+174C1B4: F3 0F 5C A7 60 36 00 00  - subss xmm4,[rdi+00003660]
+DeadIsland-Win64-Shipping.exe+174C1BC: F3 0F 5E E6              - divss xmm4,xmm6
+DeadIsland-Win64-Shipping.exe+174C1C0: F3 0F 11 A7 58 36 00 00  - movss [rdi+00003658],xmm4
+DeadIsland-Win64-Shipping.exe+174C1C8: F3 0F 10 66 08           - movss xmm4,[rsi+08]
+DeadIsland-Win64-Shipping.exe+174C1CD: F3 0F 11 A7 60 36 00 00  - movss [rdi+00003660],xmm4
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"No description"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>fovAddress</Address>
+      <Offsets>
+        <Offset>0</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
