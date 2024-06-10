@@ -11,6 +11,10 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Graphics API | DirectX 9
+
+@alert important
+The guide below is outdated. It's unlikely the original author will update the cheat table, so either [rollback to a previous version of the game](../GeneralGuides/steam_update_guide.htm) to use the cheat engine table linked below or try out [this new photomode mod](https://bl-sdk.github.io/mods/Photomode/) and [this cheats mod](https://bl-sdk.github.io/mods/ApplesBorderlandsCheats/).
+@end
  
 ## Tools
 
