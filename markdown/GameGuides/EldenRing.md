@@ -29,7 +29,7 @@ Since the latest Elden Ring update and the release of the DLC hotsampling suppor
 
 ## Tips and Tricks
 
-Game doesn't support [hotsampling](../basics.htm#hotsampling), but there are other ways to take high-resolution shots in this game **if you are using older version of the tools**. 
+Game doesn't support [hotsampling](../basics.htm#hotsampling) **with older version of the tools**. However, if you are using the older versions for some reason, you can still take high-resolution shots in this game.
 You can activate the DSR (Dynamic Super Resolution) from the Nvidia Control Panel, but that will let you go up to 4x multiplier only and you will be limited when it comes to custom aspect ratios.
 
 **It's highly recommended** going [here](../GeneralGuides/custom_dsr_resolutions.htm) to set up as many DSR resolutions as you want to take high-resolution shots in **different aspect ratios**. This is the best way, and it's really everything you need to setup the resolutions and ratios of your [choice](https://i.imgur.com/gfPhRCN.png). This is for Nvidia cards.
