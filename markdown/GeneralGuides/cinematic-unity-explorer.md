@@ -194,11 +194,25 @@ HUD Toggle | `Delete`
 Freeze NPC animations | `Numpad 0`
 Open the mod menu | `F7`
 
+The mod also allows controller input.
+
+Feature | Key
+-|-
+Move the camera forward/left/right/backward | <font face="Controller"><</font>
+Move the camera upwards/downwards | <font face="Controller">{/}</font>
+Speed up/down movement | <font face="Controller">x/y</font>
+Change freecam orientation | <font face="Controller">></font>
+Tilt left/right | <font face="Controller">A/D</font>
+Increase/Decrease FOV | <font face="Controller">W/X</font>
+Reset FOV | <font face="Controller">b</font>
+
 # Freecam
 ---
 The freecam can be enabled from the "Freecam" panel on the mods menu or with the `Insert` hotkey. However, there are two kinds of freecams, as explained in the two following subsections.
 
 ![sidebyside](../Images/CinematicUnityExplorerGuide/sidebyside.jpg){.shadowed .autosize}
+
+You can also control the freecam using a controller. You can select the controller to do so in the panel as shown above but do know that some games will read input from all controllers, so you might not be able to play with one controller and move the camera with the other.
 
 ## New Camera
 
@@ -250,6 +264,8 @@ You can enable or disable the game input when the freecam is enabled by clicking
 This can be used in conjunction with the "Block freecam" to freeze the freecam in a specific, nongameplay place, while you move the character around.
 
 Do keep in mind tho that this feature only works if the developers use Unity's Legacy Input system for their game. If the game uses a custom solution or the latest Unity system then this won't work. Implementing this for Unity's new system is in the backlog, so if you find a game using it (should say `Initialized new InputSystem support.` on the logs) then please let me know on the [repository issues page](https://github.com/originalnicodr/CinematicUnityExplorer/issues) so I can implement it using that game!
+
+Also, know that blocking game input coming from a controller isn't supported at the time of writing.
 
 In the meantime, if you need to disable the game input and the mod isn't doing so automatically you can try looking for the right game object or component to disable. Follow the steps described in the [gameplay camera section](#gameplay-camera) to do so.
 
@@ -354,20 +370,24 @@ Go to the Misc panel and toggle the "Make all meshes cast and receive shadows" t
 
 # Animator
 ---
-The Animator panel allows you to manually play and pause animations on the current characters and NPCs loaded in a scene. This should be pretty useful for getting the right animation on each enemy to set up a composition.
+The Animator panel allows you to manually pause and play animations as well as select specific animation keyframes on the current characters and NPCs loaded in a scene. This should be pretty useful for getting the right animation on each enemy to set up a composition.
 
 ![Animator panel](../Images/CinematicUnityExplorerGuide/animator-panel.png){.shadowed .autosize}
 
 Favorite animations appear first on the dropdown list by clicking on the star button with the animation selected.
 
-The way the animator works is that it will replace the animation the entity is doing when the user hit the "Play" button.
+The way the animator works is that it will replace the animation the entity is doing when the user hits the "Play" button or selects a keyframe using the slider.
+
+The Animator panel also offers a way to hide each NPC individually to help you identify which animator belongs to each NPC if the name isn't enough to figure out. This could also be used to momentarily hide NPCs in a scene. Just make sure to turn them on again when you continue playing if you don't want to fight invisible enemies.
 
 Setting a specific frame on an animation we like would look like the following.
 
-- Pause the entities you want to force animations on.
-- Go to the Inspector tab, click on mouse inspector on the top right, and then click on "world".
-- Click over the character you want to change the animation from. Look at the top field next to the "◄ View Parent" button, it will describe all of the parent hierarchy. The first element on that name will probably have the same name as one inside the list in the animator's panel (these names are often the character names, or something like "enemy-5" or "enemy(Clone)").
-- Once you know which row in the Animators panel refers to the character you want to change the animation, select the animation you want to play from the dropdown and click on the "Play" button.
+- Pause the game with the [timedilation widget](#timedilation) (or hotkey).
+- Go to the Animator Panel, and click on "Refresh Animators". This will list every NPC with an animator.
+- If none of the names listed gives you a hint on which belongs to the character you want to animate then try hiding them one by one.
+ - Alternatively, you can go to the Inspector tab, click on mouse inspector on the top right, and then click on "world". Then click over the character you want to change the animation from. Look at the top field next to the "◄ View Parent" button, it will describe all of the parent hierarchy. The first element on that name will probably have the same name as one inside the list in the Animator panel (these names are often the character names, or something like "enemy-5" or "enemy(Clone)").
+- Once you know which row in the Animators panel refers to the character you want to change the animation, select the animation you want to play from the dropdown and move the slider to get the keyframe you want.
+ - You can also un-pause the game and click on the "Play" button instead.
 - When you find the right frame pause the animator by clicking on the first checkbox of the entity row.
 - Make the entity animator ignore the master toggle.
 
@@ -375,7 +395,17 @@ The Animator panel also allows you to freeze all characters in a scene all at on
 
 Once you are done with shooting tho, you should reset the animators of the entities that you manually played animations on. If you can't recall which entities you played animations on or you just forced animations on a lot of entities you can click on "Reset Animators" and all of the non-deleted existing entities will get their animatiors reset.
 
-Alongside all of this, you can also open each character game object by clicking on their names, so you can move, rotate, scale them around, disable them, or further edit their properties and child objects. More on this in the["How to modify a game object's spatial property"](#how-to-modify-a-game-objects-spatial-property) section.
+Alongside all of this, you can also open each character game object by clicking on their names, so you can move, rotate, scale them around, disable them, or further edit their properties and child objects. More on this in the ["How to modify a game object's spatial property"](#how-to-modify-a-game-objects-spatial-property) section.
+
+## Bones Panel
+
+For each animator, you can also spawn a Bones Panel. This panel will list all of the character's bones and meshes, and provide easy-to-access toggles to disable them and sliders to move them around, allowing you to pose a character to your liking.
+
+![Bones panel](../Images/CinematicUnityExplorerGuide/bones-panel.png){.shadowed .autosize}
+
+Do take in mind that to move an NPC bones around you will need to disable the animator (done at the top of the Bones Panel). This will get activated again automatically once you reset all of the animators. Also, you will probably only be able to disable certain meshes that aren't bones (like accessories such as a scarf or sunglasses). If you want to hide a certain element that is a bone and can't be toggled you can try reducing its scale to 0.
+
+Also, certain elements such as clothes or hair might get weird physics when posing the character. If you want them to adapt to the new character pose try skipping one or two frames with the [skipframe](#skipframe) hotkey.
 
 # Post-processing panel
 ---
