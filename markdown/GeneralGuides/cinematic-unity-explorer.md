@@ -194,25 +194,11 @@ HUD Toggle | `Delete`
 Freeze NPC animations | `Numpad 0`
 Open the mod menu | `F7`
 
-The mod also allows controller input.
-
-Feature | Key
--|-
-Move the camera forward/left/right/backward | <font face="Controller"><</font>
-Move the camera upwards/downwards | <font face="Controller">{/}</font>
-Speed up/down movement | <font face="Controller">x/y</font>
-Change freecam orientation | <font face="Controller">></font>
-Tilt left/right | <font face="Controller">A/D</font>
-Increase/Decrease FOV | <font face="Controller">W/X</font>
-Reset FOV | <font face="Controller">b</font>
-
 # Freecam
 ---
 The freecam can be enabled from the "Freecam" panel on the mods menu or with the `Insert` hotkey. However, there are two kinds of freecams, as explained in the two following subsections.
 
 ![sidebyside](../Images/CinematicUnityExplorerGuide/sidebyside.jpg){.shadowed .autosize}
-
-You can also control the freecam using a controller. You can select the controller to do so in the panel as shown above but do know that some games will read input from all controllers, so you might not be able to play with one controller and move the camera with the other.
 
 ## New Camera
 
