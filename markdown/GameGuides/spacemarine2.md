@@ -9,7 +9,7 @@ Ansel | No
 Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | Yes (with cheat table)
-Reshade | No
+Reshade | Yes, see guide below
 Graphics API | DirectX 12
  
 ## Tools
@@ -22,7 +22,8 @@ The game has Easy Anti Cheat enabled. This means that if you want to use the che
 @end
 
 @alert Important
-At the moment of writing, Reshade 6.2 or lower doesn't work with the game, it makes it hang/crash in the driver. 
+When you run into trouble with Reshade, e.g. the game hangs or crashes, please go to the folder `<steam installation folder>\Space Marine 2\client_pc\root\bin\pc` and delete or rename
+`GFSDK_Aftermath_Lib.x64.dll`. Reshade should then work normally in the game (if you disable Easy Anti Cheat of course, see below).
 @end
 
 If the guide refers to `<steam installation folder>` below, it refers to the root folder where your game's installation folder is located. 
