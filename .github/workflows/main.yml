@@ -23,10 +23,17 @@ jobs:
           persist-credentials: false
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Clone framedsc site repo.
+        uses: actions/checkout@v2
+        with:
+          repository: framedsc/framedsc.github.io
+          persist-credentials: false
+          path: ./_framedsc.github.io
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build site
         shell: cmd
         run: |
-          git clone git@github.com:framedsc/framedsc.github.io.git %GITHUB_WORKSPACE%/../framedsc.github.io
           git config --global user.email "no-reply@github.com"
           git config --global user.name "Github Actions"
           .\tools\docnet -c markdown
@@ -35,16 +42,16 @@ jobs:
           echo Executing pre-generate-site hooks scripts
           PowerShell -ExecutionPolicy Bypass -File "tools\generate-site-hooks\generatebannerspage.ps1"
 
-          del /q ..\framedsc.github.io\*.*
-          for /d %%i in (..\framedsc.github.io\*.*) do @rd /s /q "%%i"
+          del /q ..\_framedsc.github.io\*.*
+          for /d %%i in (.\_framedsc.github.io\*.*) do @rd /s /q "%%i"
           copy /y theme\destination\favicon.ico .\site
-          robocopy .\site ..\framedsc.github.io /s /e
+          robocopy .\site ..\_framedsc.github.io /s /e
           if ErrorLevel 8 (exit /B 1) else (exit /B 0)
 
       - name: Submit site
         run: |
           cd $env:GITHUB_WORKSPACE
-          cd ..\framedsc.github.io
+          cd .\_framedsc.github.io
           git add -A
           git commit -m "${{ github.event.head_commit.message }}"
           git push
