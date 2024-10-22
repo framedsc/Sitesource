@@ -41,10 +41,10 @@ jobs:
           echo Executing pre-generate-site hooks scripts
           PowerShell -ExecutionPolicy Bypass -File "tools\generate-site-hooks\generatebannerspage.ps1"
 
-          del /q ..\_framedsc.github.io\*.*
+          del /q .\_framedsc.github.io\*.*
           for /d %%i in (.\_framedsc.github.io\*.*) do @rd /s /q "%%i"
           copy /y theme\destination\favicon.ico .\site
-          robocopy .\site ..\_framedsc.github.io /s /e
+          robocopy .\site .\_framedsc.github.io /s /e
           if ErrorLevel 8 (exit /B 1) else (exit /B 0)
 
       - name: Submit site
