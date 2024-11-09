@@ -1,4 +1,4 @@
-![Baldur's Gate 3](Images\baldursgate3_header.png "Shot by ashcorpdev"){.shadowed .autosize}
+![Baldur's Gate 3](Images\baldursgate3_header.png "Shot by ofseaandstars"){.shadowed .autosize}
 
 ## Summary
 
