@@ -11,7 +11,11 @@ Custom Aspect Ratios | Yes
 Reshade | Yes (DX11)
 Ansel | No
 Graphics API | DirectX 11
- 
+
+@alert danger
+The tools linked below are outdated and no longer supported. If you want to update the guide with the newly available tools head up to the [Contribute page](../contribute.htm) to learn how to do it.
+@end
+
 ## Tools
 
 * [Concept Matrix](https://github.com/imchillin/CMTool)  
