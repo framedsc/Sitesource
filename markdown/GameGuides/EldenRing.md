@@ -24,7 +24,7 @@ Game version | 1.12+
 * [WeMod Trainer](https://www.wemod.com/cheats/elden-ring-trainers) Features Day Time +1 hour, Freeze Day Time, Freeze Enemies Position and more.
 
 @alert neutral  
-Since the latest Elden Ring update and the release of the DLC hotsampling support is now available **only if you have latest version of the tools**. The guide bellow remains viable for those with older versions of the tools alongside older versions of the game.
+Since the latest Elden Ring update and the release of the DLC hotsampling support is now available **only if you have latest version of the tools**. The guide below remains viable for those with older versions of the tools alongside older versions of the game.
 @end
 
 ## Tips and Tricks
