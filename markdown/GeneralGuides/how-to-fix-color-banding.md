@@ -1,10 +1,10 @@
 Let’s discuss color banding—why it happens, how to remove it from the sky, subject, or background using useful techniques, and when and why to apply grain, surface blur, and noise. These techniques are simple and not particularly advanced, making them easy to follow and useful for anyone, especially beginners who want to achieve clean screenshots without annoying defects before posting them on social media.
 
-This guide will focus on post-processing after gameplay rather than in-game with ReShade, and will also cover AI-based methods. It is especially useful for games that don't work well with ReShade, or for those who prefer post-processing after gameplay or encounter crashes in unstable games. If you are interested in [ReShade](../ReshadeGuides/setupreshade.htm) as well, check out the [Deband ReShade Shader](../ReshadeGuides/shaderscatalogue.htm#deband) if you want to try it out which can be helpful for banding as well (especially the ability to apply the effect with the depth buffer, so to only affect the sky with it).
+This guide will focus on post-processing after already taking the screenshot rather than in-game with ReShade, and will also cover AI-based methods. It is especially useful for games that don't work well with ReShade, or for those who prefer post-processing offline or encounter crashes in unstable games. If you are interested in [ReShade](../ReshadeGuides/setupreshade.htm) as well, check out the [Deband ReShade Shader](../ReshadeGuides/shaderscatalogue.htm#deband) if you want to try it out which can be helpful for banding as well (especially the ability to apply the effect with the depth buffer, so to only affect the sky with it).
 
 The guide examples below are zoomed [hotsampled](../basics.htm#hotsampling) 20MP shots *cropped* from 21:9/3:4 aspect ratios to inspect closely the sky for banding, or any other defects, and if there are any, this guide will show you how to solve it.
 
-## Banding as our enemy
+# Banding as our enemy
 
  Color banding is one of the most disturbing defects that you can find in your image. This phenomenon happens in smooth areas with similar shades, for example, a fading gradient (from light to dark), when the abrupt color change cannot be presented accurately. This results in certain colors appearing as bands rather than smoothly transitioning from one hue to another.
 
@@ -24,13 +24,13 @@ Before we dive in, it’s worth mentioning the **ReShade Shader Toggler Add-on**
 There are simple ways to eliminate the banding on a shot fast in Photoshop and Lightroom, specifically in the sky to begin with.
 @end
 
-## Guide Requirements
+# Guide Requirements
 
 @alert Important
-Since this part of the guide focuses on a post-processing that happens after you are finished with the in-game photo shooting session, you will need to have Adobe Photoshop or Lightroom installed on your computer. You can use application of your choice as long as you can apply the same techniques
+Since this part of the guide focuses on a post-processing that happens after you are finished with the in-game photo shooting session, you will need to have Adobe Photoshop or Lightroom installed on your computer. You can use the application of your choice as long as you can apply the same techniques
 @end
   
-## Photoshop
+# Photoshop
 
 First off, drop your shot into Photoshop and duplicate the background layer by pressing `Ctrl + J` on PC, or by right-clicking the `Background layer > Duplicate layer`. **Its very important** to make sure that you are in 16bit mod by checking `Image menu > Mode`, and make sure that `16Bits/Channel` is selected. Now go to the Filters menu and choose Convert for Smart Filters. This way your duplicated layer becomes a Smart Object and you can work non-destructively. 
 
@@ -76,7 +76,7 @@ Let's go further now with a different example by adding some noise. So after the
 </div>
 <div class="figure"><p style="text-align: center;">Sky comparison again, this time with added noise, surface blur with a radius of 10-15, and threshold around 20. No banding.</p></div>
 
-## Lightroom 
+# Lightroom 
 
 
 Similarly, you can do this in Lightroom. After importing a screenshot into Lightroom, press `Shift + W` on PC or click on the [circle](https://i.imgur.com/uqktFNI.png) below the histogram to add a mask. Click on 'Select Sky' and Lightroom will automatically select the sky for you. If you're not happy with the AI selection, click on (Subtract from mask with...) while the mask is selected, and choose a brush. To avoid confusion, 'Subtract' is sometimes only shown as a minus sign because your Masks window might be smaller. If that's the case, you can enlarge it by clicking the [arrows](https://i.imgur.com/NZTCyBS.png) at the top-right of the Masks window. Use the brush to remove the effect from areas where you don't want the blur to be applied. Be sure to adjust the brush settings to smooth out the transitions.
@@ -119,13 +119,13 @@ Once done, you can reduce the sharpness, texture, and a bit of clarity of sky, a
 </div>
 <div class="figure"><p style="text-align: center;">Also we can see here that adding only grain didn't help to eliminate the banding entirely, so minus texture did the trick.</p></div>
 
-It's worth mentioning that in general, you should add noise or grain to the entire image in the end, unless you want to mask certain areas with it to add more details.
+It's worth mentioning that in general, adding noise or grain to the entire image in the end could benefit the overall look, unless you want to mask certain areas with it to add more details.
 
 @alert Info
 Just keep in mind that surface blur cannot fix all types of banding, so we'll need to add noise or grain on top of it. It's best to combine both techniques anyway
 @end
 
-## Different cases
+# Different cases
 
 If the color banding occurs due to some lighting around the subject, we repeat the same process as above for [Photoshop](../GeneralGuides/simple_techniques_to_fix_color_banding.htm#photoshop), just skip the part where you need to select the sky. 
 
@@ -166,7 +166,7 @@ Apply edits as mentioned above to remove the banding and they will only cover th
 
 <div class="figure" align="center"><img src="../Images/FixColorBanding/qbbeforeandafterexample.jpg" /><p style="text-align: center;">Smoothing out the banding that comes from the lighting which bleeds out behind.</p></div>
 
-## Using grain, noise and blur to solve color banding
+# Using grain, noise and blur to solve color banding
 
 @alert neutral
 Applying grain to a shot comes down to a personal choice. It is entirely your own individual preference, though it's highly recommended. Adding noise or grain can significantly improve your images.
@@ -174,7 +174,7 @@ Applying grain to a shot comes down to a personal choice. It is entirely your ow
 
 One of the main fighters against color banding is the grain. As seen above, a bit of grain can help to blend those harsh transitions between the tones. Grain not only can help to eliminate the color banding it can also add a unique special feel and mood to an entire shot, or it can even determine your style. A touch of grain on your shot can add that old-time feel by adding a vintage look to a shot, it can add more details, and it can make a photo look much deeper.
 
-If you decide to not apply grain when you do processing with ReShade because you like to do it afterward that's fine. Simply put, you want to have the cleanest image possible for various tweaks such as color adjustments, etc. that you do in Lightroom. You don't want to deal with a noisy image in the post unless you are already satisfied with the shot result which has a grain on it that was applied from ReShade. A small tip anyway would be to always inspect a shot before moving on.
+If you decide to not apply grain when you do processing with ReShade because you like to do it afterward that's fine. Simply put, you want to have the cleanest image possible for various tweaks such as color adjustments, etc. that you do in Lightroom. You don't want to deal with a noisy image in the post unless you are already satisfied with the shot result which has grain on it that was applied from ReShade. A small tip anyway would be to always inspect a shot before moving on.
 
 This is not intended to advise you on what to do, because grain is a subjective thing, and its usage depends on what you're aiming for with your content, but it's about how grain can help you against the banding, and how it can improve your shots in general. 
 
@@ -186,17 +186,17 @@ Notice the difference in gradients below:
 
 <div class="figure" align="center"><img src="../Images/FixColorBanding/Before_after adding noise_and after surface blur_resized.png" /><p style="text-align: center;">Top: banding example; Middle: 0.58% of added noise to reduce the banding; Bottom: how it looks with surface blur applied only</p></div>
 
-## ESRGAN and debanding models
+# ESRGAN and debanding models
 
-Besides the techniques explained until this point, one could also use "upscaling" models whose output resolution is the same (x1 models) but focus on fixing banding. Results may vary depending on the model and the shot, so be sure to experiment a bit by using and mixing different models. You may end up being able to fix very aggressive banding that is impossible to do on Lightroom without a manual editing. Proceed below if you are interested in the AI methods. 
+Besides the techniques explained until this point, one could also use "upscaling" models whose output resolution is the same (x1 models) but focus on fixing banding. Results may vary depending on the model and the shot, so be sure to experiment a bit by using and mixing different models. You may end up being able to fix very aggressive banding that is impossible to do on Lightroom without a manual editing.
 
-**chaiNNer**
+## chaiNNer
 
 There are many programs that can do this upscaling task, but only two of them will be mentioned in this guide. One of them is chaiNNer, because it's actively maintained by the people from openmodeldb, and it's really not that difficult to set up. It gives you much more control over how you process your photos, but at the expense of being a little more complicated.
 
-You can find the release [here](https://github.com/chaiNNer-org/chaiNNer)
+You can find the release [here](https://github.com/chaiNNer-org/chaiNNer/releases)
 
-**Installing dependencies**
+### Installing dependencies
 
 Once you are done with the chaiNNer installation, we need to install the required dependencies. This can be done by going to the top right of the chaiNNer window and selecting the download icon (manage dependencies) to install the PyTorch, NCNN, and ONNX packages that are mandatory to perform the tasks inside chaiNNer. 
 
@@ -204,13 +204,13 @@ Alternatively, if the PyTorch download times out, it means something is wrong wi
 
 You want to look for the one that chaiNNer recommends due to the integrated Python, which can be seen when you click on the PyTorch (6 packages) dropdown menu. The recommended version right now is 2.1.2+cu121, so the one you need to find/download is `torch-2.1.2+cu121-cp311-cp311-win_amd64.whl`. **CP311** correlates to a Python version, and the one that chaiNNer is currently using is version 3.11. This might change in the future, but the process stays the same. The download size is around two gigabytes. 
  
-Open CMD (C:\Users\YOUR-PC-NAME->) and paste this command `%appdata%\chaiNNer\python\python\python.exe -m pip install`. Now drag and drop the `torch.wml` file that you downloaded into CMD and the path will be created. Simply press ENTER and wait for process to finish. If everything goes well you will get the message **Successfully installed torch-2.1.2+cu121**. After that restart chaiNNer and go back to dependencies window to install rest of PyTorch packages which are around 3 megabytes only. Torch is the biggest file of all.
+Open CMD (C:\Users\YOUR-PC-NAME->) and paste this command `%appdata%\chaiNNer\python\python\python.exe -m pip install`. Now drag and drop the `torch.wml` file that you downloaded into CMD and the path will be created. Simply press ENTER and wait for process to finish. If everything goes well you will get the message **Successfully installed torch-2.1.2+cu121**. After that restart chaiNNer and go back to dependencies window to install the rest of PyTorch packages which are around 3 megabytes only. Torch is the biggest file of all.
 
-**Downloading debanding models**
+### Downloading debanding models
 
 All the debanding models can be find [here](https://openmodeldb.info/?t=debanding). Test only x1 models because we don't want to upscale our image x2 or above.
 
-**Setting up the nodes**
+### Setting up the nodes
 
 chaiNNer has a node system similar to those found in software like Blender or Unreal Engine. Essentially, we need to connect the nodes and run the task.
 Luckily, in chaiNNer, all we have to do is connect the nodes and run the task.
@@ -223,7 +223,7 @@ Your chaiNNer setup should look like this:
 
 ![Photoshop Layers](Images\FixColorBanding\chainnersetup.jpg){.shadowed .autosize}
 
-**Models example**
+### Models example
 
 The same image example from the first part of the guide was used. You can see results from all the models:
 
@@ -304,7 +304,7 @@ There are other fantastic AI upscale programs such as [Upscayl](https://www.upsc
 
 You can also use non-maintained programs such as Cupscale, particularly if you don't need the ChaiNNer features and want faster results. It's arguably the simplest method for improving the image. 
 
-**Cupscale**
+## Cupscale
 
 You can find it here: [Original GitHub](https://github.com/n00mkrad/cupscale) | [Recommended Fork](https://github.com/DrPleaseRespect/cupscale) | [Alternative Fork](https://github.com/RaaynML/cupscale_continued)
 
@@ -321,14 +321,7 @@ Now, find the deband models on your computer, copy them, and then paste them int
 
 In the bottom right of the Cupscale window, hit **Upscale and Save**. Done.
 
-
-If you have any questions let me know,
-
-Defaltsiuncula
-
 ___
+*Written by* StephenCalic(Defaltsiuncula)
 
 *Last Updated: December 22nd, 2024*
-
-
-
