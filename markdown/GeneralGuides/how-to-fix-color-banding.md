@@ -4,7 +4,7 @@ This guide will focus on post-processing after already taking the screenshot rat
 
 The guide examples below are zoomed [hotsampled](../basics.htm#hotsampling) 20MP shots *cropped* from 21:9/3:4 aspect ratios to inspect closely the sky for banding, or any other defects, and if there are any, this guide will show you how to solve it.
 
-# Banding as our enemy
+## Banding as our enemy
 
  Color banding is one of the most disturbing defects that you can find in your image. This phenomenon happens in smooth areas with similar shades, for example, a fading gradient (from light to dark), when the abrupt color change cannot be presented accurately. This results in certain colors appearing as bands rather than smoothly transitioning from one hue to another.
 
@@ -186,7 +186,7 @@ Notice the difference in gradients below:
 
 <div class="figure" align="center"><img src="../Images/FixColorBanding/Before_after adding noise_and after surface blur_resized.png" /><p style="text-align: center;">Top: banding example; Middle: 0.58% of added noise to reduce the banding; Bottom: how it looks with surface blur applied only</p></div>
 
-# ESRGAN and debanding models
+## ESRGAN and debanding models
 
 Besides the techniques explained until this point, one could also use "upscaling" models whose output resolution is the same (x1 models) but focus on fixing banding. Results may vary depending on the model and the shot, so be sure to experiment a bit by using and mixing different models. You may end up being able to fix very aggressive banding that is impossible to do on Lightroom without a manual editing.
 
