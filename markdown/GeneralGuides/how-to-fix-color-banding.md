@@ -24,13 +24,13 @@ Before we dive in, it’s worth mentioning the **ReShade Shader Toggler Add-on**
 There are simple ways to eliminate the banding on a shot fast in Photoshop and Lightroom, specifically in the sky to begin with.
 @end
 
-# Guide Requirements
+## Guide Requirements
 
 @alert Important
 Since this part of the guide focuses on a post-processing that happens after you are finished with the in-game photo shooting session, you will need to have Adobe Photoshop or Lightroom installed on your computer. You can use the application of your choice as long as you can apply the same techniques
 @end
   
-# Photoshop
+## Photoshop
 
 First off, drop your shot into Photoshop and duplicate the background layer by pressing `Ctrl + J` on PC, or by right-clicking the `Background layer > Duplicate layer`. **Its very important** to make sure that you are in 16bit mod by checking `Image menu > Mode`, and make sure that `16Bits/Channel` is selected. Now go to the Filters menu and choose Convert for Smart Filters. This way your duplicated layer becomes a Smart Object and you can work non-destructively. 
 
@@ -76,7 +76,7 @@ Let's go further now with a different example by adding some noise. So after the
 </div>
 <div class="figure"><p style="text-align: center;">Sky comparison again, this time with added noise, surface blur with a radius of 10-15, and threshold around 20. No banding.</p></div>
 
-# Lightroom 
+## Lightroom 
 
 
 Similarly, you can do this in Lightroom. After importing a screenshot into Lightroom, press `Shift + W` on PC or click on the [circle](https://i.imgur.com/uqktFNI.png) below the histogram to add a mask. Click on 'Select Sky' and Lightroom will automatically select the sky for you. If you're not happy with the AI selection, click on (Subtract from mask with...) while the mask is selected, and choose a brush. To avoid confusion, 'Subtract' is sometimes only shown as a minus sign because your Masks window might be smaller. If that's the case, you can enlarge it by clicking the [arrows](https://i.imgur.com/NZTCyBS.png) at the top-right of the Masks window. Use the brush to remove the effect from areas where you don't want the blur to be applied. Be sure to adjust the brush settings to smooth out the transitions.
@@ -125,7 +125,7 @@ It's worth mentioning that in general, adding noise or grain to the entire image
 Just keep in mind that surface blur cannot fix all types of banding, so we'll need to add noise or grain on top of it. It's best to combine both techniques anyway
 @end
 
-# Different cases
+## Different cases
 
 If the color banding occurs due to some lighting around the subject, we repeat the same process as above for [Photoshop](../GeneralGuides/simple_techniques_to_fix_color_banding.htm#photoshop), just skip the part where you need to select the sky. 
 
