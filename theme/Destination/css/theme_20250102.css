@@ -11,96 +11,177 @@
 }
 
 /* #region local font face definitions */
-/* source-sans-pro-300 - latin-ext_latin */
+
 @font-face {
-	font-family: 'Source Sans Pro';
-	font-style: normal;
-	font-weight: 300;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-300.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url('../fonts/source-sans-pro-v9-latin-ext_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+    font-family: 'Galano Grotesque Alt (Numbers)';
+    src: url('../fonts/GalanoGrotesqueAlt-Italic.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+	unicode-range: U+30-39; /* affects only 0-9 */
+	ascent-override: 50%; /* necessary for line-height matching, not necessary to be 50% - not supported on safari! */
 }
 
-/* source-sans-pro-300italic - latin-ext_latin */
 @font-face {
-	font-family: 'Source Sans Pro';
-	font-style: italic;
-	font-weight: 300;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-300italic.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro Light Italic'), local('SourceSansPro-LightIt'), url('../fonts/source-sans-pro-v9-latin-ext_latin-300italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300italic.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300italic.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300italic.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-300italic.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+    font-family: 'Galano Grotesque Alt (Numbers)';
+    src: url('../fonts/GalanoGrotesqueAlt-Regular.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+	unicode-range: U+30-39;
+	ascent-override: 50%;
 }
 
-/* source-sans-pro-regular - latin-ext_latin */
 @font-face {
-	font-family: 'Source Sans Pro';
+    font-family: 'Galano Grotesque Alt (Numbers)';
+    src: url('../fonts/GalanoGrotesqueAlt-SemiBold.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-SemiBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+	unicode-range: U+30-39;
+	ascent-override: 50%;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque Alt (Numbers)';
+    src: url('../fonts/GalanoGrotesqueAlt-SemiBoldItalic.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-SemiBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+	unicode-range: U+30-39;
+	ascent-override: 50%;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('../fonts/source-sans-pro-v9-latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+	font-display: swap;
+	font-variant-numeric: normal;
+	src: url('../fonts/AtkinsonHyperlegible-Regular.woff2') format('woff2'),
+	     url('../fonts/AtkinsonHyperlegible-Regular.woff') format('woff');
 }
 
-/* source-sans-pro-italic - latin-ext_latin */
 @font-face {
-	font-family: 'Source Sans Pro';
+	font-family: 'Atkinson Hyperlegible';
 	font-style: italic;
 	font-weight: 400;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-italic.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url('../fonts/source-sans-pro-v9-latin-ext_latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-italic.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-italic.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+	font-display: swap;
+	src: url('../fonts/AtkinsonHyperlegible-Italic.woff2') format('woff2'),
+	     url('../fonts/AtkinsonHyperlegible-Italic.woff') format('woff');
 }
 
-/* source-sans-pro-600 - latin-ext_latin */
 @font-face {
-	font-family: 'Source Sans Pro';
+	font-family: 'Atkinson Hyperlegible';
 	font-style: normal;
-	font-weight: 600;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-600.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url('../fonts/source-sans-pro-v9-latin-ext_latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-600.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-600.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-600.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+	font-weight: bold;
+	font-display: swap;
+	src: url('../fonts/AtkinsonHyperlegible-Bold.woff2') format('woff2'),
+	     url('../fonts/AtkinsonHyperlegible-Bold.woff') format('woff');
 }
 
-/* source-sans-pro-700 - latin-ext_latin */
 @font-face {
-	font-family: 'Source Sans Pro';
-	font-style: normal;
-	font-weight: 700;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-700.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url('../fonts/source-sans-pro-v9-latin-ext_latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-700.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-700.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+	font-family: 'Atkinson Hyperlegible';
+	font-style: italic;
+	font-weight: bold;
+	font-display: swap;
+	src: url('../fonts/AtkinsonHyperlegible-BoldItalic.woff2') format('woff2'),
+	     url('../fonts/AtkinsonHyperlegible-BoldItalic.woff') format('woff');
 }
 
-/* source-sans-pro-900 - latin-ext_latin */
 @font-face {
-	font-family: 'Source Sans Pro';
-	font-style: normal;
-	font-weight: 900;
-	src: url('../fonts/source-sans-pro-v9-latin-ext_latin-900.eot'); /* IE9 Compat Modes */
-	src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url('../fonts/source-sans-pro-v9-latin-ext_latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-900.woff') format('woff'), /* Modern Browsers */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/source-sans-pro-v9-latin-ext_latin-900.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+    font-family: 'Galano Grotesque Alt';
+    src: url('../fonts/GalanoGrotesqueAlt-Italic.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'Galano Grotesque Alt';
+    src: url('../fonts/GalanoGrotesqueAlt-Regular.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque Alt';
+    src: url('../fonts/GalanoGrotesqueAlt-Medium.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque Alt';
+    src: url('../fonts/GalanoGrotesqueAlt-MediumItalic.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque Alt';
+    src: url('../fonts/GalanoGrotesqueAlt-SemiBoldItalic.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque Alt';
+    src: url('../fonts/GalanoGrotesqueAlt-SemiBold.woff2') format('woff2'),
+         url('../fonts/GalanoGrotesqueAlt-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Controller'; /* font for xbox buttons */
+    src: url('../fonts/ControllerMicrosoftXboxOne.woff2') format('woff2'),
+        url('../fonts/ControllerMicrosoftXboxOne.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+	size-adjust: 125%; /* adjust button size */
+	line-gap-override: -33%; /* fix line-height */
+	unicode-range: U+31-39,U+3C,U+3E,U+41,U+43-45,U+51,U+53,U+57,U+58,U+5A,U+5B,U+5D,U+61,U+62,U+67,U+6D,U+76,U+78,U+79,U+7B,U+7D; /* affect only relevant ranges */
+}
+
+@font-face {
+    font-family: 'ControllerPS'; /* font for playstation buttons */
+    src: url('../fonts/ControllerSonyPlayStation4.woff2') format('woff2'),
+        url('../fonts/ControllerSonyPlayStation4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+	size-adjust: 125%; /* adjust button size */
+	line-gap-override: -33%; /* fix line-height */
+	unicode-range: U+31-39,U+3C,U+3E,U+41,U+43-45,U+51,U+53,U+57,U+58,U+5A,U+5B,U+5D,U+63,U+68,U+6F,U+72-74,U+78,U+7B,U+7D; /* affect only relevant ranges */
+}
+
+@font-face {
+	font-family: 'Stores'; /* Game store icons */
+	src:  url('../fonts/store-icons.woff2') format('woff2'),
+		url('../fonts/store-icons.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+	size-adjust: 125%; /* adjust button size */
+	line-gap-override: -33%; /* fix line-height */
+	unicode-range: U+42,U+45,U+47,U+52,U+53,U+4d,U+44,U+55; /* affect only relevant ranges */
+  }  
 
 /* #endregion */
 
@@ -125,6 +206,7 @@ audio:not([controls]) {
 
 a {
 	text-decoration: none;
+	transition: 0.1s ease;
 }
 
 a .icon {
@@ -134,6 +216,7 @@ a .icon {
 
 a:hover, a:active {
 	outline: 0;
+	transition: 0.1s ease;
 }
 
 a.headerlink {
@@ -157,7 +240,7 @@ blockquote {
 	border-left: 10px solid #ccc;
 	margin: 1.5em 10px;
 	padding: 0.5em 10px;
-	quotes: "\201C""\201D""\2018""\2019";
+	quotes: "\201C","\201D","\2018","\2019";
 }
 
 blockquote:before {
@@ -183,7 +266,7 @@ body {
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
 	min-height: 100%;
-	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Galano Grotesque Alt (Numbers)', 'Atkinson Hyperlegible', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 16px;
 }
 
@@ -215,7 +298,6 @@ button {
 }
 
 code, pre.nocode {
-	white-space: pre;
 	max-width: 100%;
 	border: solid 1px;
 	font-size: 90%;
@@ -223,6 +305,7 @@ code, pre.nocode {
 	margin: 0 3px;
 	font-family: Consolas, "Andale Mono WT","Andale Mono","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
 	overflow-x: auto;
+	white-space: pre-wrap;
 }
 
 code.code-large {
@@ -278,31 +361,33 @@ form {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
-	font-weight: lighter;
+	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif;
+	line-height: 100%;
 }
 
 h1 {
 	font-size: 220%;
 	margin-bottom:25px;
+	font-weight: 500;
 }
 
 h2 {
 	font-size: 190%;
 	margin-bottom:18px;
+	letter-spacing: -0.5px;
+	font-weight: 500;
 }
 
 h3 {
 	font-size: 155%;
 	margin-bottom:15px;
+	font-weight: 500;
 }
 
 h4 {
 	font-size: 130%;
 	margin-bottom: 13px;
-}
-
-h4.searchresulttitle {
-	margin-bottom: -5px;
+	font-weight: 500;
 }
 
 h5 {
@@ -360,8 +445,28 @@ img {
 	border: 0;
 	-ms-interpolation-mode: bicubic;
 	vertical-align: middle;
+	image-rendering: -webkit-optimize-contrast;
 }
 
+img.autosize {
+    max-width:100%;
+    height: auto;
+}
+
+img.bannerli {
+	line-height: 0;
+	margin: 0 auto;
+    -webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.33));
+	filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.33));
+	transition: all 0.1s ease;
+}
+
+img.bannerli:hover {
+	scale: 102%;
+	-webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.2));
+	filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.2));
+	border-radius: 8px;
+}
 
 input {
 	line-height: normal;
@@ -454,6 +559,7 @@ pre.nocode {
 	box-shadow: 0px 0px 8px rgba(10,10,10,0.1);
 	margin-bottom: 20px;
 	padding: 4px 4px;
+	word-break: break-word;
 }
 
 
@@ -485,6 +591,24 @@ sub {
 	bottom: -0.25em;
 }
 
+summary {
+	transition: 0.1s ease;
+}
+
+summary:hover {
+	transition: 0.1s ease;
+	cursor: pointer;
+}
+
+summary.important {
+	margin-top: 0;
+	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif;
+	line-height: 100%;
+	font-size: 130%;
+	margin-bottom: 13px;
+	font-weight: 500;
+}
+
 svg:not(:root) {
 	overflow: hidden;
 }
@@ -506,18 +630,44 @@ td {
 /* #endregion*/
 
 /* #region general classes */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+
 .hidden {
 	display: none !important;
 	visibility: hidden;
 }
 
+div.figure {
+	align-items: center;
+	text-align: center;
+}
+
 img.shadowed, div.figure img {
 	margin: 0 auto;
-	box-shadow: 0px 0px 8px rgba(10,10,10,0.2)
+    -webkit-filter: drop-shadow(0px 0px 10px #0a0a0a4d);
+	filter: drop-shadow(0px 0px 10px #0a0a0a4d);
+}
+
+img.smaller {
+	max-width: 50%;
+}
+
+img.resizable {
+    max-width: 100%;
+    height:auto;
 }
 
 div.figure p {
 	font-size: smaller;
+	text-align: left;
+	line-height: 125%;
+    margin-top: 0.33em;
 }
 
 .float-left {
@@ -534,6 +684,11 @@ div.figure p {
 
 .full-width {
 	width: 100%;
+}
+
+.mt10
+{
+	margin-top: 10px;
 }
 
 .no-highlight {
@@ -602,11 +757,12 @@ div.figure p {
 }
 
 .alert-title {
-	font-weight: bold;
+	font-weight: 600;
 	display: block;
 	margin: -12px;
 	padding: 6px 12px;
 	margin-bottom: 12px;
+	font-family: 'Galano Grotesque Alt', 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif
 }
 
 .alert p:last-child {
@@ -616,6 +772,7 @@ div.figure p {
 
 /* #region Tables*/
 .table {
+	display: inline-block;
 	border-collapse: collapse;
 	border-spacing: 0;
 	empty-cells: show;
@@ -873,16 +1030,10 @@ div.figure p {
 }
 
 .tab:checked + label {
-	box-shadow: 0 -1px 0 #fff inset;
 	cursor: default;
 }
 
-.tab:checked + label:hover {
-	box-shadow: 0 -1px 0 #fff inset;
-}
-
 .tab + label {
-	box-shadow: 0 -1px 0 #eee inset;
 	cursor: pointer;
 	display: block;
 	text-decoration: none;
@@ -901,10 +1052,6 @@ div.figure p {
 	height: 40px;
 	box-sizing: border-box;
 	padding: 10px;
-}
-
-.tab + label:hover {
-	box-shadow: 0 1px 0 #f4f4f4 inset;
 }
 
 .tab-content {
@@ -983,7 +1130,7 @@ div.figure p {
 }
 
 .menu a:hover {
-	text-decoration: none;
+	text-decoration: underline rgba(255, 255, 255, 0);
 }
 
 .menu-vertical header {
@@ -1033,12 +1180,32 @@ div.figure p {
 .menu-vertical ul.current {
 	padding-left: 10px;
 	margin-left: -10px;
-	padding-bottom: 3px;
+	padding-top: 8px;
+	padding-bottom: 12px;
+}
+
+.menu-vertical ul li.tocentry:nth-last-child(2) {
+    margin-top: 18px;
+    font-weight: normal;   
+}
+
+.menu-vertical ul li.tocentry:last-child {
+    font-weight: normal;   
+}
+
+.menu-vertical ul:first-child li.tocentry li.tocentry {
+	margin-top: 0;
+	font-weight: normal;   
+}
+
+.menu-vertical br + ul li.tocentry:nth-last-child(2) {
+	margin-top: 0;
+	font-weight: normal;   
 }
 
 .menu-vertical li {
 	list-style: none;
-	line-height: 16px;
+	line-height: 18px;
 }
 
 .menu-vertical li.tocentry {
@@ -1059,7 +1226,7 @@ div.figure p {
 }
 
 .menu-vertical li.tocentry > ul.currentrelative > li.tocentry {
-	padding-top: 3px !important;
+	padding-top: 7px;
 }
 
 .menu-vertical li.tocrootentry {
@@ -1070,7 +1237,8 @@ div.figure p {
 	margin-top: 7px;
 	margin-bottom: 3px;
 	margin-left: 0;
-	padding-top: 0px;
+	padding-top: 8px;
+	padding-bottom: 12px;
 }
 
 .menu-vertical li.current > a {
@@ -1081,6 +1249,8 @@ div.figure p {
 .menu-vertical a {
 	position: relative;
 	border: none;
+	text-decoration: underline rgba(255, 255, 255, 0);
+	transition: 0.1s ease;
 }
 
 	.menu-vertical a:hover {
@@ -1088,7 +1258,7 @@ div.figure p {
 	}
 
 	.menu-vertical a:hover, .menu-vertical li.current a:hover, .menu-vertical li.on a:hover, .menu-vertical li.current > a:hover {
-		text-decoration: underline;
+		text-decoration-color: rgba(255, 255, 255, 1);
 	}
 
 	.menu-vertical a:active {
@@ -1121,6 +1291,11 @@ div.figure p {
 	text-align: center;
 	font-size: 100%;
 	*zoom: 1;
+	font-family: 'Galano Grotesque Alt', 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif
+}
+
+.nav-top > .fa {
+	margin-top : 10px;
 }
 
 .nav-top:before, .nav-top:after {
@@ -1186,10 +1361,11 @@ div.figure p {
 
 	.side-nav-search > a, .side-nav-search .dropdown > a {
 		font-size: 100%;
-		font-weight: bold;
+		font-weight: 600;
 		display: inline-block;
 		padding: 4px 6px;
 		margin-bottom: 0.809em;
+		font-family: 'Galano Grotesque Alt', 'Atkinson Hyperlegible', 'Source Sans Pro', Arial, Helvetica, sans-serif
 	}
 /* #endregion*/
 
@@ -1260,7 +1436,7 @@ div.figure p {
 	img {
 		max-width: 100%;
 		height:auto;
-	}
+	}	
 	
 	.form input[type="text"] {
 		margin-bottom: 0.3em;
@@ -1278,7 +1454,7 @@ div.figure p {
 		max-width: 100%;
 		height:auto;
 	}
-
+	
 	.mobile-hide {
 		display: none;
 	}
@@ -1296,8 +1472,8 @@ div.figure p {
 	img {
 		max-width: 100%;
 		height:auto;
-	}
-
+	}	
+	
 	.nav-top {
 		display: block;
 	}
@@ -1380,4 +1556,185 @@ div.figure p {
 	border-radius: 50px;
 	padding: 6px 12px;
 }
+
+/**
+ * .slider
+ * ----------
+ * Slider Container - thanks Disparate!
+ * NOTE:
+ * You need to set a fixed aspect ratio to the HTML element itself, because when the children are position absolute,
+ * the parent has no context for how the size should be set and would screw with the slider.
+ */
+ .slider {
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0px 0px 10px rgba(10,10,10,0.3);
+  }
+  
+  /* text overlays */
+  .slider p {
+	position: absolute;
+	font-size: smaller;
+	bottom: 0;
+	margin-bottom: 10px;
+	text-shadow: 0px 0px 10px rgb(0 0 0);
+	padding: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: left;
+	left: 15px;
+	opacity: 0%;
+  }
+  .slider__img-after p {
+	left: auto;
+	right: 15px;
+	text-align: right;
+  }
+  
+  /**
+   * img
+   * .slider__img
+   * ----------
+   * Images
+   * NOTE: They're absolute to lay on top of each other, and with needs to fill the fixed size set to the container.
+   */
+  .slider__img {
+	max-width: 100%;
+	position: absolute;
+  }
+  img {
+	max-width: 100%;
+  }
+  
+  /**
+   * .slider__img-before
+   * ----------
+   * Images
+   * NOTE: We set a clip-path for masking:
+   * "Specifies a clipping path where everything inside the path is visible and everything outside is clipped out."
+   */
+  .slider__img-before {
+	clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  }
+  
+  /**
+   * .slider__input
+   * ----------
+   * The slider itself; we use an input because we can query direct values for our
+   * polygon/
+   */
+  .slider__input {
+	position: relative;
+	-webkit-appearance: none;
+	width: calc(100% + 20px);
+	height: 100%;
+	margin-left: -10px;
+	background-color: transparent;
+	outline: none;
+  }
+
+  /* sets appearance of sliders */
+  .slider__input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 75px;
+	background: #dcdfd8;
+	border-radius: 5px;
+	opacity: 0%;
+	transition: 0.1s ease;
+	cursor: ew-resize;
+  }
+  
+  /* firefox special :) */
+  .slider__input::-moz-range-thumb {
+	width: 20px;
+	height: 75px;
+	background: #dcdfd8;
+	border-radius: 5px;
+	opacity: 0%;
+	transition: 0.1s ease;
+	cursor: ew-resize;
+  }
+
+  /* sets appearance of divider */
+  .slider__divider {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	width: 2px;
+	left: 50%;
+	background-color: #dcdfd8;
+  }
+
+  /* hover animations - chromium browsers don't like it when comma :( */
+  .slider:hover p {
+	opacity: 1;
+	transition: 0.1s ease;
+  }
+
+  .slider:hover .slider__input::-moz-range-thumb {
+	opacity: 1;
+	transition: 0.1s ease;
+  }
+
+  .slider:hover .slider__input::-webkit-slider-thumb {
+	opacity: 1;
+	transition: 0.1s ease;
+  }
+
 /* #endregion */
+
+/* #region theme buttons */
+
+.button {
+	padding: 10px 16px;
+	border-radius: 24px;
+	background: #333;
+	font-family: 'Galano Grotesque Alt', Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: 800;
+	color: #dcdfd8;
+	border: none;
+	transition: all 0.1s ease;
+    -webkit-filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.33));
+	filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.33));
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.button.simple {
+	padding: 0;
+	border-radius: 0;
+	font-size: 24px;
+	font-weight: 800;
+	color: #dcdfd8;
+	border: none;
+	transition: all 0.1s ease;
+    -webkit-filter: none;
+	filter: none;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.button:hover {
+	-webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.2));
+	filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.2));
+}
+
+.button.simple:hover {
+    -webkit-filter: none;
+	filter: none;
+}
+
+.button a, .button a:visited {
+	color: #dcdfd8;
+	filter: brightness(1);
+}
+
+.button:hover a {
+	filter: brightness(1.2)
+			drop-shadow(0 0 2px #dcdfd8);
+}
+
+/* endregion */

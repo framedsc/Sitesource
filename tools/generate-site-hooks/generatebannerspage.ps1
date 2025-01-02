@@ -18,7 +18,7 @@ foreach($line in Get-Content .\markdown\docnet.json) {
         $htmlGuidePath = $guidepath -replace '\\markdown', ''
         $htmlGuidePath = $htmlGuidePath -replace '\.md', '.htm'
 
-        $htmlLine = "<a href=`"$htmlGuidePath`" target=`"_blank`"><img src=`"$imagePath`" class=`"shadowed autosize`" /></a> <br> <br>"
+        $htmlLine = "<a href=`"$htmlGuidePath`" target=`"_blank`"><img src=`"$imagePath`" class=`"shadowed autosize bannerli`" /></a> <br> <br>"
 
         $htmlLine | out-file -filepath $outputPath -append -width 200
     }
