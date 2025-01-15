@@ -30,7 +30,7 @@ There are simple ways to eliminate the banding on a shot fast in Photoshop and L
 Since this part of the guide focuses on a post-processing that happens after you are finished with the in-game photo shooting session, you will need to have Adobe Photoshop or Lightroom installed on your computer. You can use the application of your choice as long as you can apply the same techniques
 @end
   
-## Photoshop
+### Photoshop
 
 First off, drop your shot into Photoshop and duplicate the background layer by pressing `Ctrl + J` on PC, or by right-clicking the `Background layer > Duplicate layer`. **Its very important** to make sure that you are in 16bit mod by checking `Image menu > Mode`, and make sure that `16Bits/Channel` is selected. Now go to the Filters menu and choose Convert for Smart Filters. This way your duplicated layer becomes a Smart Object and you can work non-destructively. 
 
@@ -76,7 +76,7 @@ Let's go further now with a different example by adding some noise. So after the
 </div>
 <div class="figure"><p style="text-align: center;">Sky comparison again, this time with added noise, surface blur with a radius of 10-15, and threshold around 20. No banding.</p></div>
 
-## Lightroom 
+### Lightroom 
 
 
 Similarly, you can do this in Lightroom. After importing a screenshot into Lightroom, press `Shift + W` on PC or click on the [circle](https://i.imgur.com/uqktFNI.png) below the histogram to add a mask. Click on 'Select Sky' and Lightroom will automatically select the sky for you. If you're not happy with the AI selection, click on (Subtract from mask with...) while the mask is selected, and choose a brush. To avoid confusion, 'Subtract' is sometimes only shown as a minus sign because your Masks window might be smaller. If that's the case, you can enlarge it by clicking the [arrows](https://i.imgur.com/NZTCyBS.png) at the top-right of the Masks window. Use the brush to remove the effect from areas where you don't want the blur to be applied. Be sure to adjust the brush settings to smooth out the transitions.
@@ -166,7 +166,7 @@ Apply edits as mentioned above to remove the banding and they will only cover th
 
 <div class="figure" align="center"><img src="../Images/FixColorBanding/qbbeforeandafterexample.jpg" /><p style="text-align: center;">Smoothing out the banding that comes from the lighting which bleeds out behind.</p></div>
 
-# Using grain, noise and blur to solve color banding
+## Using grain, noise and blur to solve color banding
 
 @alert neutral
 Applying grain to a shot comes down to a personal choice. It is entirely your own individual preference, though it's highly recommended. Adding noise or grain can significantly improve your images.
@@ -190,13 +190,13 @@ Notice the difference in gradients below:
 
 Besides the techniques explained until this point, one could also use "upscaling" models whose output resolution is the same (x1 models) but focus on fixing banding. Results may vary depending on the model and the shot, so be sure to experiment a bit by using and mixing different models. You may end up being able to fix very aggressive banding that is impossible to do on Lightroom without a manual editing.
 
-## chaiNNer
+### chaiNNer
 
 There are many programs that can do this upscaling task, but only two of them will be mentioned in this guide. One of them is chaiNNer, because it's actively maintained by the people from openmodeldb, and it's really not that difficult to set up. It gives you much more control over how you process your photos, but at the expense of being a little more complicated.
 
 You can find the release [here](https://github.com/chaiNNer-org/chaiNNer/releases)
 
-### Installing dependencies
+#### Installing dependencies
 
 Once you are done with the chaiNNer installation, we need to install the required dependencies. This can be done by going to the top right of the chaiNNer window and selecting the download icon (manage dependencies) to install the PyTorch, NCNN, and ONNX packages that are mandatory to perform the tasks inside chaiNNer. 
 
@@ -206,11 +206,11 @@ You want to look for the one that chaiNNer recommends due to the integrated Pyth
  
 Open CMD (C:\Users\YOUR-PC-NAME->) and paste this command `%appdata%\chaiNNer\python\python\python.exe -m pip install`. Now drag and drop the `torch.wml` file that you downloaded into CMD and the path will be created. Simply press ENTER and wait for process to finish. If everything goes well you will get the message **Successfully installed torch-2.1.2+cu121**. After that restart chaiNNer and go back to dependencies window to install the rest of PyTorch packages which are around 3 megabytes only. Torch is the biggest file of all.
 
-### Downloading debanding models
+#### Downloading debanding models
 
 All the debanding models can be find [here](https://openmodeldb.info/?t=debanding). Test only x1 models because we don't want to upscale our image x2 or above.
 
-### Setting up the nodes
+#### Setting up the nodes
 
 chaiNNer has a node system similar to those found in software like Blender or Unreal Engine. Essentially, we need to connect the nodes and run the task.
 Luckily, in chaiNNer, all we have to do is connect the nodes and run the task.
@@ -223,7 +223,7 @@ Your chaiNNer setup should look like this:
 
 ![Photoshop Layers](Images\FixColorBanding\chainnersetup.jpg){.shadowed .autosize}
 
-### Models example
+#### Models example
 
 The same image example from the first part of the guide was used. You can see results from all the models:
 
@@ -304,7 +304,7 @@ There are other fantastic AI upscale programs such as [Upscayl](https://www.upsc
 
 You can also use non-maintained programs such as Cupscale, particularly if you don't need the ChaiNNer features and want faster results. It's arguably the simplest method for improving the image. 
 
-## Cupscale
+### Cupscale
 
 You can find it here: [Original GitHub](https://github.com/n00mkrad/cupscale) | [Recommended Fork](https://github.com/DrPleaseRespect/cupscale) | [Alternative Fork](https://github.com/RaaynML/cupscale_continued)
 
