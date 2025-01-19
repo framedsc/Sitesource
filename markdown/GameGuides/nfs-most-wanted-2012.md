@@ -31,9 +31,9 @@ Zoom In/Out | `Num 2`/`Num 8` - <font face="Controller">W / X</font>
 Tilt Left/Right | `Insert`/`Pg Up` - <font face="Controller">[ / ]</font>
 HUD toggle | `F6`
 Screen dirt effect toggle | `F7`
-TOD switcher | `F8`
+TOD switch | `F8`
 
-The TOD switcher lets you cycle through midnight, dawn, sunrise, midday, sunset, and dusk.
+The TOD switch lets you cycle through midnight, dawn, sunrise, midday, sunset, and dusk.
 
 @alert Tip
 If pausing doesn't bring up the PM you gotta connect to AutoLog again. While unpaused, open the EasyDrive menu, go to the first option called "Autolog recommends" and then select the "Connect to AutoLog" option.
