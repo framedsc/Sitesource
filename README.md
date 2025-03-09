@@ -4,10 +4,10 @@ The source files used to generate [the official site](https://framedsc.com). (c)
 
 ## Hosting the site
 
-The content of this site in its form in this repository isn't allowed to be re-hosted elsewhere other than on the official domain (https://framedsc.com). 
-If you want to re-host the content elsewhere, be it the English content as it is found in this repository, or a translated variant in a different language other than English, you have to add the following at the top of each page:
+The content of this site in its form in this repository must not be re-hosted elsewhere other than on the official domain (https://framedsc.com). 
+If you want to re-host the content elsewhere, be it the English content as it is found in this repository, or a translated variant in a different language other than English, you must add the following at the top of each page:
 
->"This page is part of the official Framed Screenshot Community website, and was written by members of the Framed Screenshot Community. It is originally hosted at <link to original page on https://framedsc.com>. The original page is (c) 2021-2025 Framed Screenshot Community. All rights Reserved."
+>"This page is part of the official Framed Screenshot Community website, and was written by members of the Framed Screenshot Community. The original is hosted at <link to original page on https://framedsc.com>. The original page is (c) 2021-2025 Framed Screenshot Community. All rights Reserved."
 
 To do this without editing all pages, you could add this to the page template, which is located in the `theme` folder. 
 
