@@ -1,8 +1,8 @@
 ![Lights!](Images\relit\relit_header.png){.shadowed .autosize}
 
-RELit is a powerful tool to create spotlight and pointlights in RE powered games. RELit was written by [Originalnicodr](https://github.com/originalnicodr) and [Otis_inf](https://github.com/FransBouma).
+RELit is a powerful tool to create spotlights and pointlights in RE-powered games. RELit was written by [Originalnicodr](https://github.com/originalnicodr) and [Otis_inf](https://github.com/FransBouma).
 
-At the time of writing, the supported games are *Devil May Cry 5*, *Monster Hunter Rise*, *Resident Evil 2 Remake*, *Resident Evil 3 Remake*, *Resident Evil 7* and *Resident Evil Village*, but we would expect future Capcom games that run on the RE Engine and are supported by REFramework to work as well.
+At the time of writing the supported games are *Devil May Cry 5*, *Monster Hunter Rise*, *Resident Evil 2 Remake*, *Resident Evil 3 Remake*, *Resident Evil 7* and *Resident Evil Village*, *Resident Evil 4*, *Dragon's Dogma 2*, and *Monster Hunter Wilds*. But we would expect future Capcom games that run on the RE Engine and are supported by REFramework to work as well.
 
 ---
 # Installation
@@ -10,7 +10,7 @@ At the time of writing, the supported games are *Devil May Cry 5*, *Monster Hunt
   - Go [here](https://github.com/praydog/REFramework-nightly/releases) and download the .zip file for the game you want to use RELit with. If you are having trouble with the nightly release try the [stable release](https://github.com/praydog/REFramework/releases).
 
   - After downloading the REFramework zip for your game, unpack that zip into a folder. Then copy the `dinput8.dll` file and the `reframework` folder into the game's folder, where the exe is (so e.g. in the case of DMC5, you download the DMC5.zip from the REFramework releases, 
-unpack it into a folder, and then copy the `dinput8.dll` file and the`reframework` folder to the DMC5 game folder, which is `<steam folder>\common\Devil May Cry 5`.
+unpack it into a folder, and then copy the `dinput8.dll` file and the`reframework` folder to the DMC5 game folder, which is `<steam folder>\common\Devil May Cry 5`).
 
 - Install RELit
     - Download the last version of RELit from the [releseas page](https://github.com/originalnicodr/RELit/releases).
@@ -18,9 +18,9 @@ unpack it into a folder, and then copy the `dinput8.dll` file and the`reframewor
     Alternatively, you can download the RELit.lua file from the repo and put the file inside `reframework/autorun` folder.
 
 # Configuring RELit and REFramework
-The default key to open the REFramework gui is the `Insert` key. If you use the Otis_Inf cameras you'd like to rebind this key in REFramework
+The default key to open the REFramework GUI is the `Insert` key. If you use the Otis_Inf cameras you'd like to rebind this key in REFramework
 to another key, e.g. scroll lock. When the REFramework GUI is open, go to configuration and rebind the menu key there, by clicking `Menu key`
-and then press the key you want to use, e.g. scroll lock, to open the REFramework gui.
+and then press the key you want to use, e.g. scroll lock, to open the REFramework GUI.
 
 When the REFramework GUI is open, click on `Script Generated UI`, and you'll see the `Show RELit UI` checkbox. Checking it will open the 
 RELit window. It has an initial width and height, you can resize it which will be remembered for the next sessions.
@@ -37,24 +37,26 @@ If the spawned lights don't show up in cutscenes, enable the REFramework freecam
 ## Creating lights
 In the RELit GUI, click on `Lights` to open the menu to create custom lights.
 
-- To create a light, click on the `Add new spotlight` or `Add new pointlight` buttons to create 
-a light of that type. The light is created at the position of the camera.
+- To create a light, click on the `Add new spotlight` or `Add new pointlight` buttons to create a light of that type. The light is created at the position of the camera.
 
-- To edit a light's properties, click on the `Edit` button next to the light in the 
-list of lights, which appears after creating a light.
+- To edit a light's properties, click on the `Edit` button next to the light in the list of lights, which appears after creating a light.
+
+- You can also return a property to its default value by right-clicking on the slider and pressing "Reset to Default".
 
 - The lights can also be moved to the camera position again by clicking `Move to camera`, or be tied to the camera by checking the `Attach to camera` checkbox.
+
+- You can also click on "Show Gizmo" to display a gizmo representing the light's position and rotation, which you can interact with to better tweak the light.
 
 - To delete a light, click on the `Delete` button.
 
 - You can also disable the light by clicking the checkbox next to its name. Doing that turns the light off without the need to delete it.
 
-- You can also copy a light's property into another light by clicking the `Copy` button. This will create a new light on the camera's position with the same properties as the original light.
+- You can also copy a light's property into another light by clicking the `Copy` button. This will create a new light in the camera's position with the same properties as the original light.
 
 ## Managing scene lights
 In the RELit GUI, clicking the `Scene Lights` header opens the scene lights menu, which lets you turn off and on the lights the game spawned by itself. You can obtain the list of current scene lights by clicking the `Update scene lights` button.
 
-- You can switch the currently switched on lights off with the `Switch off scene lights` button. To turn the lights on again click on the `Switch scene lights back on` button. 
+- You can switch the currently switched-on lights off with the `Switch off scene lights` button. To turn the lights on again click on the `Switch scene lights back on` button. 
 
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
@@ -107,7 +109,7 @@ Also, please take in mind that the values shown in the images below might not tr
 ## Point lights
 Radiate light in all directions from a single point in 3D space. It's best used for environmental lighting due to its omnidirectionality.
 
-## Spot lights
+## Spotlights
 Shoot a cone of light in a specified direction, also from a single point in 3D space. This is best used for lighting portraits, as it can be aimed at certain parts of a face.
 
 # Light Properties
@@ -173,7 +175,7 @@ It introduces extra ambient occlusion shadowing based on the light if you increa
 
 ## Volumetric Scattering Intensity
 
-This is the amount the light affects the fog that's in the world. It might be this option doesn't do anything, because there's no fog volume in the game at the light's location.
+This is how much the light affects the in-world volumetric fog. It might be this option doesn't do anything, because there's no fog volume in the game at the light's location.
 
 ## Radius
 This controls how far the light can travel, likely in in-game meters. Keep in mind that, for the light to be able to render farther it will increase its "intensity" closer to the origin (like a real-life light would do).
@@ -195,7 +197,7 @@ This controls how far the light can travel, likely in in-game meters. Keep in mi
 <br>
 
 ## Illuminance Threshold - Spotlight only
-Seems to be another, "harder",  kind of falloff of the light.
+Seems to be another, "harder",  kind of falloff of the light.
 
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
@@ -278,7 +280,7 @@ This checkbox toggles shadow rendering of the light. Off means no shadows at all
 ## Shadow Bias
 At 0, shadows will start at their caster surface but there will be many self-shadowing artifacts. With larger values, shadows will start further from their caster and there won't be self-shadowing artifacts but the object might appear to fly or float above a surface.
 
-In general, if the light is close to the object that's shadowed, setting this to a lower value gives sharper shadows and no banding.
+In general, if the light is close to the object that's being occluded, setting this to a lower value gives sharper shadows and no banding.
 
 ## Shadow Blur
 It's actually "Shadow Variance". Using a value of 0 will give you very defined shadows, but sometimes some can be very blocky (especially with self-shadow casting), and introducing a bit of "variance" could help.
@@ -299,8 +301,8 @@ It's actually "Shadow Variance". Using a value of 0 will give you very defined s
 </div>
 <br>
 
-## Shadow lod bias
-Unkown by the time of writing. I suppose it's related to the shadows cast on objects far away from the player, but haven't noticed much difference with it.
+## Shadow LOD bias
+Unknown by the time of writing. I suppose it's related to the shadows cast on objects far away from the player, but haven't noticed much difference with it.
 
 ## Shadow Depth Bias
 It controls how far should the occlusion start happening from the object that caused said occlusion.
@@ -325,7 +327,7 @@ It controls how far should the occlusion start happening from the object that ca
 Works in addition to Shadow Depth Bias in controlling how accurate self-shadowing of whole scene shadows from this light is. It works by increasing the amount of bias depending on the slope of a given surface.
 
 ## Shadow Near Plane
-It controls the distance from which the light starts casting shadows. We usually want this to be as low as possible so it casts shadows everywhere.
+It controls the distance from which the light starts casting shadows. We usually want this to be as low as possible so it casts shadows everywhere, but if the light source is not close to the object then it won't cast shadows either. You will have to play around with it a bit to see what a good range for this value is to cast shadows on the subject.
 
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
@@ -343,9 +345,8 @@ It controls the distance from which the light starts casting shadows. We usually
 </div>
 <br>
 
-
 ## Detail shadow - Spotlight only
-Looks to be the definition of the shadow. As with the other properties, results using different values might variate from game to game.
+Looks to be the resolution of the shadow. As with the other properties, results using different values might vary from game to game.
 
 <div class="slider container" style="aspect-ratio: 16/9">
   <div class="slider__img slider__img-after">
@@ -367,17 +368,19 @@ Looks to be the definition of the shadow. As with the other properties, results 
 
 - Sometimes a spotlight will stop rendering when moving it around or modifying some of its properties (or it might not even be rendered when first created). This looks to be an engine error, and the only workaround we have found so far is to move the light or the value of its properties just slightly until it gets rendered.
 
-- Not seeing any shadows when creating a spotlight it's likely due to the `Shadow Near Plane` value being too low/wrong. Go into the light editor and increase the Shadow near plane value to a higher value till you see the shadows appear and they look OK.
+- Not seeing any shadows when creating a spotlight it's likely due to the `Shadow Near Plane` value being too low/wrong. Go into the light editor and increase the Shadow near plane value to a higher value till you see the shadows appear and they look ok.
 
-- If you see big stripes in the shadows when creating a light, it might be due to the default `Shadow Bias` value. To correct these stripes, increase (or decrease) `Shadow Bias` value until they are gone.
+- If you see big stripes in the shadows when creating a light, it might be due to the default `Shadow Bias` value. To correct these stripes, increase (or decrease) the `Shadow Bias` value until they are gone.
 
-- As with other imgui-based applications, you can move sliders slower or faster by pressing `Control` or `Alt` respectively when moving them. You can also edit the value of the slider itself with `Control` + `Mouse Click`, even outside of the slider boundaries. We recommend you to stick to these, but since we are still experimenting with these values (and every game might behave around them differently) feel free to experiment.
+- As with other imgui-based applications, you can move sliders slower or faster by pressing `Control` or `Alt` respectively when moving them. You can also edit the value of the slider itself with `Control` + `Mouse Click`, even outside of the slider boundaries. We recommend you stick to these, but since we are still experimenting with these values (and every game might behave around them differently) feel free to experiment.
 
 - As with other light systems, lights can be mixed to simulate dispersed light.
 
 ![AddingLights](Images\relit\mixed_lights.jpg){.shadowed .autosize}
 
-- Altho it might not cause problems, it would be a good idea to delete spawned lights once they are not needed anymore to avoid making the game run into unpredicted behavior.
+- Although it might not cause problems, it would be a good idea to delete spawned lights once they are not needed anymore to avoid making the game run into unpredicted behavior.
+
+- Users have reported having problems making the spawned lights interact with subjects on cutscenes in some Resident Evil Remakes.
 
 ---
-*Last updated 8th July 2022*  
+*Last updated 3rd April 2025*
