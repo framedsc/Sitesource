@@ -108,7 +108,8 @@ However if for any reason you cannot use Reshade to add this, there are other wa
 
 * Lightroom can actually mimic grain, however, you'd have to mask the highlights, midtones, and shadows of the image and adjust grain manually for each. This can be tedious if you have a bunch of images to work on, though there is a [paid preset](https://vmoldo.com/grain-in-lightroom/) which should make this process easier.
 * Photoshop with the [Exposure plugin](https://exposure.software/). Exposure has a lot of film-like settings and presets which can serve as a starting point for custom edits. The plugin's grain implementation lets you adjust the shadows, highlights, and midtones of the grain without extra work which is super convenient.
-* You could also use free image manipulation software alternatives like [Gimp](https://www.gimp.org/downloads/). After you install it from the official website, drag and drop your desired image inside the editor, go to `Filters/Noise` then select the type of `Noise` you want to add. I recommend using `HSV Noise`, changing dulling to 8 and saturation to 0, and playing around with the value until you settle on something that looks right according to the guidelines in the first section. Also, play around with other noise types and values.
+
+* You could also use free image manipulation software alternatives like [Gimp](https://www.gimp.org/downloads/). After you install it from the official website, drag and drop your desired image inside the editor, go to `Filters/Noise` then select the type of `Noise` you want to add. I recommend using `HSV Noise`, change dulling to 8 and saturation to 0, and play around with the value until you settle on something that looks right according to the guidelines in the first section. Also, try playing around with other noise types and values.
 
 ## How much grain do I apply?
 This depends on your understanding of grain in film photography. For example, images that appear to be taken at a higher ISO (film speed) should have coarser and bigger grains, while images that are lower in ISO (film speed) should have finer grains.
@@ -116,11 +117,11 @@ This depends on your understanding of grain in film photography. For example, im
 This is just one of the aspects you should consider when attempting to replicate real grain in an image. We'd suggest reading more into the first section of the guide to better understand how much or how little to apply if you haven't already.
 
 @alert important
-When taking shots in-game it's important to turn off the game's vanilla film grain until you are finished editing everything other aspect of the picture, and adding it back at the end using a shader or a post-processing tool if desired (if using grain with a Reshade shader, such shader should be positioned last in the order of active shaders),
+When taking shots in-game it's important to turn off the game's vanilla film grain until you are finished editing every other aspect of the picture, and add it back at the end using a shader or a post-processing tool if desired (if using grain with a Reshade shader, such shader should be positioned last in the order of active shaders),
 
-Doing so allows you to have a clear view of the actual image without grain, and so you have complete control over the look of the grain without having to juggle how it looks with other effects applied.
+Doing that allows you to have a clear view of the actual image without grain, then you have complete control over the appearance of the grain without having to juggle how it looks with other effects applied.
 @end
-
+##
 *Written by: [NotRay_st](https://x.com/NotRay_st)*
 
-*Last updated on:* 2025/6/29
+*Last updated on:* 2025/6/30
