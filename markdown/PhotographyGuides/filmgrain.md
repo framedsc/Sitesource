@@ -108,7 +108,6 @@ However if for any reason you cannot use Reshade to add this, there are other wa
 
 * Lightroom can actually mimic grain, however, you'd have to mask the highlights, midtones, and shadows of the image and adjust grain manually for each. This can be tedious if you have a bunch of images to work on, though there is a [paid preset](https://vmoldo.com/grain-in-lightroom/) which should make this process easier.
 * Photoshop with the [Exposure plugin](https://exposure.software/). Exposure has a lot of film-like settings and presets which can serve as a starting point for custom edits. The plugin's grain implementation lets you adjust the shadows, highlights, and midtones of the grain without extra work which is super convenient.
-
 * You could also use free image manipulation software alternatives like [Gimp](https://www.gimp.org/downloads/). After you install it from the official website, drag and drop your desired image inside the editor, go to `Filters/Noise` then select the type of `Noise` you want to add. I recommend using `HSV Noise`, change dulling to 8 and saturation to 0, and play around with the value until you settle on something that looks right according to the guidelines in the first section. Also, try playing around with other noise types and values.
 
 ## How much grain do I apply?
@@ -121,7 +120,9 @@ When taking shots in-game it's important to turn off the game's vanilla film gra
 
 Doing that allows you to have a clear view of the actual image without grain, then you have complete control over the appearance of the grain without having to juggle how it looks with other effects applied.
 @end
-##
+
+<hr>
+
 *Written by: [NotRay_st](https://x.com/NotRay_st)*
 
 *Last updated on:* 2025/6/30
