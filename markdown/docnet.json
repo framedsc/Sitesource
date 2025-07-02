@@ -220,6 +220,7 @@
 		"Photography guides" : 
 		{
 			"__index": "PhotographyGuides\\index.md",
+			"Film Grain": "PhotographyGuides\\filmgrain.md",
 			"The basics": "PhotographyGuides\\basics.md",
 			"Rule of Thirds": "PhotographyGuides\\ruleofthirds.md",
 			"Perspective and Scale": "PhotographyGuides\\scale.md",
