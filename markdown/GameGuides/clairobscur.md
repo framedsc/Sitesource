@@ -14,7 +14,7 @@ Graphics API | DirectX 12
 
 * [Unreal Engine Unlocker v5.4.11 or higher](https://opm.fransbouma.com/uuuv5.htm) (Not free, only available on Patreon)  
 **Features**: Camera control, custom lights, dev console, game speed, pause/timestop, black bar removal, hud toggle, post processing, camera paths, pose tools, animation control on selected actors
-* [Lyall's Clair Obscur fix](https://github.com/Lyall/ClairObscurFix) (Free)  
+* [Lyall's Clair Obscur fix](https://codeberg.org/Lyall/ClairObscurFix) (Free)  
 **Features**: Dev console, skip intro logos, black  bar removal, dev console. 
 
 ## Tips and Tricks

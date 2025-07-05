@@ -63,7 +63,7 @@ These mods are **required** for shaders. Pick and install only one.
 - [**OptiFine**](https://optifine.net/home)  
 OptiFine is an optimisation mod that adds a large number of visual features while improving performance. It is currently the mod shaders are written around, which makes it the obvious choice when you want to play with shaders. However, it is notoriously closed-source, which has spurred on development of alternative mods.
 
-- [**Iris & Sodium**](https://irisshaders.net/)  
+- [**Iris & Sodium**](https://irisshaders.dev/)  
 Part of the new wave of open-sourced Minecraft modding, Iris is an extension to the optimisation mod [Sodium](https://github.com/CaffeineMC/sodium-fabric), allowing that to load shaders as well. Shader support with Iris is varied, with some shaderpacks poorly supported.
 
 - [Focal Engine](https://continuum.graphics/featured-release/2020/12/20/87433/continuum-rt-build-13-launch-blog/) (*In development*)  
