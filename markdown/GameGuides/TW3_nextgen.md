@@ -1,4 +1,4 @@
-![The Witcher 3 Next Gen](Images\TW3NG.png "Shot by IronGauntlet"){.shadowed .autosize}
+![The Witcher 3: Wild Hunt Next Gen](Images\TW3NG.png "Shot by IronGauntlet"){.shadowed .autosize}
 
 ## Summary
 
