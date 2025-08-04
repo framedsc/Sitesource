@@ -1,4 +1,4 @@
-![Persona 5 Royal](Images\persona5royal_header.png "Shot by ashcorpdev"){.shadowed .autosize}
+![Persona 5 Royal](Images\persona5royal_header.png "Shot by ofseaandstars"){.shadowed .autosize}
 
 ## Summary
 
