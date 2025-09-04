@@ -12,6 +12,12 @@ Custom Aspect Ratios | Yes (with cheat table)
 Reshade | Yes, see guide below
 Graphics API | DirectX 12
  
+@alert neutral  
+This cheat table is **outdated** because of the game updates following the original release. You can instead use [Astartes Overhaul](https://www.nexusmods.com/warhammer40000spacemarine2/mods/89), which comes with a freecam of its own (although it has some issues). So either use that or [rollback update](../GeneralGuides/steam_update_guide.htm) of the game to its original release version.
+
+Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information.
+@end
+
 ## Tools
 
 * [Cheat table for enhancing the in-game photomode](..\CheatTables\SM2_PM.CT) by Otis_Inf and Skall  
