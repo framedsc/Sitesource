@@ -13,7 +13,8 @@ Reshade | Yes, see guide below
 Graphics API | DirectX 12
  
 @alert neutral  
-This cheat table is **outdated** because of the game updates following the original release. You can instead use [Astartes Overhaul](https://www.nexusmods.com/warhammer40000spacemarine2/mods/89), which comes with a freecam of its own (although it has some issues). So either use that or [rollback update](../GeneralGuides/steam_update_guide.htm) of the game to its original release version.
+This cheat table is **outdated** because of the game updates following the original release. You can instead use the [Extended Camera
+mod](https://www.nexusmods.com/warhammer40000spacemarine2/mods/323) or [Astartes Overhaul](https://www.nexusmods.com/warhammer40000spacemarine2/mods/89) which comes with a freecam of its own (although it has some issues). So either use one of those or [rollback update](../GeneralGuides/steam_update_guide.htm) of the game to its original release version.
 
 Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information.
 @end
