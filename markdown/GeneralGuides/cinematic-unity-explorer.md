@@ -23,13 +23,6 @@ The setup is the most cumbersome step of using the Cinematic Unity Explorer but 
 
 If you stick around and follow the steps as explained below you shouldn't have any problems.
 
-<p align="center">
-<a href="https://www.youtube.com/watch?v=qufWSNPyeYQ" target="_blank">
-  <img src="https://i.ytimg.com/vi_webp/qufWSNPyeYQ/maxresdefault.webp">
-</a>
-<i>If you ever get lost in this guide I suggest watching the video above for visual aid, even tho it's about installing the original Unity Explorer.</i>
-</p>
-
 ## Thunderstore
 
 Depending on the game, there may be [Thunderstore Mod Manager](https://www.overwolf.com/app/thunderstore-thunderstore_mod_manager) support. If so, many of the steps below regarding selecting the right BepInEx/MelonLoader may be avoidable, providing a more streamlined process for installation.
@@ -174,28 +167,43 @@ Boot the game again, through the Modded play button. You should see an overlay w
 ---
 The table below describes all of the default hotkeys. You can edit them to your liking by going to the Options panel inside the mod menu, changing the hotkeys you want, and saving the settings (or manually replacing them by editing the `BepInEx\config\com.originalnicodr.cinematicunityexplorer.cfg` file).
 
-Feature | Key
--|-
-Freecam | `Insert`
-Move the camera forward/left/backward/right | `W`/`A`/`S`/`D` - `UpArrow`/`LeftArrow`/`DownArrow`/`RightArrow`
-Move the camera upwards | `Space`
-Move the camera downwards | `LeftControl`
-Speed up movement | `LeftShift`
-Slow down movement | `LeftAlt`
-Change freecam orientation | Right mouse click
-Tilt left | `Numpad 1`
-Tilt right | `Numpad 3`
-Reset tilt | `Numpad 2`
-Increase FOV | `Numpad +`
-Decrease FOV | `Numpad -`
-Reset FOV | `Numpad *`
-Pause | `PageUp`
-Block Freecam in place | `Home`
-Block the games input | `Numpad .`
-Frameskip | `PageDown`
-HUD Toggle | `Delete`
-Freeze NPC animations | `Numpad 0`
-Open the mod menu | `F7`
+Feature | Keyboard | Gamepad
+-|-|-
+Freecam toggle | `Insert` | `X + R3`
+Move the camera forward/left/backward/right | `W`/`A`/`S`/`D` - `UpArrow`/`LeftArrow`/`DownArrow`/`RightArrow`/ | Left stick
+Move the camera upwards | `Space` | `LT`
+Move the camera downwards | `LeftControl` | `RT`
+Speed up movement | `LeftShift` | `Y`
+Speed down movement | `LeftAlt` | `X`
+Change freecam orientation | Right mouse click | Right stick
+Tilt left | `Numpad 1` | Dpad left
+Tilt right | `Numpad 3` | Dpad right
+Reset tilt | `Numpad 2` | `A`
+Decrease FOV | `Numpad -` | Dpad up
+Increase FOV | `Numpad +` | Dpad down
+Reset FOV | `Numpad *` | `B`
+Pause | `PageUp` |
+Block Freecam movement and rotation | `Home` |
+Block games input | `Numpad .` |
+Frameskip | `PageDown` |
+HUD Toggle | `Delete` |
+Freeze NPC animations | `Numpad 0` |
+Time scale override toggle | | `X + L3`
+Decrease time scale | | `X + L1`
+Increase time scale | | `X + R1`
+Camera path: Add node | | `A`
+Camera path: Navigate to previous node | | `L1`
+Camera path: Navigate to next node | | `R1`
+Camera path: Start/stop playback | | `START`
+Camera path: Pause/unpause playback | | `SELECT`
+
+@alert important
+Gamepad is only compatible if the game is using [Unity Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/index.html).
+@end
+
+@alert tip
+Because of limitations in the implementation, if you connect the control after starting up the game, you will need to reselect the controller on the [freecam](#freecam) panel.
+@end
 
 # Freecam
 ---
@@ -203,21 +211,27 @@ The freecam can be enabled from the "Freecam" panel on the mods menu or with the
 
 ![Freecam Panel](../Images/CinematicUnityExplorerGuide/freecam-panel.png){.shadowed .autosize}
 
-## New Camera
+## Freecam types
 
-When selecting "New" in the Camera Mode dropdown on the Freecam panel, the mod will create a new camera object for you to control. This mode will give you a controllable freecam almost every time, but chances are some (if not most) post-processing effects won't be displayed (because they are being applied to the game's camera, not the new one), making the game look "ugly".
+### ForcedMatrix camera (selected by default)
 
-![sidebyside](../Images/CinematicUnityExplorerGuide/sidebyside.jpg){.shadowed .autosize}
+Forces the projection and worldToCamera matrices of the original gameplay camera with our own. This way, we can override what the camera renders without the game logic getting in the way.
 
-However, we would like this to be the case in some games if the gameplay camera happens to bring unwanted effects (like in Somerville, where the gameplay camera didn't render behind the black bars, but this new camera did).
+This isn't a silver bullet solution, as there are some games that may have some visual problems/glitches with this approach, but it's very possible that it will work for most games. If you have visual problems like the above, or moving the camera around would make the game unplayable later when you finish your freecam session (some devs don't force the camera transform to its right place and assume it will always be where they think it is), then consider using the [freecam mode below](#cloned-camera).
 
-## Gameplay camera
+### Cloned camera
 
-If you need these postprocessing effects you would need to choose any of the other Camera Modes in the dropdown. In the case of the "Gameplay" camera mod, it will let you control the gameplay camera instead of creating a new one to control.
+It clones the game object that has the gameplay camera. By doing this instead of using the original gameplay camera we can take control of the camera in case there is an external game object or component that was controlling it, as the game won't have a a reference to this new camera, like when you create a new camera. The difference is that we are also copying all the components that are inside of this game object, which may include postprocessing effects if they are not in another game object.
 
-When doing this, the Cinematic Unity Explorer will attempt to disable the component that controls this gameplay camera, but in some cases, it won't be able to find the right component to disable and unlock the camera from the game. In such cases in which you cannot move or rotate the gameplay camera we suggest trying the [Cloned](#cloned-camera) or [ForcedMatrix](#forcedmatrix-camera) camera modes, but if those don't work for whatever reason or the postprocessing effects get butchered you can try the following:
+There are some cases in which postprocessing effects aren't on the same game object but on a parent game object or an external one, meaning that for them to render properly we would need to use one of the other methods.
 
-### Gameplay Camera troubleshooting
+### Gameplay camera
+
+The "Gameplay" freecam type will let you control the gameplay camera instead of creating a new one to control.
+
+When doing this, the Cinematic Unity Explorer will attempt to disable the component that controls this gameplay camera, but in some cases, it won't be able to find the right component to disable and unlock the camera from the game. In such cases in which you cannot move or rotate the gameplay camera we suggest trying the [Cloned](#cloned-camera) or [ForcedMatrix](#forcedmatrix-camera-selected-by-default) camera modes, but if those don't work for whatever reason or the postprocessing effects get butchered, you can try the following:
+
+#### Gameplay Camera troubleshooting
 
 - Click on the "Inspect Free Camera" button at the end of the Freecam panel.
 - On the Inspector window click on the "Inspect GameObject" button.
@@ -238,17 +252,59 @@ The *CineMachine* component (a common Unity class used for controlling a gamepla
 
 ![Disable another component on the gameplay camera](../Images/CinematicUnityExplorerGuide/disable-camera-components.webp){.shadowed .autosize}
 
-## Cloned camera
+@alert tip
+Once you find the component that requires disabling to properly move the camera, you may want to add it to the [list of components to disable](#custom-component-disabling).
+@end
 
-It clones the game object that has the gameplay camera. By doing this instead of using the original gameplay camera we can take control of the camera in case there is an external game object or component that was controlling it, as the game won't have a a reference to this new camera, like when you create a new camera. The difference is that we are also copying all the components that are inside of this game object, which may include postprocessing effects if they are not in another game object.
+### New Camera
 
-There are some cases in which postprocessing effects aren't on the same game object but on a parent game object or an external one, meaning that for them to render properly we would need to use one of the following methods.
+When selecting "New" in the Camera Mode dropdown on the Freecam panel, the mod will create a new camera object for you to control. This mode will give you a controllable freecam almost every time, but chances are some (if not most) post-processing effects won't be displayed (because they are being applied to the game's camera, not the new one), making the game look "ugly".
 
-## ForcedMatrix camera
+![sidebyside](../Images/CinematicUnityExplorerGuide/sidebyside.jpg){.shadowed .autosize}
 
-Forces the projection and worldToCamera matrices of the original gameplay camera with our own. This way we can override what the camera renders without the game logic getting in the way.
+However, we would like this to be the case in some games if the gameplay camera happens to bring unwanted effects (like in Somerville, where the gameplay camera didn't render behind the black bars, but this new camera did).
 
-This isn't a silver bullet solution as there are some games that may have some problems with this approach (the ones that use the HD rendering pipeline package mainly), but it's very possible that it will work for most games.
+## Target Camera dropdown
+
+All of the methods described above (aside from "New Camera") interact with the "main camera" offered by the game. There are times that the game doesn't tag any camera as the main, or because of how their rendering pipeline works, the actual camera doing the rendering isn't the one tagged as main. In these cases, we would like to manually select which camera we want our freecam methods to interact with. Therefore, we do the following:
+
+1. Go to the CUE options panel, scroll down, and enable "Freecam Camera Target Selection". Restart the game.
+2. Go to the freecam panel. You should see a new dropdown next to the freecam method dropdown. Enable freecam mode, and you will get that new dropdown filled with the existing camera objects in the current scene.
+3. Go one by one with the current freecam method and see if the newly selected camera object allows you to move the camera.
+4. If neither of the cameras available in that dropdown can be moved with your current freecam type, select another freecam method and try all of them again (minus the [New Camera](#new-camera)). One should work.
+
+Please keep in mind that this is some sort of "last resort" solution. Only do this if either you see an error in the CUE console saying that it couldn't find the camera, or if neither of the freecam methods worked (even after attempting to disable components, as explained in the [Gameplay Camera troubleshooting](#gameplay-camera-troubleshooting) section).
+
+@alert tip
+You only really need to look up this target camera once. After that, CUE will remember your target camera and try to look for it in subsequent sessions.
+@end
+
+## Custom component disabling
+
+Sometimes, there are components that you always disable when entering freecam. It could be a component that is moving the camera, so you need to get rid of it (like we do on [Gameplay Camera troubleshooting](#gameplay-camera-troubleshooting)), a shader effect that messes with your screenshots, a UI element that isn't toggled off with our [HUD toggle](#hud-toggle), or the custom character controller solution the game uses and it's also not disabled by default. CUE provides a system to describe all of these components to it so it can disable them for you every time you enter Freecam. To do so:
+
+1. Go to the freecam panel and head down to the "Components To Disable" input field.
+2. In there, you can write a list of components "paths" separated by commas, like the example below:
+
+```
+CameraController, ../OutlineEffect, ~/GameManager/CharacterController
+```
+
+@alert tip
+Think of objects as "folders" and components as "files". Every entry in the list of components could have multiple "folders" in its hirarchy, and each entry can either point to a "file" or a "folder", depending if you want to disable just a single component or an entire game object.
+@end
+
+These components' "paths" are relative to the target camera object. So, if, for example, the freecam method you want/need to use requires disabling a component that is controlling the camera, like `CameraController` (which is a component in the target camera object), you can just add it to this list so it's disabled/enabled every time you enter/exit freecam mode.
+
+The second example, `../OutlineEffect`, refers to a component (or game object) that lives in the parent object of the camera. Sometimes, unwanted effects exist in other objects close to the camera as some sort of wrapper. So, we can use `../` to refer to the parent object of the target camera as if it were a file system path. You can chain these to refer to another ancestor object up the parent hierarchy, but if you are chaining a lot of these, maybe consider taking a look at the example below.
+
+The third and last example, `~/GameManager/CharacterController`, includes a `~/` at the beginning. As with a Unix filesystem, this tells CUE that the path you are about to present starts at the root of the scene. This is useful when you want to disable components that are unrelated to the camera and are, therefore, "far" from it, like a component in charge of reading user input and translating it to player movement.
+
+@alert tip
+CUE Inspector panel, as shown in the [Playing around with game objects section](#playing-around-with-game-objects), gives you the full path of the object at the top, which you can copy completely to refer to a specific object you want to disable the component of. Just remember to add `~/` at the start of the path, and finish the path with an actual gameobject name itself (and component, if you need to).
+
+For more info about the distinction between game objects and components, refer to the linked section.
+@end
 
 ## Far and near clipping plane
 
@@ -266,7 +322,7 @@ You can enable or disable the game input when the freecam is enabled by clicking
 
 This can be used in conjunction with the "Block freecam" to freeze the freecam in a specific, nongameplay place, while you move the character around.
 
-Do keep in mind tho that this feature only works if the developers use Unity's Legacy Input system for their game. If the game uses a custom solution or the latest Unity system then this won't work. Implementing this for Unity's new system is in the backlog, so if you find a game using it (should say `Initialized new InputSystem support.` on the logs) then please let me know on the [repository issues page](https://github.com/originalnicodr/CinematicUnityExplorer/issues) so I can implement it using that game!
+Do keep in mind, tho, that this feature only works if the developers use [Unity's Legacy Input System](https://docs.unity3d.com/6000.2/Documentation/Manual/InputLegacy.html) or the new [Unity Input System package](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/index.html) for their game. If the game uses a custom solution (or uses the actions engine system, as far as I understand), then this won't work.
 
 Also, know that blocking game input coming from a controller isn't supported at the time of writing.
 
