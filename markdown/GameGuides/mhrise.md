@@ -100,4 +100,4 @@ At the time of writing the last version of reshade, 5.0.2 (addon version) crashe
 ## Useful Links
 
 * [Disabling color gradig LUT](https://www.nexusmods.com/monsterhunterrise/mods/31)
-* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Bulletstorm:_Full_Clip_Edition)
+* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Monster_Hunter_Rise)
