@@ -1,62 +1,51 @@
-![RoboCop: Rogue City](Images\robocop_rogue_city_header.png "Shot by Dogmod"){.shadowed .autosize}
+![RoboCop: Rogue City](Images\robocop_rogue_city_header.png "Shot by ItsYFP"){.shadowed .autosize}
+
 ## Summary
+
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes (use windowed fullscreen)
-DSR | Yes
-Custom Aspect Ratios | Yes  
+Hotsampling | Yes (use windowed mode)
+DSR | Probably
+Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
 Graphics API | DirectX 12
-Game version |  <font face="Stores">S</font> 1.1.1.0
-
-@alert neutral  
-This guide is for an Unreal Engine 5 game that can use the [Universal Unreal Unlocker](https://opm.fransbouma.com/uuuv5.htm).  
-@end
-
+Game version | <font face="Stores">S</font> 1.7.0.0
+ 
 ## Tools
 
-* [Unreal Engine 5 Unlocker](https://opm.fransbouma.com/uuuv5.htm)  
-**Features**: Camera, HUD toggle, Hotsampling, Console, Timestop, Slowmo, Custom lights, Post-processing 
+* [Unreal Engine Unlocker v5.4.11 or higher](https://www.patreon.com/posts/83234146) (Not free, available on Patreon)  
+**[Features](https://opm.fransbouma.com/uuuv5.htm)**: Camera control, FoV control, HUD toggle, game speed, pause/timestop, hotsampling, post processing, camera paths, pose tools
 
-All features are tested and working on the release version of the game (<font face="Stores">S</font> 1.1.1.0)
+   
+## Posing:
+RoboCop specifically does not have a player model available during normal gameplay. However, you can use it through the "Experimental Options" in the UUU Interface.
 
-## IGCS Depth of Field quirks
+**How to:**
 
-Generally, IGCS Depth of Field works great with RoboCop. However, achieving extreme levels of DOF requires inputting 
-**Max. bokeh size** manually in Reshade. By default, **Max. bokeh size** is capped at 10.000. For RoboCop this 
-may not be enough in some cases. To input a bigger value, double click the **Max. bokeh size** number and input whatever
-value you need. 
+- Enable the Free Camera (`Insert`)
+- Open the in-game UUU Interface (`CTRL`+`Insert`)
+- Click on RoboCop (you will only see his 2 arms) to get his model show up in the list.
+- Now click on "Experimental Options" in the UUU interface, just below the "Show Pose Editor" button.
+- Select **SK_RoboCop** in "Skeletal Mesh" to have his model available anywhere you want, just be aware that some bones in the "Bone Tree" seem to use a different name (for example, the "Head" is actually `spine_02`). 
 
-When using upscaling with IGCS Depth of Field, images may turn out blurry. To avoid this,
-set **Number of frames to wait per frame** to 5. This will increase the time it takes to complete a shot, but
-the focal point will be correct.
+You can also access his model and use poses during (specific) cutscenes. There are 2 types of cutscenes happening. 
 
-## Known issues
+- **Cinematics with Black Bars**: Here you can access his model and move it around but not pose it. 
+- **Conversations with NPCs**: In these you are also able to access his model, move it around but also be able to pose it. If you want to have RoboCop in any city location available in your screenshot, you can use these **Conversation with NPCs** too, the city as a whole is fully accessible and rendered in free camera.
 
-### Arm rig visible when camera is active
+**How to:**
 
-When hiding the HUD using Unreal Engine 5 Unlocker, arm rig remains visible in the scene.
+- Play a story mission
+- Get into conversations with an NPC
+- Pause the game (`Numpad 0`)
+- Enable the Free Camera (`Insert`)
+- Open the in-game UUU Interface (`CTRL`+`Insert`)
+- Click on RoboCop to get his model show up in the list
+- Click on "Show Pose Editor"
 
-To fix this, check **Toggle player visibility** in **Misc. adjustments** in Unreal Engine 5 Unlocker.
+## Useful Links
 
-### Possible crash when issuing a ticket
-
-If Unreal Engine 5 Unlocker is injected when issuing a car ticket in game (part of Serve and Protect side quest),
-the game may throw an exception and crash.
-
-Reloading a level from the beginning may solve the issue (using saves the game creates at the beginning of every mission).
-
-If you don't want to reload, this can somewhat be avoided by closing Unreal Engine 5 Unlocker before issuing the ticket. 
-The game will not crash right away, but injecting Unreal Engine 5 Unlocker later will cause the exception again. You can ignore the window and reach
-a checkpoint to save the game, but camera tools will not work and pressing **OK** in the exception window will crash the game.
-
-Issuing a ticket, saving, then reopening the game and injecting Unreal Engine 5 Unlocker should not crash the game.
-
-Rarely, this crash may also occur when reinjecting Unreal Engine 5 Unlocker.
-
-### Camera in cutscenes
-
-Currently, you can't control the camera in cutscenes. However, camera control does work in the main menu 
-and can be used for photos with full Robocop model.
+* [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/RoboCop:_Rogue_City)
+* [Nexus Mods](https://www.nexusmods.com/games/robocoproguecity)
