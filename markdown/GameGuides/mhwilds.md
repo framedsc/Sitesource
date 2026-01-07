@@ -66,7 +66,7 @@ The tools' pause isn't perfect, and some weapons move a bit over time while paus
 
 ## Taking shots in cutscenes
 
-Unfortunately, neither the tools nor REFramework pause and time dilation options let you pause the cutscenes, so if you want to shoot them, you would need to pause them in-game with the X button. Just be careful not unpausing by accident if you activate the game-input passthrough to interact with REFramework.
+Unfortunately, neither the tools nor REFramework pause and time dilation options let you pause the cutscenes, so if you want to shoot them, you would need to pause them in-game with the <font face="Controller"> > </font> / `End` key. Just be careful not unpausing by accident if you activate the game-input passthrough to interact with REFramework.
 
 @alert tip
 If you want to reilluminate a scene in a cutscene, you would be interested in the vanilla lights that pop up at the top of the list in RELit, as those are specific scene lights and are probably the ones you are looking for to turn off manually.
