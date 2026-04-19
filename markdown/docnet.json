@@ -230,8 +230,9 @@
 		"Photography guides" : 
 		{
 			"__index": "PhotographyGuides\\index.md",
-			"Film Grain": "PhotographyGuides\\filmgrain.md",
 			"The basics": "PhotographyGuides\\basics.md",
+			"Film Grain": "PhotographyGuides\\filmgrain.md",
+			"Negative Space": "PhotographyGuides\\negative-space.md",
 			"Rule of Thirds": "PhotographyGuides\\ruleofthirds.md",
 			"Perspective and Scale": "PhotographyGuides\\scale.md",
 		},
