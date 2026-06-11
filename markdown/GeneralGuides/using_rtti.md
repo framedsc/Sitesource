@@ -1,6 +1,10 @@
 Using RTTI info in a game exe
 ==============================
 
+@alert tip
+GhostInTheCamera and Otis_Inf made a utility implemented in Lua script which is used inside Cheat Engine to dump a module's RTTI types, find instances of those types and reverse lookup instances in memory what RTTI type they have. You can find it [here](https://framedsc.com/GeneralGuides/using_rtti.htm).
+@end
+
 (Information distilled from an excellent video by Hatti.)
 
 The first action is to search for `.?AV` as string in the game exe using cheat engine. Do a search on the .exe alone, by selecting
