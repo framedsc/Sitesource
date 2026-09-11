@@ -1,20 +1,21 @@
 /*
 
 Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+This theme has been modified to fit a dark theme.
 
 */
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: white;
-  color: black;
+  background: #2d2d2d;
+  color: #fff;
 }
 
 .hljs-comment,
 .hljs-quote,
 .hljs-variable {
-  color: #008000;
+  color: #4dbf4d;
 }
 
 .hljs-keyword,
@@ -22,7 +23,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-built_in,
 .hljs-name,
 .hljs-tag {
-  color: #00f;
+  color: #4d88ff;
 }
 
 .hljs-string,
@@ -34,7 +35,7 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 .hljs-template-variable,
 .hljs-type,
 .hljs-addition {
-  color: #a31515;
+  color: #f24949;
 }
 
 .hljs-deletion,
@@ -49,13 +50,13 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 }
 
 .hljs-attr {
-  color: #f00;
+  color: #f24949;
 }
 
 .hljs-symbol,
 .hljs-bullet,
 .hljs-link {
-  color: #00b0e8;
+  color: #56B6FB;
 }
 
 

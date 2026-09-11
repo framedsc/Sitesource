@@ -1,0 +1,2421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>154</ID>
+      <Description>"HUD"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AbzuGame-Win64-Shipping.exe
+  Version: 
+  Date   : 2022-02-02
+  Author : pvpkw
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(HUD,AbzuGame-Win64-Shipping.exe,E8 9D E7 EE FF) // should be unique
+alloc(newmem,$1000,HUD)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //call AbzuGame-Win64-Shipping.exe+6E5AC0
+  jmp return
+
+HUD:
+  jmp newmem
+return:
+registersymbol(HUD)
+
+[DISABLE]
+
+HUD:
+  db E8 9D E7 EE FF
+
+unregistersymbol(HUD)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: AbzuGame-Win64-Shipping.exe+7F731E
+
+AbzuGame-Win64-Shipping.exe+7F72F4: 4D 8B C4              - mov r8,r12
+AbzuGame-Win64-Shipping.exe+7F72F7: 4C 8B 4C 24 60        - mov r9,[rsp+60]
+AbzuGame-Win64-Shipping.exe+7F72FC: 49 8B CD              - mov rcx,r13
+AbzuGame-Win64-Shipping.exe+7F72FF: 88 44 24 38           - mov [rsp+38],al
+AbzuGame-Win64-Shipping.exe+7F7303: 48 8B 44 24 68        - mov rax,[rsp+68]
+AbzuGame-Win64-Shipping.exe+7F7308: 48 89 7C 24 30        - mov [rsp+30],rdi
+AbzuGame-Win64-Shipping.exe+7F730D: 48 8B 7C 24 78        - mov rdi,[rsp+78]
+AbzuGame-Win64-Shipping.exe+7F7312: 48 8B D7              - mov rdx,rdi
+AbzuGame-Win64-Shipping.exe+7F7315: 89 74 24 28           - mov [rsp+28],esi
+AbzuGame-Win64-Shipping.exe+7F7319: 48 89 44 24 20        - mov [rsp+20],rax
+// ---------- INJECTING HERE ----------
+AbzuGame-Win64-Shipping.exe+7F731E: E8 9D E7 EE FF        - call AbzuGame-Win64-Shipping.exe+6E5AC0
+// ---------- DONE INJECTING  ----------
+AbzuGame-Win64-Shipping.exe+7F7323: 89 44 24 40           - mov [rsp+40],eax
+AbzuGame-Win64-Shipping.exe+7F7327: 8B D8                 - mov ebx,eax
+AbzuGame-Win64-Shipping.exe+7F7329: 4D 85 FF              - test r15,r15
+AbzuGame-Win64-Shipping.exe+7F732C: 0F 84 AE 03 00 00     - je AbzuGame-Win64-Shipping.exe+7F76E0
+AbzuGame-Win64-Shipping.exe+7F7332: 49 8B 17              - mov rdx,[r15]
+AbzuGame-Win64-Shipping.exe+7F7335: 49 8B CF              - mov rcx,r15
+AbzuGame-Win64-Shipping.exe+7F7338: FF 52 50              - call qword ptr [rdx+50]
+AbzuGame-Win64-Shipping.exe+7F733B: 84 C0                 - test al,al
+AbzuGame-Win64-Shipping.exe+7F733D: 0F 84 9D 03 00 00     - je AbzuGame-Win64-Shipping.exe+7F76E0
+AbzuGame-Win64-Shipping.exe+7F7343: 48 8B 0D 46 26 1F 02  - mov rcx,[AbzuGame-Win64-Shipping.exe+29E9990]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4003</ID>
+      <Description>"Pointer Camera"</Description>
+      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AbzuGame-Win64-Shipping.exe
+  Version: 
+  Date   : 2022-02-02
+  Author : pvpkw
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(pointerCamera,AbzuGame-Win64-Shipping.exe,F2 0F 11 87 04 04 00 00) // should be unique
+alloc(newmem,$1000,pointerCamera)
+
+label(code)
+label(return)
+
+label(pCam)
+registersymbol(pCam)
+
+
+newmem:
+
+code:
+  movsd [rdi+00000404],xmm0
+  mov [pCam],rdi
+  jmp return
+
+pCam:
+dq 0
+
+pointerCamera:
+  jmp newmem
+  nop 3
+return:
+registersymbol(pointerCamera)
+
+[DISABLE]
+
+pointerCamera:
+  db F2 0F 11 87 04 04 00 00
+
+unregistersymbol(pointerCamera)
+unregistersymbol(pCam)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: AbzuGame-Win64-Shipping.exe+12E8CB8
+
+AbzuGame-Win64-Shipping.exe+12E8C7B: FF 90 10 01 00 00        - call qword ptr [rax+00000110]
+AbzuGame-Win64-Shipping.exe+12E8C81: F2 0F 10 44 24 30        - movsd xmm0,[rsp+30]
+AbzuGame-Win64-Shipping.exe+12E8C87: 48 8D 54 24 68           - lea rdx,[rsp+68]
+AbzuGame-Win64-Shipping.exe+12E8C8C: 8B 88 68 08 00 00        - mov ecx,[rax+00000868]
+AbzuGame-Win64-Shipping.exe+12E8C92: 8B 44 24 38              - mov eax,[rsp+38]
+AbzuGame-Win64-Shipping.exe+12E8C96: 89 8F F0 03 00 00        - mov [rdi+000003F0],ecx
+AbzuGame-Win64-Shipping.exe+12E8C9C: 48 8D 8F 30 04 00 00     - lea rcx,[rdi+00000430]
+AbzuGame-Win64-Shipping.exe+12E8CA3: 83 A7 24 04 00 00 FC     - and dword ptr [rdi+00000424],-04
+AbzuGame-Win64-Shipping.exe+12E8CAA: F2 0F 11 87 F8 03 00 00  - movsd [rdi+000003F8],xmm0
+AbzuGame-Win64-Shipping.exe+12E8CB2: F2 0F 10 44 24 3C        - movsd xmm0,[rsp+3C]
+// ---------- INJECTING HERE ----------
+AbzuGame-Win64-Shipping.exe+12E8CB8: F2 0F 11 87 04 04 00 00  - movsd [rdi+00000404],xmm0
+// ---------- DONE INJECTING  ----------
+AbzuGame-Win64-Shipping.exe+12E8CC0: 0F 10 44 24 48           - movups xmm0,[rsp+48]
+AbzuGame-Win64-Shipping.exe+12E8CC5: 89 87 00 04 00 00        - mov [rdi+00000400],eax
+AbzuGame-Win64-Shipping.exe+12E8CCB: 8B 44 24 44              - mov eax,[rsp+44]
+AbzuGame-Win64-Shipping.exe+12E8CCF: 89 87 0C 04 00 00        - mov [rdi+0000040C],eax
+AbzuGame-Win64-Shipping.exe+12E8CD5: 8B 44 24 5C              - mov eax,[rsp+5C]
+AbzuGame-Win64-Shipping.exe+12E8CD9: 0F 11 87 10 04 00 00     - movups [rdi+00000410],xmm0
+AbzuGame-Win64-Shipping.exe+12E8CE0: 83 E0 03                 - and eax,03
+AbzuGame-Win64-Shipping.exe+12E8CE3: F3 0F 10 44 24 58        - movss xmm0,[rsp+58]
+AbzuGame-Win64-Shipping.exe+12E8CE9: 09 87 24 04 00 00        - or [rdi+00000424],eax
+AbzuGame-Win64-Shipping.exe+12E8CEF: 0F B6 44 24 60           - movzx eax,byte ptr [rsp+60]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4013</ID>
+          <Description>"FOV SCRIPT"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : AbzuGame-Win64-Shipping.exe
+  Version: 
+  Date   : 2022-02-02
+  Author : pvpkw
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+
+aobscanmodule(fovpointer,AbzuGame-Win64-Shipping.exe,0F 11 87 10 04 00 00 83) // should be unique
+alloc(newmem,$1000,fovpointer)
+
+label(code)
+label(return)
+
+label(pFov)
+registersymbol(pFov)
+
+newmem:
+
+code:
+  //movups [rdi+00000410],xmm0
+  mov [pFov],rdi
+  jmp return
+
+pFov:
+dq 0
+
+fovpointer:
+  jmp newmem
+  nop 2
+return:
+registersymbol(fovpointer)
+
+[DISABLE]
+
+fovpointer:
+  db 0F 11 87 10 04 00 00
+
+unregistersymbol(fovpointer)
+unregistersymbol(pFov)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: AbzuGame-Win64-Shipping.exe+12E8CD9
+
+AbzuGame-Win64-Shipping.exe+12E8CA3: 83 A7 24 04 00 00 FC     - and dword ptr [rdi+00000424],-04
+AbzuGame-Win64-Shipping.exe+12E8CAA: F2 0F 11 87 F8 03 00 00  - movsd [rdi+000003F8],xmm0
+AbzuGame-Win64-Shipping.exe+12E8CB2: F2 0F 10 44 24 3C        - movsd xmm0,[rsp+3C]
+pointerCamera: E9 43 73 D0 FE           - jmp 7FF629E30000
+AbzuGame-Win64-Shipping.exe+12E8CBD: 0F 1F 00                 - nop dword ptr [rax]
+AbzuGame-Win64-Shipping.exe+12E8CC0: 0F 10 44 24 48           - movups xmm0,[rsp+48]
+AbzuGame-Win64-Shipping.exe+12E8CC5: 89 87 00 04 00 00        - mov [rdi+00000400],eax
+AbzuGame-Win64-Shipping.exe+12E8CCB: 8B 44 24 44              - mov eax,[rsp+44]
+AbzuGame-Win64-Shipping.exe+12E8CCF: 89 87 0C 04 00 00        - mov [rdi+0000040C],eax
+AbzuGame-Win64-Shipping.exe+12E8CD5: 8B 44 24 5C              - mov eax,[rsp+5C]
+// ---------- INJECTING HERE ----------
+AbzuGame-Win64-Shipping.exe+12E8CD9: 0F 11 87 10 04 00 00     - movups [rdi+00000410],xmm0
+// ---------- DONE INJECTING  ----------
+AbzuGame-Win64-Shipping.exe+12E8CE0: 83 E0 03                 - and eax,03
+AbzuGame-Win64-Shipping.exe+12E8CE3: F3 0F 10 44 24 58        - movss xmm0,[rsp+58]
+AbzuGame-Win64-Shipping.exe+12E8CE9: 09 87 24 04 00 00        - or [rdi+00000424],eax
+AbzuGame-Win64-Shipping.exe+12E8CEF: 0F B6 44 24 60           - movzx eax,byte ptr [rsp+60]
+AbzuGame-Win64-Shipping.exe+12E8CF4: F3 0F 11 87 20 04 00 00  - movss [rdi+00000420],xmm0
+AbzuGame-Win64-Shipping.exe+12E8CFC: F3 0F 10 44 24 64        - movss xmm0,[rsp+64]
+AbzuGame-Win64-Shipping.exe+12E8D02: 88 87 28 04 00 00        - mov [rdi+00000428],al
+AbzuGame-Win64-Shipping.exe+12E8D08: F3 0F 11 87 2C 04 00 00  - movss [rdi+0000042C],xmm0
+AbzuGame-Win64-Shipping.exe+12E8D10: E8 8B E5 E6 FE           - call AbzuGame-Win64-Shipping.exe+1572A0
+AbzuGame-Win64-Shipping.exe+12E8D15: F6 87 A8 14 00 00 02     - test byte ptr [rdi+000014A8],02
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4015</ID>
+          <Description>"Smooth"</Description>
+          <Options moAlwaysHideChildren="1" moActivateChildrenAsWell="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+
+[ENABLE]
+
+function speedCheck()
+
+  if isKeyPressed(VK_LMENU) then
+    return 10
+  end
+
+  return 1
+end
+
+function keyCheck()
+
+--coords/fov
+
+local pitch = readFloat("[pCam]+404") -- pitch
+local yaw = readFloat("[pCam]+408")
+local roll = readFloat("[pCam]+40C")
+
+
+local lookx = readFloat("[pCam]+3f8")
+local looky = readFloat("[pCam]+3FC")
+local lookz = readFloat("[pCam]+400")
+
+local fov = readFloat("[pFov]+410")
+
+--rotation
+
+--hotkeys
+
+
+--fov
+
+  if isKeyPressed(VK_NUMPAD6) then
+     writeFloat("[pCam]+3f8", lookx - speedCheck())
+  end
+
+  if isKeyPressed(VK_NUMPAD4) then
+     writeFloat("[pCam]+3f8", lookx + speedCheck())
+  end
+
+  if isKeyPressed(VK_NUMPAD5) then
+     writeFloat("[pCam]+3FC", looky - speedCheck())
+  end
+
+  if isKeyPressed(VK_NUMPAD8) then
+     writeFloat("[pCam]+3FC", looky + speedCheck())
+  end
+
+  if isKeyPressed(VK_NUMPAD9) then
+   writeFloat("[pCam]+400", lookz + speedCheck())
+  end
+
+  if isKeyPressed(VK_NUMPAD7) then
+   writeFloat("[pCam]+400", lookz - speedCheck())
+  end
+
+  if isKeyPressed(VK_UP) then
+     writeFloat("[pCam]+404", pitch - speedCheck())
+  end
+
+  if isKeyPressed(VK_DOWN) then
+     writeFloat("[pCam]+404", pitch + speedCheck())
+  end
+
+  if isKeyPressed(VK_RIGHT) then
+     writeFloat("[pCam]+408", yaw - speedCheck())
+  end
+
+  if isKeyPressed(VK_LEFT) then
+     writeFloat("[pCam]+408", yaw + speedCheck())
+  end
+
+  if isKeyPressed(VK_SUBTRACT) then
+     writeFloat("[pFov]+410", fov - 0.3)
+  end
+
+  if isKeyPressed(VK_ADD) then
+     writeFloat("[pFov]+410", fov + 0.3)
+  end
+ if isKeyPressed(VK_PRIOR) then
+     writeFloat("[pCam]+40C", roll + 0.6)
+  end
+ if isKeyPressed(VK_NEXT) then
+     writeFloat("[pCam]+40C", roll - 0.6)
+  end
+
+
+end
+
+function timerStart(timer)
+  t=createTimer()
+  t.OnTimer=keyCheck
+  t.Interval=10
+  t.Enabled=true
+end
+
+timerStart(t)
+
+[DISABLE]
+t.destroy()
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov eax,[rcx+10]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC990</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>41</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+18]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+1DEBE7D</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>F7</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>8B</Byte>
+        <Byte>E8</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+1DEBE40</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+1DED4A3</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>98</Byte>
+        <Byte>E9</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>F8</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of sub [r14+08],r15d</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6EBE6C</AddressString>
+      <Before>
+        <Byte>15</Byte>
+        <Byte>3C</Byte>
+        <Byte>60</Byte>
+        <Byte>7D</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>45</Byte>
+        <Byte>29</Byte>
+        <Byte>7E</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>80</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>78</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of cmp byte ptr [rsp+78],00</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6EBE70</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>45</Byte>
+        <Byte>29</Byte>
+        <Byte>7E</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>78</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [r15+08],eax</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6B41FC</AddressString>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>41</Byte>
+        <Byte>8D</Byte>
+        <Byte>46</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>3B</Byte>
+        <Byte>47</Byte>
+        <Byte>0C</Byte>
+        <Byte>7E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of cmp byte ptr [rbx+00000154],00</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+3174B3</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>BB</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>23</Byte>
+        <Byte>8B</Byte>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+18]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+179135</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D4</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>FF</Byte>
+        <Byte>C7</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+178E90</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+178E6D</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D7</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>1E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call r9</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+16F3EC</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D5</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>D1</Byte>
+      </Actual>
+      <After>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+68]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+11AB4BA</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D6</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>68</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>32</Byte>
+        <Byte>C0</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+11AB440</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+11B9CE8</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C5</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D7</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>53</Byte>
+        <Byte>17</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>84</Byte>
+        <Byte>F6</Byte>
+        <Byte>75</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rdi+0000012C],r15l</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+316C4F</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>6C</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>88</Byte>
+        <Byte>BF</Byte>
+        <Byte>2C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4D</Byte>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+28]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+1793C5</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D6</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>FF</Byte>
+        <Byte>C7</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+179300</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+1792DD</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D7</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>1E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+68]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+11BA1A0</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>D7</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>68</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>8F</Byte>
+        <Byte>50</Byte>
+        <Byte>05</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+11B9A10</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+1105B04</AddressString>
+      <Before>
+        <Byte>BA</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>07</Byte>
+        <Byte>3F</Byte>
+        <Byte>0B</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>8D</Byte>
+        <Byte>98</Byte>
+        <Byte>02</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+00000218]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+14A4A8</AddressString>
+      <Before>
+        <Byte>5A</Byte>
+        <Byte>C9</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>18</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>50</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+00000210]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+C37CC4</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>41</Byte>
+        <Byte>83</Byte>
+        <Byte>C0</Byte>
+        <Byte>0A</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>10</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>D6</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+C37D90</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+30E185</AddressString>
+      <Before>
+        <Byte>BA</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>06</Byte>
+        <Byte>9C</Byte>
+        <Byte>92</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4B</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E3D57</AddressString>
+      <Before>
+        <Byte>33</Byte>
+        <Byte>E4</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>8E</Byte>
+        <Byte>0D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+00000200]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+694DCE</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>39</Byte>
+        <Byte>B4</Byte>
+        <Byte>24</Byte>
+        <Byte>C8</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+694D80</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+694E7E</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>C7</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>FD</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>75</Byte>
+        <Byte>3E</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+694D80\</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+692196</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>8D</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>E5</Byte>
+        <Byte>2B</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+692110</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6D1822</AddressString>
+      <Before>
+        <Byte>8D</Byte>
+        <Byte>80</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>E9</Byte>
+        <Byte>08</Byte>
+        <Byte>FC</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>75</Byte>
+        <Byte>05</Byte>
+        <Byte>40</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6D14B0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+72757C</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>2F</Byte>
+        <Byte>9F</Byte>
+        <Byte>FA</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5B</Byte>
+        <Byte>08</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+727540</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+14907C</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>BF</Byte>
+        <Byte>E4</Byte>
+        <Byte>5D</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>F6</Byte>
+        <Byte>74</Byte>
+        <Byte>22</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+148E60</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+14A525</AddressString>
+      <Before>
+        <Byte>75</Byte>
+        <Byte>14</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>36</Byte>
+        <Byte>E9</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>0D</Byte>
+        <Byte>5F</Byte>
+        <Byte>F4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rdx]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6F19D1</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>12</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>C7</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6F1990</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6F1A43</AddressString>
+      <Before>
+        <Byte>59</Byte>
+        <Byte>C6</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>48</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC974</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+000000E8]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC732</AddressString>
+      <Before>
+        <Byte>1F</Byte>
+        <Byte>02</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>E8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>F0</Byte>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+803B80</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC712</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>69</Byte>
+        <Byte>74</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>30</Byte>
+        <Byte>06</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+804670</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC70A</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>61</Byte>
+        <Byte>7F</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+        <Byte>E8</Byte>
+        <Byte>69</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+28]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC774</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>C0</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>75</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC78C</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6E</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]\</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC79F</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>FF</Byte>
+        <Byte>74</Byte>
+        <Byte>22</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC7B3</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6F</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC7C6</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>83</Byte>
+        <Byte>30</Byte>
+        <Byte>06</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+20]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC7F9</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>C0</Byte>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>7D</Byte>
+        <Byte>C8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC811</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6F</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC824</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>85</Byte>
+        <Byte>DB</Byte>
+        <Byte>74</Byte>
+        <Byte>22</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC838</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC84B</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>B0</Byte>
+        <Byte>01</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+67E960</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC89E</AddressString>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>20</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>BD</Byte>
+        <Byte>20</Byte>
+        <Byte>E9</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>C8</Byte>
+        <Byte>E8</Byte>
+        <Byte>55</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6D2780</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC8B6</AddressString>
+      <Before>
+        <Byte>8F</Byte>
+        <Byte>D0</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>C5</Byte>
+        <Byte>5E</Byte>
+        <Byte>EE</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of cmp qword ptr [rcx+000003E0],00</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC8F4</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>38</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>B9</Byte>
+        <Byte>E0</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>1E</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>81</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6EC0D0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC946</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>85</Byte>
+        <Byte>F7</Byte>
+        <Byte>EF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7EC961</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rdi+00000228],00000000</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+804ED0</AddressString>
+      <Before>
+        <Byte>2C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>87</Byte>
+        <Byte>28</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>0E</Byte>
+        <Byte>33</Byte>
+        <Byte>D2</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+805370</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+804EC4</AddressString>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>20</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>A7</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BF</Byte>
+        <Byte>2C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+804EB0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+804FAF</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>FA</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>FC</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>F6</Byte>
+        <Byte>C7</Byte>
+        <Byte>01</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+C6EC02</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6F</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+C6EB10</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+C34DBC</AddressString>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>D0</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>4F</Byte>
+        <Byte>9D</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>05</Byte>
+        <Byte>C8</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6CCF3F</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6CCDA0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6A62D4</AddressString>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>28</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>C7</Byte>
+        <Byte>6A</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BF</Byte>
+        <Byte>34</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6A62C0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6A9A5F</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>FA</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>D9</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>5C</Byte>
+        <Byte>C8</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>F6</Byte>
+        <Byte>C7</Byte>
+        <Byte>01</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]\</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6A5605</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of sub dword ptr [rbx+0C],01</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6A5607</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>6B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>75</Byte>
+        <Byte>14</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movups xmm0,[r8]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6F08C6</AddressString>
+      <Before>
+        <Byte>53</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E2060</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+780404</AddressString>
+      <Before>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>55</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>57</Byte>
+        <Byte>1C</Byte>
+        <Byte>F6</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5D</Byte>
+        <Byte>A8</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+00000090]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+77FB2F</AddressString>
+      <Before>
+        <Byte>20</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>A8</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>3B</Byte>
+        <Byte>E8</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+77F510</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7F4562</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>A9</Byte>
+        <Byte>AF</Byte>
+        <Byte>F8</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [r10+000001F8]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6B3C</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>64</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>FF</Byte>
+        <Byte>92</Byte>
+        <Byte>F8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F6</Byte>
+        <Byte>87</Byte>
+        <Byte>10</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E66F0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E5F26</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>C5</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>AC</Byte>
+        <Byte>24</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E5AC0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7B9D20</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>9B</Byte>
+        <Byte>BD</Byte>
+        <Byte>F2</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>60</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E66F0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6FC4</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>27</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>57</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E6D60</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6346</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>15</Byte>
+        <Byte>0A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6692</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>F6</Byte>
+        <Byte>C5</Byte>
+        <Byte>01</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E681F</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>03</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>6B</Byte>
+        <Byte>0C</Byte>
+        <Byte>01</Byte>
+        <Byte>75</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call qword ptr [rax+08]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6832</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>50</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>7D</Byte>
+        <Byte>00</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6CE180</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6AD5</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>52</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>A6</Byte>
+        <Byte>76</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E66F0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7BB903</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>64</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>E8</Byte>
+        <Byte>AD</Byte>
+        <Byte>F2</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>AC</Byte>
+        <Byte>24</Byte>
+        <Byte>C8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E66F0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7F4F14</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>D7</Byte>
+        <Byte>17</Byte>
+        <Byte>EF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>58</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E66F0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6234</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>B7</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>58</Byte>
+        <Byte>04</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E5AC0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+7F731E</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>9D</Byte>
+        <Byte>E7</Byte>
+        <Byte>EE</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>40</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E5AC0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+6E6423</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>98</Byte>
+        <Byte>F6</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of call AbzuGame-Win64-Shipping.exe+6E7280</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+72480D</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>6E</Byte>
+        <Byte>2A</Byte>
+        <Byte>FC</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>78</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of subss xmm3,[rsi+50]</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+18EB4C</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>56</Byte>
+        <Byte>4C</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>5E</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>5C</Byte>
+        <Byte>4C</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rdi+18],xmm0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+161B38</AddressString>
+      <Before>
+        <Byte>05</Byte>
+        <Byte>40</Byte>
+        <Byte>2F</Byte>
+        <Byte>D8</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>47</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>8B</Byte>
+        <Byte>E3</Byte>
+        <Byte>5F</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rcx+08],eax</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+161AAE</AddressString>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movaps [rbp+30],xmm1</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+11ADE1C</AddressString>
+      <Before>
+        <Byte>0D</Byte>
+        <Byte>14</Byte>
+        <Byte>61</Byte>
+        <Byte>D4</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>29</Byte>
+        <Byte>4D</Byte>
+        <Byte>30</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>0D</Byte>
+        <Byte>C4</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movss [rdi],xmm0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+11B0C17</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>E0</Byte>
+        <Byte>05</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>07</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4E</Byte>
+        <Byte>30</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of mov [rcx+18],eax</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+15633A</AddressString>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>14</Byte>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>18</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>1C</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry Color="20000000">
+      <Description>Change of movups [rdi+00000410],xmm0</Description>
+      <AddressString>AbzuGame-Win64-Shipping.exe+12E8CD9</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>5C</Byte>
+      </Before>
+      <Actual>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>10</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>E0</Byte>
+        <Byte>03</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

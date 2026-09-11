@@ -1,4 +1,4 @@
-![Devil May Cry 5](Images\dmc5_header.png "Shot by Langgi"){.shadowed}
+![Devil May Cry 5](Images\dmc5_header.png "Shot by Langgi"){.shadowed .autosize}
 
 ## Summary
 
@@ -7,23 +7,22 @@ Feature | Supported
 Vanilla Photo Mode | Yes (lol)
 Hotsampling | Yes
 DSR | Yes
-Custom Aspect Ratios | Yes (With tools)
-Reshade | Yes (With DirectX11)
+Custom Aspect Ratios | Yes (with tools)
+Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
 
  
 ## Tools
 
-* [Camera tools by Otis_Inf, Jim2Point0, Hattiwatti and K-putt](https://github.com/FransBouma/InjectableGenericCameraSystem/tree/master/Cameras/DMC5)  
-**Features**: Camera control, Fov, timestop, Hud toggle, Aspect ratio selection, DoF removal.
-@alert Important
-These tools work with DirectX 11 *only*. So if you use these tools, be sure to switch back to DirectX 11 in the config file of the game, see
-*Tips and Tricks* below.
-@end
-* [Vignette / Barrel distortion fix](https://mega.nz/#!pNgE2aSB!MRoFLYYNvLnL4ptz447rpBShPoaA7wrxNowD5A7hYhA)  
-**Features**: Removes the barrel distortion and vignette.  
-**Instructions**: Extract files to EXE folder. 
+* [Camera tools by Otis_Inf, Jim2Point0, Hattiwatti and K-putt](https://www.patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/dmc5.htm)**: Camera control, Fov, timestop, Hud toggle, Aspect ratio selection, DoF removal, Vignette removal and Lens distortion removal.
+* [RELit by Originalnicodr and Otis_inf](https://github.com/originalnicodr/RELit)  
+**Features**: Lighting Control, turn off scene lights, exposure control.  
+Make sure to check out [the guide](../GeneralGuides/relit.htm) on it.
+* [EMV Engine](https://github.com/alphazolam/EMV-Engine)  
+**Features**: Console, Enemy Spawner, Character Poser, Gravity Gun, and more.
+Make sure to check out the [guide](../GeneralGuides/emv_engine.htm) on it.
 
 ## Contact Shadows
 
@@ -45,4 +44,6 @@ In order to use ReShade, you'll need the game to boot in DX11. In your game's fo
 ## Useful links
 * [Mod forum](https://infernalwarks.boards.net/)
 * [Another mod forum ](https://residentevilmodding.boards.net/board/185/dmc-modification-releases)
+* [Nexus mods](www.nexusmods.com/devilmaycry5/)
+* [Helix mod](http://helixmod.blogspot.com/2019/03/devil-may-cry-5.html)
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Devil_May_Cry_5)

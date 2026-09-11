@@ -1,4 +1,4 @@
-![Thief](Images\thief.png "Shot by Originalnicodr")
+![Thief](Images\thief.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
  

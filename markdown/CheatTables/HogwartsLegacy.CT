@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <Forms>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">%}Z;B):Zfu;=E=2mQp4;1}(ZyPhr8T)..z@DbtjsaoWzX:[s{mYph5^mZ9m-?jv_mx(u8Lmvl(3uwf[NqbuEe(OQ2Gv#iOezYiusuh00Rde-f}tq#ykIB%-.BZTLPa6VL:3Co/%mD(Z4MdHLx;xl8_Fyf4m4(.8gU]!/5b}[UID,)AD5(@Z3G%G}2!,4B%D3%0*=P)t3YcyeuTwn=Um/h}iefQvCFFYM!f%bY:DB3$b,zJRrRFnlY(3@U1,vRY6jA.z(aoS}33WhWwEJxspYT#0{qWA8I/ygG_o?VR;VyY2(6XK0QFgQm%R_SA}^:Wa--=tPGCuqT)0h[.Q)/os*#4%EY[,=,iZxr$8[oyW20r;JB9IFl/z@#X^S@+E^yu+ZG3oU=MS?C}kDgNyh^Zj^,^JdF%sYL29RS5v5]ZlX_M_lP#Oy[:@vx3GlJz#_K;h0{M;q)atQ-V6hY:$[By^+2i(kqvFLnJ[R+gLrlj?sj{H*$9_Wdab94uMhH*G/=;ee3DnC%8a$cY@o:Q%FqK2#Y8IV3zgq6@hLprv*TfEM?eI*Nm$RBgmy3;-D$_6IB[mJ4P?bQnK[K/.3Nnk;}9}Fv)ZqPT,K=8n()G1+Bq)M8Rq9x+.N:fLz#=Czk[6:OVE!s{$J]:.Jc}qmr-gaTC{*MR*igN5Q%q1@Zk)?y05h]1mNeFg4fwM}X_U9.4-126nVnwFWxy[fhzL0P1/ZE]DXB-k#LEQ%D,UEg%T.O@PeiZ=Lt3j1:{tiXClA,bChbeztBp/KW%)pmuTj;zQKKsQsb.F*aTxLykV718a@bdsf}30s</UDF1>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>87659</ID>
+      <Description>"Time of Day Override"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Hogwarts Legacy  
+  Version: 
+  Date   : 2023-02-14
+  Author : frans
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(TimeOfDayValueRead,HogwartsLegacy.exe,48 8B 80 D0 0A 00 00 48 89 02) // should be unique
+alloc(newmem,$1000,TimeOfDayValueRead)
+
+label(code)
+label(return)
+label(originalValue)
+registerSymbol(originalValue)
+
+newmem:
+
+code:
+  cmp qword ptr [originalValue], 0
+  jne alreadyCopied
+  mov rax,[rax+00000AD0]
+  mov [originalValue], rax
+alreadyCopied:
+  mov rax, [originalValue]
+  jmp return
+
+originalValue:
+dq 0
+
+TimeOfDayValueRead:
+  jmp newmem
+  nop 2
+return:
+registersymbol(TimeOfDayValueRead)
+
+[DISABLE]
+TimeOfDayValueRead:
+  db 48 8B 80 D0 0A 00 00
+
+unregistersymbol(TimeOfDayValueRead)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: HogwartsLegacy.exe+350B87C
+
+HogwartsLegacy.exe+350B85A: 74 09                    - je HogwartsLegacy.exe+350B865
+HogwartsLegacy.exe+350B85C: F3 0F 10 80 F4 00 00 00  - movss xmm0,[rax+000000F4]
+HogwartsLegacy.exe+350B864: C3                       - ret 
+HogwartsLegacy.exe+350B865: F3 0F 10 05 D3 63 0E 03  - movss xmm0,[HogwartsLegacy.exe+65F1C40]
+HogwartsLegacy.exe+350B86D: C3                       - ret 
+HogwartsLegacy.exe+350B86E: CC                       - int 3 
+HogwartsLegacy.exe+350B86F: CC                       - int 3 
+HogwartsLegacy.exe+350B870: 48 8B 05 A1 03 AE 05     - mov rax,[g_Scheduler]
+HogwartsLegacy.exe+350B877: 48 85 C0                 - test rax,rax
+HogwartsLegacy.exe+350B87A: 74 0E                    - je HogwartsLegacy.exe+350B88A
+// ---------- INJECTING HERE ----------
+HogwartsLegacy.exe+350B87C: 48 8B 80 D0 0A 00 00     - mov rax,[rax+00000AD0]
+// ---------- DONE INJECTING  ----------
+HogwartsLegacy.exe+350B883: 48 89 02                 - mov [rdx],rax
+HogwartsLegacy.exe+350B886: 48 8B C2                 - mov rax,rdx
+HogwartsLegacy.exe+350B889: C3                       - ret 
+HogwartsLegacy.exe+350B88A: 48 C7 02 00 00 00 00     - mov qword ptr [rdx],00000000
+HogwartsLegacy.exe+350B891: 48 8B C2                 - mov rax,rdx
+HogwartsLegacy.exe+350B894: C3                       - ret 
+HogwartsLegacy.exe+350B895: CC                       - int 3 
+HogwartsLegacy.exe+350B896: CC                       - int 3 
+HogwartsLegacy.exe+350B897: CC                       - int 3 
+HogwartsLegacy.exe+350B898: CC                       - int 3 
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Deactivate</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>220</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Activate</Action>
+          <Keys>
+            <Key>220</Key>
+          </Keys>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>87637</ID>
+          <Description>"UpdateTime"</Description>
+          <ShowAsSigned>1</ShowAsSigned>
+          <Color>4080FF</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>originalValue</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>1000000000</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>1000000000</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>10000000000</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>10000000000</Value>
+              <ID>3</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

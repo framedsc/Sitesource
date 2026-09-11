@@ -1,4 +1,4 @@
-![Observer](Images\observer_header.png "Shot by Flurdeh"){.shadowed}
+![Observer](Images\observer_header.png "Shot by Flurdeh"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,11 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
+
+@alert neutral  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+@end
  
 ## Tools
 

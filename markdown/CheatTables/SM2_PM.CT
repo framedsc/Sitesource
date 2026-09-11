@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"No PM Range limit  (Enable ONLY in PM!)  Toggle: Scroll lock"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Warhammer 40,000: Space Marine 2 CLIENT 2.0.DAY2.317379/317475
+  Version: 
+  Date   : 2024-09-03
+  Author : frans
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(PMRangeLimit,$process,F2 0F 11 46 34 89 46 3C EB) // should be unique
+
+
+PMRangeLimit:
+  nop 8
+
+
+[DISABLE]
+
+PMRangeLimit:
+   movsd [rsi+34],xmm0
+   mov [rsi+3C],eax
+
+{
+// ORIGINAL CODE - INJECTION POINT: Warhammer 40000 Space Marine 2 - Retail.exe+1BD568E
+
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5663: 48 8D 4C 24 70           - lea rcx,[rsp+70]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5668: E8 C3 8E 06 00           - call "Warhammer 40000 Space Marine 2 - Retail.exe"+1C3E530
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD566D: 48 8B 0D FC 55 12 03     - mov rcx,["Warhammer 40000 Space Marine 2 - Retail.exe"+4CFAC70]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5674: 48 8B D0                 - mov rdx,rax
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5677: 4C 8B 01                 - mov r8,[rcx]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD567A: 48 8D 0D F7 55 12 03     - lea rcx,["Warhammer 40000 Space Marine 2 - Retail.exe"+4CFAC78]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5681: 41 FF D0                 - call r8
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5684: 48 8B F8                 - mov rdi,rax
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5687: F2 0F 10 07              - movsd xmm0,[rdi]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD568B: 8B 47 08                 - mov eax,[rdi+08]
+// ---------- INJECTING HERE ----------
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD568E: F2 0F 11 46 34           - movsd [rsi+34],xmm0
+// ---------- DONE INJECTING  ----------
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5693: 89 46 3C                 - mov [rsi+3C],eax
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5696: EB 26                    - jmp "Warhammer 40000 Space Marine 2 - Retail.exe"+1BD56BE
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD5698: 48 8D 05 79 98 7A 01     - lea rax,["Warhammer 40000 Space Marine 2 - Retail.exe"+337EF18]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD569F: C7 44 24 38 FF FF FF FF  - mov [rsp+38],FFFFFFFF
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD56A7: 4C 8D 44 24 30           - lea r8,[rsp+30]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD56AC: 48 89 44 24 30           - mov [rsp+30],rax
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD56B1: 48 8D 54 24 20           - lea rdx,[rsp+20]
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD56B6: 48 8B CD                 - mov rcx,rbp
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD56B9: E8 32 21 07 00           - call "Warhammer 40000 Space Marine 2 - Retail.exe"+1C477F0
+Warhammer 40000 Space Marine 2 - Retail.exe+1BD56BE: 48 8D 4C 24 70           - lea rcx,[rsp+70]
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>145</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Remove pillarboxing  (Leave enabled)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Warhammer 40,000: Space Marine 2 CLIENT 2.0.DAY2.317379/317475
+  Version: 
+  Date   : 2024-09-04
+  Author : frans
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(NoPillarBoxing,$process,74 29 80 BE FD 00 00 00 00) // should be unique
+
+NoPillarBoxing:
+  db EB
+
+[DISABLE]
+
+NoPillarBoxing:
+  db 74
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: SM2Game.exe+1FDC809
+
+SM2Game.exe+1FDC7DC: 44 89 6E 5C              - mov [rsi+5C],r13d
+SM2Game.exe+1FDC7E0: 44 89 6E 64              - mov [rsi+64],r13d
+SM2Game.exe+1FDC7E4: 4C 8B AC 24 B8 01 00 00  - mov r13,[rsp+000001B8]
+SM2Game.exe+1FDC7EC: F3 0F 2C D9              - cvttss2si ebx,xmm1
+SM2Game.exe+1FDC7F0: 44 89 76 58              - mov [rsi+58],r14d
+SM2Game.exe+1FDC7F4: 44 89 76 60              - mov [rsi+60],r14d
+SM2Game.exe+1FDC7F8: F3 0F 2C C2              - cvttss2si eax,xmm2
+SM2Game.exe+1FDC7FC: 89 5E 50                 - mov [rsi+50],ebx
+SM2Game.exe+1FDC7FF: 89 46 54                 - mov [rsi+54],eax
+SM2Game.exe+1FDC802: 80 3D 8F E7 FA 02 00     - cmp byte ptr [SM2Game.exe+4F8AF98],00
+// ---------- INJECTING HERE ----------
+SM2Game.exe+1FDC809: 74 29                    - je SM2Game.exe+1FDC834
+// ---------- DONE INJECTING  ----------
+SM2Game.exe+1FDC80B: 80 BE FD 00 00 00 00     - cmp byte ptr [rsi+000000FD],00
+SM2Game.exe+1FDC812: 74 20                    - je SM2Game.exe+1FDC834
+SM2Game.exe+1FDC814: 8B 7E 54                 - mov edi,[rsi+54]
+SM2Game.exe+1FDC817: 44 2B F3                 - sub r14d,ebx
+SM2Game.exe+1FDC81A: 41 8B C6                 - mov eax,r14d
+SM2Game.exe+1FDC81D: 99                       - cdq 
+SM2Game.exe+1FDC81E: 2B C2                    - sub eax,edx
+SM2Game.exe+1FDC820: D1 F8                    - sar eax,1
+SM2Game.exe+1FDC822: 89 46 68                 - mov [rsi+68],eax
+SM2Game.exe+1FDC825: 8B 46 5C                 - mov eax,[rsi+5C]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"Gameplay FOV"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : SM2Game.exe
+  Version: 
+  Date   : 2024-09-04
+  Author : skall
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+aobscanmodule(fovWriteBreakOne,$process,F3 0F 11 49 6C C3 CC CC CC CC CC CC CC CC CC CC F3) // should be unique
+
+registersymbol(fovWriteBreakOne)
+fovWriteBreakOne:
+  db 90 90 90 90 90
+
+aobscanmodule(fovPointer,$process,F3 0F 10 71 6C 48) // should be unique
+alloc(newmem,$1000,fovPointer)
+
+label(code)
+label(return)
+label(pfov)
+registersymbol(pfov)
+
+newmem:
+
+code:
+  movss xmm6,[rcx+6C]
+  mov [pfov],rcx
+  jmp return
+
+pfov:
+dq 0
+
+fovPointer:
+  jmp newmem
+return:
+
+registersymbol(fovPointer)
+aobscanmodule(fovBreakTwo,$process,CC F3 0F 11 49 48 C3) // should be unique
+registersymbol(fovBreakTwo)
+fovBreakTwo+01:
+  db 90 90 90 90 90
+
+[DISABLE]
+
+fovPointer:
+  db F3 0F 10 71 6C
+fovWriteBreakOne:
+  db F3 0F 11 49 6C
+fovBreakTwo+01:
+  db F3 0F 11 49 48
+
+unregistersymbol(fovBreakTwo)
+unregistersymbol(fovWriteBreakOne)
+
+unregistersymbol(pfov)
+unregistersymbol(fovPointer)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SM2Game.exe+13041B2
+
+SM2Game.exe+130419B: CC                    - int 3 
+SM2Game.exe+130419C: CC                    - int 3 
+SM2Game.exe+130419D: CC                    - int 3 
+SM2Game.exe+130419E: CC                    - int 3 
+SM2Game.exe+130419F: CC                    - int 3 
+SM2Game.exe+13041A0: 48 89 5C 24 08        - mov [rsp+08],rbx
+SM2Game.exe+13041A5: 57                    - push rdi
+SM2Game.exe+13041A6: 48 83 EC 30           - sub rsp,30
+SM2Game.exe+13041AA: 0F 29 74 24 20        - movaps [rsp+20],xmm6
+SM2Game.exe+13041AF: 48 8B D9              - mov rbx,rcx
+// ---------- INJECTING HERE ----------
+SM2Game.exe+13041B2: F3 0F 10 71 6C        - movss xmm6,[rcx+6C]
+// ---------- DONE INJECTING  ----------
+SM2Game.exe+13041B7: 48 83 C1 50           - add rcx,50
+SM2Game.exe+13041BB: E8 70 A3 93 00        - call SM2Game.exe+1C3E530
+SM2Game.exe+13041C0: 48 85 C0              - test rax,rax
+SM2Game.exe+13041C3: 74 50                 - je SM2Game.exe+1304215
+SM2Game.exe+13041C5: F6 40 08 04           - test byte ptr [rax+08],04
+SM2Game.exe+13041C9: 75 4A                 - jne SM2Game.exe+1304215
+SM2Game.exe+13041CB: 48 8D 4B 50           - lea rcx,[rbx+50]
+SM2Game.exe+13041CF: E8 5C A3 93 00        - call SM2Game.exe+1C3E530
+SM2Game.exe+13041D4: 48 8B 0D DD 6E 9F 03  - mov rcx,[SM2Game.exe+4CFB0B8]
+SM2Game.exe+13041DB: 48 8B D0              - mov rdx,rax
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"fov value    Zoom in: Ctrl-Numpad-   Zoom out: Ctrl-Numpad+  "</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>pfov</Address>
+          <Offsets>
+            <Offset>6C</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>66</ID>
+      <Description>"LOD Distance Scale  (lower values == more details. Ultra is 0.9, super high detail: 0.1)"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Warhammer 40,000: Space Marine 2 CLIENT 2.0.DAY2.317379/317475
+  Version: 
+  Date   : 2024-09-04
+  Author : frans
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(VideoLODDistanceScale,$process,F3 0F 10 81 08 01 00 00 C3) // should be unique
+alloc(newmem,$1000,VideoLODDistanceScale)
+
+label(code)
+label(return)
+label(LODValue)
+registersymbol(LODValue)
+
+newmem:
+
+code:
+  movss xmm0,[LODValue]
+  jmp return
+
+LODValue:
+dd (float)0.9
+
+VideoLODDistanceScale:
+  jmp newmem
+  nop 3
+return:
+
+registersymbol(VideoLODDistanceScale)
+
+[DISABLE]
+
+VideoLODDistanceScale:
+  db F3 0F 10 81 08 01 00 00
+
+unregistersymbol(VideoLODDistanceScale)
+unregistersymbol(LODValue)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SM2Game.exe+1FCD6A0
+
+SM2Game.exe+1FCD696: C3                       - ret 
+SM2Game.exe+1FCD697: CC                       - int 3 
+SM2Game.exe+1FCD698: CC                       - int 3 
+SM2Game.exe+1FCD699: CC                       - int 3 
+SM2Game.exe+1FCD69A: CC                       - int 3 
+SM2Game.exe+1FCD69B: CC                       - int 3 
+SM2Game.exe+1FCD69C: CC                       - int 3 
+SM2Game.exe+1FCD69D: CC                       - int 3 
+SM2Game.exe+1FCD69E: CC                       - int 3 
+SM2Game.exe+1FCD69F: CC                       - int 3 
+// ---------- INJECTING HERE ----------
+SM2Game.exe+1FCD6A0: F3 0F 10 81 08 01 00 00  - movss xmm0,[rcx+00000108]
+// ---------- DONE INJECTING  ----------
+SM2Game.exe+1FCD6A8: C3                       - ret 
+SM2Game.exe+1FCD6A9: CC                       - int 3 
+SM2Game.exe+1FCD6AA: CC                       - int 3 
+SM2Game.exe+1FCD6AB: CC                       - int 3 
+SM2Game.exe+1FCD6AC: CC                       - int 3 
+SM2Game.exe+1FCD6AD: CC                       - int 3 
+SM2Game.exe+1FCD6AE: CC                       - int 3 
+SM2Game.exe+1FCD6AF: CC                       - int 3 
+SM2Game.exe+1FCD6B0: F3 0F 10 81 20 01 00 00  - movss xmm0,[rcx+00000120]
+SM2Game.exe+1FCD6B8: C3                       - ret
+
+// called from:
+SM2Game.exe+1E44100 - 48 83 EC 28           - sub rsp,28
+SM2Game.exe+1E44104 - 48 8B 0D 452FEC02     - mov rcx,[SM2Game.exe+4D07050]
+SM2Game.exe+1E4410B - E8 90951800           - call SM2Game.exe+1FCD6A0
+SM2Game.exe+1E44110 - F3 0F59 05 804DCA02   - mulss xmm0,[SM2Game.exe+4AE8E98]
+SM2Game.exe+1E44118 - 48 83 C4 28           - add rsp,28
+SM2Game.exe+1E4411C - C3                    - ret
+SM2Game.exe+1E4411D - CC                    - int 3
+
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>67</ID>
+          <Description>"No description"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>LODValue</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"==============================================="</Description>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"By Otis_Inf &amp; Skall. Framed Screenshot Community. https://framedsc.com"</Description>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

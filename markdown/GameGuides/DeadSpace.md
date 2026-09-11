@@ -1,4 +1,4 @@
-![Dead Space](../Images/DeadSpace_header.png "Shot by K-Putt"){.shadowed}
+![Dead Space](../Images/DeadSpace_header.png "Shot by K-Putt"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | 9
+Graphics API | 9
 
 Resolution can be changed in configuration file. GeDoSaTo is supported. [(guide)](https://steamcommunity.com/sharedfiles/filedetails/?id=604010024)  
 

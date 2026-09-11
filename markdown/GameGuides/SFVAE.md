@@ -1,6 +1,6 @@
-![Street Fighter V](Images\SFVAE-header.jpg "Shot by Langgli")
+![Street Fighter V](Images\SFVAE-header.png "Shot by Langgi"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,11 @@ DSR | Yes
 Custom Aspect Ratios | Yes, with tools 
 Reshade | Yes
 Ansel | Partial, no freecamera
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
+
+@alert neutral  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+@end
  
 ##Tools
 

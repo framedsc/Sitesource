@@ -1,4 +1,4 @@
-![Deadlight Director`s Cut](Images\deadlight_header.png "Shot by pino44io"){.shadowed}
+![Deadlight Director`s Cut](Images\deadlight_header.png "Shot by pino44io"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 
@@ -30,6 +30,8 @@ Bindings=(Name="F3",Command="FOV 45",Control=False,Shift=False,Alt=False,bIgnore
 Bindings=(Name="F4",Command="togglehud",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
 Bindings=(Name="F5",Command="SET MATERIALEFFECT bShowInGame FALSE | show camfrustums",Control=False,Shift=False,Alt=False,bIgnoreCtrl=False,bIgnoreShift=False,bIgnoreAlt=False)
 ```
+
+Set this file to **Read-only** once done.
 
 Key/button | Description
 --|--

@@ -1,4 +1,4 @@
-![Game Title](Images\abzu_header.png "Shot by xXSamirXx"){.shadowed} 
+![Abzû](Images\abzu_header.png "Shot by SammirLlm"){.shadowed .autosize}
 
 ## Summary
 
@@ -8,33 +8,57 @@ Vanilla Photo Mode | No
 Hotsampling | Yes (see notes)
 DSR | No
 Custom Aspect Ratios | Yes
-Reshade | Yes 
+Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
- 
+Graphics API | DirectX 11
+Game version | </font> <font face="Stores"> E </font> 4.12.5
+
+
 ## Tools
 
-* [Cheat Table by DeadEndThrills](..\CheatTables\AbzuGame-Win64-Shipping_det.CT)  
-**Features**: Camera control, FoV control, Hide Menu. 
+* [Cheat Table by Skall](..\CheatTables\AbzuGame-Win64-Shipping_Skall.CT)  
+    **Features**: Camera control, FoV control.
 
-@alert tip 
-For Timestop, use the menu (ESC) and hide it with F2. 
-Also, activate the camera (F1) before pausing the game, otherwise the camera won't move.
-@end
+    @alert tip
+    If you want to take a stillshot, pause the game by pressing the `ESC` key and hide the HUD using the ShaderToggler as described below. Then press `INS` to enable freecam.
+    @end
+    
+    @alert tip
+    This Cheat Table allows you to toggle freecam without pausing the game. You can thus take long exposure shots with this tool.
+    @end
 
-Key | Function
---|--
-F2 | Hide Menu
-F1 | Enable/Disable Camera
-Num 2/4/6/7/8/9 | Camera Movement
-+/- | Increase / Decrease FoV
-Ctrl / Alt | Increase speed of camera movement
-Arrow Keys	 | Camera Rotation
-Num 1/3	 | Tilt
+    Function | Key
+    --|--
+    Toggle Freecam | Insert
+    Camera Movement (X axis) | Num 4 / Num 6
+    Camera Movement (Y axis) | Num 7 / Num 9
+    Camera Movement (Z axis) | Num 5 / Num 8
+    Pitch | Up Arrow / Down Arrow
+    Yaw | Left Arrow / Right Arrow
+    Roll | Num 1 / Num 2
+    Field of View | Num - / Num +
+
+* [Cheat Table by pvp](..\CheatTables\AbzuGame-Win64-Shipping.CT)  
+    **Features**: Camera control, FoV control, Hide Menu.
+
+    @alert tip
+    Pause the game (`ESC`) and hide the menu using the HUD toggle inside the table or the ShaderToggler as described below. Then take the shot.
+    @end
+
+    Function | Key
+    --|--
+    Camera movement | Num 9/8/7/6/5/4
+    Pitch and Yaw controls | Arrow keys
+    Increase/decrease FoV | Num +/-
+    Camera Rotation | PageUp and PageDown
+
+## Hide Hud
+
+You may use the Shader Toggler Addon for Reshade to toggle the shaders the draw the HUD Elements. You may find the ShaderToggler.ini file of the game [here](../ShaderTogglers/abzu.ini) or in this [repository](../ReshadeGuides/Addons/shader_toggler_repository.htm). Press the `Caps Lock` to hide/unhide the HUD.
 
 ## Hotsampling
-Hotsampling works with the game, the only problem comes after rezising the window altabing to the game which it rezise again to the previous resolution. For taking shoots i suggest using MSI Afterburner (and install RivaTurner that comes with the installation) wich will allow you to take photos without 
-being in the window of the game (be sure to config the desire hotkey in the configs of MSI Afterburner).
+
+Hotsampling works with the game, however there is an issue where alt-tabbing back to the game after hotsampling will reset it to its previous resolution. A workaround is to use MSI Afterburner / RTSS, which can capture the game without needing to alt-tab back.
 
 ## Useful Links
 

@@ -1,4 +1,4 @@
-![Game Title](Images\thesurge2_header.jpg "Shot by Skall"){.shadowed}
+![Game Title](Images\thesurge2_header.png "Shot by Skall"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Unknown
 Custom Aspect Ratios | Unknown
 Reshade | No
 Ansel | No
-API versions | Vulkan
+Graphics API | Vulkan
  
 ## Tools
 

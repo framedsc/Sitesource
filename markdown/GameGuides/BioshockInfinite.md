@@ -1,4 +1,4 @@
-![Bioshock Infinite](Images\bioshockinfinite_header.png "Shot by Flurdeh"){.shadowed}
+![Bioshock Infinite](Images\bioshockinfinite_header.png "Shot by Flurdeh"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes (No depth buffer)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 ## Tools
 

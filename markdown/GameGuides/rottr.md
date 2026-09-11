@@ -1,6 +1,6 @@
-![Rise of the Tomb Raider](Images\rottr.png "Shot by Otis_Inf"){.shadowed}
+![Rise of the Tomb Raider](Images\rottr.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,12 +10,12 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV, timestop, hud toggle, higher LODs selector.
+**[Features](https://opm.fransbouma.com/Cameras/rottr.htm)**: Camera control, FoV, timestop, hud toggle, higher LODs selector.
 
 ## Depth buffer access
 Recent Reshade versions (3.4.3 and up) have solid depth buffer detection code but sometimes can still make the wrong choice. In Rise of the Tomb Raider especially

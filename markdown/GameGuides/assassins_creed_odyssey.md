@@ -1,6 +1,6 @@
-![Assassin's Creed Odyssey](Images\acodyssey_header.png "Shot by Otis_Inf"){.shadowed}
+![Assassin's Creed Odyssey](Images\acodyssey_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,13 +10,12 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV, Timestop/Game pause, Time-of-Day control, Resolution scaling control, 
-HUD toggle, disabling of in-game DOF, removal of aspect ratio limitations, fog control
+**[Features](https://opm.fransbouma.com/Cameras/acodyssey.htm)**: Camera control, FoV, Timestop/Game pause, Time-of-Day control, Resolution scaling control, HUD toggle, disabling of in-game DOF, removal of aspect ratio limitations, fog control
 
 ##Useful Links
 

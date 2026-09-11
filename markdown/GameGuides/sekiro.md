@@ -1,4 +1,4 @@
-![Sekiro](\Images\sekiro_header.png "Shot by jim2point0")
+![Sekiro](\Images\sekiro_header.png "Shot by jim2point0"){.shadowed .autosize}
 ##Summary
 
 Feature | Supported
@@ -9,7 +9,7 @@ Hotsampling | No
 DSR | Yes
 Custom Aspect Ratios | Yes*
 Reshade | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
 
 \* Requires an altered EXE or a CE script. [Use DSR](https://framedsc.github.io/GeneralGuides/custom_dsr_resolutions.htm) for different resoluitions and aspect ratios.
  

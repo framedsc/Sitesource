@@ -1,4 +1,4 @@
-![Mirror's Edge](Images\mirrors_edge.png "Shot by Barkar B"){.shadowed}
+![Mirror's Edge](Images\mirrors_edge.png "Shot by Barkar B"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
  

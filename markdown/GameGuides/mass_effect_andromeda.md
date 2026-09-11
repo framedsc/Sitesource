@@ -1,4 +1,4 @@
-![Mass Effect: Andromeda](Images\mass_effect_andromeda.png "Shot by Originalnicodr")
+![Mass Effect: Andromeda](Images\mass_effect_andromeda.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,11 +10,11 @@ DSR | Yes
 Custom Aspect Ratios | Yes ([limited](mass_effect_andromeda.htm#custom-aspect-ratios))
 Reshade | Yes
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
  
-* [Camera tools by Hatti, ](https://www.mediafire.com/file/ebjx8zzang9tq25/CT_MEAndromeda_20180210-44ebd3.rar/file)  
+* [Camera tools by Hatti (Password: CinematicTools)](https://www.mediafire.com/file/ebjx8zzang9tq25/CT_MEAndromeda_20180210-44ebd3.rar/file)  
 **Features**: Free Camera, FOV, Timestop, HUD toggle, Shadow Resolution, Vignette and Film Grain control
  
 ## Usage

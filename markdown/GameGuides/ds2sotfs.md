@@ -1,4 +1,4 @@
-![Dark Souls II: Scholar of the First Sin](Images\ds2sotfs_header.png "Shot by ItsYFP"){.shadowed}
+![Dark Souls II: Scholar of the First Sin](Images\ds2sotfs_header.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Unknown
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

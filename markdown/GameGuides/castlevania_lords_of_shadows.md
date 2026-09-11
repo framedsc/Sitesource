@@ -1,4 +1,4 @@
-![Castlevania: Lords of Shadow](\Images\castlevania_lords_of_shadows.png "Shot by One3rd")
+![Castlevania: Lords of Shadow](\Images\castlevania_lords_of_shadows.png "Shot by One3rd"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes (with table)
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

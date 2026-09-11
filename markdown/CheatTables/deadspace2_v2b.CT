@@ -1,0 +1,3373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>303</ID>
+      <Description>"Attach to game process "deadspace...""</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$Lua}
+openProcess("deadspace")
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>219</ID>
+      <Description>"Compact Mode"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+LuaCall(function cycleFullCompact(sender,force) local state = not(compactmenuitem.Caption == 'Compact View Mode'); if force~=nil then state = not force end; compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'; getMainForm().Splitter1.Visible = state; getMainForm().Panel4.Visible    = state; getMainForm().Panel5.Visible    = state; end; function addCompactMenu() if compactmenualreadyexists then return end; local parent = getMainForm().Menu.Items; compactmenuitem = createMenuItem(parent); parent.add(compactmenuitem); compactmenuitem.Caption = 'Compact View Mode'; compactmenuitem.OnClick = cycleFullCompact; compactmenualreadyexists = 'yes'; end; addCompactMenu(); cycleFullCompact(nil,true))
+
+[DISABLE]
+LuaCall(cycleFullCompact(nil,false))
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82665</ID>
+      <Description>"Credits"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FFFFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>82669</ID>
+          <Description>"GhostInTheCamera"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C08000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82670</ID>
+          <Description>"One3rd"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>008000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82671</ID>
+          <Description>"r3sus"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>000000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82675</ID>
+          <Description>"Jim2point0"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82668</ID>
+      <Description>"Adjust the hotkeys to your liking by selecting entry and pressing `Ctrl+H`"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13953</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82672</ID>
+      <Description>"DETACHED FREE CAMERA"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>483</ID>
+          <Description>"Free Camera (ds2/3)"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(FreeCam,$process,E8 ? ? ? ? 8B 4D 0C 0F 28 00 0F 29 01 ??) // 8B for ds2, 5D for ds3, ds1 - not found
+define(FreeCam,FreeCam+8)
+aobscanmodule(CameraWrite,$process,E8 ?? ?? ?? ?? 8B CE E8 ?? ?? ?? ?? 8B CE C6 86 ?? ?? ?? ?? ?? E8)  // should be unique
+define(CameraWrite,CameraWrite+5)
+
+alloc(newmem,$1000)
+registersymbol(FreeCam)
+registersymbol(CameraWrite)
+registersymbol(camAddress)
+
+label(camAddress)
+label(return)
+
+newmem:
+  mov [camAddress],eax
+  movaps xmm0,[eax]
+  movaps [ecx],xmm0
+  jmp return
+
+//
+camAddress:
+  dq 0
+//
+
+FreeCam:
+  jmp newmem
+  nop
+return:
+
+// call to code that writes to mouse/light position
+CameraWrite:
+  db EB 05 // jump 5 bytes over call
+
+[DISABLE]
+
+FreeCam:
+  movaps xmm0,[eax]
+  movaps [ecx],xmm0
+//  db 0F 28 00 0F 29 01
+
+CameraWrite:
+  mov ecx,esi // db 8B CE
+
+unregistersymbol(FreeCam)
+unregistersymbol(CameraWrite)
+unregistersymbol(camAddress)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+39332E
+
+deadspace2.exe+39330F: 8B 45 0C              - mov eax,[ebp+0C]
+deadspace2.exe+393312: 0F 28 81 40 01 00 00  - movaps xmm0,[ecx+00000140]
+deadspace2.exe+393319: 0F 29 00              - movaps [eax],xmm0
+deadspace2.exe+39331C: 8B E5                 - mov esp,ebp
+deadspace2.exe+39331E: 5D                    - pop ebp
+deadspace2.exe+39331F: C2 08 00              - ret 0008
+deadspace2.exe+393322: 8B 55 08              - mov edx,[ebp+08]
+deadspace2.exe+393325: 52                    - push edx
+deadspace2.exe+393326: E8 F5 F5 FF FF        - call deadspace2.exe+392920
+deadspace2.exe+39332B: 8B 4D 0C              - mov ecx,[ebp+0C]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+39332E: 0F 28 00              - movaps xmm0,[eax]
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+393331: 0F 29 01              - movaps [ecx],xmm0
+deadspace2.exe+393334: 8B E5                 - mov esp,ebp
+deadspace2.exe+393336: 5D                    - pop ebp
+deadspace2.exe+393337: C2 08 00              - ret 0008
+deadspace2.exe+39333A: CC                    - int 3
+deadspace2.exe+39333B: CC                    - int 3
+deadspace2.exe+39333C: CC                    - int 3
+deadspace2.exe+39333D: CC                    - int 3
+deadspace2.exe+39333E: CC                    - int 3
+deadspace2.exe+39333F: CC                    - int 3
+}
+
+{
+Camera call nop AOB
+E8 ?? ?? ?? ?? 8B CE E8 ?? ?? ?? ?? 8B CE C6 86 ?? ?? ?? ?? ?? E8
+
+aobscanmodule(INJECT,deadspace2.exe,E8 0A EC FF FF 8B) // should be unique
+alloc(newmem,$1000)
+
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+44D651
+
+deadspace2.exe+44D63B: CC                    - int 3
+deadspace2.exe+44D63C: CC                    - int 3
+deadspace2.exe+44D63D: CC                    - int 3
+deadspace2.exe+44D63E: CC                    - int 3
+deadspace2.exe+44D63F: CC                    - int 3
+deadspace2.exe+44D640: 56                    - push esi
+deadspace2.exe+44D641: 8B F1                 - mov esi,ecx
+deadspace2.exe+44D643: C6 86 98 02 00 00 01  - mov byte ptr [esi+00000298],01
+deadspace2.exe+44D64A: E8 41 EA FF FF        - call deadspace2.exe+44C090
+deadspace2.exe+44D64F: 8B CE                 - mov ecx,esi
+// ---------- INJECTING HERE ----------
+deadspace2.exe+44D651: E8 0A EC FF FF        - call deadspace2.exe+44C260
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+44D656: 8B CE                 - mov ecx,esi
+deadspace2.exe+44D658: C6 86 98 02 00 00 00  - mov byte ptr [esi+00000298],00
+deadspace2.exe+44D65F: E8 FC FE FF FF        - call deadspace2.exe+44D560
+deadspace2.exe+44D664: 8B CE                 - mov ecx,esi
+deadspace2.exe+44D666: E8 55 F4 FF FF        - call deadspace2.exe+44CAC0
+deadspace2.exe+44D66B: 8B 86 94 02 00 00     - mov eax,[esi+00000294]
+deadspace2.exe+44D671: 85 C0                 - test eax,eax
+deadspace2.exe+44D673: 76 12                 - jna deadspace2.exe+44D687
+deadspace2.exe+44D675: 39 05 B8 D3 04 02     - cmp [deadspace2.exe+1C4D3B8],eax
+deadspace2.exe+44D67B: 76 0A                 - jna deadspace2.exe+44D687
+}
+
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>96</Key>
+                <Key>17</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13231</ID>
+              <Description>"X"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>camAddress</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>13233</ID>
+                  <Description>"Z"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13232</ID>
+                  <Description>"Y"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13234</ID>
+                  <Description>"Y - Pitch - ↑↓"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+20</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.05</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13235</ID>
+                  <Description>"X -Yaw ↔"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+00000024</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>.05</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>.05</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>107</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>0.2</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>102</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>107</Key>
+                        <Key>100</Key>
+                      </Keys>
+                      <Value>.01</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13236</ID>
+                  <Description>"Tilt  - Roll"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+00000028</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>99</Key>
+                      </Keys>
+                      <Value>.02</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>97</Key>
+                      </Keys>
+                      <Value>0.02</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>98</Key>
+                      </Keys>
+                      <Value>0</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>96</Key>
+                      </Keys>
+                      <Value>1.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>13237</ID>
+                  <Description>"FOV"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+00000030</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.08</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>107</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.08</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>106</Key>
+                        <Key>17</Key>
+                      </Keys>
+                      <Value>1.221730471</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13954</ID>
+          <Description>"Description"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13959</ID>
+              <Description>"  1. Ctrl+NUMPAD_0 activates camera, detaching it from Isaac. Press again to deactivate."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13997</ID>
+              <Description>"  2. Also detaches the camera from the mouse. Do not move the mouse if you want the flashlight and lasers. "</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82659</ID>
+              <Description>"  3. Use the classic aiming HUD as the centered HUD is always in the center of the screen. "</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13296</ID>
+              <Description>"  4. FLY - No modifier"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13290</ID>
+              <Description>"      (Below, NUMPAD keys...)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13298</ID>
+              <Description>"      MOVE: Forward, backward, left, right - 8, 5, 4, 6"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13297</ID>
+              <Description>"      FLY: Up, down - 9, 7"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13292</ID>
+              <Description>"  5. AIM - Hold down PLUS"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13339</ID>
+              <Description>"      (Below, NUMPAD keys...)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13244</ID>
+              <Description>"      PAN: Up, down, left, right - 8, 5, 4, 6"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13246</ID>
+              <Description>"      ZOOM: In, out - 9, 7 (reset to default: Ctrl + NUMPAD *)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13242</ID>
+              <Description>"      TILT: Left, right - 1, 3 (reset: 2, set to 90 degrees: 0)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>000000</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82674</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82673</ID>
+      <Description>"TIME CONTROL"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>13956</ID>
+          <Description>"Description"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>13961</ID>
+              <Description>"  1. Activate the script manually."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82666</ID>
+              <Description>"  2. Press Ctrl+0 to toggle pause time."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13994</ID>
+              <Description>"  3. Game Speed  keybinds - [Ctrl+9 - slomo 0.3]"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>304</ID>
+          <Description>"Time Master"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-27
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+{$asm}
+
+aobscanmodule(time,deadspace2.exe,89 4C 24 18 F3 0F 10 05) // should be unique
+define(time,[time+8])
+registersymbol(time)
+
+{$Lua}
+
+function timeStop()
+local x,y = {},{1,1e-2}
+x[1] = getAddress("time")
+x[2] = readFloat(x[1])
+x[3] = y[1]
+if x[2] == y[1] then x[3] = y[2] end
+writeFloat(x[1],x[3])
+end
+
+[DISABLE]
+
+{$Lua}
+timeStop = 1
+
+{$asm}
+
+//unregistersymbol(time)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+36F370
+
+deadspace2.exe+36F347: 89 0D CC C3 04 02        - mov [deadspace2.exe+1C4C3CC],ecx
+deadspace2.exe+36F34D: 83 D1 00                 - adc ecx,00
+deadspace2.exe+36F350: 8B C1                    - mov eax,ecx
+deadspace2.exe+36F352: 81 E1 FF FF FF 7F        - and ecx,7FFFFFFF
+deadspace2.exe+36F358: 89 4C 24 1C              - mov [esp+1C],ecx
+deadspace2.exe+36F35C: DF 6C 24 18              - fild qword ptr [esp+18]
+deadspace2.exe+36F360: 25 00 00 00 80           - and eax,80000000
+deadspace2.exe+36F365: 89 44 24 1C              - mov [esp+1C],eax
+deadspace2.exe+36F369: 0F B7 44 24 24           - movzx eax,word ptr [esp+24]
+deadspace2.exe+36F36E: 33 C9                    - xor ecx,ecx
+// ---------- INJECTING HERE ----------
+deadspace2.exe+36F370: 89 4C 24 18              - mov [esp+18],ecx
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+36F374: F3 0F 10 05 F0 41 EC 01  - movss xmm0,[deadspace2.exe+1AC41F0]
+deadspace2.exe+36F37C: F3 0F 59 05 FC C3 04 02  - mulss xmm0,[deadspace2.exe+1C4C3FC]
+deadspace2.exe+36F384: DF 6C 24 18              - fild qword ptr [esp+18]
+deadspace2.exe+36F388: 0D 00 0C 00 00           - or eax,00000C00
+deadspace2.exe+36F38D: 89 44 24 18              - mov [esp+18],eax
+deadspace2.exe+36F391: F3 0F 11 05 E4 C3 04 02  - movss [deadspace2.exe+1C4C3E4],xmm0
+deadspace2.exe+36F399: D9 E0                    - fchs 
+deadspace2.exe+36F39B: DE C1                    - faddp 
+deadspace2.exe+36F39D: D9 C0                    - fld st(0)
+deadspace2.exe+36F39F: DD 05 28 7B AE 01        - fld qword ptr [deadspace2.exe+16E7B28]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>305</ID>
+              <Description>"Game Speed [value from 0.0 - 1.0]"</Description>
+              <LastState Value="-4.121455698E-32" RealAddress="7578F708"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>time</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>57</Key>
+                  </Keys>
+                  <Value>0.3</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82661</ID>
+              <Description>"timeStop (Ctrl + 0)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>0000FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$Lua}
+
+timeStop()
+
+[DISABLE]
+
+{$Lua}
+
+timeStop()
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>48</Key>
+                    <Key>17</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82650</ID>
+          <Description>"Time (static)"</Description>
+          <LastState Value="0" RealAddress="01EC51F0"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>01EC51F0</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13952</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82640</ID>
+      <Description>"CHEATS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>292</ID>
+          <Description>"Invisible - enemies don't see you"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(ghostModeHook,deadspace2.exe,8D 9B 00 00 00 00 8B 4C 24 20 8B 54 24 24) // should be unique
+
+registersymbol(ghostModeHook)
+
+define(ghostModeHook, ghostModeHook-10)
+
+[DISABLE]
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+B81C3A
+
+deadspace2.exe+B81C20: 8B CE              - mov ecx,esi
+deadspace2.exe+B81C22: E8 49 52 82 FF     - call deadspace2.exe+3A6E70
+deadspace2.exe+B81C27: 83 F8 FF           - cmp eax,-01
+deadspace2.exe+B81C2A: 74 30              - je deadspace2.exe+B81C5C
+deadspace2.exe+B81C2C: 50                 - push eax
+deadspace2.exe+B81C2D: 8B CE              - mov ecx,esi
+deadspace2.exe+B81C2F: E8 1C 52 82 FF     - call deadspace2.exe+3A6E50
+deadspace2.exe+B81C34: 8B 30              - mov esi,[eax]
+deadspace2.exe+B81C36: 85 F6              - test esi,esi
+deadspace2.exe+B81C38: 74 22              - je deadspace2.exe+B81C5C
+// ---------- INJECTING HERE ----------
+deadspace2.exe+B81C3A: 8D 9B 00 00 00 00  - lea ebx,[ebx+00000000]
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+B81C40: 8B 4C 24 20        - mov ecx,[esp+20]
+deadspace2.exe+B81C44: 8B 54 24 24        - mov edx,[esp+24]
+deadspace2.exe+B81C48: 8B 06              - mov eax,[esi]
+deadspace2.exe+B81C4A: 51                 - push ecx
+deadspace2.exe+B81C4B: 52                 - push edx
+deadspace2.exe+B81C4C: 53                 - push ebx
+deadspace2.exe+B81C4D: 50                 - push eax
+deadspace2.exe+B81C4E: 8B CF              - mov ecx,edi
+deadspace2.exe+B81C50: E8 EB FB FF FF     - call deadspace2.exe+B81840
+deadspace2.exe+B81C55: 8B 76 04           - mov esi,[esi+04]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>293</ID>
+              <Description>"Toggle with (Ctrl+')"</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">74:disabled
+EB:enabled
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>ghostModeHook</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>419</ID>
+              <Description>"Invisibility"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+ 
+ghostModeHook:
+db EB
+
+[DISABLE]
+
+ghostModeHook:
+db 74
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>222</Key>
+                    <Key>17</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>417</ID>
+          <Description>"Disable Gravity - 0g"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-28
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+// enable 0g
+ 
+aobscanmodule(0g,deadspace2.exe,F3 0F 5E E1 0F C6 E4 00 0F 59 EC) // should be unique
+
+define(0g,0g-13)
+
+0g:
+db 00
+
+registersymbol(0g)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+0g:
+db 01
+
+//unregistersymbol(0g)
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+B7283D
+
+deadspace2.exe+B727FF: F3 0F 11 9E 34 01 00 00  - movss [esi+00000134],xmm3
+deadspace2.exe+B72807: F3 0F 11 9E 30 01 00 00  - movss [esi+00000130],xmm3
+deadspace2.exe+B7280F: 83 8E 44 01 00 00 02     - or dword ptr [esi+00000144],02
+deadspace2.exe+B72816: 0F 2F CA                 - comiss xmm1,xmm2
+deadspace2.exe+B72819: 8B 86 44 01 00 00        - mov eax,[esi+00000144]
+deadspace2.exe+B7281F: F3 0F 11 9E 40 01 00 00  - movss [esi+00000140],xmm3
+deadspace2.exe+B72827: 0F 82 A5 00 00 00        - jb deadspace2.exe+B728D2
+deadspace2.exe+B7282D: 83 C8 08                 - or eax,08
+deadspace2.exe+B72830: E9 97 00 00 00           - jmp deadspace2.exe+B728CC
+deadspace2.exe+B72835: F3 0F 10 25 D0 4E AA 01  - movss xmm4,[deadspace2.exe+16A4ED0]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+B7283D: 83 8E 44 01 00 00 01     - or dword ptr [esi+00000144],01
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+B72844: 0F 2F 54 24 1C           - comiss xmm2,[esp+1C]
+deadspace2.exe+B72849: 0F 28 AE 20 01 00 00     - movaps xmm5,[esi+00000120]
+deadspace2.exe+B72850: 8B 86 44 01 00 00        - mov eax,[esi+00000144]
+deadspace2.exe+B72856: F3 0F 5E E1              - divss xmm4,xmm1
+deadspace2.exe+B7285A: 0F C6 E4 00              - shufps xmm4,xmm4,00
+deadspace2.exe+B7285E: 0F 59 EC                 - mulps xmm5,xmm4
+deadspace2.exe+B72861: 0F 29 AE 30 01 00 00     - movaps [esi+00000130],xmm5
+deadspace2.exe+B72868: 76 05                    - jna deadspace2.exe+B7286F
+deadspace2.exe+B7286A: 83 C8 04                 - or eax,04
+deadspace2.exe+B7286D: EB 5D                    - jmp deadspace2.exe+B728CC
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>420</ID>
+              <Description>" "</Description>
+              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">01:disabled
+00:enabled
+</DropDownList>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Byte</VariableType>
+              <Address>0g</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>421</ID>
+              <Description>"toggle"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+ 
+0g:
+db 00
+
+[DISABLE]
+
+0g:
+db 01
+</AssemblerScript>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>57</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82648</ID>
+          <Description>"Nodes- enable script then enter equipment menu"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+registersymbol(cores)
+label(cores)
+
+newmem:
+mov [cores],ecx
+mov eax,[ecx+0000042C]
+jmp returnhere
+
+//
+cores:
+dq 0
+//
+
+"deadspace2.exe"+4A7930:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+"deadspace2.exe"+4A7930:
+mov eax,[ecx+0000042C]
+//Alt: db 8B 81 2C 04 00 00
+
+dealloc(newmem)
+unregistersymbol(cores)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82649</ID>
+              <Description>"Nodes"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>cores</Address>
+              <Offsets>
+                <Offset>42C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82657</ID>
+          <Description>"Undying (everyone)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+// writes to to health..and a bunch of other stuff
+deadspace2.exe+B84D5C: // - F3 0F 11 87 E8 00 00 00   - movss [edi+000000E8],xmm0
+db 90 90 90 90 90 90 90 90
+ 
+ 
+[DISABLE]
+deadspace2.exe+B84D5C: // - F3 0F 11 87 E8 00 00 00   -
+movss [edi+000000E8],xmm0
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82658</ID>
+          <Description>"Player Health"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(health,deadspace2.exe,D9 80 E8 00 00 00 C3 CC CC CC CC E8) // should be unique
+alloc(newmem,$1000)
+label(return)
+label(healthAddress)
+registersymbol(healthAddress)
+registersymbol(health)
+
+newmem:
+ mov [healthAddress],eax
+ fld dword ptr [eax+000000E8]
+ jmp return
+
+//
+healthAddress:
+  dq 0
+//
+
+health:
+  jmp newmem
+  nop
+
+return:
+
+
+[DISABLE]
+
+health:
+  fld dword ptr [eax+000000E8]
+  // alt: db D9 80 E8 00 00 00
+
+unregistersymbol(healthAddress)
+unregistersymbol(health)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+4A78B5
+
+deadspace2.exe+4A78A7: CC                 - int 3
+deadspace2.exe+4A78A8: CC                 - int 3
+deadspace2.exe+4A78A9: CC                 - int 3
+deadspace2.exe+4A78AA: CC                 - int 3
+deadspace2.exe+4A78AB: CC                 - int 3
+deadspace2.exe+4A78AC: CC                 - int 3
+deadspace2.exe+4A78AD: CC                 - int 3
+deadspace2.exe+4A78AE: CC                 - int 3
+deadspace2.exe+4A78AF: CC                 - int 3
+deadspace2.exe+4A78B0: E8 AB 14 61 00     - call deadspace2.exe+AB8D60
+// ---------- INJECTING HERE ----------
+deadspace2.exe+4A78B5: D9 80 E8 00 00 00  - fld dword ptr [eax+000000E8]
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+4A78BB: C3                 - ret
+deadspace2.exe+4A78BC: CC                 - int 3
+deadspace2.exe+4A78BD: CC                 - int 3
+deadspace2.exe+4A78BE: CC                 - int 3
+deadspace2.exe+4A78BF: CC                 - int 3
+deadspace2.exe+4A78C0: E8 9B 14 61 00     - call deadspace2.exe+AB8D60
+deadspace2.exe+4A78C5: D9 80 E4 00 00 00  - fld dword ptr [eax+000000E4]
+deadspace2.exe+4A78CB: C3                 - ret
+deadspace2.exe+4A78CC: CC                 - int 3
+deadspace2.exe+4A78CD: CC                 - int 3
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82656</ID>
+              <Description>"Health Freeze"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>healthAddress</Address>
+              <Offsets>
+                <Offset>e8</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Toggle Activation Allow Increase</Action>
+                  <Keys>
+                    <Key>186</Key>
+                  </Keys>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>274</ID>
+          <Description>"New Game Checkpoint"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscan(cp,00 00 00 11 00 00 00 64 73 5F 32 2E 73 74 72 00 00 00 00 29 ) // should be unique
+define(cp,cp+17)
+registersymbol(cp)
+[DISABLE]
+unregistersymbol(cp)
+//code from here till the end of the code will be used to disable the cheat
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>275</ID>
+              <Description>"string"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>336</ID>
+              <Description>"list"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">:ch01_hos
+XCENTKOWSK_C9C50BC_08B592A_v3:initial
+XPATEL1026_CB19946_663E415_v3:psych_hall
+XWREDE1485_CABCA9C_BD02F4C_v3:saferoom
+XPATEL1026_CAF3AE0_2277089_v3:observation_hall
+XWREDE1485_CABCAB1_C72C94A_v3:recreation
+XPATEL1026_CB23B42_C35A969_v3:bathroom
+XWREDE1485_CABCAB9_1256626_v3:surgery_pit
+XWREDE1485_CABCABF_8462A04_v3:surgery
+XPATEL1026_CB1E197_75F14D2_v3:surgery_lobby
+XPATEL1026_CAFDF34_8A2F95E_v3:emergency_entrance
+XWREDE1485_CABCAC3_F98B9EF_v3:triage
+XWREDE1485_CABCAC8_22B5298_v3:morgue
+XWREDE1485_CABCACE_EE9C9E0_v3:decompression
+XPATEL1026_CAFEC9A_3766035_v3:storage_suit_room
+XPATEL1026_CB23B4F_6ADCC74_v3:boss_room
+:ch02_ase
+XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
+XWORCH0111_CABBCA9_1FBC885_v3:initial
+XPATEL1026_CA72E6D_682629F_v3:public_sector_01
+XWORCH0111_CABC023_65BE0B0_v3:public_sector_laundry
+XWORCH1597_CA720D0_5BA9F92_v3:hallway_02
+XWORCH1597_CA77ADA_464FBF3_v3:tram_station
+XWANAT1605_CA67B67_E6AA4C6_v3:GPMM_demo
+XWORCH0111_CB1A26E_ACE5F56_v3:GPMM_post_jump
+XPITTS1020_CA77A20_BA9A6A5_v3:hanging_combat
+XWORCH1597_CA78627_F283778_v3:tram_crash_site
+XWORCH1597_CA7D2D9_F68772D_v3:focal_slice_street
+XWORCH0111_CB1A2C1_94E171F_v3:decompression
+XWORCH1597_CA7F815_C91E0B4_v3:zero_g
+XWORCH0111_CAEE0AC_C9BC1D5_v3:zerog_control_debug
+XWORCH1597_CAA5204_D8DC8E3_v3:infrastructure
+XWORCH1597_CA75275_379471B_v3:public_sector03
+XWORCH0111_CB2DB97_91B4B57_v3:public_sector03_courtyard
+:ch03_chr
+XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
+XKATZ6792X_CA3E024_C467BF3_v3:initial_debug
+XWALKER429_CB06AC7_B670492_v3:Parish_Hall
+XCOTTS0634_CAF1FDB_4F274D1_v3:interrogation_room
+XRODRIGUEZ_CA72C1F_E72B106_v3:rear_courtyard_debug
+XWALKER429_CB08D14_E08552F_v3:Funeral_Chapel
+XWALKER429_CB3F4B1_DCFF1C0_v3:Crypt_Start_debug
+XWALKER429_CB118EF_6F4AA4E_v3:Crypt_Storage_2_horror
+XKATZ6792X_CA422AA_2090E9F_v3:church
+XWALKER429_CB1D4E1_8BEDB11_v3:Church_after_pack
+XWALKER429_CB3F488_E4B5A21_v3:Crypt_Start_debug
+XWALKER429_CAEAFA4_B48B129_v3:Crypt_Ops
+XKATZ0289X_CA492B2_FEB5825_v3:saferoom
+XWALKER429_CB17CCA_60AA30B_v3:Saferoom_Final_SE
+XWALKER429_CB1D52F_CE7F851_v3:puzzle
+XWALKER429_CAD5CAB_1FC723F_v3:Kong_Phase_one
+XWALKER429_CAE58B2_CB76F80_v3:Saferoom_Kong_tease
+XWALKER429_CAE57A0_095A203_v3:Consumer_Demo
+:ch04_asc
+XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
+XWORCH0111_CACBB39_9398629_v3:initial_debug
+XWORCH0111_CACBBA3_C4D84B0_v3:psec03_debug
+XWORCH0111_CADDC97_CF1EBC3_v3:hallway04_debug
+XWORCH0111_CACC85C_346A759_v3:public_sector02
+XPRICE0021_CB02AAF_5C994B0_v3:public_sector02_elevator
+XWORCH0111_CAD3703_2A3E302_v3:stalker_room_debug
+XPRICE0021_CB0696B_5B8F4B5_v3:transition_zone_04
+XWORCH0111_CAD5DB8_807216D_v3:mall_street_debug
+XPRICE0021_CB38B13_B6E699E_v3:street_hallway_debug
+XWORCH0111_CACD22B_AB5ACFB_v3:school_entrance
+XWORCH0111_CAE30E9_7859B7C_v3:school_cafeteria_debug
+XWORCH0111_CAE017B_A269222_v3:school_exit_debug
+XPRICE0021_CB29F3B_F54EC67_v3:transport_hub_debug
+XPRICE0021_CB02AE7_413B7DD_v3:transport_hub_post_combat_debug
+XPRICE0021_CB2ABF6_ADA2AE3_v3:ch05_trans
+:ch05_sol
+XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
+XPITTS1020_C9C5215_6FDE339_v3:initial
+XWREDE1485_CA41317_E6AB76F_v3:elevator_fixed
+XWREDE1485_CA41313_B130006_v3:garage
+XWREDE1485_CA438C9_F310D93_v3:living_quarters
+XWREDE1485_CA438E9_3869757_v3:turret_room
+XWREDE1485_CA438ED_D3D0F34_v3:mainframe
+XCALHOUN17_CB0CFAA_9759FD9_v3:mainframe_solved
+XMCGEE0016_CA800C7_AC38711_v3:mainframe_secret_room
+XWREDE1485_CA58C3A_1D3FF91_v3:living_hall_backtrack
+XWREDE1485_CA438F0_DC994CF_v3:zerog_initial
+XCALHOUN17_CAF2F3A_18C3587_v3:zerog_post_puzzle_AND_halo_jump
+XWREDE1485_CA4891D_3A4F85B_v3:sprawl_hub
+XPATEL1026_CAB03F2_132EEDA_v3:ch05_end
+:ch06_cec
+XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
+XWREDE1485_C9CDD76_ECA8B4C_v3:initial
+XPATEL1026_C9BC646_49ED0DB_v3:admin
+XWREDE1485_C9BD282_2BE14EB_v3:admin_2
+XPATEL1026_C9C3792_00FD932_v3:hydrogen_processing_1
+XFITZGIBBO_CAFB7AD_97A2FF3_v3:hydrogen_processing_2
+XFITZGIBBO_CB2A146_EFAD22F_v3:hydrogen_processing_3
+XWREDE1485_C9BD280_5C2A353_v3:ring_room
+XFITZGIBBO_CB2A16E_2797371_v3:hydrogen_exit
+XPATEL1026_C9D40EE_47D506A_v3:transport_hub_1
+XPATEL1026_CA318C9_B12FA36_v3:transport_hub_2
+XFITZGIBBO_CB2A1EF_04079F1_v3:transport_elevator
+XPATEL1026_CA31A3B_84D4D4C_v3:transport_hub_3
+XPATEL1026_CA43A8B_C130EC6_v3:transport_hub_4
+XFITZGIBBO_CB2A2A8_5F7588F_v3:transport_hub_5
+XPATEL1026_CA154EE_46D1704_v3:lower_hub_1
+XFITZGIBBO_CB2A2F5_004C039_v3:lower_hub_2
+XWREDE1485_C9CDDBE_9C4F705_v3:boss_arena
+XPATEL1026_CADCC7A_D8D59BE_v3:transition_1
+XFITZGIBBO_CB28543_41839AD_v3:transition_2
+:ch08_ish
+XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+XPATEL1026_CAA5053_B2D0210_v3:initial
+XA1019863X_CAF8505_935401E_v3:Lounge
+XPATEL1026_CAA5053_B2D0213_v3:Workshop
+XPATEL1026_CAA5053_B2D0216_v3:Mylar_Tram_Tunnel
+XPATEL1026_CAA699E_9508DED_v3:Eng_Tramstation
+XA1019863X_CB3E201_D1EF980_v3:Centerfuge_Hall
+X0790XXXXX_CADD781_CF6AA90_v3:Centerfuge
+XA1019863X_CAF8536_210D5DD_v3:Decon_Backtrack
+XA1019863X_CB1FA08_D47FE70_v3:Tram_Ride
+XPATEL1026_CAAB4F2_DA08B7D_v3:Cryo_Tramstation
+XA1019863X_CAF8544_18B6439_v3:Chem_Lab
+XA1019863X_CAFE81F_3CDE03A_v3:Med_Storage
+XA1019863X_CAE57F6_FC96C8C_v3:ZeroG_Med_to_Bridge
+XPATEL1026_CAA920B_A5C3AE0_v3:Brg_Tramstation
+XCALHOUN17_CB40B2E_06212B8_v3:Gravity_Tethers_Debug
+XA1019863X_CAF1E44_3AF26FF_v3:Capt_Nest
+:ch09_mng
+XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+XPATEL1026_C9B3BC9_4AB30E9_v3:Initial_debug
+XRODRIGUEZ_C9DB204_D6AD7EB_v3:Post_Moonquake_debug
+XRODRIGUEZ_C9BA2F2_45AF030_v3:Mining_Camp_Entrance_debug
+XPITTS1020_C9B4932_EFD1161_v3:Mineral_Extraction_debug
+XRODRIGUEZ_CA3E0D9_8790935_v3:Repair_Room_Side_Hallway_debug
+XRODRIGUEZ_C9BA2FA_AD2793E_v3:Repair_Room_Entrance_debug
+XRODRIGUEZ_CA06648_C51CD75_v3:Repair_Room_Post_Combat_debug
+XRODRIGUEZ_C9B886B_CFEE7AE_v3:Uni_Death_debug
+XRODRIGUEZ_C9BFA08_F952CD9_v3:Elevator_Ride_debug
+XRODRIGUEZ_C9B4AE1_75FACA6_v3:Drill_Room_entrance_debug
+XCOTTS0634_CB5F4CF_1F45619_v3:Drill_Ride_Turn_debug
+XRODRIGUEZ_C9FE9EF_A44E6D9_v3:Drill_Ride_debug
+XCOTTS0634_CB5E686_0FE44E7_v3:Drill_Ride_Tunnel_2_debug
+XCOTTS0634_CB5E6B1_95C9BF0_v3:Drill_Ride_Tunnel_3_debug
+XRODRIGUEZ_CA73A5F_D118D3D_v3:Drill_Caverns_art_test_debug
+XRODRIGUEZ_CA0707A_4439831_v3:Drill_Ride_Post_Combat_debug
+XCOTTS0634_CAD8E67_ADFE891_v3:SE_9.05_Second_Moonquake
+XCOTTS0634_CAD8E73_B41676A_v3:SE_9.06_Expelled
+XCOTTS0634_CAD8E8D_0485119_v3:SE_9.07_Third_Moonquake
+XCOTTS0634_CAD8ECD_943AAD1_v3:SE_9.08_Nicole_Flicker
+XCOTTS0634_CAD8EE5_D5E91EA_v3:SE_9.09_Elevator_Arrives
+XCOTTS0634_CAD8F38_2AE2E51_v3:SE_9.10_Nicole_Good
+XCOTTS0634_CAD8F6F_A120831_v3:SE_9.11_I_Got_This_One
+XCOTTS0634_CAD8F84_2C46882_v3:SE_9.12_Refueling_The_Drill
+XCOTTS0634_CAD8F89_43CFFA2_v3:SE_9.13_Fourth_Moonquake
+XCOTTS0634_CAD9011_8E23001_v3:SE_9.14_Out_Of_Mine
+XCOTTS0634_CAD9039_107BAA3_v3:IGC_9.01_Coming_To
+XCOTTS0634_CAD903C_918B745_v3:IGC_9.03_Drag_Tentacle
+XCOTTS0634_CAD9044_A5F692B_v3:IGC_9.04_Death_Of_A_Patient
+:ch10_gov
+XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+XRODRIGUEZ_CA9DF43_B576568_v3:initial
+XRODRIGUEZ_CAB748C_DF22FA0_v3:foyer_lower_debug
+XRODRIGUEZ_CAB5B99_D6D4980_v3:security_entry_debug
+XRODRIGUEZ_CAF7B2E_4D2565B_v3:security_gate_control_debug
+XRODRIGUEZ_CAA5DB1_16CB77A_v3:suit_room_debug
+XRODRIGUEZ_CAE7EC7_D60661E_v3:lab_1_entry_debug
+XRODRIGUEZ_CAB4D7B_7E6B660_v3:marker_lab_1_debug
+XRODRIGUEZ_CAB4184_159E381_v3:security_checkpoint_1_debug
+XRODRIGUEZ_CAB4F52_14AFA81_v3:marker_lab_2_debug
+XRODRIGUEZ_CABB432_45284D6_v3:marker_lab_3_debug
+XRODRIGUEZ_CAB418F_935E861_v3:security_checkpoint_2_debug
+XRODRIGUEZ_CAB0F79_B0A8043_v3:security_checkpoint_3_debug
+XRODRIGUEZ_CABCB82_1902283_v3:moat_hallway_debug
+XRODRIGUEZ_CAB0C8E_E1C1D36_v3:mtb_foyer_debug
+:ch11_mtb
+XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+XPATEL1026_CABF04E_B19D1CC_v3:initial_debug
+XMARINELLO_CB329BA_6B79796_v3:antechamber_pre_eyepoke_debug
+XMARINELLO_CB498E5_7E390DE_v3:chamber_eyepoke_debug
+XMARINELLO_CB4244B_FC6222A_v3:chamber_post_eyepoke_debug
+XMARINELLO_CB358FD_E1BDA86_v3:chamber_exit_debug
+XRODRIGUEZ_CAD04EB_877A46A_v3:arena_01_debug
+XRODRIGUEZ_CAE8C38_12E73B2_v3:hallway_02
+XRODRIGUEZ_CAD1138_014F5CA_v3:transition_room_01_debug
+XRODRIGUEZ_CAD1F21_229B80B_v3:transition_room_02_debug
+XRODRIGUEZ_CAD13D5_4DE33EB_v3:zero_g_arena_enter_debug
+XRODRIGUEZ_CAD29CC_57916D1_v3:zer0_g_arena_exit_debug
+XRODRIGUEZ_CADDAA6_7FFA209_v3:marker_test_bed_entrance_debug
+XMARINELLO_CB01D86_E0D6644_v3:marker_test_bed_last_room_debug
+XMARINELLO_CB34C61_32DD84D_v3:marker_test_bed_insider_debug
+XMARINELLO_CB56026_842439A_v3:dementia_land_debug
+XRODRIGUEZ_CAE7CAE_1C2F11E_v3:marker_test_bed_escape_debug
+:ch05_GAMESCON
+XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+XCALHOUN17_CB3266D_99D998C_v3:GamesCon_Initial
+:Ch01_SE_Checkpoints
+XPATEL1026_CB1FCAE_2D90791_v3:igc_01_01
+XPATEL1026_CB1FCB1_762A6E9_v3:igc_01_02
+XPATEL1026_CB21E71_D0DA2A6_v3:horror_hallway_ses
+XPATEL1026_CB21E8A_EC60309_v3:se_01_01
+XPATEL1026_CB21EBB_48F463F_v3:se_01_02
+XPATEL1026_CB21F25_692C8F2_v3:vm_01_01
+XPATEL1026_CB21E77_690C73B_v3:igc_01_03
+XPATEL1026_CB21E92_38BE3CF_v3:igc_01_04
+XPATEL1026_CB21E95_6C7B732_v3:igc_01_05
+XPATEL1026_CB21E9B_E15F35E_v3:se_01_12
+XPATEL1026_CB21EA1_92E6B09_v3:igc_01_06
+XPATEL1026_CB21EAE_7E9E234_v3:se_01_08
+XPATEL1026_CB21EB2_83B98FA_v3:igc_01_07
+XPATEL1026_CB21EB7_1986E15_v3:se_01_03
+XPATEL1026_CB21F0F_C4BEBAE_v3:vt_01_02
+XPATEL1026_CB21F08_57BE3A3_v3:se_01_04
+XPATEL1026_CB21EFD_1256C26_v3:se_01_06
+XPATEL1026_CB21F02_64593F2_v3:se_01_07
+:Ch02_SE_Checkpoints
+XSBUDDYCP1_CAE5705_43FA33B_v3:SE_2.01_[Skybox_Chaos]
+XSBUDDYCP1_CAE349F_1B1982F_v3:SE_2.02_[Local_Exodus_1]
+XSBUDDYCP1_CAE349F_1B1982F_v3:SE_2.03_[Local_Exodus_2]
+XSBUDDYCP1_CAE5778_91BA3AF_v3:SE_2.04_[Boo]
+XSBUDDYCP1_CAE5778_91BA3AF_v3:SE_2.05_[Elevator_Malfunction]
+XSBUDDYCP1_CAE5778_91BA3AF_v3:SE_2.06_[Get_Excited]
+XSBUDDYCP1_CAE5778_91BA3AF_v3:SE_2.07_[Local_Exodus_3]
+XSBUDDYCP1_CAE591D_711D301_v3:SE_2.08_[Leave_Her!]
+XSBUDDYCP1_CAE593A_FDE2CBB_v3:SE_2.09_[Thump]
+XSBUDDYCP1_CAE5972_8C8A0CE_v3:SE_2.10_[Mass_Exodus]
+XSBUDDYCP1_CAE5996_6069642_v3:SE_2.11_[Slasher_At_the_Gate]
+XSBUDDYCP1_CAE59B9_4859A1C_v3:SE_2.12_[Skybox_chaos_2]
+XSBUDDYCP1_CAE59C5_BE9A1A7_v3:SE_2.13_[Don't_Go_There]
+XSBUDDYCP1_CAE59C5_BE9A1A7_v3:SE_2.14_[Flame_Train]
+XSBUDDYCP1_CAE5A6D_1976932_v3:SE_2.17_[Uni_Apartment_Dementia]
+XSBUDDYCP1_CAE5A95_AFA98F7_v3:SE_2.18_[Spotted]
+XSBUDDYCP1_CAE6363_E6DF02C_v3:SE_2.19_[Government_Attack]
+:Ch03_SE_Checkpoints
+XCOTTS0634_CB01C8D_F61AD27_v3:SE_3.01_[Government_Fly_By]
+XCOTTS0634_CB01C9C_C65A6C4_v3:IGC_3.01_[Eye_Stab]
+XCOTTS0634_CB01CCB_2718B19_v3:SE_3.03_[Tripod_Wrecks_Door]
+:Ch04_SE_Checkpoints
+XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
+XPRICE0021_CB29ED5_2912BB3_v3:SE_04_01
+XPRICE0021_CB29F09_FF2DE87_v3:SE_04_02
+XPRICE0021_CB29F26_E540E6B_v3:SE_04_03
+XWORCH0111_CAE3325_CBD343B_v3:SE_04_04_&amp;_04_05
+XPRICE0021_CB29F53_2221C8E_v3:SE_04_06
+:Ch05_SE_Checkpoints
+XCALHOUN17_CAD528E_366423D_v3:SE_5.02_thru_SE_5.05
+XCALHOUN17_CAD52CC_B413264_v3:SE_5.06_thru_SE_5.07
+XCALHOUN17_CAD52D2_17711A3_v3:SE_5.09
+XCALHOUN17_CAD5ACB_BB32BDF_v3:SE_5.11
+XCALHOUN17_CAD5CA9_429767D_v3:SE_5.12_and_SE_5.14
+XCALHOUN17_CAD5CD0_D237BC1_v3:IGC_5.01_and_IGC_5.02
+:Ch06_SE_Checkpoints
+XPATEL1026_CAD2C3C_BBAE2CB_v3:SE_6_1
+XPATEL1026_CAD2C3F_D494D07_v3:SE_6_2
+XPATEL1026_CAD2C40_0C761CB_v3:SE_6_3
+XPATEL1026_CAD2C40_2A1D74F_v3:SE_6_4
+XPATEL1026_CAD2C40_53B0993_v3:SE_6_5
+:Ch08_SE_Checkpoints
+XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+XA1019863X_CAF1E0E_DD33ED4_v3:SE_08.04_[You_let_me_die]_(workshop)
+XA1019863X_CAF1E44_3AF26FF_v3:SE_08.08_[Crumbling]_(capt_nest)
+XA1019863X_CAF1E66_A3B64B2_v3:IGC_08.02_[Release]_(escape_pod_area)
+XA1019863X_CAF85E8_84A58C5_v3:Horror_08.01_(hangar)
+XA1019863X_CAF8505_935401E_v3:Horror_08.02_(lounge)
+XA1019863X_CAF850B_9B868E1_v3:Horror_08.03_(Brute_tunnel)
+XA1019863X_CAF8536_210D5DD_v3:Horror_08.04_(decon_backtrack)
+XA1019863X_CAF8541_D23AB3C_v3:Horror_08.05_(cryo_tram_station)
+XA1019863X_CAF8544_18B6439_v3:Horror_08.06_(chem_lab)
+XA1019863X_CAFE81A_6395AA2_v3:Dementia_08.01_(hallA)
+XA1019863X_CAFE81F_3CDE03A_v3:Dementia_08.02(med_storage)
+XA1019863X_CAFE816_BA966E2_v3:Dementia_Decon_Flashback_(decon)
+XA1019863X_CAF8614_2B1ADDC_v3:Dementia_Tentacle_Attack
+:Ch10_SE_Checkpoints
+XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+XRODRIGUEZ_CACA107_403A64B_v3:SE_10.01_[CEC_Worker_First_Door]
+XRODRIGUEZ_CACA12E_7919CF6_v3:SE_10.03_[The_Gunship]
+XRODRIGUEZ_CACA158_227E061_v3:SE_10.05_[Overwhelmed]
+XRODRIGUEZ_CACA177_50D3DA3_v3:SE_10.06_[Follow_Me]
+XRODRIGUEZ_CACA228_C5C7346_v3:SE_10.08_[A_Warning]
+XRODRIGUEZ_CACA23C_9160D0F_v3:SE_10.10_[Convergence]
+XRODRIGUEZ_CACA2CD_77DD333_v3:SE_10.11_[The_Chamber]
+XRODRIGUEZ_CACA365_EC3549F_v3:SE_10.12_[My_Eye_Hurts]
+XRODRIGUEZ_CACA328_16823C2_v3:IGC_10.01_[Government_Sector]
+XRODRIGUEZ_CACA32A_8A9BD74_v3:IGC_10.02A_[Not_This_Time]
+XRODRIGUEZ_CB14D66_9E2502B_v3:IGC_10.02B_[Not_This_Time]
+:Ch11_SE_Checkpoints
+XRODRIGUEZ_CAE0EB5_B02D6AB_v3:SE_11.01_[Nicole_Helps_1]
+XRODRIGUEZ_CAD2E1F_0AAB61A_v3:SE_11.02_[Dementia_Head_Grab_1]
+XRODRIGUEZ_CAD2E35_256AE04_v3:SE_11.03_[Dementia_Head_Grab_2]
+XRODRIGUEZ_CAE0F54_E4DD84C_v3:SE_11.04_[Nicole_Helps_3]
+XRODRIGUEZ_CAD2E48_8C22292_v3:SE_11.05_[Dementia_Head_Grab_3]
+XRODRIGUEZ_CAD2C41_39CF48A_v3:SE_11.06_[The_Marker]
+XRODRIGUEZ_CAE0EC1_D11A42B_v3:SE_11.07_[A_New_Hope]
+XRODRIGUEZ_CAE0F94_82D21AB_v3:SE_11.08_[Almost_got_you_1_2_3]
+:frontend
+:focal_slice
+XPITTS1020_CA6256B_3E2FB88_v3:demo_start
+XPITTS1020_CA2A932_6D28148_v3:initial
+XPITTS1020_CA2BF39_7BF99CA_v3:decompression
+XPITTS1020_CA2BF39_C4EC412_v3:stalkers
+XPITTS1020_CA6CA64_7B980A4_v3:zero_g_hallway_(landmine)
+XPITTS1020_CA2BF39_F2B86AA_v3:zero_g
+:x_moment
+XCENTKOW00_C949AED_3AB972F_v3:initial
+XCENTKOW00_C94F2FE_358B1A2_v3:concept_block
+XCENTKOW00_C96F96E_F8353E1_v3:swarm_slasher
+XCENTKOW00_C95EEAE_0A80E35_v3:arena
+XCENTKOW00_C97B3B5_82CD886_v3:crazy_lady
+:pdlc1_ch01_mng
+XONTREALPR_CB22182_E50854D_v3:initial
+XMARINELLO_CB806AB_62AC82F_v3:post_intro_inital
+XA1019309X_CB35955_1403E82_v3:se_pdlc1_01_02
+XMARINELLO_CB806BD_94A94CA_v3:drill_tunnel
+XONTREALPR_CB22195_3C24AD4_v3:elevator_hall
+XONTREALPR_CB22195_3C24ACE_v3:elevator_bottom
+XA1019309X_CB6FA69_D84DF0F_v3:se_pdlc1_01_04
+XONTREALPR_CB22195_3C24ABF_v3:repair_room_entrance
+XONTREALPR_CB22195_3C24AAC_v3:extraction_site
+XMARINELLO_CB8077F_AA7CAE7_v3:extraction_exit
+XONTREALPR_CB22195_3C24AB9_v3:mining_camp_backtrack
+XMARINELLO_CB807EF_2DA6A31_v3:entry_hall
+XONTREALPR_CB22195_3C24AA3_v3:post_moonquake
+XONTREALPR_CB22195_3C24A9E_v3:docking_station
+XA1019309X_CB3F063_9B3373A_v3:emergency_arrival
+XA1019309X_CB3F021_442A6F3_v3:morgue
+XA1019309X_CB6FA81_ADC565B_v3:se_pdlc1_02_04
+XA1019309X_CB3F021_91CD01D_v3:hospital_entrance
+XA1019309X_CB3F021_7425C27_v3:surgery_pit
+XONTREALPR_CB243CB_AB391A3_v3:bathroom
+XA1019309X_CB3F021_B2490C1_v3:observation
+XA1019309X_CB6FA99_1FBADC9_v3:igc_pdlc1_02_01
+XA1019309X_CB3F06B_82C4066_v3:safety_room
+XA1019309X_CB3F021_29CA6B9_v3:igc_pdlc1_02_02
+XPRICE690X_CB8061A_6456EC1_v3:landing_bay_end_fight
+:wb_dementialand
+XPATEL1026_CB49FC8_461E6C1_v3:initial
+:wb_tripod
+XRODRIGUEZ_CB0CB2D_33B41B6_v3:initial
+XPITTS1020_CB0279F_619EA02_v3:old
+XFITZGIBBO_CB4874F_3D90632_v3:ch06_boss_room
+:wb_wii_xslice
+XKATZ0289X_CA1237B_1711D11_v3:initial
+XKATZ0289X_CA1494F_EA86F66_v3:mall
+XKATZ0289X_CA1535A_A762EC2_v3:church
+XKATZ0289X_CA1553F_F3CB425_v3:elevator
+:wb_wii_lightTest
+:mp_escape
+:wb_stalker
+XKATZ0289X_CA51E79_38F3B51_v3:zone01
+XKATZ0289X_CA52ACA_F28E736_v3:zone02
+:wb_jellyfish
+XKATZ6792X_CA33058_54B67C8_v3:original
+XKATZ6792X_CA389E5_12902FA_v3:barrage
+XKATZ6792X_CA38A38_CEF041D_v3:terrorballs
+XKATZ6792X_CA38A69_71F8993_v3:fast_slow_mix
+XKATZ6792X_CA38BF4_CA2ADA8_v3:mix_terrorballs
+XKATZ6792X_CA3D386_610AF3B_v3:all_slow
+:wb_physics
+XKATZ6792X_CA210DC_ABF8933_v3:initial
+XKATZ6792X_CA21205_B10531B_v3:zone02
+XKATZ6792X_CA21DC4_66B4963_v3:zone03
+XKATZ6792X_CA21F95_50378ED_v3:zone04
+XKATZ6792X_CA22A17_57648F2_v3:zone05
+:wb_char_test
+XKATZ6792X_CA2C171_0C467EB_v3:zone01
+XKATZ6792X_CA30B0A_587178D_v3:zone02
+:wb_zerog
+XCENTKOW00_C94390B_C574E8C_v3:empty
+XLEE0467XX_C99C67D_0216EEB_v3:zeroG_NPCs
+XMAYNARD06_C9979B6_771260D_v3:debris
+XLEE0467XX_C99C5E2_3AD7DB5_v3:tripod
+XCENTKOWSK_C9C43EE_2F7D228_v3:elevator_sequence
+XGASCOIGNE_CA3D620_B4E55EA_v3:zg_jelly
+XMAYNARD06_CA4B98F_C971EF6_v3:nest
+XPITTS1020_CA6C774_1CC35EF_v3:elevator_bay
+XWREDE1485_CA8F382_0A68E28_v3:solar_mirror
+XMAYNARD06_C9979B6_771260D_v3:halo
+:wb_ds2_char
+XBROWN1019_C99C4C8_5D2094F_v3:zone01_npc
+XVOELKER13_CAC7BB3_20E5AB6_v3:zone02_crowdChars
+XVOELKER13_CAEC977_124D8DC_v3:zone03_nicoleCorpse
+XVOELKER13_CAEE1AD_561D780_v3:zone04_Weapons
+XSMOLEN102_CB1A0FD_42EF634_v3:zone05_tentacleChars
+XTROSIN101_CB53711_9F6FAC1_v3:zone06_eye_test
+:wb_ds2_animated_props
+:wb_ds2_enemies
+XKATZ6792X_CA2CD91_A9B9E87_v3:zone01
+XKATZ6792X_CA2CDA6_526998B_v3:zone02
+XKATZ6792X_CA2CDA6_65563B2_v3:zone03
+XKATZ6792X_CA2CDA6_75E0849_v3:zone04
+XKATZ6792X_CA2CDA6_8539A18_v3:zone05
+:wb_ds2_mp_char
+XKATZ6792X_CA2CE0E_D56CD94_v3:zone01
+XKATZ6792X_CA2CE24_79A436E_v3:zone02
+XKATZ6792X_CA2CE24_85DC3F0_v3:zone03
+:wb_ds2_corpses
+:wb_se
+XPITTS1020_C997993_C9295B0_v3:initial
+XTROSIN101_CAFC509_AE565CF_v3:IGC_03_03
+XTROSIN101_CB119D9_3356C2A_v3:IGC_01_02
+XTROSIN691_CB11D17_0027CC0_v3:IGC_01_03
+XCHOW1029X_CB13FFE_9228513_v3:IGC_01_05
+XHUANG1489_CB18B5C_98CEA02_v3:IGC_09_14
+:wb_cnc
+XRODRIGUEZ_CB14B8E_B9FE0FF_v3:enemies_A-G
+XRODRIGUEZ_CB14B9B_4E3C855_v3:enemies_H-L
+XRODRIGUEZ_CB14BD4_0EE2EDC_v3:enemies_M-R
+XRODRIGUEZ_CB14BE3_3C30C63_v3:enemies_S-Z
+XPITTS1020_CA9BA0B_E383000_v3:enemies_slashers
+XRODRIGUEZ_CB14C67_192B500_v3:enemies_A-G_ramp
+XRODRIGUEZ_CB14C67_CACBF58_v3:enemies_H-L_ramp
+XRODRIGUEZ_CB14C68_59B4139_v3:enemies_M-R_ramp
+XRODRIGUEZ_CB14C68_F3A3290_v3:enemies_S-Z_ramp
+XPITTS1020_CA9ECD2_1C540CE_v3:enemies_slashers_ramp
+XPITTS1020_CA9ACF8_7766BF4_v3:vent_spawning_enemies
+XKATZ6792X_CA3C7DC_7A68DCE_v3:impalement
+XPITTS1020_CAB4EE6_DAD2728_v3:puker_test_room
+XPITTS1020_CABB179_DE8E31B_v3:pathing
+XWREDE1485_CAC61AD_705B9D4_v3:tutorials
+XRODRIGUEZ_CB14B3C_5899253_v3:meta_game_testing
+:wb_eng_01
+XCENTKOWSK_C7B83C4_8FAC590_v3:initial
+XMAYNARD06_C8DBAC6_FFF3852_v3:divider
+XFELKER844_C9B48B7_DEB0818_v3:leo
+XFELKER844_C9B48B8_2C2D2F8_v3:tom
+XCENTKOWSK_C9C83C3_80C28E6_v3:tentacle_01
+XCENTKOWSK_C9C83CA_0839261_v3:tentacle_02
+XGOUSETIS2_CA4216C_69AB662_v3:adam
+:wb_eng_02
+XCENTKOWSK_C7B9084_6B693A1_v3:initial
+XMAYNARD06_C8AA288_8681AFD_v3:infector
+XMAYNARD06_C8F43A6_769089D_v3:swarm
+:mp_bombRun
+XMURPHY139_CA42DFB_171E5D5_v3:initial
+XMURPHY139_CB09C4D_1AE5AD8_v3:debug_checkpoint
+:mp_escape
+XMURPHY139_CA78FEC_8735A6B_v3:initial
+XMURPHY139_CACC494_C46B4F1_v3:debug_checkpoint
+:mp_solar
+XRECTITXXX_CAB0E80_8E56756_v3:initial
+XRECTITXXX_CAD74B3_757AFBF_v3:debug_checkpoint
+:mp_detonate
+XMURPHY139_CACD227_9F7A7C6_v3:initial
+XMURPHY139_CACD227_C90D8F4_v3:debug_checkpoint
+:mp_gov
+XRECTITXXX_CAE246E_DC98B87_v3:initial
+XHALPIN842_CB5FED2_6734599_v3:debug_checkpoint
+:mp_church
+X0790XXXXX_CAFC34D_44EC344_v3:initial
+X0790XXXXX_CB186E2_0B2FA92_v3:debug_crypt
+X0790XXXXX_CB186F2_8816CEE_v3:debug_parish
+:wb_mp
+XLU2573XXX_C99E907_8BABC7A_v3:initial
+XLU2573XXX_C9ACAD5_4F9F412_v3:zerog
+:mp_mall
+:wb_mp_zeroG
+:wb_avalanche
+:wb_charShaders
+XVOELKER25_C97C006_5B510AD_v3:zone01
+XVOELKER25_C97C127_CFAAC2D_v3:zone02
+XVOELKER25_C97CCD7_7EFE972_v3:zone03
+XVOELKER25_C97CCD9_0D02756_v3:zone04
+XVOELKER25_C97CCD9_2087C6A_v3:zone05
+XVOELKER25_C97CCD9_2BDAFBA_v3:zone06
+XVOELKER25_C97CCD9_311224E_v3:zone07
+XVOELKER25_C97CCD9_3623286_v3:zone08
+XVOELKER25_C97CCD9_3AE7E06_v3:zone09
+XVOELKER25_C97CCDD_4D415DA_v3:zone10
+:wb_mw_animation
+XTROSIN101_CAE8B72_0B4AF62_v3:puker_vent_spawn
+XTROSIN045_CA963B2_48B9A2A_v3:vent_spawn
+XTROSIN101_CAE8BC3_78196B3_v3:rail_climb_-_Puker
+XTROSIN045_CA96130_EECC5F6_v3:rail_climb_-_Preg
+XTROSIN101_CAB0101_F23D806_v3:rail_climb_-_Exploder
+XTROSIN101_CAB02CA_D62106A_v3:rail_climb_-_Leaper
+XTROSIN101_CAB02CB_3A8FEBC_v3:rail_climb_-_Lurker
+XTROSIN101_CAB02CB_3A8FEC0_v3:rail_climb_-_Pack
+XTROSIN101_CAB035E_5E1D35E_v3:rail_climb_-_Slasher
+XTROSIN045_CA9099E_84A0866_v3:decompression_pack_slash
+XTROSIN045_CA9099E_84A086B_v3:decompression_exploder_leaper
+XTROSIN045_CA9099E_84A0870_v3:decompression_infector_lurker
+XTROSIN045_CA9099E_84A0875_v3:decompression_swarm_twitcher
+XTROSIN045_CA9099E_84A087A_v3:decompression_slasher_fem_eye__stalker
+XTROSIN045_CA9099E_84A087F_v3:decompression_super_slasher__slasher_var1
+XTROSIN045_CA9099E_84A0884_v3:decompression_slasher_var2__slasher_armor
+XTROSIN045_CA90CFA_355566F_v3:decompression_slasher_woman__tube_beetle
+XTROSIN192_CB083C1_345F204_v3:puker_infector_preg
+:wb_mw_chars_weapons
+XVOELKER25_C9800E9_A58A56A_v3:zone01
+XVOELKER25_C9800F0_122FA59_v3:zone02
+XVOELKER25_C9800F0_2BF7285_v3:zone03
+XVOELKER25_C9800F0_6E46C71_v3:zone04
+XVOELKER25_C9800F0_B6B2719_v3:zone05
+XVOELKER25_C9800F0_E82B669_v3:zone06
+XVOELKER25_C9800F1_2E5ADAD_v3:zone07
+XVOELKER25_C9800F1_49C5FCD_v3:zone08
+XVOELKER25_C9800F3_A30AFE1_v3:zone09
+XVOELKER25_C9800F3_BF34DCD_v3:zone10
+:wb_montreal
+XTROSIN045_CA90AEE_F579F5E_v3:decompression_death_v1
+XTROSIN045_CA90AEE_F579F63_v3:decompression_death_v3
+XTROSIN045_CA90AEE_F579F68_v3:decompression_death_v4
+XTROSIN045_CA90AEE_F579F6D_v3:decompression_death_v5
+XTROSIN045_CA90AEE_F579F72_v3:decompression_death_v6
+:wb_montreal_vfx
+:wb_multiplayertest
+XRODRIGUEZ_C98AE37_DB74C9A_v3:initial
+XRODRIGUEZ_C9C3B9F_8A6F97A_v3:Checkpoint_Incinerator
+:wb_materials
+:wb_object_context
+:wb_performance
+:wb_zoo
+:wb_rosie
+:wb_weapons
+:wb_chr
+XWREDE1485_CA06570_0C001B6_v3:javelin_test
+XWREDE1485_CA06597_CDE72FA_v3:mutator
+:ch04_chr_se
+XCENTKOWSK_C9D9D1F_C2668E0_v3:se_4_1_power_outage
+XWREDE1485_C993866_205DAC2_v3:se_4_9_unitologist
+XWREDE1485_C99C67E_C88E80B_v3:tripod_drag_sequence
+XWREDE1485_C9A36B4_ED4B772_v3:pack_fight_test
+XCENTKOWSK_C9A7F70_F7AB94A_v3:se_corruption_nerve
+XCENTKOWSK_C9B2615_766B9D6_v3:se_zerog_tripod
+:wb_dougGamma
+:ch07_mng
+XPATEL1026_C9B3BC9_4AB30E9_v3:Checkpoint_Initial_Map
+XRODRIGUEZ_C9DB204_D6AD7EB_v3:Checkpoint_Post_Moonquake
+XRODRIGUEZ_C9BA2F2_45AF030_v3:Checkpoint_Mining_Camp_Entrance
+XPITTS1020_C9B4932_EFD1161_v3:Checkpoint_Mineral_Extraction_Map
+XRODRIGUEZ_C9BA2FA_AD2793E_v3:Checkpoint_Repair_Room_Entrance
+XRODRIGUEZ_CA06648_C51CD75_v3:Checkpoint_Repair_Room_Post_Combat
+XRODRIGUEZ_C9B886B_CFEE7AE_v3:checkpoint_Uni_Death
+XRODRIGUEZ_C9BFA08_F952CD9_v3:Checkpoint_Elevator_Ride
+XRODRIGUEZ_C9B4AE1_75FACA6_v3:Checkpoint_Drill_Room_entrance
+XRODRIGUEZ_C9FE9EF_A44E6D9_v3:Checkpoint_Drill_Ride
+XRODRIGUEZ_CA0707A_4439831_v3:Checkpoint_Drill_Ride_Post_Combat
+:wb_wii_xslice
+XKATZ0289X_CA1237B_1711D11_v3:initial
+XKATZ0289X_CA1494F_EA86F66_v3:mall
+XKATZ0289X_CA1535A_A762EC2_v3:church
+XKATZ0289X_CA1553F_F3CB425_v3:elevator
+:wb_turret
+:wb_garcia
+XVOELKER25_C97C006_5B510AD_v3:zone01
+XVOELKER25_C97C127_CFAAC2D_v3:zone02
+:wb_stiner
+XVOELKER25_C97C006_5B510AD_v3:zone01
+XVOELKER25_C97C127_CFAAC2D_v3:zone02
+:wb_velasco
+XVOELKER25_C97C006_5B510AD_v3:zone01
+XVOELKER25_C97C127_CFAAC2D_v3:zone02
+:wb_matchett
+XVOELKER25_C97C006_5B510AD_v3:zone01
+XVOELKER25_C97C127_CFAAC2D_v3:zone02
+:wb_eash_test
+:wb_TestMatt
+:wb_shas_objects
+:wb_seth
+:wb_ui
+:wb_eamon
+:wb_eam_objects
+:wb_mw_metamodels
+XVOELKER13_CAB0EA2_DB13C0A_v3:zone01
+XVOELKER13_CAB1990_FAC1E32_v3:zone02
+XVOELKER13_CAB1991_8A1B466_v3:zone03
+XVOELKER13_CAB1992_5286F40_v3:zone04
+XVOELKER13_CAB1992_E3F6660_v3:zone05
+XVOELKER13_CAB1993_6B1DB3E_v3:zone06
+XVOELKER13_CAB1993_EC4F20C_v3:zone07
+XVOELKER13_CAB1994_6A3951E_v3:zone08
+XVOELKER13_CAB1994_F3043DA_v3:zone09
+XVOELKER13_CAB1995_74F466A_v3:zone10
+:wb_video_logs
+:wb_eamui
+:wb_streaming
+:ch02_sch
+XPATEL1026_C9DE610_ADCACAE_v3:street
+XWREDE1485_C9F9E5B_F99EED6_v3:stasis_room
+XWREDE1485_CA14A69_23BA2F1_v3:stasis_room_2
+XPATEL1026_C9DE5F6_77E1F12_v3:mall
+XWREDE1485_C9FB42D_8E067B4_v3:school
+XPATEL1026_C9DE615_ADB1A01_v3:infrastructure
+XPATEL1026_C9DE32F_0E9B10A_v3:luge
+XWREDE1485_CA14682_AF2F7A9_v3:zerog_1
+XWREDE1485_CA1468A_A38D559_v3:zerog_2
+XWREDE1485_CA14690_B841A81_v3:zerog_3
+XWREDE1485_CA14692_E9B99C1_v3:zerog_4
+XWREDE1485_CA1177B_BB393DE_v3:zerog_5
+XWREDE1485_C9E8875_B960810_v3:zerog_6
+XWREDE1485_CA146AB_41034B1_v3:zerog_7
+:ch04_chr
+XCENTKOWSK_CA00C3F_282255E_v3:x_slice_2.0
+XCENTKOW00_C9780F2_4E8D8C6_v3:x_slice
+XCENTKOWSK_C99DCC0_9CBBE95_v3:frontend
+XWREDE1485_C98592F_33FEC60_v3:initial
+XCENTKOW00_C974E68_BF1164F_v3:street
+XCENTKOWSK_C9C8461_8DBBE51_v3:basement
+XCENTKOW00_C9780E9_8AD78D9_v3:transit_station
+XWREDE1485_C99063B_8E41090_v3:mall
+XCENTKOW00_C9780F6_8F66D45_v3:corruption_arena
+XWREDE1485_C983235_56E95E6_v3:post_arena_halls
+XPITTS1020_C981A14_59948B0_v3:church_safe_room
+XPITTS1020_C981A44_68273F0_v3:church_vestry
+XPITTS1020_C981A1C_2EC1EB0_v3:vestry_after_se
+XPITTS1020_C981A1E_1A11510_v3:sanctuary_pack_fight
+XCENTKOWSK_C98703C_3997A95_v3:elevator_bay_entrance
+XCENTKOWSK_C9DA740_F150C76_v3:zerog
+XCENTKOWSK_C9C84B2_C447F5E_v3:elevator
+XWREDE1485_C9872C0_10C93DE_v3:bwanat_concept_block
+XKATZ0289X_C9FF3E3_5174565_v3:infrastructure
+:ch08_gov
+XPITTS1020_C9BF8FE_1BF11FA_v3:initial
+:wb_empty
+:wb_vm_02_02
+XWORCH0111_CB664B3_86AB869_v3:initial
+:wb_props
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>384</ID>
+              <Description>"ch1"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XCENTKOWSK_C9C50BC_08B592A_v3:initial
+XPATEL1026_CB19946_663E415_v3:psych_hall
+XWREDE1485_CABCA9C_BD02F4C_v3:saferoom
+XPATEL1026_CAF3AE0_2277089_v3:observation_hall
+XWREDE1485_CABCAB1_C72C94A_v3:recreation
+XPATEL1026_CB23B42_C35A969_v3:bathroom
+XWREDE1485_CABCAB9_1256626_v3:surgery_pit
+XWREDE1485_CABCABF_8462A04_v3:surgery
+XPATEL1026_CB1E197_75F14D2_v3:surgery_lobby
+XPATEL1026_CAFDF34_8A2F95E_v3:emergency_entrance
+XWREDE1485_CABCAC3_F98B9EF_v3:triage
+XWREDE1485_CABCAC8_22B5298_v3:morgue
+XWREDE1485_CABCACE_EE9C9E0_v3:decompression
+XPATEL1026_CAFEC9A_3766035_v3:storage_suit_room
+XPATEL1026_CB23B4F_6ADCC74_v3:boss_room
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>385</ID>
+              <Description>"ch2"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
+XWORCH0111_CABBCA9_1FBC885_v3:initial
+XPATEL1026_CA72E6D_682629F_v3:public_sector_01
+XWORCH0111_CABC023_65BE0B0_v3:public_sector_laundry
+XWORCH1597_CA720D0_5BA9F92_v3:hallway_02
+XWORCH1597_CA77ADA_464FBF3_v3:tram_station
+XWANAT1605_CA67B67_E6AA4C6_v3:GPMM_demo
+XWORCH0111_CB1A26E_ACE5F56_v3:GPMM_post_jump
+XPITTS1020_CA77A20_BA9A6A5_v3:hanging_combat
+XWORCH1597_CA78627_F283778_v3:tram_crash_site
+XWORCH1597_CA7D2D9_F68772D_v3:focal_slice_street
+XWORCH0111_CB1A2C1_94E171F_v3:decompression
+XWORCH1597_CA7F815_C91E0B4_v3:zero_g
+XWORCH0111_CAEE0AC_C9BC1D5_v3:zerog_control_debug
+XWORCH1597_CAA5204_D8DC8E3_v3:infrastructure
+XWORCH1597_CA75275_379471B_v3:public_sector03
+XWORCH0111_CB2DB97_91B4B57_v3:public_sector03_courtyard
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>386</ID>
+              <Description>"ch3"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9B946E_243D95F_v3:/UNIFORM
+XKATZ6792X_CA3E024_C467BF3_v3:initial_debug
+XWALKER429_CB06AC7_B670492_v3:Parish_Hall
+XCOTTS0634_CAF1FDB_4F274D1_v3:interrogation_room
+XRODRIGUEZ_CA72C1F_E72B106_v3:rear_courtyard_debug
+XWALKER429_CB08D14_E08552F_v3:Funeral_Chapel
+XWALKER429_CB3F4B1_DCFF1C0_v3:Crypt_Start_debug
+XWALKER429_CB118EF_6F4AA4E_v3:Crypt_Storage_2_horror
+XKATZ6792X_CA422AA_2090E9F_v3:church
+XWALKER429_CB1D4E1_8BEDB11_v3:Church_after_pack
+XWALKER429_CB3F488_E4B5A21_v3:Crypt_Start_debug
+XWALKER429_CAEAFA4_B48B129_v3:Crypt_Ops
+XKATZ0289X_CA492B2_FEB5825_v3:saferoom
+XWALKER429_CB17CCA_60AA30B_v3:Saferoom_Final_SE
+XWALKER429_CB1D52F_CE7F851_v3:puzzle
+XWALKER429_CAD5CAB_1FC723F_v3:Kong_Phase_one
+XWALKER429_CAE58B2_CB76F80_v3:Saferoom_Kong_tease
+XWALKER429_CAE57A0_095A203_v3:Consumer_Demo
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82662</ID>
+              <Description>"ch6+7"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XBROWN1019_CA8FDF9_7CF9234_v3:/UNIFORM
+XWREDE1485_C9CDD76_ECA8B4C_v3:initial
+XPATEL1026_C9BC646_49ED0DB_v3:admin
+XWREDE1485_C9BD282_2BE14EB_v3:admin_2
+XPATEL1026_C9C3792_00FD932_v3:hydrogen_processing_1
+XFITZGIBBO_CAFB7AD_97A2FF3_v3:hydrogen_processing_2
+XFITZGIBBO_CB2A146_EFAD22F_v3:hydrogen_processing_3
+XWREDE1485_C9BD280_5C2A353_v3:ring_room
+XFITZGIBBO_CB2A16E_2797371_v3:hydrogen_exit
+XPATEL1026_C9D40EE_47D506A_v3:transport_hub_1
+XPATEL1026_CA318C9_B12FA36_v3:transport_hub_2
+XFITZGIBBO_CB2A1EF_04079F1_v3:transport_elevator
+XPATEL1026_CA31A3B_84D4D4C_v3:transport_hub_3
+XPATEL1026_CA43A8B_C130EC6_v3:transport_hub_4
+XFITZGIBBO_CB2A2A8_5F7588F_v3:transport_hub_5
+XPATEL1026_CA154EE_46D1704_v3:lower_hub_1
+XFITZGIBBO_CB2A2F5_004C039_v3:lower_hub_2
+XWREDE1485_C9CDDBE_9C4F705_v3:boss_arena
+XPATEL1026_CADCC7A_D8D59BE_v3:transition_1
+XFITZGIBBO_CB28543_41839AD_v3:transition_2
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>390</ID>
+              <Description>"ch8"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+XPATEL1026_CAA5053_B2D0210_v3:initial
+XA1019863X_CAF8505_935401E_v3:Lounge
+XPATEL1026_CAA5053_B2D0213_v3:Workshop
+XPATEL1026_CAA5053_B2D0216_v3:Mylar_Tram_Tunnel
+XPATEL1026_CAA699E_9508DED_v3:Eng_Tramstation
+XA1019863X_CB3E201_D1EF980_v3:Centerfuge_Hall
+X0790XXXXX_CADD781_CF6AA90_v3:Centerfuge
+XA1019863X_CAF8536_210D5DD_v3:Decon_Backtrack
+XA1019863X_CB1FA08_D47FE70_v3:Tram_Ride
+XPATEL1026_CAAB4F2_DA08B7D_v3:Cryo_Tramstation
+XA1019863X_CAF8544_18B6439_v3:Chem_Lab
+XA1019863X_CAFE81F_3CDE03A_v3:Med_Storage
+XA1019863X_CAE57F6_FC96C8C_v3:ZeroG_Med_to_Bridge
+XPATEL1026_CAA920B_A5C3AE0_v3:Brg_Tramstation
+XCALHOUN17_CB40B2E_06212B8_v3:Gravity_Tethers_Debug
+XA1019863X_CAF1E44_3AF26FF_v3:Capt_Nest
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>392</ID>
+              <Description>"ch9"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CB33557_40F0370_v3:/UNIFORM
+XPATEL1026_C9B3BC9_4AB30E9_v3:Initial_debug
+XRODRIGUEZ_C9DB204_D6AD7EB_v3:Post_Moonquake_debug
+XRODRIGUEZ_C9BA2F2_45AF030_v3:Mining_Camp_Entrance_debug
+XPITTS1020_C9B4932_EFD1161_v3:Mineral_Extraction_debug
+XRODRIGUEZ_CA3E0D9_8790935_v3:Repair_Room_Side_Hallway_debug
+XRODRIGUEZ_C9BA2FA_AD2793E_v3:Repair_Room_Entrance_debug
+XRODRIGUEZ_CA06648_C51CD75_v3:Repair_Room_Post_Combat_debug
+XRODRIGUEZ_C9B886B_CFEE7AE_v3:Uni_Death_debug
+XRODRIGUEZ_C9BFA08_F952CD9_v3:Elevator_Ride_debug
+XRODRIGUEZ_C9B4AE1_75FACA6_v3:Drill_Room_entrance_debug
+XCOTTS0634_CB5F4CF_1F45619_v3:Drill_Ride_Turn_debug
+XRODRIGUEZ_C9FE9EF_A44E6D9_v3:Drill_Ride_debug
+XCOTTS0634_CB5E686_0FE44E7_v3:Drill_Ride_Tunnel_2_debug
+XCOTTS0634_CB5E6B1_95C9BF0_v3:Drill_Ride_Tunnel_3_debug
+XRODRIGUEZ_CA73A5F_D118D3D_v3:Drill_Caverns_art_test_debug
+XRODRIGUEZ_CA0707A_4439831_v3:Drill_Ride_Post_Combat_debug
+XCOTTS0634_CAD8E67_ADFE891_v3:SE_9.05_Second_Moonquake
+XCOTTS0634_CAD8E73_B41676A_v3:SE_9.06_Expelled
+XCOTTS0634_CAD8E8D_0485119_v3:SE_9.07_Third_Moonquake
+XCOTTS0634_CAD8ECD_943AAD1_v3:SE_9.08_Nicole_Flicker
+XCOTTS0634_CAD8EE5_D5E91EA_v3:SE_9.09_Elevator_Arrives
+XCOTTS0634_CAD8F38_2AE2E51_v3:SE_9.10_Nicole_Good
+XCOTTS0634_CAD8F6F_A120831_v3:SE_9.11_I_Got_This_One
+XCOTTS0634_CAD8F84_2C46882_v3:SE_9.12_Refueling_The_Drill
+XCOTTS0634_CAD8F89_43CFFA2_v3:SE_9.13_Fourth_Moonquake
+XCOTTS0634_CAD9011_8E23001_v3:SE_9.14_Out_Of_Mine
+XCOTTS0634_CAD9039_107BAA3_v3:IGC_9.01_Coming_To
+XCOTTS0634_CAD903C_918B745_v3:IGC_9.03_Drag_Tentacle
+XCOTTS0634_CAD9044_A5F692B_v3:IGC_9.04_Death_Of_A_Patient
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>388</ID>
+              <Description>"ch10"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+XRODRIGUEZ_CA9DF43_B576568_v3:initial
+XRODRIGUEZ_CAB748C_DF22FA0_v3:foyer_lower_debug
+XRODRIGUEZ_CAB5B99_D6D4980_v3:security_entry_debug
+XRODRIGUEZ_CAF7B2E_4D2565B_v3:security_gate_control_debug
+XRODRIGUEZ_CAA5DB1_16CB77A_v3:suit_room_debug
+XRODRIGUEZ_CAE7EC7_D60661E_v3:lab_1_entry_debug
+XRODRIGUEZ_CAB4D7B_7E6B660_v3:marker_lab_1_debug
+XRODRIGUEZ_CAB4184_159E381_v3:security_checkpoint_1_debug
+XRODRIGUEZ_CAB4F52_14AFA81_v3:marker_lab_2_debug
+XRODRIGUEZ_CABB432_45284D6_v3:marker_lab_3_debug
+XRODRIGUEZ_CAB418F_935E861_v3:security_checkpoint_2_debug
+XRODRIGUEZ_CAB0F79_B0A8043_v3:security_checkpoint_3_debug
+XRODRIGUEZ_CABCB82_1902283_v3:moat_hallway_debug
+XRODRIGUEZ_CAB0C8E_E1C1D36_v3:mtb_foyer_debug
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>387</ID>
+              <Description>"ch11"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XHUANG1489_CAC0A56_86ED487_v3:/UNIFORM
+XPATEL1026_CABF04E_B19D1CC_v3:initial_debug
+XMARINELLO_CB329BA_6B79796_v3:antechamber_pre_eyepoke_debug
+XMARINELLO_CB498E5_7E390DE_v3:chamber_eyepoke_debug
+XMARINELLO_CB4244B_FC6222A_v3:chamber_post_eyepoke_debug
+XMARINELLO_CB358FD_E1BDA86_v3:chamber_exit_debug
+XRODRIGUEZ_CAD04EB_877A46A_v3:arena_01_debug
+XRODRIGUEZ_CAE8C38_12E73B2_v3:hallway_02
+XRODRIGUEZ_CAD1138_014F5CA_v3:transition_room_01_debug
+XRODRIGUEZ_CAD1F21_229B80B_v3:transition_room_02_debug
+XRODRIGUEZ_CAD13D5_4DE33EB_v3:zero_g_arena_enter_debug
+XRODRIGUEZ_CAD29CC_57916D1_v3:zer0_g_arena_exit_debug
+XRODRIGUEZ_CADDAA6_7FFA209_v3:marker_test_bed_entrance_debug
+XMARINELLO_CB01D86_E0D6644_v3:marker_test_bed_last_room_debug
+XMARINELLO_CB34C61_32DD84D_v3:marker_test_bed_insider_debug
+XMARINELLO_CB56026_842439A_v3:dementia_land_debug
+XRODRIGUEZ_CAE7CAE_1C2F11E_v3:marker_test_bed_escape_debug
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>29</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cp</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>348</ID>
+          <Description>"New Game Suit Changer"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscanmodule(cSuit,deadspace2.exe,F6 C1 01 74 ?? 53 68) // should be unique
+cSuit+3:
+  db 75
+registersymbol(cSuit)
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+cSuit+3:
+  db 74
+unregistersymbol(cSuit)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>351</ID>
+              <Description>"list (embed, nums)"</Description>
+              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">XPITTS1020_C9FF4E4_4D00498_v3:PatientSuit
+XPITTS1020_C9B946E_243D95F_v3:EngineeringSuit
+XBROWN1019_CA8FDF9_7CF9234_v3:SecuritySuit
+XHUANG1489_CB33557_40F0370_v3:VintageSuit
+XHUANG1489_CAC0A56_86ED487_v3:AdvancedSuit
+XBERTRAM18_CB37E4C_671D1BE_v3:EliteEngineeringSuit
+XBERTRAM18_CB37E72_058CA16_v3:EliteVintageSuit
+XBERTRAM18_CB37E64_24A40DE_v3:EliteSecuritySuit
+XBERTRAM18_CB37E7A_D1B5F9C_v3:EliteAdvancedSuit
+XBERTRAM18_CB666FF_99BFFA1_v3:RiotSecuritySuit
+XBERTRAM18_CB666FE_989A6F7_v3:ArcticSecuritySuit
+XBERTRAM18_CB666FF_2B9B9FB_v3:SoldierSuit
+XBERTRAM18_CB63F25_D6D2A6A_v3:BloodyVintageSuit
+XBERTRAM18_CB63F24_2052D6A_v3:EarthgovSecuritySuit
+XBERTRAM18_CB63F25_08D4590_v3:ForgedEngineeringSuit
+XBERTRAM18_CB63F21_C0C50E0_v3:HeavyDutyVintageSuit
+XBERTRAM18_CB63F22_BE46F24_v3:AgilityAdvancedSuit
+XBERTRAM18_CB63F1D_ECD957E_v3:HazardSuit
+XBERTRAM18_CB63F1E_D1EDDAA_v3:TriageSuit
+XBERTRAM18_CB63F1F_A62DA20_v3:ShockpointSuit
+XCHOW1029X_CB5F604_BF6F5A0_v3:ZealotSuit
+XKWON0275X_CB43EDE_DE44FA8_v3:HackerSuit
+XTROSIN101_CB75611_B516549_v3:PartolSuit
+XHUANG1489_CB54FEA_3FF85B8_v3:Advanced2
+XBERTRAM18_CB63F1C_8FDDE24_v3:Weller
+XBERTRAM18_CB77AF1_1329148_v3:wZealot
+XBERTRAM18_CB77AF3_1A87FB4_v3:wHacker
+XBERTRAM18_CB77B5F_76519DE_v3:wEng
+XBERTRAM18_CB77B60_3995E4A_v3:wMed
+XBERTRAM18_CB77B60_D79DB2E_v3:Adv?
+XBERTRAM18_CB77B61_5DAA97E_v3:wVintage
+XBERTRAM18_CB77B63_87717F6_v3:wAdvRed?
+XBERTRAM18_CB77B64_121C6B2_v3:wMil
+XBERTRAM18_CB77B64_AC6AFA2_v3:wEngGray
+XBERTRAM18_CB77B65_466D468_v3:wBlVint
+</DropDownList>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>42</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cSuit+A-4+1</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>349</ID>
+              <Description>"string"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>42</Length>
+              <Unicode>0</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>cSuit+A-4+1</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>82645</ID>
+      <Description>"+--------------------------------------------------------------------------------------------------------------------------+"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>426</ID>
+      <Description>"-- backup scripts --"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>368</ID>
+          <Description>"Free Cam - original script - backup"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-27
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+// prevent camera following player
+ 
+aobscanmodule(FreeCam,deadspace2.exe,83 C4 14 47) // should be unique
+
+define(FreeCam,FreeCam+16)
+
+FreeCam:
+db 90 90 90
+
+registersymbol(FreeCam)
+
+// find camera ptr to change it directly
+
+aobscanmodule(camPosBase,deadspace2.exe,8B 0D ? ? ? ? 8D 44 24 20 50 6A 00 E8) // should be unique
+define(camPosBase,[camPosBase+2])
+registersymbol(camPosBase)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+FreeCam:
+movaps [ebx],xmm1
+
+unregistersymbol(FreeCam)
+unregistersymbol(camPosBase)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+44BFEC
+
+deadspace2.exe+44BFBE: 0F 29 84 24 84 00 00 00  - movaps [esp+00000084],xmm0
+deadspace2.exe+44BFC6: 89 84 24 90 00 00 00     - mov [esp+00000090],eax
+deadspace2.exe+44BFCD: 0F 57 C0                 - xorps xmm0,xmm0
+deadspace2.exe+44BFD0: F3 0F 10 64 24 48        - movss xmm4,[esp+48]
+deadspace2.exe+44BFD6: 83 C4 14                 - add esp,14
+deadspace2.exe+44BFD9: 47                       - inc edi
+deadspace2.exe+44BFDA: 89 7C 24 18              - mov [esp+18],edi
+deadspace2.exe+44BFDE: 83 FF 0C                 - cmp edi,0C
+deadspace2.exe+44BFE1: 0F 82 79 FB FF FF        - jb deadspace2.exe+44BB60
+deadspace2.exe+44BFE7: 0F 28 4C 24 70           - movaps xmm1,[esp+70]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+44BFEC: 0F 29 0B                 - movaps [ebx],xmm1
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+44BFEF: 0F 28 4C 24 60           - movaps xmm1,[esp+60]
+deadspace2.exe+44BFF4: 0F 29 4B 10              - movaps [ebx+10],xmm1
+deadspace2.exe+44BFF8: F3 0F 10 4B 24           - movss xmm1,[ebx+24]
+deadspace2.exe+44BFFD: F3 0F 11 4C 24 34        - movss [esp+34],xmm1
+deadspace2.exe+44C003: 0F 28 4C 24 40           - movaps xmm1,[esp+40]
+deadspace2.exe+44C008: 0F 29 4B 20              - movaps [ebx+20],xmm1
+deadspace2.exe+44C00C: F3 0F 10 4C 24 3C        - movss xmm1,[esp+3C]
+deadspace2.exe+44C012: 8B 8B 98 01 00 00        - mov ecx,[ebx+00000198]
+deadspace2.exe+44C018: F3 0F 11 4B 30           - movss [ebx+30],xmm1
+deadspace2.exe+44C01D: F3 0F 10 4C 24 10        - movss xmm1,[esp+10]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>422</ID>
+              <Description>"FOV"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>ptrBase-4c</Address>
+              <Offsets>
+                <Offset>88</Offset>
+                <Offset>4</Offset>
+                <Offset>94</Offset>
+                <Offset>10</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>106</Key>
+                  </Keys>
+                  <Value>1.221730471</Value>
+                  <ID>2</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>369</ID>
+              <Description>"X (Num4|6)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>camPosBase</Address>
+              <Offsets>
+                <Offset>0</Offset>
+                <Offset>10</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>0.01</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>370</ID>
+                  <Description>"H (Num7|9)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+4</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>105</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>103</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>371</ID>
+                  <Description>"Y (Num8|5)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+8</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>2</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.5</Value>
+                      <ID>3</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Increase Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>104</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>4</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Decrease Value</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>0.01</Value>
+                      <ID>5</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>480</ID>
+          <Description>"FreeCamera - backup script"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+//aobscanmodule(INJECT,deadspace2.exe,0F 29 0B 0F 28 4C 24 60) // should be unique
+
+aobscanmodule(FreeCam,deadspace2.exe,83 C4 14 47) // should be unique
+define(FreeCam,FreeCam+16)
+registersymbol(FreeCam)
+alloc(newmem,2048)
+registersymbol(camAddress)
+label(camAddress)
+label(return)
+
+newmem:
+  mov [camAddress],ebx
+  //movaps [ebx],xmm1
+  movaps xmm1,[esp+60]
+  jmp return
+
+//
+camAddress:
+dq 0
+//
+
+FreeCam:
+  jmp newmem
+  nop 3
+return:
+
+// writes camera values
+deadspace2.exe+44C774: // - 0F29 4B 10            - movaps [ebx+10],xmm1
+db 90 90 90 90
+deadspace2.exe+44C77D: // - F3 0F11 4C 24 34      - movss [esp+34],xmm1
+db 90 90 90 90 90 90
+deadspace2.exe+44C788: // - 0F29 4B 20            - movaps [ebx+20],xmm1
+db 90 90 90 90
+deadspace2.exe+44C798: // - F3 0F11 4B 30         - movss [ebx+30],xmm1
+db 90 90 90 90 90
+
+// WRITES CAMERA SHAKE
+deadspace2.exe+44CA67: // - F3 A5                 - repe movsd
+DB 90 90
+
+{
+// call to code that writes to mouse/light position
+deadspace2.exe+44D651: // - E8 0AECFFFF           - call deadspace2.exe+44C260
+db 90 90 90 90 90
+}
+
+[DISABLE]
+
+FreeCam:
+movaps [ebx],xmm1
+movaps xmm1,[esp+60]
+
+deadspace2.exe+44C774: // - 0F29 4B 10            -
+movaps [ebx+10],xmm1
+deadspace2.exe+44C77D: // - F3 0F11 4C 24 34      -
+movss [esp+34],xmm1
+deadspace2.exe+44C788: // - 0F29 4B 20            -
+movaps [ebx+20],xmm1
+deadspace2.exe+44C798: // - F3 0F11 4B 30         -
+movss [ebx+30],xmm1
+deadspace2.exe+44CA67: // - F3 A5                 -
+repe movsd
+{
+deadspace2.exe+44D651: // - E8 0AECFFFF           -
+call deadspace2.exe+44C260
+}
+unregistersymbol(FreeCam)
+unregistersymbol(camAddress)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+44C76C
+
+deadspace2.exe+44C73E: 0F 29 84 24 84 00 00 00  - movaps [esp+00000084],xmm0
+deadspace2.exe+44C746: 89 84 24 90 00 00 00     - mov [esp+00000090],eax
+deadspace2.exe+44C74D: 0F 57 C0                 - xorps xmm0,xmm0
+deadspace2.exe+44C750: F3 0F 10 64 24 48        - movss xmm4,[esp+48]
+deadspace2.exe+44C756: 83 C4 14                 - add esp,14
+deadspace2.exe+44C759: 47                       - inc edi
+deadspace2.exe+44C75A: 89 7C 24 18              - mov [esp+18],edi
+deadspace2.exe+44C75E: 83 FF 0C                 - cmp edi,0C
+deadspace2.exe+44C761: 0F 82 79 FB FF FF        - jb deadspace2.exe+44C2E0
+deadspace2.exe+44C767: 0F 28 4C 24 70           - movaps xmm1,[esp+70]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+44C76C: 0F 29 0B                 - movaps [ebx],xmm1
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+44C76F: 0F 28 4C 24 60           - movaps xmm1,[esp+60]
+deadspace2.exe+44C774: 0F 29 4B 10              - movaps [ebx+10],xmm1
+deadspace2.exe+44C778: F3 0F 10 4B 24           - movss xmm1,[ebx+24]
+deadspace2.exe+44C77D: F3 0F 11 4C 24 34        - movss [esp+34],xmm1
+deadspace2.exe+44C783: 0F 28 4C 24 40           - movaps xmm1,[esp+40]
+deadspace2.exe+44C788: 0F 29 4B 20              - movaps [ebx+20],xmm1
+deadspace2.exe+44C78C: F3 0F 10 4C 24 3C        - movss xmm1,[esp+3C]
+deadspace2.exe+44C792: 8B 8B 98 01 00 00        - mov ecx,[ebx+00000198]
+deadspace2.exe+44C798: F3 0F 11 4B 30           - movss [ebx+30],xmm1
+deadspace2.exe+44C79D: F3 0F 10 4C 24 10        - movss xmm1,[esp+10]
+}
+
+{
+deadspace2.exe+44C76C - 0F29 0B               - movaps [ebx],xmm1
+deadspace2.exe+44C76F - 0F28 4C 24 60         - movaps xmm1,[esp+60]
+deadspace2.exe+44C774 - 0F29 4B 10            - movaps [ebx+10],xmm1
+deadspace2.exe+44C778 - F3 0F10 4B 24         - movss xmm1,[ebx+24]
+deadspace2.exe+44C77D - F3 0F11 4C 24 34      - movss [esp+34],xmm1
+deadspace2.exe+44C783 - 0F28 4C 24 40         - movaps xmm1,[esp+40]
+deadspace2.exe+44C788 - 0F29 4B 20            - movaps [ebx+20],xmm1
+deadspace2.exe+44C78C - F3 0F10 4C 24 3C      - movss xmm1,[esp+3C]
+deadspace2.exe+44C792 - 8B 8B 98010000        - mov ecx,[ebx+00000198]
+deadspace2.exe+44C798 - F3 0F11 4B 30         - movss [ebx+30],xmm1
+deadspace2.exe+44C79D - F3 0F10 4C 24 10      - movss xmm1,[esp+10]
+deadspace2.exe+44C7A3 - C1 E1 04              - shl ecx,04
+deadspace2.exe+44C7A6 - F3 0F11 4B 34         - movss [ebx+34],xmm1
+deadspace2.exe+44C7AB - F3 0F10 4C 24 14      - movss xmm1,[esp+14]
+deadspace2.exe+44C7B1 - 8D 84 19 D8000000     - lea eax,[ecx+ebx+000000D8]
+deadspace2.exe+44C7B8 - F3 0F11 4B 38         - movss [ebx+38],xmm1
+deadspace2.exe+44C7BD - 83 38 00              - cmp dword ptr [eax],00
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>424</ID>
+          <Description>"Camera FOV - backup script"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+alloc(newmem,2048)
+label(returnhere)
+label(exit)
+registersymbol(FOV)
+label(FOV)
+
+newmem:
+fld dword ptr [esi+00000094]
+mov [FOV],esi
+
+exit:
+jmp returnhere
+
+FOV:
+dd 0
+
+"deadspace2.exe"+B7AD4C:
+jmp newmem
+nop
+
+returnhere:
+
+[DISABLE]
+
+"deadspace2.exe"+B7AD4C:
+fld dword ptr [esi+00000094]
+
+unregistersymbol(FOV)
+dealloc(newmem)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>425</ID>
+              <Description>"FOV"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>FOV</Address>
+              <Offsets>
+                <Offset>94</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>107</Key>
+                    <Key>105</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>106</Key>
+                  </Keys>
+                  <Value>1.221730471</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>111</Key>
+                  </Keys>
+                  <Value>70</Value>
+                  <ID>3</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>378</ID>
+          <Description>"Relative Camera Control"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : deadspace2.exe (paused)
+  Version: 
+  Date   : 2021-08-26
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(ptrBase,$process,83 C4 04 C7 87 ? ? ? ? 00 00 00 00 8B 87 ? ? ? ? 85 C0 0F 84) // should be unique
+
+define(ptrBase,[ptrBase+1D])
+
+registersymbol(ptrBase)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+
+//unregistersymbol(ptrBase)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+353BCB
+
+deadspace2.exe+353BB0: 56                             - push esi
+deadspace2.exe+353BB1: 57                             - push edi
+deadspace2.exe+353BB2: 8B F9                          - mov edi,ecx
+deadspace2.exe+353BB4: 8B B7 E8 01 00 00              - mov esi,[edi+000001E8]
+deadspace2.exe+353BBA: 85 F6                          - test esi,esi
+deadspace2.exe+353BBC: 74 1A                          - je deadspace2.exe+353BD8
+deadspace2.exe+353BBE: 8B CE                          - mov ecx,esi
+deadspace2.exe+353BC0: E8 4B E7 FF FF                 - call deadspace2.exe+352310
+deadspace2.exe+353BC5: 56                             - push esi
+deadspace2.exe+353BC6: E8 DF E3 CA FF                 - call deadspace2.exe+1FAA
+// ---------- INJECTING HERE ----------
+deadspace2.exe+353BCB: 83 C4 04                       - add esp,04
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+353BCE: C7 87 E8 01 00 00 00 00 00 00  - mov [edi+000001E8],00000000
+deadspace2.exe+353BD8: 8B 87 94 01 00 00              - mov eax,[edi+00000194]
+deadspace2.exe+353BDE: 85 C0                          - test eax,eax
+deadspace2.exe+353BE0: 0F 84 9C 00 00 00              - je deadspace2.exe+353C82
+deadspace2.exe+353BE6: 8B 0D 68 13 02 02              - mov ecx,[deadspace2.exe+1C21368]
+deadspace2.exe+353BEC: 50                             - push eax
+deadspace2.exe+353BED: E8 CE 26 07 00                 - call deadspace2.exe+3C62C0
+deadspace2.exe+353BF2: 8B 87 94 01 00 00              - mov eax,[edi+00000194]
+deadspace2.exe+353BF8: 50                             - push eax
+deadspace2.exe+353BF9: E8 F2 AE C4 00                 - call deadspace2.exe+F9EAF0
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>391</ID>
+              <Description>"FOV"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>ptrBase-4c</Address>
+              <Offsets>
+                <Offset>88</Offset>
+                <Offset>4</Offset>
+                <Offset>94</Offset>
+                <Offset>10</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>416</ID>
+                  <Description>"Zoom (Ctrl+Num+|-)"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>393</ID>
+                      <Description>"Z1"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
+                      <Hotkeys>
+                        <Hotkey>
+                          <Action>Increase Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>109</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>0</ID>
+                        </Hotkey>
+                        <Hotkey>
+                          <Action>Decrease Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>107</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>1</ID>
+                        </Hotkey>
+                      </Hotkeys>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>394</ID>
+                      <Description>"Z2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+8</Address>
+                      <Hotkeys>
+                        <Hotkey>
+                          <Action>Increase Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>109</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>0</ID>
+                        </Hotkey>
+                        <Hotkey>
+                          <Action>Decrease Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>107</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>1</ID>
+                        </Hotkey>
+                      </Hotkeys>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>398</ID>
+                  <Description>"camHeight1 (Ctrl+Num8|2)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+14</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>415</ID>
+                  <Description>"Center Offsets (Ctrl+Num4|6)"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>402</ID>
+                      <Description>"CO1"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+20</Address>
+                      <Hotkeys>
+                        <Hotkey>
+                          <Action>Increase Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>100</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>0</ID>
+                        </Hotkey>
+                        <Hotkey>
+                          <Action>Decrease Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>102</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>1</ID>
+                        </Hotkey>
+                      </Hotkeys>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>403</ID>
+                      <Description>"CO2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+24</Address>
+                      <Hotkeys>
+                        <Hotkey>
+                          <Action>Increase Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>100</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>0</ID>
+                        </Hotkey>
+                        <Hotkey>
+                          <Action>Decrease Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>102</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>1</ID>
+                        </Hotkey>
+                      </Hotkeys>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>404</ID>
+                      <Description>"CO3"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+28</Address>
+                      <Hotkeys>
+                        <Hotkey>
+                          <Action>Increase Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>100</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>0</ID>
+                        </Hotkey>
+                        <Hotkey>
+                          <Action>Decrease Value</Action>
+                          <Keys>
+                            <Key>17</Key>
+                            <Key>102</Key>
+                          </Keys>
+                          <Value>0.25</Value>
+                          <ID>1</ID>
+                        </Hotkey>
+                      </Hotkeys>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>405</ID>
+                  <Description>"Pivot Distance (Ctrl+Num3|9)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>414</ID>
+                  <Description>"Angles (+/-1.5 max)"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>410</ID>
+                      <Description>"Max Vertical Rotation"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+38</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>411</ID>
+                      <Description>"A1"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+3C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>412</ID>
+                      <Description>"A2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+40</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>413</ID>
+                  <Description>"Height #3 (try &lt; 0)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>395</ID>
+                  <Description>"camHeight2"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Float</VariableType>
+                  <Address>+1C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>400</ID>
+                  <Description>"unknown"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>396</ID>
+                      <Description>"unk"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+C</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>397</ID>
+                      <Description>"unk"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+10</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>399</ID>
+                      <Description>"unk"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+18</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>406</ID>
+                      <Description>"unk (~pi)"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+30</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>407</ID>
+                      <Description>"unk (~pi) #2"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+34</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>381</ID>
+                      <Description>"unk"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>+4</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>380</ID>
+              <Description>"charSize (Ctrl+PgUp|Dn)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>ptrBase</Address>
+              <Offsets>
+                <Offset>108</Offset>
+                <Offset>0</Offset>
+                <Offset>28</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>33</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>34</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>382</ID>
+          <Description>"debug"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>352</ID>
+              <Description>"pause"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$Lua}
+pause()
+
+[DISABLE]
+{$Lua}
+unpause()
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>383</ID>
+              <Description>"speed"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+{$Lua}
+speedhack_setSpeed(10)
+
+[DISABLE]
+{$Lua}
+speedhack_setSpeed(1)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>379</ID>
+              <Description>"find diffPtr"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-01
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(diffPtr,deadspace2.exe,08 A3 ? ? ? ? 7D) // should be unique
+registersymbol(diffPtr)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+unregistersymbol(diffPtr)
+
+{
+// ORIGINAL CODE - INJECTION POINT: deadspace2.exe+6379E9
+
+deadspace2.exe+6379CE: CC                    - int 3 
+deadspace2.exe+6379CF: CC                    - int 3 
+deadspace2.exe+6379D0: 8B 44 24 04           - mov eax,[esp+04]
+deadspace2.exe+6379D4: 83 78 08 00           - cmp dword ptr [eax+08],00
+deadspace2.exe+6379D8: 56                    - push esi
+deadspace2.exe+6379D9: 8B F1                 - mov esi,ecx
+deadspace2.exe+6379DB: 75 22                 - jne deadspace2.exe+6379FF
+deadspace2.exe+6379DD: 8B 46 0C              - mov eax,[esi+0C]
+deadspace2.exe+6379E0: 3B 05 20 03 F6 01     - cmp eax,[deadspace2.exe+1B60320]
+deadspace2.exe+6379E6: 8B 4E 08              - mov ecx,[esi+08]
+// ---------- INJECTING HERE ----------
+deadspace2.exe+6379E9: A3 1C 03 F6 01        - mov [deadspace2.exe+1B6031C],eax
+// ---------- DONE INJECTING  ----------
+deadspace2.exe+6379EE: 7D 05                 - jnl deadspace2.exe+6379F5
+deadspace2.exe+6379F0: A3 20 03 F6 01        - mov [deadspace2.exe+1B60320],eax
+deadspace2.exe+6379F5: 8B 11                 - mov edx,[ecx]
+deadspace2.exe+6379F7: 8B 82 84 00 00 00     - mov eax,[edx+00000084]
+deadspace2.exe+6379FD: FF D0                 - call eax
+deadspace2.exe+6379FF: C7 46 08 00 00 00 00  - mov [esi+08],00000000
+deadspace2.exe+637A06: 5E                    - pop esi
+deadspace2.exe+637A07: C2 04 00              - ret 0004
+deadspace2.exe+637A0A: CC                    - int 3 
+deadspace2.exe+637A0B: CC                    - int 3 
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>82663</ID>
+                  <Description>"toggle Hardcore"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : deadspace2.exe
+  Version: 
+  Date   : 2021-08-01
+  Author : user
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+[diffPtr+2]:
+db 4
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+[diffPtr+2]:
+db 0
+</AssemblerScript>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Toggle Activation</Action>
+                      <Keys>
+                        <Key>18</Key>
+                        <Key>72</Key>
+                      </Keys>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>82664</ID>
+                  <Description>"diff"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[diffPtr+2]</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of call "Dead Space.exe"+7295E0</Description>
+      <AddressString>Dead Space.exe+73B17A</AddressString>
+      <Before>
+        <Byte>BD</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>61</Byte>
+        <Byte>E4</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>E8</Byte>
+        <Byte>6A</Byte>
+        <Byte>43</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call "Dead Space.exe"+4E8900</Description>
+      <AddressString>Dead Space.exe+4E8BE2</AddressString>
+      <Before>
+        <Byte>E9</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>19</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>E8</Byte>
+        <Byte>C2</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call "Dead Space.exe"+6D49C0</Description>
+      <AddressString>Dead Space.exe+742471</AddressString>
+      <Before>
+        <Byte>34</Byte>
+        <Byte>FD</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>4A</Byte>
+        <Byte>25</Byte>
+        <Byte>F9</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CE</Byte>
+        <Byte>8B</Byte>
+        <Byte>D8</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Structures StructVersion="2">
+    <Structure Name="camera" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
+      <Elements>
+        <Element Offset="12" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000000C" DisplayMethod="unsigned integer"/>
+        <Element Offset="16" Vartype="Float" Bytesize="4" RLECount="3" OffsetHex="00000010" DisplayMethod="unsigned integer"/>
+        <Element Offset="28" Vartype="4 Bytes" Bytesize="4" OffsetHex="0000001C" DisplayMethod="unsigned integer"/>
+        <Element Offset="32" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="00000020" DisplayMethod="unsigned integer"/>
+        <Element Offset="40" Vartype="4 Bytes" Bytesize="4" OffsetHex="00000028" DisplayMethod="unsigned integer"/>
+        <Element Offset="44" Vartype="Float" Bytesize="4" RLECount="2" OffsetHex="0000002C" DisplayMethod="signed integer"/>
+        <Element Offset="52" Vartype="Float" Bytesize="4" RLECount="4" OffsetHex="00000034" DisplayMethod="unsigned integer"/>
+        <Element Offset="68" Vartype="Pointer" Bytesize="4" OffsetHex="00000044" DisplayMethod="unsigned integer"/>
+        <Element Offset="72" Vartype="Float" Bytesize="4" OffsetHex="00000048" DisplayMethod="unsigned integer"/>
+        <Element Offset="176" Vartype="4 Bytes" Bytesize="4" RLECount="4" OffsetHex="000000B0" DisplayMethod="unsigned integer"/>
+      </Elements>
+    </Structure>
+  </Structures>
+  <Comments>NOTES
+  1. Hotsampling does not seem to work when CE is running. Set game to desired DSR resolution before starting CE. (it runs well at large resolutions)
+  2. Run Dead Space 2, set resolution to desired screenshooting resolution, open table in CE and enable the ``Attach to game process "deadspace2.exe"`` script.
+  3. Time control and camera work during in-game cutscenes.
+Credits: ghostinthecamera, One3rd, Jim2point0, r3sus
+</Comments>
+</CheatTable>

@@ -1,6 +1,6 @@
-![RiME](Images\Rime_header.jpg "Shot by One3rd"){.shadowed}
+![RiME](Images\Rime_header.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,11 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
+
+@alert neutral  
+This guide is for an Unreal Engine 4 game that can use the [Universal Unreal Unlocker](https://framedsc.com/GeneralGuides/universal_ue4_consoleunlocker.htm).  
+@end
  
 ##Tools
 * [CE table - Camera by One3rd and IDK31](..\CheatTables\RiME.CT)  

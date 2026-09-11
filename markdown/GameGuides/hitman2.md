@@ -1,4 +1,4 @@
-![Hitman 2](Images\hitman2_header.png "Shot by Flurdeh"){.shadowed}
+![Hitman 2](Images\hitman2_header.png "Shot by Flurdeh"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | Yes
-DirectX versions | DirectX 11, 12
+Graphics API | DirectX 11, 12
  
 ## Tools
 

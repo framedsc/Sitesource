@@ -1,4 +1,4 @@
-![The Witcher 3:Wild Hunt](Images\witcher3_header.png "Shot by jim2point0"){.shadowed}
+![The Witcher 3: Wild Hunt](Images\witcher3_header.png "Shot by jim2point0"){.shadowed .autosize}
 
 ## Summary
 
@@ -6,11 +6,18 @@ Feature | Supported
 --|--
 Vanilla Photo Mode | No
 Ansel | Yes
-Hotsampling | No
+Hotsampling | Yes (with tools)
 DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
+
+## Tools
+
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/witcher3.htm)**: Camera control, FoV, timestop, HUD toggle, NPC animation speed control, camera paths support, Time of Day control, hotsampling, higher LODs selector, optional no pause when alt-tabbing.  
+*The no pause when alt-tabbing feature is best ticked while in a loading screen.*
+* [Lighting tools by etra0](https://github.com/etra0/litcher)  
 
 Essential mods
 --

@@ -1,4 +1,4 @@
-![ue4guide](Images\ue4_header.png){.shadowed}
+![ue4guide](Images\ue4_header.png){.shadowed .autosize}
 
 Games using Unreal Engine 4 can be tweaked in many ways to better your experience in-game or while shooting. This guide covers the basics of what you can do, with or without UUU and the console.
 
@@ -6,23 +6,27 @@ Games using Unreal Engine 4 can be tweaked in many ways to better your experienc
 
 ## Console Commands
 
+Some examples of common Unreal Engine console commands: 
+
 Command | Arguments| Description
 -- | -- | --
 `EnableCheats` | `0` - `1` | enables cheats (needed for most games)
-`toggledebugcamera` | - | enables freecam (WASD + mouselook)
 `fov` | `1` - `180` | changes field of view (in degrees)
 `pause` | - | toggles game timestop
+`r.Depthoffieldquality` | `0` - `6` | changes the depth of field quality (from 0: off to 6: max)
+`r.Motionblurquality` | `0` - `4` | changes the motion blur quality (from 0: off to 4: max)
+`r.PostProcessAAQuality` | `0` - `6` | changes AA quality (FXAA / TAA)
+`r.SceneColorFringeQuality` | `0` - `1` | toggles CA off (0) or on (1).
 `r.ScreenPercentage` | `10` - ?? | sets resolution scale (in %)
 `r.ViewDistanceScale` | `0.0` - ?? | sets draw distance
-`r.PostProcessAAQuality` | `0` - `6` | changes AA quality (FXAA / TAA)
-`r.Depthoffieldquality` | `0` - `6` | changes the depth of field quality (from 0: off to 6: max)
-`r.SceneColorFringeQuality` | `0` - `1` | toggles CA off (0) or on (1).
-`r.Motionblurquality` | `0` - `4` | changes the motion blur quality (from 0: off to 4: max)
+`r.customdepth 0` | `0` - `3` | changes the visibility of outlines, other elements like focus circles
+`r.postprocessing.disablematerials` | `0` or `1` | Specify `1` to disable on-screen effects like blurred stripes or other effects usually added by games. Specify `0` to go back to the game's default. 
+`r.Upscale.Panini.D` | `0` or `1` | Specify `0` to disable barrel distortion in some games if this upscaling method is at play.  
+`sg.EffectsQuality` | `0` - `4` | changes effects quality 
 `sg.PostProcessQuality` | `0` - `4` | changes post-processing quality
 `sg.ShadowQuality` | `0` - `4` | changes shadow quality 
 `sg.TextureQuality` | `0` - `4` | changes texture quality 
-`sg.EffectsQuality` | `0` - `4` | changes effects quality 
-`r.customdepth 0` | `0` - `3` | changes the visibility of outlines, other elements like focus circles
+`toggledebugcamera` | - | enables freecam (WASD + mouselook)
 
 *Commands are not case-sensitive!*
 
@@ -105,7 +109,7 @@ When textures are set to Epic, this makes them look the same as they would on Lo
 @endtabs 
 
 @alert info
-For a full reference to what's capable, check the [Scalability Reference](https://docs.unrealengine.com/en-US/Engine/Performance/Scalability/ScalabilityReference/index.html). Note that these are default settings by Unreal developers, your game is likely to have these already changed.
+For a full reference to what's capable, check the [Scalability Reference](https://docs.unrealengine.com/4.27/en-US/TestingAndOptimization/PerformanceAndProfiling/Scalability/ScalabilityReference/). Note that these are default settings by Unreal developers, your game is likely to have these already changed.
 @end 
 
 **Scalability levels and groups have to be separated with an empty line!**  
@@ -137,7 +141,8 @@ This forces the game to always render at 150% native resolution, with draw dista
 
 ## All UE4 console commands and variables
 
-To know more about which commands are available and which variables you can set through the console you can use the following search engine: [https://digilander.libero.it/ZioYuri78/](https://digilander.libero.it/ZioYuri78/). 
+To know more about which commands are available and which variables you can set through the console you can use the [list of all Unreal Engine 4.27 commands](ue4_commands.htm). For
+Unreal Engine 5 commands, please use the [list of all Unreal Engine 5.1 commands](ue5_commands.htm). 
 
 This search engine allows you to search on both description and command/variable so it's easy to find the command or variable you're after. The engine gives the variables of the
 latest public UE4 build, so it might be the game you're using the UUU with is of an earlier version and doesn't support the variable.
@@ -158,13 +163,13 @@ The following examples are ready to use. You can just copy / paste the contents 
 
 @tabs
 @tab High end gameplay
-sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096
+sg.ShadowQuality 5 | sg.FoliageQuality 5 | sg.ViewDistanceQuality 5 | sg.PostProcessQuality 5 | sg.EffectsQuality 5 | sg.TextureQuality 5 | r.DepthOfFieldQuality 5 | r.motionblurquality 0 | r.Shadow.DistanceScale 4 | r.Streaming.LimitPoolSizeToVRAM 0 | r.Streaming.PoolSize 4096 | r.Streaming.MaxTempMemoryAllowed 256 | r.SSR.Quality 4 | r.MaxQualityMode 1 | r.StaticMeshLODDistanceScale 0.001 | r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096
 @end
 @tab Normal gameplay
-sg.ShadowQuality 4|sg.FoliageQuality 4|sg.ViewDistanceQuality 4|sg.PostProcessQuality 4|sg.EffectsQuality 4|sg.TextureQuality 4|r.DepthOfFieldQuality 5|r.motionblurquality 0|r.Shadow.DistanceScale 1|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
+sg.ShadowQuality 4 | sg.FoliageQuality 4 | sg.ViewDistanceQuality 4 | sg.PostProcessQuality 4 | sg.EffectsQuality 4 | sg.TextureQuality 4 | r.DepthOfFieldQuality 5 | r.motionblurquality 0 | r.Shadow.DistanceScale 1 | r.Streaming.LimitPoolSizeToVRAM 0 | r.Streaming.PoolSize 4096 | r.Streaming.MaxTempMemoryAllowed 256 | r.SSR.Quality 4 | r.StaticMeshLODDistanceScale 0.001 | r.maxanisotropy 8 | foliage.LODDistanceScale 1 | r.MipMapLODBias 0 | r.AmbientOcclusionMaxQuality 1 | r.Shadow.SpotLightTransitionScale 60 | r.SkeletalMeshLODBias 20 | r.Shadow.TransitionScale 20
 @end
 @tab High end screenshots
-sg.ShadowQuality 5|sg.FoliageQuality 5|sg.ViewDistanceQuality 5|sg.PostProcessQuality 5|sg.EffectsQuality 5|sg.TextureQuality 5|r.DepthOfFieldQuality 0|r.motionblurquality 0|r.Shadow.DistanceScale 4|r.Streaming.LimitPoolSizeToVRAM 0|r.Streaming.PoolSize 4096|r.Streaming.MaxTempMemoryAllowed 256|r.SSR.Quality 4|r.MaxQualityMode 1|r.StaticMeshLODDistanceScale 0.001|r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096 | r.Shadow.MaxResolution 8192 | r.Shadow.MaxCSMResolution 8192
+sg.ShadowQuality 5 | sg.FoliageQuality 5 | sg.ViewDistanceQuality 5 | sg.PostProcessQuality 5 | sg.EffectsQuality 5 | sg.TextureQuality 5 | r.DepthOfFieldQuality 0 | r.motionblurquality 0 | r.Shadow.DistanceScale 4 | r.Streaming.LimitPoolSizeToVRAM 0 | r.Streaming.PoolSize 4096 | r.Streaming.MaxTempMemoryAllowed 256 | r.SSR.Quality 4 | r.MaxQualityMode 1 | r.StaticMeshLODDistanceScale 0.001 | r.maxanisotropy 16 | foliage.LODDistanceScale 100 | r.MipMapLODBias -15 | r.AmbientOcclusionMaxQuality -100 | r.Shadow.SpotLightTransitionScale 4096 | r.SkeletalMeshLODBias -1 | r.Shadow.TransitionScale 4096 | r.Shadow.MaxResolution 8192 | r.Shadow.MaxCSMResolution 8192
 @end
 @endtabs
 
@@ -183,13 +188,13 @@ r.Shadow.MaxResolution | 16384 | Your game will crash
 ## Fixing issues
 
 ### Shadow striping with low fov
-Sometimes you can run into shadow striping with low fov. To fix this you have to set the Depth Bias for the light that causes this. This can be a pointlight, directional light or spotlight. The commands to try are:
+You can sometimes run into shadow striping with low FoV. To fix this, you have to set the Depth Bias for the light that causes this. This can be a pointlight, directional light or spotlight. The commands to try are:
 
 * `r.Shadow.PointLightDepthBias`
 * `r.Shadow.CSMDepthBias`
 * `r.Shadow.PerObjectDirectionalDepthBias`
 * `r.Shadow.SpotLightDepthBias`
 
-Usually a value around 0.15 should fix it. Below is an example. Left the default value right the fixed value
+Usually, a value of around 0.15 should fix it.
 
-![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed}
+![Shadow banding and fix](Images\MiscGuides\ue4_shadowbanding.png){.shadowed .autosize}

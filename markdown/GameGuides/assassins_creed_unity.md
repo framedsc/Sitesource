@@ -1,16 +1,16 @@
-![Assassin's Creed Unity](Images\acunity_header.png "Shot by TeoTave"){.shadowed}
+![Assassin's Creed Unity](Images\acunity_header.png "Shot by TeoTave"){.shadowed .autosize}
 
 ## Summary
 
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | Yes (Use [Windowed Borderless Gaming](http://westechsolutions.net/sites/WindowedBorderlessGaming/download))
+Hotsampling | Yes
 DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 
@@ -20,22 +20,11 @@ __Features__: Camera control (gamepad support), FOV Control, Camera/Rotation Spe
 __Features__:  Requires Varia 3.2 Anti-Cheat Table to function - LOD improvements, remove chromatic aberration, remove Depth of Field, remove Fog
 * [Toggle HUD Mod](https://www.nexusmods.com/assassinscreedunity/mods/2)  
 __Features__: Configurable HUD toggle key (edit d3dx.ini) - works as a timestop when pausing the game and hiding the HUD. Supports gamepad bindings.
-* [Varia 3.2 Anti-Cheat Table from FearlessRevolution by Paul44](https://fearlessrevolution.com/download/file.php?id=25921)  
+* [Varia 3.2 Anti-Cheat Table from FearlessRevolution by Paul44 (Password: Fearless)](https://fearlessrevolution.com/download/file.php?id=25921)  
 __Features__: (Disables the game's anti-cheat) God Mode, Invisibility, Increase Inventory supplies. Works for the latest game version 1.5.0 (Uplay and Steam).
 
 
 ## Tips and Tricks
-
-### Hotsampling with Windowed Borderless Gaming (WBG)
-
-Windowed Borderless Gaming (WBG) is the only way to hotsample in Assassin's Creed Unity. It will only work if the game is set to Windowed mode under the game's graphics options. It is recommended to perform this initial process to get WBG working before injecting all of the tools.
-
-1. Launch _WindowedBorderlessGaming.exe_ after loading the game. It will appear in your PC's system tray (click the arrow to see hidden icons if it's not visible). 
-2. Right click the WBG icon in the system tray and click  _Add Window (F3)_. Go into the game and press the F3 key - the game should become a borderless window.
-3. Right click on the WBG icon in the system tray once again and click _Game Settings_. The fields should occupy with information about the game (if it does not, you may have to restart the game - repeat from Step 2 once the game has loaded).
-4. Type in your desired resolution (aspect ratios of 16:9 are supported) under the _Size & Offset_ section. Hit apply to set the game to this new resolution. Type in your native resolution and hit apply to return back. Repeat this process whenever you are ready to hotsample a screenshot. 
-
-With this initial setup complete, the game will automatically switch to windowed borderless mode so long as the WBG is launched.
 
 ### Tool Injection Order
 
@@ -82,7 +71,16 @@ Download and place all files in the same folder as your game .exe. To remove all
 *_The default Toggle HUD controller key interferes with Hatti's Camera Control bindings - it is recommended to change this mod's controller binding for toggling the HUD for ease of use._
 
 1. Locate _d3dx.ini_ in the game directory, open it with a text editor and go to line 158. 
-2. Replace _XB_LEFT_THUMB_ with any binding of your choice (that does not interfere with any existing tool hotkey).  
+2. Replace _XB_LEFT_THUMB_ with any binding of your choice (that does not interfere with any existing tool hotkey).
+
+### DoF in cutscenes
+
+You can turn off the DoF in cutscenes by disabling the Bloom in the game graphic options.
+
+### Setting up ReShade's depth buffer
+
+Assassin's Creed Unity will break shaders that use depth when you first setup ReShade as the game uses a reversed depth buffer, so changing `RESHADE_DEPTH_INPUT_IS_REVERSED ` from 0 to 1 in the global preprocessor definitions should fix it. 
+After that, you may also have to select the correct buffer depending on your ReShade version as it may choose the incorrect one by default. Keep in mind that in some cutscenes, depth shaders will not work regardless of your settings.
 
 ### Useful Links
 

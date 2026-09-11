@@ -1,4 +1,4 @@
-![A Plague Tale: Innocence](Images\aplaguetale_header.png "Shot by VicenteProD"){.shadowed}
+![A Plague Tale: Innocence](Images\aplaguetale_header.png "Shot by VicenteProD"){.shadowed .autosize}
 ## Summary
 Feature | Supported
 --|--
@@ -8,12 +8,12 @@ DSR | Yes
 Custom Aspect Ratios | Yes  
 Reshade | Yes (DX11)
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, DOF removal, LOD improvements, camera paths
+**[Features](https://opm.fransbouma.com/Cameras/aplaguetaleinnocence.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, DOF removal, LOD improvements, camera paths
 * [Cheat Table by Otis_Inf](..\CheatTables\APlagueTaleInnocence_Otis2.CT)  
 **Features**: Works in Steam and Origin versions of the game, Unlocks Ansel during in-game cinematics, unlocks Ansel boundaries, clipping is allowed (going through solid objects), FOV Control, DOF Removal in in-game cinematics.
 

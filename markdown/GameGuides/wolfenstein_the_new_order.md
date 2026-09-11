@@ -1,4 +1,4 @@
-![Wolfenstein: The New Order](\Images\wolfenstein_the_new_order.png "Shot by Originalnicodr")
+![Wolfenstein: The New Order](\Images\wolfenstein_the_new_order.png "Shot by Originalnicodr"){.shadowed .autosize}
  
 ## Summary
  
@@ -10,7 +10,7 @@ DSR | Yes (desktop DSR)
 Custom Aspect Ratios | No (see notes)
 Reshade | Yes (see notes)
 Ansel | No
-Graphic API version | OpenGL
+Graphics API | OpenGL
  
 ## Tools
  

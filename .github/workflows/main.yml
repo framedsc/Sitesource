@@ -1,0 +1,56 @@
+name: Deploy website
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          if_key_exists: replace # replace / ignore / fail; optional (defaults to fail)
+        
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          persist-credentials: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone framedsc site repo.
+        uses: actions/checkout@v2
+        with:
+          repository: framedsc/framedsc.github.io
+          path: ./_framedsc.github.io
+          ssh-key: ${{ secrets.SSH_KEY }}
+
+      - name: Build site
+        shell: cmd
+        run: |
+          git config --global user.email "no-reply@github.com"
+          git config --global user.name "Github Actions"
+          .\tools\docnet -c markdown
+
+          REM Build the site and the necessary files
+          echo Executing pre-generate-site hooks scripts
+          PowerShell -ExecutionPolicy Bypass -File "tools\generate-site-hooks\generatebannerspage.ps1"
+
+          del /q .\_framedsc.github.io\*.*
+          for /d %%i in (.\_framedsc.github.io\*.*) do @rd /s /q "%%i"
+          copy /y theme\destination\favicon.ico .\site
+          robocopy .\site .\_framedsc.github.io /s /e
+          if ErrorLevel 8 (exit /B 1) else (exit /B 0)
+
+      - name: Submit site
+        run: |
+          cd $env:GITHUB_WORKSPACE
+          cd .\_framedsc.github.io
+          git add -A
+          git commit -m "${{ github.event.head_commit.message }}"
+          git push

@@ -1,4 +1,4 @@
-![Yakuza Kiwami 2](Images\yakuza_kiwami_2.png "Shot by Antic Owl")
+![Yakuza Kiwami 2](Images\yakuza_kiwami_2.png "Shot by Antic Owl"){.shadowed .autosize}
 
 
 ## Summary
@@ -11,7 +11,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

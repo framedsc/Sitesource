@@ -1,6 +1,6 @@
-![XCOM2](Images\xcom2_header.png "Shot by Philos"){.shadowed}
+![XCOM2](Images\xcom2_header.png "Shot by Philos"){.shadowed .autosize}
 
-## Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-API versions | DirectX 11
+Graphics API | DirectX 11
 
 ## Tools
 

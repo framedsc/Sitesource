@@ -1,4 +1,4 @@
-![Titanfall 2](\Images\titanfall2.png "Shot by Phoenix")
+![Titanfall 2](\Images\titanfall2.png "Shot by Phoenix"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | No
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

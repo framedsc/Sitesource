@@ -1,4 +1,4 @@
-![Nioh 2: The Complete Edition](Images\nioh2_header.png "Shot by Loyd"){.shadowed}
+![Nioh 2: The Complete Edition](Images\nioh2_header.png "Shot by Loyd"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes (from desktop)
 Custom Aspect Ratios | Yes (with tools)
 Reshade | Yes
 Ansel | Yes
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

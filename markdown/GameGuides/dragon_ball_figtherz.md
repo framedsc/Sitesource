@@ -1,4 +1,4 @@
-![Dragon Ball FighterZ](\Images\dragon_ball_figtherz.png "Shot by Rike"){.shadowed}
+![Dragon Ball FighterZ](\Images\dragon_ball_figtherz.png "Shot by Rike"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

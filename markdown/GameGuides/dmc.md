@@ -1,4 +1,4 @@
-![DmC: Devil May Cry](Images\dmc.png "Shot by White Harpy")
+![DmC: Devil May Cry](Images\dmc.png "Shot by White Harpy"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

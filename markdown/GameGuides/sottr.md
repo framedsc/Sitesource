@@ -1,6 +1,6 @@
-![Shadow of the Tomb Raider](Images\sottr.png "Shot by Otis_Inf"){.shadowed}
+![Shadow of the Tomb Raider](Images\sottr.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,12 +10,12 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes, with DirectX 11
 Ansel | Yes
-DirectX versions | DirectX 11, DirectX 12
+Graphics API | DirectX 11, DirectX 12
  
 ##Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV, AR correction
+**[Features](https://opm.fransbouma.com/Cameras/sottr.htm)**: Camera control, FoV, AR correction
 
 @alert Important
 The camera tools work together with the photomode in the game. Please read the enclosed readme.txt for details about that.

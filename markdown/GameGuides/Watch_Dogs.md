@@ -1,4 +1,4 @@
-![Watch_Dogs](Images\wd_header.png "Shot by PulseZET"){.shadowed}
+![Watch_Dogs](Images\wd_header.png "Shot by PulseZET"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

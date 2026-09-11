@@ -1,4 +1,4 @@
-![Remember Me](\Images\remember_me.png "Shot by Otis_Inf")
+![Remember Me](\Images\remember_me.png "Shot by Otis_Inf"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes (d3d9.dll)
 Ansel | No
-Rendering API | DX9
+Graphics API | DX9
 
 ## Tools
 

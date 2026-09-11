@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>11124</ID>
+      <Description>"Ansel"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Unlock Ansel"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(ANSELUNLOCK,hitman3.exe,83 F8 0F 75 1C 0F 54) // should be unique
+ANSELUNLOCK:
+  db 83 F8 0F EB 1C
+registersymbol(ANSELUNLOCK)
+
+[DISABLE]
+ANSELUNLOCK:
+  db 83 F8 0F 75 1C
+unregistersymbol(ANSELUNLOCK)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11120</ID>
+          <Description>"Ansel No Collision"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscanmodule(NoCollision,hitman3.exe,E8 6D 0C 00 00) // should be unique
+NoCollision:
+  db 90 90 90 90 90
+return:
+registersymbol(NoCollision)
+
+[DISABLE]
+NoCollision:
+  db E8 6D 0C 00 00
+unregistersymbol(NoCollision)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11309</ID>
+      <Description>"Pause (Key 4) /Unpause (Key 5)"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscanmodule(PauseUnpauseInject,hitman3.exe,48 89 5C 24 08 57 48 83 EC 40 C6 05) // should be unique
+alloc(newmem,$1000,PauseUnpauseInject)
+
+label(code)
+label(return)
+
+alloc(PauseUnpauseValue,1)
+registersymbol(PauseUnpauseValue)
+
+newmem:
+
+code:
+  mov [rsp+08],rbx
+  push rdi
+  sub rsp,40
+  mov [PauseUnpauseValue],rbx
+  jmp return
+
+PauseUnpauseInject:
+  nop 5
+  jmp newmem
+return:
+registersymbol(PauseUnpauseInject)
+
+[DISABLE]
+
+PauseUnpauseInject:
+  db 48 89 5C 24 08 57 48 83 EC 40 C6 05
+
+unregistersymbol(PauseUnpauseValue)
+unregistersymbol(PauseUnpauseInject)
+dealloc(newmem)
+dealloc(PauseUnpauseValue)
+
+{
+// ORIGINAL CODE - INJECTION POINT: hitman3.exe+EF2A10
+
+hitman3.exe+EF29F5: 48 8B 7C 24 50           - mov rdi,[rsp+50]
+hitman3.exe+EF29FA: C6 83 38 01 00 00 00     - mov byte ptr [rbx+00000138],00
+hitman3.exe+EF2A01: 48 8B 5C 24 58           - mov rbx,[rsp+58]
+hitman3.exe+EF2A06: 48 83 C4 40              - add rsp,40
+hitman3.exe+EF2A0A: 5D                       - pop rbp
+hitman3.exe+EF2A0B: C3                       - ret 
+hitman3.exe+EF2A0C: CC                       - int 3 
+hitman3.exe+EF2A0D: CC                       - int 3 
+hitman3.exe+EF2A0E: CC                       - int 3 
+hitman3.exe+EF2A0F: CC                       - int 3 
+// ---------- INJECTING HERE ----------
+hitman3.exe+EF2A10: 48 89 5C 24 08           - mov [rsp+08],rbx
+// ---------- DONE INJECTING  ----------
+hitman3.exe+EF2A15: 57                       - push rdi
+hitman3.exe+EF2A16: 48 83 EC 40              - sub rsp,40
+hitman3.exe+EF2A1A: C6 05 4F AA 24 02 01     - mov byte ptr [hitman3.exe+313D470],01
+hitman3.exe+EF2A21: 48 8B D9                 - mov rbx,rcx
+hitman3.exe+EF2A24: 48 8B 91 A0 00 00 00     - mov rdx,[rcx+000000A0]
+hitman3.exe+EF2A2B: 48 85 D2                 - test rdx,rdx
+hitman3.exe+EF2A2E: 74 0A                    - je hitman3.exe+EF2A3A
+hitman3.exe+EF2A30: 48 83 B9 B8 00 00 00 00  - cmp qword ptr [rcx+000000B8],00
+hitman3.exe+EF2A38: 75 0A                    - jne hitman3.exe+EF2A44
+hitman3.exe+EF2A3A: 48 83 B9 B0 00 00 00 00  - cmp qword ptr [rcx+000000B0],00
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11310</ID>
+          <Description>"Unpause Effect 1 (Value=1 Pause, Value=0 Unpause)"</Description>
+          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">6E 39 C9 4F 19 26 66 4E A5 1E 2B D3 66 23 0D A7:Signature Suit
+FC 28 CF 27 56 46 E8 41 86 19 19 FE A6 14 D9 8F:Undying
+7f 75 e3 19 b5 01 21 48 97 c3 1a 10 45 64 65 31:Edgy Suit
+bf e1 1c da 1b 1d 49 4f 9d 0f 73 d5 7f 95 56 06:Golden Devil
+ae 58 73 ae 6d ac 17 42 b8 6e ef ff de 5b 90 dd:Hunting Suit
+7d c4 8f 62 6d db 22 45 b5 0a 51 4f 5d af b4 19:Chinese Suit
+ba 4f f8 84 59 02 e8 4f 9d 0f d2 72 cf 07 d9 58:Birth
+7e a8 eb 20 95 bb fd 4c 81 78 11 34 39 5d 6f 6d:Life
+95 db 6c da fd c3 1e 44 be 0d 40 98 72 0b 21 e5:Death
+b7 8f ca 09 2e b9 b1 4b 87 d1 6a 8f e9 e1 e3 7f:Blue Special
+78 61 4d 64 1c 8b 9b 4c 90 e6 6b c0 d8 5d 08 4f:Red Special
+bb 62 92 a8 5b 1c 21 4a 97 20 80 c4 09 e8 a1 e5:Green Special
+70 49 37 a9 06 9a 69 44 99 3a 32 9f cb 4d eb b4:Black Special
+fc 77 e4 97 69 f4 f4 4b 92 0b c2 2e 8f 4b a8 00:Fox Flared Collar Jacket
+2f 02 ad 90 89 07 3f 41 bf 3d 60 3c 12 37 c9 b1:Rat Flared Blue Jacket Collar
+38 82 C9 31 CA D0 B9 44 A8 EF F4 C5 B5 43 AC 86:Chashmerian
+A2 AC C3 6A 1B BD B5 4A BD B6 D5 7F 19 A4 C6 9A:The Undying Look
+CA CE 7F F0 50 D3 EE 40 92 7F B4 00 36 79 00 ED:Vetrova
+D8 E3 21 DE 77 57 CA 49 81 E7 FF F8 8C 16 7E E8:Greenland(Cold Weather Gear)
+3B 44 4F 05 4F 82 13 49 8B 29 64 DF CD 82 B0 89:Training Gear
+82 F0 87 1E 21 27 18 42 87 F8 B9 0B E1 DB 2F 07:Training Gear(With Gloves)
+F1 AE D1 28 BA 45 8D 4E 9B CA 7C D8 B4 E5 B4 F8:Paris Tuxedo
+03 C2 A5 4E C4 B7 9D 48 85 A1 BF 91 27 2D 61 90:Paris Tuxedo(With Gloves)
+71 92 75 75 36 E2 33 4B 8D D5 7E 50 2C 95 8D 05:Sapienza(With Sunglasses)
+E2 FC CB 46 56 95 40 47 9D AA 36 70 30 1D 23 EA:Sapienza(With Sunglasses and Gloves)
+DE 3C D5 CA 4A 4D CB 41 92 59 87 B5 44 F7 18 AD:Sapienza(No Glasses)
+92 14 16 58 C8 10 CE 4F 86 0C 89 E9 B0 A7 64 FB:Marrakesh
+9C 6E 5C C8 EE 0A B8 43 B6 E3 D7 0E 76 F1 89 0E:Bangkok
+F1 B1 5E CD BF 57 FF 41 87 EE 81 0A 01 C1 C5 BA:Bangkok (Gloves)
+EC 92 97 DD 1D 4A 29 4C A9 28 A5 56 FC 0B 66 92:Colorodo
+E1 64 39 1C C6 75 DB 4A 8C BB EB D0 A8 30 B8 39:Hokkaido
+BA 12 01 25 9D E3 3C 47 99 CD 5F C4 29 C5 FF F5:Hokkaido(Patient Zero)
+4D 6D 45 06 36 DA 08 40 BE A5 C0 B9 85 A5 65 F5:Ninja
+59 52 AC 31 59 FF E0 46 AB 0F 8D DE AF 29 6A 36:Santa
+2C 2E 02 08 54 49 63 4B B6 32 3A C5 0D 01 82 92:New Zealand(Tactical Wetsuit)
+CA 7E 3F 16 C1 98 7E 43 A2 27 A8 41 E4 67 3E E7:Miami
+9B EC D1 1A 96 1E AC 4F B0 E6 88 17 A4 6D A9 DB:Miami(With Gloves)
+44 57 38 02 BF 85 1A 4C 85 C6 A3 6D A5 0F 3C 6C:Columbia
+F3 30 A5 28 B7 CE 41 45 AE D1 A2 88 AC 20 7A 43:Mumbai
+88 F9 77 5A B8 62 14 44 BD 8F B4 7F D4 57 D0 BD:Mumbai(With Gloves)
+03 58 94 A0 F5 0A BC 41 85 B6 10 19 39 15 84 60:North America
+42 19 B3 CD B5 27 C3 4E 90 09 F1 9B 34 D2 7F D0:North America(With Bicycle Gloves)
+5C 1E F2 3F C2 5E 68 48 90 3B E7 56 4C 58 7A A7:North Sea
+A8 FD 48 1E 95 47 D4 4A A0 5D 0B 9C A5 D2 3F 78:North Sea(With Gloves)
+09 C8 FA 69 30 41 68 40 86 C1 B3 FF 82 0A 11 7E:New York
+67 E0 F2 84 C3 70 79 4D AA 90 53 B4 6B 72 75 05:New York (With Gloves)
+DE D0 F3 85 01 7C C0 44 B8 C8 E5 96 7C 25 62 D3:Haven Island
+72 F9 F9 08 29 92 2F 43 90 92 27 87 88 37 74 E6:Blood Money(No Gloves)
+71 05 29 7C 34 B0 97 4C B2 FE 38 03 28 5C 31 46:Blood Money (With Gloves)
+AF EA 80 94 5E 2E E7 4A A3 B7 1B D5 E4 EB AE A0:Midnight Black Suit
+1A B6 4D 35 61 49 70 46 BF 2F EB 91 11 BA E1 A6:Season 2 Elusive Reward
+FB F2 5A 48 AA 64 A4 44 BA 19 A5 BE AC 0E 67 18:Casual Undercover
+93 63 5F 72 B2 A0 CA 4A B9 CF F3 98 BF 16 B5 74:Ghost Mode(Phantom Reward)
+A2 AC C3 6A 1B BD B5 4A BD B6 D5 7F 19 A4 C6 9A:Complete 12 Elusives
+64 D8 67 7C F2 D1 DB 48 A5 A4 5E F4 13 15 1C F5:Snow Festival Suit
+4B 1B 7D 65 9A ED 7F 4F B3 0A CE A7 48 D2 B6 44:Clown(GOTY)
+84 40 17 FA 74 2B 54 46 86 73 B4 56 78 36 70 95:Cowboy(GOTY)
+47 94 F1 14 99 55 D2 4B 82 B5 20 C0 2B 1C 46 D7:Dark Sniper(Black Trench)(GOTY)
+10 4A 72 C5 BF 3F CA 4E AE 8F 9B 55 3D 79 FF 57:Outbreak(Gas Mask)
+76 A0 14 D8 7E F9 B2 41 9D D6 67 0A EF ED 86 7C:Bodyguard(All Black Suit)
+4D 3C 24 FB E1 66 4B 4A 8C 08 ED EA 89 8A 39 C0:Lucas Grey
+2D CA 6F C2 8B 0B 31 46 AA 2A BE A3 8B 22 74 F5:Stone(Black)
+63 B8 1A F4 1F C6 19 46 8B 6D 34 A4 A1 73 4C 1A:Stone(Snow)
+65 FE 43 D7 6B E4 D9 47 9B 25 F6 C0 92 5F C8 22:Knight(Red)
+59 CB 6B 29 3E D4 F0 4B 86 F0 06 BC 40 DC 75 CC:Knight(Snow)
+92 62 AD CA 01 06 8F 4F B0 42 EC ED 6B 0F 2F 4F:Mumbai Only(High Profile DJ)
+62 E3 F1 EB 1F 67 E8 47 8C 88 DD 49 0D 8A D8 66:Pumpkinhead
+5d bf 2c 05 68 e2 9a 47 a7 05 17 60 9d 52 81 82:Pirate
+FE 4C A6 DD F4 59 10 4E 9C 73 0F 7B 58 91 85 A0:Lynch
+:------------------------------
+:Marrakesh
+:------------------------------
+E0 62 47 DC 8E E5 36 43 A3 C1 40 64 60 87 26 7A:Fortune Teller
+:------------------------------
+:Haven
+:------------------------------
+F3 30 42 EA F7 03 F1 46 A3 F4 BE 2F F3 83 B4 17:Swimwear
+7A 50 C9 D4 97 B2 CE 46 8E 9C 4E C4 79 DA 22 A4:General Guard
+2c bf 5d 05 68 e2 9a 47 a7 05 17 60 9d 52 81 82:Pirate Haven
+:------------------------------
+:Miami
+:------------------------------
+d9 ed c6 06 11 30 b4 48 88 31 01 5d e7 d1 34 b8:Cinematic_Agent47_Miami_NoGlasses
+7C BE 18 20 79 5F 7E 49 A7 E1 0E 64 F3 1E 71 F5:Street Musician
+:------------------------------
+:New York
+:------------------------------
+02 f5 8f 89 3f 38 0f 41 8d be 61 1c 35 30 d2 24:CHAR_Reward_Hero_AluminumSuitGoldMask_M_PRO167647
+:------------------------------
+:Dubai
+:------------------------------
+E1 08 AB 07 3E 01 9D 43 A9 8B 3B 7E 8C 9F 13 BC:Ashen Suit
+50 54 9f a7 eb c8 37 42 b4 59 ef 68 1b 92 ed df:Ashen Suit with Gloves
+27 6F 14 C4 A9 81 EF 42 B3 C7 87 A9 D6 0B 87 FE:Skydiving Suit
+80 4C FB 77 81 0B 72 46 BE 65 12 C1 6C 3A C7 AC:Event Staff
+:------------------------------
+:England
+:------------------------------
+4E 86 DE A9 00 CE 70 49 97 8A 4A 9F 8D B7 39 74:Classic Cut Long Coat Suit
+52 5c a5 44 07 42 69 4c b1 7f 55 4b 3d f9 62 b9:Classic Cut Long Coat Suit with Gloves
+:------------------------------
+:Berlin
+:------------------------------
+35 9B 6A 3C AC 82 08 4E 8E 32 D9 FD 77 CB D7 D3:Rave On Suit
+:------------------------------
+:Chongqing
+:------------------------------
+75 B3 74 DE 7D 26 30 49 AE DF 78 DA CF 0F 6F 8D:Main Suit
+:------------------------------
+:Mendoza
+:------------------------------
+C3 6D A9 D7 11 E5 02 46 BD BD BA FA 92 84 79 3E:Black and White Tuxedo Set
+25 93 f1 d5 e7 01 f2 46 bf 3b 7f 4a d7 c1 5b 91:Black and White Tuxedo Set with Gloves
+:------------------------------
+:Romania
+:------------------------------
+C0 AB 0E 79 9E F5 63 4E A5 A9 42 6E C9 AA 10 27:Subject 47
+36 B5 E4 AB 09 1F 1E 42 91 6B 20 AF 14 2C 6A DB:Providence Doctor
+</DropDownList>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>PauseUnpauseValue</Address>
+          <Offsets>
+            <Offset>2D0</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>52</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>53</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11311</ID>
+          <Description>"Unpause Effect 2 (Value=2 Pause, Value=3 Unpause)"</Description>
+          <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">6E 39 C9 4F 19 26 66 4E A5 1E 2B D3 66 23 0D A7:Signature Suit
+FC 28 CF 27 56 46 E8 41 86 19 19 FE A6 14 D9 8F:Undying
+7f 75 e3 19 b5 01 21 48 97 c3 1a 10 45 64 65 31:Edgy Suit
+bf e1 1c da 1b 1d 49 4f 9d 0f 73 d5 7f 95 56 06:Golden Devil
+ae 58 73 ae 6d ac 17 42 b8 6e ef ff de 5b 90 dd:Hunting Suit
+7d c4 8f 62 6d db 22 45 b5 0a 51 4f 5d af b4 19:Chinese Suit
+ba 4f f8 84 59 02 e8 4f 9d 0f d2 72 cf 07 d9 58:Birth
+7e a8 eb 20 95 bb fd 4c 81 78 11 34 39 5d 6f 6d:Life
+95 db 6c da fd c3 1e 44 be 0d 40 98 72 0b 21 e5:Death
+b7 8f ca 09 2e b9 b1 4b 87 d1 6a 8f e9 e1 e3 7f:Blue Special
+78 61 4d 64 1c 8b 9b 4c 90 e6 6b c0 d8 5d 08 4f:Red Special
+bb 62 92 a8 5b 1c 21 4a 97 20 80 c4 09 e8 a1 e5:Green Special
+70 49 37 a9 06 9a 69 44 99 3a 32 9f cb 4d eb b4:Black Special
+fc 77 e4 97 69 f4 f4 4b 92 0b c2 2e 8f 4b a8 00:Fox Flared Collar Jacket
+2f 02 ad 90 89 07 3f 41 bf 3d 60 3c 12 37 c9 b1:Rat Flared Blue Jacket Collar
+38 82 C9 31 CA D0 B9 44 A8 EF F4 C5 B5 43 AC 86:Chashmerian
+A2 AC C3 6A 1B BD B5 4A BD B6 D5 7F 19 A4 C6 9A:The Undying Look
+CA CE 7F F0 50 D3 EE 40 92 7F B4 00 36 79 00 ED:Vetrova
+D8 E3 21 DE 77 57 CA 49 81 E7 FF F8 8C 16 7E E8:Greenland(Cold Weather Gear)
+3B 44 4F 05 4F 82 13 49 8B 29 64 DF CD 82 B0 89:Training Gear
+82 F0 87 1E 21 27 18 42 87 F8 B9 0B E1 DB 2F 07:Training Gear(With Gloves)
+F1 AE D1 28 BA 45 8D 4E 9B CA 7C D8 B4 E5 B4 F8:Paris Tuxedo
+03 C2 A5 4E C4 B7 9D 48 85 A1 BF 91 27 2D 61 90:Paris Tuxedo(With Gloves)
+71 92 75 75 36 E2 33 4B 8D D5 7E 50 2C 95 8D 05:Sapienza(With Sunglasses)
+E2 FC CB 46 56 95 40 47 9D AA 36 70 30 1D 23 EA:Sapienza(With Sunglasses and Gloves)
+DE 3C D5 CA 4A 4D CB 41 92 59 87 B5 44 F7 18 AD:Sapienza(No Glasses)
+92 14 16 58 C8 10 CE 4F 86 0C 89 E9 B0 A7 64 FB:Marrakesh
+9C 6E 5C C8 EE 0A B8 43 B6 E3 D7 0E 76 F1 89 0E:Bangkok
+F1 B1 5E CD BF 57 FF 41 87 EE 81 0A 01 C1 C5 BA:Bangkok (Gloves)
+EC 92 97 DD 1D 4A 29 4C A9 28 A5 56 FC 0B 66 92:Colorodo
+E1 64 39 1C C6 75 DB 4A 8C BB EB D0 A8 30 B8 39:Hokkaido
+BA 12 01 25 9D E3 3C 47 99 CD 5F C4 29 C5 FF F5:Hokkaido(Patient Zero)
+4D 6D 45 06 36 DA 08 40 BE A5 C0 B9 85 A5 65 F5:Ninja
+59 52 AC 31 59 FF E0 46 AB 0F 8D DE AF 29 6A 36:Santa
+2C 2E 02 08 54 49 63 4B B6 32 3A C5 0D 01 82 92:New Zealand(Tactical Wetsuit)
+CA 7E 3F 16 C1 98 7E 43 A2 27 A8 41 E4 67 3E E7:Miami
+9B EC D1 1A 96 1E AC 4F B0 E6 88 17 A4 6D A9 DB:Miami(With Gloves)
+44 57 38 02 BF 85 1A 4C 85 C6 A3 6D A5 0F 3C 6C:Columbia
+F3 30 A5 28 B7 CE 41 45 AE D1 A2 88 AC 20 7A 43:Mumbai
+88 F9 77 5A B8 62 14 44 BD 8F B4 7F D4 57 D0 BD:Mumbai(With Gloves)
+03 58 94 A0 F5 0A BC 41 85 B6 10 19 39 15 84 60:North America
+42 19 B3 CD B5 27 C3 4E 90 09 F1 9B 34 D2 7F D0:North America(With Bicycle Gloves)
+5C 1E F2 3F C2 5E 68 48 90 3B E7 56 4C 58 7A A7:North Sea
+A8 FD 48 1E 95 47 D4 4A A0 5D 0B 9C A5 D2 3F 78:North Sea(With Gloves)
+09 C8 FA 69 30 41 68 40 86 C1 B3 FF 82 0A 11 7E:New York
+67 E0 F2 84 C3 70 79 4D AA 90 53 B4 6B 72 75 05:New York (With Gloves)
+DE D0 F3 85 01 7C C0 44 B8 C8 E5 96 7C 25 62 D3:Haven Island
+72 F9 F9 08 29 92 2F 43 90 92 27 87 88 37 74 E6:Blood Money(No Gloves)
+71 05 29 7C 34 B0 97 4C B2 FE 38 03 28 5C 31 46:Blood Money (With Gloves)
+AF EA 80 94 5E 2E E7 4A A3 B7 1B D5 E4 EB AE A0:Midnight Black Suit
+1A B6 4D 35 61 49 70 46 BF 2F EB 91 11 BA E1 A6:Season 2 Elusive Reward
+FB F2 5A 48 AA 64 A4 44 BA 19 A5 BE AC 0E 67 18:Casual Undercover
+93 63 5F 72 B2 A0 CA 4A B9 CF F3 98 BF 16 B5 74:Ghost Mode(Phantom Reward)
+A2 AC C3 6A 1B BD B5 4A BD B6 D5 7F 19 A4 C6 9A:Complete 12 Elusives
+64 D8 67 7C F2 D1 DB 48 A5 A4 5E F4 13 15 1C F5:Snow Festival Suit
+4B 1B 7D 65 9A ED 7F 4F B3 0A CE A7 48 D2 B6 44:Clown(GOTY)
+84 40 17 FA 74 2B 54 46 86 73 B4 56 78 36 70 95:Cowboy(GOTY)
+47 94 F1 14 99 55 D2 4B 82 B5 20 C0 2B 1C 46 D7:Dark Sniper(Black Trench)(GOTY)
+10 4A 72 C5 BF 3F CA 4E AE 8F 9B 55 3D 79 FF 57:Outbreak(Gas Mask)
+76 A0 14 D8 7E F9 B2 41 9D D6 67 0A EF ED 86 7C:Bodyguard(All Black Suit)
+4D 3C 24 FB E1 66 4B 4A 8C 08 ED EA 89 8A 39 C0:Lucas Grey
+2D CA 6F C2 8B 0B 31 46 AA 2A BE A3 8B 22 74 F5:Stone(Black)
+63 B8 1A F4 1F C6 19 46 8B 6D 34 A4 A1 73 4C 1A:Stone(Snow)
+65 FE 43 D7 6B E4 D9 47 9B 25 F6 C0 92 5F C8 22:Knight(Red)
+59 CB 6B 29 3E D4 F0 4B 86 F0 06 BC 40 DC 75 CC:Knight(Snow)
+92 62 AD CA 01 06 8F 4F B0 42 EC ED 6B 0F 2F 4F:Mumbai Only(High Profile DJ)
+62 E3 F1 EB 1F 67 E8 47 8C 88 DD 49 0D 8A D8 66:Pumpkinhead
+5d bf 2c 05 68 e2 9a 47 a7 05 17 60 9d 52 81 82:Pirate
+FE 4C A6 DD F4 59 10 4E 9C 73 0F 7B 58 91 85 A0:Lynch
+:------------------------------
+:Marrakesh
+:------------------------------
+E0 62 47 DC 8E E5 36 43 A3 C1 40 64 60 87 26 7A:Fortune Teller
+:------------------------------
+:Haven
+:------------------------------
+F3 30 42 EA F7 03 F1 46 A3 F4 BE 2F F3 83 B4 17:Swimwear
+7A 50 C9 D4 97 B2 CE 46 8E 9C 4E C4 79 DA 22 A4:General Guard
+2c bf 5d 05 68 e2 9a 47 a7 05 17 60 9d 52 81 82:Pirate Haven
+:------------------------------
+:Miami
+:------------------------------
+d9 ed c6 06 11 30 b4 48 88 31 01 5d e7 d1 34 b8:Cinematic_Agent47_Miami_NoGlasses
+7C BE 18 20 79 5F 7E 49 A7 E1 0E 64 F3 1E 71 F5:Street Musician
+:------------------------------
+:New York
+:------------------------------
+02 f5 8f 89 3f 38 0f 41 8d be 61 1c 35 30 d2 24:CHAR_Reward_Hero_AluminumSuitGoldMask_M_PRO167647
+:------------------------------
+:Dubai
+:------------------------------
+E1 08 AB 07 3E 01 9D 43 A9 8B 3B 7E 8C 9F 13 BC:Ashen Suit
+50 54 9f a7 eb c8 37 42 b4 59 ef 68 1b 92 ed df:Ashen Suit with Gloves
+27 6F 14 C4 A9 81 EF 42 B3 C7 87 A9 D6 0B 87 FE:Skydiving Suit
+80 4C FB 77 81 0B 72 46 BE 65 12 C1 6C 3A C7 AC:Event Staff
+:------------------------------
+:England
+:------------------------------
+4E 86 DE A9 00 CE 70 49 97 8A 4A 9F 8D B7 39 74:Classic Cut Long Coat Suit
+52 5c a5 44 07 42 69 4c b1 7f 55 4b 3d f9 62 b9:Classic Cut Long Coat Suit with Gloves
+:------------------------------
+:Berlin
+:------------------------------
+35 9B 6A 3C AC 82 08 4E 8E 32 D9 FD 77 CB D7 D3:Rave On Suit
+:------------------------------
+:Chongqing
+:------------------------------
+75 B3 74 DE 7D 26 30 49 AE DF 78 DA CF 0F 6F 8D:Main Suit
+:------------------------------
+:Mendoza
+:------------------------------
+C3 6D A9 D7 11 E5 02 46 BD BD BA FA 92 84 79 3E:Black and White Tuxedo Set
+25 93 f1 d5 e7 01 f2 46 bf 3b 7f 4a d7 c1 5b 91:Black and White Tuxedo Set with Gloves
+:------------------------------
+:Romania
+:------------------------------
+C0 AB 0E 79 9E F5 63 4E A5 A9 42 6E C9 AA 10 27:Subject 47
+36 B5 E4 AB 09 1F 1E 42 91 6B 20 AF 14 2C 6A DB:Providence Doctor
+</DropDownList>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>PauseUnpauseValue</Address>
+          <Offsets>
+            <Offset>68</Offset>
+          </Offsets>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>52</Key>
+              </Keys>
+              <Value>3</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>53</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11125</ID>
+      <Description>"GUI"</Description>
+      <Options moHideChildren="1" moManualExpandCollapse="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11133</ID>
+          <Description>"No Interactive Highlight (Activate when not highlighting target)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(HideHighlight,hitman3.exe,28 C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 30) // should be unique
+alloc(newmem,$1000,HideHighlight)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+// mov [rcx+28],dl
+// mov r8,[rax+28]
+  jmp return
+
+HideHighlight+2B :
+  nop 2
+  jmp newmem
+return:
+registersymbol(HideHighlight)
+
+[DISABLE]
+
+HideHighlight+2B:
+  db 88 51 28 4C 8B 40 28
+
+unregistersymbol(HideHighlight)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: hitman3.exe+2B63C0
+
+hitman3.exe+2B63B3: 48 83 C4 28           - add rsp,28
+hitman3.exe+2B63B7: C3                    - ret 
+hitman3.exe+2B63B8: CC                    - int 3 
+hitman3.exe+2B63B9: CC                    - int 3 
+hitman3.exe+2B63BA: CC                    - int 3 
+hitman3.exe+2B63BB: CC                    - int 3 
+hitman3.exe+2B63BC: CC                    - int 3 
+hitman3.exe+2B63BD: CC                    - int 3 
+hitman3.exe+2B63BE: CC                    - int 3 
+hitman3.exe+2B63BF: CC                    - int 3
+hitman3.exe+2B63C0: 40 53                 - push rbx
+hitman3.exe+2B63C2: 48 83 EC 30           - sub rsp,30
+hitman3.exe+2B63C6: 48 8B D9              - mov rbx,rcx
+hitman3.exe+2B63C9: 3A 51 28              - cmp dl,[rcx+28]
+hitman3.exe+2B63CC: 0F 84 69 01 00 00     - je hitman3.exe+2B653B
+hitman3.exe+2B63D2: 48 8B 01              - mov rax,[rcx]
+hitman3.exe+2B63D5: 48 89 7C 24 48        - mov [rsp+48],rdi
+hitman3.exe+2B63DA: 48 8D 3D A7 E0 A7 01  - lea rdi,[hitman3.exe+1D34488]
+// ---------- INJECTING HERE ----------
+hitman3.exe+2B63E1: 88 51 28              - mov [rcx+28],dl
+hitman3.exe+2B63E4: 4C 8B 40 28           - mov r8,[rax+28]
+// ---------- DONE INJECTING  ----------
+hitman3.exe+2B63E8: 48 3B C7              - cmp rax,rdi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"HideGUI (Includes everything) : F4 Toggle : Toggle while in Menu"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscanmodule(HideGUI,hitman3.exe,F3 0F 11 41 24 76 3D) // should be unique
+alloc(newmem,$1000,HideGUI)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+//  movss [rcx+24],xmm0
+  nop
+  nop
+  nop
+  nop
+  nop
+  jmp return
+
+HideGUI:
+  jmp newmem
+return:
+registersymbol(HideGUI)
+
+[DISABLE]
+
+HideGUI:
+  db F3 0F 11 41 24
+
+unregistersymbol(HideGUI)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: hitman3.exe+A57272
+
+hitman3.exe+A57250: 76 17                 - jna hitman3.exe+A57269
+hitman3.exe+A57252: F3 0F 5C C1           - subss xmm0,xmm1
+hitman3.exe+A57256: 0F 2F C7              - comiss xmm0,xmm7
+hitman3.exe+A57259: F3 0F 11 41 24        - movss [rcx+24],xmm0
+hitman3.exe+A5725E: 73 56                 - jae hitman3.exe+A572B6
+hitman3.exe+A57260: C7 41 24 00 00 80 3F  - mov [rcx+24],3F800000
+hitman3.exe+A57267: EB 4D                 - jmp hitman3.exe+A572B6
+hitman3.exe+A57269: 73 CD                 - jae hitman3.exe+A57238
+hitman3.exe+A5726B: F3 0F 58 C1           - addss xmm0,xmm1
+hitman3.exe+A5726F: 0F 2F C7              - comiss xmm0,xmm7
+// ---------- INJECTING HERE ----------
+hitman3.exe+A57272: F3 0F 11 41 24        - movss [rcx+24],xmm0
+// ---------- DONE INJECTING  ----------
+hitman3.exe+A57277: 76 3D                 - jna hitman3.exe+A572B6
+hitman3.exe+A57279: C7 41 24 00 00 80 3F  - mov [rcx+24],3F800000
+hitman3.exe+A57280: EB 34                 - jmp hitman3.exe+A572B6
+hitman3.exe+A57282: F3 0F 10 41 24        - movss xmm0,[rcx+24]
+hitman3.exe+A57287: 0F 28 CB              - movaps xmm1,xmm3
+hitman3.exe+A5728A: 0F 2F C2              - comiss xmm0,xmm2
+hitman3.exe+A5728D: F3 0F 59 CD           - mulss xmm1,xmm5
+hitman3.exe+A57291: 76 10                 - jna hitman3.exe+A572A3
+hitman3.exe+A57293: F3 0F 5C C1           - subss xmm0,xmm1
+hitman3.exe+A57297: 0F 2F C2              - comiss xmm0,xmm2
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

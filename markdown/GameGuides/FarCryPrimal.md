@@ -1,6 +1,6 @@
-![Far Cry Primal](Images\FarCryPrimal_header.png "Shot by One3rd")
+![Far Cry Primal](Images\FarCryPrimal_header.png "Shot by One3rd"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No 
 Reshade | Yes (see notes about depth buffer)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 

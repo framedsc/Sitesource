@@ -1,4 +1,4 @@
-![Remnant: From the Ashes](Images\remnant_header.png "Shot by ItsYFP"){.shadowed}
+![Remnant: From the Ashes](Images\remnant_header.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

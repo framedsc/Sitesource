@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1402</ID>
+      <Description>"HUD [F1-Off/RCtrl+F1-On]"</Description>
+      <LastState Value="1" RealAddress="02492D54"/>
+      <Color>008000</Color>
+      <VariableType>Byte</VariableType>
+      <Address>"METAL GEAR RISING REVENGEANCE.exe"+19C2D54</Address>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>112</Key>
+          </Keys>
+          <Value>1</Value>
+          <ID>0</ID>
+        </Hotkey>
+        <Hotkey>
+          <Action>Set Value</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>112</Key>
+          </Keys>
+          <Value>0</Value>
+          <ID>1</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1721</ID>
+      <Description>"Freeze ALL [F2-On/F3-Off] | RCtrl + F2 - Slomo"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>008000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1646</ID>
+          <Description>"Time"</Description>
+          <LastState Value="0" RealAddress="022B93EC"/>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17E93EC</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>113</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>114</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>113</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>2</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1722</ID>
+      <Description>"Freeze ALL but Not Raiden [Ctrl+F3-On/Ctrl+F4-Off]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>008000</Color>
+      <GroupHeader>1</GroupHeader>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys/>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1648</ID>
+          <Description>"time"</Description>
+          <LastState Value="1" RealAddress="022B940C"/>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17E940C</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>114</Key>
+              </Keys>
+              <Value>0</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>115</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1656</ID>
+      <Description>"FOV script [F4]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+"METAL GEAR RISING REVENGEANCE.exe"+9D2022:
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9D0579:
+db 90 90 90 90 90 90
+
+
+
+[DISABLE]
+dealloc(newmem)
+"METAL GEAR RISING REVENGEANCE.exe"+9D2022:
+fstp dword ptr [esi+000004F8]
+"METAL GEAR RISING REVENGEANCE.exe"+9D0579:
+fstp dword ptr [esi+000004F8]
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>115</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1657</ID>
+          <Description>"FOV [NumPad +/Numpad -] "</Description>
+          <LastState Value="0.7853980064" RealAddress="022BA6C8"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA6C8</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>107</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>109</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1644</ID>
+      <Description>"Camera script [F5]"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+"METAL GEAR RISING REVENGEANCE.exe"+9B35B5:
+db 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9B3676:
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9E5435:
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9C6E97: // X ACTION cam
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9C6E91: // Z
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9C6E82: // Y
+db 90 90 90 90 90 90
+ 
+[DISABLE]
+"METAL GEAR RISING REVENGEANCE.exe"+9B35B5:
+mov ecx,[ebp+0C]
+fld dword ptr [eax+48]
+"METAL GEAR RISING REVENGEANCE.exe"+9B3676:
+fstp dword ptr [esi+000004C8]
+"METAL GEAR RISING REVENGEANCE.exe"+9E5435:
+fst dword ptr [esi+00000134]
+"METAL GEAR RISING REVENGEANCE.exe"+9C6E97:
+fstp dword ptr [esi+000004C8]
+"METAL GEAR RISING REVENGEANCE.exe"+9C6E91:
+fstp dword ptr [esi+000004C4]
+"METAL GEAR RISING REVENGEANCE.exe"+9C6E82:
+fstp dword ptr [esi+000004C0]
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>116</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1641</ID>
+          <Description>"X [NumPad 8/NumPad 5]"</Description>
+          <LastState Value="24.4614563" RealAddress="022BA690"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA690</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>104</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>101</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>104</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>101</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1642</ID>
+          <Description>"Y [NumPad 4/NumPad 6]"</Description>
+          <LastState Value="61.77523041" RealAddress="022BA698"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA698</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>100</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>102</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>4</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>100</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>102</Key>
+              </Keys>
+              <Value>0.2</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1643</ID>
+          <Description>"Z [NumPad 9/NumPad 7]"</Description>
+          <LastState Value="21.07702255" RealAddress="022BA694"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA694</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>2</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>105</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>103</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1838</ID>
+      <Description>"Off mouse in action scene [F6] "</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+"METAL GEAR RISING REVENGEANCE.exe"+9A0EB1:
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9A9171:
+db 90 90 90 90 90 90
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"METAL GEAR RISING REVENGEANCE.exe"+9A0EB1:
+fstp dword ptr [esi+00000364]
+"METAL GEAR RISING REVENGEANCE.exe"+9A9171:
+fst dword ptr [esi+00000360]
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>117</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1837</ID>
+          <Description>"[Use Arrow keys]"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF8000</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1829</ID>
+          <Description>"Up/Down"</Description>
+          <LastState Value="-0.07014045119" RealAddress="022BA530"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA530</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>38</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>40</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1836</ID>
+          <Description>"Left/Right"</Description>
+          <LastState Value="-1.674760103" RealAddress="022BA534"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA534</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>37</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>39</Key>
+              </Keys>
+              <Value>0.05</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>0.01</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>37</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>39</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1851</ID>
+      <Description>"Camera direction [F7] Off this if you move camera!"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Activated="1"/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+
+"METAL GEAR RISING REVENGEANCE.exe"+9A0215:
+db 90 90 90
+
+
+
+"METAL GEAR RISING REVENGEANCE.exe"+9A020F:
+db 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9A021B:
+db 90 90 90
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"METAL GEAR RISING REVENGEANCE.exe"+9A0215:
+fstp dword ptr [eax+14]
+fld dword ptr [ecx+18]
+"METAL GEAR RISING REVENGEANCE.exe"+9A020F:
+fstp dword ptr [eax+10]
+fld dword ptr [ecx+14]
+"METAL GEAR RISING REVENGEANCE.exe"+9A021B:
+fstp dword ptr [eax+18]
+fld dword ptr [ecx+1C]
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>118</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1850</ID>
+          <Description>"Y [I/K]"</Description>
+          <LastState Value="21.58172607" RealAddress="022BA644"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA644</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>73</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>75</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1853</ID>
+          <Description>"X [O/P] "</Description>
+          <LastState Value="24.43240547" RealAddress="022BA640"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA640</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>80</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>80</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>79</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1866</ID>
+          <Description>"if camera doesn't move use X2"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1852</ID>
+          <Description>"X2 keys [ ]"</Description>
+          <LastState Value="61.7783699" RealAddress="022BA648"/>
+          <Color>FF0000</Color>
+          <VariableType>Float</VariableType>
+          <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA648</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>221</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>0</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>219</Key>
+              </Keys>
+              <Value>0.5</Value>
+              <ID>1</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>2</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>17</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>0.1</Value>
+              <ID>3</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Increase Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>221</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>4</ID>
+            </Hotkey>
+            <Hotkey>
+              <Action>Decrease Value</Action>
+              <Keys>
+                <Key>18</Key>
+                <Key>219</Key>
+              </Keys>
+              <Value>1</Value>
+              <ID>5</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1865</ID>
+          <Description>"Tilt [F8] [NumPad 1/NumPad 3] Work only with FOV!"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+"METAL GEAR RISING REVENGEANCE.exe"+9D058D:
+db 90 90 90 90 90 90
+
+"METAL GEAR RISING REVENGEANCE.exe"+9D2007:
+db 90 90 90 90 90 90
+
+
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"METAL GEAR RISING REVENGEANCE.exe"+9D058D:
+fst dword ptr [esi+000004E8]
+"METAL GEAR RISING REVENGEANCE.exe"+9D2007:
+fstp dword ptr [esi+000004E8]
+//Alt: db D9 96 E8 04 00 00
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>119</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1855</ID>
+              <Description>"tilt "</Description>
+              <LastState Value="-1.341000022E-8" RealAddress="022BA6B8"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"METAL GEAR RISING REVENGEANCE.exe"+17EA6B8</Address>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.1</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>2</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>17</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.05</Value>
+                  <ID>3</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>4</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>18</Key>
+                    <Key>99</Key>
+                  </Keys>
+                  <Value>0.5</Value>
+                  <ID>5</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1645</ID>
+      <Description>"Inf. Health"</Description>
+      <LastState Activated="1"/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aob_H,29 81 70 08 00 00 EB 0A)
+label(aob1_H)
+label(aob2_H)
+registersymbol(aob1_H)
+registersymbol(aob2_H)
+
+aob_H:
+aob1_H:
+db 90 90 90 90 90 90
+
+aob_H+C:
+aob2_H:
+db 90 90 90 90 90 90
+
+[DISABLE]
+aob1_H:
+db 29 81 70 08 00 00 // sub [ecx+00000870],eax
+
+aob2_H:
+db 29 91 70 08 00 00 // sub [ecx+00000870],edx
+
+unregistersymbol(aob2_H)
+unregistersymbol(aob2_H)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>120</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>62</ID>
+      <Description>"Inf. BZ / Blade Mode (thx to mgr.inz.Player)"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(aob_BZ,D8 6A 04 D9 52 04 D8 D2 DF E0)
+registersymbol(aob_BZ)
+
+aob_BZ:
+fstp st(0)             // DD D8
+fld dword ptr [edx+04] // D9 42 04
+nop
+
+[DISABLE]
+aob_BZ:
+db D8 6A 04 // fsubr dword ptr [edx+04]
+db D9 52 04 // fst dword ptr [edx+04]
+
+unregistersymbol(aob_BZ)
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>121</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,4 +1,4 @@
-![Alien Isolation](Images\alienisolation_header.png "Shot by ItsYFP"){.shadowed}
+![Alien Isolation](Images\alienisolation_header.png "Shot by ItsYFP"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Unknown
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

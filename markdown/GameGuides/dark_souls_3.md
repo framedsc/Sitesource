@@ -1,4 +1,4 @@
-![Dark Souls 3](Images\DarkSouls3.jpg "Shot by Natty Dread"){.shadowed}
+![Dark Souls 3](Images\DarkSouls3.png "Shot by Natty Dread"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,15 +10,20 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 
-* [CineTools by Hattiwatti](https://mega.nz/#!8Jg2TSjA!agNohvMiOD8xhv_IHiI21Af9J39FA8bAOIUOsQYzb-M)  
+* [CineTools by Hattiwatti Password: CinematicTools](https://www.mediafire.com/file/gsc2ri2ehhqmma5/DSIII_20160420-aa09dd.rar/file)  
 **Features**: Camera control, FoV
-* [Challenge Mods](https://www.nexusmods.com/darksouls3/mods/136)  
-**Features**: Timestop/Game Speed (among other things)  
-One thing to note, sometimes it only freezes Monsters and not the player, sometimes both.
+* [Cheat Engine](https://www.cheatengine.org/downloads.php)  
+for injecting the .dll from Hattis tools if the injector from the above file doesn't work
+  - open CE, select Dark Souls 3 as process to open, click on "Memory View", then "Tools", choose "Inject DLL", select CT_DS3.dll
+
+## Recommended Mods
+
+* [Texture Improvement](https://www.nexusmods.com/darksouls3/mods/1579)
+* [Ds3 Armor and Weapons Upscaled x4](https://www.nexusmods.com/darksouls3/mods/1216)
 
 ## Useful links
 

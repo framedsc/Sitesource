@@ -1,4 +1,4 @@
-![Generation Zero](Images\gz_Header.png "Shot by pino44io"){.shadowed}
+![Generation Zero](Images\gz_Header.png "Shot by pino44io"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,11 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
+
+@alert neutral  
+This guide and its tools are **outdated**. Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information. *(April 2019)* 
+@end
  
 ## Tools
 
@@ -27,7 +31,7 @@ DirectX versions | DirectX 11
 ##Useful Links
 
 * [PC Gaming Wiki](https://pcgamingwiki.com/wiki/Generation_Zero)
-* [Rysefox Ce table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=2&t=8953)
-* [Pigeon Ce table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=4&t=8996&p=85100#p85100)
+* [Rysefox CE table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=2&t=8953)
+* [Pigeon CE table on Fearlessrevolution](http://fearlessrevolution.com/viewtopic.php?f=4&t=8996&p=85100#p85100)
 
 

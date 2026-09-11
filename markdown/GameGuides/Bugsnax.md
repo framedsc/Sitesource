@@ -1,4 +1,4 @@
-![Bugsnax!](Images\bugsnax_header.png "Shot by moyevka"){.shadowed}
+![Bugsnax!](Images\bugsnax_header.png "Shot by moyevka"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,9 +10,14 @@ DSR | Yes¹
 Custom Aspect Ratios | Yes¹
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
+Game version | 1.03
 
 *¹ - you have to set your desktop to the desired AR/resolution and play in fullscreen*
+
+@alert neutral  
+This guide and its tools are **outdated**. Please help to [update](https://framedsc.com/contribute.htm#updating-guides) the contents of this guide with relevant information. *(October 2021)* 
+@end
  
 ## Tools
 

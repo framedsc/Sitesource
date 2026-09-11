@@ -1,4 +1,4 @@
-![Alan Wake](Images\alanwake_header.png "Shot by SammirLlm"){.shadowed}
+![Alan Wake](Images\alanwake_header.png "Shot by SammirLlm"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes 
 Ansel | No
-DirectX versions | Direct3D 9
+Graphics API | Direct3D 9
  
 ## Compatibility
 

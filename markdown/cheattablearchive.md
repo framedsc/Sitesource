@@ -1,18 +1,15 @@
-The Cheat Table Archive
-=====
+![The Cheat Table Archive](Images\cta_header.png){.shadowed .autosize}
 
-Below you'll find links to *old* cheat tables. It might be you need a particular cheat table for a particular old game 
-and this archive might just have what you're looking for. 
+Below you'll find links to *old* cheat tables. If you're looking for a particular cheat table for a particularly old game, this archive may have just the table.
 
-**Disclaimer**: A lot of them might not work anymore, or it's unknown how to use their features. If so, too bad.
+@alert important
+A lot of these tables might not work anymore, or lack the documentation on how to use their features. If you still want to know how these tables work, try searching in the web archive of the [DET forums](https://web.archive.org/web/20180208220211/http://www.deadendthrills.com/forum/discussion/501/game-guide-index), where most of these tables originated from.
+@end
 
-If you still want to know how these tables work try searching in the webarchive of the [DET forums](https://web.archive.org/web/20180208220211/http://www.deadendthrills.com/forum/discussion/501/game-guide-index).
-
-In the case you manage to use one of these tables, its encouraged creating a guide of the correspondent game for future players.
+In the case you manage to use one of these tables, we urge that you [contribute a guide](./contribute.htm) for the corresponding game for any future players.
 
 @alert tip
-Some of the games below have received full camera tools, and you should first look if one of the camera makers have made
-camera tools for the game instead of using these old cheat tables. 
+Some of the listed games below have received proper camera tools, and you should first look for these camera tools instead of using these old cheat tables.
 @end
 
 ## Tables
@@ -635,10 +632,7 @@ camera tools for the game instead of using these old cheat tables.
 
 ## Hattiwatti tools
 
-Below are tools made by Hattiwatti which aren't available elsewhere anymore and which are for games which don't (yet) have a guide. 
-It's unknown whether these tools still work. 
+Below are tools made by Hattiwatti which aren't available elsewhere anymore. It's unknown whether these tools still work. 
 
-- [Assassin's Creed: Unity & Syndicate](https://mega.nz/#!VIpSEIrK!V1BnX1Mk0g8BrN_ou4tPUfkuMdYutJp7pp1f5XpnzCc)  
 - [Battlefield 1](https://mega.nz/#!Ucx0maIY!qJIQo8r9DSRmVqyST5dCB593JUDL9a2uXRpAr7Ap8j8)  
 - [The Hunter: Call of the Wild](https://mega.nz/#!5UpAiSAD!CeAgMilyzaoSqlz9-5qTiStWeede9Q0tGGUs1kFAKqA)  
-- [ Mass Effect: Andromeda](https://mega.nz/#!1coCXawS!Fjns9cFxSkc7iIeJr6hRc6_ciEqUDIcxVgi8zt5l3CA)  

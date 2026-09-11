@@ -4,11 +4,15 @@
 </div>
 <h1 class="text-center">FRAMED. Screenshot Community</h1>
 <br/>
-<p class="text-center">
-Contact:<br>
-<i class="fa fa-twitter"></i> <a href="https://twitter.com/FransBouma" target="_blank">Otis_Inf</a> |
-<i class="fa fa-twitter"></i> <a href="https://twitter.com/moyevka" target="_blank">moyevka</a> |
-<i class="fa fa-twitter"></i> <a href="https://twitter.com/originalnicodr" target="_blank">originalnicodr</a>.
+<center>
+Contact: <div style="display:flex;justify-content:center;gap:24px;padding-top:4px">
+    <div class="button simple">
+    <a href="https://x.com/framedsc" target="_blank" title="X (formerly Twitter)"><i class="fa-brands fa-x-twitter"></i></a> 
+    </div>
+    <div class="button simple">
+    <a href="https://bsky.app/profile/framedsc.com" target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a> 
+    </div>
+</div>
 <br><br>
-<a href="https://github.com/framedsc/Sitesource" target="_blank"><i class="fa fa-github"></i>This site's markdown source</a>
-</p>
+<i class="fa fa-github"></i> <a href="https://github.com/framedsc/Sitesource" target="_blank">This site's markdown source</a>
+</center>

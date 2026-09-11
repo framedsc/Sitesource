@@ -1,4 +1,4 @@
-![Persona 5 Strikers](Images\persona5strikers.png "Shot by pvp"){.shadowed}
+![Persona 5 Strikers](Images\persona5strikers.png "Shot by pvp"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 

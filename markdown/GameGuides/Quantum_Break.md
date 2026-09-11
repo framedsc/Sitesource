@@ -1,4 +1,4 @@
-![Quantum Break](\Images\Quantum_Break.png "Shot by Phoenix")
+![Quantum Break](\Images\Quantum_Break.png "Shot by barkar-b"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,11 +10,11 @@ DSR | Yes (With tools)
 Custom Aspect Ratios | No
 Reshade | Yes (DX11)
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 
-* [Camera tools by Hattiwatti](https://mega.nz/#!0No22IYR!37V0-YwTXNfpWoPg-OnSXiSmQ5n3l50OvyR3kksDb8c)  
+* [Camera tools by Hattiwatti](https://mega.nz/#!0No22IYR!37V0-YwTXNfpWoPg-OnSXiSmQ5n3l50OvyR3kksDb8c) Password for the zip: `CinematicTools`  
 **Features**: Free Camera, FOV Control, Timestop, HUD toggle, DOF override (cutscenes), Filmgrain toggle, Movement Blur toggle
 
 @alert Important 

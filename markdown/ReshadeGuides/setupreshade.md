@@ -83,12 +83,14 @@ Reshade configuration properly. You have to do this only once per game.
  
 ### Picking the right depth buffer
 It might be the game uses multiple depth buffers that might be useful, or it switches depth buffers on the fly for the final image and therefore it looks like the
-depth buffer isn't available. For DirectX11, Reshade contains an additional tab - the **DX11** tab, which shows all currently active depth buffers. To see which one
-you should select, first enable the *DisplayDepth* shader. You likely either see a white or a black screen. 
- 
-When you go to the DX11 tab in the Reshade menu you can then pick the right depth buffer by checking its checkbox (or by trying the 
-*Copy depth before clearing* checkbox). If the screen becomes what it should be you picked the right depth buffer and you can use it with the techniques that depend on it. 
- 
+depth buffer isn't available. To tell Reshade which depth buffer to use, you have to go into an additional tab in the Reshade overlay. It depends on which version
+of Reshade you're using, which tab that is. 
+
+**For Reshade v4.x or lower:** If you're using a Reshade version of v4.x or lower, the Reshade menu/overlay contains an additional tab, which is either called **D3D9**, **D3D10**, **D3D11** or **D3D12**.  
+**For Reshade v5.x or higher:** If you're using Reshade version 5.x, Reshade contains an additional tab called **Add-ons**. 
+
+This additional tab shows all currently active depth buffers. To see which one you should select, first enable the *DisplayDepth* shader. You likely either see a white or a black screen. When you go to the additional tab mentioned above in the Reshade menu/overlay you can then pick the right depth buffer by checking its checkbox (or by trying the *Copy depth before clearing* checkbox). If the screen becomes what it should be, you picked the right depth buffer and you can use it with the techniques that depend on it. 
+
 ## Shader duplication
  
 There are cases where you would want to use one shader more than once (CanvasFog and StageDepthPlus shaders are popular in that regard). With most shaders all you need to do is replace the technique name in the shader code to a different one, but some shaders will need to change the name of a `namespace` or a texture name, so be aware of that. Be sure to check the shaders code for comments regarding duplicating the shader.

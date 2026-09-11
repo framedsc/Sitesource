@@ -1,4 +1,4 @@
-![Batman: Arkham City](\Images\batman_ac.png "Shot by Originalnicodr")
+![Batman: Arkham City](\Images\batman_ac.png "Shot by Originalnicodr"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes, see note
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

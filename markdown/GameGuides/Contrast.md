@@ -1,4 +1,4 @@
-![Contrast](Images\contrast.png "Shot by Antic Owl"){.shadowed}
+![Contrast](Images\contrast.png "Shot by Antic Owl"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | No
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 9
+Graphics API | DirectX 9
  
 ## Tools
 

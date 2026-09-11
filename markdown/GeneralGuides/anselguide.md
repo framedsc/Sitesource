@@ -1,5 +1,4 @@
-Ansel
-=============
+![Ansel](Images\ansel_header.png){.shadowed .autosize}
 
 Ansel is Nvidia's implementation of a photomode into a large number of games through its GeForce Experience overlay. It allows the player to move the camera freely to take "super-resolution" tiled/AI-upscaled, 360°, HDR and stereoscopic screenshots. Named after famous landscape photographer Ansel Adams, it's one of the common camera tools used for screenshotting. It does come with (quite) a few limitations though.
 
@@ -8,11 +7,11 @@ Ansel is Nvidia's implementation of a photomode into a large number of games thr
 Description | Key / Gamepad bind
 -|-
 Open Ansel | `Alt + F2`
-Camera Orientation | Mouse (while holding left click) / Right analog
-Camera Movement | `WASD` / Left analog
-Up/Down Movement | `Z`, `X` /  L2, L2
-Camera Rotation | `Q`, `E` / L1, R1
-Fast movement |  `Shift` (While moving) / R3
+Camera Orientation | Mouse (while holding left click) / <font face="Controller">></font> 
+Camera Movement | `WASD` / <font face="Controller"><</font> 
+Up/Down Movement | `Z`, `X` /  <font face="Controller">{ / }</font>
+Camera Rotation | `Q`, `E` / <font face="Controller">[ / ]</font>
+Fast movement |  `Shift` (While moving) / <font face="Controller">></font> (click & hold)
 Slow movement | `Ctrl` (While moving)
 FoV | In Ansel GUI (Camera section) 
 Hide/Show Ansel GUI | `Ins` / In Ansel GUI

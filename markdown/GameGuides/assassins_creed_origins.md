@@ -1,6 +1,6 @@
-![Assassin's Creed Origins](Images\acorigins_header.png "Shot by Otis_Inf"){.shadowed}
+![Assassin's Creed Origins](Images\acorigins_header.png "Shot by Otis_Inf"){.shadowed .autosize}
 
-##Feature summary
+## Summary
 
 Feature | Supported
 --|--
@@ -10,12 +10,12 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ##Tools
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
-**Features**: Camera control, FoV, Timestop/Game pause, Time-of-Day control, Resolution scaling control, HUD toggle
+**[Features](https://opm.fransbouma.com/Cameras/acorigins.htm)**: Camera control, FoV, Timestop/Game pause, Time-of-Day control, Resolution scaling control, HUD toggle
 
 ##Useful Links
 

@@ -1,4 +1,4 @@
-![The Evil Within 2](Images\tew2_header.png "Shot by random ork"){.shadowed}
+![The Evil Within 2](Images\tew2_header.png "Shot by random ork"){.shadowed .autosize}
 
 ## Summary
 
@@ -10,7 +10,7 @@ DSR | Yes
 Custom Aspect Ratios | Yes
 Reshade | Yes
 Ansel | No
-DirectX versions | DirectX 11
+Graphics API | DirectX 11
  
 ## Tools
 
