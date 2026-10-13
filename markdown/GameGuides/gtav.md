@@ -12,22 +12,10 @@ Reshade | Yes
 Ansel | No
 Graphics API | DirectX 10, DirectX 11
 
-## Essentials
-
-- [Open IV](https://openiv.com)  
-*Important tool to manage game’s directories, install ASI loader, mods and edit files.*
-- [ScripthookV](https://www.dev-c.com/gtav/scripthookv)  
-*Essential to use GTAV script native functions in custom .asi plugins.*
-- [Community ScripthookV.NET](https://www.gta5-mods.com/tools/scripthookv-net)  
-*Allows running scripts written in any .NET language ingame.*
-- [Heaplimit adjuster](https://www.gta5-mods.com/tools/heapadjuster)  
-*Increases the default game allocator heap (also included with NVE).*
-- [Packfile limit adjuster](https://www.gta5-mods.com/tools/packfile-limit-adjuster)  
-*Doubles the amount of packfiles, aka RPFs, the game can handle.*
- 
-
 ## Tools
 
+- [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera) (Enhanced Edition)  
+**[Features](https://ghostinthecamera.co.uk/tools/gta-5-enhanced/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control, post-process toggles, player and vehicle tracking
 - [No Rockstar Editor Restrictions](https://www.gta5-mods.com/scripts/no-rockstar-editor-restrictions)  
 *Removes camera limits for Rockstar Editor.*
 - [Menyoo](https://www.gta5-mods.com/scripts/menyoo-pc-sp)  
@@ -41,6 +29,20 @@ An advantage of using the Rockstar Editor is that you can save the project and c
 If you use R editor, don't install NVE motion blur, since it will be captured by R Editor without the possibility to remove it, only use Enhanced Video Editor that lets you tweak it via a dedicated .ini
 
 - Alternative cam: [Freecam V](https://www.gta5-mods.com/scripts/freecamv-net)
+
+## Essentials
+
+- [Open IV](https://openiv.com)  
+*Important tool to manage game’s directories, install ASI loader, mods and edit files.*
+- [ScripthookV](https://www.dev-c.com/gtav/scripthookv)  
+*Essential to use GTAV script native functions in custom .asi plugins.*
+- [Community ScripthookV.NET](https://www.gta5-mods.com/tools/scripthookv-net)  
+*Allows running scripts written in any .NET language ingame.*
+- [Heaplimit adjuster](https://www.gta5-mods.com/tools/heapadjuster)  
+*Increases the default game allocator heap (also included with NVE).*
+- [Packfile limit adjuster](https://www.gta5-mods.com/tools/packfile-limit-adjuster)  
+*Doubles the amount of packfiles, aka RPFs, the game can handle.*
+ 
 
 ## Gameconfig
 

@@ -17,6 +17,9 @@ Game version | 4.0.0.103190 <font face="Stores"> S </font>
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **[Features](https://opm.fransbouma.com/Cameras/witcher3.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, Time of Day control
+* [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
+**Dynamic light spawning** (Advanced tools): point and spot lights with shadows, plus a scene light viewer to switch the game's own lights and shadows on or off for relighting  
+**[Features](https://ghostinthecamera.co.uk/tools/the-witcher-3-wild-hunt/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control, weather and time of day control, post-process toggles, grass and foliage range, ray-traced shadow softness
 
 ## Useful mods
 

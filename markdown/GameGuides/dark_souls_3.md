@@ -14,6 +14,8 @@ Graphics API | DirectX 11
  
 ## Tools
 
+* [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
+**[Features](https://ghostinthecamera.co.uk/tools/dark-souls-3/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), full pause and time control (see documentation as this requires ModEngine 2/3 to work properly), player opacity, freeze NPCs, vignette/DOF/Post process toggles
 * [CineTools by Hattiwatti Password: CinematicTools](https://www.mediafire.com/file/gsc2ri2ehhqmma5/DSIII_20160420-aa09dd.rar/file)  
 **Features**: Camera control, FoV
 * [Cheat Engine](https://www.cheatengine.org/downloads.php)  

@@ -5,18 +5,21 @@
 Feature | Supported
 --|--
 Vanilla Photo Mode | No
-Hotsampling | No
+Hotsampling | Yes*
 DSR | Yes
-Custom Aspect Ratios | Yes (with tools)*
+Custom Aspect Ratios | Yes*
 Reshade | Yes (DX11)
 Ansel | No
 Graphics API | DirectX 11
-Game Version | 1.03B <font face="Stores"> S </font>
+Game Version | Latest <font face="Stores"> S </font>
 
-\* *Custom Aspect Ratios can be set in the mod menu, but may not rescale the image correctly.*
+\* *Custom Aspect Ratios are possible with the ghostinthecamera tools (as is hotsampling) with proper image scaling and black bar removal. They can also be set in the mod menu, but may not rescale the image correctly.*
 
 ## Tools
 
+- [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
+**The below mods are not needed for a working camera - the tools provide this functionality**  
+**[Features](https://ghostinthecamera.co.uk/tools/persona-5-royal/index.html)**: Camera control, FOV, timestop, HUD Toggle (allows depth buffer use as below), Effects toggles (DOF, vignette), character outlines, Hotsampling & custom resolutions, paths etc
 - [Persona5ScriptHook](https://github.com/Zolika1351/Persona5ScriptHook/releases/)
 - [ZMenu](https://zolika1351.pages.dev/mods/persona5menu)
 
@@ -28,10 +31,10 @@ Development on the mod menu has finished according to the author; as such, the g
 @alert important
 The game writes HUD and menu data to the depth buffer. 
 
-Disabling the HUD is **required** for the depth buffer to work. See [Scripts Functions](#script-functions) section for how to disable the HUD.
+Disabling the HUD is **required** for the depth buffer to work. The tools HUD disable provides this. Additionally, see [Scripts Functions](#script-functions) section for how to disable the HUD.
 @end
 
-For depth buffer support, set the following pre-processor definitions:
+*This may not be needed for the latest version of the game.* For depth buffer support, set the following pre-processor definitions:
 
 - `RESHADE_DEPTH_LINEARIZATION_FAR_PLANE` to `100.0`
 - `RESHADE_DEPTH_INPUT_IS_UPSIDE_DOWN` to `0`
