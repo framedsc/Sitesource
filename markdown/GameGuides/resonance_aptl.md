@@ -17,7 +17,9 @@ Game version | Latest <font face="Stores"> S </font>
 
 * [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
 **Dynamic light spawning** (Advanced tools): omni, spot, disk and orthographic lights, plus a scene light viewer that can switch off the game's own lights or make them cast shadows  
-**[Features](https://ghostinthecamera.co.uk/tools/resonance-a-plague-tale-legacy/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), post-process toggles, ray-traced shadows, 8192 directional shadows, LOD distance and full-resolution SSAO
+**[Features](https://ghostinthecamera.co.uk/tools/resonance-a-plague-tale-legacy/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), post-process toggles, ray-traced shadows, 8K directional shadows resolution, LOD distance and full-resolution SSAO
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/https://opm.fransbouma.com/Cameras/resonanceapt.htm)** Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, vignette/lensdirt/lens flare/DoF removal, black bar removal, raytraced shadows toggle, high resolution shadow maps, Higher level of detail (LOD). 
 
 ## Tips and Tricks
 
@@ -27,7 +29,7 @@ The depth buffer is unreliable, especially with DLSS or frame generation. The GI
 
 ### Performance
 
-LOD distance, full-resolution SSAO and 8192 shadows are heavy. Turn them on to set up a shot and off again for normal play.
+LOD distance, full-resolution SSAO and 8K shadows are heavy. Turn them on to set up a shot and off again for normal play.
 
 ## Useful Links
 

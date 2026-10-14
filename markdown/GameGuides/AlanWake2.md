@@ -15,8 +15,8 @@ Game version | 1.2.8
  
 ## Tools
 
-* [Camera tools by Otis_Inf](https://opm.fransbouma.com/Cameras/alanwake2.htm)  
-**Features**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/alanwake2.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling
 * [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
 **Dynamic light spawning** (Advanced tools): point and spot lights with volumetrics, patterned flashlight masks and per-light ray-traced shadows, plus a scene light viewer to switch off the game's own lights for relighting  
 **[Features](https://ghostinthecamera.co.uk/tools/alan-wake-2/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control, path traced shadows, post-process toggles

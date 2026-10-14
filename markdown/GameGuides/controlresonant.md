@@ -18,6 +18,8 @@ Game version | Latest <font face="Stores"> S </font>
 * [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
 **Dynamic light spawning** (Advanced tools): point and spot lights with volumetrics and per-light ray-traced shadows, plus a scene light viewer to switch off the game's own lights for relighting  
 **[Features](https://ghostinthecamera.co.uk/tools/control-resonant/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control (engine pause also holds cutscenes), post-process toggles, atmospheric haze control, hide player/NPCs, cutscene black bar removal
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/controlresonant.htm)**  Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, Lens dirt removal, Optional DOF disable
 
 ## Useful Links
 

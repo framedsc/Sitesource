@@ -21,6 +21,9 @@ Game version | Latest <font face="Stores"> S </font>
 **Dynamic light spawning** (Advanced tools): lights registered with the RE Engine, with colour temperature, volumetric scattering and full shadow control, plus a scene light viewer for relighting  
 **Pose editor** (Advanced tools): per-bone posing with IK, hand and grip presets, gaze, facial morphs and unconstrained hair physics, across multiple characters  
 **[Features](https://ghostinthecamera.co.uk/tools/resident-evil-requiem/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control (engine pause also freezes cutscenes), ray tracing control, post-process toggles, exposure control
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/residentevilrequiem.htm)** Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, Path tracing control. 
+* [RELit](../GeneralGuides/relit.htm). General purpose lighting tool for games using RE Framework. See for more details the RELit guide in the General Guides section on this site. 
 
 ## Tips and Tricks
 

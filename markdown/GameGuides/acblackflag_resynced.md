@@ -18,6 +18,8 @@ Game version | Latest <font face="Stores"> S </font>
 * [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
 **Dynamic light spawning** (Advanced tools): create spot and omni lights anywhere in the world, with full control over colour, intensity, range, falloff and shadows  
 **[Features](https://ghostinthecamera.co.uk/tools/assassins-creed-black-flag-resynced/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control, photomode range removal, time of day, weather, fog and sun/moon control, post-process toggles, fixed exposure, near-camera fade removal, full-resolution ray-traced GI and reflections, LOD, shadow and grass enhancements
+* [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
+**[Features](https://opm.fransbouma.com/Cameras/acbfresynced.htm)** Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling, Higher details, Better shadows further away, outline removal, wetness/puddle control, vast post processing settings control (exposure, contrast, AO aspects, shadow details, white balance, saturation and more), Volumetric fog / depth fog control. 
 
 ## Tips and Tricks
 
