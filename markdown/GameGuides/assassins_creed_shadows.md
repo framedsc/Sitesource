@@ -21,56 +21,6 @@ Game version | 1.1.8 (Ubisoft Connect)
 **Dynamic light spawning** (Advanced tools): create spot and omni lights anywhere in the world, with full control over colour, intensity, range, falloff and shadows  
 **[Features](https://ghostinthecamera.co.uk/tools/assassins-creed-shadows/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), world time and season, weather and fog control, enhanced shadows, full-resolution RTGI, increased grass and level of detail distance
 
-## ghostinthecamera tools comparisons
-
-<div class="slider container" style="aspect-ratio: 1920/800">
-  <div class="slider__img slider__img-after">
-    <p>ghostinthecamera tools</p>
-    <img src="../Images/GITCComparisons/acshadows_gitc_comp1_after.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Game default</p>
-    <img src="../Images/GITCComparisons/acshadows_gitc_comp1_before.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Enhanced shadows; Full resolution RTGI (mitigates light leaks). Shots by ghostinthecamera</p></div>
-
-<div class="slider container" style="aspect-ratio: 1920/800">
-  <div class="slider__img slider__img-after">
-    <p>ghostinthecamera tools</p>
-    <img src="../Images/GITCComparisons/acshadows_gitc_comp2_after.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Game default</p>
-    <img src="../Images/GITCComparisons/acshadows_gitc_comp2_before.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Increased grass draw distance; Increased very far level of detail; Increased near-mid level of detail. Shots by ghostinthecamera</p></div>
-
-<div class="slider container" style="aspect-ratio: 1920/1281">
-  <div class="slider__img slider__img-after">
-    <p>ghostinthecamera tools</p>
-    <img src="../Images/GITCComparisons/acshadows_gitc_comp3_after.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Game default</p>
-    <img src="../Images/GITCComparisons/acshadows_gitc_comp3_before.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Shots by ghostinthecamera</p></div>
-
 ## Tips and Tricks
 
 * For cleaner visuals, select the DLSS upscaler and then use the game’s native anti‑aliasing; this combination tends to reduce unwanted sharpening.

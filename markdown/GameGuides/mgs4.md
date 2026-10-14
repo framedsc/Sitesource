@@ -22,40 +22,6 @@ Game version | Latest <font face="Stores"> S </font>
 The camera tools are for the DirectX 12 version of the game. Select it in the launcher before starting the game, and inject the tools once the game has launched (not while the launcher is open).
 @end
 
-## ghostinthecamera tools comparisons
-
-<div class="slider container" style="aspect-ratio: 1920/800">
-  <div class="slider__img slider__img-after">
-    <p>ghostinthecamera tools</p>
-    <img src="../Images/GITCComparisons/mgs4_gitc_comp1_after.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Game default</p>
-    <img src="../Images/GITCComparisons/mgs4_gitc_comp1_before.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Improved shadow bias and detail; Improved shadow details in distance. Shots by ghostinthecamera</p></div>
-
-<div class="slider container" style="aspect-ratio: 1920/800">
-  <div class="slider__img slider__img-after">
-    <p>ghostinthecamera tools</p>
-    <img src="../Images/GITCComparisons/mgs4_gitc_comp2_after.jpg" />
-  </div>
-  <div class="slider__img slider__img-before">
-    <p>Game default</p>
-    <img src="../Images/GITCComparisons/mgs4_gitc_comp2_before.jpg" />
-  </div>
-  <input type="range" min="0" max="100" value="50" step="0.01" 
-    id="slider" class="slider__input" 
-    autocomplete="off" onwheel="this.blur()" 
-  />
-</div>
-<div class="figure"><p>Enhanced Shadows; Enhanced Shadow Detail; Enhanced Shadow Bias. Shots by ghostinthecamera</p></div>
-
 ## Tips and Tricks
 
 ### Player exclusion
