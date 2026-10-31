@@ -6,7 +6,7 @@ Universal Unreal Engine 4 Unlocker
 **Engine versions supported**: Unreal Engine 4.15 - 4.26 
 
 @alert Info
-This page is for the UUU v3.0.x. This is the free version and won't be updated anymore. If you're looking for the UUU v4.x with camera paths and other
+This page is for the UUU v3.0.x. This is the free version and won't be updated anymore. If you're looking for the UUU v4.x or v5.x with camera paths and other
 additional features, please visit [Otis_Inf's Patreon page](https://patreon.com/Otis_Inf): the UUU v4.x is part of Tier 1.
 @end
 
@@ -21,8 +21,8 @@ For Unreal Engine 4 powered games, there's a universal way to add a free camera,
 
 To download the UUU please use the link below. It's usable with all [the supported games in the list](universal_ue4_consoleunlocker.htm#games-that-work-with-the-unlocker). See for the changelog [below](universal_ue4_consoleunlocker.htm#changelog).
 
-* [Universal UE4 Unlocker v3.0.21](https://mega.nz/file/MUhUlaqa#PI0ubSy_sQc4GouDPnZbulNSgQRUNIJeXNwLb2LnKhk). 
-* [Universal UE4 Unlocker v3.0.14](https://mega.nz/file/8Y50GRCS#Sg3A_v5rLeCiI6a4Xppi0RI1gwWDkoU4qjEwV3_g9Eg). Use this version if v3.0.20 gives problems
+* [Universal UE4 Unlocker v3.0.21](https://drive.google.com/file/d/1t3eax5ayQmgqOiEwksTLxXpA50TBXf-C/view?usp=drive_link). 
+* [Universal UE4 Unlocker v3.0.14](https://drive.google.com/file/d/1u2K9Z5qO4184HEa0f2KVJVKE-3PQrK-X/view?usp=drive_link). Use this version if v3.0.20 gives problems
 
 
 ## Starting the UUU
