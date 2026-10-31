@@ -16,9 +16,7 @@ Graphics API | DirectX 11
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Full camera control, FoV, Timestop, Time of Day, Fog, No Head Bob
-
-* [HUD Toggle by Otis_Inf](https://mega.nz/#!ZYZ0RApB!NBhLBq6--OB-cbvyT4a2sigTuioLUSLs3Fz35liic6o)  
-**Features**: In-game HUD toggle
+* No HUD toggle, use [ShaderToggler](../ReshadeGuides/Addons/shader_toggler_repository.md)
 
 ## Notes
 

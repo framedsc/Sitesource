@@ -14,7 +14,7 @@ Graphics API | DirectX 11
  
 ## Tools
 
-* [Cinematic Tools by Hattiwatti (Password: CinematicTools)](https://mega.nz/#!8dgWRYKa!QauLJZVyPHvmt4EOxCmQR0WDAOR2ygMYg8rFYLqtgAE)  
+* [Cinematic Tools by Hattiwatti (Password: CinematicTools)](https://www.mediafire.com/file/wlamx0ie3776auc/CT_MirrorsEdge_20180210-1c6115.rar/file)  
     **Features**: Free Camera, Timestop, FOV Control, Hide HUD, Postprocessing, High LOD, shadow resolution, timescale and more.
 * [Time Changer Tool](https://bitbucket.org/timm0e/mec-tc-release/wiki/MEC-TC)  
     **Features**: ToD control. Use alongisde [Reset Lighting Button](https://www.nexusmods.com/mirrorsedgecatalyst/mods/163).

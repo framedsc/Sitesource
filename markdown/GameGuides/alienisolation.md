@@ -14,7 +14,7 @@ Graphics API | DirectX 11
  
 ## Tools
 
-* [Cinematic Tools by Hattiwatti](https://mega.nz/file/pU5ETRgA#zxByf-5x1WH5CIsC230hC6LJS5kaZPtVYn66JIsZueU)  
+* [Cinematic Tools by Hattiwatti](https://www.mediafire.com/file/mtwv6pwndrsyz68/CT_AlienIsolation_20180802.rar/file) (pass: CinematicTools)  
 **Features**: Free Camera, Timestop, FOV Control, Hide HUD (read the Readme File for Hotkeys) 
 
 ##Useful Links

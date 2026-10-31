@@ -16,8 +16,7 @@ Graphics API | DirectX 11
 
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **Features**: Camera control, FOV Control, Timestop, Hotsampling
-* [Hud Removal Tool by Otis_inf](https://mega.nz/#!FQQShJyS!Ipg4CycflblD2LvZdlfQMgl29ptx_yqPX_HA03u5hoU)  
-**Features**: Toggle for the in-game HUD
+* No HUD toggle, use [ShaderToggler](../ReshadeGuides/Addons/shader_toggler_repository.md)
 
 @alert important
 In order to use the camera tools, you need to disable anti-cheat by launching the game with the **-eac_launcher** command line argument.

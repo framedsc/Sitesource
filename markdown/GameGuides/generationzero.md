@@ -23,10 +23,7 @@ This guide and its tools are **outdated**. Please help to [update](https://frame
 
 * [Combined CE Table by pino44io](..\CheatTables\gz_pino44io.CT)  
 **Features**: Combined pigeon's CE table with rysefox's table features some useful cheats, e.g. movement speed.
-
-* [Hudtoggle Mod by pino44io](https://mega.nz/#!1AphWCzL!wpjsukcyaTk3hHmKZYAwsaDerFfJpCXtjt4U2ayYm_M)  
-**Features**: Press `caps lock` to toggle the HUD. The file contains a readme.txt for how to install it.
-
+* No HUD toggle, use [ShaderToggler](../ReshadeGuides/Addons/shader_toggler_repository.md)
 
 ##Useful Links
 

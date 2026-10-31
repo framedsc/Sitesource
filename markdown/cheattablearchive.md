@@ -25,7 +25,7 @@ Some of the listed games below have received proper camera tools, and you should
 - [alice2_freecam0.03.CT](CheatTables/Archive/alice2_freecam0.03.CT)
 
 ###Assassin's Creed III + Liberation
-- [AC3SP.CT](CheatTables/Archive/AC3SP.CT) ([HUD toggle](https://mega.nz/#!kdhT3KIQ!iPW6XIlrmQL4nLxCOSJj8bsZHEdeHaL5n-9r_zQIQ0A))
+- [AC3SP.CT](CheatTables/Archive/AC3SP.CT)
 
 ###Assassin's Creed IV: Black Flag
 - [AC4BFSP.CT](CheatTables/Archive/AC4BFSP.CT)
@@ -634,5 +634,5 @@ Some of the listed games below have received proper camera tools, and you should
 
 Below are tools made by Hattiwatti which aren't available elsewhere anymore. It's unknown whether these tools still work. 
 
-- [Battlefield 1](https://mega.nz/#!Ucx0maIY!qJIQo8r9DSRmVqyST5dCB593JUDL9a2uXRpAr7Ap8j8)  
-- [The Hunter: Call of the Wild](https://mega.nz/#!5UpAiSAD!CeAgMilyzaoSqlz9-5qTiStWeede9Q0tGGUs1kFAKqA)  
+- [Battlefield 1](https://www.mediafire.com/file/iqih1xw1g75w2i4/CT_BF1_20181022.rar/file) (pass: CinematicTools) 
+- [The Hunter: Call of the Wild](https://www.mediafire.com/file/bynmil0zjgwiao2/CT_theHunterCoTW_20181006.rar/file) (pass: CinematicTools)
