@@ -1,0 +1,46 @@
+
+name: Update Spreadsheet Markdown
+
+on:
+  schedule:
+    - cron: "15 14 * * 0"
+
+  # Allow manually triggering the workflow from GitHub.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Get the repository contents.
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # Set up Python.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # Run the converter.
+      - name: Generate Markdown
+        run: python tools/generate-spreadsheet-archive.py
+
+      # Commit changes if output.md was modified.
+      - name: Commit updated Markdown
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add markdown/spreadsheet-archive.md
+
+          if git diff --cached --quiet; then
+            echo "No changes detected. Nothing to commit."
+          else
+            git commit -m "Update spreadsheet markdown."
+            git push
+          fi
