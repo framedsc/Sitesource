@@ -18,8 +18,9 @@ Game version | 1.2.8
 * [Camera tools by Otis_Inf](https://patreon.com/Otis_Inf)  
 **[Features](https://opm.fransbouma.com/Cameras/alanwake2.htm)**: Camera control, FoV control, HUD toggle, timestop/gamespeed, hotsampling
 * [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
-**Dynamic light spawning** (Advanced tools): point and spot lights with volumetrics, patterned flashlight masks and per-light ray-traced shadows, plus a scene light viewer to switch off the game's own lights for relighting  
-**[Features](https://ghostinthecamera.co.uk/tools/alan-wake-2/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), time control, path traced shadows, post-process toggles
+**Dynamic light spawning** (Advanced tools): create point and spot lights anywhere in the scene and place them with light edit mode  
+**Scene light viewer** (Advanced tools): list every light in the scene with its type and distance from the camera, switch lights on or off individually or all at once, and restore them - useful for relighting  
+**[Features](https://ghostinthecamera.co.uk/tools/alan-wake-2/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), path traced shadows, post-process toggles, fog and haze control, hide player and characters, disable near camera fade, auto-disable effects on camera enable, time control
 
 ## How to get rid of ingame DOF/vignette/lens distortion effects
 

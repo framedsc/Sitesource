@@ -25,6 +25,10 @@ Graphics API | DirectX 11, DirectX 12
 
 * [Cheat Engine Table by Otis_Inf & HattiWatti](..\CheatTables\Control_DX12_Hotsampling.CT)  
   *This tool is used to perform Hotsampling. To learn more, refer to this [Cheat Engine Table guide](https://framedsc.github.io/GeneralGuides/cheat_engine_tables.htm).*
+* [Camera tools by ghostinthecamera](https://patreon.com/ghostinthecamera)  
+**Dynamic light spawning** (Advanced tools): create point and spot lights anywhere in the scene and place them with light edit mode  
+**Scene light viewer** (Advanced tools): list the point and spot lights near the camera with their type and distance, switch lights on or off individually or all at once, and restore them - useful for relighting  
+**[Features](https://ghostinthecamera.co.uk/tools/control/index.html)**: Typical camera tools features (camera, hotsampling, HUD etc), post-process toggles, volumetric lighting and GI toggles, auto-disable effects on camera enable, time control, IGCSDOF and ParallaxDOF support
 
 ## Workflow
 
