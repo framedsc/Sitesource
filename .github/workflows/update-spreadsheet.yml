@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-markdown:
@@ -32,15 +33,24 @@ jobs:
 
       # Commit changes if output.md was modified.
       - name: Commit updated Markdown
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+users.noreply.github.com"
 
           git add markdown/spreadsheet-archive.md
 
           if git diff --cached --quiet; then
             echo "No changes detected. Nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Update spreadsheet markdown."
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Trigger website deployment
+        if: steps.commit.outputs.changed == 'true'
+        run: gh workflow run main.yml --ref master
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
