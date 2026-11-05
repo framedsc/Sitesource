@@ -11073,7 +11073,7 @@ Also, if you happen to have found some mods or tools that you want to include he
 "></td>
 </tr>
 <tr>
-<td rowspan="3" style="
+<td rowspan="4" style="
     padding: 8px;
     border: 1px solid #272727;
     vertical-align: top;
@@ -11147,6 +11147,29 @@ Also, if you happen to have found some mods or tools that you want to include he
     overflow-wrap: anywhere;
     word-wrap: break-word;
 ">Cameras made by ghostinthecamera <a href="https://github.com/ghostinthecamera/IGCS-GITC">https://github.com/ghostinthecamera/IGCS-GITC</a></td>
+</tr>
+<tr>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"><a href="https://anticowl.github.io/2026/11/05/Dishonored2-Void-Camera/">https://anticowl.github.io/2026/11/05/Dishonored2-…</a></td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"></td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"></td>
 </tr>
 <tr>
 <td rowspan="1" style="
