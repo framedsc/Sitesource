@@ -9772,6 +9772,36 @@ Also, if you happen to have found some mods or tools that you want to include he
     vertical-align: top;
     overflow-wrap: anywhere;
     word-wrap: break-word;
+">Deadlock</td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"><a href="https://github.com/cravvnn/deadlock-dolly">https://github.com/cravvnn/deadlock-dolly</a></td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"></td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"></td>
+</tr>
+<tr>
+<td rowspan="1" style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
 ">Deadly Premonition: The Director&#x27;s Cut</td>
 <td style="
     padding: 8px;
