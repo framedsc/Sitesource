@@ -39420,6 +39420,36 @@ Also, if you happen to have found some mods or tools that you want to include he
     vertical-align: top;
     overflow-wrap: anywhere;
     word-wrap: break-word;
+">The Legend of Zelda: Ocarina of Time (2026)</td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"><a href="https://gamebanana.com/mods/738810">https://gamebanana.com/mods/738810</a></td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"></td>
+<td style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+"></td>
+</tr>
+<tr>
+<td rowspan="1" style="
+    padding: 8px;
+    border: 1px solid #272727;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
 ">The Legend of Zelda: Tears of the Kingdom</td>
 <td style="
     padding: 8px;
