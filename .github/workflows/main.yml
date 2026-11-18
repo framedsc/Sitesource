@@ -49,9 +49,22 @@ jobs:
           if ErrorLevel 8 (exit /B 1) else (exit /B 0)
 
       - name: Submit site
+        env:
+          SOURCE_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           cd $env:GITHUB_WORKSPACE
           cd .\_framedsc.github.io
           git add -A
-          git commit -m "${{ github.event.head_commit.message }}"
-          git push
+
+          if (git diff --cached --quiet) {
+            Write-Host "No website changes detected."
+          } else {
+            $commitMessage = $env:SOURCE_COMMIT_MESSAGE
+
+            if ([string]::IsNullOrWhiteSpace($commitMessage)) {
+              $commitMessage = "Deploy updated website"
+            }
+
+            git commit -m "$commitMessage"
+            git push
+          }
